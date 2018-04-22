@@ -1,0 +1,65 @@
+**********************
+PowerShell transcript start
+Start time: 20180418024821
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 31671
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-18_02-48-21.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++ ...             Start-Process -WorkingDirectory "$Extract" ./build.sh -Wa ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++ ...             Start-Process -WorkingDirectory "$Extract" ./build.sh -Wa ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> cd ..
+PS /home/maynard/Sniffdogminer-master> cd Miners
+PS /home/maynard/Sniffdogminer-master/Miners> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Miners
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+------          4/17/18  11:32 PM           1776 JayDDeecpu.ps1
+
+
+PS /home/maynard/Sniffdogminer-master/Miners> vi JayDDeecpu.ps1

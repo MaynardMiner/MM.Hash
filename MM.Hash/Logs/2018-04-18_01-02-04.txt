@@ -1,0 +1,123 @@
+**********************
+PowerShell transcript start
+Start time: 20180418010204
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 27169
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-18_01-02-04.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Filename))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Filename))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> dir Bin
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/18/18   1:02 AM                Bin
+d-----          4/18/18   1:02 AM                Downloads
+d-----          4/17/18  11:19 PM                github.com
+d-----          4/18/18   1:02 AM                Logs
+d-----          4/17/18  11:32 PM                Miners
+d-----          4/15/18   1:27 PM                Monitor
+d-----          4/16/18   9:03 PM                Pools
+d-----          4/15/18   1:27 PM                Solomining
+d-----          4/18/18  12:01 AM                Stats
+------          4/15/18   1:27 PM        1073664 7z.dll
+------          4/15/18   1:27 PM         265216 7z.exe
+------          4/15/18   1:27 PM           1213 Algorithms.txt
+------          4/18/18   1:01 AM          21134 Include.ps1
+------          4/15/18   1:27 PM          21058 Include.psm1
+------          4/15/18   1:27 PM          35141 LICENSE
+------          4/15/18   1:27 PM           2211 README.md
+------          4/15/18   1:27 PM           1068 readme.txt
+------          4/15/18   1:27 PM            443 RemoveSniffDogLogs.bat
+------          4/15/18   1:27 PM            304 ResetSniffProfit.bat
+------          4/16/18  10:13 PM          29311 SniffDogBitcoin.ps1
+------          4/15/18   1:27 PM          28374 SniffDogLitecoin.ps1
+------          4/15/18   1:27 PM            382 startsniffin_Ahashpool_Bitcoin
+                                                 .bat
+------          4/15/18   1:27 PM            672 StartSniffin_Bitcoin.bat
+------          4/15/18   1:27 PM            404 startsniffin_Blazepool_Bitcoin
+                                                 .bat
+------          4/15/18   1:27 PM            600 StartSniffin_Litecoin.bat
+------          4/15/18   1:27 PM            518 startsniffin_Zergpool_Bitcoin.
+                                                 bat
+------          4/15/18   1:27 PM            520 startsniffin_Zergpool_Litecoin
+                                                 .bat
+------          4/15/18   1:27 PM             13 Wrapper_4068.txt
+------          4/15/18   1:27 PM           1889 Wrapper.ps1
+
+
+PS /home/maynard/Sniffdogminer-master> miner
+miner : The term 'miner' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ miner
++ ~~~~~
++ CategoryInfo          : ObjectNotFound: (miner:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+miner : The term 'miner' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ miner
++ ~~~~~
++ CategoryInfo          : ObjectNotFound: (miner:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master> cd miners
+cd : Cannot find path '/home/maynard/Sniffdogminer-master/miners' because it does not exist.
+At line:1 char:1
++ cd miners
++ ~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...r-master/miners:String) [Set-Location], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot find path '/home/maynard/Sniffdogminer-master/miners' because it does not exist.
+At line:1 char:1
++ cd miners
++ ~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...r-master/miners:String) [Set-Location], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+

@@ -1,0 +1,372 @@
+**********************
+PowerShell transcript start
+Start time: 20180417231226
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 26169
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-17_23-12-26.txt
+Get-ChildItemContent : The term 'Get-ChildItemContent' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:68 char:23
++ if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = ...
++                       ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (Get-ChildItemContent:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+Get-ChildItemContent : The term 'Get-ChildItemContent' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:68 char:23
++ if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = ...
++                       ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (Get-ChildItemContent:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+SniffDog dumps then checks for updates from Coinbase...
+Get-ChildItemContent : The term 'Get-ChildItemContent' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:112 char:27
++     if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$St ...
++                           ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (Get-ChildItemContent:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+Get-ChildItemContent : The term 'Get-ChildItemContent' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:112 char:27
++     if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$St ...
++                           ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (Get-ChildItemContent:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Get-ChildItemContent : The term 'Get-ChildItemContent' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:115 char:39
++     $AllPools = if(Test-Path "Pools"){Get-ChildItemContent "Pools" |  ...
++                                       ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (Get-ChildItemContent:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+Get-ChildItemContent : The term 'Get-ChildItemContent' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:115 char:39
++     $AllPools = if(Test-Path "Pools"){Get-ChildItemContent "Pools" |  ...
++                                       ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (Get-ChildItemContent:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+No Pools!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-17_23-15-07.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:530 char:2
++     Start-Process "sudo wget" "$Uri -p .\Downloads" -Wait
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:530 char:2
++     Start-Process "sudo wget" "$Uri -p .\Downloads" -Wait
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:545 char:4
++       Start-Process "sudo unzip" "`"$([IO.Path]::GetFullPath($Path_Ol ...
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:545 char:4
++       Start-Process "sudo unzip" "`"$([IO.Path]::GetFullPath($Path_Ol ...
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+>> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:3
++      Start-Process "sudo cd `"$([IO.Path]::GetFullPath($Path_New))`"  ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:3
++      Start-Process "sudo cd `"$([IO.Path]::GetFullPath($Path_New))`"  ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:550 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:550 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> Start-Process "Sudo Wget"
+>> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At line:1 char:1
++ Start-Process "Sudo Wget"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At line:1 char:1
++ Start-Process "Sudo Wget"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+PS /home/maynard/Sniffdogminer-master> Start-Process "sudo wget"
+>> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At line:1 char:1
++ Start-Process "sudo wget"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At line:1 char:1
++ Start-Process "sudo wget"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+PS /home/maynard/Sniffdogminer-master> Start-Process "wget"
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-17_23-18-42.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:3
++      Start-Process "cd `"$([IO.Path]::GetFullPath($Path_New))`" && ./ ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:3
++      Start-Process "cd `"$([IO.Path]::GetFullPath($Path_New))`" && ./ ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:550 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:550 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/cpuminer-opt.git' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...puminer-opt.git:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-17_23-23-24.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "Not Found"
+Invoke-WebRequest : Not Found
+At /home/maynard/Sniffdogminer-master/Include.ps1:532 char:1
++ Invoke-WebRequest $Uri -OutFile $Filename -UseBasicParsing
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (Method: GET, Re...rShell/6.0.2
+}:HttpRequestMessage) [Invoke-WebRequest], HttpResponseException
++ FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+Invoke-WebRequest : Not Found
+At /home/maynard/Sniffdogminer-master/Include.ps1:532 char:1
++ Invoke-WebRequest $Uri -OutFile $Filename -UseBasicParsing
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (Method: GET, Re...rShell/6.0.2
+}:HttpRequestMessage) [Invoke-WebRequest], HttpResponseException
++ FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2.zip' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:550 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...in/v3.8.7.2.zip:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2.zip' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:550 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...in/v3.8.7.2.zip:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2.zip' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...in/v3.8.7.2.zip:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2.zip' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...in/v3.8.7.2.zip:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2.zip' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...in/v3.8.7.2.zip:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2.zip' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...in/v3.8.7.2.zip:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> vi Indclude .ps1

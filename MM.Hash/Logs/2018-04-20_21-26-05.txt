@@ -1,0 +1,78 @@
+**********************
+PowerShell transcript start
+Start time: 20180420212605
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll ./SniffDogBitcoin.ps1
+Process ID: 2317
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-20_21-26-05.txt
+SniffDog dumps then checks for updates from Coinbase...
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.
+                                               1 -a yescrypt -o stratum+
+                                               tcp://yescrypt.mine.zergp
+                                               ool.com:6233 -u RKirUe978
+                                               mBoa2MRWqeMGqDzVAKTafKh8H
+                                                -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8803 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool     Coins
+-----      --------- ----- ------- ---------- -------   ----     -----
+JayDDeecpu Yescrypt  Bench   Bench  9.74105    Bench  zergpool   3 - ...
+
+
+1BTC =  8803 USD
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> $global:?
+True
+**********************
+PowerShell transcript end
+End time: 20180420212753
+**********************

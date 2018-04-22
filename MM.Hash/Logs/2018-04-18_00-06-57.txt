@@ -1,0 +1,128 @@
+**********************
+PowerShell transcript start
+Start time: 20180418000657
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 26899
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-18_00-06-57.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Invoke-RestMethod): "
+
+
+
+ERROR: The requested URL could not be retrieved
+
+
+
+ERROR
+The requested URL could not be retrieved
+
+
+
+
+The following error was encountered while trying to retrieve the URL: http://pool.hashrefinery.com/api/status
+
+
+Unable to forward this request at this time.
+
+
+This request could not be forwarded to the origin server or to any parent caches.
+
+Some possible problems are:
+
+An Internet connection needed to access this domains origin servers may be down.
+All configured parent caches may be currently unreachable.
+The administrator may not allow this cache to make direct connections to origin servers.
+
+
+Your cache administrator is webmaster.
+
+
+
+
+
+
+Generated Wed, 18 Apr 2018 04:07:20 GMT by pool3.hashrefinery.com (squid/3.5.12)
+
+
+
+"
+WARNING: Sniffdog howled at (Hashrefinery) for a failed API check.
+WARNING: SniffDog sniffed near (phiphipool) but (phiphipool) Pool API had no scent.
+PS>TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:545 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:545 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:549 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:549 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:554 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> exit
+**********************
+PowerShell transcript end
+End time: 20180418000955
+**********************

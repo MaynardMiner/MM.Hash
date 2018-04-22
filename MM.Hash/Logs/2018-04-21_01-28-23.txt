@@ -1,0 +1,1971 @@
+**********************
+PowerShell transcript start
+Start time: 20180421012823
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 5499
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-21_01-28-23.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40ed7377e85e7143 &bull; 2018-04-21 05:29:36 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40ed7377e85e7143
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+WARNING: SniffDog sniffed near (phiphipool) but (phiphipool) Pool API had no scent.
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8854.96 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  15.01455   Bench  zergpool   3 -...
+
+
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> miner
+xterm: cannot load font '-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1'
+xterm: cannot load font '-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1'
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_01-34-04.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40ed7bb63ce4716d &bull; 2018-04-21 05:35:14 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40ed7bb63ce4716d
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8854.94 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  15.01455   Bench  zergpool   3 -...
+
+
+1BTC =  8854.94 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_01-39-15.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40ed835e9803558e &bull; 2018-04-21 05:40:28 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40ed835e9803558e
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8854.94 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  14.69615   Bench  zergpool   3 -...
+
+
+1BTC =  8854.94 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.pd1
+.\SniffDogBitcoin.pd1 : The term '.\SniffDogBitcoin.pd1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.pd1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.pd1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\SniffDogBitcoin.pd1 : The term '.\SniffDogBitcoin.pd1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.pd1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.pd1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:468 char:100
++ ... me "$($_.Name)_$($_.Algorithms | Select -Index $i)_HashRate" -Value 0
++                                                                ~~~~~~~~~~
+The string is missing the terminator: ".
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:392 char:28
++                 if($_.Wrap){$_.Process = Start-Process "xterm" "-e pw ...
++                            ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:389 char:40
++             if($_.Status -eq "Running"){
++                                        ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:388 char:9
++         {
++         ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:386 char:36
++     $ActiveMinerPrograms | ForEach {
++                                    ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:302 char:28
++                 if($_.Wrap){$_.Process =
++                            ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:297 char:13
++             {
++             ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:295 char:9
++         {
++         ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:280 char:36
++     $ActiveMinerPrograms | ForEach {
++                                    ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:80 char:1
++ {
++ ~
+Missing closing '}' in statement block or type definition.
++ CategoryInfo          : ParserError: (:) [], ParseException
++ FullyQualifiedErrorId : TerminatorExpectedAtEndOfString
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:468 char:100
++ ... me "$($_.Name)_$($_.Algorithms | Select -Index $i)_HashRate" -Value 0
++                                                                ~~~~~~~~~~
+The string is missing the terminator: ".
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:392 char:28
++                 if($_.Wrap){$_.Process = Start-Process "xterm" "-e pw ...
++                            ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:389 char:40
++             if($_.Status -eq "Running"){
++                                        ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:388 char:9
++         {
++         ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:386 char:36
++     $ActiveMinerPrograms | ForEach {
++                                    ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:302 char:28
++                 if($_.Wrap){$_.Process =
++                            ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:297 char:13
++             {
++             ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:295 char:9
++         {
++         ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:280 char:36
++     $ActiveMinerPrograms | ForEach {
++                                    ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:80 char:1
++ {
++ ~
+Missing closing '}' in statement block or type definition.
++ CategoryInfo          : ParserError: (:) [], ParseException
++ FullyQualifiedErrorId : TerminatorExpectedAtEndOfString
+
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:297 char:13
++             {
++             ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:295 char:9
++         {
++         ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:280 char:36
++     $ActiveMinerPrograms | ForEach {
++                                    ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:80 char:1
++ {
++ ~
+Missing closing '}' in statement block or type definition.
++ CategoryInfo          : ParserError: (:) [], ParseException
++ FullyQualifiedErrorId : MissingEndCurlyBrace
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:297 char:13
++             {
++             ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:295 char:9
++         {
++         ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:280 char:36
++     $ActiveMinerPrograms | ForEach {
++                                    ~
+Missing closing '}' in statement block or type definition.
+
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:80 char:1
++ {
++ ~
+Missing closing '}' in statement block or type definition.
++ CategoryInfo          : ParserError: (:) [], ParseException
++ FullyQualifiedErrorId : MissingEndCurlyBrace
+
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_01-51-57.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40ed95f8fe5a2537 &bull; 2018-04-21 05:53:10 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40ed95f8fe5a2537
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       0.00       0.02    5813 111 miner
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8865 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  13.98970   Bench  zergpool   3 -...
+
+
+1BTC =  8865 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_01-59-40.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40eda13459742567 &bull; 2018-04-21 06:00:50 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40eda13459742567
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       2.13       0.02    5889 111 xterm
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8865 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  13.56185   Bench  zergpool   3 -...
+
+
+1BTC =  8865 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin
+.\SniffDogBitcoin : The term '.\SniffDogBitcoin' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin
++ ~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\SniffDogBitcoin : The term '.\SniffDogBitcoin' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin
++ ~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_02-05-15.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40eda971987e55ac &bull; 2018-04-21 06:06:27 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40eda971987e55ac
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       0.01       0.01    5963 111 miner
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8860 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  13.56185   Bench  zergpool   3 -...
+
+
+1BTC =  8860 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_02-10-44.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40edb17438e255ac &bull; 2018-04-21 06:11:55 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40edb17438e255ac
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       3.06       0.01    6017 111 xterm
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8892.32 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  11.81065   Bench  zergpool   3 -...
+
+
+1BTC =  8892.32 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\Sniffdogminer.ps1
+.\Sniffdogminer.ps1 : The term '.\Sniffdogminer.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\Sniffdogminer.ps1
++ ~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\Sniffdogminer.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\Sniffdogminer.ps1 : The term '.\Sniffdogminer.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\Sniffdogminer.ps1
++ ~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\Sniffdogminer.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_02-16-25.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40edb9daedb971c1 &bull; 2018-04-21 06:17:41 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40edb9daedb971c1
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       2.14       0.02    6076 111 xterm
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8892.32 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  11.55195   Bench  zergpool   3 -...
+
+
+1BTC =  8892.32 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_02-19-07.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40edbdb6cd44555e &bull; 2018-04-21 06:20:18 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40edbdb6cd44555e
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       2.05       0.01    6125 111 xterm
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8892.32 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  11.55195   Bench  zergpool   3 -...
+
+
+1BTC =  8892.32 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_02-22-21.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40edc292ddee55fa &bull; 2018-04-21 06:23:37 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40edc292ddee55fa
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       0.00       0.01    6184 111 miner
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer
+                                               .1 -a yescrypt -o stratu
+                                               m+tcp://yescrypt.mine.ze
+                                               rgpool.com:6233 -u RKirU
+                                               e978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8900 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool    Coins
+-----      --------- ----- ------- ---------- -------   ----    -----
+JayDDeecpu Yescrypt  Bench   Bench  11.55195   Bench  zergpool   3 -...
+
+
+                 

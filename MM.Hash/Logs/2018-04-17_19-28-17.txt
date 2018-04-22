@@ -1,0 +1,75 @@
+**********************
+PowerShell transcript start
+Start time: 20180417192817
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 1064
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-17_19-28-17.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "A positional parameter cannot be found that accepts argument ''."
+Start-Process : A positional parameter cannot be found that accepts argument ''.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:4
++       Start-Process -FilePath "mkdir" -Argumentlist "-p" "" `" $([IO. ...
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
++ FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : A positional parameter cannot be found that accepts argument ''.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:4
++       Start-Process -FilePath "mkdir" -Argumentlist "-p" "" `" $([IO. ...
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
++ FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.6.1' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:551 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ner-opt-3.8.6.1:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.6.1' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:551 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ner-opt-3.8.6.1:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.6.1' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ner-opt-3.8.6.1:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.6.1' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ner-opt-3.8.6.1:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.6.1' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:556 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ner-opt-3.8.6.1:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.6.1' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:556 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ner-opt-3.8.6.1:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!

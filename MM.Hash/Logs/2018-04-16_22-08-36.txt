@@ -1,0 +1,119 @@
+**********************
+PowerShell transcript start
+Start time: 20180416220836
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 4875
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-16_22-08-36.txt
+SniffDog dumps then checks for updates from Coinbase...
+Sleep : The term 'Sleep' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:297 char:17
++                 Sleep $Delay #Wait to prevent BSOD
++                 ~~~~~
++ CategoryInfo          : ObjectNotFound: (Sleep:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+Sleep : The term 'Sleep' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:297 char:17
++                 Sleep $Delay #Wait to prevent BSOD
++                 ~~~~~
++ CategoryInfo          : ObjectNotFound: (Sleep:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer-sse2.ex
+                                               e -a yescrypt -o stratum+tcp://y
+                                               escrypt.mine.zergpool.com:6233
+                                               -u RKirUe978mBoa2MRWqeMGqDzVAKTa
+                                               fKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8030 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  11.69125   Bench  zergpool   3 - Coin(s) 0.
+
+
+Sleep : The term 'Sleep' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:383 char:5
++     Sleep ($CheckMinerInterval)
++     ~~~~~
++ CategoryInfo          : ObjectNotFound: (Sleep:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+Sleep : The term 'Sleep' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:383 char:5
++     Sleep ($CheckMinerInterval)
++     ~~~~~
++ CategoryInfo          : ObjectNotFound: (Sleep:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+1BTC =  8030 USD
+Sleep : The term 'Sleep' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:424 char:9
++         Sleep ($Interval-$CheckMinerInterval)
++         ~~~~~
++ CategoryInfo          : ObjectNotFound: (Sleep:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+Sleep : The term 'Sleep' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:424 char:9
++         Sleep ($Interval-$CheckMinerInterval)
++         ~~~~~
++ CategoryInfo          : ObjectNotFound: (Sleep:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+SniffDog dumps then checks for updates from Coinbase...

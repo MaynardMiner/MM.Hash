@@ -1,0 +1,1540 @@
+**********************
+PowerShell transcript start
+Start time: 20180417233910
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 26661
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-17_23-39-10.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:548 char:14
++          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+Get-ChildItem : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:14
++              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ ...
++              ~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Get-ChildItem], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:14
++              Remove-Item $Path_Old
++              ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...er/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (cpuminer-opt-3.8.7.2:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2/cpuminer-opt-3.8.7.2 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (cpuminer-opt-3.8.7.2:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...er/Bin/v3.8.7.2:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/v3.8.7.2 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:541 char:36
++          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...er/Bin/v3.8.7.2:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+PS>TerminatingError(Start-Process): "No such file or directory"
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : No such file or directory
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:3
++      Start-Process "cd" " `"$([IO.Path]::GetFullPath($Path_New))`" && ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Start-Process], Win32Exception
++ FullyQualifiedErrorId : System.ComponentModel.Win32Exception,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (cpuminer-opt-3.8.7.2:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (cpuminer-opt-3.8.7.2:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:547 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Move-Item : Cannot create '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/' because a file or directory with the same name already exists.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:95
++ ... $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...ner-opt-3.8.7.2:DirectoryInfo) [Move-Item], IOException
++ FullyQualifiedErrorId : MoveDirectoryItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+Move-Item : Cannot create '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer-opt-3.8.7.2/' because a file or directory with the same name already exists.
+At /home/maynard/Sniffdogminer-master/Include.ps1:552 char:95
++ ... $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...ner-opt-3.8.7.2:DirectoryInfo) [Move-Item], IOException
++ FullyQualifiedErrorId : MoveDirectoryItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+

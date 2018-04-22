@@ -1,0 +1,141 @@
+**********************
+PowerShell transcript start
+Start time: 20180422034051
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll MM.Hash.ps1
+Process ID: 1571
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-22_03-40-51.txt
+MM.Hash Is Exiting Miners & Searching Coinbase
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+[3J[H[2J
+
+
+   Status: Running
+
+    Speed Active Launched Command
+    ----- ------ -------- -------
+0.00 PH/s        Once     Bin/CPU-JayDDee/cpuminer.1 -a yescrypt -o
+                          stratum+tcp://yescrypt.mine.zergpool.com:6233 -u
+                          RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8875.1 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.39280    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8875.1 USD
+Cannot find an overload for "op_Subtraction" and the argument count: "2".
+At /home/maynard/MM.Hash/MM.Hash.ps1:449 char:13
++             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTi ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [], MethodException
++ FullyQualifiedErrorId : MethodCountCouldNotFindBest
+Cannot find an overload for "op_Subtraction" and the argument count: "2".
+At /home/maynard/MM.Hash/MM.Hash.ps1:449 char:13
++             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTi ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [], MethodException
++ FullyQualifiedErrorId : MethodCountCouldNotFindBest
+
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+[3J[H[2J
+
+
+   Status: Running
+
+    Speed Active Launched Command
+    ----- ------ -------- -------
+0.00 PH/s        2 Times  Bin/CPU-JayDDee/cpuminer.1 -a yescrypt -o
+                          stratum+tcp://yescrypt.mine.zergpool.com:6233 -u
+                          RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8855 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Pool Fees #
+
+                                                                                       o
+                                                                                       f
+
+                                                                                       W
+                                                                                       o
+                                                                                       r
+                                                                                       k
+                                                                                       e
+                                                                                       r
+                                                                                       s
+-----      --------- ----- ------- ---------- -------   ----       -----     --------- -
+JayDDeecpu Yescrypt  Bench   Bench  10.66640   Bench  zergpool   3 - Coin(s)   0.5%    1
+
+

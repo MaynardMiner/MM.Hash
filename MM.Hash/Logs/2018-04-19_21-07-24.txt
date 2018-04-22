@@ -1,0 +1,169 @@
+**********************
+PowerShell transcript start
+Start time: 20180419210724
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 4367
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-19_21-07-24.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(ConvertFrom-Json): "Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0."
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+
+Start-Process : This command cannot be run because either the parameter "WorkingDirectory" has a value that is not valid or cannot be used with this command. Give a valid input and Run your command again.
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:5
++        Start-Process -Filepath "./build.sh" -WorkingDirectory " `"$([ ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [Start-Process], DirectoryNotFoundException
++ FullyQualifiedErrorId : DirectoryNotFoundException,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : This command cannot be run because either the parameter "WorkingDirectory" has a value that is not valid or cannot be used with this command. Give a valid input and Run your command again.
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:5
++        Start-Process -Filepath "./build.sh" -WorkingDirectory " `"$([ ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [Start-Process], DirectoryNotFoundException
++ FullyQualifiedErrorId : DirectoryNotFoundException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat/jansson cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (jansson:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (compat:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/m4 cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (m4:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitattributes:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.travis.yml:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : You do not have sufficient access rights to perform this operation.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : PermissionDenied: (.gitignore:FileInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : RemoveFileSystemItemUnAuthorizedAccess,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Directory /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee cannot be removed because it is not empty.
+At /home/maynard/Sniffdogminer-master/Include.ps1:546 char:36
++          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/home/maynard/S...Bin/CPU-JayDDee:DirectoryInfo) [Remove-Item], IOException
++ FullyQualifiedErrorId : DirectoryNotEmpty,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
