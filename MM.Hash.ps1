@@ -498,6 +498,6 @@ while($true)
         
     }
  }
-}
+
 #Stop the log
 Stop-Transcript
