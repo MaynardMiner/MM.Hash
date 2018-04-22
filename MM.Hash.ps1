@@ -314,7 +314,7 @@ while($true)
 	              $1 = "$(Split-Path $_.Path)"
 	              Write-Host "$3"		
 	              $Execute = "$1 $2 '$3'"
-	              pwsh -command "bash miner.sh $Execute"
+	              pwsh -command "bash miner $Execute"
 	              $_.Process = $_.Miner_Name
 		          } 
            if($_Process -eq $null)
