@@ -1,0 +1,117 @@
+**********************
+PowerShell transcript start
+Start time: 20180418030821
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 32324
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-18_03-08-21.txt
+SniffDog dumps then checks for updates from Coinbase...
+= : The term '=' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/Miners/JayDDeecpu.ps1:2 char:2
++  = ".\Bin\CPU-JayDDee\cpuminer-sse2"
++  ~
++ CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+= : The term '=' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/Miners/JayDDeecpu.ps1:2 char:2
++  = ".\Bin\CPU-JayDDee\cpuminer-sse2"
++  ~
++ CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS>TerminatingError(Compare-Object): "Cannot bind argument to parameter 'DifferenceObject' because it is null."
+Compare-Object : Cannot bind argument to parameter 'DifferenceObject' because it is null.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:128 char:60
++ ...    Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -Includ ...
++                                                           ~~~~~~~
++ CategoryInfo          : InvalidData: (:) [Compare-Object], ParameterBindingValidationException
++ FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.CompareObjectCommand
+Compare-Object : Cannot bind argument to parameter 'DifferenceObject' because it is null.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:128 char:60
++ ...    Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -Includ ...
++                                                           ~~~~~~~
++ CategoryInfo          : InvalidData: (:) [Compare-Object], ParameterBindingValidationException
++ FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.CompareObjectCommand
+
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Miners -a yescrypt -o
+                                               stratum+tcp://yescrypt.mine.zergpool.com:6233
+                                               -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p
+                                               ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8120 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Pool Fees  # of
+                                                                                       Workers
+-----      --------- ----- ------- ---------- -------   ----       -----     --------- --------
+JayDDeecpu Yescrypt  Bench   Bench  11.39275   Bench  zergpool   3 - Coin(s)   0.5%      126
+
+
+1BTC =  8120 USD
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> exir
+exir : The term 'exir' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ exir
++ ~~~~
++ CategoryInfo          : ObjectNotFound: (exir:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+exir : The term 'exir' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ exir
++ ~~~~
++ CategoryInfo          : ObjectNotFound: (exir:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+

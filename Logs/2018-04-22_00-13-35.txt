@@ -1,0 +1,820 @@
+**********************
+PowerShell transcript start
+Start time: 20180422001335
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll MM.Hash.ps1
+Process ID: 1381
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-22_00-13-35.txt
+MM.Hash Is Exiting Miners & Searching Coinbase
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8825.34 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  11.38280   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8825.34 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 2 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8841.82 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.75595   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8841.82 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+PS>TerminatingError(Invoke-RestMethod): "A task was canceled."
+WARNING: Sniffdog howled at (ahashpool) for a failed API check.
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 3 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8826 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.93505   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8826 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 4 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8826 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.98480   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8826 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 5 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8836.06 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.63655   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8836.06 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 6 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8841.7 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  11.48230   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8841.7 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+WARNING: SniffDog sniffed near (phiphipool) but (phiphipool) Pool API had no scent.
+PS>TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 7 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8855 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  12.10915   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8855 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 8 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8865.48 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  12.10915   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8865.48 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 9 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8860.1 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  13.09420   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:396 char:24
++         if(Get-Process -ne $_.Miner_Name -or $_.Process.HasExited)
++                        ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+1BTC =  8860.1 USD
+MM.Hash Is Exiting Miners & Searching Coinbase
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+PS>TerminatingError(Get-Process): "A parameter cannot be found that matches parameter name 'ne'."
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+Get-Process : A parameter cannot be found that matches parameter name 'ne'.
+At /home/maynard/MM.Hash/MM.Hash.ps1:314 char:32
++                 if(Get-Process -ne $_.Miner_Name){$_.Status = "Failed ...
++                                ~~~
++ CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
++ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+[3J[H[2J
+
+
+   Status: Idle
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 10 Times Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8858.28 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  13.09420   Bench  zergpool   3 - Coin(s) 0.
+
+

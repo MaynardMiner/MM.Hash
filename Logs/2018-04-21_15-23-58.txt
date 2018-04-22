@@ -1,0 +1,1120 @@
+**********************
+PowerShell transcript start
+Start time: 20180421152358
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 1954
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-21_15-23-58.txt
+SniffDog dumps then checks for updates from Coinbase...
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN' /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8817.58 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  8.76595    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8817.58 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-26-17.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN' /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8817.58 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.74105    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8817.58 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-35-06.txt
+SniffDog dumps then checks for updates from Coinbase...
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN' /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8817 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.74105    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8817 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-37-24.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN' /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8817 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.55200    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8817 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-40-53.txt
+SniffDog dumps then checks for updates from Coinbase...
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN' /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8812.58 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.55200    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8812.58 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-49-08.txt
+SniffDog dumps then checks for updates from Coinbase...
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN' /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8812.58 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.04455    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8812.58 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> Start-Process "miner"
+PS /home/maynard/Sniffdogminer-master> Start-Process "miner" "-hold -e cd /home"
+PS /home/maynard/Sniffdogminer-master> "miner" "-hold -e cd home"
+At line:1 char:9
++ "miner" "-hold -e cd home"
++         ~~~~~~~~~~~~~~~~~~
+Unexpected token '"-hold -e cd home"' in expression or statement.
+At line:1 char:9
++ "miner" "-hold -e cd home"
++         ~~~~~~~~~~~~~~~~~~
+Unexpected token '"-hold -e cd home"' in expression or statement.
++ CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
++ FullyQualifiedErrorId : UnexpectedToken
+
+PS /home/maynard/Sniffdogminer-master> Start-Process "miner" "-hold -e cd /home/maynard/Sniffdogminer-master/Bin"
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-57-14.txt
+SniffDog dumps then checks for updates from Coinbase...
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8800.02 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.73110    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8800.02 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_15-59-54.txt
+SniffDog dumps then checks for updates from Coinbase...
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8800.02 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.73110    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8800.02 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> miner /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+xterm: cannot load font '-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1'
+xterm: cannot load font '-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1'
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> miner "/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'"
+xterm: cannot load font '-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1'
+xterm: cannot load font '-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1'
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_16-06-33.txt
+SniffDog dumps then checks for updates from Coinbase...
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee './cpuminer'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8786.06 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.06940   Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8786.06 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> Start-Process "miner"
+PS /home/maynard/Sniffdogminer-master> Start-Process "miner"
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_16-10-41.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8783.58 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.06940   Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8783.58 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_16-18-33.txt
+SniffDog dumps then checks for updates from Coinbase...
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8783.58 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.68630   Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8783.58 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> ./SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_16-22-56.txt
+SniffDog dumps then checks for updates from Coinbase...
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8773 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.68630   Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8773 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_18-15-00.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "A task was canceled."
+WARNING: Sniffdog howled at (ahashpool) for a failed API check.
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8788.02 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.43260    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8788.02 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_18-24-28.txt
+SniffDog dumps then checks for updates from Coinbase...
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+bash miner /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+bash miner /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8794.5 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.08435    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8794.5 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-21_18-34-07.txt
+SniffDog dumps then checks for updates from Coinbase...
+
+
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8787.78 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  9.08435    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8787.78 USD
+SniffDog dumps then checks for updates from Coinbase...
+./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Xlib:  extension "GLX" missing on display ":0".
+Xlib:  extension "GLX" missing on display ":0".
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes 2 Times  Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8801.5 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  8.22865    Bench  zergpool   3 - Coin(s) 0.
+
+

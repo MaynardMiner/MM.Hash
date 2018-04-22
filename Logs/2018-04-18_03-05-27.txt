@@ -1,0 +1,133 @@
+**********************
+PowerShell transcript start
+Start time: 20180418030527
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 32237
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-18_03-05-27.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Invoke-RestMethod): "A task was canceled."
+WARNING: Sniffdog howled at (ahashpool) for a failed API check.
+= : The term '=' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/Miners/JayDDeecpu.ps1:2 char:2
++  = ".\Bin\CPU-JayDDee\cpuminer-sse2"
++  ~
++ CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+= : The term '=' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/Miners/JayDDeecpu.ps1:2 char:2
++  = ".\Bin\CPU-JayDDee\cpuminer-sse2"
++  ~
++ CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+You cannot call a method on a null-valued expression.
+At /home/maynard/Sniffdogminer-master/Include.ps1:136 char:9
++         $ItemKeys = $Item.Content.PSObject.Properties.Name.Clone()
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [], RuntimeException
++ FullyQualifiedErrorId : InvokeMethodOnNull
+You cannot call a method on a null-valued expression.
+At /home/maynard/Sniffdogminer-master/Include.ps1:136 char:9
++         $ItemKeys = $Item.Content.PSObject.Properties.Name.Clone()
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [], RuntimeException
++ FullyQualifiedErrorId : InvokeMethodOnNull
+
+Add-Member : Cannot bind argument to parameter 'InputObject' because it is null.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:127 char:92
++ ... rs" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
++                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidData: (:) [Add-Member], ParameterBindingValidationException
++ FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.AddMemberCommand
+Add-Member : Cannot bind argument to parameter 'InputObject' because it is null.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:127 char:92
++ ... rs" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
++                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidData: (:) [Add-Member], ParameterBindingValidationException
++ FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.AddMemberCommand
+
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Miners -a yescrypt -o stratum+tc
+                                               p://yescrypt.mine.zergpool.com:6
+                                               233 -u RKirUe978mBoa2MRWqeMGqDzV
+                                               AKTafKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8120 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  11.39275   Bench  zergpool   3 - Coin(s) 0.
+
+
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+PS /home/maynard/Sniffdogminer-master/Bin> cd ..
+PS /home/maynard/Sniffdogminer-master> cd Miners
+PS /home/maynard/Sniffdogminer-master/Miners> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Miners
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+------          4/18/18   2:57 AM           1777 JayDDeecpu.ps1
+
+
+PS /home/maynard/Sniffdogminer-master/Miners> vi JayDDeecpu.ps1

@@ -1,0 +1,52 @@
+**********************
+PowerShell transcript start
+Start time: 20180419210510
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 4302
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-19_21-05-10.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(ConvertFrom-Json): "Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0."
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+
+Start-Process : This command cannot be run because either the parameter "WorkingDirectory" has a value that is not valid or cannot be used with this command. Give a valid input and Run your command again.
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:5
++        Start-Process -Filepath "./build.sh" -WorkingDirectory `"$([IO ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [Start-Process], DirectoryNotFoundException
++ FullyQualifiedErrorId : DirectoryNotFoundException,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : This command cannot be run because either the parameter "WorkingDirectory" has a value that is not valid or cannot be used with this command. Give a valid input and Run your command again.
+At /home/maynard/Sniffdogminer-master/Include.ps1:544 char:5
++        Start-Process -Filepath "./build.sh" -WorkingDirectory `"$([IO ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [Start-Process], DirectoryNotFoundException
++ FullyQualifiedErrorId : DirectoryNotFoundException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+No Miners!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."

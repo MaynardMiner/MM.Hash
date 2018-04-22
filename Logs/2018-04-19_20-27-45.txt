@@ -1,0 +1,70 @@
+**********************
+PowerShell transcript start
+Start time: 20180419202745
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 744
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-19_20-27-45.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(ConvertFrom-Json): "Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0."
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:7
++             Remove-Item $Path_Old
++             ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ee/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Cannot find path '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/Bin/v3.8.7.2' because it does not exist.
+At /home/maynard/Sniffdogminer-master/Include.ps1:555 char:7
++             Remove-Item $Path_Old
++             ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/S...ee/Bin/v3.8.7.2:String) [Remove-Item], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+No Miners!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee> cd ..
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/19/18   8:31 PM                CPU-JayDDee
+d-----          4/19/18   8:28 PM                v3.8.7.2
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> exit
+**********************
+PowerShell transcript end
+End time: 20180419204851
+**********************

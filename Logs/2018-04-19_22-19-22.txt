@@ -1,0 +1,101 @@
+**********************
+PowerShell transcript start
+Start time: 20180419221922
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 14691
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-19_22-19-22.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(ConvertFrom-Json): "Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0."
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: $. Path '', line 0, position 0.
+At /home/maynard/Sniffdogminer-master/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+
+"/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2"
+No Miners!
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd Downloads
+PS /home/maynard/Sniffdogminer-master/Downloads> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Downloads
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+------          4/19/18  10:20 PM        2049861 v3.8.7.2.zip
+
+
+PS /home/maynard/Sniffdogminer-master/Downloads> cd
+PS /home/maynard> cd Sniffdogminer-master
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/19/18  10:20 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> rm CPU-JayDDee
+/bin/rm: cannot remove 'CPU-JayDDee': Is a directory
+/bin/rm: cannot remove 'CPU-JayDDee': Is a directory
+PS /home/maynard/Sniffdogminer-master/Bin> rm -rf CPU-JaDDee
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/19/18  10:20 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/19/18  10:20 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> exit
+**********************
+PowerShell transcript end
+End time: 20180419223155
+**********************

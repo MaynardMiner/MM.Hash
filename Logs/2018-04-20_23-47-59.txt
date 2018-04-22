@@ -1,0 +1,197 @@
+**********************
+PowerShell transcript start
+Start time: 20180420234759
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll ./SniffDogBitcoin.ps1
+Process ID: 4551
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-20_23-47-59.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Invoke-WebRequest): "
+  
+     
+     
+  
+
+
+
+www.minemoney.co | 522: Connection timed out
+
+
+
+
+
+
+
+body{margin:0;padding:0}
+
+
+
+
+
+
+
+
+    
+
+    
+        
+            
+              
+              Error
+              522
+              Ray ID: 40ece04e0eff557c &bull; 2018-04-21 03:49:09 UTC
+            
+            Connection timed out
+        
+        
+        
+            
+                
+                  
+
+  
+    
+    
+  
+  You
+  Browser
+  Working
+
+
+
+  
+    
+    
+  
+  Chicago
+  Cloudflare
+  Working
+
+
+
+  
+    
+    
+  
+  www.minemoney.co
+  Host
+  Error
+
+
+                
+              
+            
+        
+
+        
+            
+                
+                    What happened?
+                    The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.
+                
+              
+                
+                    What can I do?
+                          If you're a visitor of this website:
+      Please try again in a few minutes.
+
+      If you're the owner of this website:
+      Contact your hosting provider letting them know your web server is not completing requests. An Error 522 means that the request was able to connect to your web server, but that the request didn't finish. The most likely cause is that something on your server is hogging resources. Additional troubleshooting information here.
+                
+            
+              
+        
+
+        
+  
+    Cloudflare Ray ID: 40ece04e0eff557c
+    &bull;
+    Your IP: 23.28.138.131
+    &bull;
+    Performance &amp; security by Cloudflare
+    
+  
+
+
+
+    
+
+
+
+"
+@{Name=JayDDeecpu; Path=/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer.1; Start=./cpuminer; Arguments=-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN; Wrap=False; Process=; API=Ccminer; Port=4048; Algorithms=Yescrypt; New=True; Active=00:00:00; Activated=1; Failed30sLater=0; Recover30sLater=0; Status=Idle; HashRate=0; Benchmarked=0; Hashrate_Gathered=False}.Start
+PS>TerminatingError(Start-Process): "A positional parameter cannot be found that accepts argument 'xterm'."
+Start-Process : A positional parameter cannot be found that accepts argument 'xterm'.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:306 char:3
++         Start-Process "xterm" "-hold -e pwsh -command "Start-Process  ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
++ FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : A positional parameter cannot be found that accepts argument 'xterm'.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:306 char:3
++         Start-Process "xterm" "-hold -e pwsh -command "Start-Process  ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
++ FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.
+                                               1 -a yescrypt -o stratum+
+                                               tcp://yescrypt.mine.zergp
+                                               ool.com:6233 -u RKirUe978
+                                               mBoa2MRWqeMGqDzVAKTafKh8H
+                                                -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8852 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool     Coins
+-----      --------- ----- ------- ---------- -------   ----     -----
+JayDDeecpu Yescrypt  Bench   Bench  11.39275   Bench  zergpool   3 - ...
+
+
+1BTC =  8852 USD
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> $global:?
+True
+**********************
+PowerShell transcript end
+End time: 20180420235033
+**********************

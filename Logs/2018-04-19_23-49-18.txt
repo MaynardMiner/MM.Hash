@@ -1,0 +1,1266 @@
+**********************
+PowerShell transcript start
+Start time: 20180419234918
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 32380
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-19_23-49-18.txt
+SniffDog dumps then checks for updates from Coinbase...
+"/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2"
+"/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee"
+No Miners!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd BIn
+cd : Cannot find path '/home/maynard/Sniffdogminer-master/BIn' because it does not exist.
+At line:1 char:1
++ cd BIn
++ ~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/Sniffdogminer-master/BIn:String) [Set-Location], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot find path '/home/maynard/Sniffdogminer-master/BIn' because it does not exist.
+At line:1 char:1
++ cd BIn
++ ~~~~~~
++ CategoryInfo          : ObjectNotFound: (/home/maynard/Sniffdogminer-master/BIn:String) [Set-Location], ItemNotFoundException
++ FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> CPU-JayDDee
+CPU-JayDDee : The term 'CPU-JayDDee' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ CPU-JayDDee
++ ~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (CPU-JayDDee:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+CPU-JayDDee : The term 'CPU-JayDDee' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ CPU-JayDDee
++ ~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (CPU-JayDDee:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master/Bin> cd CPU-JayDDee
+PS /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                algo
+d-----          4/11/18   1:44 PM                api
+d-----          4/11/18   1:44 PM                asm
+d-----          4/11/18   1:44 PM                compat
+d-----          4/11/18   1:44 PM                crypto
+d-----          4/11/18   1:44 PM                m4
+d-----          4/11/18   1:44 PM                res
+------          4/11/18   1:44 PM          44352 aclocal.m4
+------          4/11/18   1:44 PM          15554 algo-gate-api.c
+------          4/11/18   1:44 PM          11026 algo-gate-api.h
+------          4/11/18   1:44 PM           2148 Android.mk
+------          4/11/18   1:44 PM          17806 api.c
+------          4/11/18   1:44 PM            212 AUTHORS
+------          4/11/18   1:44 PM            244 autogen.sh
+------          4/11/18   1:44 PM          41441 avxdefs.h
+------          4/11/18   1:44 PM          10994 bitcoin-config.h
+------          4/11/18   1:44 PM           1501 build-allarch.sh
+------          4/11/18   1:44 PM            843 build.sh
+------          4/11/18   1:44 PM            843 buildjdd.sh
+------          4/11/18   1:44 PM             51 ChangeLog
+------          4/11/18   1:44 PM           9660 comp.log
+------          4/11/18   1:44 PM           2156 compat.h
+------          4/11/18   1:44 PM         220984 configure
+------          4/11/18   1:44 PM           5634 configure.ac
+------          4/11/18   1:44 PM          17992 COPYING
+------          4/11/18   1:44 PM          94694 cpu-miner.c
+------          4/11/18   1:44 PM            427 cpuminer-conf.json
+------          4/11/18   1:44 PM           7589 cpuminer.1
+------          4/11/18   1:44 PM          11462 cpuminer.nsi
+------          4/11/18   1:44 PM           1283 cpuminer.sln
+------          4/11/18   1:44 PM          22092 cpuminer.vcxproj
+------          4/11/18   1:44 PM          16389 cpuminer.vcxproj.filters
+------          4/11/18   1:44 PM            780 Dockerfile
+------          4/11/18   1:44 PM           7117 elist.h
+------          4/11/18   1:44 PM          63025 interleave.h
+------          4/11/18   1:44 PM            101 LICENSE
+------          4/11/18   1:44 PM           8035 Makefile.am
+------          4/11/18   1:44 PM          25903 miner.h
+------          4/11/18   1:44 PM            842 mingw64.sh
+------          4/11/18   1:44 PM           1049 nomacro.pl
+------          4/11/18   1:44 PM           6958 README.md
+------          4/11/18   1:44 PM           1850 README.txt
+------          4/11/18   1:44 PM          16368 RELEASE_NOTES
+------          4/11/18   1:44 PM          10340 sysinfos.c
+------          4/11/18   1:44 PM            757 uint256.cpp
+------          4/11/18   1:44 PM          25345 uint256.h
+------          4/11/18   1:44 PM          56547 util.c
+------          4/11/18   1:44 PM           2371 winbuild-cross.sh
+
+
+PS /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee> build.sh
+build.sh : The term 'build.sh' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ build.sh
++ ~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (build.sh:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+build.sh : The term 'build.sh' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ build.sh
++ ~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (build.sh:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee> ./build.sh
+make: *** No rule to make target 'distclean'.  Stop.
+make: *** No rule to make target 'distclean'.  Stop.
+clean
+configure.ac:15: installing './compile'
+configure.ac:15: installing './compile'
+configure.ac:4: installing './config.guess'
+configure.ac:4: installing './config.guess'
+configure.ac:4: installing './config.sub'
+configure.ac:4: installing './config.sub'
+configure.ac:9: installing './install-sh'
+configure.ac:9: installing './install-sh'
+configure.ac:9: installing './missing'
+configure.ac:9: installing './missing'
+Makefile.am: installing './depcomp'
+Makefile.am: installing './depcomp'
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables...
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for gcc option to accept ISO C99... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking whether gcc needs -traditional... no
+checking dependency style of gcc... gcc3
+checking for ranlib... ranlib
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking for sys/sysctl.h... yes
+checking whether be32dec is declared... no
+checking whether le32dec is declared... no
+checking whether be32enc is declared... no
+checking whether le32enc is declared... no
+checking whether le16dec is declared... no
+checking whether le16enc is declared... no
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for getopt_long... yes
+checking whether we can compile AVX code... yes
+checking whether we can compile XOP code... yes
+checking whether we can compile AVX2 code... yes
+checking for json_loads in -ljansson... yes
+checking for pthread_create in -lpthread... yes
+checking whether __uint128_t is supported... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating compat/Makefile
+config.status: creating compat/jansson/Makefile
+config.status: creating cpuminer-config.h
+config.status: executing depfiles commands
+make  all-recursive
+make[1]: Entering directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee'
+Making all in compat
+make[2]: Entering directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat'
+make[3]: Entering directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat'
+make[2]: Leaving directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/compat'
+make[2]: Entering directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee'
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT cpuminer-cpu-miner.o -MD -MP -MF .deps/cpuminer-cpu-miner.Tpo -c -o cpuminer-cpu-miner.o `test -f 'cpu-miner.c' || echo './'`cpu-miner.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT cpuminer-util.o -MD -MP -MF .deps/cpuminer-util.Tpo -c -o cpuminer-util.o `test -f 'util.c' || echo './'`util.c
+g++ -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include  -g -O2 -MT cpuminer-uint256.o -MD -MP -MF .deps/cpuminer-uint256.Tpo -c -o cpuminer-uint256.o `test -f 'uint256.cpp' || echo './'`uint256.cpp
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT cpuminer-api.o -MD -MP -MF .deps/cpuminer-api.Tpo -c -o cpuminer-api.o `test -f 'api.c' || echo './'`api.c
+mv -f .deps/cpuminer-api.Tpo .deps/cpuminer-api.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT cpuminer-sysinfos.o -MD -MP -MF .deps/cpuminer-sysinfos.Tpo -c -o cpuminer-sysinfos.o `test -f 'sysinfos.c' || echo './'`sysinfos.c
+cpu-miner.c:101:19: warning: ‘opt_time’ defined but not used [-Wunused-const-variable=]
+cpu-miner.c:101:19: warning: ‘opt_time’ defined but not used [-Wunused-const-variable=]
+ static const bool opt_time = true;
+ static const bool opt_time = true;
+                   ^~~~~~~~
+                   ^~~~~~~~
+mv -f .deps/cpuminer-uint256.Tpo .deps/cpuminer-uint256.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT cpuminer-algo-gate-api.o -MD -MP -MF .deps/cpuminer-algo-gate-api.Tpo -c -o cpuminer-algo-gate-api.o `test -f 'algo-gate-api.c' || echo './'`algo-gate-api.c
+mv -f .deps/cpuminer-sysinfos.Tpo .deps/cpuminer-sysinfos.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cubehash/cpuminer-cube-hash-2way.o -MD -MP -MF algo/cubehash/.deps/cpuminer-cube-hash-2way.Tpo -c -o algo/cubehash/cpuminer-cube-hash-2way.o `test -f 'algo/cubehash/cube-hash-2way.c' || echo './'`algo/cubehash/cube-hash-2way.c
+mv -f algo/cubehash/.deps/cpuminer-cube-hash-2way.Tpo algo/cubehash/.deps/cpuminer-cube-hash-2way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cpuminer-pluck.o -MD -MP -MF algo/.deps/cpuminer-pluck.Tpo -c -o algo/cpuminer-pluck.o `test -f 'algo/pluck.c' || echo './'`algo/pluck.c
+algo/pluck.c: In function ‘sha256_hash’:
+algo/pluck.c: In function ‘sha256_hash’:
+algo/pluck.c:345:4: warning: ‘memset’ used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+algo/pluck.c:345:4: warning: ‘memset’ used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+    memset(T, 0, 64);
+    memset(T, 0, 64);
+    ^~~~~~
+    ^~~~~~
+mv -f .deps/cpuminer-util.Tpo .deps/cpuminer-util.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cpuminer-scrypt.o -MD -MP -MF algo/.deps/cpuminer-scrypt.Tpo -c -o algo/cpuminer-scrypt.o `test -f 'algo/scrypt.c' || echo './'`algo/scrypt.c
+mv -f .deps/cpuminer-cpu-miner.Tpo .deps/cpuminer-cpu-miner.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-oaes_lib.o -MD -MP -MF crypto/.deps/cpuminer-oaes_lib.Tpo -c -o crypto/cpuminer-oaes_lib.o `test -f 'crypto/oaes_lib.c' || echo './'`crypto/oaes_lib.c
+mv -f algo/.deps/cpuminer-pluck.Tpo algo/.deps/cpuminer-pluck.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-c_keccak.o -MD -MP -MF crypto/.deps/cpuminer-c_keccak.Tpo -c -o crypto/cpuminer-c_keccak.o `test -f 'crypto/c_keccak.c' || echo './'`crypto/c_keccak.c
+crypto/oaes_lib.c:30:19: warning: ‘_NR’ defined but not used [-Wunused-const-variable=]
+crypto/oaes_lib.c:30:19: warning: ‘_NR’ defined but not used [-Wunused-const-variable=]
+ static const char _NR[] = {
+ static const char _NR[] = {
+                   ^~~
+                   ^~~
+mv -f crypto/.deps/cpuminer-c_keccak.Tpo crypto/.deps/cpuminer-c_keccak.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-c_groestl.o -MD -MP -MF crypto/.deps/cpuminer-c_groestl.Tpo -c -o crypto/cpuminer-c_groestl.o `test -f 'crypto/c_groestl.c' || echo './'`crypto/c_groestl.c
+mv -f .deps/cpuminer-algo-gate-api.Tpo .deps/cpuminer-algo-gate-api.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-c_blake256.o -MD -MP -MF crypto/.deps/cpuminer-c_blake256.Tpo -c -o crypto/cpuminer-c_blake256.o `test -f 'crypto/c_blake256.c' || echo './'`crypto/c_blake256.c
+mv -f crypto/.deps/cpuminer-c_groestl.Tpo crypto/.deps/cpuminer-c_groestl.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-c_jh.o -MD -MP -MF crypto/.deps/cpuminer-c_jh.Tpo -c -o crypto/cpuminer-c_jh.o `test -f 'crypto/c_jh.c' || echo './'`crypto/c_jh.c
+mv -f crypto/.deps/cpuminer-oaes_lib.Tpo crypto/.deps/cpuminer-oaes_lib.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-c_skein.o -MD -MP -MF crypto/.deps/cpuminer-c_skein.Tpo -c -o crypto/cpuminer-c_skein.o `test -f 'crypto/c_skein.c' || echo './'`crypto/c_skein.c
+mv -f crypto/.deps/cpuminer-c_jh.Tpo crypto/.deps/cpuminer-c_jh.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-hash.o -MD -MP -MF crypto/.deps/cpuminer-hash.Tpo -c -o crypto/cpuminer-hash.o `test -f 'crypto/hash.c' || echo './'`crypto/hash.c
+mv -f crypto/.deps/cpuminer-hash.Tpo crypto/.deps/cpuminer-hash.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT crypto/cpuminer-aesb.o -MD -MP -MF crypto/.deps/cpuminer-aesb.Tpo -c -o crypto/cpuminer-aesb.o `test -f 'crypto/aesb.c' || echo './'`crypto/aesb.c
+mv -f crypto/.deps/cpuminer-c_blake256.Tpo crypto/.deps/cpuminer-c_blake256.Po
+g++ -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include  -g -O2 -MT crypto/cpuminer-magimath.o -MD -MP -MF crypto/.deps/cpuminer-magimath.Tpo -c -o crypto/cpuminer-magimath.o `test -f 'crypto/magimath.cpp' || echo './'`crypto/magimath.cpp
+mv -f crypto/.deps/cpuminer-aesb.Tpo crypto/.deps/cpuminer-aesb.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2a/cpuminer-argon2a.o -MD -MP -MF algo/argon2/argon2a/.deps/cpuminer-argon2a.Tpo -c -o algo/argon2/argon2a/cpuminer-argon2a.o `test -f 'algo/argon2/argon2a/argon2a.c' || echo './'`algo/argon2/argon2a/argon2a.c
+mv -f crypto/.deps/cpuminer-c_skein.Tpo crypto/.deps/cpuminer-c_skein.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2a/ar2/cpuminer-argon2.o -MD -MP -MF algo/argon2/argon2a/ar2/.deps/cpuminer-argon2.Tpo -c -o algo/argon2/argon2a/ar2/cpuminer-argon2.o `test -f 'algo/argon2/argon2a/ar2/argon2.c' || echo './'`algo/argon2/argon2a/ar2/argon2.c
+mv -f algo/.deps/cpuminer-scrypt.Tpo algo/.deps/cpuminer-scrypt.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2a/ar2/cpuminer-opt.o -MD -MP -MF algo/argon2/argon2a/ar2/.deps/cpuminer-opt.Tpo -c -o algo/argon2/argon2a/ar2/cpuminer-opt.o `test -f 'algo/argon2/argon2a/ar2/opt.c' || echo './'`algo/argon2/argon2a/ar2/opt.c
+mv -f algo/argon2/argon2a/.deps/cpuminer-argon2a.Tpo algo/argon2/argon2a/.deps/cpuminer-argon2a.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2a/ar2/cpuminer-cores.o -MD -MP -MF algo/argon2/argon2a/ar2/.deps/cpuminer-cores.Tpo -c -o algo/argon2/argon2a/ar2/cpuminer-cores.o `test -f 'algo/argon2/argon2a/ar2/cores.c' || echo './'`algo/argon2/argon2a/ar2/cores.c
+mv -f algo/argon2/argon2a/ar2/.deps/cpuminer-argon2.Tpo algo/argon2/argon2a/ar2/.deps/cpuminer-argon2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2a/ar2/cpuminer-ar2-scrypt-jane.o -MD -MP -MF algo/argon2/argon2a/ar2/.deps/cpuminer-ar2-scrypt-jane.Tpo -c -o algo/argon2/argon2a/ar2/cpuminer-ar2-scrypt-jane.o `test -f 'algo/argon2/argon2a/ar2/ar2-scrypt-jane.c' || echo './'`algo/argon2/argon2a/ar2/ar2-scrypt-jane.c
+In file included from algo/argon2/argon2a/ar2/sj/scrypt-jane-salsa64.h:12:0,
+In file included from algo/argon2/argon2a/ar2/sj/scrypt-jane-salsa64.h:12:0,
+                 from algo/argon2/argon2a/ar2/sj/scrypt-jane-romix.h:2,
+                 from algo/argon2/argon2a/ar2/sj/scrypt-jane-romix.h:2,
+                 from algo/argon2/argon2a/ar2/ar2-scrypt-jane.c:19:
+                 from algo/argon2/argon2a/ar2/ar2-scrypt-jane.c:19:
+algo/argon2/argon2a/ar2/sj/scrypt-jane-romix-basic.h:8:1: warning: ‘scrypt_romix_nop’ defined but not used [-Wunused-function]
+algo/argon2/argon2a/ar2/sj/scrypt-jane-romix-basic.h:8:1: warning: ‘scrypt_romix_nop’ defined but not used [-Wunused-function]
+ scrypt_romix_nop(scrypt_mix_word_t *blocks, size_t nblocks) {
+ scrypt_romix_nop(scrypt_mix_word_t *blocks, size_t nblocks) {
+ ^~~~~~~~~~~~~~~~
+ ^~~~~~~~~~~~~~~~
+mv -f crypto/.deps/cpuminer-magimath.Tpo crypto/.deps/cpuminer-magimath.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2a/ar2/cpuminer-blake2b.o -MD -MP -MF algo/argon2/argon2a/ar2/.deps/cpuminer-blake2b.Tpo -c -o algo/argon2/argon2a/ar2/cpuminer-blake2b.o `test -f 'algo/argon2/argon2a/ar2/blake2b.c' || echo './'`algo/argon2/argon2a/ar2/blake2b.c
+mv -f algo/argon2/argon2a/ar2/.deps/cpuminer-cores.Tpo algo/argon2/argon2a/ar2/.deps/cpuminer-cores.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/cpuminer-argon2d-gate.o -MD -MP -MF algo/argon2/argon2d/.deps/cpuminer-argon2d-gate.Tpo -c -o algo/argon2/argon2d/cpuminer-argon2d-gate.o `test -f 'algo/argon2/argon2d/argon2d-gate.c' || echo './'`algo/argon2/argon2d/argon2d-gate.c
+mv -f algo/argon2/argon2a/ar2/.deps/cpuminer-blake2b.Tpo algo/argon2/argon2a/ar2/.deps/cpuminer-blake2b.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/blake2/cpuminer-blake2b.o -MD -MP -MF algo/argon2/argon2d/blake2/.deps/cpuminer-blake2b.Tpo -c -o algo/argon2/argon2d/blake2/cpuminer-blake2b.o `test -f 'algo/argon2/argon2d/blake2/blake2b.c' || echo './'`algo/argon2/argon2d/blake2/blake2b.c
+mv -f algo/argon2/argon2d/blake2/.deps/cpuminer-blake2b.Tpo algo/argon2/argon2d/blake2/.deps/cpuminer-blake2b.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/argon2d/cpuminer-argon2.o -MD -MP -MF algo/argon2/argon2d/argon2d/.deps/cpuminer-argon2.Tpo -c -o algo/argon2/argon2d/argon2d/cpuminer-argon2.o `test -f 'algo/argon2/argon2d/argon2d/argon2.c' || echo './'`algo/argon2/argon2d/argon2d/argon2.c
+mv -f algo/argon2/argon2d/.deps/cpuminer-argon2d-gate.Tpo algo/argon2/argon2d/.deps/cpuminer-argon2d-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/argon2d/cpuminer-core.o -MD -MP -MF algo/argon2/argon2d/argon2d/.deps/cpuminer-core.Tpo -c -o algo/argon2/argon2d/argon2d/cpuminer-core.o `test -f 'algo/argon2/argon2d/argon2d/core.c' || echo './'`algo/argon2/argon2d/argon2d/core.c
+mv -f algo/argon2/argon2d/argon2d/.deps/cpuminer-core.Tpo algo/argon2/argon2d/argon2d/.deps/cpuminer-core.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/argon2d/cpuminer-opt.o -MD -MP -MF algo/argon2/argon2d/argon2d/.deps/cpuminer-opt.Tpo -c -o algo/argon2/argon2d/argon2d/cpuminer-opt.o `test -f 'algo/argon2/argon2d/argon2d/opt.c' || echo './'`algo/argon2/argon2d/argon2d/opt.c
+mv -f algo/argon2/argon2a/ar2/.deps/cpuminer-opt.Tpo algo/argon2/argon2a/ar2/.deps/cpuminer-opt.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/argon2d/cpuminer-thread.o -MD -MP -MF algo/argon2/argon2d/argon2d/.deps/cpuminer-thread.Tpo -c -o algo/argon2/argon2d/argon2d/cpuminer-thread.o `test -f 'algo/argon2/argon2d/argon2d/thread.c' || echo './'`algo/argon2/argon2d/argon2d/thread.c
+mv -f algo/argon2/argon2d/argon2d/.deps/cpuminer-argon2.Tpo algo/argon2/argon2d/argon2d/.deps/cpuminer-argon2.Po
+mv -f algo/argon2/argon2d/argon2d/.deps/cpuminer-thread.Tpo algo/argon2/argon2d/argon2d/.deps/cpuminer-thread.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/argon2/argon2d/argon2d/cpuminer-encoding.o -MD -MP -MF algo/argon2/argon2d/argon2d/.deps/cpuminer-encoding.Tpo -c -o algo/argon2/argon2d/argon2d/cpuminer-encoding.o `test -f 'algo/argon2/argon2d/argon2d/encoding.c' || echo './'`algo/argon2/argon2d/argon2d/encoding.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-sph_blake.o -MD -MP -MF algo/blake/.deps/cpuminer-sph_blake.Tpo -c -o algo/blake/cpuminer-sph_blake.o `test -f 'algo/blake/sph_blake.c' || echo './'`algo/blake/sph_blake.c
+mv -f algo/argon2/argon2a/ar2/.deps/cpuminer-ar2-scrypt-jane.Tpo algo/argon2/argon2a/ar2/.deps/cpuminer-ar2-scrypt-jane.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake-hash-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-blake-hash-4way.Tpo -c -o algo/blake/cpuminer-blake-hash-4way.o `test -f 'algo/blake/blake-hash-4way.c' || echo './'`algo/blake/blake-hash-4way.c
+mv -f algo/argon2/argon2d/argon2d/.deps/cpuminer-encoding.Tpo algo/argon2/argon2d/argon2d/.deps/cpuminer-encoding.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake-gate.o -MD -MP -MF algo/blake/.deps/cpuminer-blake-gate.Tpo -c -o algo/blake/cpuminer-blake-gate.o `test -f 'algo/blake/blake-gate.c' || echo './'`algo/blake/blake-gate.c
+mv -f algo/blake/.deps/cpuminer-blake-gate.Tpo algo/blake/.deps/cpuminer-blake-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake.o -MD -MP -MF algo/blake/.deps/cpuminer-blake.Tpo -c -o algo/blake/cpuminer-blake.o `test -f 'algo/blake/blake.c' || echo './'`algo/blake/blake.c
+mv -f algo/argon2/argon2d/argon2d/.deps/cpuminer-opt.Tpo algo/argon2/argon2d/argon2d/.deps/cpuminer-opt.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-blake-4way.Tpo -c -o algo/blake/cpuminer-blake-4way.o `test -f 'algo/blake/blake-4way.c' || echo './'`algo/blake/blake-4way.c
+mv -f algo/blake/.deps/cpuminer-blake.Tpo algo/blake/.deps/cpuminer-blake.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-sph_blake2b.o -MD -MP -MF algo/blake/.deps/cpuminer-sph_blake2b.Tpo -c -o algo/blake/cpuminer-sph_blake2b.o `test -f 'algo/blake/sph_blake2b.c' || echo './'`algo/blake/sph_blake2b.c
+mv -f algo/blake/.deps/cpuminer-sph_blake2b.Tpo algo/blake/.deps/cpuminer-sph_blake2b.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake2b.o -MD -MP -MF algo/blake/.deps/cpuminer-blake2b.Tpo -c -o algo/blake/cpuminer-blake2b.o `test -f 'algo/blake/blake2b.c' || echo './'`algo/blake/blake2b.c
+mv -f algo/blake/.deps/cpuminer-blake-4way.Tpo algo/blake/.deps/cpuminer-blake-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-sph-blake2s.o -MD -MP -MF algo/blake/.deps/cpuminer-sph-blake2s.Tpo -c -o algo/blake/cpuminer-sph-blake2s.o `test -f 'algo/blake/sph-blake2s.c' || echo './'`algo/blake/sph-blake2s.c
+mv -f algo/blake/.deps/cpuminer-sph_blake.Tpo algo/blake/.deps/cpuminer-sph_blake.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake2s-hash-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-blake2s-hash-4way.Tpo -c -o algo/blake/cpuminer-blake2s-hash-4way.o `test -f 'algo/blake/blake2s-hash-4way.c' || echo './'`algo/blake/blake2s-hash-4way.c
+mv -f algo/blake/.deps/cpuminer-blake-hash-4way.Tpo algo/blake/.deps/cpuminer-blake-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake2s.o -MD -MP -MF algo/blake/.deps/cpuminer-blake2s.Tpo -c -o algo/blake/cpuminer-blake2s.o `test -f 'algo/blake/blake2s.c' || echo './'`algo/blake/blake2s.c
+mv -f algo/blake/.deps/cpuminer-sph-blake2s.Tpo algo/blake/.deps/cpuminer-sph-blake2s.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake2s-gate.o -MD -MP -MF algo/blake/.deps/cpuminer-blake2s-gate.Tpo -c -o algo/blake/cpuminer-blake2s-gate.o `test -f 'algo/blake/blake2s-gate.c' || echo './'`algo/blake/blake2s-gate.c
+mv -f algo/blake/.deps/cpuminer-blake2b.Tpo algo/blake/.deps/cpuminer-blake2b.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blake2s-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-blake2s-4way.Tpo -c -o algo/blake/cpuminer-blake2s-4way.o `test -f 'algo/blake/blake2s-4way.c' || echo './'`algo/blake/blake2s-4way.c
+mv -f algo/blake/.deps/cpuminer-blake2s.Tpo algo/blake/.deps/cpuminer-blake2s.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blakecoin-gate.o -MD -MP -MF algo/blake/.deps/cpuminer-blakecoin-gate.Tpo -c -o algo/blake/cpuminer-blakecoin-gate.o `test -f 'algo/blake/blakecoin-gate.c' || echo './'`algo/blake/blakecoin-gate.c
+mv -f algo/blake/.deps/cpuminer-blake2s-gate.Tpo algo/blake/.deps/cpuminer-blake2s-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-mod_blakecoin.o -MD -MP -MF algo/blake/.deps/cpuminer-mod_blakecoin.Tpo -c -o algo/blake/cpuminer-mod_blakecoin.o `test -f 'algo/blake/mod_blakecoin.c' || echo './'`algo/blake/mod_blakecoin.c
+mv -f algo/blake/.deps/cpuminer-blakecoin-gate.Tpo algo/blake/.deps/cpuminer-blakecoin-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blakecoin.o -MD -MP -MF algo/blake/.deps/cpuminer-blakecoin.Tpo -c -o algo/blake/cpuminer-blakecoin.o `test -f 'algo/blake/blakecoin.c' || echo './'`algo/blake/blakecoin.c
+mv -f algo/blake/.deps/cpuminer-blake2s-4way.Tpo algo/blake/.deps/cpuminer-blake2s-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-blakecoin-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-blakecoin-4way.Tpo -c -o algo/blake/cpuminer-blakecoin-4way.o `test -f 'algo/blake/blakecoin-4way.c' || echo './'`algo/blake/blakecoin-4way.c
+mv -f algo/blake/.deps/cpuminer-mod_blakecoin.Tpo algo/blake/.deps/cpuminer-mod_blakecoin.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-decred-gate.o -MD -MP -MF algo/blake/.deps/cpuminer-decred-gate.Tpo -c -o algo/blake/cpuminer-decred-gate.o `test -f 'algo/blake/decred-gate.c' || echo './'`algo/blake/decred-gate.c
+mv -f algo/blake/.deps/cpuminer-blakecoin.Tpo algo/blake/.deps/cpuminer-blakecoin.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-decred.o -MD -MP -MF algo/blake/.deps/cpuminer-decred.Tpo -c -o algo/blake/cpuminer-decred.o `test -f 'algo/blake/decred.c' || echo './'`algo/blake/decred.c
+mv -f algo/blake/.deps/cpuminer-blake2s-hash-4way.Tpo algo/blake/.deps/cpuminer-blake2s-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-decred-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-decred-4way.Tpo -c -o algo/blake/cpuminer-decred-4way.o `test -f 'algo/blake/decred-4way.c' || echo './'`algo/blake/decred-4way.c
+mv -f algo/blake/.deps/cpuminer-blakecoin-4way.Tpo algo/blake/.deps/cpuminer-blakecoin-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-pentablake-gate.o -MD -MP -MF algo/blake/.deps/cpuminer-pentablake-gate.Tpo -c -o algo/blake/cpuminer-pentablake-gate.o `test -f 'algo/blake/pentablake-gate.c' || echo './'`algo/blake/pentablake-gate.c
+mv -f algo/blake/.deps/cpuminer-decred-gate.Tpo algo/blake/.deps/cpuminer-decred-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-pentablake-4way.o -MD -MP -MF algo/blake/.deps/cpuminer-pentablake-4way.Tpo -c -o algo/blake/cpuminer-pentablake-4way.o `test -f 'algo/blake/pentablake-4way.c' || echo './'`algo/blake/pentablake-4way.c
+mv -f algo/blake/.deps/cpuminer-decred.Tpo algo/blake/.deps/cpuminer-decred.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/blake/cpuminer-pentablake.o -MD -MP -MF algo/blake/.deps/cpuminer-pentablake.Tpo -c -o algo/blake/cpuminer-pentablake.o `test -f 'algo/blake/pentablake.c' || echo './'`algo/blake/pentablake.c
+mv -f algo/blake/.deps/cpuminer-decred-4way.Tpo algo/blake/.deps/cpuminer-decred-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/bmw/cpuminer-sph_bmw.o -MD -MP -MF algo/bmw/.deps/cpuminer-sph_bmw.Tpo -c -o algo/bmw/cpuminer-sph_bmw.o `test -f 'algo/bmw/sph_bmw.c' || echo './'`algo/bmw/sph_bmw.c
+mv -f algo/blake/.deps/cpuminer-pentablake-gate.Tpo algo/blake/.deps/cpuminer-pentablake-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/bmw/cpuminer-bmw-hash-4way.o -MD -MP -MF algo/bmw/.deps/cpuminer-bmw-hash-4way.Tpo -c -o algo/bmw/cpuminer-bmw-hash-4way.o `test -f 'algo/bmw/bmw-hash-4way.c' || echo './'`algo/bmw/bmw-hash-4way.c
+mv -f algo/bmw/.deps/cpuminer-bmw-hash-4way.Tpo algo/bmw/.deps/cpuminer-bmw-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/bmw/cpuminer-bmw256.o -MD -MP -MF algo/bmw/.deps/cpuminer-bmw256.Tpo -c -o algo/bmw/cpuminer-bmw256.o `test -f 'algo/bmw/bmw256.c' || echo './'`algo/bmw/bmw256.c
+mv -f algo/blake/.deps/cpuminer-pentablake-4way.Tpo algo/blake/.deps/cpuminer-pentablake-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cryptonight/cpuminer-cryptolight.o -MD -MP -MF algo/cryptonight/.deps/cpuminer-cryptolight.Tpo -c -o algo/cryptonight/cpuminer-cryptolight.o `test -f 'algo/cryptonight/cryptolight.c' || echo './'`algo/cryptonight/cryptolight.c
+mv -f algo/blake/.deps/cpuminer-pentablake.Tpo algo/blake/.deps/cpuminer-pentablake.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cryptonight/cpuminer-cryptonight-common.o -MD -MP -MF algo/cryptonight/.deps/cpuminer-cryptonight-common.Tpo -c -o algo/cryptonight/cpuminer-cryptonight-common.o `test -f 'algo/cryptonight/cryptonight-common.c' || echo './'`algo/cryptonight/cryptonight-common.c
+mv -f algo/bmw/.deps/cpuminer-bmw256.Tpo algo/bmw/.deps/cpuminer-bmw256.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cryptonight/cpuminer-cryptonight-aesni.o -MD -MP -MF algo/cryptonight/.deps/cpuminer-cryptonight-aesni.Tpo -c -o algo/cryptonight/cpuminer-cryptonight-aesni.o `test -f 'algo/cryptonight/cryptonight-aesni.c' || echo './'`algo/cryptonight/cryptonight-aesni.c
+mv -f algo/bmw/.deps/cpuminer-sph_bmw.Tpo algo/bmw/.deps/cpuminer-sph_bmw.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cryptonight/cpuminer-cryptonight.o -MD -MP -MF algo/cryptonight/.deps/cpuminer-cryptonight.Tpo -c -o algo/cryptonight/cpuminer-cryptonight.o `test -f 'algo/cryptonight/cryptonight.c' || echo './'`algo/cryptonight/cryptonight.c
+mv -f algo/cryptonight/.deps/cpuminer-cryptolight.Tpo algo/cryptonight/.deps/cpuminer-cryptolight.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cubehash/cpuminer-sph_cubehash.o -MD -MP -MF algo/cubehash/.deps/cpuminer-sph_cubehash.Tpo -c -o algo/cubehash/cpuminer-sph_cubehash.o `test -f 'algo/cubehash/sph_cubehash.c' || echo './'`algo/cubehash/sph_cubehash.c
+mv -f algo/cryptonight/.deps/cpuminer-cryptonight-common.Tpo algo/cryptonight/.deps/cpuminer-cryptonight-common.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cubehash/sse2/cpuminer-cubehash_sse2.o -MD -MP -MF algo/cubehash/sse2/.deps/cpuminer-cubehash_sse2.Tpo -c -o algo/cubehash/sse2/cpuminer-cubehash_sse2.o `test -f 'algo/cubehash/sse2/cubehash_sse2.c' || echo './'`algo/cubehash/sse2/cubehash_sse2.c
+mv -f algo/cryptonight/.deps/cpuminer-cryptonight.Tpo algo/cryptonight/.deps/cpuminer-cryptonight.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/echo/cpuminer-sph_echo.o -MD -MP -MF algo/echo/.deps/cpuminer-sph_echo.Tpo -c -o algo/echo/cpuminer-sph_echo.o `test -f 'algo/echo/sph_echo.c' || echo './'`algo/echo/sph_echo.c
+mv -f algo/cryptonight/.deps/cpuminer-cryptonight-aesni.Tpo algo/cryptonight/.deps/cpuminer-cryptonight-aesni.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/echo/aes_ni/cpuminer-hash.o -MD -MP -MF algo/echo/aes_ni/.deps/cpuminer-hash.Tpo -c -o algo/echo/aes_ni/cpuminer-hash.o `test -f 'algo/echo/aes_ni/hash.c' || echo './'`algo/echo/aes_ni/hash.c
+mv -f algo/cubehash/sse2/.deps/cpuminer-cubehash_sse2.Tpo algo/cubehash/sse2/.deps/cpuminer-cubehash_sse2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/gost/cpuminer-sph_gost.o -MD -MP -MF algo/gost/.deps/cpuminer-sph_gost.Tpo -c -o algo/gost/cpuminer-sph_gost.o `test -f 'algo/gost/sph_gost.c' || echo './'`algo/gost/sph_gost.c
+mv -f algo/gost/.deps/cpuminer-sph_gost.Tpo algo/gost/.deps/cpuminer-sph_gost.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/cpuminer-sph_groestl.o -MD -MP -MF algo/groestl/.deps/cpuminer-sph_groestl.Tpo -c -o algo/groestl/cpuminer-sph_groestl.o `test -f 'algo/groestl/sph_groestl.c' || echo './'`algo/groestl/sph_groestl.c
+mv -f algo/cubehash/.deps/cpuminer-sph_cubehash.Tpo algo/cubehash/.deps/cpuminer-sph_cubehash.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/cpuminer-groestl.o -MD -MP -MF algo/groestl/.deps/cpuminer-groestl.Tpo -c -o algo/groestl/cpuminer-groestl.o `test -f 'algo/groestl/groestl.c' || echo './'`algo/groestl/groestl.c
+mv -f algo/echo/aes_ni/.deps/cpuminer-hash.Tpo algo/echo/aes_ni/.deps/cpuminer-hash.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/cpuminer-myrgr-gate.o -MD -MP -MF algo/groestl/.deps/cpuminer-myrgr-gate.Tpo -c -o algo/groestl/cpuminer-myrgr-gate.o `test -f 'algo/groestl/myrgr-gate.c' || echo './'`algo/groestl/myrgr-gate.c
+mv -f algo/groestl/.deps/cpuminer-groestl.Tpo algo/groestl/.deps/cpuminer-groestl.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/cpuminer-myrgr-4way.o -MD -MP -MF algo/groestl/.deps/cpuminer-myrgr-4way.Tpo -c -o algo/groestl/cpuminer-myrgr-4way.o `test -f 'algo/groestl/myrgr-4way.c' || echo './'`algo/groestl/myrgr-4way.c
+mv -f algo/groestl/.deps/cpuminer-myrgr-gate.Tpo algo/groestl/.deps/cpuminer-myrgr-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/cpuminer-myr-groestl.o -MD -MP -MF algo/groestl/.deps/cpuminer-myr-groestl.Tpo -c -o algo/groestl/cpuminer-myr-groestl.o `test -f 'algo/groestl/myr-groestl.c' || echo './'`algo/groestl/myr-groestl.c
+mv -f algo/groestl/.deps/cpuminer-myrgr-4way.Tpo algo/groestl/.deps/cpuminer-myrgr-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/aes_ni/cpuminer-hash-groestl.o -MD -MP -MF algo/groestl/aes_ni/.deps/cpuminer-hash-groestl.Tpo -c -o algo/groestl/aes_ni/cpuminer-hash-groestl.o `test -f 'algo/groestl/aes_ni/hash-groestl.c' || echo './'`algo/groestl/aes_ni/hash-groestl.c
+mv -f algo/echo/.deps/cpuminer-sph_echo.Tpo algo/echo/.deps/cpuminer-sph_echo.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/groestl/aes_ni/cpuminer-hash-groestl256.o -MD -MP -MF algo/groestl/aes_ni/.deps/cpuminer-hash-groestl256.Tpo -c -o algo/groestl/aes_ni/cpuminer-hash-groestl256.o `test -f 'algo/groestl/aes_ni/hash-groestl256.c' || echo './'`algo/groestl/aes_ni/hash-groestl256.c
+mv -f algo/groestl/.deps/cpuminer-myr-groestl.Tpo algo/groestl/.deps/cpuminer-myr-groestl.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/fugue/cpuminer-sph_fugue.o -MD -MP -MF algo/fugue/.deps/cpuminer-sph_fugue.Tpo -c -o algo/fugue/cpuminer-sph_fugue.o `test -f 'algo/fugue/sph_fugue.c' || echo './'`algo/fugue/sph_fugue.c
+mv -f algo/groestl/.deps/cpuminer-sph_groestl.Tpo algo/groestl/.deps/cpuminer-sph_groestl.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hamsi/cpuminer-sph_hamsi.o -MD -MP -MF algo/hamsi/.deps/cpuminer-sph_hamsi.Tpo -c -o algo/hamsi/cpuminer-sph_hamsi.o `test -f 'algo/hamsi/sph_hamsi.c' || echo './'`algo/hamsi/sph_hamsi.c
+mv -f algo/groestl/aes_ni/.deps/cpuminer-hash-groestl.Tpo algo/groestl/aes_ni/.deps/cpuminer-hash-groestl.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hamsi/cpuminer-hamsi-hash-4way.o -MD -MP -MF algo/hamsi/.deps/cpuminer-hamsi-hash-4way.Tpo -c -o algo/hamsi/cpuminer-hamsi-hash-4way.o `test -f 'algo/hamsi/hamsi-hash-4way.c' || echo './'`algo/hamsi/hamsi-hash-4way.c
+mv -f algo/hamsi/.deps/cpuminer-hamsi-hash-4way.Tpo algo/hamsi/.deps/cpuminer-hamsi-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/haval/cpuminer-haval.o -MD -MP -MF algo/haval/.deps/cpuminer-haval.Tpo -c -o algo/haval/cpuminer-haval.o `test -f 'algo/haval/haval.c' || echo './'`algo/haval/haval.c
+mv -f algo/groestl/aes_ni/.deps/cpuminer-hash-groestl256.Tpo algo/groestl/aes_ni/.deps/cpuminer-hash-groestl256.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/haval/cpuminer-haval-hash-4way.o -MD -MP -MF algo/haval/.deps/cpuminer-haval-hash-4way.Tpo -c -o algo/haval/cpuminer-haval-hash-4way.o `test -f 'algo/haval/haval-hash-4way.c' || echo './'`algo/haval/haval-hash-4way.c
+mv -f algo/fugue/.deps/cpuminer-sph_fugue.Tpo algo/fugue/.deps/cpuminer-sph_fugue.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/heavy/cpuminer-sph_hefty1.o -MD -MP -MF algo/heavy/.deps/cpuminer-sph_hefty1.Tpo -c -o algo/heavy/cpuminer-sph_hefty1.o `test -f 'algo/heavy/sph_hefty1.c' || echo './'`algo/heavy/sph_hefty1.c
+mv -f algo/haval/.deps/cpuminer-haval-hash-4way.Tpo algo/haval/.deps/cpuminer-haval-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/heavy/cpuminer-heavy.o -MD -MP -MF algo/heavy/.deps/cpuminer-heavy.Tpo -c -o algo/heavy/cpuminer-heavy.o `test -f 'algo/heavy/heavy.c' || echo './'`algo/heavy/heavy.c
+mv -f algo/hamsi/.deps/cpuminer-sph_hamsi.Tpo algo/hamsi/.deps/cpuminer-sph_hamsi.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/heavy/cpuminer-bastion.o -MD -MP -MF algo/heavy/.deps/cpuminer-bastion.Tpo -c -o algo/heavy/cpuminer-bastion.o `test -f 'algo/heavy/bastion.c' || echo './'`algo/heavy/bastion.c
+mv -f algo/heavy/.deps/cpuminer-sph_hefty1.Tpo algo/heavy/.deps/cpuminer-sph_hefty1.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hodl/cpuminer-aes.o -MD -MP -MF algo/hodl/.deps/cpuminer-aes.Tpo -c -o algo/hodl/cpuminer-aes.o `test -f 'algo/hodl/aes.c' || echo './'`algo/hodl/aes.c
+mv -f algo/heavy/.deps/cpuminer-heavy.Tpo algo/heavy/.deps/cpuminer-heavy.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hodl/cpuminer-hodl-gate.o -MD -MP -MF algo/hodl/.deps/cpuminer-hodl-gate.Tpo -c -o algo/hodl/cpuminer-hodl-gate.o `test -f 'algo/hodl/hodl-gate.c' || echo './'`algo/hodl/hodl-gate.c
+mv -f algo/hodl/.deps/cpuminer-aes.Tpo algo/hodl/.deps/cpuminer-aes.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hodl/cpuminer-hodl-wolf.o -MD -MP -MF algo/hodl/.deps/cpuminer-hodl-wolf.Tpo -c -o algo/hodl/cpuminer-hodl-wolf.o `test -f 'algo/hodl/hodl-wolf.c' || echo './'`algo/hodl/hodl-wolf.c
+mv -f algo/hodl/.deps/cpuminer-hodl-gate.Tpo algo/hodl/.deps/cpuminer-hodl-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hodl/cpuminer-sha512_avx.o -MD -MP -MF algo/hodl/.deps/cpuminer-sha512_avx.Tpo -c -o algo/hodl/cpuminer-sha512_avx.o `test -f 'algo/hodl/sha512_avx.c' || echo './'`algo/hodl/sha512_avx.c
+mv -f algo/heavy/.deps/cpuminer-bastion.Tpo algo/heavy/.deps/cpuminer-bastion.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/hodl/cpuminer-sha512_avx2.o -MD -MP -MF algo/hodl/.deps/cpuminer-sha512_avx2.Tpo -c -o algo/hodl/cpuminer-sha512_avx2.o `test -f 'algo/hodl/sha512_avx2.c' || echo './'`algo/hodl/sha512_avx2.c
+mv -f algo/hodl/.deps/cpuminer-sha512_avx2.Tpo algo/hodl/.deps/cpuminer-sha512_avx2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/jh/cpuminer-sph_jh.o -MD -MP -MF algo/jh/.deps/cpuminer-sph_jh.Tpo -c -o algo/jh/cpuminer-sph_jh.o `test -f 'algo/jh/sph_jh.c' || echo './'`algo/jh/sph_jh.c
+mv -f algo/hodl/.deps/cpuminer-hodl-wolf.Tpo algo/hodl/.deps/cpuminer-hodl-wolf.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/jh/cpuminer-jh-hash-4way.o -MD -MP -MF algo/jh/.deps/cpuminer-jh-hash-4way.Tpo -c -o algo/jh/cpuminer-jh-hash-4way.o `test -f 'algo/jh/jh-hash-4way.c' || echo './'`algo/jh/jh-hash-4way.c
+mv -f algo/jh/.deps/cpuminer-jh-hash-4way.Tpo algo/jh/.deps/cpuminer-jh-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/jh/cpuminer-jha-gate.o -MD -MP -MF algo/jh/.deps/cpuminer-jha-gate.Tpo -c -o algo/jh/cpuminer-jha-gate.o `test -f 'algo/jh/jha-gate.c' || echo './'`algo/jh/jha-gate.c
+mv -f algo/hodl/.deps/cpuminer-sha512_avx.Tpo algo/hodl/.deps/cpuminer-sha512_avx.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/jh/cpuminer-jha-4way.o -MD -MP -MF algo/jh/.deps/cpuminer-jha-4way.Tpo -c -o algo/jh/cpuminer-jha-4way.o `test -f 'algo/jh/jha-4way.c' || echo './'`algo/jh/jha-4way.c
+mv -f algo/jh/.deps/cpuminer-jha-gate.Tpo algo/jh/.deps/cpuminer-jha-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/jh/cpuminer-jha.o -MD -MP -MF algo/jh/.deps/cpuminer-jha.Tpo -c -o algo/jh/cpuminer-jha.o `test -f 'algo/jh/jha.c' || echo './'`algo/jh/jha.c
+mv -f algo/jh/.deps/cpuminer-jha-4way.Tpo algo/jh/.deps/cpuminer-jha-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/keccak/cpuminer-sph_keccak.o -MD -MP -MF algo/keccak/.deps/cpuminer-sph_keccak.Tpo -c -o algo/keccak/cpuminer-sph_keccak.o `test -f 'algo/keccak/sph_keccak.c' || echo './'`algo/keccak/sph_keccak.c
+mv -f algo/jh/.deps/cpuminer-jha.Tpo algo/jh/.deps/cpuminer-jha.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/keccak/cpuminer-keccak.o -MD -MP -MF algo/keccak/.deps/cpuminer-keccak.Tpo -c -o algo/keccak/cpuminer-keccak.o `test -f 'algo/keccak/keccak.c' || echo './'`algo/keccak/keccak.c
+mv -f algo/keccak/.deps/cpuminer-sph_keccak.Tpo algo/keccak/.deps/cpuminer-sph_keccak.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/keccak/cpuminer-keccak-hash-4way.o -MD -MP -MF algo/keccak/.deps/cpuminer-keccak-hash-4way.Tpo -c -o algo/keccak/cpuminer-keccak-hash-4way.o `test -f 'algo/keccak/keccak-hash-4way.c' || echo './'`algo/keccak/keccak-hash-4way.c
+mv -f algo/keccak/.deps/cpuminer-keccak-hash-4way.Tpo algo/keccak/.deps/cpuminer-keccak-hash-4way.Po
+mv -f algo/keccak/.deps/cpuminer-keccak.Tpo algo/keccak/.deps/cpuminer-keccak.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/keccak/cpuminer-keccak-4way.o -MD -MP -MF algo/keccak/.deps/cpuminer-keccak-4way.Tpo -c -o algo/keccak/cpuminer-keccak-4way.o `test -f 'algo/keccak/keccak-4way.c' || echo './'`algo/keccak/keccak-4way.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/keccak/cpuminer-keccak-gate.o -MD -MP -MF algo/keccak/.deps/cpuminer-keccak-gate.Tpo -c -o algo/keccak/cpuminer-keccak-gate.o `test -f 'algo/keccak/keccak-gate.c' || echo './'`algo/keccak/keccak-gate.c
+mv -f algo/jh/.deps/cpuminer-sph_jh.Tpo algo/jh/.deps/cpuminer-sph_jh.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/keccak/sse2/cpuminer-keccak.o -MD -MP -MF algo/keccak/sse2/.deps/cpuminer-keccak.Tpo -c -o algo/keccak/sse2/cpuminer-keccak.o `test -f 'algo/keccak/sse2/keccak.c' || echo './'`algo/keccak/sse2/keccak.c
+algo/keccak/sse2/keccak.c:794:22: warning: ‘keczword’ defined but not used [-Wunused-variable]
+algo/keccak/sse2/keccak.c:794:22: warning: ‘keczword’ defined but not used [-Wunused-variable]
+ static unsigned char keczword[8] = { 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80 };
+ static unsigned char keczword[8] = { 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80 };
+                      ^~~~~~~~
+                      ^~~~~~~~
+algo/keccak/sse2/keccak.c:95:22: warning: ‘RC’ defined but not used [-Wunused-const-variable=]
+algo/keccak/sse2/keccak.c:95:22: warning: ‘RC’ defined but not used [-Wunused-const-variable=]
+ static const sph_u64 RC[] = {
+ static const sph_u64 RC[] = {
+                      ^~
+                      ^~
+mv -f algo/keccak/sse2/.deps/cpuminer-keccak.Tpo algo/keccak/sse2/.deps/cpuminer-keccak.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/luffa/cpuminer-sph_luffa.o -MD -MP -MF algo/luffa/.deps/cpuminer-sph_luffa.Tpo -c -o algo/luffa/cpuminer-sph_luffa.o `test -f 'algo/luffa/sph_luffa.c' || echo './'`algo/luffa/sph_luffa.c
+algo/luffa/sph_luffa.c:147:22: warning: ‘RC34’ defined but not used [-Wunused-const-variable=]
+algo/luffa/sph_luffa.c:147:22: warning: ‘RC34’ defined but not used [-Wunused-const-variable=]
+ static const sph_u32 RC34[8] = {
+ static const sph_u32 RC34[8] = {
+                      ^~~~
+                      ^~~~
+algo/luffa/sph_luffa.c:140:22: warning: ‘RC30’ defined but not used [-Wunused-const-variable=]
+algo/luffa/sph_luffa.c:140:22: warning: ‘RC30’ defined but not used [-Wunused-const-variable=]
+ static const sph_u32 RC30[8] = {
+ static const sph_u32 RC30[8] = {
+                      ^~~~
+                      ^~~~
+algo/luffa/sph_luffa.c:101:22: warning: ‘RC14’ defined but not used [-Wunused-const-variable=]
+algo/luffa/sph_luffa.c:101:22: warning: ‘RC14’ defined but not used [-Wunused-const-variable=]
+ static const sph_u32 RC14[8] = {
+ static const sph_u32 RC14[8] = {
+                      ^~~~
+                      ^~~~
+algo/luffa/sph_luffa.c:94:22: warning: ‘RC10’ defined but not used [-Wunused-const-variable=]
+algo/luffa/sph_luffa.c:94:22: warning: ‘RC10’ defined but not used [-Wunused-const-variable=]
+ static const sph_u32 RC10[8] = {
+ static const sph_u32 RC10[8] = {
+                      ^~~~
+                      ^~~~
+algo/luffa/sph_luffa.c:87:22: warning: ‘RC04’ defined but not used [-Wunused-const-variable=]
+algo/luffa/sph_luffa.c:87:22: warning: ‘RC04’ defined but not used [-Wunused-const-variable=]
+ static const sph_u32 RC04[8] = {
+ static const sph_u32 RC04[8] = {
+                      ^~~~
+                      ^~~~
+algo/luffa/sph_luffa.c:80:22: warning: ‘RC00’ defined but not used [-Wunused-const-variable=]
+algo/luffa/sph_luffa.c:80:22: warning: ‘RC00’ defined but not used [-Wunused-const-variable=]
+ static const sph_u32 RC00[8] = {
+ static const sph_u32 RC00[8] = {
+                      ^~~~
+                      ^~~~
+mv -f algo/keccak/.deps/cpuminer-keccak-4way.Tpo algo/keccak/.deps/cpuminer-keccak-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/luffa/cpuminer-luffa.o -MD -MP -MF algo/luffa/.deps/cpuminer-luffa.Tpo -c -o algo/luffa/cpuminer-luffa.o `test -f 'algo/luffa/luffa.c' || echo './'`algo/luffa/luffa.c
+mv -f algo/keccak/.deps/cpuminer-keccak-gate.Tpo algo/keccak/.deps/cpuminer-keccak-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/luffa/cpuminer-luffa_for_sse2.o -MD -MP -MF algo/luffa/.deps/cpuminer-luffa_for_sse2.Tpo -c -o algo/luffa/cpuminer-luffa_for_sse2.o `test -f 'algo/luffa/luffa_for_sse2.c' || echo './'`algo/luffa/luffa_for_sse2.c
+mv -f algo/luffa/.deps/cpuminer-luffa.Tpo algo/luffa/.deps/cpuminer-luffa.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/luffa/cpuminer-luffa-hash-2way.o -MD -MP -MF algo/luffa/.deps/cpuminer-luffa-hash-2way.Tpo -c -o algo/luffa/cpuminer-luffa-hash-2way.o `test -f 'algo/luffa/luffa-hash-2way.c' || echo './'`algo/luffa/luffa-hash-2way.c
+mv -f algo/luffa/.deps/cpuminer-sph_luffa.Tpo algo/luffa/.deps/cpuminer-sph_luffa.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2.Tpo -c -o algo/lyra2/cpuminer-lyra2.o `test -f 'algo/lyra2/lyra2.c' || echo './'`algo/lyra2/lyra2.c
+mv -f algo/luffa/.deps/cpuminer-luffa_for_sse2.Tpo algo/luffa/.deps/cpuminer-luffa_for_sse2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-sponge.o -MD -MP -MF algo/lyra2/.deps/cpuminer-sponge.Tpo -c -o algo/lyra2/cpuminer-sponge.o `test -f 'algo/lyra2/sponge.c' || echo './'`algo/lyra2/sponge.c
+mv -f algo/luffa/.deps/cpuminer-luffa-hash-2way.Tpo algo/luffa/.deps/cpuminer-luffa-hash-2way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2rev2-gate.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2rev2-gate.Tpo -c -o algo/lyra2/cpuminer-lyra2rev2-gate.o `test -f 'algo/lyra2/lyra2rev2-gate.c' || echo './'`algo/lyra2/lyra2rev2-gate.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2rev2-gate.Tpo algo/lyra2/.deps/cpuminer-lyra2rev2-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2rev2.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2rev2.Tpo -c -o algo/lyra2/cpuminer-lyra2rev2.o `test -f 'algo/lyra2/lyra2rev2.c' || echo './'`algo/lyra2/lyra2rev2.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2.Tpo algo/lyra2/.deps/cpuminer-lyra2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2rev2-4way.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2rev2-4way.Tpo -c -o algo/lyra2/cpuminer-lyra2rev2-4way.o `test -f 'algo/lyra2/lyra2rev2-4way.c' || echo './'`algo/lyra2/lyra2rev2-4way.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2rev2-4way.Tpo algo/lyra2/.deps/cpuminer-lyra2rev2-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2re.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2re.Tpo -c -o algo/lyra2/cpuminer-lyra2re.o `test -f 'algo/lyra2/lyra2re.c' || echo './'`algo/lyra2/lyra2re.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2rev2.Tpo algo/lyra2/.deps/cpuminer-lyra2rev2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2z-gate.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2z-gate.Tpo -c -o algo/lyra2/cpuminer-lyra2z-gate.o `test -f 'algo/lyra2/lyra2z-gate.c' || echo './'`algo/lyra2/lyra2z-gate.c
+mv -f algo/lyra2/.deps/cpuminer-sponge.Tpo algo/lyra2/.deps/cpuminer-sponge.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2z.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2z.Tpo -c -o algo/lyra2/cpuminer-lyra2z.o `test -f 'algo/lyra2/lyra2z.c' || echo './'`algo/lyra2/lyra2z.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2re.Tpo algo/lyra2/.deps/cpuminer-lyra2re.Po
+mv -f algo/lyra2/.deps/cpuminer-lyra2z-gate.Tpo algo/lyra2/.deps/cpuminer-lyra2z-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2z-4way.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2z-4way.Tpo -c -o algo/lyra2/cpuminer-lyra2z-4way.o `test -f 'algo/lyra2/lyra2z-4way.c' || echo './'`algo/lyra2/lyra2z-4way.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2z330.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2z330.Tpo -c -o algo/lyra2/cpuminer-lyra2z330.o `test -f 'algo/lyra2/lyra2z330.c' || echo './'`algo/lyra2/lyra2z330.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2z.Tpo algo/lyra2/.deps/cpuminer-lyra2z.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2h-gate.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2h-gate.Tpo -c -o algo/lyra2/cpuminer-lyra2h-gate.o `test -f 'algo/lyra2/lyra2h-gate.c' || echo './'`algo/lyra2/lyra2h-gate.c
+In file included from ./algo-gate-api.h:6:0,
+In file included from ./algo-gate-api.h:6:0,
+                 from algo/lyra2/lyra2z-gate.h:4,
+                 from algo/lyra2/lyra2z-gate.h:4,
+                 from algo/lyra2/lyra2z-4way.c:1:
+                 from algo/lyra2/lyra2z-4way.c:1:
+algo/lyra2/lyra2z-4way.c: In function ‘scanhash_lyra2z_4way’:
+algo/lyra2/lyra2z-4way.c: In function ‘scanhash_lyra2z_4way’:
+./interleave.h:64:53: warning: ‘*((void *)&edata+76)’ is used uninitialized in this function [-Wuninitialized]
+./interleave.h:64:53: warning: ‘*((void *)&edata+76)’ is used uninitialized in this function [-Wuninitialized]
+    d[19] = _mm_set_epi32( s3[19], s2[19], s1[19], s0[19] );
+    d[19] = _mm_set_epi32( s3[19], s2[19], s1[19], s0[19] );
+                                                   ~~^~~~
+                                                   ~~^~~~
+mv -f algo/lyra2/.deps/cpuminer-lyra2z330.Tpo algo/lyra2/.deps/cpuminer-lyra2z330.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2h.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2h.Tpo -c -o algo/lyra2/cpuminer-lyra2h.o `test -f 'algo/lyra2/lyra2h.c' || echo './'`algo/lyra2/lyra2h.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2z-4way.Tpo algo/lyra2/.deps/cpuminer-lyra2z-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-lyra2h-4way.o -MD -MP -MF algo/lyra2/.deps/cpuminer-lyra2h-4way.Tpo -c -o algo/lyra2/cpuminer-lyra2h-4way.o `test -f 'algo/lyra2/lyra2h-4way.c' || echo './'`algo/lyra2/lyra2h-4way.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2h-gate.Tpo algo/lyra2/.deps/cpuminer-lyra2h-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-allium-gate.o -MD -MP -MF algo/lyra2/.deps/cpuminer-allium-gate.Tpo -c -o algo/lyra2/cpuminer-allium-gate.o `test -f 'algo/lyra2/allium-gate.c' || echo './'`algo/lyra2/allium-gate.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2h-4way.Tpo algo/lyra2/.deps/cpuminer-lyra2h-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-allium-4way.o -MD -MP -MF algo/lyra2/.deps/cpuminer-allium-4way.Tpo -c -o algo/lyra2/cpuminer-allium-4way.o `test -f 'algo/lyra2/allium-4way.c' || echo './'`algo/lyra2/allium-4way.c
+mv -f algo/lyra2/.deps/cpuminer-lyra2h.Tpo algo/lyra2/.deps/cpuminer-lyra2h.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/lyra2/cpuminer-allium.o -MD -MP -MF algo/lyra2/.deps/cpuminer-allium.Tpo -c -o algo/lyra2/cpuminer-allium.o `test -f 'algo/lyra2/allium.c' || echo './'`algo/lyra2/allium.c
+mv -f algo/haval/.deps/cpuminer-haval.Tpo algo/haval/.deps/cpuminer-haval.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/cpuminer-m7m.o -MD -MP -MF algo/.deps/cpuminer-m7m.Tpo -c -o algo/cpuminer-m7m.o `test -f 'algo/m7m.c' || echo './'`algo/m7m.c
+mv -f algo/lyra2/.deps/cpuminer-allium-gate.Tpo algo/lyra2/.deps/cpuminer-allium-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/neoscrypt/cpuminer-neoscrypt.o -MD -MP -MF algo/neoscrypt/.deps/cpuminer-neoscrypt.Tpo -c -o algo/neoscrypt/cpuminer-neoscrypt.o `test -f 'algo/neoscrypt/neoscrypt.c' || echo './'`algo/neoscrypt/neoscrypt.c
+mv -f algo/lyra2/.deps/cpuminer-allium-4way.Tpo algo/lyra2/.deps/cpuminer-allium-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/nist5/cpuminer-nist5-gate.o -MD -MP -MF algo/nist5/.deps/cpuminer-nist5-gate.Tpo -c -o algo/nist5/cpuminer-nist5-gate.o `test -f 'algo/nist5/nist5-gate.c' || echo './'`algo/nist5/nist5-gate.c
+mv -f algo/lyra2/.deps/cpuminer-allium.Tpo algo/lyra2/.deps/cpuminer-allium.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/nist5/cpuminer-nist5-4way.o -MD -MP -MF algo/nist5/.deps/cpuminer-nist5-4way.Tpo -c -o algo/nist5/cpuminer-nist5-4way.o `test -f 'algo/nist5/nist5-4way.c' || echo './'`algo/nist5/nist5-4way.c
+mv -f algo/.deps/cpuminer-m7m.Tpo algo/.deps/cpuminer-m7m.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/nist5/cpuminer-nist5.o -MD -MP -MF algo/nist5/.deps/cpuminer-nist5.Tpo -c -o algo/nist5/cpuminer-nist5.o `test -f 'algo/nist5/nist5.c' || echo './'`algo/nist5/nist5.c
+mv -f algo/nist5/.deps/cpuminer-nist5-gate.Tpo algo/nist5/.deps/cpuminer-nist5-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/nist5/cpuminer-zr5.o -MD -MP -MF algo/nist5/.deps/cpuminer-zr5.Tpo -c -o algo/nist5/cpuminer-zr5.o `test -f 'algo/nist5/zr5.c' || echo './'`algo/nist5/zr5.c
+mv -f algo/nist5/.deps/cpuminer-nist5-4way.Tpo algo/nist5/.deps/cpuminer-nist5-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/quark/cpuminer-quark-gate.o -MD -MP -MF algo/quark/.deps/cpuminer-quark-gate.Tpo -c -o algo/quark/cpuminer-quark-gate.o `test -f 'algo/quark/quark-gate.c' || echo './'`algo/quark/quark-gate.c
+mv -f algo/neoscrypt/.deps/cpuminer-neoscrypt.Tpo algo/neoscrypt/.deps/cpuminer-neoscrypt.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/quark/cpuminer-quark.o -MD -MP -MF algo/quark/.deps/cpuminer-quark.Tpo -c -o algo/quark/cpuminer-quark.o `test -f 'algo/quark/quark.c' || echo './'`algo/quark/quark.c
+mv -f algo/quark/.deps/cpuminer-quark-gate.Tpo algo/quark/.deps/cpuminer-quark-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/quark/cpuminer-quark-4way.o -MD -MP -MF algo/quark/.deps/cpuminer-quark-4way.Tpo -c -o algo/quark/cpuminer-quark-4way.o `test -f 'algo/quark/quark-4way.c' || echo './'`algo/quark/quark-4way.c
+mv -f algo/quark/.deps/cpuminer-quark-4way.Tpo algo/quark/.deps/cpuminer-quark-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/quark/cpuminer-anime-gate.o -MD -MP -MF algo/quark/.deps/cpuminer-anime-gate.Tpo -c -o algo/quark/cpuminer-anime-gate.o `test -f 'algo/quark/anime-gate.c' || echo './'`algo/quark/anime-gate.c
+mv -f algo/nist5/.deps/cpuminer-zr5.Tpo algo/nist5/.deps/cpuminer-zr5.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/quark/cpuminer-anime.o -MD -MP -MF algo/quark/.deps/cpuminer-anime.Tpo -c -o algo/quark/cpuminer-anime.o `test -f 'algo/quark/anime.c' || echo './'`algo/quark/anime.c
+mv -f algo/quark/.deps/cpuminer-anime-gate.Tpo algo/quark/.deps/cpuminer-anime-gate.Po
+mv -f algo/nist5/.deps/cpuminer-nist5.Tpo algo/nist5/.deps/cpuminer-nist5.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/quark/cpuminer-anime-4way.o -MD -MP -MF algo/quark/.deps/cpuminer-anime-4way.Tpo -c -o algo/quark/cpuminer-anime-4way.o `test -f 'algo/quark/anime-4way.c' || echo './'`algo/quark/anime-4way.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/qubit/cpuminer-qubit-gate.o -MD -MP -MF algo/qubit/.deps/cpuminer-qubit-gate.Tpo -c -o algo/qubit/cpuminer-qubit-gate.o `test -f 'algo/qubit/qubit-gate.c' || echo './'`algo/qubit/qubit-gate.c
+mv -f algo/quark/.deps/cpuminer-anime-4way.Tpo algo/quark/.deps/cpuminer-anime-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/qubit/cpuminer-qubit.o -MD -MP -MF algo/qubit/.deps/cpuminer-qubit.Tpo -c -o algo/qubit/cpuminer-qubit.o `test -f 'algo/qubit/qubit.c' || echo './'`algo/qubit/qubit.c
+mv -f algo/qubit/.deps/cpuminer-qubit-gate.Tpo algo/qubit/.deps/cpuminer-qubit-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/qubit/cpuminer-qubit-2way.o -MD -MP -MF algo/qubit/.deps/cpuminer-qubit-2way.Tpo -c -o algo/qubit/cpuminer-qubit-2way.o `test -f 'algo/qubit/qubit-2way.c' || echo './'`algo/qubit/qubit-2way.c
+mv -f algo/quark/.deps/cpuminer-anime.Tpo algo/quark/.deps/cpuminer-anime.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/qubit/cpuminer-deep-gate.o -MD -MP -MF algo/qubit/.deps/cpuminer-deep-gate.Tpo -c -o algo/qubit/cpuminer-deep-gate.o `test -f 'algo/qubit/deep-gate.c' || echo './'`algo/qubit/deep-gate.c
+mv -f algo/qubit/.deps/cpuminer-qubit-2way.Tpo algo/qubit/.deps/cpuminer-qubit-2way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/qubit/cpuminer-deep-2way.o -MD -MP -MF algo/qubit/.deps/cpuminer-deep-2way.Tpo -c -o algo/qubit/cpuminer-deep-2way.o `test -f 'algo/qubit/deep-2way.c' || echo './'`algo/qubit/deep-2way.c
+mv -f algo/qubit/.deps/cpuminer-deep-gate.Tpo algo/qubit/.deps/cpuminer-deep-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/qubit/cpuminer-deep.o -MD -MP -MF algo/qubit/.deps/cpuminer-deep.Tpo -c -o algo/qubit/cpuminer-deep.o `test -f 'algo/qubit/deep.c' || echo './'`algo/qubit/deep.c
+mv -f algo/qubit/.deps/cpuminer-qubit.Tpo algo/qubit/.deps/cpuminer-qubit.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/ripemd/cpuminer-sph_ripemd.o -MD -MP -MF algo/ripemd/.deps/cpuminer-sph_ripemd.Tpo -c -o algo/ripemd/cpuminer-sph_ripemd.o `test -f 'algo/ripemd/sph_ripemd.c' || echo './'`algo/ripemd/sph_ripemd.c
+mv -f algo/quark/.deps/cpuminer-quark.Tpo algo/quark/.deps/cpuminer-quark.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/ripemd/cpuminer-ripemd-hash-4way.o -MD -MP -MF algo/ripemd/.deps/cpuminer-ripemd-hash-4way.Tpo -c -o algo/ripemd/cpuminer-ripemd-hash-4way.o `test -f 'algo/ripemd/ripemd-hash-4way.c' || echo './'`algo/ripemd/ripemd-hash-4way.c
+mv -f algo/qubit/.deps/cpuminer-deep-2way.Tpo algo/qubit/.deps/cpuminer-deep-2way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/ripemd/cpuminer-lbry-gate.o -MD -MP -MF algo/ripemd/.deps/cpuminer-lbry-gate.Tpo -c -o algo/ripemd/cpuminer-lbry-gate.o `test -f 'algo/ripemd/lbry-gate.c' || echo './'`algo/ripemd/lbry-gate.c
+mv -f algo/qubit/.deps/cpuminer-deep.Tpo algo/qubit/.deps/cpuminer-deep.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/ripemd/cpuminer-lbry.o -MD -MP -MF algo/ripemd/.deps/cpuminer-lbry.Tpo -c -o algo/ripemd/cpuminer-lbry.o `test -f 'algo/ripemd/lbry.c' || echo './'`algo/ripemd/lbry.c
+mv -f algo/ripemd/.deps/cpuminer-lbry-gate.Tpo algo/ripemd/.deps/cpuminer-lbry-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/ripemd/cpuminer-lbry-4way.o -MD -MP -MF algo/ripemd/.deps/cpuminer-lbry-4way.Tpo -c -o algo/ripemd/cpuminer-lbry-4way.o `test -f 'algo/ripemd/lbry-4way.c' || echo './'`algo/ripemd/lbry-4way.c
+mv -f algo/ripemd/.deps/cpuminer-lbry.Tpo algo/ripemd/.deps/cpuminer-lbry.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/scryptjane/cpuminer-scrypt-jane.o -MD -MP -MF algo/scryptjane/.deps/cpuminer-scrypt-jane.Tpo -c -o algo/scryptjane/cpuminer-scrypt-jane.o `test -f 'algo/scryptjane/scrypt-jane.c' || echo './'`algo/scryptjane/scrypt-jane.c
+mv -f algo/ripemd/.deps/cpuminer-ripemd-hash-4way.Tpo algo/ripemd/.deps/cpuminer-ripemd-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sph_sha2.o -MD -MP -MF algo/sha/.deps/cpuminer-sph_sha2.Tpo -c -o algo/sha/cpuminer-sph_sha2.o `test -f 'algo/sha/sph_sha2.c' || echo './'`algo/sha/sph_sha2.c
+mv -f algo/ripemd/.deps/cpuminer-sph_ripemd.Tpo algo/ripemd/.deps/cpuminer-sph_ripemd.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sph_sha2big.o -MD -MP -MF algo/sha/.deps/cpuminer-sph_sha2big.Tpo -c -o algo/sha/cpuminer-sph_sha2big.o `test -f 'algo/sha/sph_sha2big.c' || echo './'`algo/sha/sph_sha2big.c
+mv -f algo/ripemd/.deps/cpuminer-lbry-4way.Tpo algo/ripemd/.deps/cpuminer-lbry-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sha2-hash-4way.o -MD -MP -MF algo/sha/.deps/cpuminer-sha2-hash-4way.Tpo -c -o algo/sha/cpuminer-sha2-hash-4way.o `test -f 'algo/sha/sha2-hash-4way.c' || echo './'`algo/sha/sha2-hash-4way.c
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-portable.h:279:0,
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-portable.h:279:0,
+                 from algo/scryptjane/scrypt-jane.c:21:
+                 from algo/scryptjane/scrypt-jane.c:21:
+algo/scryptjane/../scryptjane/scrypt-jane-portable-x86.h: In function ‘detect_cpu’:
+algo/scryptjane/../scryptjane/scrypt-jane-portable-x86.h: In function ‘detect_cpu’:
+algo/scryptjane/../scryptjane/scrypt-jane-portable-x86.h:302:18: warning: variable ‘vendor’ set but not used [-Wunused-but-set-variable]
+algo/scryptjane/../scryptjane/scrypt-jane-portable-x86.h:302:18: warning: variable ‘vendor’ set but not used [-Wunused-but-set-variable]
+  cpu_vendors_x86 vendor = cpu_nobody;
+  cpu_vendors_x86 vendor = cpu_nobody;
+                  ^~~~~~
+                  ^~~~~~
+mv -f algo/sha/.deps/cpuminer-sph_sha2big.Tpo algo/sha/.deps/cpuminer-sph_sha2big.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sha2.o -MD -MP -MF algo/sha/.deps/cpuminer-sha2.Tpo -c -o algo/sha/cpuminer-sha2.o `test -f 'algo/sha/sha2.c' || echo './'`algo/sha/sha2.c
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-chacha.h:29:0,
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-chacha.h:29:0,
+                 from algo/scryptjane/../scryptjane/scrypt-jane-romix.h:2,
+                 from algo/scryptjane/../scryptjane/scrypt-jane-romix.h:2,
+                 from algo/scryptjane/scrypt-jane.c:23:
+                 from algo/scryptjane/scrypt-jane.c:23:
+At top level:
+At top level:
+algo/scryptjane/../scryptjane/scrypt-jane-romix-template.h:5:25: warning: ‘scrypt_ROMix’ defined but not used [-Wunused-function]
+algo/scryptjane/../scryptjane/scrypt-jane-romix-template.h:5:25: warning: ‘scrypt_ROMix’ defined but not used [-Wunused-function]
+ #define SCRYPT_ROMIX_FN scrypt_ROMix
+ #define SCRYPT_ROMIX_FN scrypt_ROMix
+                         ^
+                         ^
+algo/scryptjane/../scryptjane/scrypt-jane-romix-template.h:71:1: note: in expansion of macro ‘SCRYPT_ROMIX_FN’
+algo/scryptjane/../scryptjane/scrypt-jane-romix-template.h:71:1: note: in expansion of macro ‘SCRYPT_ROMIX_FN’
+ SCRYPT_ROMIX_FN(scrypt_mix_word_t *X/*[chunkWords]*/, scrypt_mix_word_t *Y/*[chunkWords]*/, scrypt_mix_word_t *V/*[N * chunkWords]*/, uint32_t N, uint32_t r) {
+ SCRYPT_ROMIX_FN(scrypt_mix_word_t *X/*[chunkWords]*/, scrypt_mix_word_t *Y/*[chunkWords]*/, scrypt_mix_word_t *V/*[N * chunkWords]*/, uint32_t N, uint32_t r) {
+ ^~~~~~~~~~~~~~~
+ ^~~~~~~~~~~~~~~
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-chacha.h:12:0,
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-chacha.h:12:0,
+                 from algo/scryptjane/../scryptjane/scrypt-jane-romix.h:2,
+                 from algo/scryptjane/../scryptjane/scrypt-jane-romix.h:2,
+                 from algo/scryptjane/scrypt-jane.c:23:
+                 from algo/scryptjane/scrypt-jane.c:23:
+algo/scryptjane/../scryptjane/scrypt-jane-romix-basic.h:31:1: warning: ‘scrypt_test_mix_instance’ defined but not used [-Wunused-function]
+algo/scryptjane/../scryptjane/scrypt-jane-romix-basic.h:31:1: warning: ‘scrypt_test_mix_instance’ defined but not used [-Wunused-function]
+ scrypt_test_mix_instance(chunkmixfn mixfn, blockfixfn prefn, blockfixfn postfn, const uint8_t expected[16]) {
+ scrypt_test_mix_instance(chunkmixfn mixfn, blockfixfn prefn, blockfixfn postfn, const uint8_t expected[16]) {
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+algo/scryptjane/../scryptjane/scrypt-jane-romix-basic.h:13:1: warning: ‘scrypt_romix_convert_endian’ defined but not used [-Wunused-function]
+algo/scryptjane/../scryptjane/scrypt-jane-romix-basic.h:13:1: warning: ‘scrypt_romix_convert_endian’ defined but not used [-Wunused-function]
+ scrypt_romix_convert_endian(scrypt_mix_word_t *blocks, size_t nblocks) {
+ scrypt_romix_convert_endian(scrypt_mix_word_t *blocks, size_t nblocks) {
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-hash.h:26:0,
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-hash.h:26:0,
+                 from algo/scryptjane/scrypt-jane.c:22:
+                 from algo/scryptjane/scrypt-jane.c:22:
+algo/scryptjane/../scryptjane/scrypt-jane-pbkdf2.h:70:1: warning: ‘scrypt_pbkdf2’ defined but not used [-Wunused-function]
+algo/scryptjane/../scryptjane/scrypt-jane-pbkdf2.h:70:1: warning: ‘scrypt_pbkdf2’ defined but not used [-Wunused-function]
+ scrypt_pbkdf2(const uint8_t *password, size_t password_len, const uint8_t *salt, size_t salt_len, uint64_t N, uint8_t *out, size_t bytes) {
+ scrypt_pbkdf2(const uint8_t *password, size_t password_len, const uint8_t *salt, size_t salt_len, uint64_t N, uint8_t *out, size_t bytes) {
+ ^~~~~~~~~~~~~
+ ^~~~~~~~~~~~~
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-portable.h:279:0,
+In file included from algo/scryptjane/../scryptjane/scrypt-jane-portable.h:279:0,
+                 from algo/scryptjane/scrypt-jane.c:21:
+                 from algo/scryptjane/scrypt-jane.c:21:
+algo/scryptjane/../scryptjane/scrypt-jane-portable-x86.h:300:1: warning: ‘detect_cpu’ defined but not used [-Wunused-function]
+algo/scryptjane/../scryptjane/scrypt-jane-portable-x86.h:300:1: warning: ‘detect_cpu’ defined but not used [-Wunused-function]
+ detect_cpu(void) {
+ detect_cpu(void) {
+ ^~~~~~~~~~
+ ^~~~~~~~~~
+mv -f algo/sha/.deps/cpuminer-sph_sha2.Tpo algo/sha/.deps/cpuminer-sph_sha2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sha256t-gate.o -MD -MP -MF algo/sha/.deps/cpuminer-sha256t-gate.Tpo -c -o algo/sha/cpuminer-sha256t-gate.o `test -f 'algo/sha/sha256t-gate.c' || echo './'`algo/sha/sha256t-gate.c
+mv -f algo/scryptjane/.deps/cpuminer-scrypt-jane.Tpo algo/scryptjane/.deps/cpuminer-scrypt-jane.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sha256t-4way.o -MD -MP -MF algo/sha/.deps/cpuminer-sha256t-4way.Tpo -c -o algo/sha/cpuminer-sha256t-4way.o `test -f 'algo/sha/sha256t-4way.c' || echo './'`algo/sha/sha256t-4way.c
+mv -f algo/sha/.deps/cpuminer-sha2-hash-4way.Tpo algo/sha/.deps/cpuminer-sha2-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sha/cpuminer-sha256t.o -MD -MP -MF algo/sha/.deps/cpuminer-sha256t.Tpo -c -o algo/sha/cpuminer-sha256t.o `test -f 'algo/sha/sha256t.c' || echo './'`algo/sha/sha256t.c
+mv -f algo/sha/.deps/cpuminer-sha256t-gate.Tpo algo/sha/.deps/cpuminer-sha256t-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/shabal/cpuminer-sph_shabal.o -MD -MP -MF algo/shabal/.deps/cpuminer-sph_shabal.Tpo -c -o algo/shabal/cpuminer-sph_shabal.o `test -f 'algo/shabal/sph_shabal.c' || echo './'`algo/shabal/sph_shabal.c
+In file included from ./algo-gate-api.h:6:0,
+In file included from ./algo-gate-api.h:6:0,
+                 from algo/sha/sha256t-gate.h:5,
+                 from algo/sha/sha256t-gate.h:5,
+                 from algo/sha/sha256t-4way.c:1:
+                 from algo/sha/sha256t-4way.c:1:
+algo/sha/sha256t-4way.c: In function ‘scanhash_sha256t_4way’:
+algo/sha/sha256t-4way.c: In function ‘scanhash_sha256t_4way’:
+./interleave.h:64:53: warning: ‘*((void *)&edata+76)’ is used uninitialized in this function [-Wuninitialized]
+./interleave.h:64:53: warning: ‘*((void *)&edata+76)’ is used uninitialized in this function [-Wuninitialized]
+    d[19] = _mm_set_epi32( s3[19], s2[19], s1[19], s0[19] );
+    d[19] = _mm_set_epi32( s3[19], s2[19], s1[19], s0[19] );
+                                                   ~~^~~~
+                                                   ~~^~~~
+mv -f algo/sha/.deps/cpuminer-sha256t-4way.Tpo algo/sha/.deps/cpuminer-sha256t-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/shabal/cpuminer-shabal-hash-4way.o -MD -MP -MF algo/shabal/.deps/cpuminer-shabal-hash-4way.Tpo -c -o algo/shabal/cpuminer-shabal-hash-4way.o `test -f 'algo/shabal/shabal-hash-4way.c' || echo './'`algo/shabal/shabal-hash-4way.c
+mv -f algo/shabal/.deps/cpuminer-shabal-hash-4way.Tpo algo/shabal/.deps/cpuminer-shabal-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/shavite/cpuminer-sph_shavite.o -MD -MP -MF algo/shavite/.deps/cpuminer-sph_shavite.Tpo -c -o algo/shavite/cpuminer-sph_shavite.o `test -f 'algo/shavite/sph_shavite.c' || echo './'`algo/shavite/sph_shavite.c
+mv -f algo/sha/.deps/cpuminer-sha256t.Tpo algo/sha/.deps/cpuminer-sha256t.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/shavite/cpuminer-sph-shavite-aesni.o -MD -MP -MF algo/shavite/.deps/cpuminer-sph-shavite-aesni.Tpo -c -o algo/shavite/cpuminer-sph-shavite-aesni.o `test -f 'algo/shavite/sph-shavite-aesni.c' || echo './'`algo/shavite/sph-shavite-aesni.c
+mv -f algo/shabal/.deps/cpuminer-sph_shabal.Tpo algo/shabal/.deps/cpuminer-sph_shabal.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/shavite/cpuminer-shavite.o -MD -MP -MF algo/shavite/.deps/cpuminer-shavite.Tpo -c -o algo/shavite/cpuminer-shavite.o `test -f 'algo/shavite/shavite.c' || echo './'`algo/shavite/shavite.c
+mv -f algo/shavite/.deps/cpuminer-sph-shavite-aesni.Tpo algo/shavite/.deps/cpuminer-sph-shavite-aesni.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/simd/cpuminer-sph_simd.o -MD -MP -MF algo/simd/.deps/cpuminer-sph_simd.Tpo -c -o algo/simd/cpuminer-sph_simd.o `test -f 'algo/simd/sph_simd.c' || echo './'`algo/simd/sph_simd.c
+mv -f algo/shavite/.deps/cpuminer-shavite.Tpo algo/shavite/.deps/cpuminer-shavite.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/simd/cpuminer-nist.o -MD -MP -MF algo/simd/.deps/cpuminer-nist.Tpo -c -o algo/simd/cpuminer-nist.o `test -f 'algo/simd/nist.c' || echo './'`algo/simd/nist.c
+mv -f algo/sha/.deps/cpuminer-sha2.Tpo algo/sha/.deps/cpuminer-sha2.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/simd/cpuminer-vector.o -MD -MP -MF algo/simd/.deps/cpuminer-vector.Tpo -c -o algo/simd/cpuminer-vector.o `test -f 'algo/simd/vector.c' || echo './'`algo/simd/vector.c
+mv -f algo/simd/.deps/cpuminer-nist.Tpo algo/simd/.deps/cpuminer-nist.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/simd/cpuminer-simd-hash-2way.o -MD -MP -MF algo/simd/.deps/cpuminer-simd-hash-2way.Tpo -c -o algo/simd/cpuminer-simd-hash-2way.o `test -f 'algo/simd/simd-hash-2way.c' || echo './'`algo/simd/simd-hash-2way.c
+mv -f algo/simd/.deps/cpuminer-simd-hash-2way.Tpo algo/simd/.deps/cpuminer-simd-hash-2way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-sph_skein.o -MD -MP -MF algo/skein/.deps/cpuminer-sph_skein.Tpo -c -o algo/skein/cpuminer-sph_skein.o `test -f 'algo/skein/sph_skein.c' || echo './'`algo/skein/sph_skein.c
+mv -f algo/skein/.deps/cpuminer-sph_skein.Tpo algo/skein/.deps/cpuminer-sph_skein.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein-hash-4way.o -MD -MP -MF algo/skein/.deps/cpuminer-skein-hash-4way.Tpo -c -o algo/skein/cpuminer-skein-hash-4way.o `test -f 'algo/skein/skein-hash-4way.c' || echo './'`algo/skein/skein-hash-4way.c
+mv -f algo/skein/.deps/cpuminer-skein-hash-4way.Tpo algo/skein/.deps/cpuminer-skein-hash-4way.Po
+mv -f algo/simd/.deps/cpuminer-vector.Tpo algo/simd/.deps/cpuminer-vector.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein.o -MD -MP -MF algo/skein/.deps/cpuminer-skein.Tpo -c -o algo/skein/cpuminer-skein.o `test -f 'algo/skein/skein.c' || echo './'`algo/skein/skein.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein-4way.o -MD -MP -MF algo/skein/.deps/cpuminer-skein-4way.Tpo -c -o algo/skein/cpuminer-skein-4way.o `test -f 'algo/skein/skein-4way.c' || echo './'`algo/skein/skein-4way.c
+mv -f algo/shavite/.deps/cpuminer-sph_shavite.Tpo algo/shavite/.deps/cpuminer-sph_shavite.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein-gate.o -MD -MP -MF algo/skein/.deps/cpuminer-skein-gate.Tpo -c -o algo/skein/cpuminer-skein-gate.o `test -f 'algo/skein/skein-gate.c' || echo './'`algo/skein/skein-gate.c
+mv -f algo/skein/.deps/cpuminer-skein-4way.Tpo algo/skein/.deps/cpuminer-skein-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein2.o -MD -MP -MF algo/skein/.deps/cpuminer-skein2.Tpo -c -o algo/skein/cpuminer-skein2.o `test -f 'algo/skein/skein2.c' || echo './'`algo/skein/skein2.c
+mv -f algo/skein/.deps/cpuminer-skein.Tpo algo/skein/.deps/cpuminer-skein.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein2-4way.o -MD -MP -MF algo/skein/.deps/cpuminer-skein2-4way.Tpo -c -o algo/skein/cpuminer-skein2-4way.o `test -f 'algo/skein/skein2-4way.c' || echo './'`algo/skein/skein2-4way.c
+mv -f algo/skein/.deps/cpuminer-skein-gate.Tpo algo/skein/.deps/cpuminer-skein-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/skein/cpuminer-skein2-gate.o -MD -MP -MF algo/skein/.deps/cpuminer-skein2-gate.Tpo -c -o algo/skein/cpuminer-skein2-gate.o `test -f 'algo/skein/skein2-gate.c' || echo './'`algo/skein/skein2-gate.c
+mv -f algo/skein/.deps/cpuminer-skein2.Tpo algo/skein/.deps/cpuminer-skein2.Po
+mv -f algo/skein/.deps/cpuminer-skein2-4way.Tpo algo/skein/.deps/cpuminer-skein2-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sm3/cpuminer-sm3.o -MD -MP -MF algo/sm3/.deps/cpuminer-sm3.Tpo -c -o algo/sm3/cpuminer-sm3.o `test -f 'algo/sm3/sm3.c' || echo './'`algo/sm3/sm3.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/sm3/cpuminer-sm3-hash-4way.o -MD -MP -MF algo/sm3/.deps/cpuminer-sm3-hash-4way.Tpo -c -o algo/sm3/cpuminer-sm3-hash-4way.o `test -f 'algo/sm3/sm3-hash-4way.c' || echo './'`algo/sm3/sm3-hash-4way.c
+mv -f algo/sm3/.deps/cpuminer-sm3.Tpo algo/sm3/.deps/cpuminer-sm3.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/tiger/cpuminer-sph_tiger.o -MD -MP -MF algo/tiger/.deps/cpuminer-sph_tiger.Tpo -c -o algo/tiger/cpuminer-sph_tiger.o `test -f 'algo/tiger/sph_tiger.c' || echo './'`algo/tiger/sph_tiger.c
+mv -f algo/skein/.deps/cpuminer-skein2-gate.Tpo algo/skein/.deps/cpuminer-skein2-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/whirlpool/cpuminer-sph_whirlpool.o -MD -MP -MF algo/whirlpool/.deps/cpuminer-sph_whirlpool.Tpo -c -o algo/whirlpool/cpuminer-sph_whirlpool.o `test -f 'algo/whirlpool/sph_whirlpool.c' || echo './'`algo/whirlpool/sph_whirlpool.c
+mv -f algo/sm3/.deps/cpuminer-sm3-hash-4way.Tpo algo/sm3/.deps/cpuminer-sm3-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/whirlpool/cpuminer-whirlpool-hash-4way.o -MD -MP -MF algo/whirlpool/.deps/cpuminer-whirlpool-hash-4way.Tpo -c -o algo/whirlpool/cpuminer-whirlpool-hash-4way.o `test -f 'algo/whirlpool/whirlpool-hash-4way.c' || echo './'`algo/whirlpool/whirlpool-hash-4way.c
+mv -f algo/tiger/.deps/cpuminer-sph_tiger.Tpo algo/tiger/.deps/cpuminer-sph_tiger.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/whirlpool/cpuminer-whirlpool-gate.o -MD -MP -MF algo/whirlpool/.deps/cpuminer-whirlpool-gate.Tpo -c -o algo/whirlpool/cpuminer-whirlpool-gate.o `test -f 'algo/whirlpool/whirlpool-gate.c' || echo './'`algo/whirlpool/whirlpool-gate.c
+mv -f algo/whirlpool/.deps/cpuminer-whirlpool-hash-4way.Tpo algo/whirlpool/.deps/cpuminer-whirlpool-hash-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/whirlpool/cpuminer-whirlpool-4way.o -MD -MP -MF algo/whirlpool/.deps/cpuminer-whirlpool-4way.Tpo -c -o algo/whirlpool/cpuminer-whirlpool-4way.o `test -f 'algo/whirlpool/whirlpool-4way.c' || echo './'`algo/whirlpool/whirlpool-4way.c
+mv -f algo/simd/.deps/cpuminer-sph_simd.Tpo algo/simd/.deps/cpuminer-sph_simd.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/whirlpool/cpuminer-whirlpool.o -MD -MP -MF algo/whirlpool/.deps/cpuminer-whirlpool.Tpo -c -o algo/whirlpool/cpuminer-whirlpool.o `test -f 'algo/whirlpool/whirlpool.c' || echo './'`algo/whirlpool/whirlpool.c
+mv -f algo/whirlpool/.deps/cpuminer-sph_whirlpool.Tpo algo/whirlpool/.deps/cpuminer-sph_whirlpool.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/whirlpool/cpuminer-whirlpoolx.o -MD -MP -MF algo/whirlpool/.deps/cpuminer-whirlpoolx.Tpo -c -o algo/whirlpool/cpuminer-whirlpoolx.o `test -f 'algo/whirlpool/whirlpoolx.c' || echo './'`algo/whirlpool/whirlpoolx.c
+mv -f algo/whirlpool/.deps/cpuminer-whirlpool-4way.Tpo algo/whirlpool/.deps/cpuminer-whirlpool-4way.Po
+mv -f algo/whirlpool/.deps/cpuminer-whirlpool-gate.Tpo algo/whirlpool/.deps/cpuminer-whirlpool-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-x11-gate.Tpo -c -o algo/x11/cpuminer-x11-gate.o `test -f 'algo/x11/x11-gate.c' || echo './'`algo/x11/x11-gate.c
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11.o -MD -MP -MF algo/x11/.deps/cpuminer-x11.Tpo -c -o algo/x11/cpuminer-x11.o `test -f 'algo/x11/x11.c' || echo './'`algo/x11/x11.c
+mv -f algo/whirlpool/.deps/cpuminer-whirlpool.Tpo algo/whirlpool/.deps/cpuminer-whirlpool.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-x11-4way.Tpo -c -o algo/x11/cpuminer-x11-4way.o `test -f 'algo/x11/x11-4way.c' || echo './'`algo/x11/x11-4way.c
+mv -f algo/x11/.deps/cpuminer-x11-gate.Tpo algo/x11/.deps/cpuminer-x11-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11gost-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-x11gost-gate.Tpo -c -o algo/x11/cpuminer-x11gost-gate.o `test -f 'algo/x11/x11gost-gate.c' || echo './'`algo/x11/x11gost-gate.c
+mv -f algo/whirlpool/.deps/cpuminer-whirlpoolx.Tpo algo/whirlpool/.deps/cpuminer-whirlpoolx.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11gost.o -MD -MP -MF algo/x11/.deps/cpuminer-x11gost.Tpo -c -o algo/x11/cpuminer-x11gost.o `test -f 'algo/x11/x11gost.c' || echo './'`algo/x11/x11gost.c
+mv -f algo/x11/.deps/cpuminer-x11-4way.Tpo algo/x11/.deps/cpuminer-x11-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11gost-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-x11gost-4way.Tpo -c -o algo/x11/cpuminer-x11gost-4way.o `test -f 'algo/x11/x11gost-4way.c' || echo './'`algo/x11/x11gost-4way.c
+mv -f algo/x11/.deps/cpuminer-x11gost-gate.Tpo algo/x11/.deps/cpuminer-x11gost-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-c11-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-c11-gate.Tpo -c -o algo/x11/cpuminer-c11-gate.o `test -f 'algo/x11/c11-gate.c' || echo './'`algo/x11/c11-gate.c
+mv -f algo/x11/.deps/cpuminer-x11gost-4way.Tpo algo/x11/.deps/cpuminer-x11gost-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-c11.o -MD -MP -MF algo/x11/.deps/cpuminer-c11.Tpo -c -o algo/x11/cpuminer-c11.o `test -f 'algo/x11/c11.c' || echo './'`algo/x11/c11.c
+mv -f algo/x11/.deps/cpuminer-c11-gate.Tpo algo/x11/.deps/cpuminer-c11-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-c11-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-c11-4way.Tpo -c -o algo/x11/cpuminer-c11-4way.o `test -f 'algo/x11/c11-4way.c' || echo './'`algo/x11/c11-4way.c
+mv -f algo/x11/.deps/cpuminer-c11-4way.Tpo algo/x11/.deps/cpuminer-c11-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-tribus-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-tribus-gate.Tpo -c -o algo/x11/cpuminer-tribus-gate.o `test -f 'algo/x11/tribus-gate.c' || echo './'`algo/x11/tribus-gate.c
+mv -f algo/x11/.deps/cpuminer-x11.Tpo algo/x11/.deps/cpuminer-x11.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-tribus.o -MD -MP -MF algo/x11/.deps/cpuminer-tribus.Tpo -c -o algo/x11/cpuminer-tribus.o `test -f 'algo/x11/tribus.c' || echo './'`algo/x11/tribus.c
+mv -f algo/x11/.deps/cpuminer-tribus-gate.Tpo algo/x11/.deps/cpuminer-tribus-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-tribus-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-tribus-4way.Tpo -c -o algo/x11/cpuminer-tribus-4way.o `test -f 'algo/x11/tribus-4way.c' || echo './'`algo/x11/tribus-4way.c
+mv -f algo/x11/.deps/cpuminer-x11gost.Tpo algo/x11/.deps/cpuminer-x11gost.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-timetravel-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-timetravel-gate.Tpo -c -o algo/x11/cpuminer-timetravel-gate.o `test -f 'algo/x11/timetravel-gate.c' || echo './'`algo/x11/timetravel-gate.c
+mv -f algo/x11/.deps/cpuminer-tribus.Tpo algo/x11/.deps/cpuminer-tribus.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-timetravel.o -MD -MP -MF algo/x11/.deps/cpuminer-timetravel.Tpo -c -o algo/x11/cpuminer-timetravel.o `test -f 'algo/x11/timetravel.c' || echo './'`algo/x11/timetravel.c
+mv -f algo/x11/.deps/cpuminer-tribus-4way.Tpo algo/x11/.deps/cpuminer-tribus-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-timetravel-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-timetravel-4way.Tpo -c -o algo/x11/cpuminer-timetravel-4way.o `test -f 'algo/x11/timetravel-4way.c' || echo './'`algo/x11/timetravel-4way.c
+mv -f algo/x11/.deps/cpuminer-timetravel-gate.Tpo algo/x11/.deps/cpuminer-timetravel-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-timetravel10-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-timetravel10-gate.Tpo -c -o algo/x11/cpuminer-timetravel10-gate.o `test -f 'algo/x11/timetravel10-gate.c' || echo './'`algo/x11/timetravel10-gate.c
+mv -f algo/x11/.deps/cpuminer-timetravel-4way.Tpo algo/x11/.deps/cpuminer-timetravel-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-timetravel10.o -MD -MP -MF algo/x11/.deps/cpuminer-timetravel10.Tpo -c -o algo/x11/cpuminer-timetravel10.o `test -f 'algo/x11/timetravel10.c' || echo './'`algo/x11/timetravel10.c
+mv -f algo/x11/.deps/cpuminer-c11.Tpo algo/x11/.deps/cpuminer-c11.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-timetravel10-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-timetravel10-4way.Tpo -c -o algo/x11/cpuminer-timetravel10-4way.o `test -f 'algo/x11/timetravel10-4way.c' || echo './'`algo/x11/timetravel10-4way.c
+mv -f algo/x11/.deps/cpuminer-timetravel.Tpo algo/x11/.deps/cpuminer-timetravel.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-fresh.o -MD -MP -MF algo/x11/.deps/cpuminer-fresh.Tpo -c -o algo/x11/cpuminer-fresh.o `test -f 'algo/x11/fresh.c' || echo './'`algo/x11/fresh.c
+mv -f algo/x11/.deps/cpuminer-timetravel10-gate.Tpo algo/x11/.deps/cpuminer-timetravel10-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11evo.o -MD -MP -MF algo/x11/.deps/cpuminer-x11evo.Tpo -c -o algo/x11/cpuminer-x11evo.o `test -f 'algo/x11/x11evo.c' || echo './'`algo/x11/x11evo.c
+mv -f algo/x11/.deps/cpuminer-timetravel10-4way.Tpo algo/x11/.deps/cpuminer-timetravel10-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11evo-4way.o -MD -MP -MF algo/x11/.deps/cpuminer-x11evo-4way.Tpo -c -o algo/x11/cpuminer-x11evo-4way.o `test -f 'algo/x11/x11evo-4way.c' || echo './'`algo/x11/x11evo-4way.c
+mv -f algo/x11/.deps/cpuminer-fresh.Tpo algo/x11/.deps/cpuminer-fresh.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x11/cpuminer-x11evo-gate.o -MD -MP -MF algo/x11/.deps/cpuminer-x11evo-gate.Tpo -c -o algo/x11/cpuminer-x11evo-gate.o `test -f 'algo/x11/x11evo-gate.c' || echo './'`algo/x11/x11evo-gate.c
+mv -f algo/x11/.deps/cpuminer-timetravel10.Tpo algo/x11/.deps/cpuminer-timetravel10.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x12/cpuminer-x12-gate.o -MD -MP -MF algo/x12/.deps/cpuminer-x12-gate.Tpo -c -o algo/x12/cpuminer-x12-gate.o `test -f 'algo/x12/x12-gate.c' || echo './'`algo/x12/x12-gate.c
+mv -f algo/x11/.deps/cpuminer-x11evo.Tpo algo/x11/.deps/cpuminer-x11evo.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x12/cpuminer-x12.o -MD -MP -MF algo/x12/.deps/cpuminer-x12.Tpo -c -o algo/x12/cpuminer-x12.o `test -f 'algo/x12/x12.c' || echo './'`algo/x12/x12.c
+mv -f algo/x11/.deps/cpuminer-x11evo-4way.Tpo algo/x11/.deps/cpuminer-x11evo-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x12/cpuminer-x12-4way.o -MD -MP -MF algo/x12/.deps/cpuminer-x12-4way.Tpo -c -o algo/x12/cpuminer-x12-4way.o `test -f 'algo/x12/x12-4way.c' || echo './'`algo/x12/x12-4way.c
+algo/x11/x11evo-gate.c: In function ‘nextPerm’:
+algo/x11/x11evo-gate.c: In function ‘nextPerm’:
+algo/x11/x11evo-gate.c:33:4: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+algo/x11/x11evo-gate.c:33:4: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+    for ( i = count - 1; i>0 && n[i - 1] >= n[i]; i-- );
+    for ( i = count - 1; i>0 && n[i - 1] >= n[i]; i-- );
+    ^~~
+    ^~~
+algo/x11/x11evo-gate.c:34:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+algo/x11/x11evo-gate.c:34:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+       tail = i;
+       tail = i;
+       ^~~~
+       ^~~~
+algo/x11/x11evo-gate.c:37:7: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+algo/x11/x11evo-gate.c:37:7: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+       for ( j = count - 1; j>tail && n[j] <= n[tail - 1]; j-- );
+       for ( j = count - 1; j>tail && n[j] <= n[tail - 1]; j-- );
+       ^~~
+       ^~~
+algo/x11/x11evo-gate.c:38:12: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+algo/x11/x11evo-gate.c:38:12: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+            evo_swap( &n[tail - 1], &n[j] );
+            evo_swap( &n[tail - 1], &n[j] );
+            ^~~~~~~~
+            ^~~~~~~~
+mv -f algo/x12/.deps/cpuminer-x12-gate.Tpo algo/x12/.deps/cpuminer-x12-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-x13-gate.o -MD -MP -MF algo/x13/.deps/cpuminer-x13-gate.Tpo -c -o algo/x13/cpuminer-x13-gate.o `test -f 'algo/x13/x13-gate.c' || echo './'`algo/x13/x13-gate.c
+mv -f algo/x11/.deps/cpuminer-x11evo-gate.Tpo algo/x11/.deps/cpuminer-x11evo-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-x13.o -MD -MP -MF algo/x13/.deps/cpuminer-x13.Tpo -c -o algo/x13/cpuminer-x13.o `test -f 'algo/x13/x13.c' || echo './'`algo/x13/x13.c
+mv -f algo/x12/.deps/cpuminer-x12-4way.Tpo algo/x12/.deps/cpuminer-x12-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-x13-4way.o -MD -MP -MF algo/x13/.deps/cpuminer-x13-4way.Tpo -c -o algo/x13/cpuminer-x13-4way.o `test -f 'algo/x13/x13-4way.c' || echo './'`algo/x13/x13-4way.c
+mv -f algo/x13/.deps/cpuminer-x13-gate.Tpo algo/x13/.deps/cpuminer-x13-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-x13sm3-gate.o -MD -MP -MF algo/x13/.deps/cpuminer-x13sm3-gate.Tpo -c -o algo/x13/cpuminer-x13sm3-gate.o `test -f 'algo/x13/x13sm3-gate.c' || echo './'`algo/x13/x13sm3-gate.c
+mv -f algo/x13/.deps/cpuminer-x13-4way.Tpo algo/x13/.deps/cpuminer-x13-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-x13sm3.o -MD -MP -MF algo/x13/.deps/cpuminer-x13sm3.Tpo -c -o algo/x13/cpuminer-x13sm3.o `test -f 'algo/x13/x13sm3.c' || echo './'`algo/x13/x13sm3.c
+mv -f algo/x13/.deps/cpuminer-x13sm3-gate.Tpo algo/x13/.deps/cpuminer-x13sm3-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-x13sm3-4way.o -MD -MP -MF algo/x13/.deps/cpuminer-x13sm3-4way.Tpo -c -o algo/x13/cpuminer-x13sm3-4way.o `test -f 'algo/x13/x13sm3-4way.c' || echo './'`algo/x13/x13sm3-4way.c
+mv -f algo/x13/.deps/cpuminer-x13sm3-4way.Tpo algo/x13/.deps/cpuminer-x13sm3-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-phi1612-gate.o -MD -MP -MF algo/x13/.deps/cpuminer-phi1612-gate.Tpo -c -o algo/x13/cpuminer-phi1612-gate.o `test -f 'algo/x13/phi1612-gate.c' || echo './'`algo/x13/phi1612-gate.c
+mv -f algo/x13/.deps/cpuminer-phi1612-gate.Tpo algo/x13/.deps/cpuminer-phi1612-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-phi1612.o -MD -MP -MF algo/x13/.deps/cpuminer-phi1612.Tpo -c -o algo/x13/cpuminer-phi1612.o `test -f 'algo/x13/phi1612.c' || echo './'`algo/x13/phi1612.c
+mv -f algo/x12/.deps/cpuminer-x12.Tpo algo/x12/.deps/cpuminer-x12.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-phi1612-4way.o -MD -MP -MF algo/x13/.deps/cpuminer-phi1612-4way.Tpo -c -o algo/x13/cpuminer-phi1612-4way.o `test -f 'algo/x13/phi1612-4way.c' || echo './'`algo/x13/phi1612-4way.c
+mv -f algo/x13/.deps/cpuminer-x13.Tpo algo/x13/.deps/cpuminer-x13.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-skunk-gate.o -MD -MP -MF algo/x13/.deps/cpuminer-skunk-gate.Tpo -c -o algo/x13/cpuminer-skunk-gate.o `test -f 'algo/x13/skunk-gate.c' || echo './'`algo/x13/skunk-gate.c
+mv -f algo/x13/.deps/cpuminer-phi1612.Tpo algo/x13/.deps/cpuminer-phi1612.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-skunk-4way.o -MD -MP -MF algo/x13/.deps/cpuminer-skunk-4way.Tpo -c -o algo/x13/cpuminer-skunk-4way.o `test -f 'algo/x13/skunk-4way.c' || echo './'`algo/x13/skunk-4way.c
+mv -f algo/x13/.deps/cpuminer-phi1612-4way.Tpo algo/x13/.deps/cpuminer-phi1612-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-skunk.o -MD -MP -MF algo/x13/.deps/cpuminer-skunk.Tpo -c -o algo/x13/cpuminer-skunk.o `test -f 'algo/x13/skunk.c' || echo './'`algo/x13/skunk.c
+mv -f algo/x13/.deps/cpuminer-skunk-gate.Tpo algo/x13/.deps/cpuminer-skunk-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x13/cpuminer-drop.o -MD -MP -MF algo/x13/.deps/cpuminer-drop.Tpo -c -o algo/x13/cpuminer-drop.o `test -f 'algo/x13/drop.c' || echo './'`algo/x13/drop.c
+mv -f algo/x13/.deps/cpuminer-skunk-4way.Tpo algo/x13/.deps/cpuminer-skunk-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-x14-gate.o -MD -MP -MF algo/x14/.deps/cpuminer-x14-gate.Tpo -c -o algo/x14/cpuminer-x14-gate.o `test -f 'algo/x14/x14-gate.c' || echo './'`algo/x14/x14-gate.c
+mv -f algo/x13/.deps/cpuminer-x13sm3.Tpo algo/x13/.deps/cpuminer-x13sm3.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-x14.o -MD -MP -MF algo/x14/.deps/cpuminer-x14.Tpo -c -o algo/x14/cpuminer-x14.o `test -f 'algo/x14/x14.c' || echo './'`algo/x14/x14.c
+mv -f algo/x13/.deps/cpuminer-skunk.Tpo algo/x13/.deps/cpuminer-skunk.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-x14-4way.o -MD -MP -MF algo/x14/.deps/cpuminer-x14-4way.Tpo -c -o algo/x14/cpuminer-x14-4way.o `test -f 'algo/x14/x14-4way.c' || echo './'`algo/x14/x14-4way.c
+mv -f algo/x14/.deps/cpuminer-x14-gate.Tpo algo/x14/.deps/cpuminer-x14-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-veltor-gate.o -MD -MP -MF algo/x14/.deps/cpuminer-veltor-gate.Tpo -c -o algo/x14/cpuminer-veltor-gate.o `test -f 'algo/x14/veltor-gate.c' || echo './'`algo/x14/veltor-gate.c
+mv -f algo/x13/.deps/cpuminer-drop.Tpo algo/x13/.deps/cpuminer-drop.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-veltor.o -MD -MP -MF algo/x14/.deps/cpuminer-veltor.Tpo -c -o algo/x14/cpuminer-veltor.o `test -f 'algo/x14/veltor.c' || echo './'`algo/x14/veltor.c
+mv -f algo/x14/.deps/cpuminer-x14-4way.Tpo algo/x14/.deps/cpuminer-x14-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-veltor-4way.o -MD -MP -MF algo/x14/.deps/cpuminer-veltor-4way.Tpo -c -o algo/x14/cpuminer-veltor-4way.o `test -f 'algo/x14/veltor-4way.c' || echo './'`algo/x14/veltor-4way.c
+mv -f algo/x14/.deps/cpuminer-veltor-gate.Tpo algo/x14/.deps/cpuminer-veltor-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-polytimos-gate.o -MD -MP -MF algo/x14/.deps/cpuminer-polytimos-gate.Tpo -c -o algo/x14/cpuminer-polytimos-gate.o `test -f 'algo/x14/polytimos-gate.c' || echo './'`algo/x14/polytimos-gate.c
+mv -f algo/x14/.deps/cpuminer-veltor.Tpo algo/x14/.deps/cpuminer-veltor.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-polytimos.o -MD -MP -MF algo/x14/.deps/cpuminer-polytimos.Tpo -c -o algo/x14/cpuminer-polytimos.o `test -f 'algo/x14/polytimos.c' || echo './'`algo/x14/polytimos.c
+mv -f algo/x14/.deps/cpuminer-veltor-4way.Tpo algo/x14/.deps/cpuminer-veltor-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-polytimos-4way.o -MD -MP -MF algo/x14/.deps/cpuminer-polytimos-4way.Tpo -c -o algo/x14/cpuminer-polytimos-4way.o `test -f 'algo/x14/polytimos-4way.c' || echo './'`algo/x14/polytimos-4way.c
+mv -f algo/x14/.deps/cpuminer-polytimos-gate.Tpo algo/x14/.deps/cpuminer-polytimos-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x14/cpuminer-axiom.o -MD -MP -MF algo/x14/.deps/cpuminer-axiom.Tpo -c -o algo/x14/cpuminer-axiom.o `test -f 'algo/x14/axiom.c' || echo './'`algo/x14/axiom.c
+mv -f algo/x14/.deps/cpuminer-polytimos-4way.Tpo algo/x14/.deps/cpuminer-polytimos-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x15/cpuminer-x15-gate.o -MD -MP -MF algo/x15/.deps/cpuminer-x15-gate.Tpo -c -o algo/x15/cpuminer-x15-gate.o `test -f 'algo/x15/x15-gate.c' || echo './'`algo/x15/x15-gate.c
+mv -f algo/x14/.deps/cpuminer-polytimos.Tpo algo/x14/.deps/cpuminer-polytimos.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x15/cpuminer-x15.o -MD -MP -MF algo/x15/.deps/cpuminer-x15.Tpo -c -o algo/x15/cpuminer-x15.o `test -f 'algo/x15/x15.c' || echo './'`algo/x15/x15.c
+mv -f algo/x14/.deps/cpuminer-axiom.Tpo algo/x14/.deps/cpuminer-axiom.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x15/cpuminer-x15-4way.o -MD -MP -MF algo/x15/.deps/cpuminer-x15-4way.Tpo -c -o algo/x15/cpuminer-x15-4way.o `test -f 'algo/x15/x15-4way.c' || echo './'`algo/x15/x15-4way.c
+mv -f algo/x15/.deps/cpuminer-x15-gate.Tpo algo/x15/.deps/cpuminer-x15-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-x17-gate.o -MD -MP -MF algo/x17/.deps/cpuminer-x17-gate.Tpo -c -o algo/x17/cpuminer-x17-gate.o `test -f 'algo/x17/x17-gate.c' || echo './'`algo/x17/x17-gate.c
+mv -f algo/x14/.deps/cpuminer-x14.Tpo algo/x14/.deps/cpuminer-x14.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-x17.o -MD -MP -MF algo/x17/.deps/cpuminer-x17.Tpo -c -o algo/x17/cpuminer-x17.o `test -f 'algo/x17/x17.c' || echo './'`algo/x17/x17.c
+mv -f algo/x15/.deps/cpuminer-x15-4way.Tpo algo/x15/.deps/cpuminer-x15-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-x17-4way.o -MD -MP -MF algo/x17/.deps/cpuminer-x17-4way.Tpo -c -o algo/x17/cpuminer-x17-4way.o `test -f 'algo/x17/x17-4way.c' || echo './'`algo/x17/x17-4way.c
+mv -f algo/x17/.deps/cpuminer-x17-gate.Tpo algo/x17/.deps/cpuminer-x17-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-xevan-gate.o -MD -MP -MF algo/x17/.deps/cpuminer-xevan-gate.Tpo -c -o algo/x17/cpuminer-xevan-gate.o `test -f 'algo/x17/xevan-gate.c' || echo './'`algo/x17/xevan-gate.c
+mv -f algo/x17/.deps/cpuminer-x17-4way.Tpo algo/x17/.deps/cpuminer-x17-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-xevan.o -MD -MP -MF algo/x17/.deps/cpuminer-xevan.Tpo -c -o algo/x17/cpuminer-xevan.o `test -f 'algo/x17/xevan.c' || echo './'`algo/x17/xevan.c
+mv -f algo/x17/.deps/cpuminer-xevan-gate.Tpo algo/x17/.deps/cpuminer-xevan-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-xevan-4way.o -MD -MP -MF algo/x17/.deps/cpuminer-xevan-4way.Tpo -c -o algo/x17/cpuminer-xevan-4way.o `test -f 'algo/x17/xevan-4way.c' || echo './'`algo/x17/xevan-4way.c
+mv -f algo/x17/.deps/cpuminer-xevan-4way.Tpo algo/x17/.deps/cpuminer-xevan-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-x16r-gate.o -MD -MP -MF algo/x17/.deps/cpuminer-x16r-gate.Tpo -c -o algo/x17/cpuminer-x16r-gate.o `test -f 'algo/x17/x16r-gate.c' || echo './'`algo/x17/x16r-gate.c
+mv -f algo/x17/.deps/cpuminer-xevan.Tpo algo/x17/.deps/cpuminer-xevan.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-x16r.o -MD -MP -MF algo/x17/.deps/cpuminer-x16r.Tpo -c -o algo/x17/cpuminer-x16r.o `test -f 'algo/x17/x16r.c' || echo './'`algo/x17/x16r.c
+mv -f algo/x15/.deps/cpuminer-x15.Tpo algo/x15/.deps/cpuminer-x15.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-x16r-4way.o -MD -MP -MF algo/x17/.deps/cpuminer-x16r-4way.Tpo -c -o algo/x17/cpuminer-x16r-4way.o `test -f 'algo/x17/x16r-4way.c' || echo './'`algo/x17/x16r-4way.c
+mv -f algo/x17/.deps/cpuminer-x16r-gate.Tpo algo/x17/.deps/cpuminer-x16r-gate.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/x17/cpuminer-hmq1725.o -MD -MP -MF algo/x17/.deps/cpuminer-hmq1725.Tpo -c -o algo/x17/cpuminer-hmq1725.o `test -f 'algo/x17/hmq1725.c' || echo './'`algo/x17/hmq1725.c
+mv -f algo/x17/.deps/cpuminer-x16r.Tpo algo/x17/.deps/cpuminer-x16r.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/yescrypt/cpuminer-yescrypt.o -MD -MP -MF algo/yescrypt/.deps/cpuminer-yescrypt.Tpo -c -o algo/yescrypt/cpuminer-yescrypt.o `test -f 'algo/yescrypt/yescrypt.c' || echo './'`algo/yescrypt/yescrypt.c
+mv -f algo/x17/.deps/cpuminer-x16r-4way.Tpo algo/x17/.deps/cpuminer-x16r-4way.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/yescrypt/cpuminer-sha256_Y.o -MD -MP -MF algo/yescrypt/.deps/cpuminer-sha256_Y.Tpo -c -o algo/yescrypt/cpuminer-sha256_Y.o `test -f 'algo/yescrypt/sha256_Y.c' || echo './'`algo/yescrypt/sha256_Y.c
+mv -f algo/x17/.deps/cpuminer-hmq1725.Tpo algo/x17/.deps/cpuminer-hmq1725.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include -Wno-pointer-sign -Wno-pointer-to-int-cast   -O3 -march=native -Wall  -Iyes/include -MT algo/yescrypt/cpuminer-yescrypt-best.o -MD -MP -MF algo/yescrypt/.deps/cpuminer-yescrypt-best.Tpo -c -o algo/yescrypt/cpuminer-yescrypt-best.o `test -f 'algo/yescrypt/yescrypt-best.c' || echo './'`algo/yescrypt/yescrypt-best.c
+mv -f algo/x17/.deps/cpuminer-x17.Tpo algo/x17/.deps/cpuminer-x17.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include  -O3 -march=native -Wall -MT asm/cpuminer-neoscrypt_asm.o -MD -MP -MF asm/.deps/cpuminer-neoscrypt_asm.Tpo -c -o asm/cpuminer-neoscrypt_asm.o `test -f 'asm/neoscrypt_asm.S' || echo './'`asm/neoscrypt_asm.S
+mv -f asm/.deps/cpuminer-neoscrypt_asm.Tpo asm/.deps/cpuminer-neoscrypt_asm.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include  -O3 -march=native -Wall -MT asm/cpuminer-sha2-x64.o -MD -MP -MF asm/.deps/cpuminer-sha2-x64.Tpo -c -o asm/cpuminer-sha2-x64.o `test -f 'asm/sha2-x64.S' || echo './'`asm/sha2-x64.S
+mv -f algo/yescrypt/.deps/cpuminer-yescrypt.Tpo algo/yescrypt/.deps/cpuminer-yescrypt.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include  -O3 -march=native -Wall -MT asm/cpuminer-scrypt-x64.o -MD -MP -MF asm/.deps/cpuminer-scrypt-x64.Tpo -c -o asm/cpuminer-scrypt-x64.o `test -f 'asm/scrypt-x64.S' || echo './'`asm/scrypt-x64.S
+mv -f asm/.deps/cpuminer-sha2-x64.Tpo asm/.deps/cpuminer-sha2-x64.Po
+gcc -DHAVE_CONFIG_H -I.  -Iyes/include -fno-strict-aliasing  -I. -Iyes/include  -O3 -march=native -Wall -MT asm/cpuminer-aesb-x64.o -MD -MP -MF asm/.deps/cpuminer-aesb-x64.Tpo -c -o asm/cpuminer-aesb-x64.o `test -f 'asm/aesb-x64.S' || echo './'`asm/aesb-x64.S
+mv -f asm/.deps/cpuminer-scrypt-x64.Tpo asm/.deps/cpuminer-scrypt-x64.Po
+mv -f asm/.deps/cpuminer-aesb-x64.Tpo asm/.deps/cpuminer-aesb-x64.Po
+mv -f algo/yescrypt/.deps/cpuminer-sha256_Y.Tpo algo/yescrypt/.deps/cpuminer-sha256_Y.Po
+mv -f algo/yescrypt/.deps/cpuminer-yescrypt-best.Tpo algo/yescrypt/.deps/cpuminer-yescrypt-best.Po
+g++  -g -O2 -Lyes/lib  -Lyes/lib  -o cpuminer cpuminer-cpu-miner.o cpuminer-util.o cpuminer-uint256.o cpuminer-api.o cpuminer-sysinfos.o cpuminer-algo-gate-api.o crypto/cpuminer-oaes_lib.o crypto/cpuminer-c_keccak.o crypto/cpuminer-c_groestl.o crypto/cpuminer-c_blake256.o crypto/cpuminer-c_jh.o crypto/cpuminer-c_skein.o crypto/cpuminer-hash.o crypto/cpuminer-aesb.o crypto/cpuminer-magimath.o algo/argon2/argon2a/cpuminer-argon2a.o algo/argon2/argon2a/ar2/cpuminer-argon2.o algo/argon2/argon2a/ar2/cpuminer-opt.o algo/argon2/argon2a/ar2/cpuminer-cores.o algo/argon2/argon2a/ar2/cpuminer-ar2-scrypt-jane.o algo/argon2/argon2a/ar2/cpuminer-blake2b.o algo/argon2/argon2d/cpuminer-argon2d-gate.o algo/argon2/argon2d/blake2/cpuminer-blake2b.o algo/argon2/argon2d/argon2d/cpuminer-argon2.o algo/argon2/argon2d/argon2d/cpuminer-core.o algo/argon2/argon2d/argon2d/cpuminer-opt.o algo/argon2/argon2d/argon2d/cpuminer-thread.o algo/argon2/argon2d/argon2d/cpuminer-encoding.o algo/blake/cpuminer-sph_blake.o algo/blake/cpuminer-blake-hash-4way.o algo/blake/cpuminer-blake-gate.o algo/blake/cpuminer-blake.o algo/blake/cpuminer-blake-4way.o algo/blake/cpuminer-sph_blake2b.o algo/blake/cpuminer-blake2b.o algo/blake/cpuminer-sph-blake2s.o algo/blake/cpuminer-blake2s-hash-4way.o algo/blake/cpuminer-blake2s.o algo/blake/cpuminer-blake2s-gate.o algo/blake/cpuminer-blake2s-4way.o algo/blake/cpuminer-blakecoin-gate.o algo/blake/cpuminer-mod_blakecoin.o algo/blake/cpuminer-blakecoin.o algo/blake/cpuminer-blakecoin-4way.o algo/blake/cpuminer-decred-gate.o algo/blake/cpuminer-decred.o algo/blake/cpuminer-decred-4way.o algo/blake/cpuminer-pentablake-gate.o algo/blake/cpuminer-pentablake-4way.o algo/blake/cpuminer-pentablake.o algo/bmw/cpuminer-sph_bmw.o algo/bmw/cpuminer-bmw-hash-4way.o algo/bmw/cpuminer-bmw256.o algo/cryptonight/cpuminer-cryptolight.o algo/cryptonight/cpuminer-cryptonight-common.o algo/cryptonight/cpuminer-cryptonight-aesni.o algo/cryptonight/cpuminer-cryptonight.o algo/cubehash/cpuminer-sph_cubehash.o algo/cubehash/sse2/cpuminer-cubehash_sse2.o algo/cubehash/cpuminer-cube-hash-2way.o algo/echo/cpuminer-sph_echo.o algo/echo/aes_ni/cpuminer-hash.o algo/gost/cpuminer-sph_gost.o algo/groestl/cpuminer-sph_groestl.o algo/groestl/cpuminer-groestl.o algo/groestl/cpuminer-myrgr-gate.o algo/groestl/cpuminer-myrgr-4way.o algo/groestl/cpuminer-myr-groestl.o algo/groestl/aes_ni/cpuminer-hash-groestl.o algo/groestl/aes_ni/cpuminer-hash-groestl256.o algo/fugue/cpuminer-sph_fugue.o algo/hamsi/cpuminer-sph_hamsi.o algo/hamsi/cpuminer-hamsi-hash-4way.o algo/haval/cpuminer-haval.o algo/haval/cpuminer-haval-hash-4way.o algo/heavy/cpuminer-sph_hefty1.o algo/heavy/cpuminer-heavy.o algo/heavy/cpuminer-bastion.o algo/hodl/cpuminer-aes.o algo/hodl/cpuminer-hodl-gate.o algo/hodl/cpuminer-hodl-wolf.o algo/hodl/cpuminer-sha512_avx.o algo/hodl/cpuminer-sha512_avx2.o algo/jh/cpuminer-sph_jh.o algo/jh/cpuminer-jh-hash-4way.o algo/jh/cpuminer-jha-gate.o algo/jh/cpuminer-jha-4way.o algo/jh/cpuminer-jha.o algo/keccak/cpuminer-sph_keccak.o algo/keccak/cpuminer-keccak.o algo/keccak/cpuminer-keccak-hash-4way.o algo/keccak/cpuminer-keccak-4way.o algo/keccak/cpuminer-keccak-gate.o algo/keccak/sse2/cpuminer-keccak.o algo/luffa/cpuminer-sph_luffa.o algo/luffa/cpuminer-luffa.o algo/luffa/cpuminer-luffa_for_sse2.o algo/luffa/cpuminer-luffa-hash-2way.o algo/lyra2/cpuminer-lyra2.o algo/lyra2/cpuminer-sponge.o algo/lyra2/cpuminer-lyra2rev2-gate.o algo/lyra2/cpuminer-lyra2rev2.o algo/lyra2/cpuminer-lyra2rev2-4way.o algo/lyra2/cpuminer-lyra2re.o algo/lyra2/cpuminer-lyra2z-gate.o algo/lyra2/cpuminer-lyra2z.o algo/lyra2/cpuminer-lyra2z-4way.o algo/lyra2/cpuminer-lyra2z330.o algo/lyra2/cpuminer-lyra2h-gate.o algo/lyra2/cpuminer-lyra2h.o algo/lyra2/cpuminer-lyra2h-4way.o algo/lyra2/cpuminer-allium-gate.o algo/lyra2/cpuminer-allium-4way.o algo/lyra2/cpuminer-allium.o algo/cpuminer-m7m.o algo/neoscrypt/cpuminer-neoscrypt.o algo/nist5/cpuminer-nist5-gate.o algo/nist5/cpuminer-nist5-4way.o algo/nist5/cpuminer-nist5.o algo/nist5/cpuminer-zr5.o algo/cpuminer-pluck.o algo/quark/cpuminer-quark-gate.o algo/quark/cpuminer-quark.o algo/quark/cpuminer-quark-4way.o algo/quark/cpuminer-anime-gate.o algo/quark/cpuminer-anime.o algo/quark/cpuminer-anime-4way.o algo/qubit/cpuminer-qubit-gate.o algo/qubit/cpuminer-qubit.o algo/qubit/cpuminer-qubit-2way.o algo/qubit/cpuminer-deep-gate.o algo/qubit/cpuminer-deep-2way.o algo/qubit/cpuminer-deep.o algo/ripemd/cpuminer-sph_ripemd.o algo/ripemd/cpuminer-ripemd-hash-4way.o algo/ripemd/cpuminer-lbry-gate.o algo/ripemd/cpuminer-lbry.o algo/ripemd/cpuminer-lbry-4way.o algo/cpuminer-scrypt.o algo/scryptjane/cpuminer-scrypt-jane.o algo/sha/cpuminer-sph_sha2.o algo/sha/cpuminer-sph_sha2big.o algo/sha/cpuminer-sha2-hash-4way.o algo/sha/cpuminer-sha2.o algo/sha/cpuminer-sha256t-gate.o algo/sha/cpuminer-sha256t-4way.o algo/sha/cpuminer-sha256t.o algo/shabal/cpuminer-sph_shabal.o algo/shabal/cpuminer-shabal-hash-4way.o algo/shavite/cpuminer-sph_shavite.o algo/shavite/cpuminer-sph-shavite-aesni.o algo/shavite/cpuminer-shavite.o algo/simd/cpuminer-sph_simd.o algo/simd/cpuminer-nist.o algo/simd/cpuminer-vector.o algo/simd/cpuminer-simd-hash-2way.o algo/skein/cpuminer-sph_skein.o algo/skein/cpuminer-skein-hash-4way.o algo/skein/cpuminer-skein.o algo/skein/cpuminer-skein-4way.o algo/skein/cpuminer-skein-gate.o algo/skein/cpuminer-skein2.o algo/skein/cpuminer-skein2-4way.o algo/skein/cpuminer-skein2-gate.o algo/sm3/cpuminer-sm3.o algo/sm3/cpuminer-sm3-hash-4way.o algo/tiger/cpuminer-sph_tiger.o algo/whirlpool/cpuminer-sph_whirlpool.o algo/whirlpool/cpuminer-whirlpool-hash-4way.o algo/whirlpool/cpuminer-whirlpool-gate.o algo/whirlpool/cpuminer-whirlpool-4way.o algo/whirlpool/cpuminer-whirlpool.o algo/whirlpool/cpuminer-whirlpoolx.o algo/x11/cpuminer-x11-gate.o algo/x11/cpuminer-x11.o algo/x11/cpuminer-x11-4way.o algo/x11/cpuminer-x11gost-gate.o algo/x11/cpuminer-x11gost.o algo/x11/cpuminer-x11gost-4way.o algo/x11/cpuminer-c11-gate.o algo/x11/cpuminer-c11.o algo/x11/cpuminer-c11-4way.o algo/x11/cpuminer-tribus-gate.o algo/x11/cpuminer-tribus.o algo/x11/cpuminer-tribus-4way.o algo/x11/cpuminer-timetravel-gate.o algo/x11/cpuminer-timetravel.o algo/x11/cpuminer-timetravel-4way.o algo/x11/cpuminer-timetravel10-gate.o algo/x11/cpuminer-timetravel10.o algo/x11/cpuminer-timetravel10-4way.o algo/x11/cpuminer-fresh.o algo/x11/cpuminer-x11evo.o algo/x11/cpuminer-x11evo-4way.o algo/x11/cpuminer-x11evo-gate.o algo/x12/cpuminer-x12-gate.o algo/x12/cpuminer-x12.o algo/x12/cpuminer-x12-4way.o algo/x13/cpuminer-x13-gate.o algo/x13/cpuminer-x13.o algo/x13/cpuminer-x13-4way.o algo/x13/cpuminer-x13sm3-gate.o algo/x13/cpuminer-x13sm3.o algo/x13/cpuminer-x13sm3-4way.o algo/x13/cpuminer-phi1612-gate.o algo/x13/cpuminer-phi1612.o algo/x13/cpuminer-phi1612-4way.o algo/x13/cpuminer-skunk-gate.o algo/x13/cpuminer-skunk-4way.o algo/x13/cpuminer-skunk.o algo/x13/cpuminer-drop.o algo/x14/cpuminer-x14-gate.o algo/x14/cpuminer-x14.o algo/x14/cpuminer-x14-4way.o algo/x14/cpuminer-veltor-gate.o algo/x14/cpuminer-veltor.o algo/x14/cpuminer-veltor-4way.o algo/x14/cpuminer-polytimos-gate.o algo/x14/cpuminer-polytimos.o algo/x14/cpuminer-polytimos-4way.o algo/x14/cpuminer-axiom.o algo/x15/cpuminer-x15-gate.o algo/x15/cpuminer-x15.o algo/x15/cpuminer-x15-4way.o algo/x17/cpuminer-x17-gate.o algo/x17/cpuminer-x17.o algo/x17/cpuminer-x17-4way.o algo/x17/cpuminer-xevan-gate.o algo/x17/cpuminer-xevan.o algo/x17/cpuminer-xevan-4way.o algo/x17/cpuminer-x16r-gate.o algo/x17/cpuminer-x16r.o algo/x17/cpuminer-x16r-4way.o algo/x17/cpuminer-hmq1725.o algo/yescrypt/cpuminer-yescrypt.o algo/yescrypt/cpuminer-sha256_Y.o algo/yescrypt/cpuminer-yescrypt-best.o asm/cpuminer-neoscrypt_asm.o  asm/cpuminer-sha2-x64.o asm/cpuminer-scrypt-x64.o asm/cpuminer-aesb-x64.o   -lcurl -lz -ljansson -lpthread  -lssl -lcrypto -lgmp
+make[2]: Leaving directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee'
+make[1]: Leaving directory '/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee'
+PS /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee> ./cpuminer
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer: no algo supplied
+/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer: no algo supplied
+Try `--help' for more information.
+Try `--help' for more information.
+
+         **********  cpuminer-opt 3.8.7.2  ***********
+     A CPU miner with multi algo support and optimized for CPUs
+     with AES_NI and AVX2 and SHA extensions.
+     BTC donation address: 12tdvfF7KmAsihBXQXynT6E6th2c2pByTT
+
+PS /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee> cd ..
+PS /home/maynard/Sniffdogminer-master/Bin> rm -rf CPU-JayDDee
+PS /home/maynard/Sniffdogminer-master/Bin> cd
+PS /home/maynard> cd Sniffdogminer-master
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-19_23-55-15.txt
+SniffDog dumps then checks for updates from Coinbase...
+"/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2"
+"/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee"
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> cd 
+PS /home/maynard> .\SniffDogBitcoin.ps1
+.\SniffDogBitcoin.ps1 : The term '.\SniffDogBitcoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\SniffDogBitcoin.ps1 : The term '.\SniffDogBitcoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard> .\SniffDogBitcoin.ps1
+.\SniffDogBitcoin.ps1 : The term '.\SniffDogBitcoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\SniffDogBitcoin.ps1 : The term '.\SniffDogBitcoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard> cd Sniffdogminer-master
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBicoin.ps1
+.\SniffDogBicoin.ps1 : The term '.\SniffDogBicoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBicoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBicoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\SniffDogBicoin.ps1 : The term '.\SniffDogBicoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBicoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBicoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-19_23-59-10.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS /home/maynard/Sniffdogminer-master> TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+The parameter '-WindowStyle' is not supported for the cmdlet 'Start-Process' on this edition of PowerShell.
++ CategoryInfo          : NotImplemented: (:) [Start-Process], NotSupportedException
++ FullyQualifiedErrorId : NotSupportedException,Microsoft.PowerShell.Commands.StartProcessCommand
++ PSComputerName        : localhost
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8346 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  8.72615    Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8346 USD
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> rm -rf CPU-JayDDee
+PS /home/maynard/Sniffdogminer-master/Bin> cd .
+PS /home/maynard/Sniffdogminer-master/Bin> cd ..
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-20_00-02-50.txt
+SniffDog dumps then checks for updates from Coinbase...
+"/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2"
+"/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee"
+:x : The term ':x' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:1
++ :x
++ ~~
++ CategoryInfo          : ObjectNotFound: (:x:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+:x : The term ':x' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/Include.ps1:553 char:1
++ :x
++ ~~
++ CategoryInfo          : ObjectNotFound: (:x:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/20/18  12:03 AM                Bin
+d-----          4/20/18  12:03 AM                Downloads
+d-----          4/20/18  12:02 AM                Logs
+d-----          4/19/18  11:11 PM                Miners
+d-----          4/15/18   1:27 PM                Monitor
+d-----          4/16/18   9:03 PM                Pools
+d-----          4/15/18   1:27 PM                Solomining
+d-----          4/18/18   8:19 PM                Stats
+------          4/15/18   1:27 PM        1073664 7z.dll
+------          4/15/18   1:27 PM         265216 7z.exe
+------          4/15/18   1:27 PM           1213 Algorithms.txt
+------          4/20/18  12:05 AM          21235 Include.ps1
+------          4/15/18   1:27 PM          21058 Include.psm1
+------          4/15/18   1:27 PM          35141 LICENSE
+------          4/15/18   1:27 PM           2211 README.md
+------          4/15/18   1:27 PM           1068 readme.txt
+------          4/15/18   1:27 PM            443 RemoveSniffDogLogs.bat
+------          4/15/18   1:27 PM            304 ResetSniffProfit.bat
+------          4/16/18  10:13 PM          29311 SniffDogBitcoin.ps1
+------          4/15/18   1:27 PM          28374 SniffDogLitecoin.ps1
+------          4/15/18   1:27 PM            382 startsniffin_Ahashpool_Bitcoin
+                                                 .bat
+------          4/15/18   1:27 PM            672 StartSniffin_Bitcoin.bat
+------          4/15/18   1:27 PM            404 startsniffin_Blazepool_Bitcoin
+                                                 .bat
+------          4/15/18   1:27 PM            600 StartSniffin_Litecoin.bat
+------          4/15/18   1:27 PM            518 startsniffin_Zergpool_Bitcoin.
+                                                 bat
+------          4/15/18   1:27 PM            520 startsniffin_Zergpool_Litecoin
+                                                 .bat
+------          4/15/18   1:27 PM             13 Wrapper_4068.txt
+------          4/15/18   1:27 PM           1889 Wrapper.ps1
+
+
+PS /home/maynard/Sniffdogminer-master> cd Bin
+PS /home/maynard/Sniffdogminer-master/Bin> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----          4/11/18   1:44 PM                CPU-JayDDee
+
+
+PS /home/maynard/Sniffdogminer-master/Bin> rm -rf CPU-JayDDee
+PS /home/maynard/Sniffdogminer-master/Bin> .\SniffDogBitcoin.ps1
+.\SniffDogBitcoin.ps1 : The term '.\SniffDogBitcoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+.\SniffDogBitcoin.ps1 : The term '.\SniffDogBitcoin.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\SniffDogBitcoin.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (.\SniffDogBitcoin.ps1:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master/Bin> cd ..
+PS /home/maynard/Sniffdogminer-master> .\SniffDogBitcoin.ps1
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+try : The term 'try' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:51 char:1
++ try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .) ...
++ ~~~
++ CategoryInfo          : ObjectNotFound: (try:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+Transcript started, output file is .\Logs\2018-04-20_00-06-33.txt
+SniffDog dumps then checks for updates from Coinbase...
+"/home/maynard/Sniffdogminer-master/Bin/v3.8.7.2"
+"/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee"
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> exit
+**********************
+PowerShell transcript end
+End time: 20180420000738
+**********************

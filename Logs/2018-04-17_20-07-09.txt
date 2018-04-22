@@ -1,0 +1,166 @@
+**********************
+PowerShell transcript start
+Start time: 20180417200709
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll
+Process ID: 1511
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-17_20-07-09.txt
+SniffDog dumps then checks for updates from Coinbase...
+No Miners!
+PS /home/maynard/Sniffdogminer-master> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS /home/maynard/Sniffdogminer-master> cd Downloads
+PS /home/maynard/Sniffdogminer-master/Downloads> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Downloads
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+------          4/17/18   8:08 PM       11764974 cpuminer-opt-3.8.6.1.tar.gz
+
+
+PS /home/maynard/Sniffdogminer-master/Downloads> tar -xvzf cpuminer-opt.3.8.6.1.tar.gz -C /home/maynard/Sniffdogminer-master/Bin
+tar (child): cpuminer-opt.3.8.6.1.tar.gz: Cannot open: No such file or directory
+tar (child): cpuminer-opt.3.8.6.1.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar (child): Error is not recoverable: exiting now
+/bin/tar: Child returned status 2
+/bin/tar: Child returned status 2
+/bin/tar: Error is not recoverable: exiting now
+/bin/tar: Error is not recoverable: exiting now
+PS /home/maynard/Sniffdogminer-master/Downloads> tar -xvzf /home/maynard/Sniffdogminer-master/Downloads/cpuminer-opt.3.8.6.1.tar.gz -C /home/maynard/Sniffdogminer-miner/Bin
+tar (child): /home/maynard/Sniffdogminer-master/Downloads/cpuminer-opt.3.8.6.1.tar.gz: Cannot open: No such file or directory
+tar (child): /home/maynard/Sniffdogminer-master/Downloads/cpuminer-opt.3.8.6.1.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar (child): Error is not recoverable: exiting now
+/bin/tar: Child returned status 2
+/bin/tar: Child returned status 2
+/bin/tar: Error is not recoverable: exiting now
+/bin/tar: Error is not recoverable: exiting now
+PS /home/maynard/Sniffdogminer-master/Downloads> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Downloads
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+------          4/17/18   8:08 PM       11764974 cpuminer-opt-3.8.6.1.tar.gz
+
+
+PS /home/maynard/Sniffdogminer-master/Downloads> whereami
+whereami : The term 'whereami' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ whereami
++ ~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (whereami:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+whereami : The term 'whereami' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ whereami
++ ~~~~~~~~
++ CategoryInfo          : ObjectNotFound: (whereami:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master/Downloads> wmi
+wmi : The term 'wmi' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ wmi
++ ~~~
++ CategoryInfo          : ObjectNotFound: (wmi:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+wmi : The term 'wmi' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ wmi
++ ~~~
++ CategoryInfo          : ObjectNotFound: (wmi:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master/Downloads> pwd
+
+Path
+----
+/home/maynard/Sniffdogminer-master/Downloads
+
+
+PS /home/maynard/Sniffdogminer-master/Downloads> tar -xvzf cpuminer-opt-3.8.6.1
+tar (child): cpuminer-opt-3.8.6.1: Cannot open: No such file or directory
+tar (child): cpuminer-opt-3.8.6.1: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar (child): Error is not recoverable: exiting now
+/bin/tar: Child returned status 2
+/bin/tar: Child returned status 2
+/bin/tar: Error is not recoverable: exiting now
+/bin/tar: Error is not recoverable: exiting now
+PS /home/maynard/Sniffdogminer-master/Downloads> tar -xvzf cpuminer-opt-3.8.6.1.tar.gz
+gzip: stdin has more than one entry--rest ignored
+gzip: stdin has more than one entry--rest ignored
+/bin/tar: Child returned status 2
+/bin/tar: Child returned status 2
+/bin/tar: Error is not recoverable: exiting now
+/bin/tar: Error is not recoverable: exiting now
+PS /home/maynard/Sniffdogminer-master/Downloads> upzip cpuminer-opt-3.8.6.1.tar.gz
+upzip : The term 'upzip' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ upzip cpuminer-opt-3.8.6.1.tar.gz
++ ~~~~~
++ CategoryInfo          : ObjectNotFound: (upzip:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+upzip : The term 'upzip' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ upzip cpuminer-opt-3.8.6.1.tar.gz
++ ~~~~~
++ CategoryInfo          : ObjectNotFound: (upzip:String) [], CommandNotFoundException
++ FullyQualifiedErrorId : CommandNotFoundException
+
+PS /home/maynard/Sniffdogminer-master/Downloads> unzip cpuminer-opt-3.8.6.1.tar.gz
+Archive:  cpuminer-opt-3.8.6.1.tar.gz
+   creating: cpuminer-opt-3.8.6.1-windows/
+  inflating: cpuminer-opt-3.8.6.1-windows/cpuminer-avx2.exe
+  inflating: cpuminer-opt-3.8.6.1-windows/libcrypto-1_1-x64.dll
+  inflating: cpuminer-opt-3.8.6.1-windows/cpuminer-aes-avx.exe
+  inflating: cpuminer-opt-3.8.6.1-windows/libwinpthread-1.dll
+  inflating: cpuminer-opt-3.8.6.1-windows/libstdc++-6.dll
+  inflating: cpuminer-opt-3.8.6.1-windows/libgcc_s_seh-1.dll
+  inflating: cpuminer-opt-3.8.6.1-windows/cpuminer-sse2.exe
+  inflating: cpuminer-opt-3.8.6.1-windows/libcurl-4.dll
+  inflating: cpuminer-opt-3.8.6.1-windows/zlib1.dll
+  inflating: cpuminer-opt-3.8.6.1-windows/cpuminer-avx2-sha.exe
+  inflating: cpuminer-opt-3.8.6.1-windows/README.txt
+  inflating: cpuminer-opt-3.8.6.1-windows/cpuminer-aes-sse42.exe
+PS /home/maynard/Sniffdogminer-master/Downloads> cd ..
+PS /home/maynard/Sniffdogminer-master> cd Miners
+PS /home/maynard/Sniffdogminer-master/Miners> dir
+
+
+    Directory: /home/maynard/Sniffdogminer-master/Miners
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+------          4/17/18   7:53 PM           1797 JayDDeecpu.ps1
+
+
+PS /home/maynard/Sniffdogminer-master/Miners> vi JayDDeecpu.ps1

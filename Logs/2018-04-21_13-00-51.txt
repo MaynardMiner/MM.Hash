@@ -1,0 +1,87 @@
+**********************
+PowerShell transcript start
+Start time: 20180421130051
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll ./SniffDogBitcoin.ps1
+Process ID: 1802
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-21_13-00-51.txt
+SniffDog dumps then checks for updates from Coinbase...
+./cpuminer  $($_.Arguments)  /home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee
+PS>TerminatingError(Start-Process): "A positional parameter cannot be found that accepts argument '$($_.Arguments)'."
+Start-Process : A positional parameter cannot be found that accepts argument '$($_.Arguments)'.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:306 char:1
++ Start-Process "miner" "$($_Start) "'$($_.Arguments)'" $(Split-Path $_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
++ FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : A positional parameter cannot be found that accepts argument '$($_.Arguments)'.
+At /home/maynard/Sniffdogminer-master/SniffDogBitcoin.ps1:306 char:1
++ Start-Process "miner" "$($_Start) "'$($_.Arguments)'" $(Split-Path $_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
++ FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
+
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8786.98 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.17885   Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8786.98 USD
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> $global:?
+True
+**********************
+PowerShell transcript end
+End time: 20180421130253
+**********************

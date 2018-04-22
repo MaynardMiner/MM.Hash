@@ -1,0 +1,81 @@
+**********************
+PowerShell transcript start
+Start time: 20180421124256
+Username: MaynardMiner\maynard
+RunAs User: MaynardMiner\maynard
+Configuration Name: 
+Machine: MaynardMiner (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.2/pwsh.dll ./SniffDogBitcoin.ps1
+Process ID: 1501
+PSVersion: 6.0.2
+PSEdition: Core
+GitCommitId: v6.0.2
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.2
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-21_12-42-56.txt
+SniffDog dumps then checks for updates from Coinbase...
+PS>TerminatingError(Invoke-RestMethod): "		"
+WARNING: Sniffdog howled at (zpool) for a failed API check.
+Start = @{Name=JayDDeecpu; Path=/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer.1; Start=./cpuminer; Arguments=-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN; Wrap=False; Process=; API=Ccminer; Port=4048; Algorithms=Yescrypt; New=True; Active=00:00:00; Activated=1; Failed30sLater=0; Recover30sLater=0; Status=Idle; HashRate=0; Benchmarked=0; Hashrate_Gathered=False}.Start
+Arg. = @{Name=JayDDeecpu; Path=/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer.1; Start=./cpuminer; Arguments=-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN; Wrap=False; Process=; API=Ccminer; Port=4048; Algorithms=Yescrypt; New=True; Active=00:00:00; Activated=1; Failed30sLater=0; Recover30sLater=0; Status=Idle; HashRate=0; Benchmarked=0; Hashrate_Gathered=False}.Arguments
+Path = (Split-Path @{Name=JayDDeecpu; Path=/home/maynard/Sniffdogminer-master/Bin/CPU-JayDDee/cpuminer.1; Start=./cpuminer; Arguments=-a yescrypt -o stratum+tcp://yescrypt.mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN; Wrap=False; Process=; API=Ccminer; Port=4048; Algorithms=Yescrypt; New=True; Active=00:00:00; Activated=1; Failed30sLater=0; Recover30sLater=0; Status=Idle; HashRate=0; Benchmarked=0; Hashrate_Gathered=False}.Path)
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0.00       3.01       0.00    1552 322 miner
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/CPU-JayDDee/cpuminer.1 -a
+                                               yescrypt -o stratum+tcp://yescry
+                                               pt.mine.zergpool.com:6233 -u RKi
+                                               rUe978mBoa2MRWqeMGqDzVAKTafKh8H
+                                               -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                      Thank you Everyone For using SniffDog!!!!!
+
+
+
+
+1BTC =  8789.4 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Po
+                                                                             ol
+                                                                              F
+                                                                             ee
+                                                                             s
+-----      --------- ----- ------- ---------- -------   ----       -----     --
+JayDDeecpu Yescrypt  Bench   Bench  10.12910   Bench  zergpool   3 - Coin(s) 0.
+
+
+1BTC =  8789.4 USD
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> $global:?
+True
+**********************
+PowerShell transcript end
+End time: 20180421124747
+**********************
