@@ -1,4 +1,4 @@
-﻿function Set-Stat {
+function Set-Stat {
     param(
         [Parameter(Mandatory=$true)]
         [String]$Name, 
@@ -551,7 +551,7 @@ function Expand-WebRequest {
              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New} 
              Start-Process "build" `"$([IO.Path]::GetFullPath($Filename))`"
              Remove-Item $Path_Old 
-             Write-Host "Miner Must Resart After Install" -ForegroundColor "Red"
+             Write-Host "Miner Must Resart After Install" -ForegroundColor "Red" -BackgroundColor "White"
          } 
      } 
  } 
