@@ -75,6 +75,20 @@ $WalletBackup = $Wallet
 $UserNameBackup = $UserName
 $WorkerNameBackup = $WorkerName
 
+Write-Host "
+                                                                                        
+                                                                                        
+`7MMM.     ,MMF'`7MMM.     ,MMF'    `7MMF'  `7MMF'      db       .M"""bgd `7MMF'  `7MMF'
+  MMMb    dPMM    MMMb    dPMM        MM      MM       ;MM:     ,MI    "Y   MM      MM  
+  M YM   ,M MM    M YM   ,M MM        MM      MM      ,V^MM.    `MMb.       MM      MM  
+  M  Mb  M' MM    M  Mb  M' MM        MMmmmmmmMM     ,M  `MM      `YMMNq.   MMmmmmmmMM  
+  M  YM.P'  MM    M  YM.P'  MM        MM      MM     AbmmmqMA   .     `MM   MM      MM  
+  M  `YM'   MM    M  `YM'   MM        MM      MM    A'     VML  Mb     dM   MM      MM  
+.JML. `'  .JMML..JML. `'  .JMML.    .JMML.  .JMML..AMA.   .AMMA.P"Ybmmd"  .JMML.  .JMML.
+                                                                                        
+                                                                                        
+" -foregroundColor "Green"
+
 while($true)
 {
     $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
