@@ -540,7 +540,7 @@ function Expand-WebRequest {
  
  
          if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse} 
-         Start-Process "7z" "x `"$([IO.Path]::GetFullPath($FileName))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait 
+         Start-Process "7za" "x `"$([IO.Path]::GetFullPath($FileName))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait 
  
  
          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse} 
@@ -549,7 +549,9 @@ function Expand-WebRequest {
          } 
          else { 
              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New} 
+             Start-Process "build" `"$([IO.Path]::GetFullPath($Filename))`"
              Remove-Item $Path_Old 
+             Write-Host "Miner Must Resart After Install" -ForegroundColor "Red"
          } 
      } 
  } 
