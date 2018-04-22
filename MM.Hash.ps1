@@ -255,12 +255,11 @@ while($true)
         {
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
-		Miner_Name = $_.Miner_Name
+		        Miner_Name = $_.Miner_Name
                 Path = $_.Path
-		Start = $_.Start
-                Arguments = $_.Arguments
+		        Arguments = $_.Arguments
                 Wrap = $_.Wrap
-                Process = $_.Miner_Name
+                Process = $null
                 API = $_.API
                 Port = $_.Port
                 Algorithms = $_.HashRates.PSObject.Properties.Name
@@ -280,41 +279,47 @@ while($true)
     #Stop or start miners in the active list depending on if they are the most profitable
     $ActiveMinerPrograms | ForEach {
         if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -eq 0)
-        {
-	    if($_Process -eq $null)
-	     {
-		$_.Status = "Failed"
-	     }
-            elseif($_.Process.HasExited -eq $false)
+         {
+	       if($_.Process -eq $null)
+	        {
+		   $_.Status = "Failed"
+	        }
+         elseif($_.Process.HasExited -eq $false)
             {
-                $_.Active += (Get-Date)-$_.Process.StartTime
-                Stop-Process -Name $_.Process | Out-Null
-                $_.Status = "Idle"
+           $_.Active += (Get-Date)-$_.Process.StartTime
+           Stop-Process -Name $_.Process | Out-Null
+            $_.Status = "Idle"
             }
         }
         else
         {
-            if(Get-Process -ne "$_.Process" -or "$_.Process.HasExited" -ne $false)
+            if($_.Process -eq $null -or $_.Process.HasExited -ne $false)
             {
                 Start-Sleep $Delay #Wait to prevent BSOD
                 $DecayStart = Get-Date
                 $_.New = $true
                 $_.Activated++
-                if($_.Wrap){$_.Process = 
-Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList -executionpolicy bypass -command '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Start)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)' -PassThru"}
-                else{
-	     $3 = "$($_.Arguments)"		
-	     Write-Host "$2"
-	     $2 = "$($_.Start)"
-	     Write-Host "$1"
-	     $1 = "$(Split-Path $_.Path)"
-	     Write-Host "$3"		
-	     $Execute = "$1 $2 '$3'"
-	     pwsh -command "bash miner.sh $Execute"
-	     $_Process = $_.Miner_Name
-		   } 
-                if($_Process -eq $null){$_.Status = "Failed"}
-                else{$_.Status = "Running"}
+                if($_.Wrap)
+                 {$_.Process = Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" 
+                 -ArgumentList -executionpolicy bypass -command '$(Convert-Path ".\Wrapper.ps1")' 
+                 -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Start)' -ArgumentList '$($_.Arguments)' 
+                 -WorkingDirectory '$(Split-Path $_.Path)' -PassThru"
+                 }
+                else
+                 {
+	              $3 = "$($_.Arguments)"		
+	              Write-Host "$2"
+	              $2 = "$($_.Start)"
+	              Write-Host "$1"
+	              $1 = "$(Split-Path $_.Path)"
+	              Write-Host "$3"		
+	              $Execute = "$1 $2 '$3'"
+	              pwsh -command "bash miner.sh $Execute"
+	              $_.Process = $_.Miner_Name
+		          } 
+           if($_Process -eq $null)
+           {$_.Status = "Failed"}
+           else{$_.Status = "Running"}
             }
         }
     }
@@ -395,33 +400,41 @@ Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList -exe
     $CheckMinerInterval = 15
     Start-Sleep ($CheckMinerInterval)
     $ActiveMinerPrograms | ForEach {
-        if($_Process -eq $null -or $_.Process.HasExited)
+        if($_.Process -eq $null -or $_.Process.HasExited)
         {
-            if($_.Status -eq "Running"){
-                $_.Failed30sLater++
+          if($_.Status -eq "Running")
+             {
+              $_.Failed30sLater++
                 
-                if($_.Wrap){$_.Process = Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList -executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Start)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)' -PassThru"} 
-
-		        else{
-		             $3 = "$($_.Arguments)"
-		             Write-Host "$2"
-		             $2 = "$($_.Start)"
-                     Write-Host "1"
-		             $1 = "$($_.Path)"
-		             $Execute = "$1 $2 '$3'"
-		             pwsh -command "bash miner $Execute"
-		             $_.Process = $_.Miner_Name
-		             }
+                if($_.Wrap)
+                 {
+                 $_.Process = Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList 
+                -executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' 
+                -FilePath '$($_.Start)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)' -PassThru"
+                 } 
+                else
+                 {
+		          $3 = "$($_.Arguments)"
+		          Write-Host "$2"
+		          $2 = "$($_.Start)"
+                  Write-Host "1"
+		          $1 = "$($_.Path)"
+		          $Execute = "$1 $2 '$3'"
+		          pwsh -command "bash miner.sh $Execute"
+		          $_.Process = $_.Miner_Name
+		          }
                
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.Process -eq $null -or $_.Process.HasExited)
-			{
-                         continue
-                      else {
-                         $_.Recover30sLater++
-                }
-            }
+		  {
+           continue
+          }
+         else 
+          {
+            $_.Recover30sLater++
+          }
         }
+      }
     }
 
     
