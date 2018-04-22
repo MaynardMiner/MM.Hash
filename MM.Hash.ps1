@@ -310,7 +310,7 @@ Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList -exe
 	     $1 = "$(Split-Path $_.Path)"
 	     Write-Host "$3"		
 	     $Execute = "$1 $2 '$3'"
-	     pwsh -command "bash miner $Execute"
+	     pwsh -command "bash miner.sh $Execute"
 	     $_Process = $_.Miner_Name
 		   } 
                 if($_Process -eq $null){$_.Status = "Failed"}
