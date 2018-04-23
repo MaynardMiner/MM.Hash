@@ -49,6 +49,6 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Port = 4048
         Wrap = $false
         URI = $Uri
-        Miner_Name = "cpuminer"
+        MinerName = "cpuminer"
     }
 }

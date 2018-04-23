@@ -47,7 +47,7 @@
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
-Get-ChildItem . -Recurse
+Get-ChildItem . -Recurse 
 
 if($Proxy -eq ""){$PSDefaultParameterValues.Remove("*:Proxy")}
 else{$PSDefaultParameterValues["*:Proxy"] = $Proxy}
@@ -68,9 +68,9 @@ if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $
 
 #Set donation parameters
 $LastDonated = (Get-Date).AddDays(-1).AddHours(1)
-$WalletDonate = "1AMQg6m9GPDN9HGuC3wJGpSuiZr1XQXjxi"
-$UserNameDonate = "Tyredas"
-$WorkerNameDonate = "Beeboop"
+$WalletDonate = "RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H"
+$UserNameDonate = "MaynardVII"
+$WorkerNameDonate = "Rig1"
 $WalletBackup = $Wallet
 $UserNameBackup = $UserName
 $WorkerNameBackup = $WorkerName
@@ -93,7 +93,7 @@ M::::::M               M::::::MM::::::M               M::::::M        HH::::::H 
 M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
 M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
 MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
-" -foregroundColor "Green"
+" -foregroundColor "darkred"
 
 while($true)
 {
@@ -275,9 +275,9 @@ while($true)
         {
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
-		        Miner_Name = $_.Miner_Name
+		MinerName = $_.MinerName
                 Path = $_.Path
-		        Arguments = $_.Arguments
+		Arguments = $_.Arguments
                 Wrap = $_.Wrap
                 Process = $null
                 API = $_.API
@@ -328,14 +328,15 @@ while($true)
                 else
                  {
 	              $3 = "$($_.Arguments)"		
-	              Write-Host "$2"
-	              $2 = "$($_.Start)"
-	              Write-Host "$1"
+	              Write-Host "$3"
+	              $2 = "./$($_.MinerName)"
+		      Write-Host "$2"
 	              $1 = "$(Split-Path $_.Path)"
-	              Write-Host "$3"		
+		      Write-Host "$1"		
 	              $Execute = "$1 $2 '$3'"
-	              pwsh -command "bash miner $Execute"
-	              $_.Process = $_.Miner_Name
+		      Write-Host "$Execute"
+	              pwsh -command "bash miner.sh $Execute"
+	              $_.Process = "$($_.Miner_Name)"
 		          } 
            if($_Process -eq $null)
            {$_.Status = "Failed"}
@@ -426,7 +427,7 @@ while($true)
              {
               $_.Failed30sLater++
                 
-                if($_.Wrap)
+                 if($_.Wrap)
                  {
                  $_.Process = Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList 
                 -executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' 
@@ -435,13 +436,15 @@ while($true)
                 else
                  {
 		          $3 = "$($_.Arguments)"
-		          Write-Host "$2"
-		          $2 = "$($_.Start)"
-                  Write-Host "1"
-		          $1 = "$($_.Path)"
+		          Write-Host "$3"
+		          $2 = "./$($_.MinerName)"
+                          Write-Host "./$2"
+		          $1 = "$(Split-Path $_.Path)"
+			  Write-Host "$1"
 		          $Execute = "$1 $2 '$3'"
+			  Write-Host "$Execute"
 		          pwsh -command "bash miner.sh $Execute"
-		          $_.Process = $_.Miner_Name
+		          $_.Process = "$($_.Miner_Name)"
 		          }
                
                 Start-Sleep ($CheckMinerInterval)

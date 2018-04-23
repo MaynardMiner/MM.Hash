@@ -28,7 +28,26 @@ wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0/powershel
 sudo dpkg -i powershell_6.0.0-1.ubuntu.17.04_amd64.deb
 sudo apt-get install -f
 
+GITHUB LINK
+
 https://github.com/MaynardMiner/MM.Hash.git
 
+DEPENDENCIES
+
+sudo apt-get install vim (For text editing)
+sudo apt-get install libgmp3-dev
+
+SETUP
+
+First Move Mini Scripts To Your Bin Folder
+
+cd MM.Hash
+sudo mv miner.sh /bin
+sudo mv builder.sh /bin
+
+Now make them executable:
+
+chmod +x miner.sh
+chmod +x builder.sh
 
 
