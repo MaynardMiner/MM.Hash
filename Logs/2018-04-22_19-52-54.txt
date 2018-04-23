@@ -199,3 +199,89 @@ JayDDeecpu Yescrypt  Bench   Bench  9.08435    Bench  zergpool   3 - Coin(s)   0
 
 
 1BTC =  8795 USD
+Cannot find an overload for "op_Subtraction" and the argument count: "2".
+At /home/maynard/MM.Hash/MM.Hash.ps1:484 char:13
++             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTi ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [], MethodException
++ FullyQualifiedErrorId : MethodCountCouldNotFindBest
+Cannot find an overload for "op_Subtraction" and the argument count: "2".
+At /home/maynard/MM.Hash/MM.Hash.ps1:484 char:13
++             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTi ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [], MethodException
++ FullyQualifiedErrorId : MethodCountCouldNotFindBest
+
+MM.Hash Is Exiting Miners & Searching Coinbase
+PS>TerminatingError(ConvertFrom-Json): "Conversion from JSON failed with error: Unexpected character encountered while parsing value: @. Path '', line 0, position 0."
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: @. Path '', line 0, position 0.
+At /home/maynard/MM.Hash/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: @. Path '', line 0, position 0.
+At /home/maynard/MM.Hash/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+
+PS>TerminatingError(ConvertFrom-Json): "Conversion from JSON failed with error: Unexpected character encountered while parsing value: @. Path '', line 0, position 0."
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: @. Path '', line 0, position 0.
+At /home/maynard/MM.Hash/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+ConvertFrom-Json : Conversion from JSON failed with error: Unexpected character encountered while parsing value: @. Path '', line 0, position 0.
+At /home/maynard/MM.Hash/Include.ps1:127 char:42
++            $Content = $_ | Get-Content | ConvertFrom-Json
++                                          ~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [ConvertFrom-Json], ArgumentException
++ FullyQualifiedErrorId : System.ArgumentException,Microsoft.PowerShell.Commands.ConvertFromJsonCommand
+
+-a yescrypt -o stratum+tcp://mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+./cpuminer
+/home/maynard/MM.Hash/Bin/CPU-JayDDee
+/home/maynard/MM.Hash/Bin/CPU-JayDDee ./cpuminer '-a yescrypt -o stratum+tcp://mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN'
+/bin/miner1.sh: line 1: ﻿#!/bin/bash: No such file or directory
+/bin/miner1.sh: line 1: ﻿#!/bin/bash: No such file or directory
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Option “-e” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+Use “-- ” to terminate the options and put the command line to execute after it.
+[3J[H[2J
+
+
+   Status: Failed
+
+    Speed Active Launched Command
+    ----- ------ -------- -------
+0.00 PH/s        3 Times  Bin/CPU-JayDDee/cpuminer.1 -a yescrypt -o stratum+tcp://mine.zergpool.com:6233 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p ID=Linux,c=RVN
+
+
+
+
+
+
+
+
+
+
+
+                     Nicehash Sucks
+
+
+
+
+1BTC =  8798 USD
+
+
+   Type: CPU
+
+Miner      Algorithm Speed BTC/Day BTC/GH/Day USD/Day   Pool       Coins     Pool Fees # of Workers
+-----      --------- ----- ------- ---------- -------   ----       -----     --------- ------------
+JayDDeecpu Yescrypt  Bench   Bench  7.37295    Bench  zergpool   3 - Coin(s)   0.5%        153
+
+
