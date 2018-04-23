@@ -339,26 +339,21 @@ while($true)
                 $_.New = $true
                 $_.Activated++
                 if($_.Wrap)
-                 {$_.Process = Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" 
-                 -ArgumentList -executionpolicy bypass -command '$(Convert-Path ".\Wrapper.ps1")' 
-                 -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Start)' -ArgumentList '$($_.Arguments)' 
-                 -WorkingDirectory '$(Split-Path $_.Path)' -PassThru"
+		 {
+		  $Execute = "$1 $2 $3"
                  }
                 else
                  {
 	              $3 = "$($_.Arguments)"		
-	              Write-Host "$3"
 	              $2 = "./$($_.MinerName)"
-		      Write-Host "$2"
-	              $1 = "$(Split-Path $_.Path)"
-		      Write-Host "$1"		
+	              $1 = "$(Split-Path $_.Path)"	
 	              $Execute = "$1 $2 $3"
-		      Write-Host "$Execute"
 		      Set-Location "$(Split-Path $_.Path)"
-	              Start-Process -FilePath "xterm" -ArgumentList "-fg white -bg black -e $2 $3" -PassThru
-		      Write-Host "$_.Process"
+		      $Execute1 = Start-Process -FilePath "xterm" -ArgumentList "-fg white -bg black -e $2 $3" -PassThru
+		      $_.Process = $Execute1
+	              Write-Host "($_.Process)"
 		          } 
-           if($_Process -eq $null)
+           if($_.Process -eq $null)
            {$_.Status = "Failed"}
            else{$_.Status = "Running"}
             }
@@ -449,24 +444,18 @@ while($true)
                 
                  if($_.Wrap)
                  {
-                 $_.Process = Start-Process "xterm" "-e pwsh Start-Process -FilePath "pwsh" -ArgumentList 
-                -executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' 
-                -FilePath '$($_.Start)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)' -PassThru"
+                  $Execute = "$1 $2 $3"                
                  } 
                 else
                  {
 		          $3 = "$($_.Arguments)"
-		          Write-Host "$3"
 		          $2 = "./$($_.MinerName)"
-                          Write-Host "./$2"
 		          $1 = "$(Split-Path $_.Path)"
-			  Write-Host "$1"
 		      $Execute = "$1 $2 $3"
-		      Write-Host "$Execute"
 	             Set-Location "$(Split-Path $_.Path)"
-		     Start-Process -FilePath "xterm" -ArgumentList "-fg white -bg black -e $2 $3" -PassThru 
-			  Write-Host "$_.Process"
-			  Write-Host "$_.Process.StartTime"
+		     $Execute1 = Start-Process -FilePath "xterm" -ArgumentList "-fg white -bg black -e $2 $3" -PassThru
+	             $_.Process = $Execute1
+			  Write-Host "$($_.Process)"
 		          }
                
                 Start-Sleep ($CheckMinerInterval)
