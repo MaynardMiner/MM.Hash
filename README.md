@@ -36,6 +36,8 @@ DEPENDENCIES
 
 sudo apt-get install vim (For text editing)
 sudo apt-get install libgmp3-dev
+sudo apt-get instal rpm
+sudo apt-get install xterm
 
 SETUP
 

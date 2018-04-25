@@ -24,7 +24,7 @@
     [Parameter(Mandatory=$false)]
     [Array]$Type = "CPU", #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = "Yescrypt", #i.e. Ethash,Equihash,Cryptonight ect.
+    [Array]$Algorithm = "yescrypt, yescryptR16", #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)] 

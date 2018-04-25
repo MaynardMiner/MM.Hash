@@ -8,7 +8,7 @@ function Set-Stat {
         [DateTime]$Date = (Get-Date)
     )
 
-    $Path = "Stats\$Name.txt"
+    $Path = ".\Stats\$Name.txt"
     $Date = $Date.ToUniversalTime()
     $SmallestValue = 1E-20
 
@@ -125,6 +125,7 @@ function Get-ChildItemContent {
         else
         {
            $Content = $_ | Get-Content | ConvertFrom-Json
+	 
         }
         $Content | ForEach {
             [PSCustomObject]@{Name = $Name; Content = $_}
