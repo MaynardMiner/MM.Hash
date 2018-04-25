@@ -36,8 +36,6 @@ DEPENDENCIES
 
 sudo apt-get install vim (For text editing)
 sudo apt-get install libgmp3-dev
-sudo apt-get instal rpm
-sudo apt-get install xterm
 
 SETUP
 
@@ -51,5 +49,14 @@ Now make them executable:
 
 chmod +x miner.sh
 chmod +x builder.sh
+
+.NET Framework Install (2.0.6)
+
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install dotnet-runtime-2.0.6
 
 
