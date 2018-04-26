@@ -1,5 +1,15 @@
 # MM.Hash
 
+Person Dev Notes-
+
+I have discovered why I can't get the benchmarking and multiple miners loaded. It's due to the fact I am trying launch 'xterm' as a seperate, process when it needs to be launched unders the "Start-Job" function, so it's PID can be tracked by the main script.
+
+There was a "Start-Subprocess" command written into the old miner I was originally based this off of. However, the Start-Job feature was dependent on an windows exectuable launching it.
+
+Since I can't launch a linux script through powershell as a job (only ps1), I have to build a ps1 scriprt that will launch another instance.
+
+
+
 Building the Ubuntu mini
 
 sudo apt install lightdm

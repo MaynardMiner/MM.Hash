@@ -1,0 +1,2 @@
+#!/bin/bash
+pwsh -command "&.\MM.Hash.ps1 -StatsInterval 1 -Username MaynardVII -Workername Rig1 -Rigname Linux -Currency USD -PasswordCurrency RVN -Interval 120 -Delay 1 -Wallet RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -Location US -Poolname zergpool -Type CPU -Algorithm yescrpyt -Donate 0"

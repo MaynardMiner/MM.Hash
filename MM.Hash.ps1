@@ -1,10 +1,10 @@
 ﻿param(
     [Parameter(Mandatory=$false)]
-    [String]$Wallet = "RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H", 
+    [String]$Wallet, 
     [Parameter(Mandatory=$false)]
-    [String]$UserName = "Tyredas", 
+    [String]$UserName = "MaynardVI", 
     [Parameter(Mandatory=$false)]
-    [String]$WorkerName = "Beeboop",
+    [String]$WorkerName = "Rig1",
     [Parameter(Mandatory=$false)]
     [String]$RigName = "Linux",
     [Parameter(Mandatory=$false)]
@@ -12,9 +12,9 @@
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
-    [Int]$Interval = 600, #seconds before reading hash rate from miners
+    [Int]$Interval = 120, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)] 
-    [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet 
+    [Int]$StatsInterval = "$null", #seconds of current active to gather hashrate if not gathered yet 
     [Parameter(Mandatory=$false)]
     [String]$Location = "US", #europe/us/asia
     [Parameter(Mandatory=$false)]
@@ -22,9 +22,9 @@
     [Parameter(Mandatory=$false)]
     [Switch]$SSL = $false, 
     [Parameter(Mandatory=$false)]
-    [Array]$Type = "CPU", #AMD/NVIDIA/CPU
+    [Array]$Type = "$null", #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = "yescrypt, yescryptR16", #i.e. Ethash,Equihash,Cryptonight ect.
+    [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)] 
@@ -32,25 +32,24 @@
     [Parameter(Mandatory=$false)] 
     [String]$SplitSniffCC = "0",
     [Parameter(Mandatory=$false)]
-    [Array]$PoolName = "zergpool", 
+    [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency = ("RVN"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Array]$Passwordcurrency = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Int]$Donate = 0, #Minutes per Day
+    [Int]$Donate = 5, #Minutes per Day
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1 #seconds before opening each miner
 )
 
+
+
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
-Get-ChildItem . -Recurse 
-
-if($Proxy -eq ""){$PSDefaultParameterValues.Remove("*:Proxy")}
-else{$PSDefaultParameterValues["*:Proxy"] = $Proxy}
+Get-ChildItem . -Recurse |
 
 . .\Include.ps1
 
@@ -163,9 +162,9 @@ while($true)
     #Load information about the Miners
     #Messy...?
     $Miners = if(Test-Path "Miners"){Get-ChildItemContent "Miners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
-        Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
-        Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
-        Where {$MinerName.Count -eq 0 -or (Compare-Object $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+ Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+ Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
+ Where {$MinerName.Count -eq 0 -or (Compare-Ojbect  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
         if((Test-Path $Miner.Path) -eq $false)
@@ -193,7 +192,9 @@ while($true)
             else
             {
                 Expand-WebRequest $Miner.URI (Split-Path $Miner.Path)
-            }
+		Write-Host "Exp Web"
+	    }
+            
         }
         else
         {
@@ -296,7 +297,8 @@ while($true)
                 Name = $_.Name
 		MinerName = $_.MinerName
                 Path = $_.Path
-		Arguments = $_.Arguments
+		Arguments = "$_.Arguments"
+		Program = xterm.sh
                 Wrap = $_.Wrap
                 Process = $null
                 API = $_.API
@@ -311,6 +313,7 @@ while($true)
                 HashRate = 0
                 Benchmarked = 0
                 Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
+		xterm= "/home/maynard/MM.Hash/xterm.sh"
             }
         }
     }
@@ -344,15 +347,9 @@ while($true)
                  }
                 else
                  {
-	              $3 = "$($_.Arguments)"		
-	              $2 = "./$($_.MinerName)"
-	              $1 = "$(Split-Path $_.Path)"	
-	              $Execute = "$1 $2 $3"
-		      Set-Location "$(Split-Path $_.Path)"
-		      $Execute1 = Start-Process -FilePath "xterm" -ArgumentList "-fg white -bg black -e $2 $3" -PassThru
-		      $_.Process = $Execute1
-	              Write-Host "($_.Process)"
-		          } 
+		     
+                      $_.Process = Start-Process -Filepath "xterm" -ArgumentList $_.Arguments 
+		  } 
            if($_.Process -eq $null)
            {$_.Status = "Failed"}
            else{$_.Status = "Running"}
@@ -448,15 +445,9 @@ while($true)
                  } 
                 else
                  {
-		          $3 = "$($_.Arguments)"
-		          $2 = "./$($_.MinerName)"
-		          $1 = "$(Split-Path $_.Path)"
-		      $Execute = "$1 $2 $3"
-	             Set-Location "$(Split-Path $_.Path)"
-		     $Execute1 = Start-Process -FilePath "xterm" -ArgumentList "-fg white -bg black -e $2 $3" -PassThru
-	             $_.Process = $Execute1
-			  Write-Host "$($_.Process)"
-		          }
+		      
+                      Start-Process -Filepath "xterm" -ArgumentList $_.Arguments
+		  }
                
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.Process -eq $null -or $_.Process.HasExited)

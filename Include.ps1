@@ -268,7 +268,7 @@ function Get-HashRate {
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+                    Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "nicehashequihash"
@@ -297,7 +297,7 @@ function Get-HashRate {
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+                    Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "nicehash"
@@ -324,7 +324,7 @@ function Get-HashRate {
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+                    Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "ewbf"
@@ -351,7 +351,7 @@ function Get-HashRate {
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+                    Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "claymore"
@@ -372,7 +372,7 @@ function Get-HashRate {
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+		    Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "fireice"
@@ -393,7 +393,7 @@ function Get-HashRate {
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+                    Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "wrapper"
@@ -401,16 +401,15 @@ function Get-HashRate {
                 do
                 {
                     $HashRate = Get-Content ".\Wrapper_$Port.txt"
-                
-                    if($HashRate -eq $null){sleep $Interval; $HashRate = Get-Content ".\Wrapper_$Port.txt"}
-
+              			  
+			 
                     if($HashRate -eq $null){$HashRates = @(); break}
 
                     $HashRates += [Double]$HashRate
 
                     if(-not $Safe){break}
 
-                    sleep $Interval
+		   Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
         }
@@ -482,8 +481,8 @@ function Start-SubProcess {
         [String]$ArgumentList = "", 
         [Parameter(Mandatory=$false)]
         [String]$WorkingDirectory = ""
-    )
-
+	 )
+ 
     $Job = Start-Job -ArgumentList $PID, $FilePath, $ArgumentList, $WorkingDirectory {
         param($ControllerProcessID, $FilePath, $ArgumentList, $WorkingDirectory)
 
@@ -492,7 +491,6 @@ function Start-SubProcess {
 
         $ProcessParam = @{}
         $ProcessParam.Add("FilePath", $FilePath)
-		$ProcessParam.Add("WindowStyle", 'Minimized')
         if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)}
         if($WorkingDirectory -ne ""){$ProcessParam.Add("WorkingDirectory", $WorkingDirectory)}
         $Process = Start-Process @ProcessParam -PassThru
@@ -507,7 +505,7 @@ function Start-SubProcess {
         while($Process.HasExited -eq $false)
     }
 
-    do{sleep 1; $JobOutput = Receive-Job $Job}
+    do{Start-Sleep 1; $JobOutput = Recieve-Job $Job}
     while($JobOutput -eq $null)
 
     $Process = Get-Process | Where Id -EQ $JobOutput.ProcessId
@@ -522,20 +520,23 @@ function Expand-WebRequest {
         [Parameter(Mandatory=$false)]
         [String]$Path
     )
-    if (-not $Path) {$Path = Join-Path ".\Downloads" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
-     if (-not (Test-Path ".\Downloads")) {New-Item "Downloads" -ItemType "directory" | Out-Null} 
-     $FileName = Join-Path ".\Downloads" (Split-Path $Uri -Leaf) 
+    if (-not $Path) {$Path = Join-Path "./Downloads" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
+     if (-not (Test-Path "./Downloads")) {New-Item "Downloads" -ItemType "directory" | Out-Null} 
+     $FileName = Join-Path "./Downloads" (Split-Path $Uri -Leaf) 
  
  
      if (Test-Path $FileName) {Remove-Item $FileName}
      [Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls11 -bor [System.Net.SecurityProtocolType]::Tls12
-     Invoke-WebRequest $Uri -OutFile $FileName -UseBasicParsing 
+       Invoke-Webrequest $Uri -OutFile $FileName -UseBasicParsing 
  
  
      if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension) { 
          Start-Process $FileName "-qb" -Wait 
      } 
-     else { 
+     else
+
+	 {
+ 
          $Path_Old = (Join-Path (Split-Path $Path) ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName) 
          $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf)) 
  
@@ -546,9 +547,11 @@ function Expand-WebRequest {
  
          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse} 
          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false) { 
-             Rename-Item $Path_Old (Split-Path $Path -Leaf) 
-         } 
-         else { 
+         Rename-Item $Path_Old (Split-Path $Path -Leaf) 
+         }
+ 
+         else {
+ 
              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New} 
              Start-Process "build" `"$([IO.Path]::GetFullPath($Filename))`"
              Remove-Item $Path_Old 

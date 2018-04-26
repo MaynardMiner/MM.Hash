@@ -1,0 +1,331 @@
+**********************
+PowerShell transcript start
+Start time: 20180424204345
+Username: Maynard\maynard
+RunAs User: Maynard\maynard
+Configuration Name: 
+Machine: Maynard (Unix 4.13.0.38)
+Host Application: /opt/microsoft/powershell/6.0.0/pwsh.dll MM.Hash.ps1
+Process ID: 14178
+PSVersion: 6.0.0
+PSEdition: Core
+GitCommitId: v6.0.0
+OS: Linux 4.13.0-38-generic #43-Ubuntu SMP Wed Mar 14 15:20:44 UTC 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\2018-04-24_20-43-45.txt
+ahashpool_Bitcore_Profit.txt
+ahashpool_Blake2s_Profit.txt
+ahashpool_Blakecoin_Profit.txt
+ahashpool_C11_Profit.txt
+ahashpool_Groestl_Profit.txt
+ahashpool_hmq1725_Profit.txt
+ahashpool_Hsr_Profit.txt
+ahashpool_Keccak_Profit.txt
+ahashpool_Lbry_Profit.txt
+ahashpool_Lyra2RE2_Profit.txt
+ahashpool_M7M_Profit.txt
+ahashpool_MyriadGroestl_Profit.txt
+ahashpool_NeoScrypt_Profit.txt
+ahashpool_Nist5_Profit.txt
+ahashpool_Phi_Profit.txt
+ahashpool_Quark_Profit.txt
+ahashpool_Qubit_Profit.txt
+ahashpool_Scrypt_Profit.txt
+ahashpool_Sib_Profit.txt
+ahashpool_Skein_Profit.txt
+ahashpool_Skunk_Profit.txt
+ahashpool_Timetravel_Profit.txt
+ahashpool_Tribus_Profit.txt
+ahashpool_X11_Profit.txt
+ahashpool_X16r_Profit.txt
+ahashpool_X16s_Profit.txt
+ahashpool_X17_Profit.txt
+ahashpool_Xevan_Profit.txt
+ahashpool_Yescrypt_Profit.txt
+blazepool_Bitcore_Profit.txt
+blazepool_Blake2s_Profit.txt
+blazepool_Blakecoin_Profit.txt
+blazepool_C11_Profit.txt
+blazepool_Groestl_Profit.txt
+blazepool_hmq1725_Profit.txt
+blazepool_Hsr_Profit.txt
+blazepool_Keccak_Profit.txt
+blazepool_Lbry_Profit.txt
+blazepool_Lyra2RE2_Profit.txt
+blazepool_M7M_Profit.txt
+blazepool_MyriadGroestl_Profit.txt
+blazepool_NeoScrypt_Profit.txt
+blazepool_Nist5_Profit.txt
+blazepool_Phi_Profit.txt
+blazepool_Quark_Profit.txt
+blazepool_Qubit_Profit.txt
+blazepool_Scrypt_Profit.txt
+blazepool_Sib_Profit.txt
+blazepool_Skein_Profit.txt
+blazepool_Skunk_Profit.txt
+blazepool_Timetravel_Profit.txt
+blazepool_Tribus_Profit.txt
+blazepool_X11_Profit.txt
+blazepool_X16r_Profit.txt
+blazepool_X16s_Profit.txt
+blazepool_X17_Profit.txt
+blazepool_Xevan_Profit.txt
+blazepool_Yescrypt_Profit.txt
+Hashrefinery_Bitcore_Profit.txt
+Hashrefinery_Blake2s_Profit.txt
+Hashrefinery_Lyra2RE2_Profit.txt
+Hashrefinery_M7M_Profit.txt
+Hashrefinery_MyriadGroestl_Profit.txt
+Hashrefinery_NeoScrypt_Profit.txt
+Hashrefinery_Nist5_Profit.txt
+Hashrefinery_Phi_Profit.txt
+Hashrefinery_Quark_Profit.txt
+Hashrefinery_Qubit_Profit.txt
+Hashrefinery_Scrypt_Profit.txt
+Hashrefinery_Skein_Profit.txt
+Hashrefinery_Timetravel_Profit.txt
+Hashrefinery_Tribus_Profit.txt
+Hashrefinery_X11_Profit.txt
+Hashrefinery_X13_Profit.txt
+Hashrefinery_X17_Profit.txt
+Hashrefinery_Xevan_Profit.txt
+Hashrefinery_Yescrypt_Profit.txt
+zergpool_Bitcore_Profit.txt
+zergpool_Blake2s_Profit.txt
+zergpool_C11_Profit.txt
+zergpool_Groestl_Profit.txt
+zergpool_hmq1725_Profit.txt
+zergpool_Hsr_Profit.txt
+zergpool_Keccak_Profit.txt
+zergpool_Keccakc_Profit.txt
+zergpool_Lyra2RE2_Profit.txt
+zergpool_Lyra2z_Profit.txt
+zergpool_MyriadGroestl_Profit.txt
+zergpool_NeoScrypt_Profit.txt
+zergpool_Nist5_Profit.txt
+zergpool_Phi_Profit.txt
+zergpool_Quark_Profit.txt
+zergpool_Qubit_Profit.txt
+zergpool_Scrypt_Profit.txt
+zergpool_Sib_Profit.txt
+zergpool_Skein_Profit.txt
+zergpool_Skunk_Profit.txt
+zergpool_Timetravel_Profit.txt
+zergpool_Tribus_Profit.txt
+zergpool_X11_Profit.txt
+zergpool_X13_Profit.txt
+zergpool_X16r_Profit.txt
+zergpool_X16s_Profit.txt
+zergpool_X17_Profit.txt
+zergpool_Xevan_Profit.txt
+zergpool_Yescrypt_Profit.txt
+zergpool_YescryptR16_Profit.txt
+zpool_Bitcore_Profit.txt
+zpool_Blake2s_Profit.txt
+zpool_Blakecoin_Profit.txt
+zpool_C11_Profit.txt
+zpool_Equihash_Profit.txt
+zpool_hmq1725_Profit.txt
+zpool_Hsr_Profit.txt
+zpool_Keccak_Profit.txt
+zpool_Keccakc_Profit.txt
+zpool_Lyra2RE2_Profit.txt
+zpool_Lyra2z_Profit.txt
+zpool_MyriadGroestl_Profit.txt
+zpool_NeoScrypt_Profit.txt
+zpool_Nist5_Profit.txt
+zpool_Phi_Profit.txt
+zpool_Quark_Profit.txt
+zpool_Qubit_Profit.txt
+zpool_Scrypt_Profit.txt
+zpool_Sha256_Profit.txt
+zpool_Sha256t_Profit.txt
+zpool_Sib_Profit.txt
+zpool_Skein_Profit.txt
+zpool_Timetravel_Profit.txt
+zpool_Tribus_Profit.txt
+zpool_X11_Profit.txt
+zpool_X11evo_Profit.txt
+zpool_X13_Profit.txt
+zpool_X14_Profit.txt
+zpool_X17_Profit.txt
+zpool_Xevan_Profit.txt
+zpool_Yescrypt_Profit.txt
+
+
+
+
+
+
+
+
+
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM        HHHHHHHHH     HHHHHHHHH               AAA                 SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHH
+    M:::::::M             M:::::::MM:::::::M             M:::::::M        H:::::::H     H:::::::H              A:::A              SS:::::::::::::::SH:::::::H     H:::::::H
+    M::::::::M           M::::::::MM::::::::M           M::::::::M        H:::::::H     H:::::::H             A:::::A            S:::::SSSSSS::::::SH:::::::H     H:::::::H
+    M:::::::::M         M:::::::::MM:::::::::M         M:::::::::M        HH::::::H     H::::::HH            A:::::::A           S:::::S     SSSSSSSHH::::::H     H::::::HH
+    M::::::::::M       M::::::::::MM::::::::::M       M::::::::::M          H:::::H     H:::::H             A:::::::::A          S:::::S              H:::::H     H:::::H  
+    M:::::::::::M     M:::::::::::MM:::::::::::M     M:::::::::::M          H:::::H     H:::::H            A:::::A:::::A         S:::::S              H:::::H     H:::::H  
+    M:::::::M::::M   M::::M:::::::MM:::::::M::::M   M::::M:::::::M          H::::::HHHHH::::::H           A:::::A A:::::A         S::::SSSS           H::::::HHHHH::::::H  
+    M::::::M M::::M M::::M M::::::MM::::::M M::::M M::::M M::::::M          H:::::::::::::::::H          A:::::A   A:::::A         SS::::::SSSSS      H:::::::::::::::::H  
+    M::::::M  M::::M::::M  M::::::MM::::::M  M::::M::::M  M::::::M          H:::::::::::::::::H         A:::::A     A:::::A          SSS::::::::SS    H:::::::::::::::::H  
+    M::::::M   M:::::::M   M::::::MM::::::M   M:::::::M   M::::::M          H::::::HHHHH::::::H        A:::::AAAAAAAAA:::::A            SSSSSS::::S   H::::::HHHHH::::::H  
+    M::::::M    M:::::M    M::::::MM::::::M    M:::::M    M::::::M          H:::::H     H:::::H       A:::::::::::::::::::::A                S:::::S  H:::::H     H:::::H  
+    M::::::M     MMMMM     M::::::MM::::::M     MMMMM     M::::::M          H:::::H     H:::::H      A:::::AAAAAAAAAAAAA:::::A               S:::::S  H:::::H     H:::::H  
+    M::::::M               M::::::MM::::::M               M::::::M        HH::::::H     H::::::HH   A:::::A             A:::::A  SSSSSSS     S:::::SHH::::::H     H::::::HH
+    M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
+    M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
+MM.Hash Is Exiting Miner & Checking Coinbase For Prices
+ahashpool_Bitcore_Profit.txt
+ahashpool_Blake2s_Profit.txt
+ahashpool_Blakecoin_Profit.txt
+ahashpool_C11_Profit.txt
+ahashpool_Groestl_Profit.txt
+ahashpool_hmq1725_Profit.txt
+ahashpool_Hsr_Profit.txt
+ahashpool_Keccak_Profit.txt
+ahashpool_Lbry_Profit.txt
+ahashpool_Lyra2RE2_Profit.txt
+ahashpool_M7M_Profit.txt
+ahashpool_MyriadGroestl_Profit.txt
+ahashpool_NeoScrypt_Profit.txt
+ahashpool_Nist5_Profit.txt
+ahashpool_Phi_Profit.txt
+ahashpool_Quark_Profit.txt
+ahashpool_Qubit_Profit.txt
+ahashpool_Scrypt_Profit.txt
+ahashpool_Sib_Profit.txt
+ahashpool_Skein_Profit.txt
+ahashpool_Skunk_Profit.txt
+ahashpool_Timetravel_Profit.txt
+ahashpool_Tribus_Profit.txt
+ahashpool_X11_Profit.txt
+ahashpool_X16r_Profit.txt
+ahashpool_X16s_Profit.txt
+ahashpool_X17_Profit.txt
+ahashpool_Xevan_Profit.txt
+ahashpool_Yescrypt_Profit.txt
+blazepool_Bitcore_Profit.txt
+blazepool_Blake2s_Profit.txt
+blazepool_Blakecoin_Profit.txt
+blazepool_C11_Profit.txt
+blazepool_Groestl_Profit.txt
+blazepool_hmq1725_Profit.txt
+blazepool_Hsr_Profit.txt
+blazepool_Keccak_Profit.txt
+blazepool_Lbry_Profit.txt
+blazepool_Lyra2RE2_Profit.txt
+blazepool_M7M_Profit.txt
+blazepool_MyriadGroestl_Profit.txt
+blazepool_NeoScrypt_Profit.txt
+blazepool_Nist5_Profit.txt
+blazepool_Phi_Profit.txt
+blazepool_Quark_Profit.txt
+blazepool_Qubit_Profit.txt
+blazepool_Scrypt_Profit.txt
+blazepool_Sib_Profit.txt
+blazepool_Skein_Profit.txt
+blazepool_Skunk_Profit.txt
+blazepool_Timetravel_Profit.txt
+blazepool_Tribus_Profit.txt
+blazepool_X11_Profit.txt
+blazepool_X16r_Profit.txt
+blazepool_X16s_Profit.txt
+blazepool_X17_Profit.txt
+blazepool_Xevan_Profit.txt
+blazepool_Yescrypt_Profit.txt
+Hashrefinery_Bitcore_Profit.txt
+Hashrefinery_Blake2s_Profit.txt
+Hashrefinery_Lyra2RE2_Profit.txt
+Hashrefinery_M7M_Profit.txt
+Hashrefinery_MyriadGroestl_Profit.txt
+Hashrefinery_NeoScrypt_Profit.txt
+Hashrefinery_Nist5_Profit.txt
+Hashrefinery_Phi_Profit.txt
+Hashrefinery_Quark_Profit.txt
+Hashrefinery_Qubit_Profit.txt
+Hashrefinery_Scrypt_Profit.txt
+Hashrefinery_Skein_Profit.txt
+Hashrefinery_Timetravel_Profit.txt
+Hashrefinery_Tribus_Profit.txt
+Hashrefinery_X11_Profit.txt
+Hashrefinery_X13_Profit.txt
+Hashrefinery_X17_Profit.txt
+Hashrefinery_Xevan_Profit.txt
+Hashrefinery_Yescrypt_Profit.txt
+zergpool_Bitcore_Profit.txt
+zergpool_Blake2s_Profit.txt
+zergpool_C11_Profit.txt
+zergpool_Groestl_Profit.txt
+zergpool_hmq1725_Profit.txt
+zergpool_Hsr_Profit.txt
+zergpool_Keccak_Profit.txt
+zergpool_Keccakc_Profit.txt
+zergpool_Lyra2RE2_Profit.txt
+zergpool_Lyra2z_Profit.txt
+zergpool_MyriadGroestl_Profit.txt
+zergpool_NeoScrypt_Profit.txt
+zergpool_Nist5_Profit.txt
+zergpool_Phi_Profit.txt
+zergpool_Quark_Profit.txt
+zergpool_Qubit_Profit.txt
+zergpool_Scrypt_Profit.txt
+zergpool_Sib_Profit.txt
+zergpool_Skein_Profit.txt
+zergpool_Skunk_Profit.txt
+zergpool_Timetravel_Profit.txt
+zergpool_Tribus_Profit.txt
+zergpool_X11_Profit.txt
+zergpool_X13_Profit.txt
+zergpool_X16r_Profit.txt
+zergpool_X16s_Profit.txt
+zergpool_X17_Profit.txt
+zergpool_Xevan_Profit.txt
+zergpool_Yescrypt_Profit.txt
+zergpool_YescryptR16_Profit.txt
+zpool_Bitcore_Profit.txt
+zpool_Blake2s_Profit.txt
+zpool_Blakecoin_Profit.txt
+zpool_C11_Profit.txt
+zpool_Equihash_Profit.txt
+zpool_hmq1725_Profit.txt
+zpool_Hsr_Profit.txt
+zpool_Keccak_Profit.txt
+zpool_Keccakc_Profit.txt
+zpool_Lyra2RE2_Profit.txt
+zpool_Lyra2z_Profit.txt
+zpool_MyriadGroestl_Profit.txt
+zpool_NeoScrypt_Profit.txt
+zpool_Nist5_Profit.txt
+zpool_Phi_Profit.txt
+zpool_Quark_Profit.txt
+zpool_Qubit_Profit.txt
+zpool_Scrypt_Profit.txt
+zpool_Sha256_Profit.txt
+zpool_Sha256t_Profit.txt
+zpool_Sib_Profit.txt
+zpool_Skein_Profit.txt
+zpool_Timetravel_Profit.txt
+zpool_Tribus_Profit.txt
+zpool_X11_Profit.txt
+zpool_X11evo_Profit.txt
+zpool_X13_Profit.txt
+zpool_X14_Profit.txt
+zpool_X17_Profit.txt
+zpool_Xevan_Profit.txt
+zpool_Yescrypt_Profit.txt
+No Miners!
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> $global:?
+True
+**********************
+PowerShell transcript end
+End time: 20180424204438
+**********************
