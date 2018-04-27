@@ -22,17 +22,17 @@
     [Parameter(Mandatory=$false)]
     [Switch]$SSL = $false, 
     [Parameter(Mandatory=$false)]
-    [Array]$Type = "CPU", #AMD/NVIDIA/CPU
+    [Array]$Type = ("CPU"), #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = "Yescrypt", #i.e. Ethash,Equihash,Cryptonight ect.
+    [Array]$Algorithm = ("yescrypt","yescryptR16"), #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
-    [Array]$MinerName = "$null",
+    [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)] 
     [String]$SplitSniffEWBF = "0", 
     [Parameter(Mandatory=$false)] 
     [String]$SplitSniffCC = "0",
     [Parameter(Mandatory=$false)]
-    [Array]$PoolName = "zergpool", 
+    [Array]$PoolName = ("zergpool"), 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
@@ -49,7 +49,7 @@
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
-Get-ChildItem . -Recurse | Unblock-File
+Get-ChildItem . -Recurse | 
 
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
@@ -299,11 +299,10 @@ while($true)
         {
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
-		        MinerName = $_.MinerName
+	        MinerName = $_.MinerName
                 Path = $_.Path
-		        Arguments = "$_.Arguments"
-		        Program = xterm.sh
-                Wrap = $_.Wrap
+		Arguments = $_.Arguments
+	        Wrap = $_.Wrap
                 Process = $null
                 API = $_.API
                 Port = $_.Port
@@ -317,7 +316,6 @@ while($true)
                 HashRate = 0
                 Benchmarked = 0
                 Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
-		xterm= "/home/maynard/MM.Hash/xterm.sh"
             }
         }
     }
@@ -348,9 +346,10 @@ while($true)
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{
                 Set-Location "$(Split-Path $_.Path)"
-                $2 = "-e $($_.MinerName)"
-                $3 = '$($_.Arguments)' 
-                $_.Process = Start-Process -Filepath "xterm" -ArgumentList $2 $3} 
+                $2 = "-e ./$($_.MinerName)"
+                $3 = "$($_.Arguments)"
+                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru}
+		$_.Process = Get-Proess "$($_.MinerName)" | Select Id
                 if($_.Process -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
             }
@@ -441,10 +440,10 @@ while($true)
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{
                 Set-Location "$(Split-Path $_.Path)"
-                $2 = "-e $($_.MinerName)"
-                $3 = '$($_.Arguments)' 
-                $_.Process = Start-Process -Filepath "xterm" -ArgumentList $2 $3} 
-               
+                $2 = "-e ./$($_.MinerName)"
+                $3 = "$($_.Arguments)" 
+                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"}
+	        $_.Process = Get-Process "$($_.MinerName)" | Select Id
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.Process -eq $null -or $_.Process.HasExited)
 		  {

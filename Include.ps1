@@ -483,10 +483,10 @@ function Start-SubProcess {
         [String]$WorkingDirectory = ""
 	 )
  
-    $Job = Start-Job -ArgumentList $PID, $FilePath, $ArgumentList, $WorkingDirectory {
+    $Job = & {
         param($ControllerProcessID, $FilePath, $ArgumentList, $WorkingDirectory)
 
-        $ControllerProcess = Get-Process -Id $ControllerProcessID
+        $ControllerProcess = Get-Process $FilePath | Select Id
         if($ControllerProcess -eq $null){return}
 
         $ProcessParam = @{}
@@ -506,7 +506,7 @@ function Start-SubProcess {
         while($Process.HasExited -eq $false)
     }
 
-    do{Start-Sleep 1; $JobOutput = Recieve-Job $Job}
+    do{Start-Sleep 1; $JobOutput = Invoke-Command -ScriptBlock {$Job} -AsJob}
     while($JobOutput -eq $null)
 
     $Process = Get-Process | Where Id -EQ $JobOutput.ProcessId
@@ -551,8 +551,8 @@ function Expand-WebRequest {
          else {
  
              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force} 
-             Start-Process "build" `"$([IO.Path]::GetFullPath($Filename))`" -Wait
-             Remove-Item $Path_Old -Recurse -Force 
+	     Start-Process -FilePath "BuildMiner" -ArgumentList `"$([IO.Path]::GetFullPath($Path_New))`" -Wait
+             Remove-Item $Path_Old -Recurse -Force
              Write-Host "Miner Must Resart After Install" -ForegroundColor "Red" -BackgroundColor "White"
          } 
      } 
