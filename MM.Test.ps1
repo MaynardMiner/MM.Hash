@@ -49,7 +49,12 @@
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
-Get-ChildItem . -Recurse
+Get-ChildItem . -Recurse | Unblock-File
+
+try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
+
+if($Proxy -eq ""){$PSDefaultParameterValues.Remove("*:Proxy")}
+else{$PSDefaultParameterValues["*:Proxy"] = $Proxy}
 
 . .\Include.ps1
 
@@ -192,8 +197,7 @@ while($true)
             else
             {
                 Expand-WebRequest $Miner.URI (Split-Path $Miner.Path)
-		Write-Host "Exp Web"
-	    }
+	        }
             
         }
         else
@@ -295,10 +299,10 @@ while($true)
         {
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
-		MinerName = $_.MinerName
+		        MinerName = $_.MinerName
                 Path = $_.Path
-		Arguments = "$_.Arguments"
-		Program = xterm.sh
+		        Arguments = "$_.Arguments"
+		        Program = xterm.sh
                 Wrap = $_.Wrap
                 Process = $null
                 API = $_.API
@@ -329,7 +333,7 @@ while($true)
          elseif($_.Process.HasExited -eq $false)
             {
            $_.Active += (Get-Date)-$_.Process.StartTime
-           Stop-Process -Name $($_.Process) | Out-Null
+           $_.Process.CloseMainWindow() | Out-Null
             $_.Status = "Idle"
             }
         }
@@ -341,18 +345,14 @@ while($true)
                 $DecayStart = Get-Date
                 $_.New = $true
                 $_.Activated++
-                if($_.Wrap)
-		 {
-		  $Execute = "$1 $2 $3"
-                 }
-                else
-                 {
-		     Set-Location "$(Split-Path $Path)" 
-                      $_.Process = Start-Process -Filepath "xterm" -ArgumentList $_.Arguments 
-		  } 
-           if($_.Process -eq $null)
-           {$_.Status = "Failed"}
-           else{$_.Status = "Running"}
+                if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
+                else{
+                Set-Location "$(Split-Path $_.Path)"
+                $2 = "-e $($_.MinerName)"
+                $3 = '$($_.Arguments)' 
+                $_.Process = Start-Process -Filepath "xterm" -ArgumentList $2 $3} 
+                if($_.Process -eq $null){$_.Status = "Failed"}
+                else{$_.Status = "Running"}
             }
         }
     }
@@ -435,19 +435,15 @@ while($true)
     $ActiveMinerPrograms | ForEach {
         if($_.Process -eq $null -or $_.Process.HasExited)
         {
-          if($_.Status -eq "Running")
-             {
+          if($_.Status -eq "Running"){
               $_.Failed30sLater++
                 
-                 if($_.Wrap)
-                 {
-                  $Execute = "$1 $2 $3"                
-                 } 
-                else
-                 {
-		      Set Location "$(Split-Path $Path)"
-                     $_.Proces =  Start-Process -Filepath "xterm" -ArgumentList $_.Arguments
-		  }
+                if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
+                else{
+                Set-Location "$(Split-Path $_.Path)"
+                $2 = "-e $($_.MinerName)"
+                $3 = '$($_.Arguments)' 
+                $_.Process = Start-Process -Filepath "xterm" -ArgumentList $2 $3} 
                
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.Process -eq $null -or $_.Process.HasExited)
@@ -467,7 +463,7 @@ while($true)
 
     #Do nothing for a set Interval to allow miner to run
     If ([int]$Interval -gt [int]$CheckMinerInterval) {
-	Start-Sleep($Interval-$CheckMinerInterval)
+	Start-Sleep ($Interval-$CheckMinerInterval)
     } else {
         Start-Sleep ($Interval)
     }
@@ -476,7 +472,7 @@ while($true)
 
     #Save current hash rates
     $ActiveMinerPrograms | ForEach {
-        if($_.Process -eq $null  -or $_.Process.HasExited)
+        if($_.Process -eq $null -or $_.Process.HasExited)
         {
             if($_.Status -eq "Running"){$_.Status = "Failed"}
         }
