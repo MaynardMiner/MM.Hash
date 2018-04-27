@@ -49,7 +49,7 @@
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
-Get-ChildItem . -Recurse |
+Get-ChildItem . -Recurse | Out-Null
 
 . .\Include.ps1
 

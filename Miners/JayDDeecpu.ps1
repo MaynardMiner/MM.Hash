@@ -15,7 +15,7 @@ $Commands = [PSCustomObject]@{
     #"keccak" = "" #Keccak
     #"lbry" = "" #Lbry
     #"lyra2v2" = "" #Lyra2RE2
-    #"lyra2z" = "" #Lyra2z
+    "lyra2z" = "" #Lyra2z
     #"myr-gr" = "" #MyriadGroestl
     #"neoscrypt" = "" #NeoScrypt
     #"nist5" = "" #Nist5
@@ -33,8 +33,9 @@ $Commands = [PSCustomObject]@{
     #"m7m" = "" #M7M
     #"lyra2h" = "" #Lyra2h
     #"yescryptr8" = "" #Yescryptr8
-    #"x16r" = "" #Ravencoin
+    "x16r" = "" #Ravencoin
     "yescryptR16" = "" #Yenten
+    "x16s" = "" #Pigeoncoin
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

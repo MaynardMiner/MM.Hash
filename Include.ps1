@@ -572,3 +572,18 @@ function Get-Algorithm {
     if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
     else{$Algorithm}
 }
+
+
+function Convert-DateString ([string]$Date, [string[]]$Format)
+	{
+	  $result = New-Object DateTime
+
+	 $Convertible = [DateTime]::TryParseExact(
+		$Date,
+		$Format,
+		[System.Globalization.CultureInfo]::InvariantCulture,
+		[System.Globalization.DateTimeStyles]::None,
+		[ref]$result)
+
+		if ($Convertible) { $result }
+	}

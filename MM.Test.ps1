@@ -12,7 +12,7 @@
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
-    [Int]$Interval = 90, #seconds before reading hash rate from miners
+    [Int]$Interval = 360, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)] 
     [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet 
     [Parameter(Mandatory=$false)]
@@ -24,7 +24,7 @@
     [Parameter(Mandatory=$false)]
     [Array]$Type = ("CPU"), #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = ("yescrypt","yescryptR16"), #i.e. Ethash,Equihash,Cryptonight ect.
+    [Array]$Algorithm = ("yescrypt","yescryptR16","lyra2z","x16r","x16s"), #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)] 
@@ -49,7 +49,7 @@
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
-Get-ChildItem . -Recurse | 
+Get-ChildItem . -Recurse | Out-Null 
 
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
@@ -105,10 +105,10 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
+				             By: MaynardMiner                      v1.0.5              GitHub: http://Github.com/MaynardMiner/MM.Hash
 
-
-
-
+																					
+									      SUDO APT-GET LAMBO
 
 
 
@@ -313,6 +313,7 @@ while($true)
                 Failed30sLater = 0
                 Recover30sLater = 0
                 Status = "Idle"
+		Window = $null
                 HashRate = 0
                 Benchmarked = 0
                 Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
@@ -330,8 +331,10 @@ while($true)
 	        }
          elseif($_.Process.HasExited -eq $false)
             {
-           $_.Active += (Get-Date)-$_.Process.StartTime
-           $_.Process.CloseMainWindow() | Out-Null
+           $Start = Get-Process "$($_.MinerName)" | Select -ExpandProperty StartTime
+           $_.Active += (Get-Date)-$Start
+	   $Close = "$($_.Window)"
+	   Stop-Process $Close  | Out-Null
             $_.Status = "Idle"
             }
         }
@@ -346,10 +349,13 @@ while($true)
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{
                 Set-Location "$(Split-Path $_.Path)"
-                $2 = "-e ./$($_.MinerName)"
+                $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                 $3 = "$($_.Arguments)"
-                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru}
-		$_.Process = Get-Proess "$($_.MinerName)" | Select Id
+                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru
+		Start-Sleep -s 3
+		$_.Process = Get-Process "$($_.MinerName)" | Select Id
+		$_.Window = Get-Process "xterm" | Select Id
+                Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)}
                 if($_.Process -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
             }
@@ -405,7 +411,7 @@ while($true)
     #Display profit comparison
     if (($BestMiners_Combo | Where-Object Profit -EQ $null | Measure-Object).Count -eq 0) {
         $MinerComparisons = 
-        [PSCustomObject]@{"Miner" = "Sniffdog.. sniffs out!"}, 
+        [PSCustomObject]@{"Miner" = "MM.Hash ... Finds!"}, 
         [PSCustomObject]@{"Miner" = $BestMiners_Combo_Comparison | ForEach-Object {"$($_.Name)-$($_.Algorithm -join "/")"}}
             
         $BestMiners_Combo_Stat = Set-Stat -Name "Profit" -Value ($BestMiners_Combo | Measure-Object Profit -Sum).Sum
@@ -421,7 +427,7 @@ while($true)
 
         if ($MinerComparisons_Profit[0] -gt $MinerComparisons_Profit[1]) {
             $MinerComparisons_Range = ($MinerComparisons_MarginOfError | Measure-Object -Average | Select-Object -ExpandProperty Average), (($MinerComparisons_Profit[0] - $MinerComparisons_Profit[1]) / $MinerComparisons_Profit[1]) | Measure-Object -Minimum | Select-Object -ExpandProperty Minimum
-            Write-Host -BackgroundColor Yellow -ForegroundColor Black "SniffDog sniffs $([Math]::Round((((($MinerComparisons_Profit[0]-$MinerComparisons_Profit[1])/$MinerComparisons_Profit[1])-$MinerComparisons_Range)*100)))% and upto $([Math]::Round((((($MinerComparisons_Profit[0]-$MinerComparisons_Profit[1])/$MinerComparisons_Profit[1])+$MinerComparisons_Range)*100)))% more profit than the fastest (listed) miner: "
+            Write-Host -BackgroundColor Yellow -ForegroundColor Black "MM.Hash Finds $([Math]::Round((((($MinerComparisons_Profit[0]-$MinerComparisons_Profit[1])/$MinerComparisons_Profit[1])-$MinerComparisons_Range)*100)))% and upto $([Math]::Round((((($MinerComparisons_Profit[0]-$MinerComparisons_Profit[1])/$MinerComparisons_Profit[1])+$MinerComparisons_Range)*100)))% more profit than the fastest (listed) miner: "
         }
 
         $MinerComparisons | Out-Host
@@ -440,10 +446,13 @@ while($true)
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{
                 Set-Location "$(Split-Path $_.Path)"
-                $2 = "-e ./$($_.MinerName)"
+                $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                 $3 = "$($_.Arguments)" 
-                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"}
+                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+		Start-Sleep -s 3 
 	        $_.Process = Get-Process "$($_.MinerName)" | Select Id
+	 	$_.Window = Get-Process "xterm" | Select Id
+		Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)}
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.Process -eq $null -or $_.Process.HasExited)
 		  {
@@ -477,10 +486,9 @@ while($true)
         }
         else
         {
-
-            $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds) 
+		$Start = Get-Process "$($_.MinerName)" | Select -ExpandProperty StartTime
+            $WasActive = [math]::Round(((Get-Date)-$Start).TotalSeconds) 
              if ($WasActive -ge $StatsInterval) {
-
             $_.HashRate = 0  
             $Miner_HashRates = $null  
    
