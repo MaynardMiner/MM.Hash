@@ -8,7 +8,7 @@ function Set-Stat {
         [DateTime]$Date = (Get-Date)
     )
 
-    $Path = ".\Stats\$Name.txt"
+    $Path = "Stats\$Name.txt"
     $Date = $Date.ToUniversalTime()
     $SmallestValue = 1E-20
 
@@ -491,6 +491,7 @@ function Start-SubProcess {
 
         $ProcessParam = @{}
         $ProcessParam.Add("FilePath", $FilePath)
+        $ProcessParam.Add("WindowStyle", 'Minimized')
         if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)}
         if($WorkingDirectory -ne ""){$ProcessParam.Add("WorkingDirectory", $WorkingDirectory)}
         $Process = Start-Process @ProcessParam -PassThru
@@ -520,23 +521,20 @@ function Expand-WebRequest {
         [Parameter(Mandatory=$false)]
         [String]$Path
     )
-    if (-not $Path) {$Path = Join-Path "./Downloads" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
-     if (-not (Test-Path "./Downloads")) {New-Item "Downloads" -ItemType "directory" | Out-Null} 
-     $FileName = Join-Path "./Downloads" (Split-Path $Uri -Leaf) 
+    if (-not $Path) {$Path = Join-Path ".\Downloads" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
+     if (-not (Test-Path ".\Downloads")) {New-Item "Downloads" -ItemType "directory" | Out-Null} 
+     $FileName = Join-Path ".\Downloads" (Split-Path $Uri -Leaf) 
  
  
      if (Test-Path $FileName) {Remove-Item $FileName}
-     [Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls11 -bor [System.Net.SecurityProtocolType]::Tls12
+     [System.Net.ServicePointManager]::SecurityProtocol = ("Tls12","Tls11","Tls")
        Invoke-Webrequest $Uri -OutFile $FileName -UseBasicParsing 
  
  
      if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension) { 
          Start-Process $FileName "-qb" -Wait 
      } 
-     else
-
-	 {
- 
+     else{
          $Path_Old = (Join-Path (Split-Path $Path) ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName) 
          $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf)) 
  
@@ -547,14 +545,14 @@ function Expand-WebRequest {
  
          if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse} 
          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false) { 
-         Rename-Item $Path_Old (Split-Path $Path -Leaf) 
+             Rename-Item $Path_Old (Split-Path $Path -Leaf) -Force 
          }
  
          else {
  
-             Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New} 
-             Start-Process "build" `"$([IO.Path]::GetFullPath($Filename))`"
-             Remove-Item $Path_Old 
+             Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force} 
+             Start-Process "build" `"$([IO.Path]::GetFullPath($Filename))`" -Wait
+             Remove-Item $Path_Old -Recurse -Force 
              Write-Host "Miner Must Resart After Install" -ForegroundColor "Red" -BackgroundColor "White"
          } 
      } 

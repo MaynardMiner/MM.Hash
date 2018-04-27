@@ -187,7 +187,7 @@ while($true)
                 if($Path_Old -ne $null)
                 {
                     if(Test-Path (Split-Path $Path_New)){(Split-Path $Path_New) | Remove-Item -Recurse -Force}
-                    (Split-Path $Path_Old) | Copy-Item -Destination (Split-Path $Path_New) -Recurse -Force
+                    (Split-Path $Path_Old) | Copy-Item -Destination (Split-Path $Path_New) -Force
                 }
                 else
                 {
