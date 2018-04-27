@@ -1,4 +1,4 @@
-﻿$Path = "./Bin/CPU-JayDDee/cpuminer.1"
+﻿$Path = ".\Bin\CPU-JayDDee\cpuminer.1"
 $Uri = "https://github.com/JayDDee/cpuminer-opt/archive/v3.8.7.2.zip"
 
 $Commands = [PSCustomObject]@{
@@ -31,10 +31,10 @@ $Commands = [PSCustomObject]@{
     #"x17" = "" #X17
     "yescrypt" = "" #Yescrypt
     #"m7m" = "" #M7M
-    "lyra2h" = "" #Lyra2h
+    #"lyra2h" = "" #Lyra2h
     #"yescryptr8" = "" #Yescryptr8
     #"x16r" = "" #Ravencoin
-    "yescryptR16" = "" #Yenten
+    #"yescryptR16" = "" #Yenten
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -42,7 +42,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "cpuminer"
-	Type = "CPU"
+	    Type = "CPU"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass)$($Commands.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
