@@ -10,12 +10,12 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
      $ahashpool_Request = Invoke-RestMethod "https://www.ahashpool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
  catch { 
-     Write-Warning "Sniffdog howled at ($Name) for a failed API. "
+     Write-Warning "MM.Hash contacted ($Name) for a failed API. "
      return 
  }
  
  if (($ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) { 
-     Write-Warning "SniffDog sniffed near ($Name) but ($Name) Pool API had no scent. " 
+     Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API had issues. " 
      return 
  } 
   
@@ -62,21 +62,8 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Host = $ahashpool_Host
             Port = $ahashpool_Port
             User = $Wallet
-            User1 = $Wallet1
-	        User2 = $Wallet2
-	        User3 = $Wallet3
-	        User4 = $Wallet4
-	        User5 = $Wallet5
-	        User6 = $Wallet6
-		User7 = $Wallet7
             Pass = "ID=$RigName,c=$Passwordcurrency"
             Pass1 = "ID=$RigName,c=$Passwordcurrency1"
-	        Pass2 = "ID=$RigName,c=$Passwordcurrency2"
-	        Pass3 = "ID=$RigName,c=$Passwordcurrency3"
-	        Pass4 = "ID=$RigName,c=$Passwordcurrency4"
-	        Pass5 = "ID=$RigName,c=$Passwordcurrency5"
-	        Pass6 = "ID=$RigName,c=$Passwordcurrency6"
-	        Pass7 = "ID=$RigName,c=$Passwordcurrency7"
             Location = $Location
             SSL = $false
         }

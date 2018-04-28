@@ -11,12 +11,12 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
      $ZergpoolCoins_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
  catch { 
-     Write-Warning "Sniffdog howled at ($Name) for a failed API check. " 
+     Write-Warning "MM.Hash contacted ($Name) for a failed API check. " 
      return 
  }
  
  if (($zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) { 
-     Write-Warning "SniffDog sniffed near ($Name) but ($Name) Pool API had no scent. " 
+     Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. " 
      return 
  } 
   
