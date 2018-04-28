@@ -1,6 +1,6 @@
 ﻿param(
     [Parameter(Mandatory=$false)]
-    [String]$Wallet = "RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H", 
+    [String]$Wallet = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i", 
     [Parameter(Mandatory=$false)]
     [String]$UserName = "MaynardVII", 
     [Parameter(Mandatory=$false)]
@@ -24,7 +24,7 @@
     [Parameter(Mandatory=$false)]
     [Array]$Type = ("CPU"), #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = ("yescrypt","yescryptR16","lyra2z","x16r","x16s"), #i.e. Ethash,Equihash,Cryptonight ect.
+    [Array]$Algorithm = ("yescrypt","yescryptR16","lyra2z"), #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)] 
@@ -42,7 +42,7 @@
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
-    [Int]$Delay = 1 #seconds before opening each miner
+    [Int]$Delay = 3 #seconds before opening each miner
 )
 
 
@@ -72,7 +72,7 @@ if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $
 
 #Set donation parameters
 $LastDonated = (Get-Date).AddDays(-1).AddHours(1)
-$WalletDonate = "RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H"
+$WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
 $UserNameDonate = "MaynardVII"
 $WorkerNameDonate = "Rig1"
 $WalletBackup = $Wallet
@@ -110,7 +110,7 @@ Write-Host "
 																					
 									      SUDO APT-GET LAMBO
 
-
+						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT! 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
 
 
@@ -331,10 +331,9 @@ while($true)
 	        }
          elseif($_.Process.HasExited -eq $false)
             {
-           $Start = Get-Process "$($_.MinerName)" | Select -ExpandProperty StartTime
-           $_.Active += (Get-Date)-$Start
-	   $Close = "$($_.Window)"
-	   Stop-Process $Close  | Out-Null
+	   
+           $_.Active += (Get-Date)-$_.Process.StartTime
+	   $_.Process.Kill() | Out-Null
             $_.Status = "Idle"
             }
         }
@@ -353,8 +352,8 @@ while($true)
                 $3 = "$($_.Arguments)"
                 $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru
 		Start-Sleep -s 3
-		$_.Process = Get-Process "$($_.MinerName)" | Select Id
-		$_.Window = Get-Process "xterm" | Select Id
+		$_.Process = Get-Process "$($_.MinerName)"
+		$_.Window = Get-Process "xterm"
                 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)}
                 if($_.Process -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
@@ -367,7 +366,9 @@ while($true)
     #Display active miners list
     $ActiveMinerPrograms | Sort-Object -Descending Status,{if($_.Process -eq $null){[DateTime]0}else{$_.Process.StartTime}} | Select -First (1+6+6) | Format-Table -Wrap -GroupBy Status (
         @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'}, 
-        @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.Process -eq $null){$_.Active}else{if($_.Process.HasExited){($_.Active)}else{($_.Active+((Get-Date)-$_.Process.StartTime))}})}}, 
+        @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.Process -eq $null){$_.Active}else{if($_.Process.HasExited){($_.Active)}else{
+	$TimerStart = Get-Process "$($_.Process)" | Select -ExpandProperty StartTime
+        ($_.Active+((Get-Date)-$TimerStart))}})}}, 
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
         @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.Arguments)"}}
     ) | Out-Host
@@ -450,8 +451,8 @@ while($true)
                 $3 = "$($_.Arguments)" 
                 $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
 		Start-Sleep -s 3 
-	        $_.Process = Get-Process "$($_.MinerName)" | Select Id
-	 	$_.Window = Get-Process "xterm" | Select Id
+	        $_.Process = Get-Process "$($_.MinerName)"
+	 	$_.Window = Get-Process "xterm"
 		Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)}
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.Process -eq $null -or $_.Process.HasExited)
