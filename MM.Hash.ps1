@@ -351,6 +351,7 @@ while($true)
                 Set-Location "$(Split-Path $_.Path)"
                 $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                 $3 = "$($_.Arguments)"
+		Start-Sleep -s 3
                 $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru
 		Start-Sleep -s 3
 		$_.Process = Get-Process "$($_.MinerName)"
