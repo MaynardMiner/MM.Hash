@@ -553,7 +553,7 @@ function Expand-WebRequest {
              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force} 
 	     Start-Process -FilePath "BuildMiner" -ArgumentList `"$([IO.Path]::GetFullPath($Path_New))`" -Wait
              Remove-Item $Path_Old -Recurse -Force
-             Write-Host "Miner Must Resart After Install" -ForegroundColor "Red" -BackgroundColor "White"
+             Write-Host "Miners Compiled And Built!" -ForegroundColor "Red" -BackgroundColor "White"
          } 
      } 
  } 

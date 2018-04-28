@@ -1,18 +1,18 @@
 ﻿param(
     [Parameter(Mandatory=$false)]
-    [String]$Wallet = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i", 
+    [String]$Wallet, 
     [Parameter(Mandatory=$false)]
     [String]$UserName = "MaynardVII", 
     [Parameter(Mandatory=$false)]
     [String]$WorkerName = "Rig1",
     [Parameter(Mandatory=$false)]
-    [String]$RigName = "Linux",
+    [String]$RigName = "MMHash",
     [Parameter(Mandatory=$false)]
     [Int]$API_ID = 0, 
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
-    [Int]$Interval = 360, #seconds before reading hash rate from miners
+    [Int]$Interval = 300, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)] 
     [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet 
     [Parameter(Mandatory=$false)]
@@ -22,9 +22,9 @@
     [Parameter(Mandatory=$false)]
     [Switch]$SSL = $false, 
     [Parameter(Mandatory=$false)]
-    [Array]$Type = ("CPU"), #AMD/NVIDIA/CPU
+    [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = ("yescrypt","yescryptR16","lyra2z"), #i.e. Ethash,Equihash,Cryptonight ect.
+    [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)] 
@@ -32,17 +32,17 @@
     [Parameter(Mandatory=$false)] 
     [String]$SplitSniffCC = "0",
     [Parameter(Mandatory=$false)]
-    [Array]$PoolName = ("zergpool"), 
+    [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency = ("RVN"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Array]$Passwordcurrency = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Int]$Donate = 0, #Minutes per Day
+    [Int]$Donate = 5, #Minutes per Day
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
-    [Int]$Delay = 3 #seconds before opening each miner
+    [Int]$Delay = 5 #seconds before opening each miner
 )
 
 
@@ -333,6 +333,7 @@ while($true)
             {
 	   
            $_.Active += (Get-Date)-$_.Process.StartTime
+	   $_.Window.Kill() | Out-Null
 	   $_.Process.Kill() | Out-Null
             $_.Status = "Idle"
             }
@@ -487,8 +488,8 @@ while($true)
         }
         else
         {
-		$Start = Get-Process "$($_.MinerName)" | Select -ExpandProperty StartTime
-            $WasActive = [math]::Round(((Get-Date)-$Start).TotalSeconds) 
+          $Start = Get-Process "$($_.MinerName)" | Select -ExpandProperty StartTime
+          $WasActive = [math]::Round(((Get-Date)-$Start).TotalSeconds) 
              if ($WasActive -ge $StatsInterval) {
             $_.HashRate = 0  
             $Miner_HashRates = $null  
