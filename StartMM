@@ -12,7 +12,7 @@ Wallet='1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i'	                          #Your Wall
 Location='US'				        	                  #Your Country
 PoolName='zergpool'			       	                          #Name of Pool You Wish To Mine In (See "Pools" dir To See Available Pools)
 Type='CPU'				        	                  #Devices You Are Mining With (Currently Ony CPU)
-Algorithm='"yescrypt","lyra2z","yescryptR16"'               #Algorithms You Wish To Mine...If Not Listed Here, MM.Hash Will Not Search Pool For It
+Algorithm='"yescrypt","lyra2z","yescryptR16","x16s"'               #Algorithms You Wish To Mine...If Not Listed Here, MM.Hash Will Not Search Pool For It
 Donate='5'					                          #Donation Time In Minutes You Wish Mine For Further App Development- Will Only Activate Once A Day
 Proxy='""'						                  #Proxy Address (If You Are Using Proxy)
 #

@@ -344,7 +344,7 @@ while($true)
      
         else
 	 {
-	 if($_.WindowId -eq $null -or (Get-Process -Id "$($_.WindowId)" -ErrorAction SilentilyContinue -eq $null))
+	 if($_.WindowId -eq $null -or (Get-Process -Id "$($_.WindowId)" -ErrorAction SilentlyContinue) -eq $null)
             {
                 Start-Sleep $Delay #Wait to prevent BSOD
                 $DecayStart = Get-Date
@@ -408,7 +408,7 @@ while($true)
         Write-Host ""
         Write-Host ""
         Write-Host ""
-     Write-Host "1BTC = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
+     Write-Host "1 BTC = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Algorithm"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
