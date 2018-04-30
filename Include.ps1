@@ -539,11 +539,11 @@ function Expand-WebRequest {
          $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf)) 
  
  
-         if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse} 
+         if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse -Force} 
          Start-Process "7za" "x `"$([IO.Path]::GetFullPath($FileName))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait 
  
  
-         if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse} 
+         if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse -Force} 
          if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false) { 
              Rename-Item $Path_Old (Split-Path $Path -Leaf) -Force 
          }
@@ -551,9 +551,10 @@ function Expand-WebRequest {
          else {
  
              Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force} 
-	     Start-Process -FilePath "BuildMiner" -ArgumentList `"$([IO.Path]::GetFullPath($Path_New))`" -Wait
+	     Write-Host "Compiling Miner & Making it Executable" -ForgroundColor"Red" BackgroundColor "White"
+             Start-Process -FilePath "BuildMiner" -ArgumentList `"$([IO.Path]::GetFullPath($Path_New))`" -Wait
              Remove-Item $Path_Old -Recurse -Force
-             Write-Host "Miners Compiled And Built!" -ForegroundColor "Red" -BackgroundColor "White"
+             Write-Host "Miner Compiled And Built!" -ForegroundColor "Red" -BackgroundColor "White"
          } 
      } 
  } 

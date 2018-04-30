@@ -1,7 +1,5 @@
-$Path = ".\Bin\CPU-JayDDee\ccminer.sln"
+$Path = ".\Bin\NVIDIA-Tpruvot\ccminer.sln"
 $Uri = "https://github.com/tpruvot/ccminer/archive/2.2.5-tpruvot.zip"
-
-
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -10,7 +8,7 @@ $Algorithms = [PSCustomObject]@{
     Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
     X11 = 'x11'
-    MyriadGroestl = 'myr-gr'
+    MyriadGroestl = "myr-gr"
     #Groestl = 'groestl'
     #Keccak = 'keccak'
     Scrypt = 'scrypt'
@@ -73,19 +71,18 @@ $Optimizations = [PSCustomObject]@{
     Hsr = ''
     Tribus = ''
     Phi = ''
-    Lyra2z = ''
     Jha = ''
     Decred = ''
 }
 
 
 
-$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+$Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass)$($Commands.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
         Port = 4068

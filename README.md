@@ -28,6 +28,8 @@
 #sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
 #sudo apt-get install gcc-5 g++-5
 #sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
+#sudo apt-get install libgmp3-dev
+#sudo apt-get install curl
 #
 #NVIDIA DRIVERS
 #
@@ -35,7 +37,8 @@
 #sudo apt-get update
 #sudo apt-get install nvidia-390
 #sudo apt-mark hold nvidia-390
-#Here is a link for further details on installing CUDA Toolkit https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+#apt-get install nvidia-cuda-dev nvidia-cuda-toolkit
+#Recommended Overclock Settings: +100 Core +500 Memory, Fan Speed 70%, Max-Temp 70 C 
 #
 #POWERSHELL
 #
@@ -50,22 +53,19 @@
 #DEPENDENCIES
 #
 #sudo apt-get install vim (For text editing)
-#sudo apt-get install libgmp3-dev
 #sudo apt-get install xterm
+#sudo apt-get install p7zip-full
 #
 #SETUP
 #
 #First Move Mini Scripts To Your bin Folder:
-#
 #cd ...  MM.Hash
 #sudo mv BuildMiner /bin
 #
 #Now make them executable:
-#
 #chmod +x BuildMiner
 #
 #Make Configuration File executable:
-#
 #cd ... MM.Hash
 #chmod +x StartMM
 #
@@ -85,8 +85,11 @@
 #
 #vi ./StartMM
 #
-#There is a list of options, with simple explanations as to how they work. As I build miner, I will eventually open a wiki on detailed function, but they are pretty easy to understand. Be sure to leave all '' and "" in each parameter where applicable! 
+#There is a list of options, with simple explanations as to how they work. As I build miner, I will eventually open a wiki on detailed function, but they are pretty easy to understand. Be sure to leave all '' and "" in each parameter where applicable! Basic edit commands: "i" lets you insert/edit file "esc" takes you to vi menu. While in vi menu, type :x to save, :q to quit.
 #
+#Ideal font size for gnome-terminal to show good display is 10pts. Edit - Profile Preferences - Custom Font.
+#
+#IMPORTANT: ENSURE POOL OFFERS EXCHANGE TO YOUR COIN SELECTED IN WALLET ADDRESS!
 #
 #STARTING THE MINER
 #
@@ -101,9 +104,21 @@
 #
 #MAITENENCE/Issues
 #
-#If you wish to reset all your stats- Simple delet the Stats folder, and start MM.Hash.
+#If you wish to reset all your stats- Simple delet the Stats folder, and start MM.Hash. You can do this while it is running
+#If you wish to remove the benchmark of a particular miner/algo- delete its "hashrate".txt file. It will tell it to benchmark it again- You can do this while it is running.
+#Navigating to the Miner files, and opening them with vi lets you configure miners. Putting a # turns off algo, removing # turns them on. Optimizations are added to the command line, so if you wish to increase its intensity for example, add -i [intensity] between the "" of the algo.
+#You can add/edit miner files while miner is running. JUST MAKE SURE THEY ARE CORRECT BEFORE SAVING!
 #There is a Logs folder which lets you track MM.Hash's history
 #If you have issues installing a miner- delete .zip or 7z file from the Downloads folder & the new miner from the bin folder. Try it again. Ensure you have moved the mini builder.sh script to the /bin folder and have enabled it as an executable.
+#You will likely have to restart MM.Hash mutliple times until all miners are loaded. This is a bug I am working on. I wanted to get a release out.
 #
 #
 #Ubuntu Mini Build may require more applications in order to work! I'm not sure if I was able to remember them all.
+#
+#FUTURE UPDATES
+#
+#Putting link to your pool wallet address in miner.
+#Getting "Active" to work.
+#Adding CreepMiner for HDD/Burstcoin Mining (0-100 historical pool)
+#Getting Realtime Price Data On Your Wallet Coin- Not Just BTC
+#

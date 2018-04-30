@@ -1,5 +1,5 @@
-$Path = '.\Bin\NVIDIA-Suprminer\ccminer.sln'
-$Uri = 'https://github.com/ocminer/suprminer/archive/1.6.zip'
+$Path = ".\Bin\NVIDIA-Suprminer\ccminer.sln"
+$Uri = "https://github.com/ocminer/suprminer/archive/1.6.zip"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -16,7 +16,7 @@ $Algorithms = [PSCustomObject]@{
     #Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
     #X11 = 'x11'
-    #MyriadGroestl = 'myr-gr'
+    #MyriadGroestl = "myr-gr"
     #Groestl = 'groestl'
     #Keccak = 'keccak'
     #Scrypt = 'scrypt'
@@ -43,52 +43,52 @@ $Algorithms = [PSCustomObject]@{
 }
 
 $Optimizations = [PSCustomObject]@{
-    Lyra2z = ' --api-remote --api-allow=0/0 --submit-stale'
+    Lyra2z = ''
     Equihash = ''
-    Cryptonight = ' -i 10 --api-remote --api-allow=0/0'
+    Cryptonight = ''
     Ethash = ''
     Sia = ''
     Yescrypt = ''
     BlakeVanilla = ''
-    Lyra2RE2 = ' --api-remote --api-allow=0/0'
+    Lyra2RE2 = ''
     Skein = ''
     Qubit = ''
     NeoScrypt = ''
     X11 = ''
     MyriadGroestl = ''
     Groestl = ''
-    Keccak = ' --api-remote --api-allow=0/0'
+    Keccak = ''
     Scrypt = ''
-    Bitcore = ' --api-remote --api-allow=0/0'
+    Bitcore = ''
     Blake2s = ''
     Sib = ''
     X17 = ''
     Quark = ''
-    Hmq1725 = ' --api-remote --api-allow=0/0'
+    Hmq1725 = ''
     Veltor = ''
-    X11evo = ' --api-remote --api-allow=0/0'
-    Timetravel = ' --api-remote --api-allow=0/0'
+    X11evo = ''
+    Timetravel = ''
     Blakecoin = ''
     Lbry = ''
-    Jha = ' --api-remote --api-allow=0/0'
-    Skunk = ' --api-remote --api-allow=0/0'
-    Tribus = ' --api-remote --api-allow=0/0'
-    Phi = ' -i 23 --api-remote --api-allow=0/0'
-    Hsr = ' --api-remote --api-allow=0/0'
-    Polytimos = ' --api-remote --api-allow=0/0'
-    Decred = ' --api-remote --api-allow=0/0'
+    Jha = ''
+    Skunk = ''
+    Tribus = ''
+    Phi = ''
+    Hsr = ''
+    Polytimos = ''
+    Decred = ''
     X16r = ''
     X16s = ''
     
 }
 
 
-$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+$Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass)$($Commands.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
         Port = 4068

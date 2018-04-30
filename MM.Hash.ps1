@@ -137,7 +137,7 @@ while($true)
         $LastDonated = Get-Date
     }
     try {
-        Write-Host "MM.Hash Is Exiting Any Open Miner & Checking Coinbase For BTC price" -foregroundcolor "Yellow"
+        Write-Host "MM.Hash Is Exiting Any Open Miner If Better Algo Is Found & Checking Coinbase For BTC price" -foregroundcolor "Yellow"
         $Rates = Invoke-RestMethod "https://api.coinbase.com/v2/exchange-rates?currency=BTC" -UseBasicParsing | Select-Object -ExpandProperty data | Select-Object -ExpandProperty rates
         $Currency | Where-Object {$Rates.$_} | ForEach-Object {$Rates | Add-Member $_ ([Double]$Rates.$_) -Force}
     }
@@ -167,9 +167,9 @@ while($true)
     #Load information about the Miners
     #Messy...?
     $Miners = if(Test-Path "Miners"){Get-ChildItemContent "Miners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
- Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
- Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
- Where {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+ Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+ Where-Object {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
+ Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
         if((Test-Path $Miner.Path) -eq $false)
@@ -299,12 +299,13 @@ while($true)
         {
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
+		Type = $_.Type
 	        MinerName = $_.MinerName
                 Path = $_.Path
 		Arguments = $_.Arguments
 	        Wrap = $_.Wrap
-                Process = $null
-		ProcessId = $null
+                MiningName = $null
+		MiningId = $null
                 API = $_.API
                 Port = $_.Port
                 Algorithms = $_.HashRates.PSObject.Properties.Name
@@ -314,29 +315,33 @@ while($true)
                 Failed30sLater = 0
                 Recover30sLater = 0
                 Status = "Idle"
-		Window = $null
-		WindowId = $null
                 HashRate = 0
                 Benchmarked = 0
                 Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
             }
         }
     }
-
-    #Stop miners in the active list depending on if they are the most profitable
+    
+	#Start Or Stop Miners
     $ActiveMinerPrograms | ForEach {
         if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -eq 0)
          {
-	       if($_.WindowId -eq $null)
+	       if($_.MiningId -eq $null)
 	        {
 		   $_.Status = "Failed"
 	        }
 
-         	elseif((Get-Process -Id "$($_.WindowId)" -ErrorAction SilentlyContinue) -ne $null)
+         	elseif((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
            	 {
-	  	 $Active1 =  Get-Process "$($_.MinerName)" | Select -ExpandProperty StartTime
+	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
-	  	 Stop-Process "$($_.WindowId)" 
+		 Stop-Process -Id "$($_.MiningId)"
+		 Start-Sleep -s $Delay
+	           if((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
+		     {
+		      Write-Host "Failed To Close "$($_.MinerName)"- Trying Again" -ForegroundColor "darkred"
+		      continue
+		     }
            	 $_.Status = "Idle"
             	}
         }
@@ -344,7 +349,7 @@ while($true)
      
         else
 	 {
-	 if($_.WindowId -eq $null -or (Get-Process -Id "$($_.WindowId)" -ErrorAction SilentlyContinue) -eq $null)
+	 if($_.MiningId -eq $null -or (Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -eq $null)
             {
                 Start-Sleep $Delay #Wait to prevent BSOD
                 $DecayStart = Get-Date
@@ -352,18 +357,41 @@ while($true)
                 $_.Activated++
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{
-                Set-Location "$(Split-Path $_.Path)"
-                $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-                $3 = "$($_.Arguments)"
-                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru
-		Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		Start-Sleep -s $Delay
-		$_.Process = Get-Process "$($_.MinerName)"
-		$_.ProcessId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-		$_.Window = Get-Process "xterm"
-		$_.WindowId = Get-Process "xterm" | Select -ExpandProperty Id
+		     if($_.Type -eq "NVIDIA")
+		      {
+		       Set-Location "$(Split-Path $_.Path)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+                       $3 = "$($_.Arguments)"
+                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+		       Start-Sleep -s $Delay
+		       $_.MiningName = Get-Process "$($_.MinerName)"
+		       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+                      }
+		    if($_.Type -eq "CPU")
+		     {
+                       Set-Location "$(Split-Path $_.Path)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+                       $3 = "$($_.Arguments)"
+                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                       Start-Sleep -s $Delay
+                       $_.MiningName = Get-Process "$($_.MinerName)"
+                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+                      }
+		    if($_Type -eq "AMD")
+		     {
+		       Set-Location "$(Split-Path $_.Path)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+                       $3 = "$($_.Arguments)"
+                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                       Start-Sleep -s $Delay
+                       $_.MiningName = Get-Process "$($_.MinerName)"
+                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		      }
                     }
-                if($_.WindowId -eq $null){$_.Status = "Failed"}
+                if($_.MiningId -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
             }
         }
@@ -375,14 +403,14 @@ while($true)
     #Display active miners list
     $ActiveMinerPrograms | Sort-Object -Descending Status,
 	{	 
-	 if($_.WindowId -eq $null)
+	 if($_.MiningId -eq $null)
 	  {[DateTime]0}
 	  else
-           {Get-Process $_.WindowId | Select -ExpandProperty StarTime}
+           {Get-Process $_.MiningId | Select -ExpandProperty StarTime}
         } | Select -First (1+6+6) | Format-Table -Wrap -GroupBy Status (
         @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'}, 
-       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.WindowId -eq $null){$_.Active}else{if(Get-Process -Id "$($_.WindowId)" -ne $null){($_.Active)}else{
-	$TimerStart = Get-Process -Id "$($_.WindowId)" | Select -ExpandProperty StartTime
+       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.MiningId -eq $null){$_.Active}else{if(Get-Process -Id "$($_.MiningId)" -ne $null){($_.Active)}else{
+	$TimerStart = Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
         ($_.Active+((Get-Date)-$TimerStart))}})}}, 
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
         @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.Arguments)"}}
@@ -454,26 +482,51 @@ while($true)
     $CheckMinerInterval = 15
     Start-Sleep ($CheckMinerInterval)
     $ActiveMinerPrograms | ForEach {
-        if($_.WindowId -eq $null -or (Get-Process -Id "$($_.WindowId)" -ErrorAction SilentlyContinue) -eq $null)
+        if($_.MiningId -eq $null -or (Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -eq $null)
         {
-          if($_.Status -eq "Running"){
+          if($_.Status -eq "Running")
+           {
               $_.Failed30sLater++
-                
+
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
-                else{
-                Set-Location "$(Split-Path $_.Path)"
-                $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-                $3 = "$($_.Arguments)" 
-                $_.Process = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
-		Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		Start-Sleep -s $Delay 
-	        $_.Process = Get-Process "$($_.MinerName)"
-		$_.ProcessId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-	 	$_.Window = Get-Process "xterm"
-		$_.WindowId = Get-Process "xterm" | Select -ExpandProperty Id
-		    }
+                else
+		   {
+     		     if($_.Type -eq "NVIDIA")
+		      {
+		       Set-Location "$(Split-Path $_.Path)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+                       $3 = "$($_.Arguments)"
+                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+		       Start-Sleep -s 1
+		       $_.MiningName = Get-Process "$($_.MinerName)"
+		       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+                      }
+		    if($_.Type -eq "CPU")
+		     {
+                       Set-Location "$(Split-Path $_.Path)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+                       $3 = "$($_.Arguments)"
+                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                       Start-Sleep -s 1
+                       $_.MiningName = Get-Process "$($_.MinerName)"
+                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+                      }
+		    if($_Type -eq "AMD")
+		     {
+		       Set-Location "$(Split-Path $_.Path)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+                       $3 = "$($_.Arguments)"
+                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                       Start-Sleep -s 1
+                       $_.MiningName = Get-Process "$($_.MinerName)"
+                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		      }
+                    }
                 Start-Sleep ($CheckMinerInterval)
-		 if($_.WindowId -eq $null -or (Get-Process -Id "$($_.WindowId)" -ErrorAction SilentlyContinue) -eq $null)
+		 if($_.MiningId -eq $null -or (Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -eq $null)
 		  {
            continue
           }
@@ -499,13 +552,13 @@ while($true)
 
     #Save current hash rates
     $ActiveMinerPrograms | ForEach {
-        if($_.ProcessId -eq $null -or (Get-Process -Id "$($_.ProcessId)" -ErrorAction SilentlyContinue) -eq $null)
+        if($_.MiningId -eq $null -or (Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -eq $null)
         {
             if($_.Status -eq "Running"){$_.Status = "Failed"}
         }
         else
         {
-          $Start = Get-Process -Id "$($_.ProcessId)" | Select -ExpandProperty StartTime
+          $Start = Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           $WasActive = [math]::Round(((Get-Date)-$Start).TotalSeconds) 
              if ($WasActive -ge $StatsInterval) {
             $_.HashRate = 0  
