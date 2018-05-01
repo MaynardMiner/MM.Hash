@@ -6,13 +6,13 @@ WorkerName=Rig1				                          #Workername For Pools Which Require
 RigName=MMHash				                          #Personal Nickname Of Your Mining Rig (for tracking purposes)
 Currency=USD				                                  #Fiat Currency You Prefer
 Passwordcurrency=BTC			                 #Coin You Want To Exchange To For Pools Which Offer Mining Coin Exchange...See Your Mining Pool For More Information
-Interval=120				                                  #Seconds Miner Runs Before Switching (5 minutes is reccommended, 10+ for slower devices)
+Interval=300				                                  #Seconds Miner Runs Before Switching (5 minutes is reccommended, 10+ for slower devices)
 Delay=2					                          #Delay Before Miner Switches (Leave alone- EXPERT/DEBUG MODE ONLY!)
 Wallet=1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i	                          #Your Wallet Address- Should Be Address Of PasswordCurrency
 Location=US				        	                  #Your Country
 PoolName=zergpool			       	                          #Name of Pool You Wish To Mine In (See "Pools" dir To See Available Pools ex: zergpool,zpool,ahashpool)
 Type=NVIDIA,CPU				        	                  #Devices You Are Mining With (NVIDIA,CPU,AMD)
-SelectedAlgo=yescrypt,yescryptr16,lyra2z,x16r,x16s                        #Algos To Mine
+SelectedAlgo=yescrypt,yescryptr16,lyra2z,x16r,x16s,blake2s,lyra2RE2,skunk,x17,skein,nist5,phi,neoscrypt,c11,xevan,tribus,timetravel,keccak,sib,hsr,keccakc,x16r,hmq1725,m7m                        #Algos To Mine
 Donate=5					                          #Donation Time In Minutes You Wish Mine For Further App Development- Will Only Activate Once A Day
 Proxy='""'						                  #Proxy Address (If You Are Using Proxy)
 #
