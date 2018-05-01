@@ -1,5 +1,10 @@
 # MM.Hash
 #
+#
+#DEVELOPER-NOTE: THIS PRODUCT IS IN BETA TESTING- THEREFOR I AM NOT QUIETING/SILENTING CERTAIN ERROR ACTIONS DELIBERATELY TO HELP TROUBLESHOOT ISSUES! DON'T PANIC IF YOU SEE ERROR MESSAGES- THIS MAY BE NORMAL. ONLY POST ISSUES WHEN CONFIRMED AN ERROR ACTION DISRUPTED MINING PROCESS.
+#
+#
+#
 #MM.Hash is intended to be Unix/Linux Multi-Algo, Multi-Coin, Multi-Device, Multi-Pool Mining application, which will mine from NVIDIA GPU, AMD GPU, CPU, and eventually Hard Disk Drive (Lowest on the list to get done). Its based design is a heavily modified fork multi-miner known as SniffDogMiner, but currently does not support Linux/Unix systems. You can find the original Windows version here: https://github.com/Sniffdog/Sniffdogminer. Currently I do not intend to build a Windows version, as SniffDogMiner is excellent and always updated.
 #
 #The uses for MM.Hash- is pretty vast, being that it works in linux/unix environment. Hypothetically, with the right setup- MM.Hash can work in any device that can boot linux. This means you can mine from your PS4, Tablet, PC, Microcontrollers, etc. when are not using them, and you are not losing the massive hashrate from browser mining/and or further fees you do not know if you are or aren't paying. Furthermore- you can do this all through building a minimal Ubuntu OS, and load directly off a USB!
@@ -139,6 +144,11 @@ vi ./StartMM
 #Miner will start! It takes a little bit for the miner to download and install and miners you want to use. I've found sometimes after they have finished building, I have to restart the miner. If the miner doesn't continue to the main screen, you can simple ctrl+c to close miner and then run ./startMM again.
 #
 #GIT THAT LAMBO!
+#
+#
+#OPTIMIZATIONS
+#
+#By opening mining files, you can optimize miners by adding arguments under the aglo in the mining file. For example- If you wanted to mine x16r with and gpu intensity of 21, you would amend x16r in the optimizations section to = "-i 21". It can accept any argument the miner being used would normally accept. This includes API settings, if required.
 #
 #
 #
