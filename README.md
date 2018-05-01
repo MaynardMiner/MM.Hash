@@ -74,10 +74,14 @@ sudo apt-get install -f
 #
 #
 #
-#MM.Hash Dependencies
+#MM.Hash DEPENDENCIES (NEED IN ORDER TO FUNCTION/OPERATE/INSTALL)
+#
 sudo apt-get install vim
+#
 sudo apt-get install xterm
+#
 sudo apt-get install p7zip-full
+#
 sudo apt-get install git
 #
 #
@@ -124,6 +128,8 @@ vi ./StartMM
 #
 #IMPORTANT: ENSURE POOL OFFERS EXCHANGE TO YOUR COIN SELECTED IN WALLET ADDRESS!
 #
+#
+#
 #STARTING THE MINER
 #
 #Naviagate to MM.Hash directory and run this command:
@@ -133,6 +139,8 @@ vi ./StartMM
 #Miner will start! It takes a little bit for the miner to download and install and miners you want to use. I've found sometimes after they have finished building, I have to restart the miner. If the miner doesn't continue to the main screen, you can simple ctrl+c to close miner and then run ./startMM again.
 #
 #GIT THAT LAMBO!
+#
+#
 #
 #MAITENENCE/Issues
 #
@@ -145,6 +153,8 @@ vi ./StartMM
 #You will likely have to restart MM.Hash mutliple times until all miners are loaded. This is a bug I am working on. I wanted to get a release out.
 #Ubuntu Mini Build may require more applications in order to work! I'm not sure if I was able to remember them all.
 #
+#
+#
 #FUTURE UPDATES
 #
 #Putting link to your pool wallet address in miner.
@@ -155,8 +165,17 @@ vi ./StartMM
 #Building a script to pull a "Cheat Sheet" for mining statistics to quick-track with PuTTy
 #AMD GPU SUPPORT (SGMINER)! COMING VERY SOON!
 #
+#
+#
 CONTACT
 #
 #This is beta release- post issues or questions you have through github. I plan to start a discord channel soon for further discussion.
 #
 #I am having trouble searching repositories, and finding working linux CCminers. Everyone has been abadoning support for Linux since there has been no Multi-Miners. If you know devs- Tell them make a miner that can be compiled in linux through build.sh like CCMiner- and I can load the mining file into the next release! I will also try to save non-working or older mining files in the OldMiners folder included in this repository. If you can send me benchmarking statistics, and prove the miner is faster- I will update mining files.
+#
+#
+#
+DONATE TO SUPPORT!
+#
+#DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+#DONATION ADDRESS: RVN RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
