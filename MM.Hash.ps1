@@ -338,11 +338,13 @@ while($true)
 	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
 		 Stop-Process -Id "$($_.MiningId)"
+		 Wait-Process -Id "($_.MiningId)"
 		 Start-Sleep -s $Delay
 	           if((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
 		     {
 		      Write-Host "Failed To Close "$($_.MinerName)"- Trying Again" -ForegroundColor "darkred"
-		      do{ Stop-Process -Id "$($_.MiningId)"} While ((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
+		      Start-Sleep -s 5
+		      do{ Stop-Process -Id "$($_.MiningId)" Wait-Process -Id "$($_.MiningId)"} While ((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
 		     }
            	 $_.Status = "Idle"
             	}
