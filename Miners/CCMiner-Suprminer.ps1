@@ -84,6 +84,8 @@ $Optimizations = [PSCustomObject]@{
 
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+   if($SelectedAlgo -eq $_)
+     { 
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
@@ -94,5 +96,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+     }
     }
 }

@@ -6,10 +6,10 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms = [PSCustomObject]@{
     Qubit = 'qubit'
-    #NeoScrypt = 'neoscrypt'
+    NeoScrypt = 'neoscrypt'
     X11 = 'x11'
     MyriadGroestl = "myr-gr"
-    #Groestl = 'groestl'
+    Groestl = 'groestl'
     #Keccak = 'keccak'
     Scrypt = 'scrypt'
     Bitcore = 'bitcore'
@@ -18,23 +18,23 @@ $Algorithms = [PSCustomObject]@{
     #X17 = 'x17'
     Quark = 'quark'
     Hmq1725 = 'hmq1725'
-    Veltor = 'veltor'
-    X11evo = 'x11evo'
+    #Veltor = 'veltor'
+    #X11evo = 'x11evo'
     #Timetravel = 'timetravel'
-    Blakecoin = 'blakecoin'
+    #Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
     C11 = 'c11'
     Nist5 = 'nist5'
     Hsr = 'hsr' 
-    BlakeVanilla = 'vanilla'
+    #BlakeVanilla = 'vanilla'
     Lyra2RE2 = 'lyra2v2'
     Lyra2z = 'lyra2z'
     Skein = 'skein'
     Skunk = 'skunk'
     Tribus = 'tribus'
     Phi = 'phi'
-    Jha = 'jha'
-    Decred = 'Decred'
+    #Jha = 'jha'
+    #Decred = 'Decred'
 
 }
 
@@ -76,8 +76,9 @@ $Optimizations = [PSCustomObject]@{
 }
 
 
-
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+    if($SelectedAlgo -eq $_)
+     { 
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
@@ -88,5 +89,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+     }
     }
 }

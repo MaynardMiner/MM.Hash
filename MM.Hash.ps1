@@ -42,7 +42,9 @@
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
-    [Int]$Delay = 1 #seconds before opening each miner
+    [Int]$Delay = 1, #seconds before opening each miner
+    [Parameter(Mandatory=$false)]
+    [Array]$SelectedAlgo = $null
 )
 
 
@@ -168,7 +170,7 @@ while($true)
     #Messy...?
     $Miners = if(Test-Path "Miners"){Get-ChildItemContent "Miners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
  Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
- Where-Object {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
+ Where-Object {$Algoritm.count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
@@ -336,7 +338,7 @@ while($true)
 	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
 		 Stop-Process -Id "$($_.MiningId)"
-		 Start-Sleep -s $Delay
+		 Start-Sleep -s 3
 	           if((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
 		     {
 		      Write-Host "Failed To Close "$($_.MinerName)"- Trying Again" -ForegroundColor "darkred"
@@ -370,12 +372,13 @@ while($true)
                       }
 		    if($_.Type -eq "CPU")
 		     {
+		       Start-Sleep -s 5
                        Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep -s $Delay
+                       Start-Sleep -s 1
                        $_.MiningName = Get-Process "$($_.MinerName)"
                        $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
                       }
@@ -501,9 +504,11 @@ while($true)
 		       Start-Sleep -s 1
 		       $_.MiningName = Get-Process "$($_.MinerName)"
 		       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		       Start-Sleep -s 1
                       }
 		    if($_.Type -eq "CPU")
 		     {
+		       Start-Sleep -s $Delay
                        Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
@@ -512,17 +517,20 @@ while($true)
                        Start-Sleep -s 1
                        $_.MiningName = Get-Process "$($_.MinerName)"
                        $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		       Start-Sleep -s 1
                       }
 		    if($_Type -eq "AMD")
 		     {
+		       Start-Sleep -$Delay
 		       Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep -s 1
+                       Start-Sleep: -s 1
                        $_.MiningName = Get-Process "$($_.MinerName)"
                        $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		      Start-Sleep -s 1
 		      }
                     }
                 Start-Sleep ($CheckMinerInterval)

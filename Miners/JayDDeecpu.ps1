@@ -78,6 +78,8 @@ $Optimizations = [PSCustomObject]@{
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+     if($SelectedAlgo = $_)
+      {
     [PSCustomObject]@{
         MinerName = "cpuminer"
 	Type = "CPU"
@@ -88,5 +90,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4048
         Wrap = $false
         URI = $Uri
+      }
     }
 }
