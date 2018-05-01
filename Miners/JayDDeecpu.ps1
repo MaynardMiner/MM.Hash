@@ -33,7 +33,7 @@ $Algorithms = [PSCustomObject]@{
     #M7m = 'm7m' #M7M
     #Lyra2h = 'lyra2h' #Lyra2h
     #Yescryptr8 = 'yescryptr8' #Yescryptr8
-    #X16r = 'x16r' #Ravencoin
+     X16r = 'x16r' #Ravencoin
      YescryptR16 = 'yescryptr16' #Yenten
      X16s = 'x16s' #Pigeoncoin
 }

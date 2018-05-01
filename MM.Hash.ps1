@@ -338,11 +338,11 @@ while($true)
 	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
 		 Stop-Process -Id "$($_.MiningId)"
-		 Start-Sleep -s 3
+		 Start-Sleep -s $Delay
 	           if((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
 		     {
 		      Write-Host "Failed To Close "$($_.MinerName)"- Trying Again" -ForegroundColor "darkred"
-		      continue
+		      do{ Stop-Process -Id "$($_.MiningId)"} While ((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
 		     }
            	 $_.Status = "Idle"
             	}
@@ -367,8 +367,14 @@ while($true)
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 		       Start-Sleep -s $Delay
-		       $_.MiningName = Get-Process "$($_.MinerName)"
-		       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
+		       $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id
+		       if((Get-Process "$($_.MiningId)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+		        {
+			do{ $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id }
+			While ((Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+			}
+	       
                       }
 		    if($_.Type -eq "CPU")
 		     {
@@ -378,9 +384,14 @@ while($true)
                        $3 = "$($_.Arguments)"
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep -s 1
-                       $_.MiningName = Get-Process "$($_.MinerName)"
-                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+                       Start-Sleep -s $Delay
+                       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
+                       $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id
+		       if((Get-Process "$($_.MiningId)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+		        {
+			do{ $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id }
+		        While ((Get-Process "$($_.MinerId)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+			}
                       }
 		    if($_Type -eq "AMD")
 		     {
@@ -501,10 +512,14 @@ while($true)
                        $3 = "$($_.Arguments)"
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		       Start-Sleep -s 1
-		       $_.MiningName = Get-Process "$($_.MinerName)"
-		       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-		       Start-Sleep -s 1
+		       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
+		       $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id
+		       Start-Sleep -s $Delay
+		       if((Get-Process "$($_.MiningId)" -ErrorAction SilentlyContiue | Select -ExpandProperty Id) -ne $null)
+		        {
+			do{ $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id }
+			While ((Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+			}
                       }
 		    if($_.Type -eq "CPU")
 		     {
@@ -514,10 +529,15 @@ while($true)
                        $3 = "$($_.Arguments)"
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep -s 1
-                       $_.MiningName = Get-Process "$($_.MinerName)"
-                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-		       Start-Sleep -s 1
+                       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
+                       $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id
+		       Start-Sleep -s $Delay
+		       if((Get-Process "$($_.MiningId)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+		        {
+			do{ $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id }
+			While ((Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+			}
+
                       }
 		    if($_Type -eq "AMD")
 		     {
@@ -527,10 +547,15 @@ while($true)
                        $3 = "$($_.Arguments)"
                        Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep: -s 1
                        $_.MiningName = Get-Process "$($_.MinerName)"
                        $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-		      Start-Sleep -s 1
+		      Start-Sleep -s $Delay
+		       if((Get-Process "$($_.MiningId)" -ErrorAction SilentlyContiue | Select -ExpandProperty Id) -ne $null)
+		        {
+			do{ $_.MiningId = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id }
+			While ((Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue | Select -ExpandProperty Id) -ne $null)
+			}
+
 		      }
                     }
                 Start-Sleep ($CheckMinerInterval)

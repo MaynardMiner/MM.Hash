@@ -14,69 +14,82 @@
 #
 #BUILDING UBUNTU/Install
 #
-#Building the Ubuntu mini
+#Building the Ubuntu mini (NVIDIA SETUP AS EXAMPLE)
 #
-#sudo apt install lightdm
-#sudo apt install openbox
-#sudo apt install openbox-gnome-session
-#sudo apt install gnome-terminal
+sudo apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings openbox obconf obmenu wicd ubuntu-drivers-common mesa-utils mesa-utils-extra compton xorg xserver-xorg nautilus gnome-terminal
 #
-#That's everything basic for GUI
+sudo apt-get update
+#
+sudo apt-get purge nvidia* 
+#
+sudo apt-get install software-properties-common python-software-properties
+#
+sudo add-apt-repository ppa:graphics-drivers/ppa
+#
+sudo apt-get update
+#
+sudo apt-get install nvidia-390
+#
+sudo apt-mark hold nvidia-390
+#
+apt-get install nvidia-cuda-dev nvidia-cuda-toolkit
+#
+#Navigate To Xorg Config Folder
+cd /
+cd /etc/X11
+sudo xvidia-xonfig
+#Recommended Overclock Settings: +100 Core +500 Memory, Fan Speed 70%, Max-Temp 70C
+#
+#
 #
 #CCMINER
 #
-#sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
-#sudo apt-get install gcc-5 g++-5
-#sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
-#sudo apt-get install libgmp3-dev
-#sudo apt-get install curl
+sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
+sudo apt-get install gcc-5 g++-5
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
+sudo apt-get install libgmp3-dev
+sudo apt-get install curl
 #
-#NVIDIA DRIVERS
 #
-#sudo apt-get install software-properties-common python-software-properties
-#sudo apt-get update
-#sudo apt-get install nvidia-390
-#sudo apt-mark hold nvidia-390
-#apt-get install nvidia-cuda-dev nvidia-cuda-toolkit
-#Recommended Overclock Settings: +100 Core +500 Memory, Fan Speed 70%, Max-Temp 70 C 
 #
 #POWERSHELL
 #
-#wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0/powershell_6.0.0-1.ubuntu.17.04_amd64.deb
-#sudo dpkg -i powershell_6.0.0-1.ubuntu.17.04_amd64.deb
-#sudo apt-get install -f
+wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0/powershell_6.0.0-1.ubuntu.17.04_amd64.deb
+sudo dpkg -i powershell_6.0.0-1.ubuntu.17.04_amd64.deb
+sudo apt-get install -f
+#
+#
+#
+#MM.Hash Dependencies
+sudo apt-get install vim
+sudo apt-get install xterm
+sudo apt-get install p7zip-full
+sudo apt-get install git
+#
+#
 #
 #GITHUB LINK
 #
-#https://github.com/MaynardMiner/MM.Hash.git
+git clone https://github.com/MaynardMiner/MM.Hash.git
 #
-#DEPENDENCIES
 #
-#sudo apt-get install vim (For text editing)
-#sudo apt-get install xterm
-#sudo apt-get install p7zip-full
 #
 #SETUP
 #
 #First Move Mini Scripts To Your bin Folder:
-#cd ...  MM.Hash
-#sudo mv BuildMiner /bin
+cd MM.Hash
+sudo mv BuildMiner /bin
 #
 #Now make them executable:
-#chmod +x BuildMiner
+cd /
+cd bin
+chmod +x BuildMiner
 #
 #Make Configuration File executable:
-#cd ... MM.Hash
-#chmod +x StartMM
+chmod +x StartMM
 #
 #.NET FRAMEWORK INSTALL (2.0.6) (if powershell above doesn't work)
 #
-#curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-#sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
-#sudo apt-get install apt-transport-https
-#sudo apt-get update
-#sudo apt-get install dotnet-runtime-2.0.6
 #
 #
 #CONFIGURATION
@@ -104,15 +117,13 @@
 #
 #MAITENENCE/Issues
 #
-#If you wish to reset all your stats- Simple delet the Stats folder, and start MM.Hash. You can do this while it is running
+#If you wish to reset all your stats- Simple delet the Stats folder, and start MM.Hash. You can do this while it is running.
 #If you wish to remove the benchmark of a particular miner/algo- delete its "hashrate".txt file. It will tell it to benchmark it again- You can do this while it is running.
 #Navigating to the Miner files, and opening them with vi lets you configure miners. Putting a # turns off algo, removing # turns them on. Optimizations are added to the command line, so if you wish to increase its intensity for example, add -i [intensity] between the "" of the algo.
 #You can add/edit miner files while miner is running. JUST MAKE SURE THEY ARE CORRECT BEFORE SAVING!
 #There is a Logs folder which lets you track MM.Hash's history
 #If you have issues installing a miner- delete .zip or 7z file from the Downloads folder & the new miner from the bin folder. Try it again. Ensure you have moved the mini builder.sh script to the /bin folder and have enabled it as an executable.
 #You will likely have to restart MM.Hash mutliple times until all miners are loaded. This is a bug I am working on. I wanted to get a release out.
-#
-#
 #Ubuntu Mini Build may require more applications in order to work! I'm not sure if I was able to remember them all.
 #
 #FUTURE UPDATES
