@@ -338,7 +338,7 @@ while($true)
 	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
 		 Stop-Process -Id "$($_.MiningId)"
-		 Wait-Process -Id "($_.MiningId)"
+		 Wait-Process -Id "$($_.MiningId)"
 		 Start-Sleep -s $Delay
 	           if((Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -ne $null)
 		     {
