@@ -1,9 +1,7 @@
 # MM.Hash
 #
 #
-#DEVELOPER-NOTE: THIS PRODUCT IS IN BETA TESTING- THEREFOR I AM NOT QUIETING/SILENTING CERTAIN ERROR ACTIONS DELIBERATELY TO HELP TROUBLESHOOT ISSUES! DON'T PANIC IF YOU SEE ERROR MESSAGES- THIS MAY BE NORMAL. ONLY POST ISSUES WHEN CONFIRMED AN ERROR ACTION DISRUPTED MINING PROCESS.
-#
-#AFTER-TESTING: IT SEEMS CPU MINING HAS SOME BUGS. GPU SEEMS TO BE FINE. I'VE NOTICED THAT CPU TAKES LONGER TO CLOSE THAN TO OPEN A NEW MINER. THIS MAKES IT HARD FOR SCRIPT TO TRACK PIDS. I'M AWARE OF THE BUG AND TRYING TO CODE A FIX.
+#DEVELOPER-NOTE: THIS PRODUCT IS IN BETA TESTING- THEREFOR I AM NOT QUIETING/SILENTING CERTAIN ERROR ACTIONS DELIBERATELY TO HELP TROUBLESHOOT ISSUES!
 #
 #
 #MM.Hash is intended to be Unix/Linux Multi-Algo, Multi-Coin, Multi-Device, Multi-Pool Mining application, which will mine from NVIDIA GPU, AMD GPU, CPU, and eventually Hard Disk Drive (Lowest on the list to get done). Its based design is a heavily modified fork multi-miner known as SniffDogMiner, but currently does not support Linux/Unix systems. You can find the original Windows version here: https://github.com/Sniffdog/Sniffdogminer. Currently I do not intend to build a Windows version, as SniffDogMiner is excellent and always updated.
