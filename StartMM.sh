@@ -12,7 +12,7 @@ Wallet=1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i	                          #Your Wallet
 Location=US				        	                  #Your Country
 PoolName=zergpool			       	                          #Name of Pool You Wish To Mine In (See "Pools" dir To See Available Pools ex: zergpool,zpool,ahashpool)
 Type=NVIDIA,CPU				        	                  #Devices You Are Mining With (NVIDIA,CPU,AMD)
-SelectedAlgo=yescrypt,yescryptr16,lyra2z,x16r,x16s,blake2s,lyra2RE2,skunk,x17,skein,nist5,phi,neoscrypt,c11,xevan,tribus,timetravel,keccak,sib,hsr,keccakc,x16r,hmq1725,m7m                        #Algos To Mine
+SelectedAlgo=yescrypt,yescryptr16,qubit,quark,keccak,lyra2z,keccakc,xevan,x16r,hsr,x17,blake2s,bitcore,x16s,phi,timetravel,skunk,tribus,sib,skein,groestl,nist5,myr-gr  #Algos To Mine
 Donate=5					                          #Donation Time In Minutes You Wish Mine For Further App Development- Will Only Activate Once A Day
 Proxy='""'						                  #Proxy Address (If You Are Using Proxy)
 #

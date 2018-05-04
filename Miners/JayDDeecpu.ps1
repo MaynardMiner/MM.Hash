@@ -78,7 +78,7 @@ $Optimizations = [PSCustomObject]@{
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-     if($SelectedAlgo = $_)
+     if($SelectedAlgo -eq $_)
       {
     [PSCustomObject]@{
         MinerName = "cpuminer"
