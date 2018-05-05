@@ -144,7 +144,8 @@ while($true)
 	$T = [string]$CoinExchange
 	$R = [string]$Currency
         Write-Host "MM.Hash Is Exiting Any Open Miner If Better Algo Is Found & Checking CryptoCompare For $T price" -foregroundcolor "Yellow"
-        $Rates =  Invoke-RestMethod "https://min-api.cryptocompare.com/data/price?fsym=$T&tsyms=$R" -UseBasicParsing | Select-Object $R
+        $Exchanged =  Invoke-RestMethod "https://min-api.cryptocompare.com/data/price?fsym=$T&tsyms=$R" -UseBasicParsing | Select-Object -ExpandProperty $R
+	$Rates = Invoke-RestMethod "https://api.coinbase.com/v2/exchange-rates?currency=BTC" -UseBasicParsing | Select-Object -ExpandProperty data | Select-Object -ExpandProperty rates
         $Currency | Where-Object {$Rates.$_} | ForEach-Object {$Rates | Add-Member $_ ([Double]$Rates.$_) -Force}
     }
     catch {
@@ -434,14 +435,18 @@ while($true)
         Write-Host ""
         Write-Host ""
         Write-Host ""
-     Write-Host "1 $CoinExchange = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
+	$Y = [string]$CoinExchange
+	$U = "BTC"
+        $BTCExchangeRate = Invoke-RestMethod "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=$U" -UseBasicParsing
+        Write-Host "1 $CoinExchange  = " $BTCExchangeRate.$Y[0].$U " of a Bitcoin" -foregroundcolor "Yellow"
+     Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Algorithm"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
         @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)/s"}else{"Bench"}}}; Align='center'}, 
         @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
         @{Label = "BTC/GH/Day"; Expression={$_.Pools.PSObject.Properties.Value.Price | ForEach {($_*1000000000).ToString("N5")}}; Align='center'},
-        @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ * $Rates.$Currency).ToString("N3")}else{"Bench"}}}; Align='center'}, 
+        @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate.$Y[0].$U * $Rates.$Currency).ToString("N3")}else{"Bench"}}}; Align='center'}, 
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'},
         @{Label = "Coins"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Info)"}}; Align='center'},
         @{Label = "Pool Fees"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Fees)%"}}; Align='center'},
@@ -534,7 +539,7 @@ while($true)
     }
 
     
-    Write-Host "1 $CoinExchange  = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
+    Write-Host "1 $CoinExchange  = " "$Exchanged" "$Currency" -foregroundcolor "Yellow"
 
     #Do nothing for a set Interval to allow miner to run
     If ([int]$Interval -gt [int]$CheckMinerInterval) {
