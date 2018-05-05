@@ -12,13 +12,13 @@
 #
 #I originally built the mining application on a Linux VM, and did extensive testing and debugging. Currently this is not the full release of the miner- I am simply releasing it to demonstrate and give users the ability to play with the initial design. Right now, I have only built a miner file for CPU, but I will build more miner files along the way.
 #
-#So Far I have been able to build the miner on an Ubuntu Mini, which means with enough effort- an image can easily be created to a flash stick, allowing MM.Hash to run directly off a flash drive. This has not been tested yet, but in theory it currently seems possible.
+#So Far I have been able to build the miner on an Ubuntu Minimal installation, and have tested on USB-Stick. This means you can run MM.Hash directly off a flash drive.
 #
 #IF YOU WANT TO SEE FURTHER DEVELOPMENT- PLEASE LEAVE DONATION SET & CONSIDER DONATING TO DEVELOPER!
 #
 #DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 #
-#BUILDING UBUNTU/Install
+#BUILDING UBUNTU MINI/INSTALL
 #
 #Building the Ubuntu mini (NVIDIA SETUP AS EXAMPLE)
 #
@@ -180,7 +180,7 @@ CONTACT
 #
 #This is beta release- post issues or questions you have through github. I plan to start a discord channel soon for further discussion.
 #
-#I am having trouble searching repositories, and finding working linux CCminers. Everyone has been abadoning support for Linux since there has been no Multi-Miners. If you know devs- Tell them make a miner that can be compiled in linux through build.sh like CCMiner- and I can load the mining file into the next release! I will also try to save non-working or older mining files in the OldMiners folder included in this repository. If you can send me benchmarking statistics, and prove the miner is faster- I will update mining files.
+#I am having trouble searching repositories, and finding working linux CCminers. Everyone has been abadoning support for Linux since there has been no Multi-Miners. If you know devs- Tell them make a miner that can be compiled in linux, or make a compiled linux version like CCMiner- and I can load the mining file into the next release! I will also try to save non-working or older mining files in the OldMiners folder included in this repository. If you can send me benchmarking statistics, and prove the miner is faster- I will update mining files.
 #
 #
 #
