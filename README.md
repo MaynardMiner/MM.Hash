@@ -48,7 +48,7 @@ cd /etc/X11
 #
 sudo xvidia-xonfig
 #
-#Recommended Overclock Settings: +100 Core +500 Memory, Fan Speed 70%, Max-Temp 70C
+#Recommended Overclock Settings: +100 Core +1000 Memory, Fan Speed 70% (Fan State Locked), Max-Temp 70C (Has been pretty stable for me- Some Algos are pretty power hungry, bare in mind crashes likely result from not enough power...If you experience crashing issues, try turning maximum watts down on cards, and see if it performs better).
 #
 #
 #
