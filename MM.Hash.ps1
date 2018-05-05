@@ -44,7 +44,9 @@
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1, #seconds before opening each miner
     [Parameter(Mandatory=$false)]
-    [Array]$SelectedAlgo = $null
+    [Array]$SelectedAlgo = $null,
+    [Parameter(Mandatory=$false)]
+    [String]$CoinExchange = ""
 )
 
 
@@ -107,7 +109,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                      v1.1.1-beta              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.1.2-beta              GitHub: http://Github.com/MaynardMiner/MM.Hash
 
 																					
 									      SUDO APT-GET LAMBO
@@ -139,8 +141,10 @@ while($true)
         $LastDonated = Get-Date
     }
     try {
-        Write-Host "MM.Hash Is Exiting Any Open Miner If Better Algo Is Found & Checking Coinbase For BTC price" -foregroundcolor "Yellow"
-        $Rates = Invoke-RestMethod "https://api.coinbase.com/v2/exchange-rates?currency=BTC" -UseBasicParsing | Select-Object -ExpandProperty data | Select-Object -ExpandProperty rates
+	$T = [string]$CoinExchange
+	$R = [string]$Currency
+        Write-Host "MM.Hash Is Exiting Any Open Miner If Better Algo Is Found & Checking CryptoCompare For $T price" -foregroundcolor "Yellow"
+        $Rates =  Invoke-RestMethod "https://min-api.cryptocompare.com/data/price?fsym=$T&tsyms=$R" -UseBasicParsing | Select-Object $R
         $Currency | Where-Object {$Rates.$_} | ForEach-Object {$Rates | Add-Member $_ ([Double]$Rates.$_) -Force}
     }
     catch {
@@ -359,7 +363,7 @@ while($true)
 		       Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
-                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 		       Start-Sleep -s $Delay
 		       $_.MiningName= Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
@@ -372,19 +376,18 @@ while($true)
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
                        Start-Sleep -s $Delay
-		       $_.MiningName= Get-Process "$($_.MinerName)" | Select -ExpandProperty Id                       
+		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id                       
                       }
 		    if($_Type -eq "AMD")
 		     {
 		       Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
-                       Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
                        Start-Sleep -s $Delay
-                       $_.MiningName = Get-Process "$($_.MinerName)"
-                       $_.MiningId = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-		      }
+                       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+                     }
                     }
                 if($_.MiningId -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
@@ -404,7 +407,7 @@ while($true)
            {Get-Process $_.MiningId | Select -ExpandProperty StarTime}
         } | Select -First (1+6+6) | Format-Table -Wrap -GroupBy Status (
         @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'}, 
-       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.MiningId -eq $null){$_.Active}else{if(Get-Process -Id "$($_.MiningId)" -ne $null){($_.Active)}else{
+       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.MiningId -eq $null){$_.Active}else{if((Get-Process -Id -ea SilentlyContinue "$($_.MiningId)") -ne $null){($_.Active)}else{
 	$TimerStart = Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
         ($_.Active+((Get-Date)-$TimerStart))}})}}, 
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
@@ -431,7 +434,7 @@ while($true)
         Write-Host ""
         Write-Host ""
         Write-Host ""
-     Write-Host "1 BTC = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
+     Write-Host "1 $CoinExchange = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Algorithm"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
@@ -491,7 +494,7 @@ while($true)
 		       Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
-                       $_.MiningId = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 		       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
 		       Start-Sleep -s $Delay
@@ -511,7 +514,7 @@ while($true)
 		       Set-Location "$(Split-Path $_.Path)"
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
-                       $_.MiningId = Start-Process -Filepath "xterm" -ArgumentList "$2 $3"
+                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
                        $_.MiningName = Get-Process "$($_.MinerName)"
                        Start-Sleep -s $Delay
@@ -531,7 +534,7 @@ while($true)
     }
 
     
-    Write-Host "1BTC = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
+    Write-Host "1 $CoinExchange  = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
 
     #Do nothing for a set Interval to allow miner to run
     If ([int]$Interval -gt [int]$CheckMinerInterval) {
