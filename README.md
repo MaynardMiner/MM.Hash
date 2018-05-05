@@ -1,12 +1,8 @@
 # MM.Hash
 #
 #
-<<<<<<< HEAD
-#DEVELOPER-NOTE: THIS PRODUCT IS IN BETA TESTING- THEREFOR I AM NOT QUIETING/SILENTING CERTAIN ERROR ACTIONS DELIBERATELY TO HELP TROUBLESHOOT ISSUES!
-=======
 #DEVELOPER-NOTE: THIS PRODUCT IS IN BETA TESTING- BUG REPORTS ARE HELPFULL.
 #
->>>>>>> 29d882180566f30b41f0e4a9664dbfe2e26c8e02
 #
 #MM.Hash is intended to be Unix/Linux Multi-Algo, Multi-Coin, Multi-Device, Multi-Pool Mining application, which will mine from NVIDIA GPU, AMD GPU, CPU, and eventually Hard Disk Drive (Lowest on the list to get done). Its based design is a heavily modified fork multi-miner known as SniffDogMiner, but currently does not support Linux/Unix systems. You can find the original Windows version here: https://github.com/Sniffdog/Sniffdogminer. Currently I do not intend to build a Windows version, as SniffDogMiner is excellent and always updated. I highly recommend if you prefer mining in Windows, to check it out.
 #
@@ -192,4 +188,4 @@ DONATE TO SUPPORT!
 #
 #DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 #DONATION ADDRESS: RVN RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-Donate to original creator of powershell script, and see his Windows version: https://github.com/Sniffdog/Sniffdogminer
+#Donate to original creator of powershell script, and see his Windows version: https://github.com/Sniffdog/Sniffdogminer
