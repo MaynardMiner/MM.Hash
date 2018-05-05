@@ -550,11 +550,11 @@ function Expand-WebRequest {
  
          else {
  
-             Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force} 
+             Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force}  
 	     Write-Host "Compiling Miner & Making it Executable" -ForgroundColor"Red" BackgroundColor "White"
              Start-Process -FilePath "BuildMiner" -ArgumentList `"$([IO.Path]::GetFullPath($Path_New))`" -Wait
              Remove-Item $Path_Old -Recurse -Force
-             Write-Host "Miner Compiled And Built!" -ForegroundColor "Red" -BackgroundColor "White"
+             Write-Host "Miner Compiled And/Or Installed!" -ForegroundColor "Red" -BackgroundColor "White"
          } 
      } 
  } 

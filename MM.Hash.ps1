@@ -421,16 +421,17 @@ while($true)
         #Write-Host "...........Find Files and move back one folder so it's Bin\Excavator\excavator.exe......................." -foregroundcolor "Green"
         #Write-Host ""
         #Write-Host "..........All miners algos in Miners Folder can be opened by removing # or closed by adding a #.........." -foregroundcolor "Green"
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host ""
-        Write-Host "                                                      Nicehash Sucks" -foregroundcolor "Yellow"
+        Write-Host "                                                       
+                                                                             *      *         )        (       )  
+                                                                           (  `   (  `     ( /(  (     )\ ) ( /(  
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\()) 
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\  
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_) 
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || | 
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ | 
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_| 
+                                                                                                                                               " -foregroundcolor "DarkRed"
+        Write-Host "                                                                                      Nicehash Sucks" -foregroundcolor "DarkCyan"
         Write-Host ""
         Write-Host ""
         Write-Host ""
