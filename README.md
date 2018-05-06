@@ -10,7 +10,7 @@
 #
 #MM.Hash works by utlizing Powershell, which is now a cross-platform software that is constantly being developed. It will query the API of any pool you have your "Pools" folder, and get the current prices of the coins of the algorithms you have chose. Once it has gathered that data, it will then select the most profitable, and choose the best mining application to mine with, which are denoted as separate .ps1 filed in the "Miners" folder. If you have never used that particular miner before- MM.Hash will go into benchmark mode, which will record your hashrate. This means you can test miners to see which gives you the best hashrate! If MM.Hash detects the coin yields little/no value from mining- it will remove the miner from its list.
 #
-#I originally built the mining application on a Linux VM, and did extensive testing and debugging. Currently this is not the full release of the miner- I am simply releasing it to demonstrate and give users the ability to play with the initial design. Right now, I have only built a miner file for CPU, but I will build more miner files along the way.
+#I originally built the mining application on a Linux VM, and did extensive testing and debugging. Currently this is not the full release of the miner- I am simply releasing it to demonstrate and give users the ability to play with the initial design. Right now, I have only built miner files for NVIDIA & CPU, but I will build more miner files along the way.
 #
 #So Far I have been able to build the miner on an Ubuntu Minimal installation, and have tested on USB-Stick. This means you can run MM.Hash directly off a flash drive.
 #
