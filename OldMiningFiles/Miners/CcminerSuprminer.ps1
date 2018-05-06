@@ -1,5 +1,7 @@
-$Path = ".\Bin\NVIDIA-Suprminer\ccminer.sln"
-$Uri = "https://github.com/ocminer/suprminer/archive/1.6.zip"
+. .\Include.ps1
+
+$Path = '.\Bin\NVIDIA-Suprminer\ccminer.exe'
+$Uri = 'https://github.com/ocminer/suprminer/releases/download/1.6/suprminer-1.6.7z'
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -16,14 +18,14 @@ $Algorithms = [PSCustomObject]@{
     #Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
     #X11 = 'x11'
-    #MyriadGroestl = "myr-gr"
+    #MyriadGroestl = 'myr-gr'
     #Groestl = 'groestl'
     #Keccak = 'keccak'
     #Scrypt = 'scrypt'
     #Bitcore = 'bitcore'
     #Blake2s = 'blake2s'
     #Sib = 'sib'
-    x17= 'x17'
+    #X17 = 'x17'
     #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
     #Veltor = 'veltor'
@@ -43,59 +45,54 @@ $Algorithms = [PSCustomObject]@{
 }
 
 $Optimizations = [PSCustomObject]@{
-    Lyra2z = ''
+    Lyra2z = ' --api-remote --api-allow=0/0 --submit-stale'
     Equihash = ''
-    Cryptonight = ''
+    Cryptonight = ' -i 10 --api-remote --api-allow=0/0'
     Ethash = ''
     Sia = ''
     Yescrypt = ''
     BlakeVanilla = ''
-    Lyra2RE2 = ''
+    Lyra2RE2 = ' --api-remote --api-allow=0/0'
     Skein = ''
     Qubit = ''
     NeoScrypt = ''
     X11 = ''
     MyriadGroestl = ''
     Groestl = ''
-    Keccak = ''
+    Keccak = ' --api-remote --api-allow=0/0'
     Scrypt = ''
-    Bitcore = ''
+    Bitcore = ' --api-remote --api-allow=0/0'
     Blake2s = ''
     Sib = ''
     X17 = ''
     Quark = ''
-    Hmq1725 = ''
+    Hmq1725 = ' --api-remote --api-allow=0/0'
     Veltor = ''
-    X11evo = ''
-    Timetravel = ''
+    X11evo = ' --api-remote --api-allow=0/0'
+    Timetravel = ' --api-remote --api-allow=0/0'
     Blakecoin = ''
     Lbry = ''
-    Jha = ''
-    Skunk = ''
-    Tribus = ''
-    Phi = ''
-    Hsr = ''
-    Polytimos = ''
-    Decred = ''
+    Jha = ' --api-remote --api-allow=0/0'
+    Skunk = ' --api-remote --api-allow=0/0'
+    Tribus = ' --api-remote --api-allow=0/0'
+    Phi = ' -i 23 --api-remote --api-allow=0/0'
+    Hsr = ' --api-remote --api-allow=0/0'
+    Polytimos = ' --api-remote --api-allow=0/0'
+    Decred = ' --api-remote --api-allow=0/0'
     X16r = ''
     X16s = ''
     
 }
 
-
-$Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-   if($SelectedAlgo -eq $_)
-     { 
+$Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
     [PSCustomObject]@{
-        MinerName = "ccminer"
-	Type = "NVIDIA"
+        Type = 'NVIDIA'
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
-        HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-        API = "Ccminer"
+        Arguments = -Join ('-a ', $Algorithms.$_, ' -o stratum+tcp://$($Pools.', $_, '.Host):$($Pools.', $_, '.Port) -u $($Pools.', $_, '.User) -p $($Pools.', $_, '.Pass)', $Optimizations.$_)
+        HashRates = [PSCustomObject]@{$_ = -Join ('$($Stats.', $Name, '_', $_, '_HashRate.Week)')}
+        API = 'Wrapper'
         Port = 4068
-        Wrap = $false
+        Wrap = $true
         URI = $Uri
-     }
     }
 }

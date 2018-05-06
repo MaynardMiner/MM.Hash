@@ -98,25 +98,9 @@ git clone https://github.com/MaynardMiner/MM.Hash.git
 #
 #SETUP
 #
-#First Move Mini Scripts To Your bin Folder:
-#
-cd MM.Hash
-#
-sudo mv BuildMiner /bin
-#
-#Now make them executable:
-#
-cd /
-#
-cd bin
-#
-chmod +x BuildMiner
-#
 #Make Configuration File executable:
 #
 chmod +x StartMM
-#
-#.NET FRAMEWORK INSTALL (2.0.6) (if powershell above doesn't work)
 #
 #
 #

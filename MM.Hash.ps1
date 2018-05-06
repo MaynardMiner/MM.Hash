@@ -175,43 +175,19 @@ while($true)
     #Messy...?
     $Miners = if(Test-Path "Miners"){Get-ChildItemContent "Miners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
  Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
- Where-Object {$Algoritm.count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
+ Where-Object {$Algorithm.count -eq 0 -or (Compare-Object $Algorithm $_.HashRates.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
         if((Test-Path $Miner.Path) -eq $false)
         {
-            if((Split-Path $Miner.URI -Leaf) -eq (Split-Path $Miner.Path -Leaf))
-            {
-                New-Item (Split-Path $Miner.Path) -ItemType "Directory" | Out-Null
-                Invoke-WebRequest $Miner.URI -OutFile $_.Path -UseBasicParsing
-            }
-            elseif(([IO.FileInfo](Split-Path $_.URI -Leaf)).Extension -eq '')
-            {
-                $Path_Old = Get-PSDrive -PSProvider FileSystem | ForEach {Get-ChildItem -Path $_.Root -Include (Split-Path $Miner.Path -Leaf) -Recurse -ErrorAction Ignore} | Sort-Object LastWriteTimeUtc -Descending | Select -First 1
-                $Path_New = $Miner.Path
-
-                if($Path_Old -ne $null)
-                {
-                    if(Test-Path (Split-Path $Path_New)){(Split-Path $Path_New) | Remove-Item -Recurse -Force}
-                    (Split-Path $Path_Old) | Copy-Item -Destination (Split-Path $Path_New) -Force
-                }
-                else
-                {
-                    Write-Host -BackgroundColor Yellow -ForegroundColor Black "Cannot find $($Miner.Path) distributed at $($Miner.URI). "
-                }
-            }
-            else
-            {
-                Expand-WebRequest $Miner.URI (Split-Path $Miner.Path)
-	        }
-            
+          Expand-WebRequest $Miner.URI
+	}
+       else
+	{
+	 $Miner
         }
-        else
-        {
-            $Miner
-        }
-    }
+   }
  
     if($Miners.Count -eq 0){"No Miners!" | Out-Host; start-sleep $Interval; continue}
     $Miners | ForEach {
@@ -361,7 +337,7 @@ while($true)
                 else{
 		     if($_.Type -eq "NVIDIA")
 		      {
-		       Set-Location "$(Split-Path $_.Path)"
+		       Set-Location $_.Path
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
@@ -371,7 +347,7 @@ while($true)
 		      }
 		    if($_.Type -eq "CPU")
 		     {
-		       Set-Location "$(Split-Path $_.Path)"
+		       Set-Location $_.Path
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
@@ -381,7 +357,7 @@ while($true)
                       }
 		    if($_Type -eq "AMD")
 		     {
-		       Set-Location "$(Split-Path $_.Path)"
+		       Set-Location $_.Path
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
@@ -412,7 +388,7 @@ while($true)
 	$TimerStart = Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
         ($_.Active+((Get-Date)-$TimerStart))}})}}, 
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
-        @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.Arguments)"}}
+        @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_MinerName) $($_.Arguments)"}}
     ) | Out-Host
         #Write-Host "..........Excavator is dormant in Sniffdog for Neoscrypt,Keccak,Lyra2rev2, and Nist5..............." -foregroundcolor "Green"
         #Write-Host "..........Remove # in front of Algo in ExcavatorNvidianeo.ps1 file in Miners Folder......................" -foregroundcolor "Green"  
@@ -497,7 +473,7 @@ while($true)
 		   {
      		     if($_.Type -eq "NVIDIA")
 		      {
-		       Set-Location "$(Split-Path $_.Path)"
+		       Set-Location $_.Path
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
@@ -507,7 +483,7 @@ while($true)
                       }
 		    if($_.Type -eq "CPU")
 		     {
-		       Set-Location "$(Split-Path $_.Path)"
+		       Set-Location $_.Path
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
@@ -517,7 +493,7 @@ while($true)
                       }
 		    if($_Type -eq "AMD")
 		     {
-		       Set-Location "$(Split-Path $_.Path)"
+		       Set-Location $_.Path
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id

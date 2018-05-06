@@ -517,46 +517,26 @@ function Start-SubProcess {
 function Expand-WebRequest {
     param(
         [Parameter(Mandatory=$true)]
-        [String]$Uri, 
-        [Parameter(Mandatory=$false)]
-        [String]$Path
-    )
-    if (-not $Path) {$Path = Join-Path ".\Downloads" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
-     if (-not (Test-Path ".\Downloads")) {New-Item "Downloads" -ItemType "directory" | Out-Null} 
-     $FileName = Join-Path ".\Downloads" (Split-Path $Uri -Leaf) 
- 
- 
-     if (Test-Path $FileName) {Remove-Item $FileName}
-     [System.Net.ServicePointManager]::SecurityProtocol = ("Tls12","Tls11","Tls")
-       Invoke-Webrequest $Uri -OutFile $FileName -UseBasicParsing 
- 
- 
-     if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension) { 
-         Start-Process $FileName "-qb" -Wait 
-     } 
-     else{
-         $Path_Old = (Join-Path (Split-Path $Path) ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName) 
-         $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf)) 
- 
- 
-         if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse -Force} 
-         Start-Process "7za" "x `"$([IO.Path]::GetFullPath($FileName))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait 
- 
- 
-         if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse -Force} 
-         if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false) { 
-             Rename-Item $Path_Old (Split-Path $Path -Leaf) -Force 
-         }
- 
-         else {
- 
-             Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New -Force}  
-	     Write-Host "Compiling Miner & Making it Executable" -ForgroundColor"Red" BackgroundColor "White"
-             Start-Process -FilePath "BuildMiner" -ArgumentList `"$([IO.Path]::GetFullPath($Path_New))`" -Wait
-             Remove-Item $Path_Old -Recurse -Force
-             Write-Host "Miner Compiled And/Or Installed!" -ForegroundColor "Red" -BackgroundColor "White"
-         } 
-     } 
+        [String]$Uri 
+          ) 
+     if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null} 
+	$Old_Path = Split-Path $Uri -Parent
+        $New_Path = Split-Path $Old_Path -Leaf	
+	$FileName = Join-Path ".\Bin" $New_Path
+      if(-not (Test-Path $Filename))
+       {	 
+       Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
+       Set-Location ".\Bin"
+       Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Set-Location $Filename
+       Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
+       Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
+       Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
+       Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
+       Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+	}
  } 
 
 

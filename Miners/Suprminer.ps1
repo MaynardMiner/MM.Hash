@@ -1,42 +1,45 @@
-$Path = ".\Bin\NVIDIA-Tpruvot\ccminer.sln"
-$Uri = "https://github.com/tpruvot/ccminer/archive/2.2.5-tpruvot.zip"
+$Path = ".\Bin\ocminer"
+$Uri = "https://github.com/ocminer/suprminer.git"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
-
 $Algorithms = [PSCustomObject]@{
-    Qubit = 'qubit'
-    NeoScrypt = 'neoscrypt'
-    X11 = 'x11'
-    MyriadGroestl = "myr-gr"
-    Groestl = 'groestl'
-    Keccak = 'keccak'
-    Keccakc = 'keccakc'
-    Scrypt = 'scrypt'
-    Bitcore = 'bitcore'
-    Blake2s = 'blake2s'
-    Sib = 'sib'
-    #X17 = 'x17'
-    Quark = 'quark'
-    Hmq1725 = 'hmq1725'
+    #Lyra2z = 'lyra2z'
+    #Equihash = 'equihash' #not supported
+    #Cryptonight = 'cryptonight'
+    #Ethash = 'ethash' #not supported
+    #Sia = 'sia'
+    #Yescrypt = 'yescrypt'
+    #BlakeVanilla = 'vanilla'
+    #Lyra2RE2 = 'lyra2v2'
+    #Skein = 'skein'
+    #Qubit = 'qubit'
+    #NeoScrypt = 'neoscrypt'
+    #X11 = 'x11'
+    #MyriadGroestl = "myr-gr"
+    #Groestl = 'groestl'
+    #Keccak = 'keccak'
+    #Scrypt = 'scrypt'
+    #Bitcore = 'bitcore'
+    #Blake2s = 'blake2s'
+    #Sib = 'sib'
+    x17= 'x17'
+    #Quark = 'quark'
+    #Hmq1725 = 'hmq1725'
     #Veltor = 'veltor'
     #X11evo = 'x11evo'
-    Timetravel = 'timetravel'
+    #Timetravel = 'timetravel'
     #Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
-    C11 = 'c11'
-    Nist5 = 'nist5'
-    Hsr = 'hsr' 
-    #BlakeVanilla = 'vanilla'
-    Lyra2v2 = 'lyra2v2'
-    Lyra2z = 'lyra2z'
-    Skein = 'skein'
-    Skunk = 'skunk'
-    Tribus = 'tribus'
-    Phi = 'phi'
     #Jha = 'jha'
-    #Decred = 'Decred'
-
+    #Skunk = 'skunk'
+    #Tribus = 'tribus'
+    #Phi = 'phi'
+    #Hsr = 'hsr'
+    #Polytimos = 'polytimos'
+    #Decred = 'decred'
+    X16r = 'x16r'
+    X16s = 'x16s'
 }
 
 $Optimizations = [PSCustomObject]@{
@@ -55,7 +58,6 @@ $Optimizations = [PSCustomObject]@{
     MyriadGroestl = ''
     Groestl = ''
     Keccak = ''
-    Keccakc = ''
     Scrypt = ''
     Bitcore = ''
     Blake2s = ''
@@ -68,19 +70,20 @@ $Optimizations = [PSCustomObject]@{
     Timetravel = ''
     Blakecoin = ''
     Lbry = ''
-    C11 = ''
-    Nist5 = ''
-    Hsr = ''
+    Jha = ''
+    Skunk = ''
     Tribus = ''
     Phi = ''
-    Jha = ''
+    Hsr = ''
+    Polytimos = ''
     Decred = ''
+    X16r = ''
+    X16s = ''
+    
 }
 
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-    if($SelectedAlgo -eq $_)
-     { 
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
@@ -92,5 +95,4 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Wrap = $false
         URI = $Uri
      }
-    }
 }
