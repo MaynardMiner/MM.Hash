@@ -178,7 +178,9 @@ vi ./StartMM
 #
 CONTACT
 #
-#This is beta release- post issues or questions you have through github. I plan to start a discord channel soon for further discussion.
+#This is beta release- post issues or questions you have through github.
+#
+#Discord Channel For MM.Hash- https://discord.gg/xVB5MqR
 #
 #I am having trouble searching repositories, and finding working linux CCminers. Everyone has been abadoning support for Linux since there has been no Multi-Miners. If you know devs- Tell them make a miner that can be compiled in linux, or make a compiled linux version like CCMiner- and I can load the mining file into the next release! I will also try to save non-working or older mining files in the OldMiners folder included in this repository. If you can send me benchmarking statistics, and prove the miner is faster- I will update mining files.
 #
