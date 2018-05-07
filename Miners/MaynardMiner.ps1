@@ -1,5 +1,5 @@
-$Path = ".\Bin\KlausT"
-$Uri = "https://github.com/KlausT/ccminer.git"
+$Path = ".\Bin\MaynardMiner"
+$Uri = "https://github.com/MaynardMiner/ccminer.git"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
