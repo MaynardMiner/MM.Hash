@@ -414,16 +414,16 @@ while($true)
         Write-Host ""
 	$Y = [string]$CoinExchange
 	$U = "BTC"
-        $BTCExchangeRate = Invoke-RestMethod "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=$U" -UseBasicParsing
-        Write-Host "1 $CoinExchange  = " $BTCExchangeRate.$Y[0].$U " of a Bitcoin" -foregroundcolor "Yellow"
+        $BTCExchangeRate = Invoke-RestMethod "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=BTC" -UseBasicParsing
+        Write-Host "1 $CoinExchange  = " $BTCExchangeRate.$Y[0].BTC " of a Bitcoin" -foregroundcolor "Yellow"
      Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Algorithm"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
         @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)/s"}else{"Bench"}}}; Align='center'}, 
         @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
-        @{Label = "BTC/GH/Day"; Expression={$_.Pools.PSObject.Properties.Value.Price | ForEach {($_*1000000000).ToString("N5")}}; Align='center'},
-        @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate.$Y[0].$U * $Rates.$Currency).ToString("N3")}else{"Bench"}}}; Align='center'}, 
+        @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $ltcBtcRates.$Y[0].BTC).ToString("N5")}else{"Bench"}}}; Align='right'}, 
+        @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate.$Y[0].BTC * $Rates.$Currency).ToString("N3")}else{"Bench"}}}; Align='center'}, 
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'},
         @{Label = "Coins"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Info)"}}; Align='center'},
         @{Label = "Pool Fees"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Fees)%"}}; Align='center'},
