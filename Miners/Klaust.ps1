@@ -1,12 +1,15 @@
-﻿$Path = ".\Bin\krnlx"
-$Uri = "https://github.com/krnlx/ccminer-xevan.git"
+$Path = ".\Bin\KlausT"
+$Uri = "https://github.com/KlausT/ccminer.git"
+
+$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
+
 
 $Algorithms = [PSCustomObject]@{
     #Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
     #X11 = 'x11'
     #MyriadGroestl = "myr-gr"
-    #Groestl = 'groestl'
+    Groestl = 'groestl'
     #Keccak = 'keccak'
     #Keccakc = 'keccakc'
     #Scrypt = 'scrypt'
@@ -33,7 +36,6 @@ $Algorithms = [PSCustomObject]@{
     #Phi = 'phi'
     #Jha = 'jha'
     #Decred = 'Decred'
-     Xevan = 'xevan'
 
 }
 
@@ -73,14 +75,11 @@ $Optimizations = [PSCustomObject]@{
     Phi = ''
     Jha = ''
     Decred = ''
-    xevan = ' --api-remote'
 }
-
-$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-	[PSCustomObject]@{
+    [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
         Path = $Path
@@ -90,5 +89,5 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
-    }
+     }
 }

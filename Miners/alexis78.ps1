@@ -1,40 +1,37 @@
-﻿$Path = ".\Bin\krnlx"
-$Uri = "https://github.com/krnlx/ccminer-xevan.git"
+$Path = ".\Bin\alexis78"
+$Uri = "https://github.com/alexis78/ccminer.git"
+
+$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
+
 
 $Algorithms = [PSCustomObject]@{
+    
     #Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
-    #X11 = 'x11'
-    #MyriadGroestl = "myr-gr"
+    X11 = 'x11'
+    MyriadGroestl = 'myr-gr'
     #Groestl = 'groestl'
     #Keccak = 'keccak'
-    #Keccakc = 'keccakc'
     #Scrypt = 'scrypt'
     #Bitcore = 'bitcore'
-    #Blake2s = 'blake2s'
-    #Sib = 'sib'
-    #X17 = 'x17'
-    #Quark = 'quark'
+    Blake2s = 'blake2s'
+    Sib = 'sib'
+    X17 = 'x17'
+    Quark = 'quark'
     #Hmq1725 = 'hmq1725'
-    #Veltor = 'veltor'
-    #X11evo = 'x11evo'
+    Veltor = 'veltor'
+    X11evo = 'x11evo'
     #Timetravel = 'timetravel'
-    #Blakecoin = 'blakecoin'
+    Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
-    #C11 = 'c11'
-    #Nist5 = 'nist5'
-    #Hsr = 'hsr' 
-    #BlakeVanilla = 'vanilla'
-    #Lyra2v2 = 'lyra2v2'
-    #Lyra2z = 'lyra2z'
-    #Skein = 'skein'
+    C11 = 'c11'
+    Nist5 = 'nist5'
+    Hsr = 'hsr' 
+    BlakeVanilla = 'vanilla'
+    Lyra2RE2 = 'lyra2v2'
+    Skein = 'skein'
     #Skunk = 'skunk'
-    #Tribus = 'tribus'
-    #Phi = 'phi'
-    #Jha = 'jha'
-    #Decred = 'Decred'
-     Xevan = 'xevan'
-
+    
 }
 
 $Optimizations = [PSCustomObject]@{
@@ -45,42 +42,33 @@ $Optimizations = [PSCustomObject]@{
     Sia = ''
     Yescrypt = ''
     BlakeVanilla = ''
-    Lyra2RE2 = ''
-    Skein = ''
+    Lyra2RE2 = ' -i 24 --api-remote'
+    Skein = ' -i 28 --api-remote'
     Qubit = ''
-    NeoScrypt = ''
-    X11 = ''
-    MyriadGroestl = ''
+    NeoScrypt = ' -i 15 --api-remote'
+    X11 = ' -i 21 --api-remote'
+    MyriadGroestl = ' --api-remote'
     Groestl = ''
-    Keccak = ''
-    Keccakc = ''
+    Keccak = ' --api-remote'
     Scrypt = ''
     Bitcore = ''
-    Blake2s = ''
-    Sib = ''
-    X17 = ''
+    Blake2s = ' --api-remote'
+    Sib = ' -i 21 --api-remote'
+    X17 = ' -i 21 --api-remote'
     Quark = ''
     Hmq1725 = ''
-    Veltor = ''
-    X11evo = ''
-    Timetravel = ''
-    Blakecoin = ''
-    Lbry = ''
-    C11 = ''
-    Nist5 = ''
-    Hsr = ''
-    Tribus = ''
-    Phi = ''
-    Jha = ''
-    Decred = ''
-    xevan = ' --api-remote'
+    Veltor = ' --api-remote'
+    X11evo = ' -i 21 --api-remote'
+    Timetravel = ' -i 25 --api-remote'
+    Blakecoin = ' --api-remote'
+    Lbry = ' -i 28 --api-remote'
+    C11 = ' -i 20 --api-remote'
+    Nist5 = ' -i 25 --api-remote'
 }
-
-$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-	[PSCustomObject]@{
+    [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
         Path = $Path
@@ -90,5 +78,5 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
-    }
+     }
 }

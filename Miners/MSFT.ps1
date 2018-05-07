@@ -44,7 +44,7 @@ $Algorithms = [PSCustomObject]@{
 $Optimizations = [PSCustomObject]@{
     Lyra2z = ''
     Equihash = ''
-    Cryptonight = ' -i 10'
+    Cryptonight = ' -i 10 --api-remote --api-allow=0/0'
     Ethash = ''
     Sia = ''
     Yescrypt = ''
@@ -72,7 +72,7 @@ $Optimizations = [PSCustomObject]@{
     Jha = ''
     Skunk = ''
     Tribus = ''
-    Phi = ' -i 21'
+    Phi = ' -i 23 --api-remote --api-allow=0/0'
     Hsr = ''
     Polytimos = ''
     Decred = ''
