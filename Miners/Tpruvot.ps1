@@ -44,7 +44,7 @@ $Algorithms = [PSCustomObject]@{
     #X16s = 'x16s'
     X12 = 'x12'
     C11 = 'c11'
-    Xevan = 'xevan'
+    #Xevan = 'xevan'
     Nist5 = 'nist5'
 }
 
