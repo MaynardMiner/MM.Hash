@@ -12,8 +12,8 @@ Delay=2					                                 #Delay Before Miner Switches (Leave
 Wallet=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H                                #Wallet Address- Should Be Address Of PasswordCurrency
 Location=US				        	                 #Your Country
 PoolName=zergpool		          	                         #Name of Pool You Wish To Mine In (See "Pools" dir To See Available Pools ex: zergpool,zpool,ahashpool)
-Type=NVIDIA				        	                 #Devices You Are Mining With (NVIDIA,CPU,AMD) (CAREFULL COMBINING DEVICES!!
-Algorithm=Bitcore                                    #Algos To Mine
+Type=NVIDIA,CPU				        	                 #Devices You Are Mining With (NVIDIA,CPU,AMD) (CAREFULL COMBINING DEVICES!!
+Algorithm=Neoscrypt,Yescrypt,Lyra2RE2                                    #Algos To Mine
 Donate=5                                                                #Donation Time In Minutes You Wish Mine For Further App Development- Will Only Activate Once A Day
 Proxy='""'                                                                #Proxy Address (If You Are Using Proxy)
 #
