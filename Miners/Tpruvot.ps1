@@ -106,5 +106,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
   }

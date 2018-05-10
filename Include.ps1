@@ -534,7 +534,7 @@ function Expand-WebRequest {
        Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
        Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
-       Move-Item .\Build\*  -Destination $Filename -force
+       Copy-Item .\Build\*  -Destination $Filename -force
        Set-Location $Filename
        Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
