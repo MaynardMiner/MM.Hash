@@ -1,5 +1,6 @@
 $Path = ".\Bin\punxsutawneyphil"
 $Uri = "https://github.com/punxsutawneyphil/ccminer.git"
+$Build = "CCMiner"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 

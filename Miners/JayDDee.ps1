@@ -1,5 +1,6 @@
-﻿$Path = "./Bin/JayDDee"
+$Path = "./Bin/JayDDee"
 $Uri = "https://github.com/JayDDee/cpuminer-opt.git"
+$Build =  "CPUMiner"
 
 $Algorithms = [PSCustomObject]@{
     #Bitcore = 'bitcore' #Bitcore
@@ -88,5 +89,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4048
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
 	}
-}
+     }

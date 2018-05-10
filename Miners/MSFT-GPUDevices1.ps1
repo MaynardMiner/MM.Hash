@@ -3,6 +3,8 @@ $Uri = 'https://github.com/MSFTserver/ccminer.git'
 $Build = "CCMiner"
 
 
+$Devices = "-d $GPUDevices1"
+
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms = [PSCustomObject]@{
@@ -44,9 +46,9 @@ $Algorithms = [PSCustomObject]@{
 }
 
 $Optimizations = [PSCustomObject]@{
-    Lyra2z = ''
+    Lyra2z = ' $Devices'
     Equihash = ''
-    Cryptonight = ' -i 10 --api-remote --api-allow=0/0'
+    Cryptonight = ' $Devices -i 10 --api-remote --api-allow=0/0'
     Ethash = ''
     Sia = ''
     Yescrypt = ''
@@ -65,31 +67,31 @@ $Optimizations = [PSCustomObject]@{
     Sib = ''
     X17 = ''
     Quark = ''
-    Hmq1725 = ''
+    Hmq1725 = ' $Devices'
     Veltor = ''
     X11evo = ''
-    Timetravel = ''
+    Timetravel = ' $Devices'
     Blakecoin = ''
     Lbry = ''
-    Jha = ''
+    Jha = ' $Devices'
     Skunk = ''
     Tribus = ''
     Phi = ' -i 23 --api-remote --api-allow=0/0'
     Hsr = ''
     Polytimos = ''
-    Decred = ''
+    Decred = ' $Devices'
     X16r = ''    
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "ccminer"
-        Type = "NVIDIA"
+        Type = "NVIDIA1"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User1) -p $($Pools.(Get-Algorithm($_)).Pass1) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
-        Port = 4068
+        Port = 4069
         Wrap = $false
         URI = $Uri
      }

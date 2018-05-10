@@ -1,5 +1,7 @@
-$Path = ".\Bin\tpruvot"
+$Path = ".\Bin\tpruvot\0"
 $Uri = "https://github.com/tpruvot/ccminer.git"
+$Build = "CCMiner"
+
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -12,41 +14,42 @@ $Algorithms = [PSCustomObject]@{
     #Sia = 'sia'
     #Yescrypt = 'yescrypt'
     BlakeVanilla = 'vanilla'
-    Lyra2RE2 = 'lyra2v2'
-    Skein = 'skein'
+    #Lyra2RE2 = 'lyra2v2'
+    #Skein = 'skein'
     Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
-    X11 = 'x11'
-    MyriadGroestl = 'myr-gr'
-    Groestl = 'groestl'
+    #X11 = 'x11'
+    #MyriadGroestl = 'myr-gr'
+    #Groestl = 'groestl'
     Keccak = 'keccak'
     #Scrypt = 'scrypt'
     Bitcore = 'bitcore'
-    Blake2s = 'blake2s'
+    #Blake2s = 'blake2s'
     Sib = 'sib'
     X17 = 'x17'
-    Quark = 'quark'
+    #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
-    Veltor = 'veltor'
-    X11evo = 'x11evo'
+    #Veltor = 'veltor'
+    #X11evo = 'x11evo'
     Timetravel = 'timetravel'
-    Blakecoin = 'blakecoin'
+    #Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
     #Jha = 'jha'
     Skunk = 'skunk'
     Tribus = 'tribus'
     Phi = 'phi'
-    Hsr = 'hsr'
+    #Hsr = 'hsr'
     #Polytimos = 'polytimos'
     #Decred = 'decred'
     #X16r = 'x16r'
     Keccakc = 'keccakc'
     #X16s = 'x16s'
     X12 = 'x12'
-    C11 = 'c11'
+    #C11 = 'c11'
     #Xevan = 'xevan'
-    Nist5 = 'nist5'
+    #Nist5 = 'nist5'
 }
+  
 
 $Optimizations = [PSCustomObject]@{
     Lyra2z = ' --api-remote --api-allow=0/0 --submit-stale'
@@ -104,4 +107,4 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Wrap = $false
         URI = $Uri
      }
-}
+  }

@@ -516,15 +516,34 @@ function Start-SubProcess {
 
 function Expand-WebRequest {
     param(
-        [Parameter(Mandatory=$true)]
-        [String]$Uri 
+        [Parameter(Mandatory=$false)]
+        [String]$Uri,
+	[Parameter(Mandatory=$false)]
+	[String]$BuildPath
           ) 
      if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null} 
 	$Old_Path = Split-Path $Uri -Parent
         $New_Path = Split-Path $Old_Path -Leaf	
 	$FileName = Join-Path ".\Bin" $New_Path
       if(-not (Test-Path $Filename))
-       {	 
+       {
+        if($BuildPath -eq 'CCMiner')
+	 {	 
+       Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
+       Set-Location ".\Bin"
+       Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
+       Move-Item .\Build\*  -Destination $Filename -force
+       Set-Location $Filename
+       Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
+       Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
+       Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
+       Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+          }
+        if($BuildPath -eq 'CPUMiner')
+	 {
        Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location ".\Bin"
        Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
@@ -536,6 +555,8 @@ function Expand-WebRequest {
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+          }
+ 
 	}
  } 
 

@@ -47,7 +47,47 @@
     if((Get-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_last24h/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_current/$Divisor *(1-($Hashrefinery_Request.$_.fees/100)))}
 	
-    if($Wallet)
+ if($AdvancedOptions -eq "Yes")
+     {
+      if($Wallet)
+       {
+       [PSCustomObject]@{
+            Algorithm = $Hashrefinery_Algorithm
+            Info = "$Hashrefinery_Coin - Coin(s)"
+            Price = $Stat.Live
+            Fees = $Hashrefinery_Fees
+            Workers = $Hashrefinery_Workers
+            StablePrice = $Stat.Week
+            MarginOfError = $Stat.Fluctuation
+            Protocol = "stratum+tcp"
+            Host = $Hashrefinery_Host
+            Port = $Hashrefinery_Port
+	    User = $Wallet
+            User1 = $Wallet1
+	    User2 = $Wallet2
+	    User3 = $Wallet3
+	    User4 = $Wallet4
+	    User5 = $Wallet5
+	    User6 = $Wallet6
+            User7 = $Wallet7
+	    User8 = $Wallet8
+            Pass = "ID=$RigName,c=$Passwordcurrency"
+            Pass1 = "ID=$RigName,c=$Passwordcurrency1"
+	    Pass2 = "ID=$RigName,c=$Passwordcurrency2"
+	    Pass3 = "ID=$RigName,c=$Passwordcurrency3"
+	    Pass4 = "ID=$RigName,c=$Passwordcurrency4"
+	    Pass5 = "ID=$RigName,c=$Passwordcurrency5"
+	    Pass6 = "ID=$RigName,c=$Passwordcurrency6"
+	    Pass7 = "ID=$RigName,c=$Passwordcurrency7"
+	    Pass8 = "ID=$RigName,c=$Passwordcurrency8"
+            Location = $Location
+            SSL = $false
+            }
+          }
+        
+
+
+    elseif($Wallet)
     {
         [PSCustomObject]@{
             Algorithm = $Hashrefinery_Algorithm
@@ -64,6 +104,7 @@
             Pass = "ID=$RigName,c=$Passwordcurrency"
             Location = $Location
             SSL = $false
+          }
         }
     }
 }

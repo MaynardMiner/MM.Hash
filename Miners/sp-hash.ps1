@@ -1,5 +1,7 @@
 $Path = ".\Bin\sp-hash"
 $Uri = "https://github.com/sp-hash/ccminer.git"
+$Build = "CCMiner"
+
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 

@@ -1,15 +1,13 @@
-$Path = ".\Bin\ocminer\1"
-$Uri = "https://github.com/ocminer/suprminer.git"
-$Build = "CCMiner"
-
+$Path = ".\Bin\Dual-Claymore"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
+
 
 $Algorithms = [PSCustomObject]@{
     #Lyra2z = 'lyra2z'
     #Equihash = 'equihash' #not supported
     #Cryptonight = 'cryptonight'
-    #Ethash = 'ethash' #not supported
+    Ethash = 'ethash' #not supported
     #Sia = 'sia'
     #Yescrypt = 'yescrypt'
     #BlakeVanilla = 'vanilla'
@@ -18,14 +16,14 @@ $Algorithms = [PSCustomObject]@{
     #Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
     #X11 = 'x11'
-    #MyriadGroestl = "myr-gr"
+    #MyriadGroestl = 'myr-gr'
     #Groestl = 'groestl'
     #Keccak = 'keccak'
     #Scrypt = 'scrypt'
     #Bitcore = 'bitcore'
     #Blake2s = 'blake2s'
     #Sib = 'sib'
-    x17= 'x17'
+    #X17 = 'x17'
     #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
     #Veltor = 'veltor'
@@ -40,16 +38,16 @@ $Algorithms = [PSCustomObject]@{
     #Hsr = 'hsr'
     #Polytimos = 'polytimos'
     #Decred = 'decred'
-    X16r = 'x16r'
-    X16s = 'x16s'
+    #Eth = 'eth'
+    
 }
 
 $Optimizations = [PSCustomObject]@{
     Lyra2z = ''
     Equihash = ''
-    Cryptonight = ''
-    Ethash = ''
-    Sia = ''
+    Cryptonight = ' --api-remote --api-allow=0/0'
+    Ethash = ' -esm 2 -allpools 1 -allcoins 1 -platform 2'
+    Sia = ' -esm 2'
     Yescrypt = ''
     BlakeVanilla = ''
     Lyra2RE2 = ''
@@ -61,40 +59,39 @@ $Optimizations = [PSCustomObject]@{
     Groestl = ''
     Keccak = ''
     Scrypt = ''
-    Bitcore = ''
+    Bitcore = ' --api-remote --api-allow=0/0'
     Blake2s = ''
-    Sib = ''
+    Sib = ' -dcoin sc'
     X17 = ''
     Quark = ''
-    Hmq1725 = ''
+    Hmq1725 = ' --api-remote --api-allow=0/0'
     Veltor = ''
     X11evo = ''
-    Timetravel = ''
+    Timetravel = ' --api-remote --api-allow=0/0'
     Blakecoin = ''
     Lbry = ''
-    Jha = ''
-    Skunk = ''
-    Tribus = ''
-    Phi = ''
-    Hsr = ''
-    Polytimos = ''
-    Decred = ''
-    X16r = ''
-    X16s = ''
+    Jha = ' --api-remote --api-allow=0/0'
+    Skunk = ' --api-remote --api-allow=0/0'
+    Tribus = ' --api-remote --api-allow=0/0'
+    Phi = ' --api-remote --api-allow=0/0'
+    Hsr = ' --api-remote --api-allow=0/0'
+    Polytimos = ' --api-remote --api-allow=0/0'
+    Decred = ' --api-remote --api-allow=0/0'
+    Eth = ' -esm 3 -allpools 1 -allcoins 1 -platform 2'
+    
     
 }
 
-
-$Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+$Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
     [PSCustomObject]@{
-        MinerName = "ccminer"
-	Type = "NVIDIA"
+        Type = 'NVIDIA'
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
+	MinerName = "ethdcrminer64"
+        Arguments = "-r -1 -mport -23333 -epool $($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -ewal $($Pools.(Get-Algorithm($_)).User) -eworker $($Pools.(Get-Algorithm($_)).User)  -epsw $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-        API = "Ccminer"
-        Port = 4068
+        API = 'Claymore'
+        Port = 23333
         Wrap = $false
         URI = $Uri
-     }
-  }
+    }
+}

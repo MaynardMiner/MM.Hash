@@ -1,6 +1,22 @@
 ﻿param(
     [Parameter(Mandatory=$false)]
-    [String]$Wallet, 
+    [String]$Wallet,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet1,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet2,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet3,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet4,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet5,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet6,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet7,
+    [Parameter(Mandatory=$false)]
+    [String]$Wallet8,
     [Parameter(Mandatory=$false)]
     [String]$UserName = "MaynardVII", 
     [Parameter(Mandatory=$false)]
@@ -24,19 +40,63 @@
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
+    [Array]$Type1 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type2 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type3 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type4 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type5 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type6 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type7 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
+    [Array]$Type8 = $null, #AMD/NVIDIA/CPU
+    [Parameter(Mandatory=$false)]
     [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices1, 
     [Parameter(Mandatory=$false)] 
-    [String]$SplitSniffEWBF = "0", 
-    [Parameter(Mandatory=$false)] 
-    [String]$SplitSniffCC = "0",
+    [String]$GPUDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices3,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices4,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices5,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices6,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices7,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices8,
     [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency1 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency2 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency3 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency4 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency5 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency6 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency7 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [Array]$Passwordcurrency8 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
     [Int]$Donate = 5, #Minutes per Day
     [Parameter(Mandatory=$false)]
@@ -143,7 +203,7 @@ while($true)
     try {
 	$T = [string]$CoinExchange
 	$R= [string]$Currency
-        Write-Host "MM.Hash Is Exiting Any Open Miner If Better Algo Is Found & Checking CryptoCompare For $Currency price" -foregroundcolor "Yellow"
+        Write-Host "MM.Hash Is Exiting Any Open Miner If Better Algo Is Found & Checking CryptoCompare For $CoinExchange prices" -foregroundcolor "Yellow"
         $Exchanged =  Invoke-RestMethod "https://min-api.cryptocompare.com/data/price?fsym=$T&tsyms=$R" -UseBasicParsing | Select-Object -ExpandProperty $R
 	$Rates = Invoke-RestMethod "https://api.coinbase.com/v2/exchange-rates?currency=$R" -UseBasicParsing | Select-Object -ExpandProperty data | Select-Object -ExpandProperty rates
         $Currency | Where-Object {$Rates.$_} | ForEach-Object {$Rates | Add-Member $_ ([Double]$Rates.$_) -Force}
@@ -179,9 +239,9 @@ while($true)
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
-        if((Test-Path $Miner.Path) -eq $false)
+        if((Test-Path (Split-Path -Path $Miner.Path)) -eq $false)
         {
-          Expand-WebRequest $Miner.URI
+          Expand-WebRequest -URI $Miner.URI -BuildPath $Miner.BUILD
 	}
        else
 	{
@@ -406,7 +466,7 @@ while($true)
                                                                           | |\/| | |\/| |_| __ |/ _ \ \__ \| __ | 
                                                                           |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_| 
                                                                                                                                                " -foregroundcolor "DarkRed"
-        Write-Host "                                                                                      Nicehash Sucks" -foregroundcolor "DarkCyan"
+        Write-Host "                                                                                    Sudo Apt-Get Lambo" -foregroundcolor "Yellow"
         Write-Host ""
         Write-Host ""
         Write-Host ""

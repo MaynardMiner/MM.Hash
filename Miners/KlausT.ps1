@@ -1,47 +1,28 @@
-$Path = ".\Bin\ocminer\1"
-$Uri = "https://github.com/ocminer/suprminer.git"
+$Path = ".\Bin\KlausT\0"
+$Uri = "https://github.com/KlausT/ccminer.git"
 $Build = "CCMiner"
-
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms = [PSCustomObject]@{
-    #Lyra2z = 'lyra2z'
+    #Lyra2z = 'lyra2z' #not supported
     #Equihash = 'equihash' #not supported
-    #Cryptonight = 'cryptonight'
+    #Cryptonight = 'cryptonight' #not supported
     #Ethash = 'ethash' #not supported
-    #Sia = 'sia'
-    #Yescrypt = 'yescrypt'
+    #Sia = 'sia' #use TpruvoT
+    #Yescrypt = 'yescrypt' #use TpruvoT
     #BlakeVanilla = 'vanilla'
-    #Lyra2RE2 = 'lyra2v2'
-    #Skein = 'skein'
-    #Qubit = 'qubit'
-    #NeoScrypt = 'neoscrypt'
-    #X11 = 'x11'
+    #Lyra2RE2 = 'lyra2v2' 
+    #Skein = 'skein' #use TpruvoT
+    #Qubit = 'qubit' #use TpruvoT
+    NeoScrypt = 'neoscrypt'
+    #X11 = 'x11' #use TpruvoT
     #MyriadGroestl = "myr-gr"
-    #Groestl = 'groestl'
-    #Keccak = 'keccak'
-    #Scrypt = 'scrypt'
-    #Bitcore = 'bitcore'
-    #Blake2s = 'blake2s'
-    #Sib = 'sib'
-    x17= 'x17'
-    #Quark = 'quark'
-    #Hmq1725 = 'hmq1725'
-    #Veltor = 'veltor'
-    #X11evo = 'x11evo'
-    #Timetravel = 'timetravel'
-    #Blakecoin = 'blakecoin'
-    #Lbry = 'lbry'
-    #Jha = 'jha'
-    #Skunk = 'skunk'
-    #Tribus = 'tribus'
-    #Phi = 'phi'
-    #Hsr = 'hsr'
-    #Polytimos = 'polytimos'
-    #Decred = 'decred'
-    X16r = 'x16r'
-    X16s = 'x16s'
+    Groestl = 'groestl'
+    #Keccak = 'keccak' 
+    #Scrypt = 'scrypt' #use TpruvoT
+    #Nist5 = 'nist5'
+
 }
 
 $Optimizations = [PSCustomObject]@{
@@ -61,27 +42,7 @@ $Optimizations = [PSCustomObject]@{
     Groestl = ''
     Keccak = ''
     Scrypt = ''
-    Bitcore = ''
-    Blake2s = ''
-    Sib = ''
-    X17 = ''
-    Quark = ''
-    Hmq1725 = ''
-    Veltor = ''
-    X11evo = ''
-    Timetravel = ''
-    Blakecoin = ''
-    Lbry = ''
-    Jha = ''
-    Skunk = ''
-    Tribus = ''
-    Phi = ''
-    Hsr = ''
-    Polytimos = ''
-    Decred = ''
-    X16r = ''
-    X16s = ''
-    
+    Nist5 = ''
 }
 
 
@@ -96,5 +57,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
   }

@@ -1,5 +1,6 @@
-﻿$Path = ".\Bin\krnlx"
+$Path = ".\Bin\krnlx\0"
 $Uri = "https://github.com/krnlx/ccminer-xevan.git"
+$Build = "CCMiner"
 
 $Algorithms = [PSCustomObject]@{
     #Qubit = 'qubit'
@@ -90,5 +91,5 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+      }
     }
-}
