@@ -1,22 +1,32 @@
-$Path = ".\Bin\krnlx\7"
-$Uri = "https://github.com/krnlx/ccminer-xevan.git"
+$Path = ".\Bin\ocminer\4"
+$Uri = "https://github.com/ocminer/suprminer.git"
 $Build = "CCMiner"
 
-[string]$Devices = $GPUDevices7
+[string]$Devices = $GPUDevices4
+
+$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms = [PSCustomObject]@{
+    #Lyra2z = 'lyra2z'
+    #Equihash = 'equihash' #not supported
+    #Cryptonight = 'cryptonight'
+    #Ethash = 'ethash' #not supported
+    #Sia = 'sia'
+    #Yescrypt = 'yescrypt'
+    #BlakeVanilla = 'vanilla'
+    #Lyra2RE2 = 'lyra2v2'
+    #Skein = 'skein'
     #Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
     #X11 = 'x11'
     #MyriadGroestl = "myr-gr"
     #Groestl = 'groestl'
     #Keccak = 'keccak'
-    #Keccakc = 'keccakc'
     #Scrypt = 'scrypt'
     #Bitcore = 'bitcore'
     #Blake2s = 'blake2s'
     #Sib = 'sib'
-    #X17 = 'x17'
+    x17 = 'x17'
     #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
     #Veltor = 'veltor'
@@ -24,20 +34,15 @@ $Algorithms = [PSCustomObject]@{
     #Timetravel = 'timetravel'
     #Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
-    #C11 = 'c11'
-    #Nist5 = 'nist5'
-    #Hsr = 'hsr' 
-    #BlakeVanilla = 'vanilla'
-    #Lyra2v2 = 'lyra2v2'
-    #Lyra2z = 'lyra2z'
-    #Skein = 'skein'
+    #Jha = 'jha'
     #Skunk = 'skunk'
     #Tribus = 'tribus'
     #Phi = 'phi'
-    #Jha = 'jha'
-    #Decred = 'Decred'
-     Xevan = 'xevan'
-
+    #Hsr = 'hsr'
+    #Polytimos = 'polytimos'
+    #Decred = 'decred'
+    X16r = 'x16r'
+    X16s = 'x16s'
 }
 
 $Optimizations = [PSCustomObject]@{
@@ -56,12 +61,11 @@ $Optimizations = [PSCustomObject]@{
     MyriadGroestl = ''
     Groestl = ''
     Keccak = ''
-    Keccakc = ''
     Scrypt = ''
     Bitcore = ''
     Blake2s = ''
     Sib = ''
-    X17 = ''
+    X17 = [string]"-d $Devices"
     Quark = ''
     Hmq1725 = ''
     Veltor = ''
@@ -69,29 +73,31 @@ $Optimizations = [PSCustomObject]@{
     Timetravel = ''
     Blakecoin = ''
     Lbry = ''
-    C11 = ''
-    Nist5 = ''
-    Hsr = ''
+    Jha = ''
+    Skunk = ''
     Tribus = ''
     Phi = ''
-    Jha = ''
+    Hsr = ''
+    Polytimos = ''
     Decred = ''
-    xevan = [string]"-d $Devices"
+    X16r = [string]"-d $Devices"
+    X16s = [string]"-d $Devices"
+   
 }
-
-$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-	[PSCustomObject]@{
+    [PSCustomObject]@{
         MinerName = "ccminer"
-	Type = "NVIDIA7"
+	Type = "NVIDIA4"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4075 -u $($Pools.(Get-Algorithm($_)).User7) -p $($Pools.(Get-Algorithm($_)).Pass7) $($Optimizations.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4072 -u $($Pools.(Get-Algorithm($_)).User4) -p $($Pools.(Get-Algorithm($_)).Pass4) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
-        Port = 4075
+        Port = 4072
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
     }
+

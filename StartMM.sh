@@ -34,11 +34,11 @@ Proxy='""'                                                                #Proxy
 #Wallet2=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 #PasswordCurrency2=RVN
 #
-#GPUDevices3='"GTX1050#1,GTX1050#2"'
+#GPUDevices3=''
 #Wallet3=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 #PasswordCurrency3=RVN
 #
-#GPUDevices4=0,1,2
+#GPUDevices4=
 #Wallet4=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 #PasswordCurrency4=RVN
 #
@@ -108,6 +108,6 @@ VV=$GPUDevices8
 XX=$Wallet8
 YY=$PasswordCurrency8
 #
+#COMMAND
 #
-#
-pwsh -command "&.\MM.Hash.ps1 -StatsInterval $a -Username $b -WorkerName $c -RigName $d -Currency $e -Passwordcurrency $f -Interval $g -Delay $h -Wallet $i -Location $j -Poolname $k -Type $l -Algorithm $m -Donate $n -Proxy $o -CoinExchange $p -GPUDevices1 $s -Wallet1 $u -PasswordCurrency1 $v -GPUDevices2 $x -Wallet2 $y -PasswordCurrency2 $z"
+pwsh -command "&.\MM.Hash.ps1 -StatsInterval $a -Username $b -WorkerName $c -RigName $d -Currency $e -Passwordcurrency $f -Interval $g -Delay $h -Wallet $i -Location $j -Poolname $k -Type $l -Algorithm $m -Donate $n -Proxy $o -CoinExchange $p" #-GPUDevices1 $s -Wallet1 $u -PasswordCurrency1 $v -GPUDevices2 $x -Wallet2 $y -PasswordCurrency2 $z -GPUDevices3 $aa -Wallet3 $bb -PasswordCurrency3 $cc -GPUDevices4 $dd -Wallet4 $ee -PasswordCurrency4 $ff -GPUDevics5 $gg -Wallet5 $hh -PasswordCurrency5 $ii -GPUDevices6 $nn -Wallet6 $pp -PasswordCurrency6 $qq -GPUDevices7 $RR -Wallet7 $TT -PasswordCurrency7 $UU -GPUDevices8 $VV -Wallet8 $XX -PasswordCurrency8 YY"

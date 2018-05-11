@@ -1,8 +1,8 @@
-$Path = ".\Bin\tpruvot\2"
+$Path = ".\Bin\tpruvot\4"
 $Uri = "https://github.com/tpruvot/ccminer.git"
 $Build = "CCMiner"
 
-[string]$Devices = $GPUDevices2
+[string]$Devices = $GPUDevices4
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -98,12 +98,12 @@ $Optimizations = [PSCustomObject]@{
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "ccminer"
-	Type = "NVIDIA2"
+	Type = "NVIDIA4"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4070 -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Optimizations.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4072 -u $($Pools.(Get-Algorithm($_)).User4) -p $($Pools.(Get-Algorithm($_)).Pass4) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
-        Port = 4070
+        Port = 4072
         Wrap = $false
         URI = $Uri
 	BUILD = $Build

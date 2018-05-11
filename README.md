@@ -114,6 +114,16 @@ vi ./StartMM
 #
 #Ideal font size for gnome-terminal to show good display is 10pts. Edit - Profile Preferences - Custom Font. Reccommend changing before starting!
 #
+#
+#
+#ADVANCED SETTINGS
+#
+#Advanced Settings allow you to control multiple GPU devices in groups, and you are able to set each group with an individual wallet- Meaning you can mine for different coins at the same time. To use- You first must swap Type Parameter- You do this by placing # in front of Type in "Normal Settings" and removing the # in front the time in the Advanced configuration. Type allows you declare which groups are active. You must add a numerical value behind each device you are using, starting with "1", i.e. 
+#
+Type=NVIDIA1,NVIDIA2 (You can still use CPU, but no CPU1,CPU2,CPU3 (There is no support for multi-cpu). Just use CPU.)
+#
+#The next step is setting up each group. GPUDevices correspond to the numerical value set of the device type. If you are using NVIDIA1, you must remove the # in front of the GPUDevices1, Wallet1, and PasswordCurrency1 parameters. It is important you keep all "''" where present! Set your wallet, and the corresponding coin symbol. Once you have set all your devices- You must go down to the Command section, and find the # between advanced commands. First you must delete the " in front of the # in order to extend the command. Then you must remove the # sign, and either delete it if you are using all 8 groups, or move it in front of the first group you are not using. Lastly, you must add the " that you have removed at the last character of the command line that you are now using.
+#
 #IMPORTANT: ENSURE POOL OFFERS EXCHANGE TO YOUR COIN SELECTED IN WALLET ADDRESS!
 #
 #

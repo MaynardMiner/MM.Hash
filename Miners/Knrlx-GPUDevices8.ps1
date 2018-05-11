@@ -2,7 +2,6 @@ $Path = ".\Bin\krnlx\8"
 $Uri = "https://github.com/krnlx/ccminer-xevan.git"
 $Build = "CCMiner"
 
-
 $Devices = "-d $GPUDevices8"
 
 $Algorithms = [PSCustomObject]@{

@@ -2,8 +2,7 @@ $Path = ".\Bin\krnlx\2"
 $Uri = "https://github.com/krnlx/ccminer-xevan.git"
 $Build = "CCMiner"
 
-
-$Devices = "$GPUDevices2"
+[string]$Devices = $GPUDevices2
 
 $Algorithms = [PSCustomObject]@{
     #Qubit = 'qubit'
@@ -77,7 +76,7 @@ $Optimizations = [PSCustomObject]@{
     Phi = ''
     Jha = ''
     Decred = ''
-    xevan = '-d $Devices --api-remote'
+    xevan = [string]"-d $Devices --api-remote"
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -87,9 +86,8 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
 	[PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "$NVIDIA2"
-        GType = "NVIDIA"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Optimizations.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4070 -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
         Port = 4070
