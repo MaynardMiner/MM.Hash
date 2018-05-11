@@ -3,14 +3,14 @@ $Uri = 'https://github.com/MSFTserver/ccminer.git'
 $Build = "CCMiner"
 
 
-$Devices = "-d $GPUDevices2"
+$Devices = '$GPUDevices2'
 
-$Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
+$Name = "MSFTserver\2"
 
 $Algorithms = [PSCustomObject]@{
-    Lyra2z = 'lyra2z'
+    #Lyra2z = 'lyra2z'
     #Equihash = 'equihash' #not supported
-    Cryptonight = 'cryptonight'
+    #Cryptonight = 'cryptonight'
     #Ethash = 'ethash' #not supported
     #Sia = 'sia'
     #Yescrypt = 'yescrypt'
@@ -24,31 +24,31 @@ $Algorithms = [PSCustomObject]@{
     #Groestl = 'groestl'
     #Keccak = 'keccak'
     #Scrypt = 'scrypt'
-    Bitcore = 'bitcore'
+    #Bitcore = 'bitcore'
     #Blake2s = 'blake2s'
     #Sib = 'sib'
     #X17 = 'x17'
     #Quark = 'quark'
-    Hmq1725 = 'hmq1725'
+    #Hmq1725 = 'hmq1725'
     #Veltor = 'veltor'
     #X11evo = 'x11evo'
-    Timetravel = 'timetravel'
+    #Timetravel = 'timetravel'
     #Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
-    Jha = 'jha'
+    #Jha = 'jha'
     #Skunk = 'skunk'
     #Tribus = 'tribus'
     #Phi = 'phi'
     #Hsr = 'hsr'
     #Polytimos = 'polytimos'
-    Decred = 'decred'
+    #Decred = 'decred'
     #X16r = 'x16r'
 }
 
 $Optimizations = [PSCustomObject]@{
-    Lyra2z = ' $Devices'
+    Lyra2z = '-d $Devices --api-remote'
     Equihash = ''
-    Cryptonight = ' $Devices -i 10 --api-remote --api-allow=0/0'
+    Cryptonight = '-d $Devices -i 10 --api-remote --api-allow=0/0'
     Ethash = ''
     Sia = ''
     Yescrypt = ''
@@ -62,24 +62,24 @@ $Optimizations = [PSCustomObject]@{
     Groestl = ''
     Keccak = ''
     Scrypt = ''
-    Bitcore = ''
+    Bitcore = '-d $Devices --api-remote'
     Blake2s = ''
     Sib = ''
     X17 = ''
     Quark = ''
-    Hmq1725 = ' $Devices'
+    Hmq1725 = '-d $Devices --api-remote'
     Veltor = ''
     X11evo = ''
-    Timetravel = ' $Devices'
+    Timetravel = '-d $Devices --api-remote'
     Blakecoin = ''
     Lbry = ''
-    Jha = ' $Devices'
+    Jha = '-d $Devices --api-remote'
     Skunk = ''
     Tribus = ''
-    Phi = ' -i 23 --api-remote --api-allow=0/0'
+    Phi = '-d $Devices -i 23 --api-remote --api-allow=0/0'
     Hsr = ''
     Polytimos = ''
-    Decred = ' $Devices'
+    Decred = '-d $Devices --api-remote'
     X16r = ''    
 }
 
@@ -87,6 +87,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
     [PSCustomObject]@{
         MinerName = "ccminer"
         Type = "NVIDIA2"
+	GType = "NVIDIA"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
@@ -94,6 +95,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4070
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
 }
                      

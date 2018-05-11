@@ -2,9 +2,6 @@ $Path = ".\Bin\tpruvot\3"
 $Uri = "https://github.com/tpruvot/ccminer.git"
 $Build = "CCMiner"
 
-
-$Devices = "-d GPUDevices2"
-
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
   
 
@@ -54,47 +51,47 @@ $Algorithms = [PSCustomObject]@{
 
 
 $Optimizations = [PSCustomObject]@{
-    Lyra2z = ' $Devices --api-remote --api-allow=0/0 --submit-stale'
+    Lyra2z = '-d $GPUDevices2 --api-remote --api-allow=0/0 --submit-stale'
     Equihash = ''
-    Cryptonight = ' $Devices -i 10 --api-remote --api-allow=0/0'
+    Cryptonight = '-d $GPUDevice2s -i 10 --api-remote --api-allow=0/0'
     Ethash = ''
     Sia = ''
     Yescrypt = ''
-    BlakeVanilla = ' $Devices'
-    Lyra2RE2 = ' $Devices --api-remote --api-allow=0/0'
-    Skein = ' $Devices'
-    Qubit = ' $Devices --api-remote --api-allow=0/0'
+    BlakeVanilla = '-d $GPUDevices2'
+    Lyra2RE2 = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Skein = '-d $GPUDevices2'
+    Qubit = '-d $GPUDevices2 --api-remote --api-allow=0/0'
     NeoScrypt = ''
-    X11 = ' $Devices'
-    MyriadGroestl = ' $Devices'
-    Groestl = ' $Devices'
-    Keccak = ' $Devices --api-remote --api-allow=0/0'
+    X11 = '-d $GPUDevices2'
+    MyriadGroestl = '-d $GPUDevices2'
+    Groestl = '-d $GPUDevices2'
+    Keccak = '-d $GPUDevices2 --api-remote --api-allow=0/0'
     Scrypt = ''
-    Bitcore = ' $Devices --api-remote --api-allow=0/0'
+    Bitcore = '-d $GPUDevices2 --api-remote --api-allow=0/0'
     Blake2s = ''
-    Sib = ' $Devices'
-    X17 = ' $Devices'
+    Sib = '-d $GPUDevices2'
+    X17 = '-d $GPUDevices2'
     Quark = ''
-    Hmq1725 = ' $Devices --api-remote --api-allow=0/0'
-    Veltor = ' $Devices'
-    X11evo = ' $Devices --api-remote --api-allow=0/0'
-    Timetravel = ' $Devices --api-remote --api-allow=0/0'
-    Blakecoin = ' $Devices'
+    Hmq1725 = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Veltor = '-d $GPUDevices2'
+    X11evo = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Timetravel = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Blakecoin = '-d $GPUDevices2'
     Lbry = ''
-    Jha = ' $Devices --api-remote --api-allow=0/0'
-    Skunk = ' $Devices --api-remote --api-allow=0/0'
-    Tribus = ' $Devices --api-remote --api-allow=0/0'
-    Phi = ' $Devices -i 23 --api-remote --api-allow=0/0'
-    Hsr = ' $Devices --api-remote --api-allow=0/0'
-    Polytimos = ' $Devices --api-remote --api-allow=0/0'
-    Decred = ' $Devices --api-remote --api-allow=0/0'
-    X16r = ' $Devices --api-remote --api-allow=0/0'
-    Keccakc = ' $Devices --api-remote --api-allow=0/0'
-    X16s = ' $Devices --api-remote --api-allow=0/0'
-    X12 = ' $Devices --api-remote --api-allow=0/0'
-    C11 = ' $Devices --api-remote --api-allow=0/0'
-    Xevan = ' $Devices --api-remote --api-allow=0/0'
-    Nist5 = ' $Devices --api-remote --api-allow=0/0'
+    Jha = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Skunk = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Tribus = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Phi = '-d $GPUDevices2 -i 23 --api-remote --api-allow=0/0'
+    Hsr = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Polytimos = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Decred = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    X16r = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Keccakc = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    X16s = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    X12 = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    C11 = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Xevan = '-d $GPUDevices2 --api-remote --api-allow=0/0'
+    Nist5 = '-d $GPUDevices2 --api-remote --api-allow=0/0'
 }
 
 
@@ -102,6 +99,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA2"
+	GType = "NVIDIA"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
@@ -109,5 +107,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4070
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
        }
       }

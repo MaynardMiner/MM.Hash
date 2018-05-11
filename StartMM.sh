@@ -24,17 +24,17 @@ Proxy='""'                                                                #Proxy
 #
 #####ADVANCED OPTIONS (DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING!)
 #
-#Type= NVIDIA1,NVIDIA2,NVIDIA3,NVIDIA4,NVIDIA5,NVIDIA6,NVIDIA7,NVIDIA8   # Place # in front of above 'Type', and use this one instead.
+#Type=NVIDIA1,NVIDIA2                         # Place # in front of above 'Type', and use this one instead.
 #
-#GPUDevices1=GTX1070#1,GTX1070#2,GTX1070#3
+#GPUDevices1='"0,2,6"'
 #Wallet1=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 #PasswordCurrency1=RVN
 #
-#GPUDevices2=GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050#6,GTX1050#7,GTX1050#8
+#GPUDevices2='"1,3,4,5,7,8,9,10"'
 #Wallet2=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 #PasswordCurrency2=RVN
 #
-#GPUDevices3=
+#GPUDevices3='"GTX1050#1,GTX1050#2"'
 #Wallet3=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 #PasswordCurrency3=RVN
 #
@@ -81,20 +81,20 @@ u=$Wallet1
 v=$PasswordCurrency1
 #
 x=$GPUDevices2
-z=$Wallet2
-aa=$PasswordCurrency2
+y=$Wallet2
+z=$PasswordCurrency2
 #
-bb=$GPUDevices3
-dd=$Wallet3
-ee=$PasswordCurrency3
+aa=$GPUDevices3
+bb=$Wallet3
+cc=$PasswordCurrency3
 #
-ff=$GPUDevices4
-hh=$Wallet4
-ii=$PasswordCurrency4
+dd=$GPUDevices4
+ee=$Wallet4
+ff=$PasswordCurrency4
 #
-jj=$GPUDevices5
-LL=$Wallet5
-MM=$PasswordCurrency5
+gg=$GPUDevices5
+hh=$Wallet5
+ii=$PasswordCurrency5
 #
 NN=$GPUDevices6
 PP=$Wallet6
@@ -110,6 +110,4 @@ YY=$PasswordCurrency8
 #
 #
 #
-#COMMAND: Move Quotation after $p to the last $PasswordCurrency you need, and remove # sign leaving only 1 space between $p and -GPUDevices1 (no whitespace) if using advanced Settings.
-#
-pwsh -command "&.\MM.Hash.ps1 -StatsInterval $a -Username $b -WorkerName $c -RigName $d -Currency $e -Passwordcurrency $f -Interval $g -Delay $h -Wallet $i -Location $j -Poolname $k -Type $l -Algorithm $m -Donate $n -Proxy $o -CoinExchange $p" #-GPUDevices1 $s -Type1 $t -Wallet1 $u -PasswordCurrency1 $v -GPUDevices2 $x -Type2 $y -Wallet2 $z -PasswordCurrency2 $aa"
+pwsh -command "&.\MM.Hash.ps1 -StatsInterval $a -Username $b -WorkerName $c -RigName $d -Currency $e -Passwordcurrency $f -Interval $g -Delay $h -Wallet $i -Location $j -Poolname $k -Type $l -Algorithm $m -Donate $n -Proxy $o -CoinExchange $p -GPUDevices1 $s -Wallet1 $u -PasswordCurrency1 $v -GPUDevices2 $x -Wallet2 $y -PasswordCurrency2 $z"

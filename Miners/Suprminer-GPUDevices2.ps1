@@ -3,7 +3,7 @@ $Uri = "https://github.com/ocminer/suprminer.git"
 $Build = "CCMiner"
 
 
-$Devices = "-d $GPUDevices2"
+[string]$Devices = $GPUDevices2
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -27,7 +27,7 @@ $Algorithms = [PSCustomObject]@{
     #Bitcore = 'bitcore'
     #Blake2s = 'blake2s'
     #Sib = 'sib'
-    x17= 'x17'
+    x17 = 'x17'
     #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
     #Veltor = 'veltor'
@@ -66,7 +66,7 @@ $Optimizations = [PSCustomObject]@{
     Bitcore = ''
     Blake2s = ''
     Sib = ''
-    X17 = ' $Devices'
+    X17 = [string]"-d $Devices"
     Quark = ''
     Hmq1725 = ''
     Veltor = ''
@@ -81,9 +81,9 @@ $Optimizations = [PSCustomObject]@{
     Hsr = ''
     Polytimos = ''
     Decred = ''
-    X16r = ' $Devices'
-    X16s = ' $Devices'
-    
+    X16r = [string]"-d $Devices"
+    X16s = [string]"-d $Devices"
+   
 }
 
 
@@ -91,6 +91,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA2"
+	GType = "NVIDIA"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
@@ -98,6 +99,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4070
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
     }
 

@@ -84,6 +84,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
 	[PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
+	GType = "NVIDIA"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
