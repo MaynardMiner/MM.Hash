@@ -399,7 +399,7 @@ while($true)
 		     if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
 		      {
 		       Set-Location (Split-Path -Path $_.Path)
-                       $2 = "-fg White -bg Black -hold -e ./$($_.MinerName)"
+                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
