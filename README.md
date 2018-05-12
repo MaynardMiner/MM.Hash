@@ -24,10 +24,6 @@
 #
 sudo apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings openbox obconf obmenu wicd ubuntu-drivers-common mesa-utils mesa-utils-extra compton xorg xserver-xorg nautilus gnome-terminal
 #
-sudo apt-get install gcc-5 g++-5
-#
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
-#
 sudo apt-get update
 #
 sudo apt-get purge nvidia* 
@@ -51,6 +47,14 @@ sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
 sudo apt-get update
 #
 sudo apt-get install cuda
+#
+sudo apt-get update
+#
+sudo apt-get install gcc-5 g++-5
+#
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+#
+sudo apt-get update
 #
 #Navigate To Xorg Config Folder
 #
