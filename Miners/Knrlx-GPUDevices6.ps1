@@ -36,7 +36,7 @@ $Algorithms = [PSCustomObject]@{
     #Phi = 'phi'
     #Jha = 'jha'
     #Decred = 'Decred'
-     Xevan = 'xevan'
+    Xevan = 'xevan'
 
 }
 

@@ -34,7 +34,7 @@ $Algorithms = [PSCustomObject]@{
     #Phi = 'phi'
     #Jha = 'jha'
     #Decred = 'Decred'
-     Xevan = 'xevan'
+    Xevan = 'xevan'
 
 }
 
@@ -74,7 +74,7 @@ $Optimizations = [PSCustomObject]@{
     Phi = ''
     Jha = ''
     Decred = ''
-    xevan = ' --api-remote'
+    xevan = ''
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -84,7 +84,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
 	[PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
-	GType = "NVIDIA"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
@@ -92,5 +91,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
       }
     }

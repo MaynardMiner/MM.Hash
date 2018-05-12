@@ -1,5 +1,6 @@
 $Path = ".\Bin\KlausT\3"
 $Uri = "https://github.com/KlausT/ccminer"
+$Build = "CCMiner"
 
 $Devices = $GPUDevices3
 
@@ -16,10 +17,10 @@ $Algorithms = [PSCustomObject]@{
     #Lyra2RE2 = 'lyra2v2' 
     #Skein = 'skein' #use TpruvoT
     #Qubit = 'qubit' #use TpruvoT
-    NeoScrypt = 'neoscrypt'
+    #NeoScrypt = 'neoscrypt'
     #X11 = 'x11' #use TpruvoT
     #MyriadGroestl = "myr-gr"
-    Groestl = 'groestl'
+    #Groestl = 'groestl'
     #Keccak = 'keccak' 
     #Scrypt = 'scrypt' #use TpruvoT
     #Nist5 = 'nist5'

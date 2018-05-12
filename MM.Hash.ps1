@@ -109,9 +109,6 @@
     [String]$CoinExchange = ""
 )
 
-
-Write-Host "$GPUDevices2"
-
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 Get-ChildItem . -Recurse | Out-Null 
@@ -381,7 +378,8 @@ while($true)
            	 {
 	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
-		 Stop-Process -Id "$($_.MiningId)"		 
+		 Stop-Process -Id "$($_.MiningId)"
+		 Wait-Process -Id "$($_.MiningId)"		 
 	         $_.Status = "Idle"
             	}
         }
@@ -405,7 +403,7 @@ while($true)
 			{
                        $3 = "$($_.Arguments)"
 			}
-		       elseif($_.Devices)
+		       else
 			{
 			$3 = "-d $($_.Devices) $($_.Arguments)"
 			}
@@ -457,7 +455,7 @@ while($true)
 	$TimerStart = Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
         ($_.Active+((Get-Date)-$TimerStart))}})}}, 
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
-        @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_MinerName) $($_.Arguments)"}}
+        @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_MinerName) $($_.Devices) $($_.Arguments)"}}
     ) | Out-Host
         #Write-Host "..........Excavator is dormant in Sniffdog for Neoscrypt,Keccak,Lyra2rev2, and Nist5..............." -foregroundcolor "Green"
         #Write-Host "..........Remove # in front of Algo in ExcavatorNvidianeo.ps1 file in Miners Folder......................" -foregroundcolor "Green"  
@@ -558,7 +556,7 @@ while($true)
 		       Start-Sleep -s $Delay
 		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
 		      }
-		    if($_.Type -eq "NVIDIA2")
+		    if($_.Type -eq "CPU")
 		     {
 		       Set-Location (Split-Path -Path $_.Path)
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"

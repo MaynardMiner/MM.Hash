@@ -1,4 +1,4 @@
-$Path = '.\Bin\MSFTserver\1'
+$Path = '.\Bin\MSFTserver\0'
 $Uri = 'https://github.com/MSFTserver/ccminer.git'
 $Build = "CCMiner"
 
@@ -46,7 +46,7 @@ $Algorithms = [PSCustomObject]@{
 $Optimizations = [PSCustomObject]@{
     Lyra2z = ''
     Equihash = ''
-    Cryptonight = ' -i 10 --api-remote --api-allow=0/0'
+    Cryptonight = '-i 10'
     Ethash = ''
     Sia = ''
     Yescrypt = ''
@@ -74,7 +74,7 @@ $Optimizations = [PSCustomObject]@{
     Jha = ''
     Skunk = ''
     Tribus = ''
-    Phi = ' -i 23 --api-remote --api-allow=0/0'
+    Phi = '-i 23'
     Hsr = ''
     Polytimos = ''
     Decred = ''

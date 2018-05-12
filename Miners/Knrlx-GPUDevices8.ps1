@@ -36,8 +36,7 @@ $Algorithms = [PSCustomObject]@{
     #Phi = 'phi'
     #Jha = 'jha'
     #Decred = 'Decred'
-     Xevan = 'xevan'
-
+    Xevan = 'xevan'
 }
 
 $Optimizations = [PSCustomObject]@{
@@ -88,7 +87,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
 	Type = "NVIDIA8"
         Path = $Path
 	Devices = $Devices
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User8) -p $($Pools.(Get-Algorithm($_)).Pass8) $($Optimizations.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4076 -u $($Pools.(Get-Algorithm($_)).User8) -p $($Pools.(Get-Algorithm($_)).Pass8) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
         Port = 4076

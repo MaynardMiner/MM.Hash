@@ -1,4 +1,4 @@
-$Path = ".\Bin\ocminer\1"
+$Path = ".\Bin\ocminer\0"
 $Uri = "https://github.com/ocminer/suprminer.git"
 $Build = "CCMiner"
 
@@ -97,5 +97,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
   }

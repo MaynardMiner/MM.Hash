@@ -36,7 +36,7 @@ $Algorithms = [PSCustomObject]@{
     #Phi = 'phi'
     #Jha = 'jha'
     #Decred = 'Decred'
-     Xevan = 'xevan'
+    Xevan = 'xevan'
 
 }
 
@@ -76,7 +76,7 @@ $Optimizations = [PSCustomObject]@{
     Phi = ''
     Jha = ''
     Decred = ''
-    xevan = ''
+    Xevan = ''
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

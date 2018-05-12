@@ -75,6 +75,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 	        User5 = $Wallet5
 	        User6 = $Wallet6
             User7 = $Wallet7
+	    User8 = $Wallet8
             Pass = "ID=$RigName,c=$Passwordcurrency"
             Pass1 = "ID=$RigName,c=$Passwordcurrency1"
 	        Pass2 = "ID=$RigName,c=$Passwordcurrency2"
@@ -83,6 +84,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 	        Pass5 = "ID=$RigName,c=$Passwordcurrency5"
 	        Pass6 = "ID=$RigName,c=$Passwordcurrency6"
 	        Pass7 = "ID=$RigName,c=$Passwordcurrency7"
+		Pass8 = "ID=$RigName,c=$Passwordcurrency8"
             Location = $Location
             SSL = $false
          

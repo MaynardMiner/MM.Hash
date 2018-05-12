@@ -17,10 +17,10 @@ $Algorithms = [PSCustomObject]@{
     Lyra2v2 = 'lyra2v2'
     Skein = 'skein'
     Qubit = 'qubit'
-    #NeoScrypt = 'neoscrypt'
+    NeoScrypt = 'neoscrypt'
     X11 = 'x11'
     MyriadGroestl = 'myr-gr'
-    #Groestl = 'groestl'
+    Groestl = 'groestl'
     Keccak = 'keccak'
     #Scrypt = 'scrypt'
     #Bitcore = 'bitcore'
@@ -100,7 +100,7 @@ $Optimizations = [PSCustomObject]@{
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "ccminer"
-	Type = "NVIDIA7"
+	Type = "NVIDIA8"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4076 -u $($Pools.(Get-Algorithm($_)).User8) -p $($Pools.(Get-Algorithm($_)).Pass8) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
