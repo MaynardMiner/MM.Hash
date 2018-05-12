@@ -2,36 +2,36 @@ $Path = ".\Bin\tpruvot\6"
 $Uri = "https://github.com/tpruvot/ccminer.git"
 $Build = "CCMiner"
 
-[string]$Devices = $GPUDevices6
+$Devices = $GPUDevices6
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms = [PSCustomObject]@{
-    Lyra2z = 'lyra2z'
+    #Lyra2z = 'lyra2z'
     #Equihash = 'equihash' #not supported
     #Cryptonight = 'cryptonight'
     #Ethash = 'ethash' #not supported
     #Sia = 'sia'
     #Yescrypt = 'yescrypt'
     BlakeVanilla = 'vanilla'
-    Lyra2REv2 = 'lyra2v2'
+    Lyra2v2 = 'lyra2v2'
     Skein = 'skein'
     Qubit = 'qubit'
-    NeoScrypt = 'neoscrypt'
+    #NeoScrypt = 'neoscrypt'
     X11 = 'x11'
     MyriadGroestl = 'myr-gr'
-    Groestl = 'groestl'
+    #Groestl = 'groestl'
     Keccak = 'keccak'
     #Scrypt = 'scrypt'
-    Bitcore = 'bitcore'
+    #Bitcore = 'bitcore'
     Blake2s = 'blake2s'
     Sib = 'sib'
     #X17 = 'x17'
     Quark = 'quark'
-    Hmq1725 = 'hmq1725'
+    #Hmq1725 = 'hmq1725'
     Veltor = 'veltor'
     X11evo = 'x11evo'
-    Timetravel = 'timetravel'
+    #Timetravel = 'timetravel'
     Blakecoin = 'blakecoin'
     #Lbry = 'lbry'
     #Jha = 'jha'
@@ -40,7 +40,7 @@ $Algorithms = [PSCustomObject]@{
     #Phi = 'phi'
     Hsr = 'hsr'
     #Polytimos = 'polytimos'
-    Decred = 'decred'
+    #Decred = 'decred'
     #X16r = 'x16r'
     Keccakc = 'keccakc'
     #X16s = 'x16s'
@@ -48,51 +48,53 @@ $Algorithms = [PSCustomObject]@{
     C11 = 'c11'
     #Xevan = 'xevan'
     Nist5 = 'nist5'
+    Allium = 'allium'
 }
 
 
 $Optimizations = [PSCustomObject]@{
-    Lyra2z = [string]"-d $Devices --api-remote --api-allow=0/0 --submit-stale"
-    Equihash = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Cryptonight = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Ethash = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Sia = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Yescrypt = [string]"-d $Devices --api-remote --api-allow=0/0"
-    BlakeVanilla = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Lyra2REv2 = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Skein = [string]"-i 28 -d $Devices --api-remote --api-allow=0/0"
-    Qubit = [string]"-d $Devices --api-remote --api-allow=0/0"
-    NeoScrypt = [string]"-i 15 -d $Devices --api-remote --api-allow=0/0"
-    X11 = [string]"-d $Devices --api-remote --api-allow=0/0"
-    MyriadGroestl = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Groestl = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Keccak = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Scrypt = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Bitcore = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Blake2s = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Sib = [string]"-i 21 -d $Devices --api-remote --api-allow=0/0"
-    X17 = [string]"i 21.5 -d $Devices --api-remote --api-allow=0/0"
-    Quark = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Hmq1725 = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Veltor = [string]"-d $Devices --api-remote --api-allow=0/0"
-    X11evo = [string]"-i 21 -d $Devices --api-remote --api-allow=0/0"
-    Timetravel = [string]"-i 25 -d $Devices --api-remote --api-allow=0/0"
-    Blakecoin = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Lbry = [string]"-i 28 -d $Devices --api-remote --api-allow=0/0"
-    Jha = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Skunk = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Tribus = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Phi = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Hsr = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Polytimos = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Decred = [string]"-d $Devices --api-remote --api-allow=0/0"
-    X16r = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Keccakc = [string]"-d $Devices --api-remote --api-allow=0/0"
-    X16s = [string]"-d $Devices --api-remote --api-allow=0/0"
-    X12 = [string]"-d $Devices --api-remote --api-allow=0/0"
-    C11 = [string]"-i 20 -d $Devices --api-remote --api-allow=0/0"
-    Xevan = [string]"-d $Devices --api-remote --api-allow=0/0"
-    Nist5 = [string]"-d $Devices --api-remote --api-allow=0/0"
+    Lyra2z = ''
+    Equihash = ''
+    Cryptonight = ''
+    Ethash = ''
+    Sia = ''
+    Yescrypt = ''
+    BlakeVanilla = ''
+    Lyra2v2 = ''
+    Skein = '-i 28'
+    Qubit = ''
+    NeoScrypt = '-i 15'
+    X11 = ''
+    MyriadGroestl = ''
+    Groestl = ''
+    Keccak = ''
+    Scrypt = ''
+    Bitcore = ''
+    Blake2s = ''
+    Sib = '-i 21'
+    X17 = 'i 21.5'
+    Quark = ''
+    Hmq1725 = ''
+    Veltor = ''
+    X11evo = '-i 21'
+    Timetravel = '-i 25'
+    Blakecoin = ''
+    Lbry = '-i 28'
+    Jha = ''
+    Skunk = ''
+    Tribus = ''
+    Phi = ''
+    Hsr = ''
+    Polytimos = ''
+    Decred = ''
+    X16r = ''
+    Keccakc = ''
+    X16s = ''
+    X12 = ''
+    C11 = '-i 20'
+    Xevan = ''
+    Nist5 = ''
+    Allium = ''
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
@@ -100,6 +102,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         MinerName = "ccminer"
 	Type = "NVIDIA6"
         Path = $Path
+	Devices = $Devices
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4074 -u $($Pools.(Get-Algorithm($_)).User6) -p $($Pools.(Get-Algorithm($_)).Pass6) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"

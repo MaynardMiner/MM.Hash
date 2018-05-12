@@ -1,5 +1,7 @@
-$Path = ".\Bin\NVIDIA-KlausT\ccminer.sln"
-$Uri = "https://github.com/KlausT/ccminer/archive/8.21.zip"
+$Path = ".\Bin\KlausT\3"
+$Uri = "https://github.com/KlausT/ccminer"
+
+$Devices = $GPUDevices3
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -48,12 +50,15 @@ $Optimizations = [PSCustomObject]@{
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
         MinerName = "ccminer"
-	Type = "NVIDIA"
+	Type = "NVIDIA3"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
+	Devices = $Devices
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4071 -u $($Pools.(Get-Algorithm($_)).User3) -p $($Pools.(Get-Algorithm($_)).Pass3) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-        Port = 4068
+	API = "Ccminer"
+        Port = 4071
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
     }
 }

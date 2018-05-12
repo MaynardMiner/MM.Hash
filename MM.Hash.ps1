@@ -193,6 +193,7 @@ while($true)
         $Wallet = $WalletDonate
         $UserName = $UserNameDonate
         $WorkerName = $WorkerNameDonate
+	Write-Host "You are now donating! Thank you for the support!"
     }
     if((Get-Date).AddDays(-1) -ge $LastDonated)
     {
@@ -344,7 +345,7 @@ while($true)
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
 		Type = $_.Type
-		GType = $_.GType
+		Devices = $_.Devices
 	        MinerName = $_.MinerName
                 Path = $_.Path
 		Arguments = $_.Arguments
@@ -400,11 +401,18 @@ while($true)
 		      {
 		       Set-Location (Split-Path -Path $_.Path)
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+		       if($_.Devices -eq $null)
+			{
                        $3 = "$($_.Arguments)"
+			}
+		       elseif($_.Devices)
+			{
+			$3 = "-d $($_.Devices) $($_.Arguments)"
+			}
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 		       Start-Sleep -s $Delay
-		       $_.MiningName= Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
 		      }
 		    if($_.Type -eq "CPU")
 		     {
@@ -533,16 +541,23 @@ while($true)
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else
 		   {
-     		      if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
+     		     if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
 		      {
 		       Set-Location (Split-Path -Path $_.Path)
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
+		       if($_.Devices -eq $null)
+			{
                        $3 = "$($_.Arguments)"
+			}
+		       elseif($_.Devices)
+			{
+			$3 = "-d $($_.Devices) $($_.Arguments)"
+			}
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
 		       Start-Sleep -s $Delay
-                      }
+		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		      }
 		    if($_.Type -eq "NVIDIA2")
 		     {
 		       Set-Location (Split-Path -Path $_.Path)

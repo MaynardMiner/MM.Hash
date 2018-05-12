@@ -14,7 +14,7 @@ $Algorithms = [PSCustomObject]@{
     #Sia = 'sia'
     #Yescrypt = 'yescrypt'
     BlakeVanilla = 'vanilla'
-    Lyra2REv2 = 'lyra2v2'
+    Lyra2v2 = 'lyra2v2'
     #Skein = 'skein'
     Qubit = 'qubit'
     #NeoScrypt = 'neoscrypt'
@@ -48,6 +48,7 @@ $Algorithms = [PSCustomObject]@{
     #C11 = 'c11'
     #Xevan = 'xevan'
     #Nist5 = 'nist5'
+    Allium = 'allium'
 }
   
 
@@ -59,7 +60,7 @@ $Optimizations = [PSCustomObject]@{
     Sia = ''
     Yescrypt = ''
     BlakeVanilla = ''
-    Lyra2REv2 = '--api-remote --api-allow=0/0'
+    Lyra2v2 = '--api-remote --api-allow=0/0'
     Skein = '-i 28'
     Qubit = '--api-remote --api-allow=0/0'
     NeoScrypt = '-i 15'
@@ -93,6 +94,7 @@ $Optimizations = [PSCustomObject]@{
     C11 = '-i 20 --api-remote --api-allow=0/0'
     #Xevan = '--api-remote --api-allow=0/0'
     Nist5 = '--api-remote --api-allow=0/0'
+    Allium = ''
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

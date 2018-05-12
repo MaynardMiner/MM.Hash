@@ -86,7 +86,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name 
     [PSCustomObject]@{
         Type = 'NVIDIA'
         Path = $Path
-	MinerName = "ethdcrminer64"
+	MinerName = "dual-claymore"
         Arguments = "-r -1 -mport -23333 -epool $($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -ewal $($Pools.(Get-Algorithm($_)).User) -eworker $($Pools.(Get-Algorithm($_)).User)  -epsw $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = 'Claymore'

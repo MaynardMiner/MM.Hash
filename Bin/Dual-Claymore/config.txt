@@ -1,0 +1,1 @@
+# WARNING! Remove "#" characters to enable lines, with "#" they are disabled and will be ignored by miner! Check README for details.
