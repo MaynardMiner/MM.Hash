@@ -1,4 +1,4 @@
-$Path = "./Bin/JayDDee"
+$Path = "./Bin/JayDDee\0"
 $Uri = "https://github.com/JayDDee/cpuminer-opt.git"
 $Build =  "CPUMiner"
 
