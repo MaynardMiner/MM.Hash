@@ -13,10 +13,10 @@ $Algorithms = [PSCustomObject]@{
     #Ethash = 'ethash' #not supported
     #Sia = 'sia'
     #Yescrypt = 'yescrypt'
-    BlakeVanilla = 'vanilla'
-    Lyra2v2 = 'lyra2v2'
+    #BlakeVanilla = 'vanilla'
+    #Lyra2v2 = 'lyra2v2'
     #Skein = 'skein'
-    Qubit = 'qubit'
+    #Qubit = 'qubit'
     NeoScrypt = 'neoscrypt'
     #X11 = 'x11'
     #MyriadGroestl = 'myr-gr'
@@ -25,7 +25,7 @@ $Algorithms = [PSCustomObject]@{
     #Scrypt = 'scrypt'
     Bitcore = 'bitcore'
     #Blake2s = 'blake2s'
-    Sib = 'sib'
+    #Sib = 'sib'
     X17 = 'x17'
     #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
@@ -101,7 +101,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA"
-	GType = "NVIDIA"
         Path = $Path
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}

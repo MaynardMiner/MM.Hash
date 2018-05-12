@@ -1,4 +1,4 @@
-$Path = ".\Bin\punxsutawneyphil"
+$Path = ".\Bin\punxsutawneyphil\0"
 $Uri = "https://github.com/punxsutawneyphil/ccminer.git"
 $Build = "CCMiner"
 
@@ -88,5 +88,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Port = 4068
         Wrap = $false
         URI = $Uri
+	BUILD = $Build
      }
 }
