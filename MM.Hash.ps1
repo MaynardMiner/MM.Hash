@@ -167,7 +167,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                      v1.1.4-beta              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.1.5-beta              GitHub: http://Github.com/MaynardMiner/MM.Hash
 
 																					
 									      SUDO APT-GET LAMBO
@@ -408,8 +408,7 @@ while($true)
 			$3 = "-d $($_.Devices) $($_.Arguments)"
 			}
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)		       
 		      }
 		    if($_.Type -eq "CPU")
 		     {
@@ -417,8 +416,7 @@ while($true)
                        $2 = "-fg White -bg Black -e ./$($_.MinerName)"
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id                       
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                       
                       }
 		    if($_Type -eq "AMD")
 		     {
@@ -427,8 +425,7 @@ while($true)
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
-                     }
+                      }
                     }
                 if($_.MiningId -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
