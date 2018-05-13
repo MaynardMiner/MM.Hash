@@ -409,7 +409,6 @@ while($true)
 			}
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		       Start-Sleep -s $Delay
 		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
 		      }
 		    if($_.Type -eq "CPU")
@@ -419,8 +418,7 @@ while($true)
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep -s $Delay
-		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id                       
+                       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id                       
                       }
 		    if($_Type -eq "AMD")
 		     {
@@ -429,7 +427,6 @@ while($true)
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       Start-Sleep -s $Delay
                        $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
                      }
                     }
@@ -553,8 +550,7 @@ while($true)
 			}
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
 		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		       Start-Sleep -s $Delay
-		       $_.MiningName = Get-Process "$($_.MinerName)" | Select -ExpandProperty Id
+		      
 		      }
 		    if($_.Type -eq "CPU")
 		     {
@@ -563,9 +559,8 @@ while($true)
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       $_.MiningName = Get-Process "$($_.MinerName)" -ErrorAction SilentlyContinue
-		       Start-Sleep -s $Delay
-                      }
+                      
+		        }
 		    if($_Type -eq "AMD")
 		     {
 		       Set-Location $_.Path
@@ -573,9 +568,8 @@ while($true)
                        $3 = "$($_.Arguments)"
                        $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                       $_.MiningName = Get-Process "$($_.MinerName)"
-                       Start-Sleep -s $Delay
-		      }
+                      
+                        }
                     }
                 Start-Sleep ($CheckMinerInterval)
 		 if($_.MiningId -eq $null -or (Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -eq $null)
