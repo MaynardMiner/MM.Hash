@@ -111,7 +111,7 @@ Type=NVIDIA1,NVIDIA2 (You can still use CPU, but no CPU1,CPU2,CPU3 (There is no 
 ./StartMM
 #
 #or
-./StartMM.<poolname>
+./StartMM.poolname
 #
 #Miner will start! It takes a little bit for the miner to download and install and miners you want to use. If you are running on a very slow drive- it may look like the screen has frozen, but it takes awhile to start the configure process to build. If the miner doesn't continue to the main screen, you can simple ctrl+c to close miner, delete the newly created "Bin" folder, re-clone then try and run MM.Hash again. If a miner fails to install- either your gpu settings/install are not correct, you are missing a dependency, or the owner of the miner recently committed to his code, and there was issues. MM.Hash pull the actual code source directly from github, configures, and builds the miner into an executable program! Currently it only has the capabilities to do this to the programs in which their source code is open to download. Because of this- I have included some already ready-to-run mining application in the Bin folder.
 #
