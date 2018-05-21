@@ -45,7 +45,7 @@ cd MM.Hash
 
 #If you using NVIDIA- Type the following:
 
-sudo bash NVIDIA-Setup.part1
+sudo bash Setup-Nvidia.part1
 
 #This will build the rest of the OS needed, and install all dependencies required for MM.Hash. It will also remove old install files, disable logs, and repair any installation that had an error to ensure maximum space if using USB. It will also make all app shell scripts executable, setup NVIDIA drivers, and append xorg.conf to allow overclocking. It is doing a lot...It takes awhile to complete, especially if doing it from USB drive. Be very patient- Don't interupt it! If you start- start over from beginning. If you are using CPU only, I reccommend running CPU-Setup.part1 and CPU-Setup.part2 instead.
 #
@@ -70,7 +70,7 @@ Click "Close" Box
 #
 #Once back in terminal- Type the following command:
 #
-sudo bash Nvidia-Setup.part2
+sudo bash Setup-Nvidia.part2
 #
 #Instructions will follow on what to enter next, but you have to run a needed dependency before starting miner to allow it to setup. Follow the instructions on the screen. Reboot  When finished- Right click on black screen and open terminal emulator:
 #
