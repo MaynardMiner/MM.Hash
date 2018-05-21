@@ -48,22 +48,22 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
     if((Get-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_last24h/$Divisor*(1-($ahashpool_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor *(1-($ahashpool_Request.$_.fees/100)))}
 	
- if($AdvancedOptions -eq "Yes")
+ 
+
+    if($Wallet)
      {
-      if($Wallet)
-       {
-       [PSCustomObject]@{
-            Algorithm = $zergpool_Algorithm
-            Info = "$zergpool_Coin - Coin(s)"
+        [PSCustomObject]@{
+            Algorithm = $ahashpool_Algorithm
+            Info = "$ahashpool_Coin - Coin(s)"
             Price = $Stat.Live
-            Fees = $zergpool_Fees
-            Workers = $zergpool_Workers
+            Fees = $ahashpool_Fees
+            Workers = $ahashpool_Workers
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
-            Host = $zergpool_Host
-            Port = $zergpool_Port
-	    User = $Wallet
+            Host = $ahashpool_Host
+            Port = $ahashpool_Port
+            User = $Wallet
             User1 = $Wallet1
 	    User2 = $Wallet2
 	    User3 = $Wallet3
@@ -83,29 +83,6 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 	    Pass8 = "ID=$RigName,c=$Passwordcurrency8"
             Location = $Location
             SSL = $false
-           }
-          }
-        
-
-    elseif($Wallet)
-    {
-        [PSCustomObject]@{
-            Algorithm = $ahashpool_Algorithm
-            Info = "$ahashpool_Coin - Coin(s)"
-            Price = $Stat.Live
-            Fees = $ahashpool_Fees
-            Workers = $ahashpool_Workers
-            StablePrice = $Stat.Week
-            MarginOfError = $Stat.Fluctuation
-            Protocol = "stratum+tcp"
-            Host = $ahashpool_Host
-            Port = $ahashpool_Port
-            User = $Wallet
-            Pass = "ID=$RigName,c=$Passwordcurrency"
-            Pass1 = "ID=$RigName,c=$Passwordcurrency1"
-            Location = $Location
-            SSL = $false
           }
         }
-    }
 }

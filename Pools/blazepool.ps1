@@ -15,7 +15,7 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  }
  
  if (($blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) { 
-     Write-Warning "SniffDog contacted ($Name) but ($Name) Pool API had issues. " 
+     Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API had issues. " 
      return 
  } 
   
@@ -48,8 +48,7 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
     if((Get-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_last24h/$Divisor*(1-($blazepoolpool_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor *(1-($blazepool_Request.$_.fees/100)))}
 	
- if($AdvancedOptions -eq "Yes")
-     {
+
       if($Wallet)
 	{
        [PSCustomObject]@{
@@ -85,28 +84,4 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             SSL = $false
            }
 	  }
-        
-
-
-
-    elseif($Wallet)
-    {
-        [PSCustomObject]@{
-            Algorithm = $blazepool_Algorithm
-            Info = "$blazepool_Coin - Coin(s)"
-            Price = $Stat.Live
-            Fees = $blazepool_Fees
-            Workers = $blazepool_Workers
-            StablePrice = $Stat.Week
-            MarginOfError = $Stat.Fluctuation
-            Protocol = "stratum+tcp"
-            Host = $blazepool_Host
-            Port = $blazepool_Port
-            User = $Wallet
-            Pass = "ID=$RigName,c=$Passwordcurrency"
-            Location = $Location
-            SSL = $false
-          }
-        }
-    }
-}
+         }

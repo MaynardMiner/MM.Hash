@@ -1,6 +1,0 @@
-
- https://mega.nz/#!5WACFRTT!tV1vUsFdBIDqCzBrcMoXVR2G9YHD6xqct5QB2nBiuzM is the link to verify Enemy zip file....
-
-You will need to move CcminerRavenEnemy.ps1 to Miners Folder after you unpack zip file to this folder...
-
-Congrats you will have enemy miner

@@ -1,0 +1,75 @@
+#!/bin/bash
+cd
+sudo apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings openbox obconf obmenu wicd ubuntu-drivers-common mesa-utils mesa-utils-extra compton xorg xserver-xorg nautilus gnome-terminal
+cd
+cd Downloads
+sudo apt-get update
+sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential
+sudo apt-get install libgmp3-dev
+sudo apt-get install curl
+sudo apt-get install libunwind8
+sudo apt-get install gcc-5 g++-5
+wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
+sudo apt install ./libicu55_55.1-7ubuntu0.4_amd64.deb
+sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo curl -o /etc/apt/sources.list.d/microsoft.list https://packages.microsoft.com/config/ubuntu/16.04/prod.list
+sudo apt-get update
+sudo apt-get install -y powershell
+sudo apt-get purge nvidia*
+sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+sudo apt-get install nvidia-390
+sudo apt-mark hold nvidia-390
+wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/cuda-repo-ubuntu1704_9.1.85-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1704_9.1.85-1_amd64.deb
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
+cd
+cd MM.Hash
+sudo apt-get install vim
+sudo apt-get install xterm
+sudo apt-get install p7zip-full
+chmod +x ./StartMM.zergpool
+chmod +x ./StartMM
+chmod +x ./StartMM.blazepool
+chmod +x ./StartMM.ahashpool
+chmod +x ./StartMM.hashrefinery
+chmod +x ./StartMM.minemoney
+chmod +x ./StartMM.mph
+chmod +x ./StartMM.phiphipool
+chmod +x ./StartMM.zpool
+chmod +x ./ResetBenchmarks.sh
+chmod +x ./RemoveLogs.sh
+chmod +x ./overclock
+chmod +x ./ClearProfit.sh
+cd
+cd Downloads
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install wine
+wget -nc https://repos.wine-staging.com/wine/Release.key
+sudo apt-key add Release.key
+sudo apt-add-repository 'https://dl.winehq.org/wine-builds/ubuntu/'
+sudo apt-get update
+sudo apt-get install --install-recommends winehq-staging
+sudo rm -rf cuda-repo-ubuntu1704-9-1-local_9.1.85-1_amd64 powershell_6.0.0-1.ubuntu.17.04_amd64.deb
+sudo apt-get install --fix-broken-install
+sudo apt autoremove
+sudo dpkg --configure -a
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+cd
+cd /etc/X11
+sudo nvidia-xconfig -a --cool-bits=31 --allow-empty-initial-configuration
+sudo truncate -s0 /var/log/*log
+sudo systemctl disable rsyslog
+echo rebooting.
+sleep 1
+echo rebooting..
+sleep 1
+echo rebooting...
+sleep 1
+echo rebooting....
+sleep 1
+reboot

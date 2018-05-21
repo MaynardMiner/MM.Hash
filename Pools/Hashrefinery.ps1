@@ -47,8 +47,7 @@
     if((Get-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_last24h/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_current/$Divisor *(1-($Hashrefinery_Request.$_.fees/100)))}
 	
- if($AdvancedOptions -eq "Yes")
-     {
+
       if($Wallet)
        {
        [PSCustomObject]@{
@@ -84,27 +83,5 @@
             SSL = $false
             }
           }
-        
-
-
-    elseif($Wallet)
-    {
-        [PSCustomObject]@{
-            Algorithm = $Hashrefinery_Algorithm
-            Info = "$Hashrefinery_Coins - Coin(s)" 
-            Price = $Stat.Live
-            Fees = $Hashrefinery_Fees
-            Workers = $Hashrefinery_Workers
-            StablePrice = $Stat.Week
-            MarginOfError = $Stat.Fluctuation
-            Protocol = "stratum+tcp"
-            Host = $Hashrefinery_Host
-            Port = $Hashrefinery_Port
-            User = $Wallet
-            Pass = "ID=$RigName,c=$Passwordcurrency"
-            Location = $Location
-            SSL = $false
-          }
-        }
-    }
+       
 }

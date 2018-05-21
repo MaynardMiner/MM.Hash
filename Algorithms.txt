@@ -1,4 +1,6 @@
 {
+    "allium":  "Allium",
+    "xmr":  "xmr",
     "blakecoin":  "Blakecoin",
     "c11":  "C11",
     "groestl":  "Groestl",
@@ -12,7 +14,7 @@
     "neoscrypt":  "NeoScrypt",
     "lbry":  "Lbry",
     "myrgr":  "MyriadGroestl",
-    "lyra2v2":  "Lyra2RE2",
+    "lyra2v2":  "lyra2v2",
     "maxcoin":  "Keccak",
     "blake2s":  "Blake2s",
     "x11evo":  "X11evo",

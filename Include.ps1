@@ -519,16 +519,23 @@ function Expand-WebRequest {
         [Parameter(Mandatory=$false)]
         [String]$Uri,
 	[Parameter(Mandatory=$false)]
-	[String]$BuildPath
+	[String]$BuildPath,
+	[Parameter(Mandatory=$false)]
+	[String]$Path
           ) 
-     if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null} 
+     if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null}
+     if (-not (Test-Path ".\x64")) {New-Item "x64" -ItemType "directory" | Out-Null}
+     if (-not $Path) {$Path = Join-Path ".\x64" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
 	$Old_Path = Split-Path $Uri -Parent
         $New_Path = Split-Path $Old_Path -Leaf	
 	$FileName = Join-Path ".\Bin" $New_Path
-      if(-not (Test-Path $Filename))
-       {
-        if($BuildPath -eq 'CCMiner')
-	 {	 
+        $FileName1 = Join-Path ".\x64" (Split-Path $Uri -Leaf) 
+	$ChmodName = Split-Path $Path -Leaf
+  
+        if($BuildPath -eq "Linux")
+	 {
+	  if(-not (Test-Path $Filename))	 
+	   {
        Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location ".\Bin"
        Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
@@ -542,22 +549,69 @@ function Expand-WebRequest {
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
           }
-        if($BuildPath -eq 'CPUMiner')
+         }
+	if($BuildPath -eq "Linux-Clean")
 	 {
+	 if(-not (Test-Path $Filename))
+	  {
        Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location ".\Bin"
        Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-       Copy-Item .\Build\0  -Destination $Filename -force
-       Set-Location $Filename
        Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
+       Copy-Item .\Build\KlausT\*  -Destination $Filename -recurse -force
+       Set-Location $Filename
        Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+	   }
           }
+   
+	if($BuildPath -eq "Windows")
+	 {
+	  if (Test-Path $FileName1) {Remove-Item $FileName1}
+	    Write-Host "Downloading Windows Binaries"
+	    Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait 
+           if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension) 
+	    { 
+             Start-Process -FilePath "wine" -ArgumentList "$FileName" -Wait 
+            } 
+  	    else { 
+		   $Path_Old = (Join-Path (Split-Path $Path) ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName) 
+                   $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf)) 
  
+ 
+                    if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
+		     
+                    Start-Process "7z" "x `"$([IO.Path]::GetFullPath($FileName1))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait 
+ 
+ 
+                    if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse} 
+                    if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false) 
+		     { 
+                     Rename-Item $Path_Old (Split-Path $Path -Leaf) 
+                     } 
+                    else 
+		       { 
+                         Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
+                         Remove-Item $Path_Old 
+                       }
+                  }
+	 
+          }
+
+if($BuildPath -eq "Linux-Zip")
+	 {
+	  if(-not (Test-Path $Path))
+	   {
+	     $NewDir = (Split-Path $Path -Leaf)
+	     Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait
+	     New-Item -Path ".\Bin" -Name "$NewDir" -ItemType "directory"
+	     Start-Process tar "-xvf `"$([IO.Path]::GetFullPath($FileName1))`" -C `"$([IO.Path]::GetFullPath($Path))`"" -Wait
+	 
+          }
 	}
  } 
 

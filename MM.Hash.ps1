@@ -76,6 +76,22 @@
     [Parameter(Mandatory=$false)]
     [String]$GPUDevices8,
     [Parameter(Mandatory=$false)]
+    [String]$EWBFDevices1, 
+    [Parameter(Mandatory=$false)] 
+    [String]$EWBFDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$EWBFDevices3,
+    [Parameter(Mandatory=$false)]
+    [String]$EwBFDevices4,
+    [Parameter(Mandatory=$false)]
+    [String]$EWBFDevices5,
+    [Parameter(Mandatory=$false)]
+    [String]$EWBFDevices6,
+    [Parameter(Mandatory=$false)]
+    [String]$EWBRDevices7,
+    [Parameter(Mandatory=$false)]
+    [String]$EWBFDevices8,
+    [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
@@ -128,18 +144,60 @@ $ActiveMinerPrograms = @()
 
 #Start the log
 Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
-
+    
 #Update stats with missing data and set to today's date/time
 if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $_.Name $_.Content.Week}}
 
-#Set donation parameters
-$LastDonated = (Get-Date).AddDays(-1).AddHours(1)
+
+if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
+ {
+  New-Item -Path ".\Build\Data\" -Name "Info.txt"
+ }
+if((Get-Item ".\Build\Data\System.txt" -ErrorAction SilentlyContinue) -eq $null)
+ {
+  New-Item -Path ".\Build\Data" -Name "System.txt"
+ }
+if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $null)
+ {
+  New-Item -Path ".\Build\Data" -Name "TimeTable.txt"
+ }
+
+$DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
+
+if($DonationClear -ne "")
+ {
+  Clear-Content ".\Build\Data\Info.txt"
+ }
+
+
 $WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
-$UserNameDonate = "MaynardVII"
-$WorkerNameDonate = "Rig1"
-$WalletBackup = $Wallet
-$UserNameBackup = $UserName
-$WorkerNameBackup = $WorkerName
+$UserDonate = "MaynardVII"
+$WorkerDonate = "Rig1"
+$WalletSwitch = $Wallet
+$WalletSwitch1 = $Wallet1
+$WalletSwitch2 = $Wallet2
+$WalletSwitch3 = $Wallet3
+$WalletSwitch4 = $Wallet4
+$WalletSwitch5 = $Wallet5
+$WalletSwitch6 = $Wallet6
+$WalletSwitch7 = $Wallet7
+$WalletSwitch8 = $Wallet8
+$PasswordSwitch = $Passwordcurrency
+$PasswordSwitch1 = $Passwordcurrency1
+$PasswordSwitch2 = $Passwordcurrency2
+$PasswordSwitch3 = $Passwordcurrency3
+$PasswordSwitch4 = $Passwordcurrency4
+$PasswordSwitch5 = $Passwordcurrency5
+$PasswordSwitch6 = $Passwordcurrency6
+$PasswordSwitch7 = $Passwordcurrency7
+$PasswordSwitch8 = $Passwordcurrency8
+$UserSwitch = $UserName
+$WorkerSwitch = $WorkerName
+$RigSwitch = $RigName
+$IntervalSwitch = $Interval
+     
+#Update stats with missing data and set to today's date/time
+if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $_.Name $_.Content.Week}}
 
 Write-Host "
 
@@ -167,7 +225,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                      v1.1.5-beta              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.1.7-final              GitHub: http://Github.com/MaynardMiner/MM.Hash
 
 																					
 									      SUDO APT-GET LAMBO
@@ -182,23 +240,121 @@ Write-Host "
 
 while($true)
 {
-    $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
+$DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
+$InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
+$DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
+$LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
 
-    #Activate or deactivate donation
-    if((Get-Date).AddDays(-1).AddMinutes($Donate) -ge $LastDonated)
+if($Donate -ne 0)
+ {
+  $DonationTotal = (864*[int]$Donate)
+  $DonationIntervals = ([int]$DonationTotal/288)
+  $FinalDonation = (86400/[int]$DonationIntervals)
+
+ if($LastRan -eq "")
+  {
+   Get-Date | Out-File ".\Build\Data\TimeTable.txt"
+   Continue
+  }
+
+if($LastRan -ne "")
+ {
+ $RanDonate = [DateTime]$LastRan
+ $LastRanDonated = [math]::Round(((Get-Date)-$RanDonate).TotalSeconds)
+ if($LastRanDonated -ge 86400)
+  {
+  Clear-Content ".\Build\Data\TimeTable.txt"
+  Get-Date | Out-File ".\Build\Data\TimeTable.txt"
+  Continue
+  }
+ }
+
+if($LastRan -ne "")
+ {
+ $LastRanDonate = [DateTime]$LastRan
+ $LastTimeActive = [math]::Round(((Get-Date)-$LastRanDonate).TotalSeconds)
+  if($LastTimeActive -ge 1) 
+   {
+   if($DonateCheck -eq "")
     {
-        $Wallet = $WalletDonate
-        $UserName = $UserNameDonate
-        $WorkerName = $WorkerNameDonate
-	Write-Host "You are now donating! Thank you for the support!"
+    Get-Date | Out-File ".\Build\Data\System.txt"
+    Continue
     }
-    if((Get-Date).AddDays(-1) -ge $LastDonated)
+   $Donated = [DateTime]$DonateCheck
+   $CurrentlyDonated = [math]::Round(((Get-Date)-$Donated).TotalSeconds)
+   if($CurrentlyDonated -ge [int]$FinalDonation)
     {
-        $Wallet = $WalletBackup
-        $UserName = $UserNameBackup
-        $WorkerName = $WorkerNameBackup
-        $LastDonated = Get-Date
+     $Wallet = $WalletDonate
+     $Wallet1 = $WalletDonate
+     $Wallet2 = $WalletDonate
+     $Wallet3 = $WalletDonate
+     $Wallet4 = $WalletDonate
+     $Wallet5 = $WalletDonate
+     $Wallet6 = $WalletDonate
+     $Wallet7 = $WalletDonate
+     $Wallet8 = $WalletDonate
+     $UserName = $UserDonate
+     $WorkerName = $WorkerDonate
+     $RigName = "DONATING!!!"
+     $Interval = 288
+     $Passwordcurrency = ("BTC")
+     $Passwordcurrency1 = ("BTC")
+     $Passwordcurrency2 = ("BTC")	
+     $Passwordcurrency3 = ("BTC")
+     $Passwordcurrency4 = ("BTC")
+     $Passwordcurrency5 = ("BTC")
+     $Passwordcurrency6 = ("BTC")
+     $Passwordcurrency7 = ("BTC")
+     $Passwordcurrency8 = ("BTC")	
+     if(($InfoCheck) -eq "")
+     {	
+     Get-Date | Out-File ".\Build\Data\Info.txt"
+     }
+     Clear-Content ".\Build\Data\System.txt"
+     Get-Date | Out-File ".\Build\Data\System.txt"
+     Start-Sleep -s 1
+     Write-Host  "Entering Donation Mode" -foregroundColor "darkred"
+     Continue
     }
+  }
+ }
+
+ if($InfoCheck -ne "")
+  {
+     $TimerCheck = [DateTime]$InfoCheck
+     $LastTimerCheck = [math]::Round(((Get-Date)-$LastRanDonate).TotalSeconds)
+     if(((Get-Date)-$TimerCheck).TotalSeconds -ge $Interval)
+      {
+        $Wallet = $WalletSwitch
+        $Wallet1 = $WalletSwitch1
+        $Wallet2 = $WalletSwitch2
+	$Wallet3 = $WalletSwitch3
+        $Wallet4 = $WalletSwitch4
+        $Wallet5 = $WalletSwitch5
+	$Wallet6 = $WalletSwitch6
+	$Wallet7 = $WalletSwitch7
+	$Wallet8 = $WalletSwitch8
+	$UserName = $UserSwitch
+	$WorkerName = $WorkerSwitch
+	$RigName = $RigSwitch
+        $Interval = $IntervalSwitch
+        $Passwordcurrency = $PasswordSwitch
+	$Passwordcurrency1 = $PasswordSwitch1
+        $Passwordcurrency2 = $PasswordSwitch2
+        $Passwordcurrency3 = $PasswordSwitch3
+        $Passwordcurrency4 = $PasswordSwitch4
+        $Passwordcurrency5 = $PasswordSwitch5
+        $Passwordcurrency6 = $PasswordSwitch6
+        $Passwordcurrency7 = $PasswordSwitch7
+        $Passwordcurrency8 = $PasswordSwitch8
+	Clear-Content ".\Build\Data\Info.txt"
+	Write-Host "Leaving Donation Mode- Thank you For The Support!" -foregroundcolor "darkred"
+	Continue
+       }
+   }
+}
+
+
     try {
 	$T = [string]$CoinExchange
 	$R= [string]$Currency
@@ -238,10 +394,25 @@ while($true)
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
-        if((Test-Path (Split-Path -Path $Miner.Path)) -eq $false)
+       if((Test-Path $Miner.Path) -eq $false)
         {
-          Expand-WebRequest -URI $Miner.URI -BuildPath $Miner.BUILD
-	}
+	if($Miner.BUILD -eq "Linux" -or $Miner.BUILD -eq "Linux-Clean")
+	  {
+          Expand-WebRequest -URI $Miner.URI -BuildPath $Miner.BUILD -Path (Split-Path $Miner.Path)
+          }
+        if($Miner.BUILD -eq "Windows" -or "Linux-Zip")
+	 {
+	 if((Split-Path $Miner.URI -Leaf) -eq (Split-Path $Miner.Path -Leaf))
+          {
+           New-Item (Split-Path $Miner.Path) -ItemType "Directory" | Out-Null
+           Invoke-WebRequest $Miner.URI -OutFile $_.Path -UseBasicParsing
+          }
+	 else
+            {
+             Expand-WebRequest -URI $Miner.URI -BuildPath $Miner.BUILD -Path (Split-Path $Miner.Path)
+            }
+           }
+	  }
        else
 	{
 	 $Miner
@@ -342,6 +513,8 @@ while($true)
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
 		Type = $_.Type
+		PName = $_.PName
+		Distro = $_.Distro
 		Devices = $_.Devices
 	        MinerName = $_.MinerName
                 Path = $_.Path
@@ -361,6 +534,7 @@ while($true)
                 HashRate = 0
                 Benchmarked = 0
                 Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
+		Screens = 0
             }
         }
     }
@@ -378,8 +552,7 @@ while($true)
            	 {
 	  	 $Active1 =  Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
           	 $_.Active += (Get-Date)-$Active1
-		 Stop-Process -Id "$($_.MiningId)"
-		 Wait-Process -Id "$($_.MiningId)"		 
+		 Stop-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue		 
 	         $_.Status = "Idle"
             	}
         }
@@ -392,40 +565,123 @@ while($true)
                 Start-Sleep $Delay #Wait to prevent BSOD
                 $DecayStart = Get-Date
                 $_.New = $true
-                $_.Activated++
-                if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
+		$Screens = 0
+		$_.Activated++
+		     if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{
 		     if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
 		      {
-		       Set-Location (Split-Path -Path $_.Path)
-                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-		       if($_.Devices -eq $null)
-			{
-                       $3 = "$($_.Arguments)"
-			}
-		       else
-			{
-			$3 = "-d $($_.Devices) $($_.Arguments)"
-			}
-                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)		       
+			if($_.Type -eq "NVIDIA"){$_.Screens = 0}
+			if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
+			if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
+			if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
+			if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
+			if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
+			if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
+			if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
+			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
+
+                        if($_.Distro -eq "Linux")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                            $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		          if($_.Devices -eq $null)
+			   {
+                            $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
+			   }
+			 }
+			if($_.Distro -eq "Linux-EWBF")
+			 {
+		          $4 = "--cuda_devices"
+		          Set-Location (Split-Path -Path $_.Path)
+                            $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		          if($_.Devices -eq $null)
+			   {
+                            $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "$4  $($_.Devices) $($_.Arguments)"
+			   }
+			 }
+
+		        if($_.Distro -eq "Windows")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+			  if($_.Devices -eq $null)
+			   {
+                          $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
+			   }
+                         }
+		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
 		      }
 		    if($_.Type -eq "CPU")
 		     {
-		       Set-Location (Split-Path -Path $_.Path)
-                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-                       $3 = "$($_.Arguments)"
-                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                       
-                      }
-		    if($_Type -eq "AMD")
-		     {
-		       Set-Location $_.Path
-                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-                       $3 = "$($_.Arguments)"
-                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                      }
+                        if($_.Distro -eq "Linux")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+                          $3 = "$($_.Arguments)"
+			 }
+		        if($_.Distro -eq "Windows")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+			  $3 = "$($_.Arguments)"
+                         }
+		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
+                     }
+if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3" -or $_.Type -eq "AMD4" -or $_.Type -eq "AMD5" -or $_.Type -eq "AMD6" -or $_.Type -eq "AMD7" -or $_.Type -eq "AMD8")
+		      {
+                        if($_.Type -eq "AMD"){$_.Screens = 0}
+			if($_.Type -eq "AMD1"){$_.Screens = 0}
+			if($_.Type -eq "AMD2"){$_.Screens = 100}
+			if($_.Type -eq "AMD3"){$_.Screens = 200}
+			if($_.Type -eq "AMD4"){$_.Screens = 300}
+			if($_.Type -eq "AMD5"){$_.Screens = 400}
+			if($_.Type -eq "AMD6"){$_.Screens = 500}
+			if($_.Type -eq "AMD7"){$_.Screens = 600}
+			if($_.Type -eq "AMD8"){$_.Screens = 700}
+       		       if($_.Distro -eq "Linux")
+			{
+		         Set-Location (Split-Path -Path $_.Path)
+                         $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		         if($_.Devices -eq $null)
+			  {
+                           $3 = "$($_.Arguments)"
+			  }
+		         else
+			  {
+			   $3 = "-d $($_.Devices) $($_.Arguments)"
+			  }
+			 }
+		        if($_.Distro -eq "Windows")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 68x5+1015+$($_Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+			  if($_.Devices -eq $null)
+			   {
+                            $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
+			   }
+                         }
+		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+		      }
                     }
                 if($_.MiningId -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
@@ -442,11 +698,11 @@ while($true)
 	 if($_.MiningId -eq $null)
 	  {[DateTime]0}
 	  else
-           {Get-Process $_.MiningId | Select -ExpandProperty StarTime}
+           {Get-Process $_.MiningId | Select -ExpandProperty StartTime}
         } | Select -First (1+6+6) | Format-Table -Wrap -GroupBy Status (
         @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'}, 
-       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.MiningId -eq $null){$_.Active}else{if((Get-Process -Id -ea SilentlyContinue "$($_.MiningId)") -ne $null){($_.Active)}else{
-	$TimerStart = Get-Process -Id "$($_.MiningId)" | Select -ExpandProperty StartTime
+       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.MiningId -eq $null){$_.Active}else{if((Get-Process -Id $_.MiningId -ea SilentlyContinue) -ne $null){($_.Active)}else{
+	$TimerStart = Get-Process -Id $($_.MiningId) | Select -ExpandProperty StartTime
         ($_.Active+((Get-Date)-$TimerStart))}})}}, 
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
         @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_MinerName) $($_.Devices) $($_.Arguments)"}}
@@ -531,56 +787,119 @@ while($true)
               $_.Failed30sLater++
 
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
-                else
-		   {
-     		     if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
+                else{
+		    if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
 		      {
-		       Set-Location (Split-Path -Path $_.Path)
-                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-		       if($_.Devices -eq $null)
-			{
-                       $3 = "$($_.Arguments)"
-			}
-		       elseif($_.Devices)
-			{
-			$3 = "-d $($_.Devices) $($_.Arguments)"
-			}
-                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-		       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-		      
+			if($_.Type -eq "NVIDIA"){$_.Screens = 0}
+			if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
+			if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
+			if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
+			if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
+			if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
+			if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
+			if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
+			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
+                        if($_.Distro -eq "Linux")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		          if($_.Devices -eq $null)
+			   {
+                            $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
+			   }
+			 }
+		        if($_.Distro -eq "Windows")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 70x6 -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+			  if($_.Devices -eq $null)
+			   {
+                            $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
+			   }
+                          $_.MiningId = (Start-Process ).Id
+		          Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+			 }
+		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
 		      }
 		    if($_.Type -eq "CPU")
 		     {
-		       Set-Location (Split-Path -Path $_.Path)
-                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-                       $3 = "$($_.Arguments)"
-                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                      
-		        }
-		    if($_Type -eq "AMD")
-		     {
-		       Set-Location $_.Path
-                       $2 = "-fg White -bg Black -e ./$($_.MinerName)"
-                       $3 = "$($_.Arguments)"
-                       $_.MiningId = (Start-Process -Filepath "xterm" -ArgumentList "$2 $3" -PassThru).Id
-                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-                      
-                        }
-                    }
-                Start-Sleep ($CheckMinerInterval)
+                        if($_.Distro -eq "Linux")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 70x6 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+                          $3 = "$($_.Arguments)"
+			 }
+		        if($_.Distro -eq "Windows")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+			  $3 = "$($_.Arguments)"
+                         }
+		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
+                     }
+if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3" -or $_.Type -eq "AMD4" -or $_.Type -eq "AMD5" -or $_.Type -eq "AMD6" -or $_.Type -eq "AMD7" -or $_.Type -eq "AMD8")
+		      {
+                        if($_.Type -eq "AMD"){$_.Screens = 0}
+			if($_.Type -eq "AMD1"){$_.Screens = 0}
+			if($_.Type -eq "AMD2"){$_.Screens = 100}
+			if($_.Type -eq "AMD3"){$_.Screens = 200}
+			if($_.Type -eq "AMD4"){$_.Screens = 300}
+			if($_.Type -eq "AMD5"){$_.Screens = 400}
+			if($_.Type -eq "AMD6"){$_.Screens = 500}
+			if($_.Type -eq "AMD7"){$_.Screens = 600}
+			if($_.Type -eq "AMD8"){$_.Screens = 700}
+       		       if($_.Distro -eq "Linux")
+			{
+		         Set-Location (Split-Path -Path $_.Path)
+                         $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		         if($_.Devices -eq $null)
+			  {
+                           $3 = "$($_.Arguments)"
+			  }
+		         else
+			  {
+			   $3 = "-d $($_.Devices) $($_.Arguments)"
+			  }
+			 }
+		        if($_.Distro -eq "Windows")
+			 {
+		          Set-Location (Split-Path -Path $_.Path)
+                          $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+			  if($_.Devices -eq $null)
+			   {
+                            $3 = "$($_.Arguments)"
+			   }
+		          else
+			   {
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
+			   }
+		 	 }
+       		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+		      }
+                 Start-Sleep ($CheckMinerInterval)
 		 if($_.MiningId -eq $null -or (Get-Process -Id "$($_.MiningId)" -ErrorAction SilentlyContinue) -eq $null)
 		  {
-           continue
-          }
-         else 
-          {
+          	   continue
+                   }
+                else 
+                 {
             $_.Recover30sLater++
-          }
+                }
         }
       }
     }
-
+ }
     
     Write-Host "1 $CoinExchange  = " "$Exchanged" "$Currency" -foregroundcolor "Yellow"
 
@@ -644,3 +963,4 @@ while($true)
 
 #Stop the log
 Stop-Transcript
+Get-Date | Out-File "TimeTable.txt"
