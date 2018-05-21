@@ -48,7 +48,12 @@ sudo bash Setup-Nvidia.part1
 #This will build the rest of the OS needed, and install all dependencies required for MM.Hash. It will also remove old install files, disable logs, and repair any installation that had an error to ensure maximum space if using USB. It will also make all app shell scripts executable, setup NVIDIA drivers, and append xorg.conf to allow overclocking. It is doing a lot...It takes awhile to complete, especially if doing it from USB drive. Be very patient- Don't interupt it! If you think you made a mistake- start over from beginning and re-install Ubuntu. If you are using CPU only, I reccommend running CPU-Setup.part1 and CPU-Setup.part2 instead.
 #
 #
-#Enter 'y' where asked, or press [enter] to continue were needed. If computer reboots, and your new login screen starts- login with password you made during Ubuntu install. Then right click on black screen and select "Open Terminal Emulator". The next step is adjusting your terminal:
+#Enter 'y' where asked, or press [enter] to continue were needed. If computer reboots, and your new login screen starts- login with password you made during Ubuntu install. 
+#
+#Note: If you are having issues with the install script- You can open it up, and see all the dependencies, and how I am attempting to install them in Setup-Nvidia.part1. I noticed when making the install script- Nvidia changed cuda download links twice on me, and I had to rewrite script. I don't know if anyone will change links again. However, opening script with text editor shows what I am installing, and how I am installing it.
+#
+#
+Once in terminal- right click on black screen and select "Open Terminal Emulator". The next step is adjusting your terminal.:
 #
 Click Edit > Profile Preferences.
 #
