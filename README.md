@@ -4,13 +4,16 @@
 MULTI-ALGO, MULTI-POOL, MULTI-DEVICE, MULTI-COIN, AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX SYSTEMS.
 #
 #
-#MM.Hash is intended to be Unix/Linux Multi-Algo, Multi-Coin, Multi-Device, Multi-Pool Mining application, which mines from NVIDIA GPU, AMD GPU, CPU Devices. Currently it does not support Windows, but you can find a simple Windows version here: https://github.com/Sniffdog/Sniffdogminer. Currently I do not intend to build a Windows version, as SniffDogMiner is excellent and always updated. I highly recommend if you prefer mining in Windows, to check it out.
+#MM.Hash is intended to be Unix/Linux Multi-Algo, Multi-Coin, Multi-Device, Multi-Pool Mining application, which mines from NVIDIA GPU, AMD GPU, CPU Devices. Currently it does not support Windows, but you can find a simple Windows version here: https://github.com/Sniffdog/Sniffdogminer. Currently I do not intend to build a Windows version, as SniffDogMiner is excellent and always updated. I highly recommend if need to mine with Windows, to check it out.
+#
+#
+#MM.Hash is intended to be Unix/Linux mining application, which will mine from NVIDIA GPU, AMD GPU, CPU devices. The program is loosely based of various powershell mining applications available in Windows. I made the base script fully compatible with UNIX, and then added UNIX specific features along with many other changes in which I believe are improvements. However, if you are interested in mining through windows, you can find a good miner here: https://github.com/Sniffdog/Sniffdogminer. However, it does not work with UNIX, nor can you use it from a usb. Currently I do not intend to build a Windows version, as SniffDogMiner is always updated. I highly recommend if you prefer mining in Windows, to check it out.
 #
 #The uses for MM.Hash- is pretty vast, being that it works in linux/unix environment. Hypothetically, with the right setup- MM.Hash can work in any device that can boot UNIX. This means you can mine from your PS4, Tablet, PC, Microcontrollers, etc. when are not using them, and you are not losing the massive hashrate from browser mining. Furthermore- you can do this all through building a minimal Ubuntu OS, and load directly off a USB!
 #
 #MM.Hash works by utlizing Powershell, which is now a cross-platform software that is constantly being developed. It will query the API of any pool you have your "Pools" folder, and get the current prices of the coins of the algorithms you have chose. Once it has gathered that data, it will then select the most profitable, and choose the best mining application to mine with, which are denoted as separate .ps1 filed in the "Miners" folder. If you have never used that particular miner before- MM.Hash will go into benchmark mode, which will record your hashrate. This means you can test miners to see which gives you the best hashrate! If MM.Hash detects the coin yields little/no value from mining- it will remove the miner from its list.
 #
-#Currently this is the first release- I am simply releasing it to demonstrate and give users the ability to play with the initial design. Right now, I have only built miner files for NVIDIA & CPU, but I will build more miner files along the way.
+#Currently this is the first release- I am releasing it to demonstrate and give users the ability to play with the initial design. Right now, I have only built miner files for NVIDIA & CPU, but I will build more miner files along the way, along with more options. See devnotes to see what I am working on.
 #
 #Spend the extra dollar and get a USB 3.0 Stick: 16GB. I highly reccomend not using usb 2.0...It works, but takes forever to build.
 #
@@ -49,14 +52,21 @@ sudo bash NVIDIA-Setup.part1
 #
 #Enter 'y' where asked, or press [enter] to continue were needed. If computer reboots, and your new login screen starts- login with password you made during Ubuntu install. Then right click on black screen and select "Open Terminal Emulator". The next step is adjusting your terminal:
 #
-#Click Edit > Profile Preferences.
-#Check "Custom Font".
-#Click on box that says "Monospace regular font"
-#Reduce font size to 10 pts.
-#Click "Select" Box
-#Move to colors tab
-#Uncheck "Use Colors From System Theme"
-#Click "Close" Box
+Click Edit > Profile Preferences.
+#
+Check "Custom Font".
+#
+Click on box that says "Monospace regular font"
+#
+Reduce font size to 10 pts.
+#
+Click "Select" Box
+#
+Move to colors tab
+#
+Uncheck "Use Colors From System Theme"
+#
+Click "Close" Box
 #
 #Once back in terminal- Type the following command:
 #
@@ -65,6 +75,7 @@ sudo bash Nvidia-Setup.part2
 #Instructions will follow on what to enter next, but you have to run a needed dependency before starting miner to allow it to setup. Follow the instructions on the screen. Reboot  When finished- Right click on black screen and open terminal emulator:
 #
 cd MM.Hash
+#
 sudo bash overclock
 #
 #NVIDIA GPU's will begin overclocking to what I believe is optimal settings. If you are unhappy with settings- You can open overclock file by typing vi overclock and then append by pressing the [insert] first, then when finished typing, press [esc] then type :x. I also reccomend looking into using nvclock for additional settings. However, before starting, it reccommened you turn up fan speed to protect GPU. EVERYTHING IS NOW COMPLETE! MM.Hash is ready to rock.
