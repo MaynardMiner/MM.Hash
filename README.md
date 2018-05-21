@@ -3,7 +3,7 @@
 #
 MULTI-ALGO, MULTI-POOL, MULTI-DEVICE, MULTI-COIN, AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX SYSTEMS.
 #
-NOTE- Miner will run miners that are compiled with Windows Binaries. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation.
+NOTE- MM.Hash will run miners that are compiled with Windows Binaries. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation.
 #
 #MM.Hash is intended to be Unix/Linux mining application, which will mine from NVIDIA GPU, AMD GPU, CPU devices. AMD is built into the code, but at this time I do not have any miners or settings loaded into MM.Hash. I am working on it- I don't own any AMD devices. The program is loosely based of various powershell mining applications available in Windows. I made the base script fully compatible with UNIX, and then added UNIX specific features along with many other changes. Currently I do not intend to build a Windows version. I highly recommend if need to mine with Windows, to use https://github.com/Sniffdog/Sniffdogminer.
 #
