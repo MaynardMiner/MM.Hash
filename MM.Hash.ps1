@@ -653,6 +653,7 @@ if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -
 			if($_.Type -eq "AMD6"){$_.Screens = 500}
 			if($_.Type -eq "AMD7"){$_.Screens = 600}
 			if($_.Type -eq "AMD8"){$_.Screens = 700}
+			
        		       if($_.Distro -eq "Linux")
 			{
 		         Set-Location (Split-Path -Path $_.Path)
@@ -669,7 +670,7 @@ if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -
 		        if($_.Distro -eq "Windows")
 			 {
 		          Set-Location (Split-Path -Path $_.Path)
-                          $2 = "-geometry 68x5+1015+$($_Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+                          $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 			  if($_.Devices -eq $null)
 			   {
                             $3 = "$($_.Arguments)"
@@ -799,6 +800,7 @@ if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -
 			if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
 			if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
 			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
+			
                         if($_.Distro -eq "Linux")
 			 {
 		          Set-Location (Split-Path -Path $_.Path)
@@ -858,6 +860,7 @@ if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -
 			if($_.Type -eq "AMD6"){$_.Screens = 500}
 			if($_.Type -eq "AMD7"){$_.Screens = 600}
 			if($_.Type -eq "AMD8"){$_.Screens = 700}
+			
        		       if($_.Distro -eq "Linux")
 			{
 		         Set-Location (Split-Path -Path $_.Path)
