@@ -50,7 +50,7 @@ sudo bash Setup-Nvidia.part1
 #
 #Enter 'y' where asked, or press [enter] to continue were needed. If computer reboots, and your new login screen starts- login with password you made during Ubuntu install. 
 #
-#Note: If you are having issues with the install script- You can open it up, and see all the dependencies, and how I am attempting to install them in Setup-Nvidia.part1. I noticed when making the install script- Nvidia changed cuda download links twice on me, and I had to rewrite script. I don't know if anyone will change links again. However, opening script with text editor shows what I am installing, and how I am installing it.
+#Note: If you are having issues with the install script- You can open it up with vi or a text editor, and see all the dependencies, and how I am attempting to install them in Setup-Nvidia.part1. I noticed when making the install script- Nvidia changed cuda download links twice on me, and I had to rewrite script. I don't know if anyone will change links again.
 #
 #
 Once in terminal- right click on black screen and select "Open Terminal Emulator". The next step is adjusting your terminal.:
