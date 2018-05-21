@@ -85,8 +85,11 @@ sudo bash overclock
 #Open StartMM while in MM.Hash directory:
 #
 vi ./StartMM
+#
 #or
+#
 vi ./StartMM.poolname
+#
 #There is a list of options, with simple explanations as to how they work. Be sure to leave all '' and "" in each parameter where applicable! Basic edit commands: "i" or [insert] lets you edit file "esc" takes you to vi menu. While in vi menu, type :x to save, :q to quit. If you are new to mining- It would probably be good at looking at CCminer setup articles to understand the principle operation, as well as browsing some of the pool sites listed in the pools folder. If you do not have a large mining setup- I would highly reccomend using on one or two pools, or it will take a very long time to recieve your mining rewards. This is because of the pools themselves- It is out of my control.
 #
 #Ideal font size for gnome-terminal to show good display is 10pts. Edit - Profile Preferences - Custom Font. Reccommend changing before starting! Also it's a good idea to run at full screen, and change the layer terminal settings to "Always on Bottom" so when you click on it- the mining windows do not disappear behind the terminal.
