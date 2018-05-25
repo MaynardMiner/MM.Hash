@@ -88,7 +88,7 @@
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices6,
     [Parameter(Mandatory=$false)]
-    [String]$EWBRDevices7,
+    [String]$EWBFDevices7,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices8,
     [Parameter(Mandatory=$false)]
