@@ -1,7 +1,7 @@
-$Path = '.\Bin\MSFTserver\0'
+$Path = '.\Bin\MSFTserver\1'
 $Uri = 'https://github.com/MSFTserver/ccminer.git'
-$Build = "CCMiner"
-
+$Build = "Linux-Clean"
+$Distro = "Linux"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -68,7 +68,7 @@ $Optimizations = [PSCustomObject]@{
     Hmq1725 = ''
     Veltor = ''
     X11evo = ''
-    Timetravel = ''
+    Timetravel =''
     Blakecoin = ''
     Lbry = ''
     Jha = ''
@@ -86,12 +86,14 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         MinerName = "ccminer"
         Type = "NVIDIA"
         Path = $Path
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User) -p $($Pools.(Get-Algorithm($_)).Pass) $($Optimizations.$_)"
+	    Distro = $Distro
+	    Devices = $Devices
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -u $($Pools.(Get-Algorithm($_)).User1) -p $($Pools.(Get-Algorithm($_)).Pass1) $($Optimizations.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         API = "Ccminer"
         Port = 4068
         Wrap = $false
         URI = $Uri
+	    BUILD = $Build
      }
-}
-                     
+}                     
