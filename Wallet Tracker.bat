@@ -1,0 +1,1 @@
+powershell -version 5.0 -noexit -executionpolicy bypass -command "&.\Wallet_Tracker.ps1 -Wallet RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H" 

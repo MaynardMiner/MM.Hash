@@ -21,7 +21,7 @@ $Zpool_Request = [PSCustomObject]@{}
 
 $Location = "US"
 
-$Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Zpool_Request.$_.hashrate -gt 0} | foreach {
+$Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Zpool_Request.$_.hashrate -gt 0} | ForEach-Object {
     $Zpool_Host = "$_.mine.zpool.ca"
     $Zpool_Port = $Zpool_Request.$_.port
     $Zpool_Algorithm = Get-Algorithm $Zpool_Request.$_.name
@@ -51,7 +51,7 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
             Algorithm = $Zpool_Algorithm
             Info = "$Zpool_Coin - Coin(s)"
             Price = $Stat.Live
-            Fees = $Zpool_Workers
+            Fees = $Zpool_Fees
             Workers = $Zpool_Workers
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation

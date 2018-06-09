@@ -25,7 +25,7 @@
  $Location = "us" 
  
  
- $Hashrefinery_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Hashrefinery_Request.$_.hashrate -gt 0} | foreach {
+ $Hashrefinery_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Hashrefinery_Request.$_.hashrate -gt 0} | ForEach-Object {
     $Hashrefinery_Host = "$_.us.hashrefinery.com"
     $Hashrefinery_Port = $Hashrefinery_Request.$_.port
     $Hashrefinery_Algorithm = Get-Algorithm $Hashrefinery_Request.$_.name
@@ -52,7 +52,7 @@
        {
        [PSCustomObject]@{
             Algorithm = $Hashrefinery_Algorithm
-            Info = "$Hashrefinery_Coin - Coin(s)"
+            Info = "$Hashrefinery_Coins - Coin(s)"
             Price = $Stat.Live
             Fees = $Hashrefinery_Fees
             Workers = $Hashrefinery_Workers

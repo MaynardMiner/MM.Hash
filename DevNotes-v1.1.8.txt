@@ -1,0 +1,108 @@
+Dev Notes v1.1.6 FINAL
+
+-Lyra2v2 fixed
+
+-Allium Added
+
+-Windows Binaries Added 
+	Will Mine Any Windows-Based Miner NVIDIA Miner! However, first run of a binary miner will take a second for dependency to update/setup. To avoid this, use .part2 shell script, or just run the entirity of the setup shell from scratch.
+
+-More miners added
+
+-Minimized Terminal Screens 
+	Main Screen Can Be Viewed While Running.
+
+-Fixed Donation:
+	Donation is now done as a percentage. At 1%, miner will switch to Donation address for 5 minutes once every 8 hours- resulting in ~ 1% of total running or 864 secounds in 24 hours. 2% will start it at every 4 hours, resulting in 1764 seconds donated in 24 hours. Since the bare minimal the miner can run to be profitable is a 288 interval- The maximum you can donate is 50%. 
+There is no need to worry about it over-mining. Application records when it is first started and when it exits- it keeps track of run times, so it doesn't mine when it shouldn't. Other script miners have donation set to start taking after the first hour, so if you are restarting your miner frequently- It takes way more than it should. If you haven't ran it for 24 hours- It remembers that, and resets the counter.
+
+-EWBFDevices
+	EWBF operates differently than ccminer, which is the base mining application used for NVIDIA. The simplest way for me to program it in for use, was to have it use a different device input. You register ccminer device arguments as 0,1,2,3, where each is the GPU # you are using. EWBF works without commas, so 0 1 2 3 4 5 6 etc.
+
+-CLAYMOREDevices
+	I have added Dual-Claymore to the expiremental list. I haven't used it, nor any other miner labeled expiremental. However, if setup right it should run. You must label Devices as you would running claymore. You will likely have to add more arguments and modify lots of code to use it with othe miners. I am working on it myself.
+
+-BTC & [WALLETCOIN] Profit/Day. I have modified this version to include both. However, it does not subract pool fees. Next version will do that.
+
+-More pools added. See pool websites on how their exchange plans work- Especially MiningPoolHub (MPH).
+
+
+Operation Notes-
+
+-If you use it- run monitor from Graphics Card (1st card or GPU 0).
+
+-Linux is sensitive to different NVIDIA GPU's. It is advised to run the devices seperately using the Advanced settings.
+
+-I have tested USB mining on a 16gb usb stick that was $5.00. Works fine. However, it causes lower script speed, and there is a random deviation on interval because of it. I reccommend using a stop watch to determine how much longer it takes miner to open and close windows, and then subtract the extra time from the interval setting...So you switch as close to every 5 minutes as much as possible.
+
+-If you liked watching gpu performance through afterburner "watch nvidia-smi" command in terminal shows the same performance statics in a 2 second interval- Very handy. The overclock shell script finishes with the watch nvidia-smi command, so you can just leave it open.
+
+-OVERCLOCKING WITH LINUX is very sensitive. Learn how to overclock GPUS before going nuts with it--!
+
+-Set MM.Hash's main window to "Always at bottom" in the layer section, so clicking on it won't make miners disappear.
+
+-If you accidentally minimize a window Alt-Tab lets you bring it back up, just like Windows
+
+-Shift+Ctrl+Left or Shift+Crtl+Right lets you move between workspaces- This allows you to setup of other display windows, or even run multiple instances of MM.Hash if that is your preference (There is benefit to staggering device interval switchin).
+
+-I reccomend learning how to set Xorg and/or lightdm to autologin in, and even auto-run 'overclock' and then MM.Hash.
+
+-I reccomend getting a VNC viewer of some kind, and leaving it open on another workspace (i.e. teamviewer)
+
+-Total space after everything installed leaves 1.2 GB of space after you have a VNC, Miners Built, and everything else tweaked. That's enough to add a few miners. The setup script prevents Ubuntu from making log files, so that way you don't lose anymore space. Be mindful though that 1.2 Gb is not a lot of space. If you start getting Op_Subtraction errors spamming on MM.Hash- it likely means the USB has ran out of space. You can check how much space you have available with df -H
+
+FUTURE RELEASE NOTES BY PRIORITY (Percentage Completed)
+
+AMD MINING
+I am working now on trying to get an AMD gpu, and tinkering with settings to make it work for MM.Hash. Funds are tight on my end- Please donate. However, most of the code is written already in MM.Hash (75%)
+
+HDD Mining
+I am working on adding Burst Coin HDD Mining to MM.Hash, using creepminer. (35%)
+
+DUAL-CLAYMORE & EWBF
+I am working on getting DUAL-CLAYMORE & EWBF miners beyond expirmental status (65%)
+
+Other OS Install
+I am working on building setup files to install in other flavors of Linux- Particulary those that are better for ARM processors. (15%)
+
+Wallet Tracking
+
+I am working on making an option to display a window that refreshes when miner does, and will show your base pool statics. (5%)
+
+
+THINGS I WILL NEVER WORK ON (don't ask)
+
+-Nicehash Mining
+	Nope- I'm trying to make a Nicehash equivilent mining administration app that is open-sourced. I'm not supporting a miner that isn't, and is slower.
+
+-Removing Dev Fees From Compiled Miners
+	Nope- I support mining development. However, if you find someone generous like me to make an open source miner that is being developed- Show me their miner, and I will add it.
+
+-GUI
+	We are mining with Graphic resources. Hey, I know! Let's make an app that uses graphic resources to operate. Genius.
+
+-Adding Old Miners
+	I will only add a miner that has been compiled with cuda 9 or 9.1. All other miners are not up to par for linux.
+
+
+
+
+
+Dev Notes v1.1.8
+
+MM.Hash now has an expiremental coin switching application. Works curently with only 1 pool.
+
+EWBF will now work in Linux version, however seperate devices must be specified. Does not work in coin-switching as of yet.
+
+Reduced intensity of Windows Krnlx Xevan- It was crashing my 1050ti's. Likely a compile issue that I will address if I have time (Re-compile to cuda 9.1). All Linux miners are compiled to cuda 9.1, so no issues there.
+
+I'm not happy with the way the coding for the benchmarking miners currently works. It's heavy code that needs to be written to work in a loop rather than repeat, and I need to have it check the date on last write time for miner files to ensure it has written the benchmark to the stat folder. Currently it just checks if stat exits. I am working on that.
+
+Right now everything is based on live data from pool for coin-swithcing. Miner spends a lot of time trying to calculate just the live data, let alone save and calculate long term data. I will eventually address this, but it has not hampered the profitability as of yet.
+
+The biggest two "bugs" thus far for the coin-switching is thus:
+
+1.) Miner may get 'stuck' on a coin if it stratum connection for coin fails. This is because of the write-time issues I have as noted above. However, normally pool devs switch coin off rather quickly when it happens.
+
+2.) Database indexing. I'm trying to have the miner save and store all stat data, and then recall them when needed. I have been successful in coin-switching because it references read/writes to confirm rather than indexed data. The benefit of this, is since it is pulling written data rather then indexed data, there is little/no possibility of indexing errors. However, the process yet isn't fully read/writable. I did the bare minimum to get it to work. I will continue to work on indexing to improve miner function. However, their is a give/take. The more read/writing that occurs- The less USB miners become more efficient. So there is only so much that can be done to keep everything universal.
+

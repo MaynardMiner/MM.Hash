@@ -10,7 +10,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Location = "US"
 
-$MineMoney_Request | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | foreach {
+$MineMoney_Request | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     $MineMoney_Host = "$_.minemoney.co"
     $MineMoney_Port = $MineMoney_Request.$_.port
     $MineMoney_Algorithm = Get-Algorithm $MineMoney_Request.$_.name

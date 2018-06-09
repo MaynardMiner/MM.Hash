@@ -50,6 +50,8 @@ $Optimizations = [PSCustomObject]@{
 
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+  if($_.Algorithm)
+   {
     [PSCustomObject]@{
         MinerName = "ccminer"
 	Type = "NVIDIA1"
@@ -64,5 +66,6 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandPropert
         Wrap = $false
         URI = $Uri
 	BUILD = $Build
+                    }
     }
 }

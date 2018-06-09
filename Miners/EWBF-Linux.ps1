@@ -70,7 +70,7 @@ $Optimizations = [PSCustomObject]@{
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
-$Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
+$Algorithms | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     [PSCustomObject]@{
 	MinerName = "miner"
         Type = "NVIDIA"

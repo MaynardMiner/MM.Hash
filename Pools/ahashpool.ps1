@@ -21,7 +21,7 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
   
 $Location = "US"
 
-$ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$ahashpool_Request.$_.hashrate -gt 0} | foreach {
+$ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$ahashpool_Request.$_.hashrate -gt 0} | ForEach-Object {
     $ahashpool_Host = "$_.mine.ahashpool.com"
     $ahashpool_Port = $ahashpool_Request.$_.port
     $ahashpool_Algorithm = Get-Algorithm $ahashpool_Request.$_.name

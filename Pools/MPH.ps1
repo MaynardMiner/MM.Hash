@@ -18,10 +18,10 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Locations = 'Europe', 'US', 'Asia'
 
-$Locations | ForEach {
+$Locations | ForEach-Object {
     $Location = $_
 
-    $MiningPoolHub_Request.return | ForEach {
+    $MiningPoolHub_Request.return | ForEach-Object {
         $Algorithm = $_.algo -replace "-"
         $Coin = (Get-Culture).TextInfo.ToTitleCase(($_.current_mining_coin -replace "-", " ")) -replace " "
         $Fees = .9
@@ -36,7 +36,7 @@ $Locations | ForEach {
             Workers = 'N/A'
             StablePrice = $Stat.Week
             Protocol = 'stratum+tcp'
-            Host = $_.all_host_list.split(";") | Sort-Object -Descending {$_ -ilike "$Location*"} | Select -First 1
+            Host = $_.all_host_list.split(";") | Sort-Object -Descending {$_ -ilike "$Location*"} | Select-Object -First 1
             Port = $_.algo_switch_port
             User = '$UserName.$WorkerName'
 	    User1 = '$UserName.$WorkerName'
@@ -67,7 +67,7 @@ $Locations | ForEach {
             Fees = $Fees
             StablePrice = $Stat.Week
             Protocol = 'stratum+ssl'
-            Host = $_.all_host_list.split(";") | Sort-Object -Descending {$_ -ilike "$Location*"} | Select -First 1
+            Host = $_.all_host_list.split(";") | Sort-Object -Descending {$_ -ilike "$Location*"} | Select-Object -First 1
             Port = $_.algo_switch_port
             User = '$UserName.$WorkerName'
 	    User1 = '$UserName.$WorkerName'
