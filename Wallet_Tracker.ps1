@@ -11,8 +11,8 @@ while ($true)
     if($Pool -eq "zergpool")
      {
     $GetWalletZergpool = Invoke-RestMethod http://zergpool.com/api/wallet?address=$Wallet -UseBasicParsing
-     
-    $GetWalletZergpool | foreach {
+
+    $GetWallet | foreach {
 
     $Get_Currency = $_.currency
     $Get_Unsold = $_.unsold
