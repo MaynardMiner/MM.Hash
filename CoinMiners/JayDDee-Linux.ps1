@@ -7,6 +7,7 @@ $Distro = "Linux"
 #Yescrypt
 #YescryptR16
 #Lyra2z
+#M7M
 
 $Commands = [PSCustomObject]@{
     "ARG-yescrypt" = ''
@@ -22,6 +23,7 @@ $Commands = [PSCustomObject]@{
     "PYRO" = ''
     "TLR" = ''
     "VTL" = ''
+    "XMG" = '' #M7M
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

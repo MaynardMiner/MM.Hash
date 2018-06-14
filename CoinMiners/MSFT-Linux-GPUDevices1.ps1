@@ -14,11 +14,14 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Timetravel
 
 $Commands = [PSCustomObject]@{
-    "ALPS" = '' #Lyra2z
+"ALPS" = '' #Lyra2z
     "CRS" = '' #Lyra2z
     "GIN" = '' #Lyra2z
     "IFX" = '' #Lyra2z
+    "MANO" = '' #Lyra2z
     "PYRO" = '' #Lyra2z
+    "TLR" = '' #Lyra2z
+    "VTL" = '' #Lyra2z
     "BTX" = '' #Bitcore
     "BRAZ" = '' #Hmq1725
     "ERA" = '' #Hmq1725

@@ -1,14 +1,18 @@
 param(
     [Parameter(Mandatory=$false)]
-    [String]$Wallet
+    [String]$Wallet,
+    [Parameter(Mandatory=$false)]
+    [array]$Pool
 	)
 
 while ($true)
 {
   Clear-Host
-    $GetWallet = Invoke-RestMethod http://zergpool.com/api/wallet?address=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -UseBasicParsing
-
-    $GetWallet | foreach {
+    if($Pool -eq "zergpool")
+     {
+    $GetWalletZergpool = Invoke-RestMethod http://zergpool.com/api/wallet?address=$Wallet -UseBasicParsing
+     
+    $GetWalletZergpool | foreach {
 
     $Get_Currency = $_.currency
     $Get_Unsold = $_.unsold
@@ -18,14 +22,15 @@ while ($true)
     $Get_Total = $_.total
 
     Write-Host "
+    Zergpool Wallet
     Currency = $Get_Currency
     Unsold = $Get_Unsold
     Balance = $Get_Balance
     Unpaid = $Get_Unpaid
     Total Paid  = $Get_24h
     Total Earned = $Get_Total"
-
     }
+   }
 
-    Start-Sleep -s 240
+    Start-Sleep -s 300
 }

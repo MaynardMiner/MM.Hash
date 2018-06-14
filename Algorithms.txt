@@ -15,7 +15,6 @@
     "lbry":  "lbry",
     "myrgr":  "myriadGroestl",
     "lyra2v2":  "lyra2v2",
-    "Lyra2v2": "lyra2v2",
     "maxcoin":  "keccak",
     "blake2s":  "blake2s",
     "x11evo":  "x11evo",

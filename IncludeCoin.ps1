@@ -542,7 +542,29 @@ function Expand-WebRequest {
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
 	   }
           }
-   
+  
+    if($BuildPath -eq "Linux-Zip-Build")
+     {
+     if(-not (Test-Path $Path))
+      {
+      $MinerFolder = Split-Path $Path -Leaf
+      Write-Host "Downloading Miner" -BackgroundColor "red" -ForegroundColor "white"
+      set-location ".\Bin"
+      Start-Process -FilePath "wget" -ArgumentList "$Uri -O temp" -Wait
+      Start-Process "unzip" -ArgumentList "temp -d zip" -Wait
+      Get-ChildItem -Path zip -Recurse -Directory | Move-Item -Destination $MinerFolder
+      Remove-Item "temp" -recurse -force
+      Remove-Item "zip" -recurse -force
+      Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+      Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
+      Copy-Item .\Build\KlausT\*  -Destination $Path -recurse -force
+      Set-Location $Path
+      Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
+      Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
+      Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+      }
+    }
+ 
 	if($BuildPath -eq "Windows")
 	 {
 	  if (Test-Path $FileName1) {Remove-Item $FileName1}

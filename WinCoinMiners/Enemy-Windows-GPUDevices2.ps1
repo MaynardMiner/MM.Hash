@@ -15,6 +15,7 @@ $Commands = [PSCustomObject]@{
 "PROTON" = '' #x16r
 "RVN" = '' #x16r
 "XMN" = '' #x16r
+"CPR" = '' #x16s
 "PGN" = '' #x16s
 "RABBIT" = '' #x16s
 "REDN" = '' #x16s

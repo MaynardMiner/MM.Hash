@@ -1,0 +1,29 @@
+Dev Notes v1.1.9.txt
+
+-Improved Benchmarking system. System should not correctly back up coins, and should do so with little to no errors.
+
+-Fixed Wallet-Tracker. I accidentally left test wallet inside, instead of replacing with array. Repaired. It should work now.
+
+-Added Pool to Wallet-Tracker. Added option to specify pools for coin mining. Can use multiple pools.
+
+-Added 11 coins total to miner files
+
+-HUGE UNIX PATCH:
+
+v1.1.9 should finally resolve all Unix mining erorrs, and process ID tracking, which led to weird issues with
+miner. I have improved the actual process logic tree, and ensured that processes as they closed are forced $null.
+I have also removed KlausT Windows from Miner files, added KlausT Linux. I added a new way to build miners-
+Linux-Zip-Build, which downloads a release rather then cloning from github, then compiles miner to cude 9.1.
+I have also repaired benchmarking dramatically, including ensure the miner checks to see if files are actually
+written.
+
+-Rolled back z-enemy to 1.10...Miner was crashing, and getting better hashrate.
+
+-Windows
+
+Improved Benchmarking System. Added Miner for LUX when it is able to be mined. Added new argument to 
+Wallet_Tracker.bat.
+
+Both Distrubutions:
+
+-Repaired Algorithms.txt

@@ -157,7 +157,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                      v1.1.8-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.1.9-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -175,7 +175,7 @@ Write-Host "
 
 						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
-
+									.5% Dev Fee Was Written In This Code
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
 
 
@@ -485,13 +485,9 @@ if($LastRan -ne "")
                 HashRate = 0
                 Benchmarked = 0
                 Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
-		        Screens = 0
-                CanBenchmark = $false
                 Crashed = 0
                 Timeout = 0
                 WasBenchmarked = $false
-                NormMess = 0
-                BackMess = 0
             }
         }
     }
@@ -599,20 +595,20 @@ $ActiveMinerPrograms | ForEach {
             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
             else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
              }
-      Start-Sleep ($CheckMinerInterval)
-      if($_.Process -eq $null -or $_.Process.HasExited)
-       {
-        $_.Crashed++
-        Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
-        if($_.Crashed -le 1)
-         {
-           continue
-         }
-       }
-       else
-        {
-         $_.Recover30sLater++
-        }
+             Start-Sleep ($CheckMinerInterval)
+             if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+              {
+               $_.Crashed++
+               Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
+               if($_.Crashed -le 1)
+                {
+                 continue
+                }
+              }
+             else
+              {
+               $_.Recover30sLater++
+              }
        }
      }
     }
@@ -643,244 +639,121 @@ $ActiveMinerPrograms | ForEach {
     }
 
     #Save current hash rates
-     $ActiveMinerPrograms | foreach {
-      if($_.Process -eq $null -or $_.Process.HasExited)
+    $ActiveMinerPrograms | foreach {  
+        if($_.Process -eq $null -or $_.Process.HasExited)
         {
-              $_.Status = "Not Running"
+        if($_.Status -eq "Running"){$_.Status = "Not Running"}
         }
-    else
-       {
-        $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
+       else
+          {
+            Write-Host "MM.Hash is attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
+            $_.HashRate = 0 
+            $_.WasBenchmarked = $False
+            $Miner_HashRates = Get-HashRate $_.API $_.Port
+            $_.Timeout = 0
+	        $_.Benchmarked = 0
+            $_.HashRate = $Miner_HashRates
+            $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
           {
-           Write-Host "MM.Hash is attempting to record hashrate for $($_.Name)" -foregroundcolor "blue"
-           $_.HashRate = 0
-           $_.NormMess = 0
-           $_.BackMess = 0
-           $_.WasBenchmarked = $false
-           $Miner_HashRates = Get-HashRate $_.API $_.Port
-           $_.HashRate = $Miner_HashRates | Select -First $_.Coins.Count
-           $HashStat = "$($_.Name)_$($_.Coins)_HashRate"
-           $HashTimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
-           $HashrateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
-	       $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
-           $BackupCheck = Test-Path $NewHashrateFilePath
-           $TimeoutCheck = Test-Path $HashTimeoutFile
-           $HashFileCheck = Test-Path $HashrateFilePath
-           if($BackupCheck -eq $False)
-		           {
-                    $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-		            Start-Sleep -s 1
-		            if($HashFileCheck -eq $True)
-		             {
-		             if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
-		             Start-Sleep -s 1
-                     Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath
-                     $_.New = $false
-                     $_.Hashrate_Gathered = $true
-                     $_.Crashed = 0
-                     $_.WasBenchmarked = $true
-                     }
-                    else
-                     {
-                      $_.Timeout++
-                     }
-                   }
-                  else
-                     {
-                      $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-                      $_.WasBenchMarked = $true
-                      Start-Sleep -s 1
-                       if($HashFileCheck -eq $True)
-                        {
-                         $_.New = $false
-                         $_.Hashrate_Gathered = $true
-                         $_.Crashed =0
-                         $_.WasBenchmarked = $true
-                         }
-                        else
-                        {
-                         $_.Timeout++
-                        }
-                      }
-                     }
-                   }
-
-
-      if($_.Process -eq $null -or $_.Process.HasExited)
-        {
-              $_.Status = "Not Running"
-        }
-    else
-       {
-        $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
-         if($WasActive -ge $StatsInterval)
-          {
-          if($_.WasBenchmarked -eq $false)
-           {
-           if($_.New -eq $true){$_.Benchmarked++}
-           $Miner_HashRates = Get-HashRate $_.API $_.Port
-           $_.HashRate = $Miner_HashRates | Select -First $_.Coins.Count
-           $HashStat = "$($_.Name)_$($_.Coins)_HashRate"
-           $HashTimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
-           $HashrateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
-	       $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
-           $BackupCheck = Test-Path $NewHashrateFilePath
-           $TimeoutCheck = Test-Path $HashTimeoutFile
-           $HashFileCheck = Test-Path $HashrateFilePath
-                  if($BackupCheck -eq $False)
-		           {
-                    $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-		            Start-Sleep -s 1
-		            if($HashFileCheck -eq $true)
-		             {
-		             if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
-		             Start-Sleep -s 1
-                     Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath
-                     $_.New = $false
-                     $_.Hashrate_Gathered = $true
-                     $_.Crashed = 0
-                     $_.WasBenchmarked = $true
-                     }
-                    else
-                     {
-                      $_.Timeout++
-                     }
-                   }
-                   else
-                     {
-                      $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-                      Start-Sleep -s 2
-                      if($HashFileCheck -eq $True)
-                       {
-                        $_.WasBenchmarked = $true
-                        $_.New = $false
-                        $_.Hashrate_Gathered = $true
-                        $_.Crashed =0
-                       }
-                      else
-                       {
-                       $_.Timeout++
-                       }
-                     }
+	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
+          for($i=0; $i -lt 4; $i++)
+            {
+              if($_.WasBenchmarked -eq $False)
+               {
+                Write-Host "$($_.Name) $($_.Coins) Starting Bench"
+		 $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+                $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
+                if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
+                 {
+                  $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
+                  Start-Sleep -s 1
+		        Write-Host "Stat Written"
+                  if(Test-Path (Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"))
+                  {
+                   if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
+                   Start-Sleep -s 1
+                   Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath
+                   $_.New = $False
+                   $_.Hashrate_Gathered = $True
+                   $_.Crashed = 0
+                   $_.WasBenchmarked = $True
+                   Write-Host "$($_.Name) $($_.Coins) Was Benchmarked And Backed Up"
+                   $_.Timeout = 0
+                  }
+		  else
+                   {
+                  $_.Timeout++
+                     Write-Host "Timeout Reason 1"
                    }
                   }
-                 }
-
-
-      if($_.Process -eq $null -or $_.Process.HasExited)
-        {
-              $_.Status = "Not Running"
-        }
-      else
-       {
-        $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
-         if($WasActive -ge $StatsInterval)
-          {
-          if($_.WasBenchmarked -eq $false)
-           {
-           if($_.New -eq $true){$_.Benchmarked++}
-           $Miner_HashRates = Get-HashRate $_.API $_.Port
-           $_.HashRate = $Miner_HashRates | Select -First $_.Coins.Count
-           $HashStat = "$($_.Name)_$($_.Coins)_HashRate"
-           $HashTimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
-           $HashrateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
-	       $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
-           $BackupCheck = Test-Path $NewHashrateFilePath
-           $TimeoutCheck = Test-Path $HashTimeoutFile
-           $HashFileCheck = Test-Path $HashrateFilePath
-                  if($BackupCheck -eq $False)
-		           {
-                    $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-		            Start-Sleep -s 1
-		            if($HashFileCheck -eq $True)
-		             {
-		             if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
-		             Start-Sleep -s 1
-                     Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath
-                     $_.New = $false
-                     $_.Hashrate_Gathered = $true
-                     $_.Crashed = 0
-                     $_.WasBenchmarked = $true
-                     }
+                else 
+                 {
+                 $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
+                 Start-Sleep -s 1
+		 $_.New = $False
+                 $_.Crashed = 0
+                 $_.Hashrate_Gathered = $True
+		  if(Test-Path (Join-Path ".\Stats\" "$($_.Name)_$($_.Coins)_HashRate.txt"))
+		   {
+                    $LastWrite = [datetime](Get-ItemProperty -Path $HashrateFilePath -Name LastWriteTime).LastWriteTime
+                    $LastWriteTime = [math]::Round(((Get-Date)-$LastWrite).TotalSeconds)
+                    }
+                    if($LastWriteTime -le 5)
+                     {
+                       $_.WasBenchmarked = $True
+                       Write-Host "$($_.Name) $($_Coins) Was Benchmarked."
+                       $_.Timeout = 0
+                     }   
                     else
-                     {
-                      $_.Timeout++
-                     }
-                   }
-                   else
-                     {
-                      $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-                      Start-Sleep -s 2
-                      if($HashFileCheck -eq $true)
-                       {
-                        $_.WasBenchmarked = $true
-                        $_.New = $false
-                        $_.Hashrate_Gathered = $true
-                        $_.Crashed =0
-                       }
-                      else
-                       {
-                       $_.Timeout++
-                       }
-                     }
-                   }
-                  }
-                 }
-
-
-
-           $HashFileCheck = Test-Path $HashrateFilePath
-           $Miner_HashRates = Get-HashRate $_.API $_.Port
-           $_.HashRate = $Miner_HashRates | Select -First $_.Coins.Count
-           $HashStat = "$($_.Name)_$($_.Coins)_HashRate"
-           $HashTimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
-           $HashrateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
-	       $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
-           $BackupCheck = Test-Path $NewHashrateFilePath
-           $TimeoutCheck = Test-Path $HashTimeoutFile
-           $HashFileCheck = Test-Path $HashrateFilePath
-            if($_.Timeout.Count -ge 0 -or $_.Status -eq "Not Running")
 		     {
-             if($_.WasBenchmarked -eq $false)
-              {
-             if($BackupCheck -eq $False)
-		      {
-               $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
-		       Start-Sleep -s 1
-		       if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
-		       Start-Sleep -s 1
-               if($TimeoutCheck -eq $False)
-                {
-                 New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null
-                }
-                Write-Host "$($_.Name) Hashrate Check Timed Out- It Was Noted In Backup Folder" -foregroundcolor "darkred"
-                $_.WasBenchmarked = $true
-                $_.New = $false
-                $_.Hashrate_Gathered = $true
-                $_.Crashed = 0
+                     $_.Timeout++
+                     Write-Host "Timeout Reason 2"
+                     }
+                   }
+                }  
               }
-             else
-              {
-               $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
-               Start-Sleep -s 1
-               if($TimeoutCheck -eq $False)
-                {
-                 New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null
-                }
-                $_.WasBenchmarked = $true
-                $_.New = $false
-                $_.Hashrate_Gathered = $true
-                $_.Crashed = 0
-                Write-Host "$($_.Name) Miner Benchmarking Timed Out. Setting Hashrate to 0" -foregroundcolor "darkred"
-              }
-             }
+           }
+        }
+
+        if($_.Timeout.Count -ge 0 -or $_.Process -eq $null -or $_.Process.HasExited)
+         {
+         if($_.WasBenchmarked -eq $False)
+          {
+	  if($StatsInvterval -lt 2)
+	   {
+           if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
+            {
+            $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
+            Start-Sleep -s 1
+            if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
+            Start-Sleep -s 1
+            if(-not (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt")){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
+            Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Backup Folder" -foregroundcolor "darkred"
+            $_.WasBenchmarked = $True
+            $_.New = $False
+            $_.Hashrate_Gathered = $True
+            $_.Crashed = 0
+            $_.Timeout = 0
             }
-
-      }
-
-}
-
-#Stop the log
-Stop-Transcript
-Get-Date | Out-File "TimeTable.txt"
+          else
+           {
+            $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
+            Start-Sleep -s 1
+            if(-not (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt")){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
+            $_.WasBenchmarked = $True
+            $_.New = $False
+            $_.Hashrate_Gathered = $True
+            $_.Crashed = 0
+            $_.Timeout = 0
+            Write-Host "$($_.Name) $($_.Coins) Miner Benchmarking Timed Out. Setting Hashrate to 0" -foregroundcolor "darkred"
+            }
+           }
+          }
+         }
+        }
+    }
+  
+  #Stop the log
+  Stop-Transcript
+  Get-Date | Out-File "TimeTable.txt"

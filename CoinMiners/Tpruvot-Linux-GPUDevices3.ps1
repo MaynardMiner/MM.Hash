@@ -16,6 +16,8 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Keccakc
 
 $Commands = [PSCustomObject]@{
+    "ABS" = '' #Lryra2v2
+    "ARG-lyra2v2" = '' #Lryra2v2
     "KREDS" = '' #Lyra2v2
     "LUNEX" = '' #Lyra2v2
     "MONA" = '' #Lyra2v2
@@ -28,7 +30,8 @@ $Commands = [PSCustomObject]@{
     "VTC" = '' #Lyra2v2
     "XSH-lyra2v2" = '' #Lyra2v2
     "XVG-Lyra2v2" = '' #Lyra2v2
-    "MAX" = '' #Keccak
+    "MAX" = '' #Keccak 
+    "SMART" = '' #Keccak
     "COG" = '' #Skunk
     "MGT" = '' #Skunk
     "MUN" = '' #Skunk

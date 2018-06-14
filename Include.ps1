@@ -481,35 +481,33 @@ function Start-SubProcess {
         [String]$ArgumentList = "", 
         [Parameter(Mandatory=$false)]
         [String]$WorkingDirectory = ""
-	 )
- 
-    $Job = & {
-        param($ControllerProcessID, $FilePath, $ArgumentList, $WorkingDirectory)
+    )
 
-        $ControllerProcess = Get-Process $FilePath | Select-Object Id
+    $Job = Start-Job -ArgumentList $PID, $FilePath, $ArgumentList{
+        param($ControllerProcessID, $FilePath, $ArgumentList)
+
+        $ControllerProcess = Get-Process -Id $ControllerProcessID
         if($ControllerProcess -eq $null){return}
 
         $ProcessParam = @{}
-        $ProcessParam.Add("FilePath", $FilePath)
-        $ProcessParam.Add("WindowStyle", 'Minimized')
-        if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)}
-        if($WorkingDirectory -ne ""){$ProcessParam.Add("WorkingDirectory", $WorkingDirectory)}
+        if($FilePath -ne ""){$ProcessParam.Add("FilePath",$FilePath)}
+        if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)} 
         $Process = Start-Process @ProcessParam -PassThru
         if($Process -eq $null){[PSCustomObject]@{ProcessId = $null}; return}
 
         [PSCustomObject]@{ProcessId = $Process.Id; ProcessHandle = $Process.Handle}
-        
+    
         $ControllerProcess.Handle | Out-Null
         $Process.Handle | Out-Null
 
         do{if($ControllerProcess.WaitForExit(1000)){$Process.CloseMainWindow() | Out-Null}}
         while($Process.HasExited -eq $false)
     }
-
-    do{Start-Sleep 1; $JobOutput = Invoke-Command -ScriptBlock {$Job} -AsJob}
+    
+    do{sleep 1; $JobOutput = Receive-Job $Job}
     while($JobOutput -eq $null)
 
-    $Process = Get-Process | Where-Object Id -EQ $JobOutput.ProcessId
+    $Process = Get-Process | Where Id -EQ $JobOutput.ProcessId
     $Process.Handle | Out-Null
     $Process
 }
@@ -549,7 +547,31 @@ function Expand-WebRequest {
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
           }
          }
-	if($BuildPath -eq "Linux-Clean")
+
+         
+         if($BuildPath -eq "Linux-Zip-Build")
+         {
+         if(-not (Test-Path $Path))
+          {
+          $MinerFolder = Split-Path $Path -Leaf
+          Write-Host "Downloading Miner" -BackgroundColor "red" -ForegroundColor "white"
+          set-location ".\Bin"
+          Start-Process -FilePath "wget" -ArgumentList "$Uri -O temp" -Wait
+          Start-Process "unzip" -ArgumentList "temp -d zip" -Wait
+          Get-ChildItem -Path zip -Recurse -Directory | Move-Item -Destination $MinerFolder
+          Remove-Item "temp" -recurse -force
+          Remove-Item "zip" -recurse -force
+          Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+          Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
+          Copy-Item .\Build\KlausT\*  -Destination $Path -recurse -force
+          Set-Location $Path
+          Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
+          Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
+          Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+          }
+        }
+        
+        if($BuildPath -eq "Linux-Clean")
 	 {
 	 if(-not (Test-Path $Filename))
 	  {
@@ -565,14 +587,33 @@ function Expand-WebRequest {
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
-	   }
-          }
-   
-	if($BuildPath -eq "Windows")
+       }
+    }
+
+    if($BuildPath -eq "Linux-Zip-Build")
+     {
+      Write-Host "Downloading Miner" -BackgroundColor "red" -ForegroundColor "white"
+      set-location ".\x64"
+      Start-Process -FilePath "wget" -ArgumentList "$Uri -O temp"
+      Start-Process "unzip" -ArgumentList "temp -d zip" -Wait
+      Move-Item "zip/*" $Path
+      Remove-Item "zip"
+      Remove-Item "temp"
+      Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+      Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
+      Set-Location $Path
+      Copy-Item .\Build\KlausT\*  -Destination $Path -recurse -force
+      Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
+      Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
+      Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+    }
+
+   if($BuildPath -eq "Windows")
 	 {
 	  if (Test-Path $FileName1) {Remove-Item $FileName1}
 	    Write-Host "Downloading Windows Binaries"
-	    Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait 
+        Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait 
+        
            if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension) 
 	    { 
              Start-Process -FilePath "wine" -ArgumentList "$FileName" -Wait 

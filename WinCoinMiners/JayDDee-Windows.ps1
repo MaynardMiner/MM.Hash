@@ -5,6 +5,7 @@ $Uri = "https://github.com/JayDDee/cpuminer-opt/files/1996977/cpuminer-opt-3.8.8
 #Yescrypt
 #YescryptR16
 #Lyra2z
+#M7M
 
 $Commands = [PSCustomObject]@{
     "ARG-yescrypt" = ''
@@ -20,6 +21,7 @@ $Commands = [PSCustomObject]@{
     "PYRO" = ''
     "TLR" = ''
     "VTL" = ''
+    "XMG" = '' #M7M
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

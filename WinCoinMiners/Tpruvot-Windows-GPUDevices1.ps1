@@ -19,6 +19,8 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Timetravel
 
 $Commands = [PSCustomObject]@{
+    "ABS" = '' #Lryra2v2
+    "ARG-lyra2v2" = '' #Lryra2v2
     "KREDS" = '' #Lyra2v2
     "LUNEX" = '' #Lyra2v2
     "MONA" = '' #Lyra2v2
@@ -32,6 +34,7 @@ $Commands = [PSCustomObject]@{
     "XSH-lyra2v2" = '' #Lyra2v2
     "XVG-Lyra2v2" = '' #Lyra2v2
     "MAX" = '' #Keccak
+    "SMART" = '' #Keccak
     "COG" = '' #Skunk
     "MGT" = '' #Skunk
     "MUN" = '' #Skunk
@@ -54,7 +57,10 @@ $Commands = [PSCustomObject]@{
     "CRS" = '' #Lyra2z
     "GIN" = '' #Lyra2z
     "IFX" = '' #Lyra2z
+    "MANO" = '' #Lyra2z
     "PYRO" = '' #Lyra2z
+    "TLR" = '' #Lyra2z
+    "VTL" = '' #Lyra2z
     "BTX" = '' #Bitcore
     "BRAZ" = '' #Hmq1725
     "ERA" = '' #Hmq1725

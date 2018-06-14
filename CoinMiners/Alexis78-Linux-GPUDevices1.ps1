@@ -11,7 +11,9 @@ $Commands = [PSCustomObject]@{
 "AGNI" = '-i 25' #Nist5
 "BWK" = '-i 25' #Nist5
 "CXT" = '-i 25' #Nist5
-"RGC" = '-i 25' #Nist5
+"FGC" = '-i 25' #Nist5
+"FXC" = '-i 25' #Nist5
+"JUMP" = '-i 25' #Nist5
 "HSR" = '' #Hsr
 "AXS" = '-i 20' #C11
 "BHD" = '-i 20' #C11
@@ -35,6 +37,7 @@ $Commands = [PSCustomObject]@{
 "XVG-blake2s" = '' #Blake2s
 "ARGO" = '-i 28' #Skein
 "AUR-skein" = '-i 28' #Skein
+"BASHC" = '-i 28' #Skein
 "BTPL" = '-i 28' #Skein
 "CURV" = '-i 28' #Skein
 "DGB-skein" = '-i 28' #Skein
@@ -49,22 +52,22 @@ $Commands = [PSCustomObject]@{
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {  
-    if($Algorithm -eq "$($Pools.$_.Algorithm)")
-     {
-    [PSCustomObject]@{
-        MinerName = "ccminer"
-	Type = "NVIDIA1"
-        Path = $Path
-	Distro = $Distro
-	Devices = $Devices
-        Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4069 -u $($Pools.$_.User1) -p $($Pools.$_.Pass1) $($Commands.$_)"
-        HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
-        API = "Ccminer"
-        Port = 4069
-        Wrap = $false
-        URI = $Uri
-	BUILD = $Build
-	Tracker = $($Pools.$_.Tracker)
+        if($Algorithm -eq "$($Pools.$_.Algorithm)")
+        {
+       [PSCustomObject]@{
+           MinerName = "ccminer"
+           Type = "NVIDIA1"
+           Path = $Path
+           Distro = $Distro
+           Devices = $Devices
+           Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4069 -u $($Pools.$_.User1) -p $($Pools.$_.Pass1) $($Commands.$_)"
+           HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
+           API = "Ccminer"
+           Port = 4069
+           Wrap = $false
+           URI = $Uri
+           BUILD = $Build
+           Tracker = $($Pools.$_.Tracker)
          }
      }
   }

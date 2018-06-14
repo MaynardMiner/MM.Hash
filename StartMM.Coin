@@ -9,7 +9,7 @@ RigName=MMHash				        #Personal Nickname Of Your Mining Rig (for tracking pu
 Currency=USD				        #Fiat Currency You Prefer
 Passwordcurrency=BTC		 		#Coin You Want To Exchange To For Pools Which Offer Mining Coin Exchange...See Your Mining Pool For More Information
 CoinExchange=RVN    	         		#Excange Quote From CryptoExchange. Keep PasswordCurrency Symbol, unless coin symbol on cryptoexchange is different!
-Interval=210				        #Seconds Miner Runs Before Switching (5 minutes is reccommended)
+Interval=290				        #Seconds Miner Runs Before Switching (5 minutes is reccommended)
 Delay=1					        #Delay Before Miner Switches (Leave alone- EXPERT/DEBUG MODE ONLY!)
 Wallet=1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i	#Your Wallet Address
 Location=US	                 		#Your Country
@@ -23,7 +23,7 @@ Proxy='""'                                      #Proxy Address (If You Are Using
 ###########################################################################
 Type=NVIDIA1,NVIDIA2,NVIDIA3                        # Place # in front of above 'Type', and use this one instead.
 ###
-GPUDevices1='"GTX1070#1,GTX1070#2,GTX1070#3"'   # 0,1,2 or GTX1070#1, GTX1080ti#2, etc.			
+GPUDevices1='"GTX1070#1,GTX1070#2,GTX1070#3,GTX1070#4,GTX1070#5"'   # 0,1,2 or GTX1070#1, GTX1080ti#2, etc.			
 Wallet1=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 PasswordCurrency1=RVN
 ###
