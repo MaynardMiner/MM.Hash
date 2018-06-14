@@ -6,7 +6,7 @@ param(
 while ($true)
 {
   Clear-Host
-    $GetWallet = Invoke-RestMethod http://zergpool.com/api/wallet?address=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -UseBasicParsing
+    $GetWallet = Invoke-RestMethod http://zergpool.com/api/wallet?address=$Wallet -UseBasicParsing
 
     $GetWallet | foreach {
 
