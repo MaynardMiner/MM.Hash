@@ -958,11 +958,12 @@ if($LastRan -ne "")
 	      {
            if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
             {
+	    $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
             if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
             Start-Sleep -s 1
-            if(-not (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt")){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
             Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Backup Folder" -foregroundcolor "darkred"
             $_.WasBenchmarked = $True
             $_.New = $False
@@ -972,15 +973,17 @@ if($LastRan -ne "")
             }
           else
            {
+            $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
-            if(-not (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt")){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
             $_.WasBenchmarked = $True
             $_.New = $False
             $_.Hashrate_Gathered = $True
             $_.Crashed = 0
             $_.Timeout = 0
             Write-Host "$($_.Name) $($_.Coins) Miner Benchmarking Timed Out. Setting Hashrate to 0" -foregroundcolor "darkred"
+
             }
            }
           }
