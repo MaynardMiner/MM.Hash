@@ -907,7 +907,7 @@ if($LastRan -ne "")
                   {
                    if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
                    Start-Sleep -s 1
-                   Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath
+                   Copy-Item (Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt") -Destinatio (Join-Path ".\Backup" "$($_.Name)_$($._Coins)_HashRate.txt")
                    $_.New = $False
                    $_.Hashrate_Gathered = $True
                    $_.Crashed = 0
