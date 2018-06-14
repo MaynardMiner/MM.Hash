@@ -88,7 +88,7 @@ $ActiveMinerPrograms = @()
 #Start the log
 Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
 
-if((Get-Item ".\Build\Data\Info.txt") -eq $null)
+if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
  {
   New-Item -Path ".\Build\Data\" -Name "Info.txt"  | Out-Null
  }
