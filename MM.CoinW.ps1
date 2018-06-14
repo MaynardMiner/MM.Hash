@@ -496,7 +496,7 @@ if($LastRan -ne "")
     $ActiveMinerPrograms | ForEach {
         if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -eq 0)
         {
-            if($_.Process -eq $null -or Process.HasExited)
+            if($_.Process -eq $null -or $_.Process.HasExited)
             {
                 $_.Status = "Not Running"
 		$_.Process = $null
