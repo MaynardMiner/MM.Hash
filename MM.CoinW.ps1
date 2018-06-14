@@ -653,7 +653,7 @@ $ActiveMinerPrograms | ForEach {
             $_.Timeout = 0
 	        $_.Benchmarked = 0
             $_.HashRate = $Miner_HashRates
-            $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
+            $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
           {
 	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
