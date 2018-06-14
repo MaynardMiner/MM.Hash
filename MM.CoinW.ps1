@@ -582,21 +582,13 @@ Start-Sleep ($CheckMinerInterval)
 $ActiveMinerPrograms | ForEach {
     if($_.Process -eq $null -or $_.Process.HasExited)
     {
-        if($_.Status -eq "Running"){
+        if($_.Status -eq "Running")
+	 {
             $_.Failed30sLater++
-            if($_.Devices -eq "NVIDIA1" -or $_.Devices -eq "NVIDIA2" -or $_.Devices -eq "NVIDIA3" -or $_.Devices -eq "AMD1" -or $_.Devices -eq "AMD2" -or $_.Devices -eq "AMD3")
-             {
-            $T = "-d $($_.Devices) $($_.Arguments)"
             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
             else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
-              }
-            else
-             {
-            if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
-            else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
-             }
-             Start-Sleep ($CheckMinerInterval)
-             if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+            Start-Sleep ($CheckMinerInterval)
+             if($_.Process -eq $null -or $_.Process.HasExited)
               {
                $_.Crashed++
                Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
@@ -609,8 +601,8 @@ $ActiveMinerPrograms | ForEach {
               {
                $_.Recover30sLater++
               }
-       }
-     }
+           }
+        }
     }
 
 
