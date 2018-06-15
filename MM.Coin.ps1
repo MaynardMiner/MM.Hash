@@ -957,7 +957,7 @@ if($LastRan -ne "")
          {
          if($_.WasBenchmarked -eq $False)
           {
-	  if($StatsInvterval -lt 2)
+	  if($StatsInterval -lt 2)
 	   {
            if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
             {
