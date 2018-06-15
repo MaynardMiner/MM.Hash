@@ -1,6 +1,8 @@
 # MM.Hash
 #
 #
+#6/15/2018 After last release, I noticed encoding issues using cross-platform coding. Windows version is working, UNIX isn't. I'm going to resolve this over the weekend. I'm also going to try to load github with copies of the restored miners the app creates for linux, and create a "light" version for Linux users that aren't interested in waiting for miners to compile.
+#
 #MULTI-ALGO, MULTI-COIN SWITCHING, MULTI-POOL, MULTI-DEVICE, MULTI-WALLET, MULTI-DEVICE AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX AND WINDOWS.
 #
 #NOTE- MM.Hash will run miners that are compiled with Windows Binaries. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation. AMD support will come when I get a chance to buy and test an AMD GPU. Clone from git, as I am updating it constantly.
