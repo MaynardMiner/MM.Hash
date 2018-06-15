@@ -559,19 +559,6 @@ function Get-Algorithm {
     else{$Algorithm}
 }
 
-function Get-CoinAlgo {
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]$CoinAlgo
-    )
-    
-    $CoinsAlgo = Get-Content "CoinName.txt" | ConvertFrom-Json
-
-    $CoinAlgo = (Get-Culture).TextInfo.ToTitleCase(($CoinAlgo -replace "_"," ")) -replace " "
-
-    if($CoinsAlgo.$CoinAlgo){$CoinsAlgo.$CoinAlgo}
-    else{$CoinAlgo}
-}
 
 function Convert-DateString ([string]$Date, [string[]]$Format)
 	{

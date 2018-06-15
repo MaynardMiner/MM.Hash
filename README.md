@@ -1,11 +1,11 @@
 # MM.Hash
 #
 #
-MULTI-ALGO, MULTI-COIN SWITCHING, MULTI-POOL, MULTI-DEVICE, MULTI-WALLET, MULTI-DEVICE AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX AND WINDOWS.
+#MULTI-ALGO, MULTI-COIN SWITCHING, MULTI-POOL, MULTI-DEVICE, MULTI-WALLET, MULTI-DEVICE AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX AND WINDOWS.
 #
-NOTE- MM.Hash will run miners that are compiled with Windows Binaries. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation. AMD support will come when I get a chance to buy and test an AMD GPU. Clone from git, as I am updating it constantly.
+#NOTE- MM.Hash will run miners that are compiled with Windows Binaries. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation. AMD support will come when I get a chance to buy and test an AMD GPU. Clone from git, as I am updating it constantly.
 #
-NOTE- MM.HASH works for windows. Edit .Bat files and run the various scripts that come in MM.Hash to use. Will write more documentation on uses and support as I finish final 1.1.9-Full.
+#NOTE- MM.HASH works for windows. Edit .Bat files and run the various scripts that come in MM.Hash to use. Will write more documentation on uses and support as I finish final 1.1.9-Full.
 #
 #MM.Hash is intended to be Unix/Linux mining application, which will mine from NVIDIA GPU, AMD GPU, CPU devices. AMD is built into the code, but at this time I do not have any miners or settings loaded into MM.Hash. I am working on it- I don't own any AMD devices. The program is loosely based of various powershell mining applications available in Windows. I made the base script fully compatible with UNIX, and then added UNIX specific features along with many other changes. Currently I do not intend to build a Windows version. I highly recommend if need to mine with Windows, to use https://github.com/Sniffdog/Sniffdogminer.
 #
@@ -23,7 +23,7 @@ NOTE- MM.HASH works for windows. Edit .Bat files and run the various scripts tha
 #
 #
 #
-#HOW TO SETUP- NVIDIA/CPU
+#HOW TO SETUP- NVIDIA/CPU (UNIX VERSION)
 #
 #
 #
@@ -41,7 +41,7 @@ git clone https://github.com/MaynardMiner/MM.Hash.git
 
 #Once finished, navigate to the directory:
 
-cd MM.Hash
+cd MM.Hash/Apps
 
 #If you using NVIDIA- Type the following:
 
@@ -73,13 +73,14 @@ Uncheck "Use Colors From System Theme"
 #
 Click "Close" Box
 #
-#Once back in terminal- Type the following command:
+#Once back in terminal- Type the following commands:
 #
+cd MM.Hash/Apps
 sudo bash Setup-Nvidia.part2
 #
 #Instructions will follow on what to enter next, but you have to run a needed dependency before starting miner to allow it to setup. Follow the instructions on the screen. Reboot  When finished- Right click on black screen and open terminal emulator:
 #
-cd MM.Hash
+cd MM.Hash/Apps
 #
 sudo bash overclock
 #
@@ -136,7 +137,7 @@ Type=NVIDIA1,NVIDIA2 (You can still use CPU, but no CPU1,CPU2,CPU3 (There is no 
 #
 #MAITENENCE/Issues
 #
-#-If you wish to reset all your benchmark stats- type the following while in MM.Hash directory:
+#-If you wish to reset all your benchmark stats- type the following while in MM.Hash Apps directory:
 
 sudo bash ClearProfits.sh
 
@@ -159,6 +160,7 @@ sudo bash ResetBenchmarks.sh
 #
 #
 #Open DevNotes.txt to see other notes on using MM.Hash, along with new changes, and future changes.
+#
 #
 #
 CONTACT

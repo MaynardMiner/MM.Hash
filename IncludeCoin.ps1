@@ -216,7 +216,7 @@ function Get-HashRate {
                     $HashRates += $HashRate
                     if(-not $Safe){break}
 
-                    sleep $Interval
+                    Start-sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
             "ccminer"
@@ -369,7 +369,7 @@ function Get-HashRate {
                     if(-not $Safe){break}
 
                     Start-Sleep $Interval
-                } while($HashRates.Count -lt 6)
+               } while($HashRates.Count -lt 6)
             }
             "wrapper"
             {
@@ -640,19 +640,6 @@ function Get-Algorithm {
     else{$Algorithm}
 }
 
-function Get-CoinAlgo {
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]$CoinAlgo
-    )
-    
-    $CoinsAlgo = Get-Content "CoinName.txt" | ConvertFrom-Json
-
-    $CoinAlgo = (Get-Culture).TextInfo.ToTitleCase(($CoinAlgo -replace "_"," ")) -replace " "
-
-    if($CoinsAlgo.$CoinAlgo){$CoinsAlgo.$CoinAlgo}
-    else{$CoinAlgo}
-}
 
 function Convert-DateString ([string]$Date, [string[]]$Format)
 	{
