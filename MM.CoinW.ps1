@@ -138,8 +138,6 @@ $IntervalSwitch = $Interval
 if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $_.Name $_.Content.Minute_5}}
 
 Write-Host "
-
-
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM        HHHHHHHHH     HHHHHHHHH               AAA                 SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHH
     M:::::::M             M:::::::MM:::::::M             M:::::::M        H:::::::H     H:::::::H              A:::A              SS:::::::::::::::SH:::::::H     H:::::::H
     M::::::::M           M::::::::MM::::::::M           M::::::::M        H:::::::H     H:::::::H             A:::::A            S:::::SSSSSS::::::SH:::::::H     H:::::::H
@@ -156,9 +154,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
-
 				             By: MaynardMiner                      v1.1.9-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
-
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|
@@ -170,15 +166,10 @@ Write-Host "
                                                                        |##|              `-.|#|##|#|`===l##\   _\############|##|
                                                                       =======-===l          |_|__|_|     \##`-'__,=======.###|##|
                                                                                                           \__.'          '======'
-
 					    				      SNIPER-MODE ACTIVATED
-
 						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
-
 									.5% Dev Fee Was Written In This Code
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
-
-
 " -foregroundColor "darkred"
 
 
@@ -334,8 +325,8 @@ if($LastRan -ne "")
     #Load information about the Miners
     #Messy...?
     $Miners = if(Test-Path "WinCoinMiners"){Get-ChildItemContent "WinCoinMiners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
- Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
- Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+    Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+    Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
         if((Test-Path $Miner.Path) -eq $false)
@@ -465,11 +456,11 @@ if($LastRan -ne "")
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
                 Path = $_.Path
-		        Type = $_.Type
-		        Devices = $_.Devices
-	            MinerName = $_.MinerName
-		        Arguments = $_.Arguments
-	            Wrap = $_.Wrap
+		Type = $_.Type
+		Devices = $_.Devices
+	        MinerName = $_.MinerName
+		Arguments = $_.Arguments
+	        Wrap = $_.Wrap
                 MiningName = $null
                 MiningId = $null
                 Process = $null
@@ -524,8 +515,9 @@ if($LastRan -ne "")
             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
             else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }
-            else
+            if($_.Type -eq "CPU")
              {
+		  $T = "$($_.Arguments)"
             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
             else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
              }
@@ -562,10 +554,10 @@ if($LastRan -ne "")
         $Y = [string]$CoinExchange
 	$H = [string]$Currency
 	$J = [string]'BTC'
-        $BTCExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=$J" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $Y | Select-Object -ExpandProperty $J
-       $CurExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=$H" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $J | Select-Object -ExpandProperty $H
-        Write-Host "1 $CoinExchange  = $BTCExchangeRate of a Bitcoin" -foregroundcolor "Yellow"
-     Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
+    $BTCExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=$J" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $Y | Select-Object -ExpandProperty $J
+    $CurExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=$H" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $J | Select-Object -ExpandProperty $H
+    Write-Host "1 $CoinExchange  = $BTCExchangeRate of a Bitcoin" -foregroundcolor "Yellow"
+    Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}},
         @{Label = "Coin"; Expression={$_.HashRates.PSObject.Properties.Name}},
@@ -574,7 +566,7 @@ if($LastRan -ne "")
         @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $BTCExchangeRate).ToString("N5")}else{"Bench"}}}; Align='right'},
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
         @{Label = "Algorithm"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Algorithm)"}}; Align='center'},
-@{Label = " Coin Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
+        @{Label = " Coin Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
 
@@ -645,7 +637,7 @@ $ActiveMinerPrograms | ForEach {
             $_.WasBenchmarked = $False
             $Miner_HashRates = Get-HashRate $_.API $_.Port
             $_.Timeout = 0
-	        $_.Benchmarked = 0
+	    $_.Benchmarked = 0
             $_.HashRate = $Miner_HashRates
             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
@@ -656,13 +648,13 @@ $ActiveMinerPrograms | ForEach {
               if($_.WasBenchmarked -eq $False)
                {
                 Write-Host "$($_.Name) $($_.Coins) Starting Bench"
-		 $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+		$HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
                  {
                   $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
                   Start-Sleep -s 1
-		        Write-Host "Stat Written"
+		   Write-Host "Stat Written"
                   if(Test-Path (Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"))
                   {
                    if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
@@ -677,8 +669,8 @@ $ActiveMinerPrograms | ForEach {
                   }
 		  else
                    {
-                  $_.Timeout++
-                     Write-Host "Timeout Reason 1"
+                    $_.Timeout++
+                    Write-Host "Timeout Reason 1"
                    }
                   }
                 else 
@@ -692,33 +684,33 @@ $ActiveMinerPrograms | ForEach {
 		   {
                     $LastWrite = [datetime](Get-ItemProperty -Path $HashrateFilePath -Name LastWriteTime).LastWriteTime
                     $LastWriteTime = [math]::Round(((Get-Date)-$LastWrite).TotalSeconds)
-                    }
-                    if($LastWriteTime -le 5)
-                     {
-                       $_.WasBenchmarked = $True
-                       Write-Host "$($_.Name) $($_Coins) Was Benchmarked."
-                       $_.Timeout = 0
-                     }   
-                    else
-		     {
-                     $_.Timeout++
-                     Write-Host "Timeout Reason 2"
-                     }
                    }
+                   if($LastWriteTime -lt 5)
+                    {
+                      $_.WasBenchmarked = $True
+                      Write-Host "$($_.Name) $($_Coins) Was Benchmarked."
+                      $_.Timeout = 0
+                    }   
+                   else
+		    {
+                    $_.Timeout++
+                    Write-Host "Timeout Reason 2"
+                    }
+                  }
                 }  
               }
-           }
-        }
+            }
+          }
 
         if($_.Timeout.Count -ge 0 -or $_.Process -eq $null -or $_.Process.HasExited)
          {
          if($_.WasBenchmarked -eq $False)
           {
-	  if($StatsInvterval -lt 2)
+	  if($StatsInterval -lt 2)
 	   {
+	   $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
            if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
             {
-	    $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
             if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
@@ -733,7 +725,6 @@ $ActiveMinerPrograms | ForEach {
             }
           else
            {
-            $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
             if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
@@ -748,7 +739,7 @@ $ActiveMinerPrograms | ForEach {
           }
          }
         }
-    }
+      }
   
   #Stop the log
   Stop-Transcript
