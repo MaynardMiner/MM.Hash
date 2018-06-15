@@ -12,7 +12,7 @@ while ($true)
      {
     $GetWalletZergpool = Invoke-RestMethod http://zergpool.com/api/wallet?address=$Wallet -UseBasicParsing
 
-    $GetWallet | foreach {
+    $GetWalletZergpool | foreach {
 
     $Get_Currency = $_.currency
     $Get_Unsold = $_.unsold
