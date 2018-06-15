@@ -34,7 +34,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
 	Type = "CPU"
         Path = $Path
 	Distro = $Distro
-    Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4069 -u $($Pools.$_.User1) -p $($Pools.$_.Pass1) $($Commands.$_)"
+    Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4048 -u $($Pools.$_.User1) -p $($Pools.$_.Pass1) $($Commands.$_)"
     HashRates = [PSCustomObject]@{ $_ = $Stats."$($Name)_$($_)_HashRate".Live}
     API = "Ccminer"
         Port = 4048
