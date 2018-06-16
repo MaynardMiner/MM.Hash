@@ -517,6 +517,7 @@ function Expand-WebRequest {
        Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Copy-Item .\Build\*  -Destination $Filename -recurse -force
        Set-Location $Filename
+       Start-Process -Filepath "chmod" -ArgumentList "+x ./configure.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
