@@ -171,11 +171,31 @@ MAITENENCE/Issues
 
 -If you wish to reset all your benchmark stats- type the following while in MM.Hash Apps directory:
 
+```
 sudo bash ClearProfits.sh
+```
 
 -If you wish to remove the benchmark of a particular miner/algo- delete its "hashrate".txt file. If you want to reset all benchmarks, use:
 
+```
 sudo bash ResetBenchmarks.sh
+```
+
+-If you wish to clear your Logs
+
+```
+sudo bash RemoveLogs.sh
+```
+
+-If you wish to track your wallet, navigate to Apps directory and type:
+
+```
+vi Wallet_Tracker.sh
+```
+Then edit with your wallet and pool. When finished save and exit and then type:
+```
+sudo bash Wallet_Tracker.sh
+```
 
 Navigating to the Miner files, and opening them with vi lets you configure miners. Putting a # turns off algo, removing # turns them on. Optimizations are added to the command line, so if you wish to increase its intensity for example, add -i [intensity] between the "" of the algo.
 -You can add/edit miner files while miner is running. JUST MAKE SURE THEY ARE CORRECT BEFORE SAVING!
