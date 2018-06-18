@@ -109,11 +109,6 @@ NVIDIA GPU's will begin overclocking to what I believe is optimal settings. If y
 
 CONFIGURATION
 
-Open StartMM while in MM.Hash directory:
-
-```
-vi ./StartMM
-```
 For Algo-Switching, or for Coin Switching:
 
 ```
@@ -123,11 +118,6 @@ vi ./StartMM.Coin
 There is a list of options, with simple explanations as to how they work. Be sure to leave all '' and "" in each parameter where applicable! Basic edit commands: "i" or [insert] lets you edit file "esc" takes you to vi menu. While in vi menu, type :x to save, :q to quit. If you are new to mining- It would probably be good at looking at CCminer setup articles to understand the principle operation, as well as browsing some of the pool sites listed in the pools folder. If you do not have a large mining setup- I would highly reccomend using on one or two pools, or it will take a very long time to recieve your mining rewards. This is because of the pools themselves- It is out of my control.
 
 Once saved and setup up, start MM.Hash by typing the following in terminal:
-
-```
-./StartMM
-```
-or
 
 ```
 ./StartMM.Coin
@@ -150,12 +140,7 @@ STARTING THE MINER
 
 Naviagate to MM.Hash directory and run this command:
 ```
-./StartMM
-```
-or
-
-```
-./StartMM.poolname
+./StartMM.Coin
 ```
 
 Miner will start! It takes a little bit for the miner to download and install and miners you want to use. If you are running on a very slow drive- it may look like the screen has frozen, but it takes awhile to start the configure process to build. If the miner doesn't continue to the main screen, you can simple ctrl+c to close miner, delete the newly created "Bin" folder, re-clone then try and run MM.Hash again. If a miner fails to install- either your gpu settings/install are not correct, you are missing a dependency, or the owner of the miner recently committed to his code, and there was issues. MM.Hash pull the actual code source directly from github, configures, and builds the miner into an executable program! Currently it only has the capabilities to do this to the programs in which their source code is open to download. Because of this- I have included some already ready-to-run mining application in the Bin folder.
