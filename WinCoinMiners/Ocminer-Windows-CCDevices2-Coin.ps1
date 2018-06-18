@@ -1,7 +1,7 @@
 $Path = ".\Bin\ocminer-Windows-CCDevices3-Coin\ccminer.exe"
 $Uri = "https://github.com/ocminer/suprminer/releases/download/1.5/suprminer-1.5.7z"
 
-$Devices = $CCDevices3
+$Devices = $CCDevices2
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
