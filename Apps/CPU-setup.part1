@@ -9,11 +9,12 @@ sudo apt-get install libunwind8
 cd Downloads && wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0/powershell_6.0.0-1.ubuntu.17.04_amd64.deb
 sudo dpkg -i powershell_6.0.0-1.ubuntu.17.04_amd64.deb
 sudo apt-get install -f
+cd
 cd MM.Hash
 sudo apt-get install vim
 sudo apt-get install xterm
 sudo apt-get install p7zip-full
-chmod +x ./StartMM.zergpool
+chmod +x StartMM.coin
 cd
 sudo dpkg --add-architecture i386
 cd Downloads && wget -nc https://repos.wine-staging.com/wine/Release.key
