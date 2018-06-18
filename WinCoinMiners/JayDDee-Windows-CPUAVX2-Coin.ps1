@@ -38,7 +38,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
         Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
         API = "Ccminer"
-        Port = 4068
+        Port = 4048
         Wrap = $false
         URI = $Uri
 	    BUILD = $Build
