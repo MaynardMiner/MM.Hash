@@ -28,7 +28,6 @@ $Commands = [PSCustomObject]@{
 "LOBS" = '' #Quark
 "QRK" = '' #Quark
 "XMX" = '' #Quark
-"SIB" = '-i 21' #Sib
 "NEVA" = '' #Blake2s
 "TAJ" = '' #Blake2s
 "XSH-blake2s" = '' #Blake2s
