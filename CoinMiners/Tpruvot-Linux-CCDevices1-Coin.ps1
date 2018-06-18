@@ -14,6 +14,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Tribus
 #Phi
 #Keccakc
+#Sib
 
 $Commands = [PSCustomObject]@{
 "ABS" = '' #Lryra2v2
