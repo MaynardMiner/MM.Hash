@@ -1,4 +1,4 @@
-$Path = '.\Bin\NVIDIA-Tpruvot-XMR-Allium-Windows-CCDevices3-Algo\ccminer-x64.exe'
+$Path = '.\Bin\Tpruvot-Allium-Windows-CCDevices3-Algo\ccminer-x64.exe'
 $Uri = 'https://t.co/lFAnmZ4q1Z'
 $Build = "Windows"
 $Distro = "Windows"
@@ -22,6 +22,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     MinerName = "ccminer"
     Type = "NVIDIA3"
     Path = $Path
+    PName = "ccminer-x64.exe"
     Distro = $Distro
     Devices = $Devices
     Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -b 0.0.0.0:4071 -u $($Pools.(Get-Algo($_)).User3) -p $($Pools.(Get-Algo($_)).Pass3) $($Commands.$_)"

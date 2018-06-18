@@ -1,4 +1,4 @@
-$Path = '.\Bin\NVIDIA-Tpruvot-XMR-Allium-Windows-CCDevices3-Coin\ccminer-x64.exe'
+$Path = '.\Bin\Tpruvot-Allium-Windows-CCDevices3-Coin\ccminer-x64.exe'
 $Uri = 'https://t.co/lFAnmZ4q1Z'
 $Build = "Windows"
 $Distro = "Windows"
@@ -11,9 +11,8 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Allium
 
 $Commands = [PSCustomObject]@{
-    "Allium" = '' #Allium
-    "XMR" = '' #XMR
-}
+    "GRLC" = '' #Allium
+    }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
@@ -22,6 +21,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     MinerName = "ccminer"
     Type = "NVIDIA3"
     Path = $Path
+    PName "ccminer-x64.exe"
     Distro = $Distro
     Devices = $Devices
     Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -b 0.0.0.0:4071 -u $($Pools.(Get-Algo($_)).User3) -p $($Pools.(Get-Algo($_)).Pass3) $($Commands.$_)"

@@ -1,4 +1,4 @@
-$Path = '.\Bin\NVIDIA-Tpruvot-XMR-Allium-Windows-CCDevices1-Algo\ccminer-x64.exe'
+$Path = '.\Bin\Tpruvot-Allium-Windows-CCDevices1-Algo\ccminer-x64.exe'
 $Uri = 'https://t.co/lFAnmZ4q1Z'
 $Build = "Windows"
 $Distro = "Windows"
@@ -22,6 +22,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     [PSCustomObject]@{
     MinerName = "ccminer"
     Type = "NVIDIA1"
+    Pname = "ccminer-x64.exe"
     Path = $Path
     Distro = $Distro
     Devices = $Devices
