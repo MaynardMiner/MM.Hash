@@ -1,5 +1,3 @@
-. .\Include.ps1
-
 $Path = '.\Bin\NVIDIA-Tpruvot-Allium-Windows-CCDevices2-Coin\ccminer-x64.exe'
 $Uri = 'https://t.co/lFAnmZ4q1Z'
 $Build = "Windows"
@@ -16,7 +14,7 @@ $Commands = [PSCustomObject]@{
     "GRLC" = '' #Allium
 }
 
-$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {  
+$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     if($Algorithm -eq "$($Pools.$_.Algorithm)")
      {
     [PSCustomObject]@{
