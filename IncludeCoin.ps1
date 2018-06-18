@@ -1,9 +1,9 @@
 function Set-Stat {
     param(
         [Parameter(Mandatory=$true)]
-        [String]$Name, 
+        [String]$Name,
         [Parameter(Mandatory=$true)]
-        [Double]$Value, 
+        [Double]$Value,
         [Parameter(Mandatory=$false)]
         [DateTime]$Date = (Get-Date)
     )
@@ -31,10 +31,10 @@ function Set-Stat {
         Minute_5_Fluctuation = [Double]$Stat.Minute_5_Fluctuation
         Updated = [DateTime]$Stat.Updated
     }
-    
+
     $Span_Minute = [Math]::Min(($Date-$Stat.Updated).TotalMinutes,1)
     $Span_Minute_5 = [Math]::Min((($Date-$Stat.Updated).TotalMinutes/5),1)
-    
+
     $Stat = [PSCustomObject]@{
         Live = $Value
         Minute = ((1-$Span_Minute)*$Stat.Minute)+($Span_Minute*$Value)
@@ -64,7 +64,7 @@ function Get-Stat {
         [Parameter(Mandatory=$true)]
         [String]$Name
     )
-    
+
     if(-not (Test-Path "Stats")){New-Item "Stats" -ItemType "directory"}
     Get-ChildItem "Stats" | Where-Object Extension -NE ".ps1" | Where-Object BaseName -EQ $Name | Get-Content | ConvertFrom-Json
 }
@@ -100,13 +100,13 @@ function Get-ChildItemContent {
         else
         {
            $Content = $_ | Get-Content | ConvertFrom-Json
-	 
+
         }
         $Content | ForEach-Object {
             [PSCustomObject]@{Name = $Name; Content = $_}
         }
     }
-    
+
     $ChildItems | ForEach-Object {
         $Item = $_
         $ItemKeys = $Item.Content.PSObject.Properties.Name.Clone()
@@ -128,22 +128,22 @@ function Get-ChildItemContent {
             }
         }
     }
-    
+
     $ChildItems
 }
 <#
 function Set-Algorithm {
     param(
         [Parameter(Mandatory=$true)]
-        [String]$API, 
+        [String]$API,
         [Parameter(Mandatory=$true)]
-        [Int]$Port, 
+        [Int]$Port,
         [Parameter(Mandatory=$false)]
         [Array]$Parameters = @()
     )
-    
+
     $Server = "localhost"
-    
+
     switch($API)
     {
         "nicehash"
@@ -155,17 +155,17 @@ function Set-Algorithm {
 function Get-HashRate {
     param(
         [Parameter(Mandatory=$true)]
-        [String]$API, 
+        [String]$API,
         [Parameter(Mandatory=$true)]
-        [Int]$Port, 
+        [Int]$Port,
         [Parameter(Mandatory=$false)]
-        [Object]$Parameters = @{}, 
+        [Object]$Parameters = @{},
         [Parameter(Mandatory=$false)]
         [Bool]$Safe = $false
     )
-    
+
     $Server = "localhost"
-    
+
     $Multiplier = 1000
     $Delta = 0.05
     $Interval = 5
@@ -179,7 +179,7 @@ function Get-HashRate {
             "xgminer"
             {
                 $Message = @{command="summary"; parameter=""} | ConvertTo-Json -Compress
-            
+
                 do
                 {
                     $Client = New-Object System.Net.Sockets.TcpClient $server, $port
@@ -261,9 +261,9 @@ function Get-HashRate {
                     $Request = $Reader.ReadLine()
 
                     $Data = $Request | ConvertFrom-Json
-                
+
                     $HashRate = $Data.result.speed_hps
-                    
+
                     if($HashRate -eq $null){$HashRate = $Data.result.speed_sps}
 
                     if($HashRate -eq $null){$HashRates = @(); break}
@@ -290,7 +290,7 @@ function Get-HashRate {
                     $Request = $Reader.ReadLine()
 
                     $Data = $Request | ConvertFrom-Json
-                
+
                     $HashRate = $Data.algorithms.workers.speed
 
                     if($HashRate -eq $null){$HashRates = @(); break}
@@ -317,7 +317,7 @@ function Get-HashRate {
                     $Request = $Reader.ReadLine()
 
                     $Data = $Request | ConvertFrom-Json
-                
+
                     $HashRate = $Data.result.speed_sps
 
                     if($HashRate -eq $null){$HashRates = @(); break}
@@ -334,9 +334,9 @@ function Get-HashRate {
                 do
                 {
                     $Request = Invoke-WebRequest "http://$($Server):$Port" -UseBasicParsing
-                    
+
                     $Data = $Request.Content.Substring($Request.Content.IndexOf("{"),$Request.Content.LastIndexOf("}")-$Request.Content.IndexOf("{")+1) | ConvertFrom-Json
-                    
+
                     $HashRate = $Data.result[2].Split(";")[0]
                     $HashRate_Dual = $Data.result[4].Split(";")[0]
 
@@ -355,9 +355,9 @@ function Get-HashRate {
                 do
                 {
                     $Request = Invoke-WebRequest "http://$($Server):$Port/h" -UseBasicParsing
-                    
+
                     $Data = $Request.Content -split "</tr>" -match "total*" -split "<td>" -replace "<[^>]*>",""
-                    
+
                     $HashRate = $Data[1]
                     if($HashRate -eq ""){$HashRate = $Data[2]}
                     if($HashRate -eq ""){$HashRate = $Data[3]}
@@ -376,8 +376,8 @@ function Get-HashRate {
                 do
                 {
                     $HashRate = Get-Content ".\Wrapper_$Port.txt"
-              			  
-			 
+
+
                     if($HashRate -eq $null){$HashRates = @(); break}
 
                     $HashRates += [Double]$HashRate
@@ -400,7 +400,7 @@ function Get-HashRate {
     }
 }
 
-filter ConvertTo-Hash { 
+filter ConvertTo-Hash {
     $Hash = $_
     switch([math]::truncate([math]::log($Hash,[Math]::Pow(1000,1))))
     {
@@ -416,9 +416,9 @@ filter ConvertTo-Hash {
 function Get-Combination {
     param(
         [Parameter(Mandatory=$true)]
-        [Array]$Value, 
+        [Array]$Value,
         [Parameter(Mandatory=$false)]
-        [Int]$SizeMax = $Value.Count, 
+        [Int]$SizeMax = $Value.Count,
         [Parameter(Mandatory=$false)]
         [Int]$SizeMin = 1
     )
@@ -451,29 +451,29 @@ function Get-Combination {
 function Start-SubProcess {
     param(
         [Parameter(Mandatory=$true)]
-        [String]$FilePath, 
+        [String]$FilePath,
         [Parameter(Mandatory=$false)]
-        [String]$ArgumentList = "", 
+        [String]$ArgumentList = "",
         [Parameter(Mandatory=$false)]
         [String]$WorkingDirectory = ""
-	 )
- 
-    $Job = & {
+    )
+
+    $Job = Start-Job -ArgumentList $PID, $FilePath, $ArgumentList, $WorkingDirectory {
         param($ControllerProcessID, $FilePath, $ArgumentList, $WorkingDirectory)
 
-        $ControllerProcess = Get-Process $FilePath | Select-Object Id
+        $ControllerProcess = Get-Process -Id $ControllerProcessID
         if($ControllerProcess -eq $null){return}
 
         $ProcessParam = @{}
         $ProcessParam.Add("FilePath", $FilePath)
-        $ProcessParam.Add("WindowStyle", 'Minimized')
+		$ProcessParam.Add("WindowStyle", 'Minimized')
         if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)}
         if($WorkingDirectory -ne ""){$ProcessParam.Add("WorkingDirectory", $WorkingDirectory)}
         $Process = Start-Process @ProcessParam -PassThru
         if($Process -eq $null){[PSCustomObject]@{ProcessId = $null}; return}
 
         [PSCustomObject]@{ProcessId = $Process.Id; ProcessHandle = $Process.Handle}
-        
+
         $ControllerProcess.Handle | Out-Null
         $Process.Handle | Out-Null
 
@@ -481,10 +481,10 @@ function Start-SubProcess {
         while($Process.HasExited -eq $false)
     }
 
-    do{Start-Sleep 1; $JobOutput = Invoke-Command -ScriptBlock {$Job} -AsJob}
+    do{sleep 1; $JobOutput = Receive-Job $Job}
     while($JobOutput -eq $null)
 
-    $Process = Get-Process | Where-Object Id -EQ $JobOutput.ProcessId
+    $Process = Get-Process | Where Id -EQ $JobOutput.ProcessId
     $Process.Handle | Out-Null
     $Process
 }
@@ -497,18 +497,18 @@ function Expand-WebRequest {
 	[String]$BuildPath,
 	[Parameter(Mandatory=$false)]
 	[String]$Path
-          ) 
+          )
      if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null}
      if (-not (Test-Path ".\x64")) {New-Item "x64" -ItemType "directory" | Out-Null}
-     if (-not $Path) {$Path = Join-Path ".\x64" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName} 
+     if (-not $Path) {$Path = Join-Path ".\x64" ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName}
 	$Old_Path = Split-Path $Uri -Parent
-        $New_Path = Split-Path $Old_Path -Leaf	
+        $New_Path = Split-Path $Old_Path -Leaf
 	$FileName = Join-Path ".\Bin" $New_Path
-        $FileName1 = Join-Path ".\x64" (Split-Path $Uri -Leaf) 
-  
+        $FileName1 = Join-Path ".\x64" (Split-Path $Uri -Leaf)
+
         if($BuildPath -eq "Linux")
 	 {
-	  if(-not (Test-Path $Filename))	 
+	  if(-not (Test-Path $Filename))
 	   {
        Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location ".\Bin"
@@ -517,11 +517,12 @@ function Expand-WebRequest {
        Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Copy-Item .\Build\*  -Destination $Filename -recurse -force
        Set-Location $Filename
+       Start-Process -Filepath "chmod" -ArgumentList "+x ./configure.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
-       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
           }
          }
 	if($BuildPath -eq "Linux-Clean")
@@ -539,10 +540,10 @@ function Expand-WebRequest {
        Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
-       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 	   }
           }
-  
+
     if($BuildPath -eq "Linux-Zip-Build")
      {
      if(-not (Test-Path $Path))
@@ -564,38 +565,38 @@ function Expand-WebRequest {
       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
       }
     }
- 
+
 	if($BuildPath -eq "Windows")
 	 {
 	  if (Test-Path $FileName1) {Remove-Item $FileName1}
 	    Write-Host "Downloading Windows Binaries"
-	    Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait 
-           if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension) 
-	    { 
-             Start-Process -FilePath "wine" -ArgumentList "$FileName" -Wait 
-            } 
-  	    else { 
-		   $Path_Old = (Join-Path (Split-Path $Path) ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName) 
-                   $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf)) 
- 
- 
+	    Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait
+           if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension)
+	    {
+             Start-Process -FilePath "wine" -ArgumentList "$FileName" -Wait
+            }
+  	    else {
+		   $Path_Old = (Join-Path (Split-Path $Path) ([IO.FileInfo](Split-Path $Uri -Leaf)).BaseName)
+                   $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf))
+
+
                     if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
-		     
-                    Start-Process "7z" "x `"$([IO.Path]::GetFullPath($FileName1))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait 
- 
- 
-                    if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse} 
-                    if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false) 
-		     { 
-                     Rename-Item $Path_Old (Split-Path $Path -Leaf) 
-                     } 
-                    else 
-		       { 
+
+                    Start-Process "7z" "x `"$([IO.Path]::GetFullPath($FileName1))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait
+
+
+                    if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
+                    if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false)
+		     {
+                     Rename-Item $Path_Old (Split-Path $Path -Leaf)
+                     }
+                    else
+		       {
                          Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
-                         Remove-Item $Path_Old 
+                         Remove-Item $Path_Old
                        }
                   }
-	 
+
           }
 
 if($BuildPath -eq "Linux-Zip")
@@ -606,10 +607,10 @@ if($BuildPath -eq "Linux-Zip")
 	     Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait
 	     New-Item -Path ".\Bin" -Name "$NewDir" -ItemType "directory"
 	     Start-Process tar "-xvf `"$([IO.Path]::GetFullPath($FileName1))`" -C `"$([IO.Path]::GetFullPath($Path))`"" -Wait
-	 
+
           }
 	}
- } 
+ }
 
 
  function Get-Coin {
@@ -617,7 +618,7 @@ if($BuildPath -eq "Linux-Zip")
         [Parameter(Mandatory=$true)]
         [String]$Coin
     )
-    
+
     $Coins = Get-Content "Coins.txt" | ConvertFrom-Json
 
     $Coin = (Get-Culture).TextInfo.ToTitleCase(($Coin -replace "_"," ")) -replace " "
@@ -631,7 +632,7 @@ function Get-Algorithm {
         [Parameter(Mandatory=$true)]
         [String]$Algorithm
     )
-    
+
     $Algorithms = Get-Content "Algorithms.txt" | ConvertFrom-Json
 
     $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
@@ -640,6 +641,19 @@ function Get-Algorithm {
     else{$Algorithm}
 }
 
+function Get-Algo {
+    param(
+        [Parameter(Mandatory=$true)]
+        [String]$Algorithm
+    )
+
+    $Algorithms = Get-Content "AlgoText.txt" | ConvertFrom-Json
+
+    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
+
+    if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
+    else{$Algorithm}
+}
 
 function Convert-DateString ([string]$Date, [string[]]$Format)
 	{

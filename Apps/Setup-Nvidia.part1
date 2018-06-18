@@ -34,19 +34,14 @@ cd MM.Hash
 sudo apt-get install vim
 sudo apt-get install xterm
 sudo apt-get install p7zip-full
-chmod +x ./StartMM.zergpool
 chmod +x ./StartMM
-chmod +x ./StartMM.blazepool
-chmod +x ./StartMM.ahashpool
-chmod +x ./StartMM.hashrefinery
-chmod +x ./StartMM.minemoney
-chmod +x ./StartMM.mph
-chmod +x ./StartMM.phiphipool
-chmod +x ./StartMM.zpool
-chmod +x ./ResetBenchmarks.sh
-chmod +x ./RemoveLogs.sh
-chmod +x ./overclock
-chmod +x ./ClearProfit.sh
+chmod +x ./StartMM.Coin
+chmod +x ./Apps/ResetBenchmarks.sh
+chmod +x ./Apps/RemoveLogs.sh
+chmod +x ./Apps/overclock
+chmod +x ./Apps/ClearProfits.sh
+chmod +x ./Apps/Wallet_Tracker.sh
+chmod +X ./Build/configure.sh
 cd
 cd Downloads
 sudo dpkg --add-architecture i386

@@ -8,16 +8,6 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$Wallet3,
     [Parameter(Mandatory=$false)]
-    [String]$Wallet4,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet5,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet6,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet7,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet8,
-    [Parameter(Mandatory=$false)]
     [String]$UserName = "MaynardVII", 
     [Parameter(Mandatory=$false)]
     [String]$WorkerName = "Rig1",
@@ -40,57 +30,21 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Type1 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type2 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type3 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type4 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type5 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type6 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type7 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type8 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
     [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices1, 
+    [String]$CCDevices1, 
     [Parameter(Mandatory=$false)] 
-    [String]$GPUDevices2,
+    [String]$CCDevices2,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices3,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices4,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices5,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices6,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices7,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices8,
+    [String]$CCDevices3,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices1, 
     [Parameter(Mandatory=$false)] 
     [String]$EWBFDevices2,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices3,
-    [Parameter(Mandatory=$false)]
-    [String]$EwBFDevices4,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices5,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices6,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices7,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices8,
     [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
@@ -104,32 +58,27 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency3 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency4 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency5 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency6 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency7 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency8 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Int]$Donate = 5, #Minutes per Day
+    [Int]$Donate = .5, #Percent per Day
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1, #seconds before opening each miner
     [Parameter(Mandatory=$false)]
-    [Array]$SelectedAlgo = $null,
-    [Parameter(Mandatory=$false)]
     [String]$CoinExchange = "",
     [Parameter(Mandatory=$false)]
-    [array]$Coin= $null
+    [array]$Coin= $null,
+    [Parameter(Mandatory=$false)]
+    [string]$Auto_Algo = "No"
 )
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 Get-ChildItem . -Recurse | Out-Null 
+
+if($Auto_Algo -eq "Yes")
+{
+$Algorithm | foreach {$Algorithm += "$($_)-ALGO"}
+}
 
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
@@ -146,7 +95,6 @@ $ActiveMinerPrograms = @()
 
 #Start the log
 Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
-
 
 if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
  {
@@ -167,7 +115,6 @@ if($DonationClear -ne "")
  {
   Clear-Content ".\Build\Data\Info.txt"
  }
-
 
 $WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
 $UserDonate = "MaynardVII"
@@ -218,7 +165,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                      v1.2.0-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.2.2-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -236,7 +183,7 @@ Write-Host "
 
 						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
-								      .5% Dev Fee Was Written In This Code
+								      .75% Dev Fee Was Written In This Code
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
 
 
@@ -244,8 +191,9 @@ Write-Host "
 
 while($true)
 {
+
 $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
-$TimeDeviation = ($Donate + .5)
+$TimeDeviation = ($Donate + .75)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
@@ -381,7 +329,7 @@ if($LastRan -ne "")
     if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
 
     #Load information about the Pools
-    $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
+    $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
         Where Location -EQ $Location | 
         Where SSL -EQ $SSL | 
         Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
@@ -390,11 +338,12 @@ if($LastRan -ne "")
     $Pools_Comparison = [PSCustomObject]@{}
     $AllPools.Coin | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
     $AllPools.Coin | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
-
     #Load information about the Miners
     #Messy...?
+
     $Miners = if(Test-Path "CoinMiners"){Get-ChildItemContent "CoinMiners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
- Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
+ Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+ Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
@@ -503,12 +452,13 @@ if($LastRan -ne "")
     $Miners_Type_Combos = @([PSCustomObject]@{Combination = @()}) + (Get-Combination ($Miners | Select Type -Unique) | Where{(Compare-Object ($_.Combination | Select -ExpandProperty Type -Unique) ($_.Combination | Select -ExpandProperty Type) | Measure).Count -eq 0})
     $Miners_Index_Combos = @([PSCustomObject]@{Combination = @()}) + (Get-Combination ($Miners | Select Index -Unique) | Where{(Compare-Object ($_.Combination | Select -ExpandProperty Index -Unique) ($_.Combination | Select -ExpandProperty Index) | Measure).Count -eq 0})
     $Miners_Device_Combos = (Get-Combination ($Miners | Select Device -Unique) | Where{(Compare-Object ($_.Combination | Select -ExpandProperty Device -Unique) ($_.Combination | Select -ExpandProperty Device) | Measure).Count -eq 0})
-    $BestMiners_Combos = $Miners_Type_Combos | ForEach {$Miner_Type_Combo = $_.Combination; $Miners_Index_Combos | ForEach {$Miner_Index_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Type_Combo | ForEach {$Miner_Type_Count = $_.Type.Count; [Regex]$Miner_Type_Regex = ë^(ë + (($_.Type | ForEach {[Regex]::Escape($_)}) -join ì|î) + ë)$í; $Miner_Index_Combo | ForEach {$Miner_Index_Count = $_.Index.Count; [Regex]$Miner_Index_Regex = ë^(ë + (($_.Index | ForEach {[Regex]::Escape($_)}) ñjoin ì|î) + ë)$í; $BestMiners | Where {([Array]$_.Type -notmatch $Miner_Type_Regex).Count -eq 0 -and ([Array]$_.Index -notmatch $Miner_Index_Regex).Count -eq 0 -and ([Array]$_.Type -match $Miner_Type_Regex).Count -eq $Miner_Type_Count -and ([Array]$_.Index -match $Miner_Index_Regex).Count -eq $Miner_Index_Count}}}}}}
-    $BestMiners_Combos += $Miners_Device_Combos | ForEach {$Miner_Device_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Device_Combo | ForEach {$Miner_Device_Count = $_.Device.Count; [Regex]$Miner_Device_Regex = ë^(ë + (($_.Device | ForEach {[Regex]::Escape($_)}) -join ì|î) + ë)$í; $BestDeviceMiners | Where {([Array]$_.Device -notmatch $Miner_Device_Regex).Count -eq 0 -and ([Array]$_.Device -match $Miner_Device_Regex).Count -eq $Miner_Device_Count}}}}
-    $BestMiners_Combos_Comparison = $Miners_Type_Combos | ForEach {$Miner_Type_Combo = $_.Combination; $Miners_Index_Combos | ForEach {$Miner_Index_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Type_Combo | ForEach {$Miner_Type_Count = $_.Type.Count; [Regex]$Miner_Type_Regex = ë^(ë + (($_.Type | ForEach {[Regex]::Escape($_)}) -join ì|î) + ë)$í; $Miner_Index_Combo | ForEach {$Miner_Index_Count = $_.Index.Count; [Regex]$Miner_Index_Regex = ë^(ë + (($_.Index | ForEach {[Regex]::Escape($_)}) ñjoin ì|î) + ë)$í; $BestMiners_Comparison | Where {([Array]$_.Type -notmatch $Miner_Type_Regex).Count -eq 0 -and ([Array]$_.Index -notmatch $Miner_Index_Regex).Count -eq 0 -and ([Array]$_.Type -match $Miner_Type_Regex).Count -eq $Miner_Type_Count -and ([Array]$_.Index -match $Miner_Index_Regex).Count -eq $Miner_Index_Count}}}}}}
-    $BestMiners_Combos_Comparison += $Miners_Device_Combos | ForEach {$Miner_Device_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Device_Combo | ForEach {$Miner_Device_Count = $_.Device.Count; [Regex]$Miner_Device_Regex = ë^(ë + (($_.Device | ForEach {[Regex]::Escape($_)}) -join ì|î) + ë)$í; $BestDeviceMiners_Comparison | Where {([Array]$_.Device -notmatch $Miner_Device_Regex).Count -eq 0 -and ([Array]$_.Device -match $Miner_Device_Regex).Count -eq $Miner_Device_Count}}}}
+    $BestMiners_Combos = $Miners_Type_Combos | ForEach {$Miner_Type_Combo = $_.Combination; $Miners_Index_Combos | ForEach {$Miner_Index_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Type_Combo | ForEach {$Miner_Type_Count = $_.Type.Count; [Regex]$Miner_Type_Regex = ‚Äò^(‚Äò + (($_.Type | ForEach {[Regex]::Escape($_)}) -join ‚Äú|‚Äù) + ‚Äò)$‚Äô; $Miner_Index_Combo | ForEach {$Miner_Index_Count = $_.Index.Count; [Regex]$Miner_Index_Regex = ‚Äò^(‚Äò + (($_.Index | ForEach {[Regex]::Escape($_)}) ‚Äìjoin ‚Äú|‚Äù) + ‚Äò)$‚Äô; $BestMiners | Where {([Array]$_.Type -notmatch $Miner_Type_Regex).Count -eq 0 -and ([Array]$_.Index -notmatch $Miner_Index_Regex).Count -eq 0 -and ([Array]$_.Type -match $Miner_Type_Regex).Count -eq $Miner_Type_Count -and ([Array]$_.Index -match $Miner_Index_Regex).Count -eq $Miner_Index_Count}}}}}}
+    $BestMiners_Combos += $Miners_Device_Combos | ForEach {$Miner_Device_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Device_Combo | ForEach {$Miner_Device_Count = $_.Device.Count; [Regex]$Miner_Device_Regex = ‚Äò^(‚Äò + (($_.Device | ForEach {[Regex]::Escape($_)}) -join ‚Äú|‚Äù) + ‚Äò)$‚Äô; $BestDeviceMiners | Where {([Array]$_.Device -notmatch $Miner_Device_Regex).Count -eq 0 -and ([Array]$_.Device -match $Miner_Device_Regex).Count -eq $Miner_Device_Count}}}}
+    $BestMiners_Combos_Comparison = $Miners_Type_Combos | ForEach {$Miner_Type_Combo = $_.Combination; $Miners_Index_Combos | ForEach {$Miner_Index_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Type_Combo | ForEach {$Miner_Type_Count = $_.Type.Count; [Regex]$Miner_Type_Regex = ‚Äò^(‚Äò + (($_.Type | ForEach {[Regex]::Escape($_)}) -join ‚Äú|‚Äù) + ‚Äò)$‚Äô; $Miner_Index_Combo | ForEach {$Miner_Index_Count = $_.Index.Count; [Regex]$Miner_Index_Regex = ‚Äò^(‚Äò + (($_.Index | ForEach {[Regex]::Escape($_)}) ‚Äìjoin ‚Äú|‚Äù) + ‚Äò)$‚Äô; $BestMiners_Comparison | Where {([Array]$_.Type -notmatch $Miner_Type_Regex).Count -eq 0 -and ([Array]$_.Index -notmatch $Miner_Index_Regex).Count -eq 0 -and ([Array]$_.Type -match $Miner_Type_Regex).Count -eq $Miner_Type_Count -and ([Array]$_.Index -match $Miner_Index_Regex).Count -eq $Miner_Index_Count}}}}}}
+    $BestMiners_Combos_Comparison += $Miners_Device_Combos | ForEach {$Miner_Device_Combo = $_.Combination; [PSCustomObject]@{Combination = $Miner_Device_Combo | ForEach {$Miner_Device_Count = $_.Device.Count; [Regex]$Miner_Device_Regex = ‚Äò^(‚Äò + (($_.Device | ForEach {[Regex]::Escape($_)}) -join ‚Äú|‚Äù) + ‚Äò)$‚Äô; $BestDeviceMiners_Comparison | Where {([Array]$_.Device -notmatch $Miner_Device_Regex).Count -eq 0 -and ([Array]$_.Device -match $Miner_Device_Regex).Count -eq $Miner_Device_Count}}}}
     $BestMiners_Combo = $BestMiners_Combos | Sort-Object -Descending {($_.Combination | Where Profit -EQ $null | Measure).Count},{($_.Combination | Measure Profit_Bias -Sum).Sum},{($_.Combination | Where Profit -NE 0 | Measure).Count} | Select -First 1 | Select -ExpandProperty Combination
     $BestMiners_Combo_Comparison = $BestMiners_Combos_Comparison | Sort-Object -Descending {($_.Combination | Where Profit -EQ $null | Measure).Count},{($_.Combination | Measure Profit_Comparison -Sum).Sum},{($_.Combination | Where Profit -NE 0 | Measure).Count} | Select -First 1 | Select -ExpandProperty Combination
+
 
     #Add the most profitable miners to the active list
     $BestMiners_Combo | ForEach {
@@ -631,7 +581,7 @@ if($LastRan -ne "")
            }
 		  $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
 		  $_.XProcess = (Get-Process -Id $_MiningId -ErrorAction SilentlyContinue)
-          Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
+                  Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
           }
         
        if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3" -or $_.Type -eq "AMD4" -or $_.Type -eq "AMD5" -or $_.Type -eq "AMD6" -or $_.Type -eq "AMD7" -or $_.Type -eq "AMD8")
@@ -725,14 +675,14 @@ if($LastRan -ne "")
      Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
-        @{Label = "Coin"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
+        @{Label = "Coin/Algo"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
         @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)/s"}else{"Bench"}}}; Align='center'}, 
         @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
         @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $BTCExchangeRate).ToString("N5")}else{"Bench"}}}; Align='right'},
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
         @{Label = "Algorithm"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Algorithm)"}}; Align='center'},
-@{Label = " Coin Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
-        @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
+@{Label = "  Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
+        @{Label = "  Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
             
 #Do nothing for 15 seconds, and check if ccminer is actually running
@@ -880,29 +830,31 @@ if($LastRan -ne "")
         {
         if($_.Status -eq "Running"){$_.Status = "Not Running"}
         }
-       else
+        else
           {
-            Write-Host "MM.Hash is attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
-            $_.HashRate = 0 
+            $_.HashRate = 0
             $_.WasBenchmarked = $False
             $Miner_HashRates = Get-HashRate $_.API $_.Port
             $_.Timeout = 0
-	        $_.Benchmarked = 0
+	    $_.Benchmarked = 0
             $_.HashRate = $Miner_HashRates
             $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
           {
-	      Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
+	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
+	  Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
           for($i=0; $i -lt 4; $i++)
             {
               if($_.WasBenchmarked -eq $False)
                {
                 Write-Host "$($_.Name) $($_.Coins) Starting Bench"
+		 $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+                 $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
                  {
                   $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
                   Start-Sleep -s 1
-		        Write-Host "Stat Written"
+		          Write-Host "Stat Written"
                   if(Test-Path (Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"))
                   {
                    if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
@@ -915,15 +867,16 @@ if($LastRan -ne "")
                    Write-Host "$($_.Name) $($_.Coins) Was Benchmarked And Backed Up"
                    $_.Timeout = 0
                   }
-		          else
+		  else
                    {
                   $_.Timeout++
                      Write-Host "Timeout Reason 1"
                    }
                   }
-                else 
+                else
                  {
                  $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
+				 Write-Host "Stat Written"
                  Start-Sleep -s 1
 		 $_.New = $False
                  $_.Crashed = 0
@@ -936,16 +889,16 @@ if($LastRan -ne "")
                     if($LastWriteTime -le 5)
                      {
                        $_.WasBenchmarked = $True
-                       Write-Host "$($_.Name) $($_Coins) Was Benchmarked."
+                       Write-Host "$($_.Name) $($_.Coins) Was Benchmarked."
                        $_.Timeout = 0
-                     }   
+                     }
                     else
-		             {
+		     {
                      $_.Timeout++
                      Write-Host "Timeout Reason 2"
                      }
                    }
-                }  
+                }
               }
            }
         }
@@ -954,16 +907,16 @@ if($LastRan -ne "")
          {
          if($_.WasBenchmarked -eq $False)
           {
-	     if($StatsInvterval -lt 2)
-	      {
+	  if($StatsInterval -lt 2)
+	   {
            if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
             {
-	    $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
+	    $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
             if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
             Start-Sleep -s 1
-            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
             Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Backup Folder" -foregroundcolor "darkred"
             $_.WasBenchmarked = $True
             $_.New = $False
@@ -973,24 +926,22 @@ if($LastRan -ne "")
             }
           else
            {
-            $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_Timeout.txt"
+            $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
-            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_Timeout.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
             $_.WasBenchmarked = $True
             $_.New = $False
             $_.Hashrate_Gathered = $True
             $_.Crashed = 0
             $_.Timeout = 0
             Write-Host "$($_.Name) $($_.Coins) Miner Benchmarking Timed Out. Setting Hashrate to 0" -foregroundcolor "darkred"
-
             }
            }
           }
          }
         }
     }
-  
+
   #Stop the log
   Stop-Transcript
-  Get-Date | Out-File "TimeTable.txt"
