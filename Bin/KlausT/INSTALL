@@ -1,0 +1,11 @@
+
+You can use ./build.sh to configure and build with default options.
+
+It is advised to run ./autogen.sh before ./configure (autoconf and automake
+need to be installed on your system for autogen.sh to work)
+
+./configure has an option named --with-cuda that allows you to specify
+where your CUDA 6.5 toolkit is installed (usually /usr/local/cuda,
+but some distros may have a different default location)
+
+See README.txt

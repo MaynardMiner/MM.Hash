@@ -2,119 +2,72 @@
 ###############################################################
 ###### BASIC SETTINGS- JUST REPLACE WITH YOUR INFORMATION #####
 ###############################################################
-StatsInterval=1 			        #1 for Dynamic Benchmarking Of Devices, 1000 For Static (Benchmarks once, then doesn't do it again)
+StatsInterval=1 			    #1 for Dynamic Benchmarking Of Devices, 1000 For Static (Benchmarks once, then doesn't do it again)
 UserName=MaynardVII				#Username For Pools Which Require It. Go to pool and make one. (MiningPoolHub)
-WorkerName=Rig1				        #Workername For Pools Which Require It. Go to pool and make one. (MiningPoolHub)
-RigName=MMHash				        #Personal Nickname Of Your Mining Rig (for tracking purposes)
-Currency=USD				        #Fiat Currency You Prefer
-CoinExchange=RVN    	         		#Excange Quote From CryptoExchange. Keep PasswordCurrency Symbol, unless coin symbol on cryptoexchange is different!
-Interval=290				        #Seconds Miner Runs Before Switching (5 minutes is reccommended)
+WorkerName=Rig1				    #Workername For Pools Which Require It. Go to pool and make one. (MiningPoolHub)
+Currency=USD				    #Fiat Currency You Prefer
+CoinExchange=RVN    	        #Excange Quote From CryptoExchange. Keep PasswordCurrency Symbol, unless coin symbol on cryptoexchange is different!
+Interval=290				    #Seconds Miner Runs Before Switching (5 minutes is reccommended)
 Delay=1					        #Delay Before Miner Switches (Leave alone- EXPERT/DEBUG MODE ONLY!)
-Location=US	                 		#Your Country
-PoolName=zergpool		 		#Name of Pool You Wish To Mine In (See "Pools" dir To See Available Pools ex: zergpool,zpool,ahashpool)
-Algorithm=Yescrypt,YescryptR16,M7M,Neoscrypt,Allium,HMQ1725,Keccak,Lyra2z,Keccakc,Xevan,X16r,Hsr,X17,Blake2s,lyra2v2,Bitcore,X16s,Phi,Timetravel,Skunk,Tribus,Sib,Skein,Groestl,Nist5,c11,myr-gr
-#Type=CPU	                 		#Devices You Are Mining With (NVIDIA,CPU,AMD) (CAREFULL COMBINING DEVICES!!
-Donate=.5                                        #Percent You Wish To Donate For Development: 50 maximum (1 is 1% Total)
-Proxy='""'                                      #Proxy Address (If You Are Using Proxy)
+Location=US	                    #Your Country
+Auto_Algo=Yes                  #Turn On Auto-Algorithm, for pools that only auto-algo, remove pool file from pools folder if not using.
+PoolName=zergpool,ahashpool,blazepool,hashrefinery,phiphipool,zergpool    #Name of Pool You Wish To Mine In (See "Pools" dir To See Available Pools ex: zergpool,zpool,ahashpool)
+Algorithm=Equihash,Yescrypt,YescryptR16,M7M,Neoscrypt,Allium,HMQ1725,Keccak,Lyra2z,Keccakc,Xevan,X16r,Hsr,X17,Blake2s,lyra2v2,Bitcore,X16s,Phi,Timetravel,Skunk,Tribus,Sib,Skein,Groestl,Nist5,c11,myr-gr
+Donate=.5                       #Percent You Wish To Donate For Development: 50 maximum (1 is 1% Total)
+Proxy='""'                      #Proxy Address (If You Are Using Proxy)
 ###########################################################################
 #### ADVANCED OPTIONS (DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING!) ####
 ###########################################################################
 Type=NVIDIA1,NVIDIA2,NVIDIA3                        # Place # in front of above 'Type', and use this one instead.
 ###
-GPUDevices1='"GTX1070#1,GTX1070#2,GTX1070#3,GTX1070#4,GTX1070#5"'   # 0,1,2 or GTX1070#1, GTX1080ti#2, etc.			
-Wallet1=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-PasswordCurrency1=RVN
+CCDevices1='"GTX1070#1,GTX1070#2,GTX1070#3,GTX1070#4,GTX1070#5"'   #0,1,2 or GTX1070#1, GTX1080ti#2, etc.
+EWBFDevices1='"0 1 2 6 9"'			                               #EWBF Miner For Equihash 0 1 2 No Commas
+Wallet1=1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+PasswordCurrency1=BTC
 ###
-GPUDevices2='"GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4"'
-Wallet2=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-PasswordCurrency2=RVN
+CCDevices2='"GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4"'
+EWBFDevices2='"3 4 5 7"'			
+Wallet2=1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+PasswordCurrency2=BTC
 ###
-GPUDevices3='"GTX1050ti#5,GTX1050ti#6,GTX1050ti#7,GTX1050ti#8"'
-Wallet3=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-PasswordCurrency3=RVN
+CCDevices3='"GTX1050ti#5,GTX1050ti#6,GTX1050ti#7,GTX1050ti#8"'
+EWBFDevices3='"8 10 11 12"'
+Wallet3=1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+PasswordCurrency3=BTC
 ###
-#GPUDevices4='"GTX1050ti#1,GTX1050ti#2"'
-#EWBFDevices4='"1 3"'
-#Wallet4=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-#PasswordCurrency4=RVN
-###
-#GPUDevices5='"GTX1050ti#3,GTX1050ti#4"'
-#EWBFDevices5='"4 5"'
-#Wallet5=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-#PasswordCurrency5=RVN
-###
-#GPUDevices6='"GTX1050ti#5,GTX1050ti#6"'
-#EWBFDevices6='"7 8"'
-#Wallet6=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-#PasswordCurrency6=RVN
-###
-#GPUDevices7='"GTX1050ti#7,GTX1050ti#8"'
-#EWBFDevices7='"9 10"'
-#Wallet7=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-#PasswordCurrency7=RVN
-###
-#GPUDevices8='"GTX1050ti#8"'
-#EWBFDevices8=
-#Wallet8=RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-#PasswordCurrency8=RVN
 ################################################
 ####### FLAG COMMANDS ##### DO NOT TOUCH! ######
 ################################################
 a=$StatsInterval
 b=$UserName
 c=$WorkerName
-d=$RigName
-e=($Currency)
-f=($Passwordcurrency)
-g=$Interval
-h=$Delay
-i=$Wallet
-j=$Location
-k=$PoolName
-l=$Type
-m=$Algorithm
-n=$Donate
-o=$Proxy
-p=$CoinExchange
-s=$GPUDevices1
-u=$Wallet1
-v=$PasswordCurrency1
-x=$GPUDevices2
-y=$Wallet2
-z=$PasswordCurrency2
-aa=$GPUDevices3
-bb=$Wallet3
-cc=$PasswordCurrency3
-dd=$GPUDevices4
-ee=$Wallet4
-ff=$PasswordCurrency4
-gg=$GPUDevices5
-hh=$Wallet5
-ii=$PasswordCurrency5
-NN=$GPUDevices6
-PP=$Wallet6
-QQ=$PasswordCurrency6
-RR=$GPUDevices7
-TT=$Wallet7
-UU=$PasswordCurrency7
-VV=$GPUDevices8
-XX=$Wallet8
-YY=$PasswordCurrency8
-aaa=$EWBFDevices1
-bbb=$EWBFDevices2
-ccc=$EWBFDevices3
-ddd=$EWBFDevices4
-eee=$EWBFDevices5
-fff=$EWBFDevices6
-ggg=$EWBFDevices7
-hhh=$EWBFDevices8
+d=($Currency)
+e=$Interval
+f=$Delay
+g=$Location
+h=$Auto_Algo
+i=$PoolName
+j=$Type
+k=$Algorithm
+l=$Donate
+m=$Proxy
+n=$CoinExchange
+o=$CCDevices1
+p=$EWBFDevices1
+q=$Wallet1
+aa=$PasswordCurrency1
+s=$CCDevices2
+t=$EWBFDevices2
+u=$Wallet2
+v=$PasswordCurrency2
+w=$CCDevices3
+x=$EWBFDevices3
+y=$Wallet3
+z=$PasswordCurrency3
 #############################################################################################
 #### COMMANDS- SEE README ON HOW TO EDIT FOR ADVANCED SETTINGS! OTHERWISE, DO NOT TOUCH! ####
 #############################################################################################
-pwsh -command "&.\MM.Coin.ps1 -StatsInterval $a -Username $b -WorkerName $c -RigName $d -Currency $e -Interval $g -Delay $h -Location $j -Poolname $k -Type $l -Algorithm $m -Donate $n -Proxy $o -CoinExchange $p -GPUDevices1 $s -Wallet1 $u -PasswordCurrency1 $v -GPUDevices2 $x -Wallet2 $y -PasswordCurrency2 $z -GPUDevices3 $aa -Wallet3 $bb -PasswordCurrency3 $cc"
-
-#
-#
+pwsh -command "&.\MM.Coin.ps1 -StatsInterval $a -Username $b -WorkerName $c -Currency $d -Interval $e -Delay $f -Location $g -Auto_Algo $h -Poolname $i -Type $j -Algorithm $k -Donate $l -Proxy $m -CoinExchange $n -CCDevices1 $o -EWBFDevices1 $p -Wallet1 $q -PasswordCurrency1 $aa -CCDevices2 $s -EWBFDevices2 $t -Wallet2 $u -PasswordCurrency2 $v -CCDevices3 $w -EWBFDevices3 $x -Wallet3 $y -PasswordCurrency3 $z"
 #
 #############################################################
 #### Type 'bash StartMM' in terminal AND YOU ARE MINING! ####

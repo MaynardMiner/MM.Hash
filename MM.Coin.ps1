@@ -8,16 +8,6 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$Wallet3,
     [Parameter(Mandatory=$false)]
-    [String]$Wallet4,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet5,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet6,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet7,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet8,
-    [Parameter(Mandatory=$false)]
     [String]$UserName = "MaynardVII", 
     [Parameter(Mandatory=$false)]
     [String]$WorkerName = "Rig1",
@@ -40,57 +30,21 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Type1 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type2 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type3 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type4 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type5 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type6 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type7 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type8 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
     [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices1, 
+    [String]$CCDevices1, 
     [Parameter(Mandatory=$false)] 
-    [String]$GPUDevices2,
+    [String]$CCDevices2,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices3,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices4,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices5,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices6,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices7,
-    [Parameter(Mandatory=$false)]
-    [String]$GPUDevices8,
+    [String]$CCDevices3,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices1, 
     [Parameter(Mandatory=$false)] 
     [String]$EWBFDevices2,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices3,
-    [Parameter(Mandatory=$false)]
-    [String]$EwBFDevices4,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices5,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices6,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices7,
-    [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices8,
     [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
@@ -104,32 +58,27 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency3 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency4 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency5 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency6 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency7 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency8 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
-    [Int]$Donate = 5, #Minutes per Day
+    [Int]$Donate = .5, #Percent per Day
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1, #seconds before opening each miner
     [Parameter(Mandatory=$false)]
-    [Array]$SelectedAlgo = $null,
-    [Parameter(Mandatory=$false)]
     [String]$CoinExchange = "",
     [Parameter(Mandatory=$false)]
-    [array]$Coin= $null
+    [array]$Coin= $null,
+    [Parameter(Mandatory=$false)]
+    [string]$Auto_Algo = "No"
 )
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 Get-ChildItem . -Recurse | Out-Null 
+
+if($Auto_Algo -eq "Yes")
+{
+$Algorithm | foreach {$Algorithm += "$($_)-ALGO"}
+}
 
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
@@ -146,7 +95,6 @@ $ActiveMinerPrograms = @()
 
 #Start the log
 Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
-
 
 if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
  {
@@ -167,7 +115,6 @@ if($DonationClear -ne "")
  {
   Clear-Content ".\Build\Data\Info.txt"
  }
-
 
 $WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
 $UserDonate = "MaynardVII"
@@ -244,6 +191,7 @@ Write-Host "
 
 while($true)
 {
+
 $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
 $TimeDeviation = ($Donate + .5)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
@@ -381,7 +329,7 @@ if($LastRan -ne "")
     if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
 
     #Load information about the Pools
-    $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
+    $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
         Where Location -EQ $Location | 
         Where SSL -EQ $SSL | 
         Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
@@ -390,11 +338,12 @@ if($LastRan -ne "")
     $Pools_Comparison = [PSCustomObject]@{}
     $AllPools.Coin | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
     $AllPools.Coin | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
-
     #Load information about the Miners
     #Messy...?
+
     $Miners = if(Test-Path "CoinMiners"){Get-ChildItemContent "CoinMiners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
- Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
+ Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+ Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
@@ -726,14 +675,14 @@ if($LastRan -ne "")
      Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
-        @{Label = "Coin"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
+        @{Label = "Coin/Algo"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
         @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)/s"}else{"Bench"}}}; Align='center'}, 
         @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
         @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $BTCExchangeRate).ToString("N5")}else{"Bench"}}}; Align='right'},
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
         @{Label = "Algorithm"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Algorithm)"}}; Align='center'},
-@{Label = " Coin Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
-        @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
+@{Label = "  Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
+        @{Label = "  Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
             
 #Do nothing for 15 seconds, and check if ccminer is actually running

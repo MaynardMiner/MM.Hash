@@ -51,7 +51,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 		"scrypt"{$Divisor *= 1000}
 		"qubit"{$Divisor *= 1000}
 		"yescrypt"{$Divisor /= 1000}
-                "quark"{$Divisor *= 1000}
+        "quark"{$Divisor *= 1000}
     }
 
 
@@ -60,10 +60,8 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
         $Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor*(1-($zergpool_Fees/100)))
       }
 
-    if($zergpool_Hashrate -ne "0")
+    if($Algorithm -eq $zergpool_Algorithm)
      {
-     if($Algorithm -eq $zergpool_Algorithm)
-      {
       if($Wallet1)
        {
         [PSCustomObject]@{
@@ -71,24 +69,20 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
             Mining = $zergpool_CoinName
             Algorithm = $zergpool_Algorithm
             Price = $Stat.Live
-            Fees = $zergpool_Fees
-            Workers = $zergpool_Workers
-            StablePrice = $Stat.Week
+            StablePrice = $Stat.Live
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
             Host = $zergpool_Host
             Port = $zergpool_Port
             User1 = $Wallet1
-	    User2 = $Wallet2
-	    User3 = $Wallet3
+	        User2 = $Wallet2
+	        User3 = $Wallet3
             Pass1 = "c=$Passwordcurrency1,mc=$zergpool_Coin"
             Pass2 = "c=$Passwordcurrency2,mc=$zergpool_Coin"
-	    Pass3 = "c=$Passwordcurrency3,mc=$zergpool_Coin"
+	        Pass3 = "c=$Passwordcurrency3,mc=$zergpool_Coin"
             Location = $Location
             SSL = $false
 	       }
         }
-     }
-   }
-
+    }
  }
