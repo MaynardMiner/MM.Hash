@@ -17,6 +17,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Bitcore
 #Hmq1725
 #Timetravel
+#Sib
 
 $Commands = [PSCustomObject]@{
 "Lyra2v2" = '' 
@@ -29,6 +30,7 @@ $Commands = [PSCustomObject]@{
 "Bitcore" = ''
 "Hmq1725" = ''
 "Timetravel" = ''
+"Sib" = ''
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
