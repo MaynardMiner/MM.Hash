@@ -17,6 +17,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Bitcore
 #Hmq1725
 #Timetravel
+#Sib
 
 $Commands = [PSCustomObject]@{
     "ABS" = '' #Lryra2v2
@@ -68,6 +69,7 @@ $Commands = [PSCustomObject]@{
     "PLUS" = '' #Hmq1725
     "VEGI" = '' #Hmq1725
     "MAC" = '' #Timetravel
+    "Sib" = '' #Sib
 
 }
 
