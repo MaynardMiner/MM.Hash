@@ -14,6 +14,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Tribus
 #Phi
 #Keccakc
+#Sib
 
 $Commands = [PSCustomObject]@{
     "ABS" = '' #Lryra2v2
@@ -50,6 +51,7 @@ $Commands = [PSCustomObject]@{
     "XMY-myr-gr" = '' #myr-gr
     "XSH-myr-gr" = '' #myr-gr
     "XVG-myr-gr" = '' #myr-gr
+    "Sib" = '' #Sib
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
