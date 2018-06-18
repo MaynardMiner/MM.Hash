@@ -29,6 +29,7 @@ $Commands = [PSCustomObject]@{
 "Keccakc" = ''
 "X12" = ''
 "Phi" = ''
+"Sib" = ''
 }
 
 
