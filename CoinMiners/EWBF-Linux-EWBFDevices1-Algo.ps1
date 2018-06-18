@@ -20,18 +20,18 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     {
     [PSCustomObject]@{
 	    MinerName = "miner"
-        Type = "NVIDIA1"
-        Path = $Path
+            Type = "NVIDIA1"
+            Path = $Path
 	    Distro =  $Distro
 	    Devices = $Devices
-        Arguments = "--api 0.0.0.0:42001 --server $($Pools.(Get-Algo($_)).Host) --port $($Pools.(Get-Algo($_)).Port) --fee 0 --solver 0 --eexit 1 --user $($Pools.(Get-Algo($_)).User1) --pass $($Pools.(Get-Algo($_)).Pass1)$($Commands.$_)"
-        HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Week}
-        Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
-        API = "EWBF"
-        Port = 42001
-        Wrap = $false
-        URI = $Uri
-        BUILD = $Build
+            Arguments = "--api 0.0.0.0:42001 --server $($Pools.(Get-Algo($_)).Host) --port $($Pools.(Get-Algo($_)).Port) --fee 0 --solver 0 --eexit 1 --user $($Pools.(Get-Algo($_)).User1) --pass $($Pools.(Get-Algo($_)).Pass1)$($Commands.$_)"
+            HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Live}
+            Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
+            API = "EWBF"
+            Port = 42001
+            Wrap = $false
+            URI = $Uri
+            BUILD = $Build
       }
     }
 }
