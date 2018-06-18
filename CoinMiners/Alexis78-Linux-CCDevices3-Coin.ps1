@@ -12,7 +12,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Hsr
 #C11
 #Quark
-#Sib
 #Blake2s
 #Skein
 
@@ -40,7 +39,6 @@ $Commands = [PSCustomObject]@{
 "LOBS" = '' #Quark
 "QRK" = '' #Quark
 "XMX" = '' #Quark
-"SIB" = '-i 21' #Sib
 "NEVA" = '' #Blake2s
 "TAJ" = '' #Blake2s
 "XSH-blake2s" = '' #Blake2s
