@@ -8,6 +8,12 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$Wallet3,
     [Parameter(Mandatory=$false)]
+    [String]$UserName = "MaynardVII",
+    [Parameter(Mandatory=$false)]
+    [String]$WorkerName = "Rig1",
+    [Parameter(Mandatory=$false)]
+    [String]$RigName = "MMHash",
+    [Parameter(Mandatory=$false)]
     [Int]$API_ID = 0,
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "",
@@ -24,21 +30,15 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Type1 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type2 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [Array]$Type3 = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
     [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices1,
+    [String]$CCDevices1,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices2,
+    [String]$CCDevices2,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices3,
+    [String]$CCDevices3,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices1,
     [Parameter(Mandatory=$false)]
@@ -50,14 +50,13 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
-    [Array]$Passwordcurrency = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency1 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency2 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency3 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
-    [Int]$Donate = 0, #Percent per Day
+    [Parameter(Mandatory=$false)]
+    [Int]$Donate = .5, #Percent per Day
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080
     [Parameter(Mandatory=$false)]
@@ -65,12 +64,19 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$CoinExchange = "",
     [Parameter(Mandatory=$false)]
-    [array]$Coin= $null
+    [array]$Coin= $null,
+    [Parameter(Mandatory=$false)]
+    [string]$Auto_Algo = "No"
 )
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 Get-ChildItem . -Recurse | Out-Null
+
+if($Auto_Algo -eq "Yes")
+ {
+$Algorithm | foreach {$Algorithm += "$($_)-ALGO"}
+ }
 
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
@@ -154,7 +160,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
-				             By: MaynardMiner                      v1.2.0-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.2.1-BETA              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|
@@ -321,11 +327,12 @@ if($LastRan -ne "")
     $Pools_Comparison = [PSCustomObject]@{}
     $AllPools.Coin | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
     $AllPools.Coin | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
-
     #Load information about the Miners
     #Messy...?
-    $Miners = if(Test-Path "WinCoinMiners"){Get-ChildItemContent "WinCoinMiners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
+
+    $Miners = if(Test-Path "CoinMiners"){Get-ChildItemContent "CoinMiners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
  Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+ Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     $Miners = $Miners | ForEach {
         $Miner = $_
@@ -511,9 +518,16 @@ if($LastRan -ne "")
                 $_.Activated++
             if($_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3")
              {
-            $T = "-d $($_.Devices) $($_.Arguments)"
-            if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
-            else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
+              if($_.API -eq "Ccminer")
+               {
+                $T = "-d $($_.Devices) $($_.Arguments)"
+               }
+              if($_.API -eq "EWBF")
+               {
+                $T = "--cuda_devices $($_.Devices) $($_.Arguments)"
+               }
+                if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
+                else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }
             if($_.Type -eq "CPU")
              {
@@ -642,13 +656,13 @@ $ActiveMinerPrograms | ForEach {
             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
           {
-	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
+          Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
+          Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
           for($i=0; $i -lt 4; $i++)
             {
               if($_.WasBenchmarked -eq $False)
                {
-                Write-Host "$($_.Name) $($_.Coins) Starting Bench"
-		 $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+		$HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
                  {
