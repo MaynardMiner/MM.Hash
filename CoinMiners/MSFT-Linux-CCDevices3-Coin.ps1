@@ -3,7 +3,7 @@ $Uri = 'https://github.com/MSFTserver/ccminer.git'
 $Build = "Linux-Clean"
 $Distro = "Linux"
 
-$Devices = $CCDevices2
+$Devices = $CCDevices3
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
