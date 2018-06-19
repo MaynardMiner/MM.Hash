@@ -10,7 +10,7 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
      $phiphipool_Request = Invoke-RestMethod "http://www.phi-phi-pool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
  catch { 
-     Write-Warning "Sniffdog howled at ($Name) for a failed API check. " 
+     Write-Warning "MM.Hash Contacted ($Name) for a failed API check. " 
      return 
  }
  
