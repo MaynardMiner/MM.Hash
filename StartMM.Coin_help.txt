@@ -1,10 +1,10 @@
-StatsInvterval = 1 for benchmarking, 1000 for benchmarking disable
+StatsInvterval = 1 for benchmarking if miner ran for a second, 1000 for benchmarking if miner ran for 1000 seconds, etc.
 
 Currency = Fiat Currency Of Your Choice
 
 CoinExchange = Coin Symbol Of Your Wallet (Will only work for coins on cryptocompare)
 
-Interval = Time before it starts to build database. Ideal target goal should be miner windows close/open every 5 minutes.
+Interval = Time before it starts to build database. Ideal target goal should be miner windows close/open every 5 minutes. Expressed is in seconds.
 
 Location = Country
 
