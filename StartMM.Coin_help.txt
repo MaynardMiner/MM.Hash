@@ -1,20 +1,38 @@
 StatsInvterval = 1 for benchmarking, 1000 for benchmarking disable
+
 Currency = Fiat Currency Of Your Choice
+
 CoinExchange = Coin Symbol Of Your Wallet (Will only work for coins on cryptocompare)
+
 Interval = Time before it starts to build database. Ideal target goal should be miner windows close/open every 5 minutes.
+
 Location = Country
+
 Auto_Algo = "Yes" "Yes" or "No" Turn On Auto-Algorithm, for pools that only auto-algo, remove pool file from pools folder if not using.
+
 Poolname = Pools you wish to use. Each pool has their own way of mining- See pools for more information.
+
 Algorithm = Algorithms you wish to mine
+
 Proxy = Proxy Server Address (Not Tested)
-Type = Seperate Device Groups. Up to 3 + CPU. The options are "CPU,NVIDIA1,NVIDIA2,NVIDIA3"
-GPUDevices1 = Devices you are using for group. Example: '0,1,2,3'.  This must match Type "NIVIDIA1".  Leave '' if using CPU
+
+Type = Seperate Device Groups. Up to 3 + CPU. The options are "CPU,NVIDIA1,NVIDIA2,NVIDIA3" CPU Walet & Password Currency must be Group 1 (CCDevices1 '' EWBFDevices '' Wallet1 [Wallet] Passwordcurrency [PasswordCurrency]). NVIDIA1 will use information from group 1. NVIDIA2 will use information from group 2. etc. If you are using CPU and NVIDIA together, then you would have to do 'CPU,NVIDIA2'.
+
+CCDevices1 = Devices you are using for group. Example: '0,1,2,3'.  This must match Type "NIVIDIA1" and/or "CPU" Leave '' if just using CPU.
+EWBFDevices1 = Devices you are using for group if mining "Equihash" Algo.
+
 Wallet1 = Wallet for device group 1. BTC works for all pools. See pools to find out if other coins can be used. Zergpool in example accepts RVN as exchange.
+
 PasswordCurrency1 = Wallet Symbol (See Pool For More Details, Must Match Wallet)
-GPUDevices2 = Devices you are using for group 2.
+
+CCDevices2 = Devices you are using for wallet group 2.   (NVIDIA2)
+EWBFDevices = Devices you are using for wallet group 2.
 Wallet2 = Wallet for device group 2
 PasswordCurrency2 = Wallet Symbol
-GPUDevices3 = Same as above
-Wallet3 = Same as above
-GPUDevices3 = Same as above
+
+CCDevices3 = Same as above (group 2) for group 3   (NVIDIA3)
+EWBFDevices = Same as above (group 2)
+Wallet3 = Same as above (group 2)
+GPUDevices3 = Same as above (group 2)
+
 Donate = percentage you wish to donate daily. Miner remembers when you open or close, so it will not steal from you...However it only resets donation switch if miner hasn't ran for 24 hours.
