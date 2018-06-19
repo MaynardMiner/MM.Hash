@@ -10,7 +10,7 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
      $blazepool_Request = Invoke-RestMethod "http://api.blazepool.com/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
  catch { 
-     Write-Warning "Sniffdog contacted ($Name) for a failed API check. " 
+     Write-Warning "MM.Hash contacted ($Name) for a failed API check. " 
      return 
  }
  
