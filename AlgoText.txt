@@ -7,6 +7,8 @@
     "yescrypt":  "yescrypt-ALGO",
     "veltor":  "veltor-ALGO",
     "blake":  "blakecoin-ALGO",
+    "cryptonight": "cryptonight-ALGO",
+    "ethash": "ethash-ALGO",
     "equihash":  "equihash-ALGO",
     "skein":  "skein-ALGO",
     "scrypt":  "scrypt-ALGO",

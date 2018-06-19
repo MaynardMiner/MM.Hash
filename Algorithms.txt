@@ -3,6 +3,8 @@
     "xmr":  "xmr",
     "blakecoin":  "blakecoin",
     "c11":  "c11",
+    "cryptonightmonero": "cryptonight",
+    "ethash": "ethash",
     "groestl":  "groestl",
     "yescrypt":  "yescrypt",
     "veltor":  "veltor",
