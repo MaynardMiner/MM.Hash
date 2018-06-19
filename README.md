@@ -22,8 +22,32 @@ DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
 
 
-HOW TO SETUP- NVIDIA/CPU (UNIX VERSION)
+**HOW TO SETUP- NVIDIA/CPU (UNIX VERSION)**
 
+If you are not setting up for a minimal installation, then this is what you need to run/dependencies:
+```
+libcurl4-openssl-dev
+libssl-dev
+libjansson-dev
+automake
+autotools-dev
+build-essential
+libgmp3-dev
+curl
+libunwind8
+gcc-5 g++-5 (and set as default  
+libicu55_55.1-7ubuntu0.4_amd64.deb
+powershell
+nvidia-390
+cuda 9.1 toolkit
+vim/nano
+xterm
+p7zip-full
+wine (if you want to run Allium miner/windows binaries miners, if not remove from Miner files)
+winehq-staging (if you want to run Allium miner/windws binaries miners, if not remove from miner files)
+reccommended- NVIDIA setup for overclocking and fan speed increase.
+```
+**Building Ubuntu Minimal OS**
 
 -Get Ubuntu Minimal 17.10 Here: https://help.ubuntu.com/community/Installation/MinimalCD 
 -Make a bootable usb using etcher io (windows) or startup disk creator (ubuntu) 
@@ -103,7 +127,7 @@ NVIDIA GPU's will begin overclocking to what I believe is optimal settings. If y
 
 
 
-CONFIGURATION
+**CONFIGURATION**
 
 For Algo-Switching, or for Coin Switching:
 
@@ -119,20 +143,19 @@ Once saved and setup up, start MM.Hash by typing the following in terminal:
 ./StartMM.Coin
 ```
 
-ADVANCED SETTINGS (Auto-Algo)
+**ADVANCED SETTINGS**
 
 Advanced Settings allow you to control multiple GPU devices in groups, and you are able to set each group with an individual wallet- Meaning you can auto-exchange mine for different coins at the same time (up to 8). To use- You first must swap Type Parameter- You do this by placing # in front of Type in "Normal Settings" and removing the # in front the type in the Advanced configuration. Type allows you declare which groups are active. You must add a numerical value behind each device you are using, starting with "1", i.e. This is the same process for Auto-Coin. Auto-Coin is built only with advanced settings, and can only use up to 3 device groups (anymore is too slow for usb).
 
 ```
-Type=NVIDIA1,NVIDIA2 (You can still use CPU, but no CPU1,CPU2,CPU3 (There is no support for multi-cpu). Just use CPU.)
+Type=NVIDIA1,NVIDIA2 (You can still use CPU, but no CPU1,CPU2,CPU3 (There is no support for multi-cpu). Just use CPU. See StartMM.Coin help txt for more details)
 ```
-
-The next step is setting up each group. GPUDevices correspond to the numerical value set of the device type. If you are using NVIDIA1, you must remove the # in front of the GPUDevices1, Wallet1, and PasswordCurrency1 parameters to make them active. It is important you keep all "" and '' or '""' where present! Set your wallet, and the corresponding coin symbol. Once you have set all your devices- You must go down to the Command section, and find the # between advanced commands. First you must delete the " in front of the # in order to extend the command. Then you must remove the # sign, and either leave it out if you are using all 8 groups, or move it in front of the first group (# -GPUDevices(number)) you are not using. Lastly, you must add the " that you have removed at the end of your command (Before # if you are not using all 8, Like This- " #-GPUDevices(number)). If you are using EWBF miner- you must use StartMM configuration file...It is only setup for EWBF. You just change your initial settings/pools/etc. If you are not using EWBF miner- Be sure to not use Ethash or Equihash algorithms.
+If you are not using a devices groups, and only wish to mine your GPUS/CPUS from one wallet, the you can enter '' for the remaining parameters for device groups 2 & 3. See StartMM.Coin txt for more information.
 
 IMPORTANT: ENSURE POOL OFFERS EXCHANGE TO YOUR COIN SELECTED IN WALLET ADDRESS!
 
 
-STARTING THE MINER
+**STARTING THE MINER**
 
 Naviagate to MM.Hash directory and run this command:
 ```
@@ -143,12 +166,12 @@ Miner will start! It takes a little bit for the miner to download and install an
 GIT THAT LAMBO!
 
 
-OPTIMIZATIONS
+**OPTIMIZATIONS**
 
 By opening mining files, you can optimize miners by adding arguments under the aglo in the mining file. For example- If you wanted to mine x16r with and gpu intensity of 21, you would amend x16r in the optimizations section to = "-i 21". It can accept any argument the miner being used would normally accept. This includes API settings, if required.
 
 
-MAITENENCE/Issues
+**MAITENENCE/Issues**
 
 -If you wish to reset all your benchmark stats- type the following while in MM.Hash Apps directory:
 
