@@ -3,7 +3,7 @@ $Uri = "https://github.com/nanopool/ewbf-miner/releases/download/v0.3.4b/Zec.min
 $Build = "Linux-Zip"
 $Distro = "Linux-EWBF"
 
-$Devices = $EWBFDevices2
+$Devices = $EWBFDevices3
 
 
 $Commands = [PSCustomObject]@{
