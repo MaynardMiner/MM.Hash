@@ -562,7 +562,7 @@ if($LastRan -ne "")
 		      else{$3 = "-d $($_.Devices) $($_.Arguments)"}
              }
 		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		       do{$_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue}While($_.XProcess -eq $null)
+		       $_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue
              Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
 		     }
 		 if($_.Type -eq "CPU")
@@ -734,7 +734,7 @@ if($LastRan -ne "")
 			     }
 			   }
 		        $_.MiningId  = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		       do{$_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue}While($_.XProcess -eq $null)	
+		        $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue	
                         Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
 		      }
 		    if($_.Type -eq "CPU")
