@@ -1,4 +1,4 @@
-$Path = '.\Bin\NVIDIA-Tpruvot-Allium-Windows-CCDevices2-Coin\ccminer-x64.exe'
+$Path = '.\Bin\NVIDIA-Tpruvot-Allium-Windows-CCDevices3-Coin\ccminer-x64.exe'
 $Uri = 'https://t.co/lFAnmZ4q1Z'
 $Build = "Windows"
 $Distro = "Windows"
