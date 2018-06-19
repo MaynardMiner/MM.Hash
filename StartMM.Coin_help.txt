@@ -4,7 +4,7 @@ Currency = Fiat Currency Of Your Choice
 
 CoinExchange = Coin Symbol Of Your Wallet (Will only work for coins on cryptocompare)
 
-Interval = Time before it starts to build database. Ideal target goal should be miner windows close/open every 5 minutes. Expressed is in seconds.
+Interval = Time before it starts to build database. Ideal target goal should be miner windows close/open every 5 minutes. Expression is in seconds.
 
 Location = Country
 
