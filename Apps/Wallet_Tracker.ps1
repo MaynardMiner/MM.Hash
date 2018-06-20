@@ -9,11 +9,7 @@ while ($true)
 {
   Clear-Host
   
- $Wallets = $Wallet1,$Wallet2,$Wallet3
-
-$Wallets | Foreach{
-
-   $Wallet = $_
+   $Wallet = $Wallet1
    
     if($Pool -eq "zergpool")
      {
@@ -135,7 +131,5 @@ $Wallets | Foreach{
     }
    }
    
-}
-
     Start-Sleep -s 300
 }
