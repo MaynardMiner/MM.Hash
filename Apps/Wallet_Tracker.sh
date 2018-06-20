@@ -1,1 +1,1 @@
-pwsh -command ".\Wallet_Tracker.ps1 -Wallet 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -Pool zergpool"
+pwsh -command ".\Wallet_Tracker.ps1 -Wallet1 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -Wallet2 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -Wallet3 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -Pool zergpool,zpool,ahashpool,phiphipool,hashrefinery"
