@@ -2,10 +2,6 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$Wallet1,
     [Parameter(Mandatory=$false)]
-    [String]$Wallet2,
-    [Parameter(Mandatory=$false)]
-    [String]$Wallet3,
-    [Parameter(Mandatory=$false)]
     [array]$Pool
 	)
 
