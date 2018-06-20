@@ -129,7 +129,7 @@ $Wallets | Foreach{
     $Get_A_Total = $_.total
 
     Write-Host "
-    Hashrefinery $Wallet
+    ahashpool $Wallet
     Currency = $Get_A_Currency
     Unsold = $Get_A_Unsold
     Balance = $Get_A_Balance
