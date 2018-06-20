@@ -226,4 +226,11 @@ DONATE TO SUPPORT!
 
 DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 DONATION ADDRESS: RVN RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-Donate to original creator of powershell script, and see his Windows version: https://github.com/Sniffdog/Sniffdogminer
+
+Thanks To:
+
+Sniffdog
+Nemosminer
+Uselessguru
+
+They were thd pioneers to powershell scriptmining. Their scripts allowed me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time.
