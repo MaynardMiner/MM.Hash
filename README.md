@@ -233,4 +233,4 @@ Sniffdog
 Nemosminer
 Uselessguru
 
-They were thd pioneers to powershell scriptmining. Their scripts allowed me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time.
+They were the pioneers to powershell scriptmining. Their scripts allowed me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time.
