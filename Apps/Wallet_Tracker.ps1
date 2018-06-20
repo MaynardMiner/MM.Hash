@@ -139,7 +139,7 @@ $Wallets | Foreach{
     }
    }
    
-   
+}
 
     Start-Sleep -s 300
 }
