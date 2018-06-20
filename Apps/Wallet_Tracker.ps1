@@ -35,6 +35,8 @@ while ($true)
     }
    }
    
+  Start-Sleep -s 1
+  
     if($Pool -eq "zpool")
      {
     $GetWalletZpool = Invoke-RestMethod https://www.zpool.ca/api/wallet?address=$Wallet -UseBasicParsing
@@ -58,7 +60,8 @@ while ($true)
     Total Earned = $Get_Z_Total"
     }
    }
-   
+  Start-Sleep -s 1 
+  
     if($Pool -eq "phiphippool")
      {
     $GetWalletPhipool = Invoke-RestMethod https://www.phi-phi-pool.com/api/wallet?address=$Wallet -UseBasicParsing
@@ -82,6 +85,8 @@ while ($true)
     Total Earned = $Get_Phi_Total"
     }
    }   
+   
+   Start-Sleep -s 1
 
   if($Pool -eq "Hashrefinery")
    {
