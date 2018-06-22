@@ -580,7 +580,7 @@ if($LastRan -ne "")
 		   $3 = "$($_.Arguments)"
            }
 		  $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		  $_.XProcess = (Get-Process -Id $_MiningId -ErrorAction SilentlyContinue)
+		  $_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
                   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
           }
         
