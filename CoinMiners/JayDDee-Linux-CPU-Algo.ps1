@@ -22,7 +22,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
   {  
     [PSCustomObject]@{
-    MinerName = "ccminer"
+    MinerName = "cpuminer"
     Type = "CPU"
     Path = $Path
     Distro = $Distro
