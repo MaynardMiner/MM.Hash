@@ -5,7 +5,7 @@
     "c11":  "c11",
     "cryptonightmonero": "cryptonight",
     "cryptonightv7": "cryptonightv7",
-    "daggerhashimoto": "ethash",
+    "daggerhashimoto": "daggerhashimoto",
     "ethash": "ethash",
     "groestl":  "groestl",
     "hodl": "hodl",

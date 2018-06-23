@@ -72,6 +72,12 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$DSTMDevices3,
     [Parameter(Mandatory=$false)]
+    [String]$ClayDevices1,
+    [Parameter(Mandatory=$false)]
+    [String]$ClayDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$ClayDevices3,
+    [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null,
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
@@ -587,6 +593,11 @@ if($LastRan -ne "")
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else{$T = "$($_.Arguments) --dev $($_.Devices)"}
                }
+		      if($_.API -eq "claymore")
+			   {
+			   if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+		        else{$T = "-di $($_.Devices) $($_.Arguments)"}
+			   }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }
@@ -671,6 +682,11 @@ $ActiveMinerPrograms | ForEach {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else{$T = "--dev $($_.Arguments) $($_.Devices)"}
                }
+			    if($_.API -eq "Claymore")
+			    {
+				if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+				else{$T = "-di $($_.Devices) $($_.Arguments)"}
+				}
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }

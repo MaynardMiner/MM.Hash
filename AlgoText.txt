@@ -9,7 +9,7 @@
     "blake":  "blakecoin-ALGO",
     "cryptonight": "cryptonight-ALGO",
     "cryptonightv7": "cryptonightv7-ALGO",
-    "DaggerHashimoto": "ethash-ALGO",
+    "daggerhashimoto": "daggerhashimoto-ALGO",
     "ethash": "ethash-ALGO",
     "equihash":  "equihash-ALGO",
     "hodl": "hodl-ALGO",

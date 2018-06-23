@@ -44,7 +44,9 @@ Argument          Options           Explanation
                 cryptonightv7,       simply specify the algorithm. MM.Hash will find and mine the most
                 hodl,                profitable coin for that algo if you are using -Poolname zergpool.
 		lyra2re,
-                Equihash,           
+                Equihash,
+		Daggerhashimoto,
+		Ethash,           
                 Aergo,              
                 Yescrypt,
                 YescryptR16,
@@ -235,6 +237,19 @@ Argument            Options             Explanation
 -DSTMDevices3      [0 1 2 3 4 5 6..]    Device group 3 DSTMDevices. Used instead of -GPUDevices3, where
                                         the requirement of specifying individual GPUs for DSTM is
                                         required. Used if -Type NVIDIA3 is specified.
+
+-ClayDevices1     [0123456789abcd...]   Device group 1 ClayDevices. Used instead of -GPUDevices1, where
+					the requirement of specifying individual GPUs for Claymore is
+					required. Used if -Type NVIDIA1 is specified.
+
+-ClayDevices2     [0123456789abcd...]   Device group 2 ClayDevices. Used instead of -GPUDevices1, where
+					the requirement of specifying individual GPUs for Claymore is
+					required. Used if -Type NVIDIA2 is specified.
+
+-ClayDevices3     [0123456789abcd...]   Device group 3 ClayDevices. Used instead of -GPUDevices3, where
+					the requirement of specifying individual GPUs for Claymore is
+					required. Used if -Type NVIDIA3 is specified.
+
 
 ******************************************************************************************************
 ******************************** Examples of Use *****************************************************
