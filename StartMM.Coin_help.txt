@@ -1,4 +1,6 @@
-StatsInvterval = 1 for benchmarking if miner ran for a second, 1000 for benchmarking if miner ran for 1000 seconds, etc.
+Arguments & Explanations:
+
+StatsInvterval = 1 for benchmarking if mining app ran for a second, 1000 for benchmarking if mining app ran for 1000 seconds, etc.
 
 Currency = Fiat Currency Of Your Choice
 
@@ -14,15 +16,13 @@ Poolname = Pools you wish to use. Each pool has their own way of mining- See poo
 
 Algorithm = Algorithms you wish to mine
 
-Proxy = Proxy Server Address (Not Tested)
+Proxy = Proxy Server Address (Not Fully Tested)
 
-Type = Seperate Device Groups. Up to 3 + CPU. The options are "CPU,NVIDIA1,NVIDIA2,NVIDIA3" CPU Walet & Password Currency must be Group 1 (CCDevices1 '' EWBFDevices '' Wallet1 [Wallet] Passwordcurrency [PasswordCurrency]). NVIDIA1 will use information from group 1. NVIDIA2 will use information from group 2. etc. If you are using CPU and NVIDIA together, then you would have to do 'CPU,NVIDIA2'.
+Type = Seperate Device Groups. Up to 3. The options are "CPU,NVIDIA1,NVIDIA2,NVIDIA3" CPU Walet & Password Currency must be Group 1 (CCDevices1 ''"  EWBFDevices "'' Wallet1 "[Wallet]" Passwordcurrency [PasswordCurrency]"). NVIDIA1 will use information from group 1. NVIDIA2 will use information from group 2. etc. If you are using CPU and NVIDIA together, then you would have to do 'CPU,NVIDIA2'.
 
-CCDevices1 = Devices you are using for group. Example: '0,1,2,3'.  This must match Type "NIVIDIA1" and/or "CPU" Leave '' if just using CPU.
+CCDevices1 = Devices you are using for group. Example: '0,1,2,3'. This must match Type "NIVIDIA1" and/or "CPU" Leave '' if just using CPU.
 EWBFDevices1 = Devices you are using for group if mining "Equihash" Algo.
-
 Wallet1 = Wallet for device group 1. BTC works for all pools. See pools to find out if other coins can be used. Zergpool in example accepts RVN as exchange.
-
 PasswordCurrency1 = Wallet Symbol (See Pool For More Details, Must Match Wallet)
 
 CCDevices2 = Devices you are using for wallet group 2.   (NVIDIA2)

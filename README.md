@@ -2,19 +2,17 @@
 
 **MULTI-ALGO, MULTI-COIN SWITCHING, MULTI-POOL, MULTI-DEVICE, MULTI-WALLET, MULTI-DEVICE AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX AND WINDOWS.**
 
-NOTE- MM.Hash will run miners that are compiled with Windows Binaries. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation. AMD support will come when I get a chance to buy and test an AMD GPU. Clone from git, as I am updating it constantly.
+NOTE- MM.Hash will run miners that are compiled with Windows Binaries in Linux. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation. AMD support will come when I get a chance to buy and test an AMD GPU. Clone from git, as I am updating it constantly.
 
 NOTE- MM.HASH works for windows. Edit .Bat files and run the various scripts that come in MM.Hash to use. Will write more documentation on uses and support as I finish final 1.1.9-Full.
 
-MM.Hash is intended to be Unix/Linux mining application, which will mine from NVIDIA GPU, AMD GPU, CPU devices. AMD is built into the code, but at this time I do not have any miners or settings loaded into MM.Hash. I am working on it- I don't own any AMD devices. The program is loosely based of various powershell mining applications available in Windows. I made the base script fully compatible with UNIX, and then added UNIX specific features along with many other changes. After requests from users- I decided to make a Windows version.
+MM.Hash is intended to be Unix/Windows mining application, which will mine from NVIDIA GPU, AMD GPU, CPU devices. AMD is built into the code, but at this time I do not have any miners or settings loaded into MM.Hash. I am working on it- I don't own any AMD devices. The program is based off of various powershell mining applications available in Windows, in which I have used to invent a new way to mine. I made the base script fully compatible with UNIX, and then added UNIX specific features along with many other changes. After requests from users- I decided to make a Windows version.
 
 The uses for MM.Hash- is pretty vast, being that it works in linux/unix environment. Hypothetically, with the right setup- MM.Hash can work in any device that can boot UNIX. This means you can mine from your PS4, Tablet, PC, Microcontrollers, etc. when are not using them, and you are not losing the massive hashrate from browser mining. Furthermore- you can do this all through building a minimal Ubuntu OS, and load directly off a USB!
 
-MM.Hash works by utlizing Powershell, which is now a cross-platform software that is constantly being developed. It will query the API of any pool you have your "Pools" folder, and get the current prices of the coins of the algorithms you have chose. Once it has gathered that data, it will then select the most profitable, and choose the best mining application to mine with, which are denoted as separate .ps1 filed in the "Miners" folder. If you have never used that particular miner before- MM.Hash will go into benchmark mode, which will record your hashrate. This means you can test miners to see which gives you the best hashrate! If MM.Hash detects the coin yields little/no value from mining- it will remove the miner from its list.
+MM.Hash works by utlizing Powershell, which is now a cross-platform software that is constantly being developed. It will query the API of any pool you have your "Pools" folder, and get the current prices of the coins/algorithms you have chosen. Once it has gathered that data, it will then select the most profitable, and choose the best mining application to mine with, which are denoted as separate .ps1 filed in the "Miners" folder. If you have never used that particular miner before- MM.Hash will go into benchmark mode, which will record your hashrate. This means you can test miners to see which gives you the best hashrate! If MM.Hash detects the coin yields little/no value from mining- it will remove the miner from its list.
 
-Currently this is the first release- I am releasing it to demonstrate and give users the ability to play with the initial design. Right now, I have only built miner files for NVIDIA & CPU, but I will build more miner files along the way, along with more options. See devnotes to see what I am working on.
-
-Spend the extra dollar and get a USB 3.0 Stick: 16GB. I highly reccomend not using usb 2.0...It works, but takes forever to build.
+Spend the extra dollar and get a USB 3.0 Stick: 16GB if you plan to try to build USB miner. I highly reccomend not using usb 2.0...It works, but takes forever to build.
 
 IF YOU WANT TO SEE FURTHER DEVELOPMENT- PLEASE LEAVE DONATION SET & CONSIDER DONATING TO DEVELOPER!
 
@@ -228,4 +226,11 @@ DONATE TO SUPPORT!
 
 DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 DONATION ADDRESS: RVN RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
-Donate to original creator of powershell script, and see his Windows version: https://github.com/Sniffdog/Sniffdogminer
+
+Thanks To:
+
+Sniffdog
+Nemosminer
+Uselessguru
+
+They were the pioneers to powershell scriptmining. Their scripts helped me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time. Since then it has grown to what it is today.

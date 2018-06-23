@@ -32,7 +32,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     if($Algorithm -eq "$($Pools.$_.Algorithm)")
      {
     [PSCustomObject]@{
-        MinerName = "ccminer"
+        MinerName = "cpuminer"
 	    Type = "CPU"
         Path = $Path
 	    Distro = $Distro
