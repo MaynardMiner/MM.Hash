@@ -14,14 +14,16 @@ $Commands = [PSCustomObject]@{
 "YescryptR16" = ''
 "Lyra2z" = ''
 "M7M" = ''
-"Cryptonight" = ''
+"cryptonightv7" = ''
+"lyra2re" = ''
+"hodl" = ''
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
   if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
-  {  
+  {
     [PSCustomObject]@{
     MinerName = "cpuminer"
     Type = "CPU"

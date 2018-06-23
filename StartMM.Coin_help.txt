@@ -41,8 +41,11 @@ Argument          Options           Explanation
                 ahashpool]
 
 -Algorithm      [Cryptonight,        Current algorithms supported by MM.Hash. To mine by coin-switching,
-                Equihash,           simply specify the algorithm. MM.Hash will find and mine the most
-                Aergo,              profitable coin, if it is the most profitable.
+                cryptonightv7,       simply specify the algorithm. MM.Hash will find and mine the most
+                hodl,                profitable coin for that algo if you are using -Poolname zergpool.
+		lyra2re,
+                Equihash,           
+                Aergo,              
                 Yescrypt,
                 YescryptR16,
                 M7M,

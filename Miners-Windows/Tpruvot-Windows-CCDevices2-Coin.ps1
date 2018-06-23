@@ -7,7 +7,7 @@ if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 #Algorithms
-#Lyra2v2 
+#Lyra2v2
 #Keccak
 #Skunk
 #Tribus
@@ -53,7 +53,7 @@ $Commands = [PSCustomObject]@{
     "DGB-myr-gr" = '' #myr-gr
     "XMY-myr-gr" = '' #myr-gr
     "XSH-myr-gr" = '' #myr-gr
-    "XVG-myr-gr" = '' #myr-gr 
+    "XVG-myr-gr" = '' #myr-gr
     "ALPS" = '' #Lyra2z
     "CRS" = '' #Lyra2z
     "GIN" = '' #Lyra2z
@@ -73,7 +73,7 @@ $Commands = [PSCustomObject]@{
 
 }
 
-$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {  
+$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
     if($Algorithm -eq "$($Pools.$_.Algorithm)")
      {
     [PSCustomObject]@{
@@ -81,7 +81,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Type = "NVIDIA2"
         Path = $Path
         Devices = $Devices
-        Arguments = "-d $Devices -a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4070 -u $($Pools.$_.User2) -p $($Pools.$_.Pass2) $($Commands.$_)"
+        Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4070 -u $($Pools.$_.User2) -p $($Pools.$_.Pass2) $($Commands.$_)"
         HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
         Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
         API = "Ccminer"

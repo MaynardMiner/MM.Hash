@@ -6,12 +6,18 @@ $Uri = "https://github.com/JayDDee/cpuminer-opt/files/1996977/cpuminer-opt-3.8.8
 #YescryptR16
 #Lyra2z
 #M7M
+#cryptonightv7
+#hodl
+#lyra2re
 
 $Commands = [PSCustomObject]@{
 "Yescrypt" = ''
 "YescryptR16" = ''
 "Lyra2z" = ''
 "M7M" = ''
+"cryptonightv7" = ''
+"hodl" = ''
+"lyra2re" = ''
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -20,7 +26,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
      {
        [PSCustomObject]@{
-       MinerName = "ccminer"
+       MinerName = "cpuminer"
        Type = "CPU"
        Path = $Path
        Distro = $Distro
