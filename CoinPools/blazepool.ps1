@@ -37,7 +37,7 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 
      if($Algorithm -eq $blazepool_Symbol)
       {
-       if($Wallet1)
+       if($Wallet)
 	{
         [PSCustomObject]@{
             Coin = $blazepool_Symbol
@@ -51,7 +51,9 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Port = $blazepool_Port
             User1 = $Wallet1
 	        User2 = $Wallet2
-	        User3 = $Wallet3
+            User3 = $Wallet3
+            CPUser = $CPUWallet
+            CPUPass = $CPUcurrency
             Pass1 = "c=$Passwordcurrency1"
             Pass2 = "c=$Passwordcurrency2"
 	        Pass3 = "c=$Passwordcurrency3"

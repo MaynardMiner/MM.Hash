@@ -4,6 +4,7 @@
     "blakecoin":  "blakecoin",
     "c11":  "c11",
     "cryptonightmonero": "cryptonight",
+    "daggerhashimoto": "ethash",
     "ethash": "ethash",
     "groestl":  "groestl",
     "yescrypt":  "yescrypt",

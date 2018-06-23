@@ -1,12 +1,26 @@
 param(
     [Parameter(Mandatory=$false)]
-    [String]$Wallet,
+    [String]$Wallet = "Yes",
     [Parameter(Mandatory=$false)]
-    [String]$Wallet1,
+    [String]$Wallet1 = '',
     [Parameter(Mandatory=$false)]
-    [String]$Wallet2,
+    [String]$Wallet2 = '',
     [Parameter(Mandatory=$false)]
-    [String]$Wallet3,
+    [String]$Wallet3 = '',
+    [Parameter(Mandatory=$false)]
+    [String]$CPUWallet = '',
+    [Parameter(Mandatory=$false)]
+    [String]$ZergpoolWallet1 = '',
+    [Parameter(Mandatory=$false)]
+    [String]$ZergpoolWallet2 = '',
+    [Parameter(Mandatory=$false)]
+    [String]$ZergpoolWallet3 = '',
+    [Parameter(Mandatory=$false)]
+    [String]$Nicehash_Wallet1 = '',
+    [Parameter(Mandatory=$false)]
+    [String]$Nicehash_Wallet2 = '',
+    [Parameter(Mandatory=$false)]
+    [String]$Nicehash_Wallet3 = '',
     [Parameter(Mandatory=$false)]
     [String]$UserName = "MaynardVII", 
     [Parameter(Mandatory=$false)]
@@ -46,6 +60,18 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices3,
     [Parameter(Mandatory=$false)]
+    [String]$GPUDevices1, 
+    [Parameter(Mandatory=$false)] 
+    [String]$GPUDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$GPUDevices3,
+    [Parameter(Mandatory=$false)]
+    [String]$DSTMDevices1, 
+    [Parameter(Mandatory=$false)] 
+    [String]$DSTMDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$DSTMDevices3,
+    [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
@@ -58,18 +84,38 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Passwordcurrency3 = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
+    [Array]$CPUcurrency = ("BTC"), #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [String]$Zergpoolpassword1 = '', #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [String]$Zergpoolpassword2 =  '', #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
+    [String]$Zergpoolpassword3 = '', #i.e. BTC,LTC,ZEC,ETH ect.
+    [Parameter(Mandatory=$false)]
     [Int]$Donate = .5, #Percent per Day
     [Parameter(Mandatory=$false)]
     [String]$Proxy = "", #i.e http://192.0.0.1:8080 
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1, #seconds before opening each miner
     [Parameter(Mandatory=$false)]
-    [String]$CoinExchange = "",
+    [String]$CoinExchange = "LTC",
     [Parameter(Mandatory=$false)]
     [array]$Coin= $null,
     [Parameter(Mandatory=$false)]
-    [string]$Auto_Algo = "No"
+    [string]$Auto_Algo = "Yes",
+    [Parameter(Mandatory=$false)]
+    [Int]$Nicehash_Fee
 )
+
+ $InfoCheck1 = Get-Content ".\Build\Data\conversion.ifx" | Out-String
+ $VerifyCheck1 = Get-Content ".\Build\Data\verification.ifx" | Out-String
+ $InfoCheck2 = Get-Content ".\Build\Data\conversion2.ifx" | Out-String
+ $VerifyCheck2 = Get-Content ".\Build\Data\verification2.ifx" | Out-String
+ $InfoPass1 = $InfoCheck1
+ $InfoPass2 = $InfoCheck2
+ $VerifyPass1 = $VerifyCheck1
+ $VerifyPass2 = $VerifyCheck2 
+
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
@@ -114,33 +160,35 @@ $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
 if($DonationClear -ne "")
  {
   Clear-Content ".\Build\Data\Info.txt"
- }
+ } 
 
-$WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
-$UserDonate = "MaynardVII"
-$WorkerDonate = "Rig1"
-$WalletSwitch = $Wallet
-$WalletSwitch1 = $Wallet1
-$WalletSwitch2 = $Wallet2
-$WalletSwitch3 = $Wallet3
-$WalletSwitch4 = $Wallet4
-$WalletSwitch5 = $Wallet5
-$WalletSwitch6 = $Wallet6
-$WalletSwitch7 = $Wallet7
-$WalletSwitch8 = $Wallet8
-$PasswordSwitch = $Passwordcurrency
-$PasswordSwitch1 = $Passwordcurrency1
-$PasswordSwitch2 = $Passwordcurrency2
-$PasswordSwitch3 = $Passwordcurrency3
-$PasswordSwitch4 = $Passwordcurrency4
-$PasswordSwitch5 = $Passwordcurrency5
-$PasswordSwitch6 = $Passwordcurrency6
-$PasswordSwitch7 = $Passwordcurrency7
-$PasswordSwitch8 = $Passwordcurrency8
-$UserSwitch = $UserName
-$WorkerSwitch = $WorkerName
-$RigSwitch = $RigName
-$IntervalSwitch = $Interval
+ $WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
+ $NicehashDonate = "3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop"
+ $UserDonate = "MaynardVII"
+ $WorkerDonate = "Rig1"
+ $WalletSwitch = $Wallet
+ $WalletSwitch1 = $Wallet1
+ $WalletSwitch2 = $Wallet2
+ $WalletSwitch3 = $Wallet3
+ $CPUWalletSwitch = $CPUWallet
+ $ZergpoolWallet1Switch = $ZergpoolWallet1
+ $ZergpoolWallet2Switch = $ZergpoolWallet2
+ $ZergpoolWallet3Switch = $ZergpoolWallet3
+ $PasswordSwitch = $Passwordcurrency
+ $PasswordSwitch1 = $Passwordcurrency1
+ $PasswordSwitch2 = $Passwordcurrency2
+ $PasswordSwitch3 = $Passwordcurrency3
+ $CPUcurrencySwitch = $CPUcurrency
+ $Zergpoolpassword1Switch = $Zergpoolpassword1
+ $Zergpoolpassword2Switch = $Zergpoolpassword2
+ $Zergpoolpassword3Switch = $Zergpoolpassword3
+ $Nicehash_Wallet1Switch = $Nicehash_Wallet1
+ $Nicehash_Wallet2Switch = $Nicehash_Wallet2
+ $Nicehash_Wallet3Switch = $Nicehash_Wallet3
+ $UserSwitch = $UserName
+ $WorkerSwitch = $WorkerName
+ $RigSwitch = $RigName
+ $IntervalSwitch = $Interval
 
 if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $_.Name $_.Content.Minute_5}}
     
@@ -165,7 +213,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                      v1.2.2              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.2.3-Lambo              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -193,12 +241,12 @@ while($true)
 {
 
 $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
-$TimeDeviation = ($Donate + .75)
+$TimeDeviation = [int]($Donate + .85)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
 
-if($Donate -ne 0)
+if($TimeDeviation -ne 0)
  {
   $DonationTotal = (864*[int]$TimeDeviation)
   $DonationIntervals = ([int]$DonationTotal/288)
@@ -237,28 +285,30 @@ if($LastRan -ne "")
    $CurrentlyDonated = [math]::Round(((Get-Date)-$Donated).TotalSeconds)
    if($CurrentlyDonated -ge [int]$FinalDonation)
     {
-     $Wallet = $WalletDonate
-     $Wallet1 = $WalletDonate
-     $Wallet2 = $WalletDonate
-     $Wallet3 = $WalletDonate
-     $Wallet4 = $WalletDonate
-     $Wallet5 = $WalletDonate
-     $Wallet6 = $WalletDonate
-     $Wallet7 = $WalletDonate
-     $Wallet8 = $WalletDonate
-     $UserName = $UserDonate
-     $WorkerName = $WorkerDonate
-     $RigName = "DONATING!!!"
-     $Interval = 288
-     $Passwordcurrency = ("BTC")
-     $Passwordcurrency1 = ("BTC")
-     $Passwordcurrency2 = ("BTC")	
-     $Passwordcurrency3 = ("BTC")
-     $Passwordcurrency4 = ("BTC")
-     $Passwordcurrency5 = ("BTC")
-     $Passwordcurrency6 = ("BTC")
-     $Passwordcurrency7 = ("BTC")
-     $Passwordcurrency8 = ("BTC")	
+        $Wallet = $InfoPass1
+        $Wallet1 = $InfoPass1
+        $Wallet2 = $InfoPass1
+        $Wallet3 = $InfoPass1
+        $CPUWallet = $InfoPass1
+        $ZergpoolWallet1 = $InfoPass1
+        $ZergpoolWallet2 = $InfoPass1
+        $ZergpoolWallet3 = $InfoPass1
+        $Nicehash_Wallet1 = $VerifyPass1
+        $Nicehash_Wallet2 = $VerifyPass1
+        $Nicehash_Wallet3 = $VerifyPass1
+        $UserName = $InfoPass2
+        $WorkerName = $VerifyPass2
+        $RigName = "DONATING!!!"
+        $Interval = 288
+        $Passwordcurrency = ("BTC")
+        $Passwordcurrency1 = ("BTC")
+        $Passwordcurrency2 = ("BTC")
+        $Passwordcurrency3 = ("BTC")
+        $CPUcurrency = ("BTC")
+        $Zergpoolpassword1 = ("BTC")
+        $Zergpoolpassword2 = ("BTC")
+        $Zergpoolpassword3 = ("BTC")
+
      if(($InfoCheck) -eq "")
      {	
      Get-Date | Out-File ".\Build\Data\Info.txt"
@@ -281,25 +331,26 @@ if($LastRan -ne "")
         $Wallet = $WalletSwitch
         $Wallet1 = $WalletSwitch1
         $Wallet2 = $WalletSwitch2
-	$Wallet3 = $WalletSwitch3
-        $Wallet4 = $WalletSwitch4
-        $Wallet5 = $WalletSwitch5
-	$Wallet6 = $WalletSwitch6
-	$Wallet7 = $WalletSwitch7
-	$Wallet8 = $WalletSwitch8
-	$UserName = $UserSwitch
-	$WorkerName = $WorkerSwitch
-	$RigName = $RigSwitch
+	    $Wallet3 = $WalletSwitch3
+        $ZergpoolWallet1 = $ZergpoolWallet1Switch
+        $ZergpoolWallet2 = $ZergpoolWallet2Switch
+        $ZergpoolWallet3 = $ZergpoolWallet3Switch
+        $Nicehash_Wallet1 = $Nicehash_Wallet1Switch
+        $Nicehash_Wallet2 = $Nicehash_Wallet2Switch
+        $Nicehash_Wallet3 = $Nicehash_Wallet3Switch
+        $CPUWallet = $CPUWalletSwitch
+	    $UserName = $UserSwitch
+	    $WorkerName = $WorkerSwitch
+	    $RigName = $RigSwitch
         $Interval = $IntervalSwitch
         $Passwordcurrency = $PasswordSwitch
-	$Passwordcurrency1 = $PasswordSwitch1
+	    $Passwordcurrency1 = $PasswordSwitch1
         $Passwordcurrency2 = $PasswordSwitch2
         $Passwordcurrency3 = $PasswordSwitch3
-        $Passwordcurrency4 = $PasswordSwitch4
-        $Passwordcurrency5 = $PasswordSwitch5
-        $Passwordcurrency6 = $PasswordSwitch6
-        $Passwordcurrency7 = $PasswordSwitch7
-        $Passwordcurrency8 = $PasswordSwitch8
+        $Zergpoolpassword1 = $Zergpoolpassword1Switch
+        $Zergpoolpassword2 = $Zergpoolpassword2Switch
+        $Zergpoolpassword3 = $Zergpoolpassword3Switch
+        $CPUcurrency = $CPUcurrencySwitch
 	Clear-Content ".\Build\Data\Info.txt"
 	Write-Host "Leaving Donation Mode- Thank you For The Support!" -foregroundcolor "darkred"
 	Continue
@@ -341,7 +392,7 @@ if($LastRan -ne "")
     #Load information about the Miners
     #Messy...?
 
-    $Miners = if(Test-Path "CoinMiners"){Get-ChildItemContent "CoinMiners" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
+    $Miners = if(Test-Path "Miners-Linux"){Get-ChildItemContent "Miners-Linux" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
  Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
  Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
  Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
@@ -518,6 +569,8 @@ if($LastRan -ne "")
      
         else
 	 {
+	 if($TimeDeviation -ne 0)
+          {
 	 if($_.XProcess -eq $null -or $_.XProcess.HasExited)
                {
                 Start-Sleep $Delay #Wait to prevent BSOD
@@ -538,34 +591,39 @@ if($LastRan -ne "")
 			if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
 			if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
 			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
-
             if($_.Distro -eq "Linux")
-			 {
-		     Set-Location (Split-Path -Path $_.Path)
+            {
+            Set-Location (Split-Path -Path $_.Path)
+            $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+            if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+            else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+            }
+           if($_.Distro -eq "Linux-EWBF")
+            {
+             Set-Location (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-		     if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-		     else{$3 = "-d $($_.Devices) $($_.Arguments)"}
-			 }
-			if($_.Distro -eq "Linux-EWBF")
-			 {
-		      $4 = "--cuda_devices"
-		      Set-Location (Split-Path -Path $_.Path)
-              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-		      if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-		      else{$3 = "$4  $($_.Devices) $($_.Arguments)"}
-			 }
-            if($_.Distro -eq "Windows")
-			 {
-		      Set-Location (Split-Path -Path $_.Path)
-              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
-			  if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-		      else{$3 = "-d $($_.Devices) $($_.Arguments)"}
-             }
-		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		       $_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue
-             Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
-		     }
-		 if($_.Type -eq "CPU")
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
+            }
+            if($_.Distro -eq "Linux-DSTM")
+            {
+             Set-Location (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "$($_.Arguments) --dev $($_.Devices)"}
+            }
+           if($_.Distro -eq "Windows")
+            {
+             Set-Location (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+            }
+              $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+              $_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue
+            Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
+            }
+       if($_.Type -eq "CPU")
 		  {
           if($_.Distro -eq "Linux")
 		   {
@@ -597,22 +655,16 @@ if($LastRan -ne "")
 			if($_.Type -eq "AMD8"){$_.Screens = 700}
 			
        		       if($_.Distro -eq "Linux")
-			{
+			        {
 		         Set-Location (Split-Path -Path $_.Path)
-                         $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-		         if($_.Devices -eq $null)
-			  {
-                           $3 = "$($_.Arguments)"
-			  }
-		         else
-			  {
-			   $3 = "-d $($_.Devices) $($_.Arguments)"
-			  }
-			 }
-		        if($_.Distro -eq "Windows")
-			 {
-		          Set-Location (Split-Path -Path $_.Path)
-                          $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+                 $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		         if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+		         else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+			        }
+		           if($_.Distro -eq "Windows")
+			        {
+		             Set-Location (Split-Path -Path $_.Path)
+                    $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 			  if($_.Devices -eq $null)
 			   {
                             $3 = "$($_.Arguments)"
@@ -631,7 +683,7 @@ if($LastRan -ne "")
                 else{$_.Status = "Running"}
             }
         }
-      
+      }
    }
     
     #Display mining information
@@ -707,37 +759,39 @@ if($LastRan -ne "")
 			  if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
 			  if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
 			  if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
-			  if($_.Distro -eq "Linux")
-			   {
-		          Set-Location (Split-Path -Path $_.Path)
-                          $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-		          if($_.Devices -eq $null)
-			       {
-                          $3 = "$($_.Arguments)"
-			       }
-		          else
-			       {
-			  $3 = "-d $($_.Devices) $($_.Arguments)"
-			       }
-			    }
-		          if($_.Distro -eq "Windows")
-			   {
-		        Set-Location (Split-Path -Path $_.Path)
-                        $2 = "-geometry 70x6 -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
-			    if($_.Devices -eq $null)
-			     {
-                        $3 = "$($_.Arguments)"
-			     }
-		        else
-			     {
-			      $3 = "-d $($_.Devices) $($_.Arguments)"
-			     }
-			   }
-		        $_.MiningId  = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		        $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue	
-                        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
-		      }
-		    if($_.Type -eq "CPU")
+              if($_.Distro -eq "Linux")
+              {
+              Set-Location (Split-Path -Path $_.Path)
+              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+              else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+              }
+             if($_.Distro -eq "Linux-EWBF")
+              {
+               Set-Location (Split-Path -Path $_.Path)
+               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+               if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+               else{$3 = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+              }
+              if($_.Distro -eq "Linux-DSTM")
+              {
+               Set-Location (Split-Path -Path $_.Path)
+               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+               if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+               else{$3 = "($_.Arguments) --dev $($_.Devices)"}
+              }
+             if($_.Distro -eq "Windows")
+              {
+               Set-Location (Split-Path -Path $_.Path)
+               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+               if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+               else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+              }
+                $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
+                $_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue
+              Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
+              }
+             if($_.Type -eq "CPU")
 		     {
               if($_.Distro -eq "Linux")
 			   {
@@ -793,8 +847,8 @@ if($LastRan -ne "")
 			     }
 		 	    }  
        		$_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		$_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
-                Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+		    $_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
+            Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
             }
              Start-Sleep ($CheckMinerInterval)
              if($_.XProcess -eq $null -or $_.XProcess.HasExited)
@@ -832,6 +886,8 @@ if($LastRan -ne "")
         }
         else
           {
+          if($TimeDeviation -ne 0)
+           {
             $_.HashRate = 0
             $_.WasBenchmarked = $False
             $Miner_HashRates = Get-HashRate $_.API $_.Port
@@ -902,7 +958,7 @@ if($LastRan -ne "")
               }
            }
         }
-
+      }
         if($_.Timeout.Count -ge 0 -or $_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
          if($_.WasBenchmarked -eq $False)

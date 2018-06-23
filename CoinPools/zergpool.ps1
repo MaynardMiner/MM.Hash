@@ -42,8 +42,20 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 
     if($Algorithm -eq $zergpool_Algorithm)
      {
-      if($Wallet1)
+      if($Wallet)
        {
+        If($ZergpoolWallet1 -ne ''){$ZergWallet1 = $ZergpoolWallet1}
+        else{$ZergWallet1 = $Wallet1}
+        if($ZergpoolWallet2 -ne ''){$ZergWallet2 = $ZergpoolWallet2}
+        else{$ZergWallet2 = $Wallet2}
+        if($ZergpoolWallet1 -ne ''){$ZergWallet3 = $ZergpoolWallet3}
+        else{$ZergWallet3 = $Wallet3}
+        if($Zergpoolpassword1 -ne ''){$Zergpass1 = $Zergpoolpassword1}
+        else{$Zergpass1 = $Passwordcurrency1}
+        if($Zergpoolpassword2 -ne ''){$Zergpass2 = $Zergpoolpassword2}
+        else{$Zergpass2 = $Passwordcurrency2}
+        if($Zergpoolpassword3 -ne ''){$Zergpass3 = $Zergpoolpassword3}
+        else{$Zergpass3 = $Passwordcurrency3}
         [PSCustomObject]@{
             Coin = $zergpool_Coin
             Mining = $zergpool_CoinName
@@ -54,12 +66,14 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
             Protocol = "stratum+tcp"
             Host = $zergpool_Host
             Port = $zergpool_Port
-            User1 = $Wallet1
-	        User2 = $Wallet2
-	        User3 = $Wallet3
-            Pass1 = "c=$Passwordcurrency1,mc=$zergpool_Coin"
-            Pass2 = "c=$Passwordcurrency2,mc=$zergpool_Coin"
-	        Pass3 = "c=$Passwordcurrency3,mc=$zergpool_Coin"
+            User1 = $ZergWallet1
+	        User2 = $ZergWallet2
+            User3 = $ZergWallet3
+            CPUser = $CPUWallet
+            CPUPass = $CPUcurrency
+            Pass1 = "c=$Zergpass1,mc=$zergpool_Coin"
+            Pass2 = "c=$Zergpass2,mc=$zergpool_Coin"
+	        Pass3 = "c=$Zergpass3,mc=$zergpool_Coin"
             Location = $Location
             SSL = $false
 	       }
