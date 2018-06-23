@@ -223,7 +223,7 @@ Write-Host "
                                                                                                           \__.'          '======'
 					    				      SNIPER-MODE ACTIVATED
 						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
-									.75% Dev Fee Was Written In This Code
+									.85% Dev Fee Was Written In This Code
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
 " -foregroundColor "darkred"
 
