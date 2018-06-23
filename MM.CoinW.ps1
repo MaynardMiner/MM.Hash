@@ -22,25 +22,25 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$Nicehash_Wallet3 = '',
     [Parameter(Mandatory=$false)]
-    [String]$UserName = "MaynardVII", 
+    [String]$UserName = "MaynardVII",
     [Parameter(Mandatory=$false)]
     [String]$WorkerName = "Rig1",
     [Parameter(Mandatory=$false)]
     [String]$RigName = "MMHash",
     [Parameter(Mandatory=$false)]
-    [Int]$API_ID = 0, 
+    [Int]$API_ID = 0,
     [Parameter(Mandatory=$false)]
-    [String]$API_Key = "", 
+    [String]$API_Key = "",
     [Parameter(Mandatory=$false)]
     [Int]$Interval = 300, #seconds before reading hash rate from miners
-    [Parameter(Mandatory=$false)] 
-    [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet 
+    [Parameter(Mandatory=$false)]
+    [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet
     [Parameter(Mandatory=$false)]
     [String]$Location = "US", #europe/us/asia
     [Parameter(Mandatory=$false)]
     [String]$MPHLocation = "US", #europe/us/asia
     [Parameter(Mandatory=$false)]
-    [Switch]$SSL = $false, 
+    [Switch]$SSL = $false,
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
@@ -48,31 +48,31 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)]
-    [String]$CCDevices1, 
-    [Parameter(Mandatory=$false)] 
+    [String]$CCDevices1,
+    [Parameter(Mandatory=$false)]
     [String]$CCDevices2,
     [Parameter(Mandatory=$false)]
     [String]$CCDevices3,
     [Parameter(Mandatory=$false)]
-    [String]$EWBFDevices1, 
-    [Parameter(Mandatory=$false)] 
+    [String]$EWBFDevices1,
+    [Parameter(Mandatory=$false)]
     [String]$EWBFDevices2,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices3,
     [Parameter(Mandatory=$false)]
-    [String]$GPUDevices1, 
-    [Parameter(Mandatory=$false)] 
+    [String]$GPUDevices1,
+    [Parameter(Mandatory=$false)]
     [String]$GPUDevices2,
     [Parameter(Mandatory=$false)]
     [String]$GPUDevices3,
     [Parameter(Mandatory=$false)]
-    [String]$DSTMDevices1, 
-    [Parameter(Mandatory=$false)] 
+    [String]$DSTMDevices1,
+    [Parameter(Mandatory=$false)]
     [String]$DSTMDevices2,
     [Parameter(Mandatory=$false)]
     [String]$DSTMDevices3,
     [Parameter(Mandatory=$false)]
-    [Array]$PoolName = $null, 
+    [Array]$PoolName = $null,
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
     [Parameter(Mandatory=$false)]
@@ -94,7 +94,7 @@ param(
     [Parameter(Mandatory=$false)]
     [Int]$Donate = .5, #Percent per Day
     [Parameter(Mandatory=$false)]
-    [String]$Proxy = "", #i.e http://192.0.0.1:8080 
+    [String]$Proxy = "", #i.e http://192.0.0.1:8080
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1, #seconds before opening each miner
     [Parameter(Mandatory=$false)]
@@ -116,7 +116,7 @@ Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
  $InfoPass1 = $InfoCheck1
  $InfoPass2 = $InfoCheck2
  $VerifyPass1 = $VerifyCheck1
- $VerifyPass2 = $VerifyCheck2 
+ $VerifyPass2 = $VerifyCheck2
 
 
 Get-ChildItem . -Recurse | Out-Null
@@ -585,7 +585,7 @@ if($LastRan -ne "")
                if($_.API -eq "DSTM")
                {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "--dev $($_.Arguments) $($_.Devices)"}
+                else{$T = "$($_.Arguments) --dev $($_.Devices)"}
                }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
@@ -609,7 +609,7 @@ if($LastRan -ne "")
         @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'},
         @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.Process -eq $null){$_.Active}else{if($_.Process.HasExited){($_.Active)}else{($_.Active+((Get-Date)-$_.Process.StartTime))}})}},
         @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}},
-        @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.Arguments)"}}
+        @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.Devices) $($_.Arguments)"}}
     ) | Out-Host
        Write-Host "
                                                                              *      *         )        (       )

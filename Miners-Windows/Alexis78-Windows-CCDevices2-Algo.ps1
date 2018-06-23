@@ -15,12 +15,12 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Skein
 
 $Commands = [PSCustomObject]@{
-    "Nist5" = ''
+    "Nist5" = '-i 25'
     "Hsr" = ''
-    "C11" = ''
+    "C11" = '-i 20'
     "Quark" = ''
     "Blake2s" = ''
-    "Skein" = ''
+    "Skein" = '-i 28'
     }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

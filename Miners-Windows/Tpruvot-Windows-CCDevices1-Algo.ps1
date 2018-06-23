@@ -7,7 +7,7 @@ if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 #Algorithms
-#Lyra2v2 
+#Lyra2v2
 #Keccak
 #Skunk
 #Tribus
@@ -20,7 +20,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Sib
 
 $Commands = [PSCustomObject]@{
-"Lyra2v2" = '' 
+"Lyra2v2" = ''
 "Keccak" = ''
 "Skunk" = ''
 "Tribus" = ''

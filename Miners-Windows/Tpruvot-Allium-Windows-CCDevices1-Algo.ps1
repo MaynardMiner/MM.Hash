@@ -13,7 +13,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 $Commands = [PSCustomObject]@{
     "Allium" = '' #Allium
     "Cryptonight" = ''
-	"Cryptonightv7" = ''
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
