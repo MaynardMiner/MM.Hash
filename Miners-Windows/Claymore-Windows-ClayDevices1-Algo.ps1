@@ -27,7 +27,7 @@ if($GPUDevices1 -ne '')
                 Path = $Path
                 Distro =  $Distro
                 Devices = $Devices
-                Arguments = "-mport 3333 -mode 1 -esm 3 -estale 0 -allpools 1 -epool $($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -ewal $($Pools.(Get-Algo($_)).User1) -epsw $($Pools.(Get-Algo($_)).Pass1) $($Commands.$_)"
+                Arguments = "-mport 3333 -mode 1 -esm 3 -estale 0 -allcoins 1 -epool $($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -ewal $($Pools.(Get-Algo($_)).User1) -epsw $($Pools.(Get-Algo($_)).Pass1) $($Commands.$_)"
                 HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Live}
                 Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
                 API = "claymore"
