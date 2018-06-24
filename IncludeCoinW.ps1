@@ -340,11 +340,10 @@ function Get-HashRate {
                     $HashRate = $Data.result[2].Split(";")[0]
                     $HashRate_Dual = $Data.result[4].Split(";")[0]
 
-                    if($HashRate -eq $null -or $HashRate_Dual -eq $null){$HashRates = @(); $HashRate_Dual = @(); break}
+                    if($HashRate -eq $null){$HashRates = @(); break}
 
-                    if($Request.Content.Contains("ETH:")){$HashRates += [Double]$HashRate*$Multiplier; $HashRates_Dual += [Double]$HashRate_Dual*$Multiplier}
-                    else{$HashRates += [Double]$HashRate; $HashRates_Dual += [Double]$HashRate_Dual}
-
+                    $HashRates += [Double]$HashRate*$Multiplier
+                 
                     if(-not $Safe){break}
 
 		    Start-Sleep $Interval
