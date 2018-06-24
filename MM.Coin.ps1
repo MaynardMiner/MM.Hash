@@ -72,6 +72,12 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$DSTMDevices3,
     [Parameter(Mandatory=$false)]
+    [String]$ClayDevices1,
+    [Parameter(Mandatory=$false)]
+    [String]$ClayDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$ClayDevices3,
+    [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
@@ -612,6 +618,13 @@ if($LastRan -ne "")
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "$($_.Arguments) --dev $($_.Devices)"}
             }
+	   if($_.Distro -eq "Linux-Claymore")
+            {
+             Set-Location (Split-Path -Path $_.Path) 
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
+            }
            if($_.Distro -eq "Windows")
             {
              Set-Location (Split-Path -Path $_.Path)
@@ -780,6 +793,13 @@ if($LastRan -ne "")
                if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
                else{$3 = "($_.Arguments) --dev $($_.Devices)"}
               }
+           if($_.Distro -eq "Linux-Claymore")
+            {
+             Set-Location (Split-Path -Path $_.Path) 
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "-di $($_.Devices) $($_.Arguments)"}
+            }
              if($_.Distro -eq "Windows")
               {
                Set-Location (Split-Path -Path $_.Path)

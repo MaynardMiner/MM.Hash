@@ -170,7 +170,6 @@ function Get-HashRate {
     $Delta = 0.05
     $Interval = 5
     $HashRates = @()
-    $HashRates_Dual = @()
 
     try
     {
@@ -329,7 +328,7 @@ function Get-HashRate {
                     Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
-            "claymore"
+          "claymore"
             {
                 do
                 {
@@ -338,12 +337,8 @@ function Get-HashRate {
                     $Data = $Request.Content.Substring($Request.Content.IndexOf("{"),$Request.Content.LastIndexOf("}")-$Request.Content.IndexOf("{")+1) | ConvertFrom-Json
 
                     $HashRate = $Data.result[2].Split(";")[0]
-                    $HashRate_Dual = $Data.result[4].Split(";")[0]
-
-                    if($HashRate -eq $null -or $HashRate_Dual -eq $null){$HashRates = @(); $HashRate_Dual = @(); break}
-
-                    if($Request.Content.Contains("ETH:")){$HashRates += [Double]$HashRate*$Multiplier; $HashRates_Dual += [Double]$HashRate_Dual*$Multiplier}
-                    else{$HashRates += [Double]$HashRate; $HashRates_Dual += [Double]$HashRate_Dual}
+                    if($HashRate -eq $null){$HashRates = @()}
+		    $HashRates += [Double]$HashRate*$Multiplier
 
                     if(-not $Safe){break}
 
@@ -360,6 +355,7 @@ function Get-HashRate {
                     $Writer.AutoFlush = $true
 
                     $Writer.WriteLine($Message)
+
                     $Request = $Reader.ReadLine()
 
                     $Data = $Request | ConvertFrom-Json
