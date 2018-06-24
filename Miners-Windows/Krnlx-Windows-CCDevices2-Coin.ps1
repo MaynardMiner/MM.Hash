@@ -3,7 +3,6 @@ $Uri = "https://github.com/MaynardMiner/Window-Krnlx/releases/download/v1.0/Ccmi
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
 if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
-$Devices = $CCDevices2
 
 #Algorithms:
 #Xevan
