@@ -122,17 +122,17 @@ Argument            Options             Explanation
 -CPUcurrency       [Symbol]             Wallet symbol for CPUWallet. Must be specified and is required
                                         when -Type CPU is used.                           
 
--GPUDevices1       [0,1,2,3,4 etc.]     GPU's used in device group one, as identified by driver.
+-GPUDevices1     ['0,1,2,3,4' etc.]     GPU's used in device group one, as identified by driver.
                                         GPUDevices1 will mine from Wallet1, PasswordCurrency1,
                                         nicehash_wallet1, zergpool_wallet1, Zergpoolpassword1,
                                         if -Type NVIDIA1 was specified
 
--GPUDevices2       [0,1,2,3,4 etc.]     GPU's used in device group one, as identified by driver.
+-GPUDevices2     ['0,1,2,3,4' etc.]     GPU's used in device group one, as identified by driver.
                                         GPUDevices2 will mine from Wallet2, PasswordCurrency2,
                                         nicehash_wallet2, zergpool_wallet2, Zergpoolpassword2,
                                         if -Type NVIDIA2 specified
 
--GPUDevices3       [0,1,2,3,4 etc.]     GPU's used in device group one, as identified by driver.
+-GPUDevices3     ['0,1,2,3,4' etc.]     GPU's used in device group one, as identified by driver.
                                         GPUDevices3 will mine from Wallet3, PasswordCurrency3,
                                         nicehash_wallet3, zergpool_wallet3, Zergpoolpassword3,
                                         if -Type NVIDIA3 specified
@@ -155,15 +155,15 @@ Argument            Options             Explanation
 -PasswordCurrency3    [Any]             Coin symbol that matches wallet address for Wallet3. By default
                                         it is BTC. Used when -Type NVIDIA1 is specified.                 
 
--Nicehash_Wallet1    [Wallet Address]   Nicehash wallet address. Must be specified and used if if -Poolname
+-Nicehash_Wallet1    [Wallet Address]   Nicehash wallet address. Must be specified and used if -Poolname
                                         nicehash is used in combination with Wallet1. 
                                         Used when -Type NVIDIA1 is specified.
 
--Nicehash_Wallet2    [Wallet Address]   Nicehash wallet address. Must be specified and used if if -Poolname
+-Nicehash_Wallet2    [Wallet Address]   Nicehash wallet address. Must be specified and used if -Poolname
                                         nicehash is used in combination with Wallet2. 
                                         Used when -Type NVIDIA2 is specified.
 
--Nicehash_Wallet3    [Wallet Address]    Nicehash wallet address. Must be specified and used if if -Poolname
+-Nicehash_Wallet3    [Wallet Address]    Nicehash wallet address. Must be specified and used if -Poolname
                                         nicehash is used in combination with Wallet3. 
                                         Used when -Type NVIDIA3 is specified.
 
@@ -195,58 +195,58 @@ Argument            Options             Explanation
 -Zergpoolpassword2     [Symbol]         Wallet address symbol of zergpool -ZergpoolWallet2. Is used
                                         in combination of -PasswordCurrency1 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
-                                        in password arguments. Used when -Type NVIDIA2 is specified.                                                                                                                                                                                        
-                                                                                                                                                              
+                                        in password arguments. Used when -Type NVIDIA2 is specified.
+					
 -Zergpoolpassword3      [Symbol]        Wallet address symbol of zergpool -ZergpoolWallet3. Is used
                                         in combination of -PasswordCurrency3 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
                                         in password arguments. Used when -Type NVIDIA3 is specified.
-
--CCDevices1    [GTX1070ti#0,GTX1080#1..   Device group 1 CCDevices. Used instead of -GPUDevices1, where
+							
+-CCDevices1   ['GTX1070ti#0,GTX1080#1'..  Device group 1 CCDevices. Used instead of -GPUDevices1, where
                            or             the requirement of specifying individual GPUs for CCminer is
-                        0,1,2,3..   ]     required. Used if -Type NVIDIA1 is specified
+                      '0,1,2,3'..   ]     required. Used if -Type NVIDIA1 is specified
 
--CCDevices2    [GTX1070ti#0,GTX1080#1..   Device group 2 CCDevices. Used instead of -GPUDevices2, where
+-CCDevices2    ['GTX1070ti#0,GTX1080#1'.. Device group 2 CCDevices. Used instead of -GPUDevices2, where
                            or             the requirement of specifying individual GPUs for CCminer is
-                         0,1,2,3..  ]     required. Used if -Type NVIDIA2 is specified
+                       '0,1,2,3'..  ]     required. Used if -Type NVIDIA2 is specified
 
--CCDevices3    [GTX1070ti#0,GTX1080#1..   Device group 3 CCDevices. Used instead of -GPUDevices1, where
+-CCDevices3   ['GTX1070ti#0,GTX1080#1'..  Device group 3 CCDevices. Used instead of -GPUDevices1, where
                            or             the requirement of specifying individual GPUs for CCminer is
-                        0,1,2,3..   ]     required. Used if -Type NVIDIA3 is specified.
+                      '0,1,2,3'..   ]     required. Used if -Type NVIDIA3 is specified.
 
--EWBFDevices1      [0 1 2 3 4 5 6..]    Device group 1 EWBFDevices. Used instead of -GPUDevices1, where
+-EWBFDevices1     ['0 1 2 3 4 5 6'..]   Device group 1 EWBFDevices. Used instead of -GPUDevices1, where
                                         the requirement of specifying individual GPUs for EWBF is
                                         required. Used if -Type NVIDIA1 is specified
 
--EWBFDevices2      [0 1 2 3 4 5 6..]    Device group 2 EWBFDevices. Used instead of -GPUDevices2, where
+-EWBFDevices2    ['0 1 2 3 4 5 6'..]    Device group 2 EWBFDevices. Used instead of -GPUDevices2, where
                                         the requirement of specifying individual GPUs for EWBF is
                                         required. Used if -Type NVIDIA2 is specified
 
--EWBFDevices3      [0 1 2 3 4 5 6..]    Device group 3 EWBFDevices. Used instead of -GPUDevices3, where
+-EWBFDevices3    ['0 1 2 3 4 5 6'..]    Device group 3 EWBFDevices. Used instead of -GPUDevices3, where
                                         the requirement of specifying individual GPUs for EWBF is
                                         required. Used if -Type NVIDIA3 is specified.
 
--DSTMDevices1      [0 1 2 3 4 5 6..]    Device group 1 DSTMDevices. Used instead of -GPUDevices1, where
+-DSTMDevices1    ['0 1 2 3 4 5 6'..]    Device group 1 DSTMDevices. Used instead of -GPUDevices1, where
                                         the requirement of specifying individual GPUs for DSTM is
                                         required. Used if -Type NVIDIA1 is specified
 
--DSTMDevices2      [0 1 2 3 4 5 6..]    Device group 2 DSTMDevices. Used instead of -GPUDevices2, where
+-DSTMDevices2    ['0 1 2 3 4 5 6'..]    Device group 2 DSTMDevices. Used instead of -GPUDevices2, where
                                         the requirement of specifying individual GPUs for DSTM is
                                         required. Used if -Type NVIDIA2 is specified
 
--DSTMDevices3      [0 1 2 3 4 5 6..]    Device group 3 DSTMDevices. Used instead of -GPUDevices3, where
+-DSTMDevices3    ['0 1 2 3 4 5 6'..]    Device group 3 DSTMDevices. Used instead of -GPUDevices3, where
                                         the requirement of specifying individual GPUs for DSTM is
                                         required. Used if -Type NVIDIA3 is specified.
 
--ClayDevices1     [0123456789abcd...]   Device group 1 ClayDevices. Used instead of -GPUDevices1, where
+-ClayDevices1   ['0123456789abcd'...]   Device group 1 ClayDevices. Used instead of -GPUDevices1, where
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA1 is specified.
 
--ClayDevices2     [0123456789abcd...]   Device group 2 ClayDevices. Used instead of -GPUDevices1, where
+-ClayDevices2   ['0123456789abcd'...]   Device group 2 ClayDevices. Used instead of -GPUDevices1, where
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA2 is specified.
 
--ClayDevices3     [0123456789abcd...]   Device group 3 ClayDevices. Used instead of -GPUDevices3, where
+-ClayDevices3   ['0123456789abcd'...]   Device group 3 ClayDevices. Used instead of -GPUDevices3, where
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA3 is specified.
 
@@ -277,10 +277,17 @@ For Type
 if (Type = NVIDIA1)
 
 -GPUDevices1 = Devices you are using for group for all miners.
+
+You can swap GPUDevices1 for miner specific device groups. Useful for larger mining rigs, where gpu 10+
+is expressed differently in each miner:
+
 -CCDevices1 = Devices you are using for group for CCminers. Example: '0,1,2,3'. This must match Type 
-"NIVIDIA1" and/or "CPU" Leave '' if just using CPU.
+"NIVIDIA1".
 -EWBFDevices1 = Devices you are using for group for EWBF. EWBF Files must be moved to Miners folder.
 -DSTMDevices1 = Devices you are using for group for DSTM.
+
+Lastly you must set your wallet/password info. Here are basic:
+
 -Wallet1 = Wallet for device group 1. BTC works for all pools. See pools to find out if other coins can 
 be used. Zergpool in example accepts RVN as exchange.
 -PasswordCurrency1 = Wallet Symbol (See Pool For More Details, Must Match Wallet)
@@ -303,7 +310,7 @@ if (Type = NVIDIA2)
 
 If you are using -Type NVIDIA1,NVIDIA2 Example:
 
--Type NVIDIA1,NVIDIA2 -CCDevices1 '0,1,2' -EWBFDevices1 '0 1 2' -Wallet1 1ERWEDAe234wehdshWe -PasswordCurrency1 BTC -Type NVIDIA2 -CCDevices2 '0,1,2' -EWBFDevices2 '0 1 2' -Wallet 1aeEdrREglIT45EIWWheee -PasswordCurrency2 BTC
+-Type NVIDIA1,NVIDIA2 -CCDevices1 '0,1,2' -DSTMDevices1 '0 1 2' -ClayDevices1 '012' -Wallet1 1ERWEDAe234wehdshWe -PasswordCurrency1 BTC -Type NVIDIA2 -CCDevices2 '3,4,5' -DSTM Devices2 '3 4 5 ' -ClayDevices '345' -Wallet2 1aeEdrREglIT45EIWWheee -PasswordCurrency2 BTC
 
 -CCDevices3 = Same as above (group 2) for group 3   (NVIDIA3)
 -EWBFDevices = Same as above (group 2)
