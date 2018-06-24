@@ -1,13 +1,13 @@
-$Path = '.\Bin\Claymore-Windows-ClayDevices1-Algo\EthDcrMiner64.exe'
+$Path = '.\Bin\Claymore-Windows-ClayDevices3-Algo\EthDcrMiner64.exe'
 $Uri = 'https://github.com/MaynardMiner/ClaymoreMM/releases/download/untagged-e429eb3ca9b1c5f08ae6/ClaymoreWin.zip'
 $Distro = "Windows"
 $Build = "Zip"
 
-if($ClayDevices1 -ne ''){$Devices = $ClayDevices1}
-if($GPUDevices1 -ne '')
+if($ClayDevices3 -ne ''){$Devices = $ClayDevices3}
+if($GPUDevices3 -ne '')
  {
-  $GPUEDevices1 = $GPUDevices1 -replace ',',''
-  $Devices = $GPUEDevices1
+  $GPUEDevices3 = $GPUDevices3 -replace ',',''
+  $Devices = $GPUEDevices3
  }
 
  $Commands = [PSCustomObject]@{
