@@ -1,6 +1,7 @@
 **MM.Hash**
 
-**MULTI-ALGO, MULTI-COIN SWITCHING, MULTI-POOL, MULTI-DEVICE, MULTI-WALLET, MULTI-DEVICE AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX AND WINDOWS.**
+**MULTI-ALGO, MULTI-POOL, MULTI-DEVICE, MULTI-COIN, AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX SYSTEMS.**
+This is a new mining concept which combines Auto-Algo & Auto-Coin Switching simultaneuosly. It also has a Linux version, which is new as well as far as script miners. Both of these items are constantly being developed, and MM.Hash is but a fraction of what it can currently has the potential to be- The process can only move so fast as realtime testing is required with each new feature/implementation. Join discord by following link at bottom to be a part of the development process.
 
 NOTE- MM.Hash will run miners that are compiled with Windows Binaries in Linux. There are miners inside MM.Hash now that do so. However it will not work with all Windows-Based miners, but it works with most from my expirementation. AMD support will come when I get a chance to buy and test an AMD GPU. Clone from git, as I am updating it constantly.
 
