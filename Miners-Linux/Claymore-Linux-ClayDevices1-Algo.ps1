@@ -11,8 +11,8 @@ if($GPUDevices1 -ne '')
  }
 
  $Commands = [PSCustomObject]@{
-    "ethash" = ''
-    "daggerhashimoto" = ''
+    "ethash" = '-esm 2'
+    "daggerhashimoto" = '-esm 3 -estale 0'
     }
 
     $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -26,7 +26,7 @@ if($GPUDevices1 -ne '')
                 Path = $Path
                 Distro =  $Distro
                 Devices = $Devices
-                Arguments = "-mode 1 -mport 3333 -esm 3 -estale 0 -allpools 1 -allcoins 1 -epool $($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -ewal $($Pools.(Get-Algo($_)).User1) -epsw $($Pools.(Get-Algo($_)).Pass1) $($Commands.$_)"
+                Arguments = "-mport -3333 -mode 1 -allcoins 1 -allpools 1 -epool $($Pools.(Get-Algo($_)).Protocol)://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -ewal $($Pools.(Get-Algo($_)).User1) -epsw $($Pools.(Get-Algo($_)).Pass1) -wd 0 -dbg -1 -eres 1 $($Commands.$_)"
                 HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Live}
                 Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
                 API = "claymore"

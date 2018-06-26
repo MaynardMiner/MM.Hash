@@ -33,6 +33,9 @@ $Locations | foreach {
        $MPH_Algo = Get-Algorithm $_.algo
        $MPH_Symbol = "$($MPH_Algo)-ALGO"
        $MPH_Port = $_.algo_switch_port
+       if($MPH_Algo -eq "Equihash")
+        {$MPH_Protocol = 'stratum+ssl'}
+       else{$MPH_Protocol = 'stratum+tcp'}
        $MPH_Name = $_.current_mining_coin
        $MPH_Profit = $_.Profit
        $MPH_Hostname = $_.all_host_list
@@ -57,25 +60,6 @@ $Locations | foreach {
        {
         $Stat = Set-Stat -Name "$($Name)_$($MPH_Symbol)_Profit" -Value ([decimal]$_.profit/1000000000)
        }
-
-           [PSCustomObject]@{
-            Coin = $MPH_Symbol
-            Mining = $MPH_Name
-            Algorithm = $MPH_Algo
-            Price = $Stat.Live
-            StablePrice = $Stat.Live
-            Protocol = 'stratum+tcp'
-            Host = $MPH_Host
-            Port = $MPH_Port
-            User1 = '$UserName.$WorkerName'
-            User2 = '$UserName.$WorkerName'
-            User3 = '$UserName.$WorkerName'
-            Pass1 = 'x'
-            Pass2 = 'x'
-            Pass3 = 'x'
-            Location = $MPH_Location
-            SSL = $false
-                }
         
            [PSCustomObject]@{
             Coin = $MPH_Symbol
@@ -83,7 +67,7 @@ $Locations | foreach {
             Algorithm = $MPH_Algo
             Price = $Stat.Live
             StablePrice = $Stat.Live
-            Protocol = 'stratum+ssl'
+            Protocol = $MPH_Protocol
             Host = $MPH_Host
             Port = $MPH_Port
             User1 = '$UserName.$WorkerName'

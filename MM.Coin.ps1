@@ -38,9 +38,7 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$Location = "US", #europe/us/asia
     [Parameter(Mandatory=$false)]
-    [String]$MPHLocation = "US", #europe/us/asia
-    [Parameter(Mandatory=$false)]
-    [Switch]$SSL = $false, 
+    [String]$MPHLocation = "US", #europe/us/asia 
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
@@ -388,7 +386,6 @@ if($LastRan -ne "")
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
         Where Location -EQ $Location | 
-        Where SSL -EQ $SSL | 
         Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     if($AllPools.Count -eq 0){"No Pools!" | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
