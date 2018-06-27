@@ -54,9 +54,9 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             User3 = $Wallet3
             CPUser = $CPUWallet
             CPUPass = $CPUcurrency
-            Pass1 = "c=$Passwordcurrency1"
-            Pass2 = "c=$Passwordcurrency2"
-	        Pass3 = "c=$Passwordcurrency3"
+            Pass1 = "c=$Passwordcurrency1,ID=Rig01"
+            Pass2 = "c=$Passwordcurrency2,ID=Rig01"
+	    Pass3 = "c=$Passwordcurrency3,ID=Rig01"
             Location = $Location
             SSL = $false
 	   }
