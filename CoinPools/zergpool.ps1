@@ -70,10 +70,10 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 	        User2 = $ZergWallet2
             User3 = $ZergWallet3
             CPUser = $CPUWallet
-            CPUPass = $CPUcurrency
+            CPUPass = "c=$CPUcurrency,mc=$zergpool_Coin"
             Pass1 = "c=$Zergpass1,mc=$zergpool_Coin"
             Pass2 = "c=$Zergpass2,mc=$zergpool_Coin"
-	        Pass3 = "c=$Zergpass3,mc=$zergpool_Coin"
+	    Pass3 = "c=$Zergpass3,mc=$zergpool_Coin"
             Location = $Location
             SSL = $false
 	       }
