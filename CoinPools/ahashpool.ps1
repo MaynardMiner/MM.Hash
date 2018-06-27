@@ -56,7 +56,7 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 	        User2 = $Wallet2
             User3 = $Wallet3
             CPUser = $CPUWallet
-            CPUPass = $CPUcurrency          
+            CPUPass = "c=$CPUcurrency"         
             Pass1 = "c=$Passwordcurrency1"
             Pass2 = "c=$Passwordcurrency2"
 	        Pass3 = "c=$Passwordcurrency3"
