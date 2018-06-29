@@ -18,6 +18,7 @@ $Commands = [PSCustomObject]@{
 "PGN" = '' #x16s
 "RABBIT" = '' #x16s
 "REDN" = '' #x16s
+"AEX" = ''
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
