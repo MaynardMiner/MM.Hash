@@ -46,7 +46,6 @@ $Commands = [PSCustomObject]@{
     "TIN" = '' #Tribus
     "ZULA" = '' #Tribus
     "FLM" = '' #Phi
-    "LUX" = '' #Phi
     "SERA" = '' #Phi
     "CREA" = '' #Keccakc
     "ARG-myr-gr" = '' #myr-gr
