@@ -56,8 +56,6 @@ $Locations | foreach {
          else{$MPH_Host = "asia.$($MPH_Symhost)-hub.miningpoolhub.com"}
         }
 
-      if($Algorithm -eq $MPH_Symbol)
-       {
         $Stat = Set-Stat -Name "$($Name)_$($MPH_Symbol)_Profit" -Value ([decimal]$_.profit/1000000000)
        }
         
@@ -78,7 +76,6 @@ $Locations | foreach {
             Pass3 = 'x'
             Location = $MPH_Location
             SSL = $true
-            }
             
      }
 }
