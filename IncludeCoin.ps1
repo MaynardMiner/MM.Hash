@@ -517,25 +517,22 @@ function Get-Combination {
 
 function Start-SubProcess {
     param(
-        [Parameter(Mandatory=$true)]
-        [String]$FilePath,
-        [Parameter(Mandatory=$false)]
-        [String]$ArgumentList = "",
-        [Parameter(Mandatory=$false)]
-        [String]$WorkingDirectory = ""
+        [parameter(Mandatory=$true)]
+        [String]$MinerFilePath,
+        [parameter(Mandatory=$true)]
+        [String]$MinerArgumentList,
+        [parameter(Mandatory=$true)]
+        [String]$MinerWorkingDir
     )
 
-    $Job = Start-Job -ArgumentList $PID, $FilePath, $ArgumentList, $WorkingDirectory {
+    $MinerStart = Start-Job -ArgumentList $PID, $MinerFilePath, $MinerArgumentList, $MinerWorkingDir {
         param($ControllerProcessID, $FilePath, $ArgumentList, $WorkingDirectory)
-
+        Set-Location "$WorkingDirectory"
         $ControllerProcess = Get-Process -Id $ControllerProcessID
         if($ControllerProcess -eq $null){return}
-
         $ProcessParam = @{}
-        $ProcessParam.Add("FilePath", $FilePath)
-		$ProcessParam.Add("WindowStyle", 'Minimized')
+        if($FilePath -ne ""){$ProcessParam.Add("FilePath", $FilePath)}
         if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)}
-        if($WorkingDirectory -ne ""){$ProcessParam.Add("WorkingDirectory", $WorkingDirectory)}
         $Process = Start-Process @ProcessParam -PassThru
         if($Process -eq $null){[PSCustomObject]@{ProcessId = $null}; return}
 
@@ -548,13 +545,13 @@ function Start-SubProcess {
         while($Process.HasExited -eq $false)
     }
 
-    do{sleep 1; $JobOutput = Receive-Job $Job}
+    do{sleep 1; $JobOutput = Receive-Job $MinerStart}
     while($JobOutput -eq $null)
-
     $Process = Get-Process | Where Id -EQ $JobOutput.ProcessId
-    $Process.Handle | Out-Null
+    $Process.Handle
     $Process
 }
+
 
 function Expand-WebRequest {
     param(
