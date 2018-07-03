@@ -390,8 +390,8 @@ if($LastRan -ne "")
     if($AllPools.Count -eq 0){"No Pools!" | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
     $Pools_Comparison = [PSCustomObject]@{}
-    $AllPools.Coin | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
-    $AllPools.Coin | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
+    $AllPools.Symbol | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
+    $AllPools.Symbol | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
     #Load information about the Miners
     #Messy...?
 
