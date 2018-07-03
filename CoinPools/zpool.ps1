@@ -30,20 +30,18 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
 
  if($Algorithm -eq $Zpool_Symbol)
       {
-        $Stat = Set-Stat -Name "$($Name)_$($Zpool_Symbol)_Profit" -Value ([Double]$Zpool_Request.$_.estimate_current/$Divisor*(1-($Zpool_Request.$_.fees/100)))
+    if((Get-Stat -Name "$($Name)_$($zpool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zpool_Symbol)_Profit" -Value ([Double]$zpool_Request.$_.estimate_last24h/$Divisor*(1-($zpool_Request.$_.fees/100)))}
+   else{$Stat = Set-Stat -Name "$($Name)_$($zpool_Symbol)_Profit" -Value ([Double]$zpool_Symbol.$_.estimate_current/$Divisor *(1-($zpool_Symbol.$_.fees/100)))}
       }	
  
-
-      if($Algorithm -eq $Zpool_Symbol)
-      {
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Coin = $Zpool_Symbol
+            Symbol = $Zpool_Symbol
             Mining = $Zpool_Algorithm
             Algorithm = $Zpool_Algorithm
             Price = $Stat.Live
-            StablePrice = $Stat.Live
+            StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
             Host = $Zpool_Host
@@ -58,7 +56,6 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
 	        Pass3 = "c=$Passwordcurrency3"
             Location = $Location
             SSL = $false
-	      }
         }
      }
 }
