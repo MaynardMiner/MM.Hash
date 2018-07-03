@@ -26,7 +26,11 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$WorkerName = "Rig1",
     [Parameter(Mandatory=$false)]
-    [String]$RigName = "MMHash",
+    [String]$RigName1 = "MMHash",
+    [Parameter(Mandatory=$false)]
+    [String]$RigName2 = "MMHash",
+    [Parameter(Mandatory=$false)]
+    [String]$RigName3 = "MMHash",
     [Parameter(Mandatory=$false)]
     [Int]$API_ID = 0,
     [Parameter(Mandatory=$false)]

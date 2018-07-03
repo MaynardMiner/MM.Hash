@@ -1,0 +1,385 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180703102359
+Username: LakeCityMain-PC\Lake City Main
+RunAs User: LakeCityMain-PC\Lake City Main
+Machine: LAKECITYMAIN-PC (Microsoft Windows NT 6.1.7601 Service Pack 1)
+Host Application: powershell -version 5.0 -noexit -executionpolicy bypass -windowstyle maximized -command &.\MM.CoinW.ps1 -StatsInterval 1 -Username MaynardVII -Workername Rig1 -Currency USD -CoinExchange RVN -Interval 260 -Location US -Auto_Algo Yes -PoolName nicehash,zergpool,ahashpool,blazepool,hashrefinery,phiphipool,zpool -Algorithm Cryptonight,cryptonightv7,hodl,lyra2re,Equihash,ethash,daggerhashimoto,aergo,aeriumX,Phi2,Yescrypt,YescryptR16,M7M,Neoscrypt,Allium,HMQ1725,Keccak,Lyra2z,Keccakc,Xevan,X16r,Hsr,X17,Blake2s,lyra2v2,Bitcore,X16s,Phi,Timetravel,Skunk,Tribus,Sib,Skein,Groestl,Nist5,c11,myr-gr -Proxy '' -Type CPU -Wallet1 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -Nicehash_Wallet1 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop -Nicehash_Fee 3 -CPUWallet 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -CPUcurrency BTC -PasswordCurrency1 BTC -Donate .5
+Process ID: 3488
+PSVersion: 5.0.10586.117
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0.10586.117
+BuildVersion: 10.0.10586.117
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\Logs\2018-07-03_10-23-59.txt
+
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM        HHHHHHHHH     HHHHHHHHH               AAA                 SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHH
+    M:::::::M             M:::::::MM:::::::M             M:::::::M        H:::::::H     H:::::::H              A:::A              SS:::::::::::::::SH:::::::H     H:::::::H
+    M::::::::M           M::::::::MM::::::::M           M::::::::M        H:::::::H     H:::::::H             A:::::A            S:::::SSSSSS::::::SH:::::::H     H:::::::H
+    M:::::::::M         M:::::::::MM:::::::::M         M:::::::::M        HH::::::H     H::::::HH            A:::::::A           S:::::S     SSSSSSSHH::::::H     H::::::HH
+    M::::::::::M       M::::::::::MM::::::::::M       M::::::::::M          H:::::H     H:::::H             A:::::::::A          S:::::S              H:::::H     H:::::H
+    M:::::::::::M     M:::::::::::MM:::::::::::M     M:::::::::::M          H:::::H     H:::::H            A:::::A:::::A         S:::::S              H:::::H     H:::::H
+    M:::::::M::::M   M::::M:::::::MM:::::::M::::M   M::::M:::::::M          H::::::HHHHH::::::H           A:::::A A:::::A         S::::SSSS           H::::::HHHHH::::::H
+    M::::::M M::::M M::::M M::::::MM::::::M M::::M M::::M M::::::M          H:::::::::::::::::H          A:::::A   A:::::A         SS::::::SSSSS      H:::::::::::::::::H
+    M::::::M  M::::M::::M  M::::::MM::::::M  M::::M::::M  M::::::M          H:::::::::::::::::H         A:::::A     A:::::A          SSS::::::::SS    H:::::::::::::::::H
+    M::::::M   M:::::::M   M::::::MM::::::M   M:::::::M   M::::::M          H::::::HHHHH::::::H        A:::::AAAAAAAAA:::::A            SSSSSS::::S   H::::::HHHHH::::::H
+    M::::::M    M:::::M    M::::::MM::::::M    M:::::M    M::::::M          H:::::H     H:::::H       A:::::::::::::::::::::A                S:::::S  H:::::H     H:::::H
+    M::::::M     MMMMM     M::::::MM::::::M     MMMMM     M::::::M          H:::::H     H:::::H      A:::::AAAAAAAAAAAAA:::::A               S:::::S  H:::::H     H:::::H
+    M::::::M               M::::::MM::::::M               M::::::M        HH::::::H     H::::::HH   A:::::A             A:::::A  SSSSSSS     S:::::SHH::::::H     H::::::HH
+    M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
+    M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
+				             By: MaynardMiner                      v1.2.3-Lambo              GitHub: http://Github.com/MaynardMiner/MM.Hash
+                                                                                SUDO APT-GET LAMBO
+                                                                          ____    _     __     _    ____
+                                                                         |####--|#|---|##|---|#|--'##|#|
+                                        _                                |____,--|#|---|##|---|#|--.__|_|
+                                      _|#)____________________________________,--'EEEEEEEEEEEEEE'_=-.
+                                     ((_____((_________________________,--------[JW](___(____(____(_==)        _________
+                                                                       .--|##,----o  o  o  o  o  o  o__|/---,-,-'==========+==.
+                                                                       |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
+                                                                       |##|              -.|#|##|#|===l##\   _\############|##|
+                                                                      =======-===l          |_|__|_|     \##-'__,=======.###|##|
+                                                                                                          \__.'          '======'
+					    				      SNIPER-MODE ACTIVATED
+						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+									.85% Dev Fee Was Written In This Code
+					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+
+
+   Status: Running
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Coin
+                                               \cpuminer-avx2.exe  -a lyra2z
+                                               -o stratum+tcp://lyra2z.mine.zer
+                                               gpool.com:4553 -b 0.0.0.0:4048
+                                               -u 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yy
+                                               JU36i -p c=BTC,mc=VTL
+
+
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN  = 0.00000222 of a Bitcoin
+1 RVN =  0.01458 USD
+
+
+   Type: CPU
+
+Miner                        Coin         Speed BTC/Day RVN/Day USD/Day Algorit
+                                                                          hm
+-----                        ----         ----- ------- ------- ------- -------
+JayDDee-Windows-CPUAVX2-Coin VTL          Bench   Bench   Bench  Bench    ly...
+JayDDee-Windows-CPUAVX2-Coin TLR          Bench   Bench   Bench  Bench    ly...
+JayDDee-Windows-CPUAVX2-Coin XMG          Bench   Bench   Bench  Bench     m7m
+JayDDee-Windows-CPUAVX2-Coin YTN          Bench   Bench   Bench  Bench    ye...
+JayDDee-Windows-CPUAVX2-Coin XMY          Bench   Bench   Bench  Bench    ye...
+JayDDee-Windows-CPUAVX2-Coin PYRO         Bench   Bench   Bench  Bench    ly...
+JayDDee-Windows-CPUAVX2-Coin BSTY         Bench   Bench   Bench  Bench    ye...
+JayDDee-Windows-CPUAVX2-Coin ARG-yescrypt Bench   Bench   Bench  Bench    ye...
+JayDDee-Windows-CPUAVX2-Coin CRS          Bench   Bench   Bench  Bench    ly...
+JayDDee-Windows-CPUAVX2-Coin IFX          Bench   Bench   Bench  Bench    ly...
+JayDDee-Windows-CPUAVX2-Coin GIN          Bench   Bench   Bench  Bench    ly...
+
+
+
+Virtual Memory Size (MB) Private Memory Size (MB) Memory Used This Session (MB)
+------------------------ ------------------------ -----------------------------
+      747.3203125              110.77734375             23.3412628173828
+      616.0703125                   56                  23.3487777709961
+
+
+1 RVN  =  0.01458 USD
+MM.Hash is attempting to record hashrate for JayDDee-Windows-CPUAVX2-Coin VTL
+JayDDee-Windows-CPUAVX2-Coin VTL Was Active for 262 Seconds
+Attempting to record hashrate for JayDDee-Windows-CPUAVX2-Coin VTL
+Stat Written
+JayDDee-Windows-CPUAVX2-Coin VTL Was Benchmarked And Backed Up
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+
+
+   Status: Running
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Coin
+                                               \cpuminer-avx2.exe  -a lyra2z
+                                               -o stratum+tcp://lyra2z.mine.zer
+                                               gpool.com:4553 -b 0.0.0.0:4048
+                                               -u 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yy
+                                               JU36i -p c=BTC,mc=TLR
+
+
+   Status: Idle
+
+      Speed Active                      Launched Command
+      ----- ------                      -------- -------
+403.46 KH/s 00 Days 00 Hours 04 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Co
+                                                 in\cpuminer-avx2.exe  -a
+                                                 lyra2z -o stratum+tcp://lyra2z
+                                                 .mine.zergpool.com:4553 -b
+                                                 0.0.0.0:4048 -u 1DRxiWx6yuZfN9
+                                                 hrEJa3BDXWVJ9yyJU36i -p
+                                                 c=BTC,mc=VTL
+
+
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN  = 0.00000222 of a Bitcoin
+1 RVN =  0.01458 USD
+
+
+   Type: CPU
+
+Miner                        Coin            Speed    BTC/Day RVN/Day USD/Day A
+                                                                              l
+                                                                              g
+                                                                              o
+                                                                              r
+                                                                              i
+                                                                              t
+                                                                              h
+                                                                              m
+-----                        ----            -----    ------- ------- ------- -
+JayDDee-Windows-CPUAVX2-Coin VTL          403.46 KH/s 0.00002 9.04331  0.132
+JayDDee-Windows-CPUAVX2-Coin PYRO            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin TLR             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin YTN             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin XMY             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin XMG             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin BSTY            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin ARG-yescrypt    Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin ALPS            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin IFX             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin GIN             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin CRS             Bench      Bench   Bench  Bench
+
+
+
+Virtual Memory Size (MB) Private Memory Size (MB) Memory Used This Session (MB)
+------------------------ ------------------------ -----------------------------
+      616.0703125              55.94140625                 28.0703125
+      740.58984375             112.76953125             28.0739669799805
+
+
+1 RVN  =  0.01458 USD
+MM.Hash is attempting to record hashrate for JayDDee-Windows-CPUAVX2-Coin TLR
+JayDDee-Windows-CPUAVX2-Coin TLR Was Active for 262 Seconds
+Attempting to record hashrate for JayDDee-Windows-CPUAVX2-Coin TLR
+Stat Written
+JayDDee-Windows-CPUAVX2-Coin TLR Was Benchmarked And Backed Up
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+
+
+   Status: Running
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Coin
+                                               \cpuminer-avx2.exe  -a lyra2z
+                                               -o stratum+tcp://lyra2z.mine.zer
+                                               gpool.com:4553 -b 0.0.0.0:4048
+                                               -u 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yy
+                                               JU36i -p c=BTC,mc=PYRO
+
+
+   Status: Idle
+
+      Speed Active                      Launched Command
+      ----- ------                      -------- -------
+378.33 KH/s 00 Days 00 Hours 04 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Co
+                                                 in\cpuminer-avx2.exe  -a
+                                                 lyra2z -o stratum+tcp://lyra2z
+                                                 .mine.zergpool.com:4553 -b
+                                                 0.0.0.0:4048 -u 1DRxiWx6yuZfN9
+                                                 hrEJa3BDXWVJ9yyJU36i -p
+                                                 c=BTC,mc=TLR
+403.46 KH/s 00 Days 00 Hours 04 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Co
+                                                 in\cpuminer-avx2.exe  -a
+                                                 lyra2z -o stratum+tcp://lyra2z
+                                                 .mine.zergpool.com:4553 -b
+                                                 0.0.0.0:4048 -u 1DRxiWx6yuZfN9
+                                                 hrEJa3BDXWVJ9yyJU36i -p
+                                                 c=BTC,mc=VTL
+
+
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN  = 0.00000222 of a Bitcoin
+1 RVN =  0.01459 USD
+
+
+   Type: CPU
+
+Miner                        Coin            Speed    BTC/Day RVN/Day USD/Day A
+                                                                              l
+                                                                              g
+                                                                              o
+                                                                              r
+                                                                              i
+                                                                              t
+                                                                              h
+                                                                              m
+-----                        ----            -----    ------- ------- ------- -
+JayDDee-Windows-CPUAVX2-Coin VTL          403.46 KH/s 0.00002 8.43391  0.123
+JayDDee-Windows-CPUAVX2-Coin TLR          378.33 KH/s 0.00001 5.57197  0.081
+JayDDee-Windows-CPUAVX2-Coin PYRO            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin YTN             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin XMY             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin XMG             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin BSTY            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin ARG-yescrypt    Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin ALPS            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin IFX             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin GIN             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin CRS             Bench      Bench   Bench  Bench
+
+
+
+Virtual Memory Size (MB) Private Memory Size (MB) Memory Used This Session (MB)
+------------------------ ------------------------ -----------------------------
+      743.40234375              155.296875              35.5764083862305
+      616.0703125              55.96484375              35.5704879760742
+
+
+1 RVN  =  0.01459 USD
+MM.Hash is attempting to record hashrate for JayDDee-Windows-CPUAVX2-Coin PYRO
+JayDDee-Windows-CPUAVX2-Coin PYRO Was Active for 263 Seconds
+Attempting to record hashrate for JayDDee-Windows-CPUAVX2-Coin PYRO
+Stat Written
+JayDDee-Windows-CPUAVX2-Coin PYRO Was Benchmarked And Backed Up
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+
+
+   Status: Running
+
+    Speed Active                      Launched Command
+    ----- ------                      -------- -------
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Coin
+                                               \cpuminer-avx2.exe  -a m7m -o st
+                                               ratum+tcp://m7m.mine.zergpool.co
+                                               m:6033 -b 0.0.0.0:4048 -u 1DRxiW
+                                               x6yuZfN9hrEJa3BDXWVJ9yyJU36i -p
+                                               c=BTC,mc=XMG
+
+
+   Status: Idle
+
+      Speed Active                      Launched Command
+      ----- ------                      -------- -------
+370.26 KH/s 00 Days 00 Hours 04 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Co
+                                                 in\cpuminer-avx2.exe  -a
+                                                 lyra2z -o stratum+tcp://lyra2z
+                                                 .mine.zergpool.com:4553 -b
+                                                 0.0.0.0:4048 -u 1DRxiWx6yuZfN9
+                                                 hrEJa3BDXWVJ9yyJU36i -p
+                                                 c=BTC,mc=PYRO
+378.33 KH/s 00 Days 00 Hours 04 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Co
+                                                 in\cpuminer-avx2.exe  -a
+                                                 lyra2z -o stratum+tcp://lyra2z
+                                                 .mine.zergpool.com:4553 -b
+                                                 0.0.0.0:4048 -u 1DRxiWx6yuZfN9
+                                                 hrEJa3BDXWVJ9yyJU36i -p
+                                                 c=BTC,mc=TLR
+403.46 KH/s 00 Days 00 Hours 04 Minutes Once     Bin\JayDDee-Windows-CPUAVX2-Co
+                                                 in\cpuminer-avx2.exe  -a
+                                                 lyra2z -o stratum+tcp://lyra2z
+                                                 .mine.zergpool.com:4553 -b
+                                                 0.0.0.0:4048 -u 1DRxiWx6yuZfN9
+                                                 hrEJa3BDXWVJ9yyJU36i -p
+                                                 c=BTC,mc=VTL
+
+
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN  = 0.00000222 of a Bitcoin
+1 RVN =  0.01458 USD
+
+
+   Type: CPU
+
+Miner                        Coin            Speed    BTC/Day RVN/Day USD/Day A
+                                                                              l
+                                                                              g
+                                                                              o
+                                                                              r
+                                                                              i
+                                                                              t
+                                                                              h
+                                                                              m
+-----                        ----            -----    ------- ------- ------- -
+JayDDee-Windows-CPUAVX2-Coin VTL          403.46 KH/s 0.00002 8.54964  0.125
+JayDDee-Windows-CPUAVX2-Coin PYRO         370.26 KH/s 0.00001 5.83812  0.085
+JayDDee-Windows-CPUAVX2-Coin TLR          378.33 KH/s 0.00001 5.81953  0.085
+JayDDee-Windows-CPUAVX2-Coin YTN             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin XMY             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin XMG             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin BSTY            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin ARG-yescrypt    Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin ALPS            Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin IFX             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin GIN             Bench      Bench   Bench  Bench
+JayDDee-Windows-CPUAVX2-Coin CRS             Bench      Bench   Bench  Bench
+
+
+
+Virtual Memory Size (MB) Private Memory Size (MB) Memory Used This Session (MB)
+------------------------ ------------------------ -----------------------------
+      739.46484375              134.421875              36.5300750732422
+      616.0703125              55.22265625              36.5338134765625
+
+
+1 RVN  =  0.01458 USD

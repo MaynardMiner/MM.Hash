@@ -96,6 +96,8 @@ Argument          Options           Explanation
                                     from you...However it only resets donation switch if miner 
                                     hasn't ran for 24 hours.
 
+-Rigname1       [ANY]               Nickname For Your Rig, Will identify Rig on Yiimp/Nicehash miner list.
+
 
 ***********************************************************************************************************
 ***********************************************************************************************************
@@ -201,6 +203,15 @@ Argument            Options             Explanation
                                         in combination of -PasswordCurrency3 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
                                         in password arguments. Used when -Type NVIDIA3 is specified.
+
+-Rigname1                [ANY]         Nickname For Your Rig for Device Group 1, Will identify Rig on Yiimp/Nicehash miner list.
+
+
+-Rigname2                [ANY]         Nickname For Your Rig for Device Group 2, Will identify Rig on Yiimp/Nicehash miner list.
+
+
+-Rigname3                [ANY]         Nickname For Your Rig for Device Group 3, Will identify Rig on Yiimp/Nicehash miner list.
+
 							
 -CCDevices1   ['GTX1070ti#0,GTX1080#1'..  Device group 1 CCDevices. Used instead of -GPUDevices1, where
                            or             the requirement of specifying individual GPUs for CCminer is

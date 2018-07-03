@@ -1,4 +1,4 @@
-﻿. .\IncludeCoin.ps1
+. .\IncludeCoin.ps1
 
 $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty BaseName 
  
@@ -51,13 +51,13 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Host = $ahashpool_Host
             Port = $ahashpool_Port
             User1 = $Wallet1
-	    User2 = $Wallet2
+	       User2 = $Wallet2
             User3 = $Wallet3
             CPUser = $CPUWallet
-            CPUPass = "c=$CPUcurrency"         
-            Pass1 = "c=$Passwordcurrency1"
-            Pass2 = "c=$Passwordcurrency2"
-	        Pass3 = "c=$Passwordcurrency3"
+            CPUPass = "c=$CPUcurrency,ID=$Rigname1"
+            Pass1 = "c=$Passwordcurrency1,ID=$Rigname1"
+            Pass2 = "c=$Passwordcurrency2,ID=$Rigname2"
+	    Pass3 = "c=$Passwordcurrency3,ID=$Rigname3"
             Location = $Location
             SSL = $false
         }

@@ -70,10 +70,10 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
 	    User2 = $Nicehash_Wallet2
             User3 = $Nicehash_Wallet3
             CPUser = $Nicehash_Wallet1
-            CPUPass = "x"
-            Pass1 = "x"
-            Pass2 = "x"
-	    Pass3 = "x"
+            CPUPass = "x,ID=$Rigname1"
+            Pass1 = "x,ID=$Rigname1"
+            Pass2 = "x,ID=$Rigname2"
+	      Pass3 = "x,ID=$Rigname3"
             Location = $Location
             SSL = $false
         }

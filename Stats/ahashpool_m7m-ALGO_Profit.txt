@@ -1,0 +1,16 @@
+{
+    "Live":  0,
+    "Minute":  0,
+    "Minute_Fluctuation":  0,
+    "Minute_5":  0,
+    "Minute_5_Fluctuation":  0.00032995661775181315,
+    "Minute_10":  0,
+    "Minute_10_Fluctuation":  0,
+    "Hour":  0,
+    "Hour_Fluctuation":  0,
+    "Day":  0,
+    "Day_Fluctuation":  0,
+    "Week":  0,
+    "Week_Fluctuation":  0,
+    "Updated":  "\/Date(1530628737209)\/"
+}
