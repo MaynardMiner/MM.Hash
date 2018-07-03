@@ -47,38 +47,35 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
 
  if($Algorithm -eq $nicehash_Symbol)
       {
-        $Stat = Set-Stat -Name "$($Name)_$($nicehash_Symbol)_Profit" -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
+        $Stat = Set-Stat -Name "$($Name)_$($Nicehash_Symbol)_Profit" -Value -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
+        $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
       }	
  
 
-      if($Algorithm -eq $nicehash_Symbol)
-      {
-       if($Wallet)
+     if($Wallet)
 	    {
        if($Nicehash_Wallet1 -ne '' -or $Nicehash_Wallet2 -ne '' -or $Nicehash_Wallet3 -ne '')
         {  
         [PSCustomObject]@{
-            Coin = $nicehash_Symbol
+            Symbol = $nicehash_Symbol
             Mining = $nicehash_Algorithm
             Algorithm = $nicehash_Algorithm
             Price = $Stat.Live
             Fees = $nicehash_Fees
-            Workers = $nicehash_Workers
-            StablePrice = $Stat.Live
+            StablePrice = $Stat.Week
             Protocol = "stratum+tcp"
             Host = $nicehash_Host
             Port = $nicehash_Port
             User1 = $Nicehash_Wallet1
-	          User2 = $Nicehash_Wallet2
+	    User2 = $Nicehash_Wallet2
             User3 = $Nicehash_Wallet3
             CPUser = $Nicehash_Wallet1
             CPUPass = "x"
             Pass1 = "x"
             Pass2 = "x"
-	          Pass3 = "x"
+	    Pass3 = "x"
             Location = $Location
             SSL = $false
-	      }
         }
      }
    }
