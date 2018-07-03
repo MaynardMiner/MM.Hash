@@ -546,20 +546,18 @@ Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -Inclu
     }
 
 	#Start Or Stop Miners
-    $ActiveMinerPrograms | ForEach {
+   $ActiveMinerPrograms | ForEach {
         if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -eq 0)
-        {
-            if($_.Process -eq $null -or $_.Process.HasExited)
+         {
+            if($_.Process -eq $null)
             {
-                $_.Status = "Not Running"
-			$_.Process = $null
-		  }
+                $_.Status = "Failed"
+            }
             elseif($_.Process.HasExited -eq $false)
             {
                 $_.Active += (Get-Date)-$_.Process.StartTime
                 $_.Process.CloseMainWindow() | Out-Null
-                $_.Status = "Not Running"
-			$_.Process = $null
+                $_.Status = "Idle"
             }
         }
 
@@ -604,7 +602,7 @@ Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -Inclu
             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
             else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
              }
-                if($_.Process -eq $null){$_.Status = "Not Running"}
+                if($_.Process -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
             }
         }
@@ -740,7 +738,7 @@ $ActiveMinerPrograms | ForEach {
     $ActiveMinerPrograms | foreach {
         if($_.Process -eq $null -or $_.Process.HasExited)
         {
-        if($_.Status -eq "Running"){$_.Status = "Not Running"}
+        if($_.Status -eq "Running"){$_.Status = "Failed"}
         }
        else
           {

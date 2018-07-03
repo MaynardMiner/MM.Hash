@@ -390,8 +390,8 @@ if($LastRan -ne "")
     if($AllPools.Count -eq 0){"No Pools!" | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
     $Pools_Comparison = [PSCustomObject]@{}
-    $AllPools.Coin | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
-    $AllPools.Coin | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
+    $AllPools.Symbol | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
+    $AllPools.Symbol | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
     #Load information about the Miners
     #Messy...?
 
@@ -690,7 +690,7 @@ if($LastRan -ne "")
                         $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
 		      }
                     }
-                if($_.Process -eq $null){$_.Status = "Not Running"}
+                if($_.Process -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
             }
         }
@@ -897,7 +897,7 @@ if($LastRan -ne "")
     $ActiveMinerPrograms | foreach {  
         if($_.Process -eq $null -or $_.Process.HasExited)
         {
-        if($_.Status -eq "Running"){$_.Status = "Not Running"}
+        if($_.Status -eq "Running"){$_.Status = "Failed"}
         }
         else
           {
