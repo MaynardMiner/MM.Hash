@@ -34,35 +34,32 @@
 
  if($Algorithm -eq $Hashrefinery_Symbol)
       {
-        $Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_current/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))
+    if((Get-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_last24h/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit" -Value ([Double]$Hashrefinery_Symbol.$_.estimate_current/$Divisor *(1-($Hashrefinery_Symbol.$_.fees/100)))}
       }	
  
-
-      if($Algorithm -eq $Hashrefinery_Symbol)
-      {
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Coin = $Hashrefinery_Symbol
+            Symbol = $Hashrefinery_Symbol
             Mining = $Hashrefinery_Algorithm
             Algorithm = $Hashrefinery_Algorithm
             Price = $Stat.Live
-            StablePrice = $Stat.Live
+            StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
             Host = $Hashrefinery_Host
             Port = $Hashrefinery_Port
             User1 = $Wallet1
-	        User2 = $Wallet2
+	    User2 = $Wallet2
             User3 = $Wallet3
             CPUser = $CPUWallet
             CPUPass = "c=$CPUcurrency"
             Pass1 = "c=$Passwordcurrency1"
             Pass2 = "c=$Passwordcurrency2"
-	        Pass3 = "c=$Passwordcurrency3"
+	    Pass3 = "c=$Passwordcurrency3"
             Location = $Location
             SSL = $false
-	      }
         }
      }
        
