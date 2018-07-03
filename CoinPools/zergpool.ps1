@@ -61,7 +61,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
             Mining = $zergpool_CoinName
             Algorithm = $zergpool_Algorithm
             Price = $Stat.Live
-            StablePrice = $Stat.Live
+            StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
             Host = $zergpool_Host
