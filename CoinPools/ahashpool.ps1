@@ -32,29 +32,26 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 
  if($Algorithm -eq $ahashpool_Symbol)
       {
-        if((Get-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Request.$_.$($zergpool_24h)/$Divisor*(1-($zergpool_fees/100)))}
-        else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor *(1-($zergpool_fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($ahashpool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Symbol)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_last24h/$Divisor*(1-($ahashpool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Symbol)_Profit" -Value ([Double]$ahashpool_Symbol.$_.estimate_current/$Divisor *(1-($ahashpool_Symbol.$_.fees/100)))}
       }	
  
-
-      if($Algorithm -eq $ahashpool_Symbol)
-      {
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Coin = $ahashpool_Symbol
+            Symbol = $ahashpool_Symbol
             Mining = $ahashpool_Algorithm
             Algorithm = $ahashpool_Algorithm
             Price = $Stat.Live
             Fees = $ahashpool_Fees
             Workers = $ahashpool_Workers
-            StablePrice = $Stat.Live
+            StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
             Host = $ahashpool_Host
             Port = $ahashpool_Port
             User1 = $Wallet1
-	        User2 = $Wallet2
+	    User2 = $Wallet2
             User3 = $Wallet3
             CPUser = $CPUWallet
             CPUPass = "c=$CPUcurrency"         
@@ -63,7 +60,6 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 	        Pass3 = "c=$Passwordcurrency3"
             Location = $Location
             SSL = $false
-	      }
         }
      }
 }
