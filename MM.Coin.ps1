@@ -546,35 +546,33 @@ if($LastRan -ne "")
                         Crashed = 0
                         Timeout = 0
                         WasBenchmarked = $false
-			XProcess = $null
+			Process = $null
             }
         }
     }
     
-	#Start Or Stop Miners
+        #Start Or Stop Miners
     $ActiveMinerPrograms | ForEach {
         if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -eq 0)
          {
-	       if($_.XProcess -eq $null -or $_.XProcess.HasExited)
-	         {
-                 $_.Status = "Not Running"
-		 $_.MiningId = $null
-	         }
-               elseif($_.XProcess.HasExited -eq $false)
-           	 {
-          	 $_.Active += (Get-Date)-$_.XProcess.StartTime
-		 Stop-Process $_.XProcess -ErrorAction SilentlyContinue	 
-	         $_.Status = "Not Running"
-		 $_.MiningId = $null
-                 }
+            if($_.Process -eq $null)
+            {
+                $_.Status = "Failed"
+            }
+            elseif($_.Process.HasExited -eq $false)
+            {
+                $_.Active += (Get-Date)-$_.Process.StartTime
+                Stop-Process -Id ($_.Process).Id
+                $_.Status = "Idle"
+            }
         }
-           
-     
-        else
-	 {
-	 if($TimeDeviation -ne 0)
+
+
+       else
+         {
+         if($TimeDeviation -ne 0)
           {
-	 if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+            if($_.Process -eq $null -or $_.Process.HasExited -ne $false)
                {
                 Start-Sleep $Delay #Wait to prevent BSOD
                 $DecayStart = Get-Date
@@ -596,60 +594,62 @@ if($LastRan -ne "")
 			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
             if($_.Distro -eq "Linux")
             {
-            Set-Location (Split-Path -Path $_.Path)
+            $MinerWorkingDir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
             else{$3 = "-d $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Linux-EWBF")
             {
-             Set-Location (Split-Path -Path $_.Path)
+             $MinerWorkingDir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
             }
             if($_.Distro -eq "Linux-DSTM")
             {
-             Set-Location (Split-Path -Path $_.Path)
+             $MinerWorkingDir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "$($_.Arguments) --dev $($_.Devices)"}
             }
 	   if($_.Distro -eq "Linux-Claymore")
             {
-             Set-Location (Split-Path -Path $_.Path) 
+             $MinerWorkingDir = (Split-Path -Path $_.Path) 
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Windows")
             {
-             Set-Location (Split-Path -Path $_.Path)
+             $MinerWorkingDir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-d $($_.Devices) $($_.Arguments)"}
             }
-              $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-              $_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue
-            Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
+            [String]$MinerFilePath = "xterm"
+            [String]$MinerArguments = "$2 $3"
+            [String]$MinerWorkingdir = $Dir
+            $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
             }
        if($_.Type -eq "CPU")
 		  {
           if($_.Distro -eq "Linux")
 		   {
-		    Set-Location (Split-Path -Path $_.Path)
+		    $MinerWorkingDir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             $3 = "$($_.Arguments)"
 		   }
 		   if($_.Distro -eq "Windows")
 		   {
-	       Set-Location (Split-Path -Path $_.Path)
+	       $MinerWorkingDir = (Split-Path -Path $_.Path)
            $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 		   $3 = "$($_.Arguments)"
            }
-		  $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		  $_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
-                  Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
+            [String]$MinerFilePath = "xterm"
+            [String]$MinerArguments = "$2 $3"
+            [String]$MinerWorkingdir = $Dir
+            $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
           }
         
        if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3" -or $_.Type -eq "AMD4" -or $_.Type -eq "AMD5" -or $_.Type -eq "AMD6" -or $_.Type -eq "AMD7" -or $_.Type -eq "AMD8")
@@ -666,15 +666,15 @@ if($LastRan -ne "")
 			
        		       if($_.Distro -eq "Linux")
 			        {
-		         Set-Location (Split-Path -Path $_.Path)
-                 $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
 		         if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
 		         else{$3 = "-d $($_.Devices) $($_.Arguments)"}
 			        }
 		           if($_.Distro -eq "Windows")
 			        {
-		             Set-Location (Split-Path -Path $_.Path)
-                    $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 			  if($_.Devices -eq $null)
 			   {
                             $3 = "$($_.Arguments)"
@@ -684,12 +684,13 @@ if($LastRan -ne "")
 			    $3 = "-d $($_.Devices) $($_.Arguments)"
 			   }
                          }
-		       $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		       $_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
-                       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
+                        [String]$MinerFilePath = "xterm"
+                        [String]$MinerArguments = "$2 $3"
+                        [String]$MinerWorkingdir = $Dir
+                        $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
 		      }
                     }
-                if($_.XProcess -eq $null){$_.Status = "Not Running"}
+                if($_.Process -eq $null){$_.Status = "Not Running"}
                 else{$_.Status = "Running"}
             }
         }
@@ -700,20 +701,19 @@ if($LastRan -ne "")
     Clear-Host
     #Display active miners list
     $ActiveMinerPrograms | Sort-Object -Descending Status,
-	{	 
-	 if($_.MiningId -eq $null)
-	  {[DateTime]0}
-	  else
-           {Get-Process $_.MiningId | Select -ExpandProperty StartTime}
+        {
+         if($_.Process -eq $null)
+          {[DateTime]0}
+          else
+           {$_.Process.StartTime}
         } | Select -First (1+6+6) | Format-Table -Wrap -GroupBy Status (
-        @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'}, 
-       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.MiningId -eq $null){$_.Active}else{if((Get-Process -Id $_.MiningId -ea SilentlyContinue) -ne $null){($_.Active)}else{
-	$TimerStart = Get-Process -Id $($_.MiningId) | Select -ExpandProperty StartTime
-        ($_.Active+((Get-Date)-$TimerStart))}})}}, 
-        @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}}, 
+        @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'},
+       @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.Process -eq $null){$_.Active}else{if($_.Process -ne $null){($_.Active)}else{$TimerStart = $_.Process.StartTime($_.Active+((Get-Date)-$TimerStart))}})}},
+        @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}},
         @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_MinerName) $($_.Devices) $($_.Arguments)"}}
     ) | Out-Host
-       Write-Host "                                                       
+       Write-Host "
+                                            
                                                                              *      *         )        (       )  
                                                                            (  `   (  `     ( /(  (     )\ ) ( /(  
                                                                           )\))(  )\))(    )\()) )\   (()/( )\()) 
@@ -743,7 +743,7 @@ if($LastRan -ne "")
         @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $BTCExchangeRate).ToString("N5")}else{"Bench"}}}; Align='right'},
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
         @{Label = "Algorithm"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Algorithm)"}}; Align='center'},
-@{Label = "  Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
+        @{Label = "  Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
         @{Label = "  Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
             
@@ -751,7 +751,7 @@ if($LastRan -ne "")
     $CheckMinerInterval = 30
     Start-Sleep ($CheckMinerInterval)
     $ActiveMinerPrograms | ForEach {
-        if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+        if($_.Process -eq $null -or $_.Process.HasExited)
         {
           if($_.Status -eq "Running")
            {
@@ -759,116 +759,114 @@ if($LastRan -ne "")
             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList '$($_.Arguments)' -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
             else{
 		    if($_.Type -eq "NVIDIA" -or $_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "NVIDIA4" -or $_.Type -eq "NVIDIA5" -or $_.Type -eq "NVIDIA6" -or $_.Type -eq "NVIDIA7" -or $_.Type -eq "NVIDIA8")
-		     {
-			  if($_.Type -eq "NVIDIA"){$_.Screens = 0}
-			  if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
-			  if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
-			  if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
-			  if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
-			  if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
-			  if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
-			  if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
-			  if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
-              if($_.Distro -eq "Linux")
-              {
-              Set-Location (Split-Path -Path $_.Path)
-              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-              else{$3 = "-d $($_.Devices) $($_.Arguments)"}
-              }
-             if($_.Distro -eq "Linux-EWBF")
-              {
-               Set-Location (Split-Path -Path $_.Path)
-               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-               if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-               else{$3 = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-              }
-              if($_.Distro -eq "Linux-DSTM")
-              {
-               Set-Location (Split-Path -Path $_.Path)
-               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-               if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-               else{$3 = "($_.Arguments) --dev $($_.Devices)"}
-              }
-           if($_.Distro -eq "Linux-Claymore")
+		      {
+			if($_.Type -eq "NVIDIA"){$_.Screens = 0}
+			if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
+			if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
+			if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
+			if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
+			if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
+			if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
+			if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
+			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
+            if($_.Distro -eq "Linux")
             {
-             Set-Location (Split-Path -Path $_.Path) 
+            $MinerWorkingDir = (Split-Path -Path $_.Path)
+            $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+            if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+            else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+            }
+           if($_.Distro -eq "Linux-EWBF")
+            {
+             $MinerWorkingDir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-             else{$3 = "-di $($_.Devices) $($_.Arguments)"}
+             else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
             }
-             if($_.Distro -eq "Windows")
-              {
-               Set-Location (Split-Path -Path $_.Path)
+            if($_.Distro -eq "Linux-DSTM")
+            {
+             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "$($_.Arguments) --dev $($_.Devices)"}
+            }
+	   if($_.Distro -eq "Linux-Claymore")
+            {
+             $MinerWorkingDir = (Split-Path -Path $_.Path) 
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
+            }
+           if($_.Distro -eq "Windows")
+            {
+             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+            }
+            [String]$MinerFilePath = "xterm"
+            [String]$MinerArguments = "$2 $3"
+            [String]$MinerWorkingdir = $Dir
+            $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
+            }
+       if($_.Type -eq "CPU")
+		  {
+          if($_.Distro -eq "Linux")
+		   {
+		    $MinerWorkingDir = (Split-Path -Path $_.Path)
+            $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+            $3 = "$($_.Arguments)"
+		   }
+		   if($_.Distro -eq "Windows")
+		   {
+	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+           $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
+		   $3 = "$($_.Arguments)"
+           }
+            [String]$MinerFilePath = "xterm"
+            [String]$MinerArguments = "$2 $3"
+            [String]$MinerWorkingdir = $Dir
+            $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
+          }
+        
+       if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3" -or $_.Type -eq "AMD4" -or $_.Type -eq "AMD5" -or $_.Type -eq "AMD6" -or $_.Type -eq "AMD7" -or $_.Type -eq "AMD8")
+		{
+            if($_.Type -eq "AMD"){$_.Screens = 0}
+			if($_.Type -eq "AMD1"){$_.Screens = 0}
+			if($_.Type -eq "AMD2"){$_.Screens = 100}
+			if($_.Type -eq "AMD3"){$_.Screens = 200}
+			if($_.Type -eq "AMD4"){$_.Screens = 300}
+			if($_.Type -eq "AMD5"){$_.Screens = 400}
+			if($_.Type -eq "AMD6"){$_.Screens = 500}
+			if($_.Type -eq "AMD7"){$_.Screens = 600}
+			if($_.Type -eq "AMD8"){$_.Screens = 700}
+       		       if($_.Distro -eq "Linux")
+			        {
+	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+               $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+		         if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+		         else{$3 = "-d $($_.Devices) $($_.Arguments)"}
+			        }
+		           if($_.Distro -eq "Windows")
+			        {
+	       $MinerWorkingDir = (Split-Path -Path $_.Path)
                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
-               if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
-               else{$3 = "-d $($_.Devices) $($_.Arguments)"}
-              }
-                $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-                $_.XProcess = Get-Process -id $_.MiningId -ErrorAction SilentlyContinue
-              Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)   		       
-              }
-             if($_.Type -eq "CPU")
-		     {
-              if($_.Distro -eq "Linux")
+			  if($_.Devices -eq $null)
 			   {
-		        Set-Location (Split-Path -Path $_.Path)
-                $2 = "-geometry 70x6 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-                $3 = "$($_.Arguments)"
+                            $3 = "$($_.Arguments)"
 			   }
-		      if($_.Distro -eq "Windows")
+		          else
 			   {
-		        Set-Location (Split-Path -Path $_.Path)
-                $2 = "-T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
-			    $3 = "$($_.Arguments)"
-               }
-		        $_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-			$_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
-                Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)                
-              }
-            if($_.Type -eq "AMD" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3" -or $_.Type -eq "AMD4" -or $_.Type -eq "AMD5" -or $_.Type -eq "AMD6" -or $_.Type -eq "AMD7" -or $_.Type -eq "AMD8")
-		     {
-              if($_.Type -eq "AMD"){$_.Screens = 0}
-			  if($_.Type -eq "AMD1"){$_.Screens = 0}
-		 	  if($_.Type -eq "AMD2"){$_.Screens = 100}
-			  if($_.Type -eq "AMD3"){$_.Screens = 200}
-			  if($_.Type -eq "AMD4"){$_.Screens = 300}
-			  if($_.Type -eq "AMD5"){$_.Screens = 400}
-			  if($_.Type -eq "AMD6"){$_.Screens = 500}
-			  if($_.Type -eq "AMD7"){$_.Screens = 600}
-			  if($_.Type -eq "AMD8"){$_.Screens = 700}
-			  if($_.Distro -eq "Linux")
-			   {
-		        Set-Location (Split-Path -Path $_.Path)
-                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
-		        if($_.Devices -eq $null)
-			   {
-                $3 = "$($_.Arguments)"
+			    $3 = "-d $($_.Devices) $($_.Arguments)"
 			   }
-		      else
-			    {
-			     $3 = "-d $($_.Devices) $($_.Arguments)"
-			    }
-			   }
-		      if($_.Distro -eq "Windows")
-			   {
-		        Set-Location (Split-Path -Path $_.Path)
-                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
-			    if($_.Devices -eq $null)
-			     {
-                  $3 = "$($_.Arguments)"
-			     }
-		        else
-			     {
-			      $3 = "-d $($_.Devices) $($_.Arguments)"
-			     }
-		 	    }  
-       		$_.MiningId = (Start-Process -FilePath xterm -ArgumentList "$2 $3" -PassThru).Id
-		    $_.XProcess = (Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue)
-            Set-Location (Split-Path $script:MyInvocation.MyCommand.Path) 
-            }
+                         }
+                        [String]$MinerFilePath = "xterm"
+                        [String]$MinerArguments = "$2 $3"
+                        [String]$MinerWorkingdir = $Dir
+                        $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
+		      }
              Start-Sleep ($CheckMinerInterval)
-             if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+             if($_.Process -eq $null -or $_.Process.HasExited)
               {
                $_.Crashed++
                Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
@@ -897,7 +895,7 @@ if($LastRan -ne "")
 
     #Save current hash rates
     $ActiveMinerPrograms | foreach {  
-        if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+        if($_.Process -eq $null -or $_.Process.HasExited)
         {
         if($_.Status -eq "Running"){$_.Status = "Not Running"}
         }
@@ -976,7 +974,7 @@ if($LastRan -ne "")
            }
         }
       }
-        if($_.Timeout.Count -ge 0 -or $_.XProcess -eq $null -or $_.XProcess.HasExited)
+        if($_.Timeout.Count -ge 0 -or $_.Process -eq $null -or $_.Process.HasExited)
          {
          if($_.WasBenchmarked -eq $False)
           {
