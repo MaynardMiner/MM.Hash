@@ -31,20 +31,18 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 
   if($Algorithm -eq $blazepool_Algorithm)
       {
-        $Stat = Set-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor*(1-($blazepool_Request.$_.fees/100)))
+    if((Get-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_last24h/$Divisor*(1-($blazepool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit" -Value ([Double]$blazepool_Symbol.$_.estimate_current/$Divisor *(1-($blazepool_Symbol.$_.fees/100)))}
       }
 
-
-     if($Algorithm -eq $blazepool_Symbol)
-      {
        if($Wallet)
 	{
         [PSCustomObject]@{
-            Coin = $blazepool_Symbol
+            Symbol = $blazepool_Symbol
             Mining = $blazepool_Algorithm
             Algorithm = $blazepool_Algorithm
             Price = $Stat.Live
-            StablePrice = $Stat.Live
+            StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
             Host = $blazepool_Host
@@ -59,7 +57,6 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 	    Pass3 = "c=$Passwordcurrency3,ID=Rig01"
             Location = $Location
             SSL = $false
-	   }
         }
      }
    
