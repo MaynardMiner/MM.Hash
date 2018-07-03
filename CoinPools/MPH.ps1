@@ -57,14 +57,16 @@ $Locations | foreach {
         }
 
         $Stat = Set-Stat -Name "$($Name)_$($MPH_Symbol)_Profit" -Value ([decimal]$_.profit/1000000000)
+        $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
+
        }
         
            [PSCustomObject]@{
             Coin = $MPH_Symbol
             Mining = $MPH_Name
             Algorithm = $MPH_Algo
-            Price = $Stat.Live
-            StablePrice = $Stat.Live
+            Price = $Price
+            StablePrice = $Stat.Week
             Protocol = $MPH_Protocol
             Host = $MPH_Host
             Port = $MPH_Port
