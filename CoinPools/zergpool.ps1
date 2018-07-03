@@ -27,21 +27,21 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 
     $zergpool_Coin = $_
     $zergpool_Port = $zergpool_Request.$_.port
-    $zergpool_Algorithm = $zergpool_Request.$_.algo
-    $zergpool_Host = "$zergpool_Algorithm.mine.zergpool.com"
+    $zergpool_Algorithm = Get-Algorithm $zergpool_Request.$_.algo
+    $zergpool_Host = "$($zergpool_Request.$_.algo).mine.zergpool.com"
     $zergpool_Fees = .5
     $zergpool_CoinName = $zergpool_Request.$_.name
     $zergpool_Estimate = [Double]$zergpool_Request.$_.estimate*.001
     $zergpool_Hashrate = $zergpool_Request.$_.hashrate
+    $zergpool_24h= "24h_btc"
     $Divisor = (1000000*$zergpool_Request.$_.mbtc_mh_factor)
 
     if($Algorithm -eq $zergpool_Algorithm)
       {
-        $Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor*(1-($zergpool_Fees/100)))
+    if((Get-Stat -Name "$($Name)_$($zergpool_Coin)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Request.$_.$($zergpool_24h)/$Divisor*(1-($zergpool_fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor *(1-($zergpool_fees/100)))}
       }
 
-    if($Algorithm -eq $zergpool_Algorithm)
-     {
       if($Wallet)
        {
         If($ZergpoolWallet1 -ne ''){$ZergWallet1 = $ZergpoolWallet1}
@@ -57,7 +57,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
         if($Zergpoolpassword3 -ne ''){$Zergpass3 = $Zergpoolpassword3}
         else{$Zergpass3 = $Passwordcurrency3}
         [PSCustomObject]@{
-            Coin = $zergpool_Coin
+            Symbol = $zergpool_Coin
             Mining = $zergpool_CoinName
             Algorithm = $zergpool_Algorithm
             Price = $Stat.Live
@@ -67,7 +67,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
             Host = $zergpool_Host
             Port = $zergpool_Port
             User1 = $ZergWallet1
-	        User2 = $ZergWallet2
+	    User2 = $ZergWallet2
             User3 = $ZergWallet3
             CPUser = $CPUWallet
             CPUPass = "c=$CPUcurrency,mc=$zergpool_Coin"
@@ -76,7 +76,6 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 	    Pass3 = "c=$Zergpass3,mc=$zergpool_Coin"
             Location = $Location
             SSL = $false
-	       }
         }
     }
  }
