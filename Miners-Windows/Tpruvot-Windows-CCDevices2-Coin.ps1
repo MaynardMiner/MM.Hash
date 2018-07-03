@@ -1,5 +1,5 @@
 $Path = ".\Bin\tpruvot-Windows-CCDevices2-Coin\ccminer-x64.exe"
-$Uri = "https://github.com/tpruvot/ccminer/releases/download/2.2.4-tpruvot/ccminer-x64-2.2.4-cuda9.7z"
+$Uri = "https://github.com/tpruvot/ccminer/releases/download/2.3-tpruvot/ccminer-2.3-cuda9.7z"
 
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
@@ -69,7 +69,8 @@ $Commands = [PSCustomObject]@{
     "VEGI" = '' #Hmq1725
     "MAC" = '' #Timetravel
     "Sib" = '' #Sib
-
+    "LUX" = '' #Phi2
+    "GRLC" = '' #Allium
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

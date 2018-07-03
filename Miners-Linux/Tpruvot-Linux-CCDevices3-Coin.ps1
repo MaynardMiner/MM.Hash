@@ -53,6 +53,8 @@ $Commands = [PSCustomObject]@{
     "XSH-myr-gr" = '' #myr-gr
     "XVG-myr-gr" = '' #myr-gr
     "Sib" = ''
+    "LUX" = ''
+    "GRLC" = ''
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

@@ -1,1 +1,0 @@
-Wallet Tracker will get API statistics of your wallet every few minutes, to prevent overloading of their server. Should only use when you are viewing it, to reduce server traffic so you mine smoothly.

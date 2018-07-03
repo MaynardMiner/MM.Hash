@@ -67,6 +67,8 @@ $Commands = [PSCustomObject]@{
     "PLUS" = '' #Hmq1725
     "VEGI" = '' #Hmq1725
     "MAC" = '' #Timetravel
+    "LUX" = '' #Phi2
+    "Allium" = '' #Allium
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

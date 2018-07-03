@@ -1,4 +1,5 @@
 {
+    "aergo": "aeriumX",
     "allium":  "allium",
     "xmr":  "xmr",
     "blakecoin":  "blakecoin",

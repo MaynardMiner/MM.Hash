@@ -62,6 +62,8 @@ $Locations | foreach {
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
       }
         
+      if($Wallet)
+       {
            [PSCustomObject]@{
             Coin = $MPH_Symbol
             Mining = $MPH_Name
@@ -79,6 +81,7 @@ $Locations | foreach {
             Pass3 = 'x'
             Location = $MPH_Location
             SSL = $true
-            
+		}
+         }   
      }
 }

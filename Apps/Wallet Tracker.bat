@@ -1,1 +1,0 @@
-powershell -version 5.0 -noexit -executionpolicy bypass -command "&.\Wallet_Tracker.ps1 Wallet_Tracker.ps1 -Wallet1 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -Pool zergpool,zpool,ahashpool,phiphipool,hashrefinery"

@@ -47,7 +47,7 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
 
  if($Algorithm -eq $nicehash_Symbol)
       {
-        $Stat = Set-Stat -Name "$($Name)_$($Nicehash_Symbol)_Profit" -Value -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
+        $Stat = Set-Stat -Name "$($Name)_$($Nicehash_Symbol)_Profit" -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
       }	
  
