@@ -37,7 +37,7 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Symbol = $Zpool_Symbol
+            Coin = $Zpool_Symbol
             Mining = $Zpool_Algorithm
             Algorithm = $Zpool_Algorithm
             Price = $Stat.Live

@@ -37,7 +37,7 @@ $phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | 
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Symbol = $phiphipool_Symbol
+            Coin = $phiphipool_Symbol
             Mining = $phiphipool_Algorithm
             Algorithm = $phiphipool_Algorithm
             Price = $Stat.Live

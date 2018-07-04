@@ -30,7 +30,7 @@ $Commands = [PSCustomObject]@{
 "X12" = ''
 "Sib" = ''
 "Phi2" = ''
-"Allium" ''
+"Allium" = ''
 }
 
 

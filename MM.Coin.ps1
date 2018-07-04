@@ -26,7 +26,11 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$WorkerName = "Rig1",
     [Parameter(Mandatory=$false)]
-    [String]$RigName = "MMHash",
+    [String]$RigName1 = "MMHash",
+    [Parameter(Mandatory=$false)]
+    [String]$RigName2 = "MMHash",
+    [Parameter(Mandatory=$false)]
+    [String]$RigName3 = "MMHash",
     [Parameter(Mandatory=$false)]
     [Int]$API_ID = 0, 
     [Parameter(Mandatory=$false)]
@@ -594,35 +598,35 @@ if($LastRan -ne "")
 			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
             if($_.Distro -eq "Linux")
             {
-            $MinerWorkingDir = (Split-Path -Path $_.Path)
+            $Dir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
             else{$3 = "-d $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Linux-EWBF")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $Dir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
             }
             if($_.Distro -eq "Linux-DSTM")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $Dir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "$($_.Arguments) --dev $($_.Devices)"}
             }
 	   if($_.Distro -eq "Linux-Claymore")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path) 
+             $Dir = (Split-Path -Path $_.Path) 
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Windows")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $Dir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-d $($_.Devices) $($_.Arguments)"}
@@ -636,7 +640,7 @@ if($LastRan -ne "")
 		  {
           if($_.Distro -eq "Linux")
 		   {
-		    $MinerWorkingDir = (Split-Path -Path $_.Path)
+		    $Dir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             $3 = "$($_.Arguments)"
 		   }
@@ -666,14 +670,14 @@ if($LastRan -ne "")
 			
        		       if($_.Distro -eq "Linux")
 			        {
-	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+	       $Dir = (Split-Path -Path $_.Path)
                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
 		         if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
 		         else{$3 = "-d $($_.Devices) $($_.Arguments)"}
 			        }
 		           if($_.Distro -eq "Windows")
 			        {
-	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+	       $Dir = (Split-Path -Path $_.Path)
                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 			  if($_.Devices -eq $null)
 			   {
@@ -771,35 +775,35 @@ if($LastRan -ne "")
 			if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
             if($_.Distro -eq "Linux")
             {
-            $MinerWorkingDir = (Split-Path -Path $_.Path)
+            $Dir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
             else{$3 = "-d $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Linux-EWBF")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $Dir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
             }
             if($_.Distro -eq "Linux-DSTM")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $Dir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "$($_.Arguments) --dev $($_.Devices)"}
             }
 	   if($_.Distro -eq "Linux-Claymore")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path) 
+             $Dir = (Split-Path -Path $_.Path) 
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Windows")
             {
-             $MinerWorkingDir = (Split-Path -Path $_.Path)
+             $Dir = (Split-Path -Path $_.Path)
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-d $($_.Devices) $($_.Arguments)"}
@@ -813,13 +817,13 @@ if($LastRan -ne "")
 		  {
           if($_.Distro -eq "Linux")
 		   {
-		    $MinerWorkingDir = (Split-Path -Path $_.Path)
+		    $Dir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             $3 = "$($_.Arguments)"
 		   }
 		   if($_.Distro -eq "Windows")
 		   {
-	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+	       $Dir = (Split-Path -Path $_.Path)
            $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 		   $3 = "$($_.Arguments)"
            }
@@ -842,14 +846,14 @@ if($LastRan -ne "")
 			if($_.Type -eq "AMD8"){$_.Screens = 700}
        		       if($_.Distro -eq "Linux")
 			        {
-	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+	       $Dir = (Split-Path -Path $_.Path)
                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
 		         if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
 		         else{$3 = "-d $($_.Devices) $($_.Arguments)"}
 			        }
 		           if($_.Distro -eq "Windows")
 			        {
-	       $MinerWorkingDir = (Split-Path -Path $_.Path)
+	       $Dir = (Split-Path -Path $_.Path)
                $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -hold -e wine $($_.PName)"
 			  if($_.Devices -eq $null)
 			   {
@@ -883,7 +887,13 @@ if($LastRan -ne "")
         }
     }
  }
-    
+ 
+
+    Get-Job -State Completed | Remove-Job
+    [GC]::Collect()
+    [GC]::WaitForPendingFinalizers()
+    [GC]::Collect()
+   
     Write-Host "1 $CoinExchange  = " "$Exchanged" "$Currency" -foregroundcolor "Yellow"
 
     #Do nothing for a set Interval to allow miner to run
@@ -909,7 +919,7 @@ if($LastRan -ne "")
             $_.Timeout = 0
 	    $_.Benchmarked = 0
             $_.HashRate = $Miner_HashRates
-            $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
+            $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
           {
 	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"

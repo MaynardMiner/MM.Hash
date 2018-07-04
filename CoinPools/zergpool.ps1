@@ -57,7 +57,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
         if($Zergpoolpassword3 -ne ''){$Zergpass3 = $Zergpoolpassword3}
         else{$Zergpass3 = $Passwordcurrency3}
         [PSCustomObject]@{
-            Symbol = $zergpool_Coin
+            Coin = $zergpool_Coin
             Mining = $zergpool_CoinName
             Algorithm = $zergpool_Algorithm
             Price = $Stat.Live

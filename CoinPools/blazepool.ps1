@@ -38,7 +38,7 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
        if($Wallet)
 	{
         [PSCustomObject]@{
-            Symbol = $blazepool_Symbol
+            Coin = $blazepool_Symbol
             Mining = $blazepool_Algorithm
             Algorithm = $blazepool_Algorithm
             Price = $Stat.Live

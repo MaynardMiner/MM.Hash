@@ -41,7 +41,7 @@
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Symbol = $Hashrefinery_Symbol
+            Coin = $Hashrefinery_Symbol
             Mining = $Hashrefinery_Algorithm
             Algorithm = $Hashrefinery_Algorithm
             Price = $Stat.Live

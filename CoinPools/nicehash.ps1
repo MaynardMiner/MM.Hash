@@ -57,7 +57,7 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
        if($Nicehash_Wallet1 -ne '' -or $Nicehash_Wallet2 -ne '' -or $Nicehash_Wallet3 -ne '')
         {  
         [PSCustomObject]@{
-            Symbol = $nicehash_Symbol
+            Coin = $nicehash_Symbol
             Mining = $nicehash_Algorithm
             Algorithm = $nicehash_Algorithm
             Price = $Stat.Live

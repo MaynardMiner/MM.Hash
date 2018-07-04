@@ -39,7 +39,7 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Symbol = $ahashpool_Symbol
+            Coin = $ahashpool_Symbol
             Mining = $ahashpool_Algorithm
             Algorithm = $ahashpool_Algorithm
             Price = $Stat.Live
