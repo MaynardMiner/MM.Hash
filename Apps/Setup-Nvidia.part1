@@ -19,8 +19,8 @@ sudo apt-get purge nvidia*
 sudo apt-get install software-properties-common python-software-properties
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
-sudo apt-get install nvidia-390
-sudo apt-mark hold nvidia-390
+sudo apt-get install nvidia-396
+sudo apt-mark hold nvidia-396
 cd
 cd MM.Hash
 mkdir Install
