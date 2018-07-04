@@ -1,33 +1,23 @@
-$Path = '.\Bin\alexis78\3'
-$Uri = 'https://github.com/alexis78/ccminer.git'
-$Build = "Linux"
-$Distro = "Linux"
+$Path = ".\Bin\Cuballoon-Linux\2"
+$Uri = "https://github.com/Belgarion/cuballoon/archive/1.0.2.zip"
+$Build = "Linux-Zip-Build"
+$Distro = "Linux-Cu"
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
 if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
-#Algorithms
-#Nist5
-#Hsr
-#C11
-#Quark
-#Blake2s
-#Skein
+#Algorithms:
+#Balloon
 
 $Commands = [PSCustomObject]@{
-  "Nist5" = '-i 25'
-  "Hsr" = ''
-  "C11" = '-i 20'
-  "Quark" = ''
-  "Blake2s" = ''
-  "Skein" = '-i 28'
-  }
+"Balloon" = '--cuda_threads 64 --cuda_blocks 48'
+}
 
-$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object { 
+$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
   if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
-   { 
+   {   
     [PSCustomObject]@{
     MinerName = "ccminer"
     Type = "NVIDIA2"

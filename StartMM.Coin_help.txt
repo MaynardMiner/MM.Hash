@@ -98,6 +98,12 @@ Argument          Options           Explanation
 
 -Rigname1       [ANY]               Nickname For Your Rig, Will identify Rig on Yiimp/Nicehash miner list.
 
+-TimeOut        [Hours]             Tells MM.Hash when to autotmatically run Reset.Timeouts, which resets
+				    Coins and algos that miner switched off to continue mining (connection
+				    issues, miner failure, pool failure, no hashrate etc). These will delete 
+                                    Timeouts and allow miner to attemt to benchmark/try again. Default setting is
+				    hourly.
+
 
 ***********************************************************************************************************
 ***********************************************************************************************************
@@ -260,6 +266,23 @@ Argument            Options             Explanation
 -ClayDevices3   ['0123456789abcd'...]   Device group 3 ClayDevices. Used instead of -GPUDevices3, where
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA3 is specified.
+
+-CuDevices1      [0,1,2,3,4,5,6...]     Device group for group 1 Cuballoon devices. Used instead of
+					-GPUDevices1, where the requirement of specfyfing individual
+					GPUs for Cuballoon is requries. Used if -Type NVIDIA1 is
+				        specified.
+
+-CuDevices2      [0,1,2,3,4,5,6...]     Device group for group 2 Cuballoon devices. Used instead of
+                                        -GPUDevices2, where the requirement of specfyfing individual
+                                        GPUs for Cuballoon is requries. Used if -Type NVIDIA2 is
+                                        specified.
+
+-CuDevices3      [0,1,2,3,4,5,6...]     Device group for group 3 Cuballoon devices. Used instead of
+                                        -GPUDevices3, where the requirement of specfyfing individual
+                                        GPUs for Cuballoon is requries. Used if -Type NVIDIA3 is
+                                        specified.
+
+
 
 
 ******************************************************************************************************

@@ -36,6 +36,8 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
+    [Int]$Timeout = '',
+    [Parameter(Mandatory=$false)]
     [Int]$Interval = 300, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)] 
     [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet 
@@ -79,6 +81,12 @@ param(
     [String]$ClayDevices2,
     [Parameter(Mandatory=$false)]
     [String]$ClayDevices3,
+    [Parameter(Mandatory=$false)]
+    [String]$CuDevices1,
+    [Parameter(Mandatory=$false)]
+    [String]$CuDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$CuDevices3,
     [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
@@ -162,6 +170,13 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
  {
   New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null
  }
+ if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
+ {
+  New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
+ }
+
+ Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+
 
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
 
@@ -253,6 +268,7 @@ $TimeDeviation = [int]($Donate + .85)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
+$ErrorCheck = Get-Content ".\Build\Data\Error.txt" | Out-String
 
 if($TimeDeviation -ne 0)
  {
@@ -277,6 +293,21 @@ if($LastRan -ne "")
   Continue
   }
  }
+
+ if($Timeout -ne 0)
+  {
+    $ErrorTime = ([int]$Timeout*3600)  
+    $LastTimeout = [DateTime]$ErrorCheck
+    $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
+    if($LastTimeoutCheck -ge $ErrorTime)
+     {
+      Start-Job ".\Reset.Timeouts.ps1" -Name "Reset" 
+      Get-Job "Reset" | Wait-Job | Remove-Job 
+      Write-Host "Cleared Timeouts" -ForegroundColor Red
+      Clear-Content ".\Build\Data\Error.txt" | Out-Null
+      Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+     }
+  }
 
 if($LastRan -ne "")
  {
@@ -624,6 +655,13 @@ if($LastRan -ne "")
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
             }
+           if($_.Distro -eq "Linux-Cu")
+            {
+             $Dir = (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
+            }
            if($_.Distro -eq "Windows")
             {
              $Dir = (Split-Path -Path $_.Path)
@@ -800,6 +838,13 @@ if($LastRan -ne "")
              $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
+            }
+           if($_.Distro -eq "Linux-Cu")
+            {
+             $Dir = (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+             if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "--cuda_devices  $($_.Devices) $($_.Arguments)"}
             }
            if($_.Distro -eq "Windows")
             {

@@ -1,6 +1,7 @@
 {
     "aeriumx": "aeriumX-ALGO",
     "allium":  "allium-ALGO",
+    "balloon": "balloon-ALGO",
     "xmr":  "xmr-ALGO",
     "blakecoin":  "blakecoin-ALGO",
     "c11":  "c11-ALGO",
