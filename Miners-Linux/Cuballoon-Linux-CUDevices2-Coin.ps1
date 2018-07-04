@@ -1,10 +1,10 @@
-$Path = ".\Bin\Cuballoon-Linux\4"
+$Path = ".\Bin\Cuballoon-Linux\5"
 $Uri = "https://github.com/Belgarion/cuballoon/archive/1.0.2.zip"
 $Build = "Linux-Zip-Build"
 $Distro = "Linux-Cu"
 
-if($CCDevices1 -ne ''){$Devices = $CCDevices1}
-if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
+if($CUDevices2 -ne ''){$Devices = $CUDevices2}
+if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -20,15 +20,15 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
  [PSCustomObject]@{
      MinerName = "ccminer"
-     Type = "NVIDIA1"
+     Type = "NVIDIA2"
      Path = $Path
      Distro = $Distro
      Devices = $Devices
-     Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4069 -u $($Pools.$_.User1) -p $($Pools.$_.Pass1) $($Commands.$_)"
+     Arguments = "-t 0 -a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4070 -u $($Pools.$_.User2) -p $($Pools.$_.Pass2) $($Commands.$_)"
      HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
      API = "Ccminer"
      Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
-     Port = 4069
+     Port = 4070
      Wrap = $false
      URI = $Uri
      BUILD = $Build

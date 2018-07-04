@@ -1,34 +1,30 @@
-$Path = '.\Bin\z-enemy-Linux\1'
-$URI =  'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy-1.zip'
-$Build = "Linux-Zip"
-$Distro = "Linux"
+$Path = ".\Bin\Cuballoon-Windows-CUDevices1-Algo\cuballoon.exe"
+$Uri = "https://github.com/Belgarion/cuballoon/files/2143221/CuBalloon.1.0.2.Windows.zip"
+$Build = "Zip"
+$Distro = "Linux-Cu"
 
-if($CCDevices1 -ne ''){$Devices = $CCDevices1}
+if($CUDevices1 -ne ''){$Devices = $CUDevices1}
 if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
-#Algorithms
-#X16R
-#X16S
-#Aergo
+#Algorithms:
+#Balloon
 
 $Commands = [PSCustomObject]@{
-"X16r" = ''
-"X16s" = ''
-"aeriumX" = ''
+"Balloon" = '--cuda_threads 64 --cuda_blocks 48'
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
   if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
-  {
-  [PSCustomObject]@{
-    MinerName = "z-enemy"
+   {
+    [PSCustomObject]@{
+    MinerName = "ccminer"
     Type = "NVIDIA1"
     Path = $Path
     Distro = $Distro
     Devices = $Devices
-    Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -b 0.0.0.0:4069 -u $($Pools.(Get-Algo($_)).User1) -p $($Pools.(Get-Algo($_)).Pass1) $($Commands.$_)"
+    Arguments = "-t 0 -a $_ -o stratum+tcp://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -b 0.0.0.0:4069 -u $($Pools.(Get-Algo($_)).User1) -p $($Pools.(Get-Algo($_)).Pass1) $($Commands.$_)"
     HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Live}
     Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
     Port = 4069
@@ -36,6 +32,6 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     Wrap = $false
     URI = $Uri
     BUILD = $Build
-  }
+    }
   }
 }

@@ -1,7 +1,7 @@
 $Path = '.\Bin\z-enemy-Linux\4'
-$Uri = 'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy.1-11-public-final_v3.zip'
-$Build = "Linux-Zip"
+$URI =  'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy-1.zip'
 $Distro = "Linux"
+$Build = "Linux-Zip"
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
 if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
@@ -13,11 +13,9 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Aergo
 
 $Commands = [PSCustomObject]@{
-"GRV" = '' #x16r
 "PROTON" = '' #x16r
 "RVN" = '' #x16r
 "XMN" = '' #x16r
-"BTNX" = '' #x16s
 "CPR" = '' #x16s
 "PGN" = '' #x16s
 "RABBIT" = '' #x16s

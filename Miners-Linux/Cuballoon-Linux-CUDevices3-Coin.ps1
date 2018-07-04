@@ -3,7 +3,7 @@ $Uri = "https://github.com/Belgarion/cuballoon/archive/1.0.2.zip"
 $Build = "Linux-Zip-Build"
 $Distro = "Linux-Cu"
 
-if($CCDevices3 -ne ''){$Devices = $CCDevices3}
+if($CUDevices3 -ne ''){$Devices = $CUDevices3}
 if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -24,7 +24,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
      Path = $Path
      Distro = $Distro
      Devices = $Devices
-     Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4071 -u $($Pools.$_.User3) -p $($Pools.$_.Pass3) $($Commands.$_)"
+     Arguments = "-t 0 -a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4071 -u $($Pools.$_.User3) -p $($Pools.$_.Pass3) $($Commands.$_)"
      HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
      API = "Ccminer"
      Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}

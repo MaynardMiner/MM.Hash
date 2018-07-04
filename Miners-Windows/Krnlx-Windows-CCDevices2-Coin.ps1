@@ -10,12 +10,13 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Xevan
 
 $Commands = [PSCustomObject]@{
-"BSD" = '-i 18' #Xevan
-"ELLI" = '-i 18' #Xevan
-"ELP" = '-i 18' #Xevan
-"HASH" = '-i 18' #Xevan
-"KRAIT" = '-i 18' #Xevan
-"URALS" = '-i 18' #Xevan
+    "BSD" = '' #xevan
+    "ELLI" = '' #xevan
+    "ELP" = '' #xevan
+    "FLC" = '' #xevan
+    "HASH" = '' #xevan
+    "KRAIT" = '' #xevan
+    "URALS" = '' #xevan
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

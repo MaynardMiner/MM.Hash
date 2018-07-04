@@ -11,13 +11,12 @@ if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 #Xevan
 
 $Commands = [PSCustomObject]@{
-"BSD" = '' #xevan
-"ELLI" = '' #xevan
-"ELP" = '' #xevan
-"FLC" = '' #xevan
-"HASH" = '' #xevan
-"KRAIT" = '' #xevan
-"URALS" = '' #xevan
+"BSD" = '' #Xevan
+"ELLI" = '' #Xevan
+"ELP" = '' #Xevan
+"HASH" = '' #Xevan
+"KRAIT" = '' #Xevan
+"URALS" = '' #Xevan
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

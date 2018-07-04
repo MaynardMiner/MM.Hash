@@ -11,14 +11,16 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #X16S
 
 $Commands = [PSCustomObject]@{
-"PROTON" = '' #x16r
-"RVN" = '' #x16r
-"XMN" = '' #x16r
-"CPR" = '' #x16s
-"PGN" = '' #x16s
-"RABBIT" = '' #x16s
-"REDN" = '' #x16s
-"AEX" = '' #aergo
+        "GRV" = '' #x16r
+        "PROTON" = '' #x16r
+        "RVN" = '' #x16r
+        "XMN" = '' #x16r
+        "BTNX" = '' #x16s
+        "CPR" = '' #x16s
+        "PGN" = '' #x16s
+        "RABBIT" = '' #x16s
+        "REDN" = '' #x16s
+        "AEX" = '' #Aergo
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

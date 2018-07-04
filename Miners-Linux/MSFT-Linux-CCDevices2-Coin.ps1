@@ -15,24 +15,19 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
     "ALPS" = '' #Lyra2z
-    "BPG" = '' #Lyra2z
     "CRS" = '' #Lyra2z
     "GIN" = '' #Lyra2z
     "IFX" = '' #Lyra2z
     "MANO" = '' #Lyra2z
-    "MCT" = '' #Lyra2z
     "PYRO" = '' #Lyra2z
-    "STM" = '' #Lyra2z
     "TLR" = '' #Lyra2z
     "VTL" = '' #Lyra2z
-    "XZC" = '' #Lyra2z
     "BTX" = '' #Bitcore
-    "BRAZ" = '' #HMQ1725
-    "BUEN" = '' #HMQ1725
-    "ERA" = '' #HMQ1725
-    "ESP" = '' #HMQ1725
-    "PLUS" = '' #HMQ1725
-    "VEGI" = '' #HMQ1725
+    "BRAZ" = '' #Hmq1725
+    "ERA" = '' #Hmq1725
+    "ESP" = '' #Hmq1725
+    "PLUS" = '' #Hmq1725
+    "VEGI" = '' #Hmq1725
     "MAC" = '' #Timetravel
 }
 

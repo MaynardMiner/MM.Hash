@@ -1,9 +1,9 @@
 function Set-Stat {
     param(
         [Parameter(Mandatory=$true)]
-        [String]$Name,
+        [String]$Name, 
         [Parameter(Mandatory=$true)]
-        [Double]$Value,
+        [Double]$Value, 
         [Parameter(Mandatory=$false)]
         [DateTime]$Date = (Get-Date)
     )
@@ -18,22 +18,18 @@ function Set-Stat {
         Minute_Fluctuation = 1/2
         Minute_5 = $Value
         Minute_5_Fluctuation = 1/2
-	Updated = $Date
-        }
-
-    if(Test-Path $Path){$Stat = Get-Content $Path | ConvertFrom-Json}
-
-    $Stat = [PSCustomObject]@{
-        Live = [Double]$Stat.Live
-        Minute = [Double]$Stat.Minute
-        Minute_Fluctuation = [Double]$Stat.Minute_Fluctuation
-        Minute_5 = [Double]$Stat.Minute_5
-        Minute_5_Fluctuation = [Double]$Stat.Minute_5_Fluctuation
-        Updated = [DateTime]$Stat.Updated
+        Minute_10 = $Value
+        Minute_10_Fluctuation = 1/2
+        Hour = $Value
+        Hour_Fluctuation = 1/2
+        Day = $Value
+        Day_Fluctuation = 1/2
+        Week = $Value
+        Week_Fluctuation = 1/2
+        Updated = $Date
     }
 
-    $Span_Minute = [Math]::Min(($Date-$Stat.Updated).TotalMinutes,1)
-    $Span_Minute_5 = [Math]::Min((($Date-$Stat.Updated).TotalMinutes/5),1)
+    if(Test-Path $Path){$Stat = Get-Content $Path | ConvertFrom-Json}
 
     $Stat = [PSCustomObject]@{
         Live = [Double]$Stat.Live
@@ -102,6 +98,7 @@ function Set-Stat {
 
     $Stat
 }
+
 
 function Get-Stat {
     param(

@@ -1,10 +1,10 @@
-$Path = ".\Bin\Cuballoon-Linux\1"
-$Uri = "https://github.com/Belgarion/cuballoon/archive/1.0.2.zip"
-$Build = "Linux-Zip-Build"
+$Path = ".\Bin\Cuballoon-Windows-CUDevices3-Algo\cuballoon.exe"
+$Uri = "https://github.com/Belgarion/cuballoon/files/2143221/CuBalloon.1.0.2.Windows.zip"
+$Build = "Zip"
 $Distro = "Linux-Cu"
 
-if($CCDevices1 -ne ''){$Devices = $CCDevices1}
-if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
+if($CUDevices3 -ne ''){$Devices = $CUDevices3}
+if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -20,14 +20,14 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
    {   
     [PSCustomObject]@{
     MinerName = "ccminer"
-    Type = "NVIDIA1"
+    Type = "NVIDIA3"
     Path = $Path
     Distro = $Distro
     Devices = $Devices
-    Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -b 0.0.0.0:4069 -u $($Pools.(Get-Algo($_)).User1) -p $($Pools.(Get-Algo($_)).Pass1) $($Commands.$_)"
+    Arguments = "-t 0 -a $_ -o stratum+tcp://$($Pools.(Get-Algo($_)).Host):$($Pools.(Get-Algo($_)).Port) -b 0.0.0.0:4071 -u $($Pools.(Get-Algo($_)).User3) -p $($Pools.(Get-Algo($_)).Pass3) $($Commands.$_)"
     HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Live}
     Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
-    Port = 4069
+    Port = 4071
     API = "Ccminer"
     Wrap = $false
     URI = $Uri

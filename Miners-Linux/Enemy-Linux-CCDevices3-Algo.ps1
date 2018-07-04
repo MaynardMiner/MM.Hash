@@ -1,7 +1,7 @@
 $Path = '.\Bin\z-enemy-Linux\5'
-$Uri = 'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy.1-11-public-final_v3.zip'
-$Build = "Linux-Zip"
+$URI =  'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy-1.zip'
 $Distro = "Linux"
+$Build = "Linux-Zip"
 
 if($CCDevices3 -ne ''){$Devices = $CCDevices3}
 if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}

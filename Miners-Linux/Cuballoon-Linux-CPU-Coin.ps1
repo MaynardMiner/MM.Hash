@@ -21,7 +21,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
      Path = $Path
      Distro = $Distro
      Devices = $Devices
-     Arguments = "-a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4048 -u $($Pools.$_.CPUser) -p $($Pools.$_.CPUPass) $($Commands.$_)"
+     Arguments = "-t 0 -a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4048 -u $($Pools.$_.CPUser) -p $($Pools.$_.CPUPass) $($Commands.$_)"
      HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
      API = "Ccminer"
      Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}

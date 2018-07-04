@@ -19,10 +19,9 @@ $Commands = [PSCustomObject]@{
     #"PGN" = '' #x16s
     #"RABBIT" = '' #x16s
     #"REDN" = '' #x16s
-    "MARKS" = '' #X17
-    "MLM" = '' #X17
-    "XSH-x17" = '' #X17
-    "XVG" = '' #X17      
+    "MLM" = '' #x17
+    "XSH-x17" = '' #x17
+    "XVG" = '' #x17        
 }
 
 
