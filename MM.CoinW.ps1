@@ -82,6 +82,12 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$ClayDevices3,
     [Parameter(Mandatory=$false)]
+    [String]$CUDevices1,
+    [Parameter(Mandatory=$false)]
+    [String]$CUDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$CUDevices3,
+    [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null,
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
