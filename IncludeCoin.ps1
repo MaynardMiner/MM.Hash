@@ -538,7 +538,7 @@ function Start-SubProcess {
         $ControllerProcess.Handle | Out-Null
         $Process.Handle | Out-Null
 
-        do{if($ControllerProcess.WaitForExit(1000)){$Process.CloseMainWindow() | Out-Null}}
+        do{if($ControllerProcess.WaitForExit(1000)){Start-Process "kill" -ArgumentList "-SIGTERM $($Process.Id)" | Out-Null}}
         while($Process.HasExited -eq $false)
     }
 

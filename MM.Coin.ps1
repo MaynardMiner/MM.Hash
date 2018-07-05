@@ -623,7 +623,7 @@ if($LastRan -ne "")
             elseif($_.Process.HasExited -eq $false)
             {
                 $_.Active += (Get-Date)-$_.Process.StartTime
-                Stop-Process -Id ($_.Process).Id
+                Start-Process "kill" -Argumentlist "-SIGTERM $($_.Process.Id)"
                 $_.Status = "Idle"
             }
         }
