@@ -36,6 +36,8 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "",
     [Parameter(Mandatory=$false)]
+    [Int]$Timeout = "",
+    [Parameter(Mandatory=$false)]
     [Int]$Interval = 300, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)]
     [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet
@@ -162,6 +164,18 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
  {
   New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null
  }
+ if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
+ {
+  New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
+ }
+
+ $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
+ if($TimeoutClear -ne "")
+  {
+ Clear-Content ".\Build\Data\System.txt"
+ Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null   
+   }
+
 
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
 
