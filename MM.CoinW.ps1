@@ -257,6 +257,43 @@ $TimeDeviation = [int]($Donate + .85)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
+$ErrorCheck = Get-Content ".\Build\Data\Error.txt" | Out-String
+
+$TimeoutJob = {
+$AllStats = if(Test-Path "Stats")
+{
+    Get-ChildItemContent "Stats" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} 
+}
+
+$Allstats | ForEach-Object{
+    if($_.Live -eq 0)
+     {
+      $Removed = Join-Path "Stats" "$($_.Name).txt"
+      $Change = $($_.Name) -replace "HashRate","TIMEOUT"
+      if(Test-Path (Join-Path "Backup" "$($Change).txt"))
+       {
+        Remove-Item (Join-Path "Backup" "$($Change).txt")
+       }
+      Remove-Item $Removed
+      Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
+     }
+   }
+ }
+
+if($Timeout -ne 0)
+{
+  $ErrorTime = ([int]$Timeout*3600)  
+  $LastTimeout = [DateTime]$ErrorCheck
+  $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
+  if($LastTimeoutCheck -ge $ErrorTime)
+   {
+    Start-Job -Scriptblock $TimeoutJob -Name "Reset" | Out-Null
+    Get-Job "Reset" | Wait-Job | Remove-Job | Out-Null
+    Write-Host "Cleared Timeouts" -ForegroundColor Red
+    Clear-Content ".\Build\Data\Error.txt" | Out-Null
+    Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+   }
+}
 
 if($TimeDeviation -ne 0)
  {
