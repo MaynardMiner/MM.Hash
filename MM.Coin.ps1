@@ -676,6 +676,13 @@ if($LastRan -ne "")
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
             }
+           if($_.Distro -eq "Linux-CU")
+            {
+             $Dir = (Split-Path -Path $_.Path)
+             $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+	     if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+             else{$3 = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+            }
            if($_.Distro -eq "Windows")
             {
              $Dir = (Split-Path -Path $_.Path)

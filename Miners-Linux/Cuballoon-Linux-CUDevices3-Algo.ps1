@@ -19,7 +19,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   if($Algorithm -eq $($Pools.(Get-Algo($_)).Coin))
    {   
     [PSCustomObject]@{
-    MinerName = "ccminer"
+    MinerName = "cuballoon"
     Type = "NVIDIA3"
     Path = $Path
     Distro = $Distro
