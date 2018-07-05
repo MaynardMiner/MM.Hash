@@ -28,7 +28,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     HashRates = [PSCustomObject]@{(Get-Algo($_)) = $Stats."$($Name)_$(Get-Algo($_))_HashRate".Live}
     Selected = [PSCustomObject]@{(Get-Algo($_)) = ""}
     Port = 4070
-    API = "Ccminer"
+    API = "cuballoon"
     Wrap = $false
     URI = $Uri
     BUILD = $Build
