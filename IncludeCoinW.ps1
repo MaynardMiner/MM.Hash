@@ -286,7 +286,7 @@ function Get-HashRate {
                     Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
-            "cuballoon"
+	   "cuballoon"
             {
                 $Message = "summary"
 

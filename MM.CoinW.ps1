@@ -36,6 +36,8 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "",
     [Parameter(Mandatory=$false)]
+    [Int]$Timeout = "",
+    [Parameter(Mandatory=$false)]
     [Int]$Interval = 300, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)]
     [Int]$StatsInterval = "1", #seconds of current active to gather hashrate if not gathered yet
@@ -79,6 +81,12 @@ param(
     [String]$ClayDevices2,
     [Parameter(Mandatory=$false)]
     [String]$ClayDevices3,
+    [Parameter(Mandatory=$false)]
+    [String]$CUDevices1,
+    [Parameter(Mandatory=$false)]
+    [String]$CUDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$CUDevices3,
     [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null,
     [Parameter(Mandatory=$false)]
@@ -162,6 +170,18 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
  {
   New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null
  }
+ if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
+ {
+  New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
+ }
+
+ $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
+ if($TimeoutClear -ne "")
+  {
+ Clear-Content ".\Build\Data\System.txt"
+ Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null   
+   }
+
 
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
 
@@ -243,6 +263,43 @@ $TimeDeviation = [int]($Donate + .85)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
+$ErrorCheck = Get-Content ".\Build\Data\Error.txt" | Out-String
+
+$TimeoutJob = {
+$AllStats = if(Test-Path "Stats")
+{
+    Get-ChildItemContent "Stats" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} 
+}
+
+$Allstats | ForEach-Object{
+    if($_.Live -eq 0)
+     {
+      $Removed = Join-Path "Stats" "$($_.Name).txt"
+      $Change = $($_.Name) -replace "HashRate","TIMEOUT"
+      if(Test-Path (Join-Path "Backup" "$($Change).txt"))
+       {
+        Remove-Item (Join-Path "Backup" "$($Change).txt")
+       }
+      Remove-Item $Removed
+      Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
+     }
+   }
+ }
+
+if($Timeout -ne 0)
+{
+  $ErrorTime = ([int]$Timeout*3600)  
+  $LastTimeout = [DateTime]$ErrorCheck
+  $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
+  if($LastTimeoutCheck -ge $ErrorTime)
+   {
+    Start-Job -Scriptblock $TimeoutJob -Name "Reset" | Out-Null
+    Get-Job "Reset" | Wait-Job | Remove-Job | Out-Null
+    Write-Host "Cleared Timeouts" -ForegroundColor Red
+    Clear-Content ".\Build\Data\Error.txt" | Out-Null
+    Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+   }
+}
 
 if($TimeDeviation -ne 0)
  {
@@ -591,16 +648,16 @@ if($LastRan -ne "")
                {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else{$T = "$($_.Arguments) --dev $($_.Devices)"}
-               }
-		      if($_.API -eq "claymore")
-			   {
-			   if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-		        else{$T = "-di $($_.Devices) $($_.Arguments)"}
-			   }
-              if($_.API -eq "cuballoon")
                {
-               if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-               else{$T = "--cuda_devices $($_.Devices) $($_.Arguments"}
+	      if($_.API -eq "claymore")
+               {
+	        if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+		else{$T = "-di $($_.Devices) $($_.Arguments)"}
+	       }
+	      if($_.API -eq "cuballoon")
+               {
+                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
@@ -686,11 +743,16 @@ $ActiveMinerPrograms | ForEach {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else{$T = "--dev $($_.Arguments) $($_.Devices)"}
                }
-			    if($_.API -eq "Claymore")
-			    {
-				if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-				else{$T = "-di $($_.Devices) $($_.Arguments)"}
-				}
+	      if($_.API -eq "Claymore")
+	       {
+		if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+		else{$T = "-di $($_.Devices) $($_.Arguments)"}
+	       }
+	      if($_.API -eq "cuballoon")
+               {
+                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+               }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }

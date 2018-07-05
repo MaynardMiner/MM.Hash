@@ -175,7 +175,12 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
   New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
  }
 
- Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+ $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
+ if($TimeoutClear -ne "")
+  {
+ Clear-Content ".\Build\Data\System.txt"
+ Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null   
+   }
 
 
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
@@ -695,14 +700,21 @@ if($LastRan -ne "")
             [String]$MinerWorkingdir = $Dir
             $_.Process = Start-SubProcess -MinerFilePath $MinerFilePath -MinerArgumentList $MinerArguments -MinerWorkingDir $MinerWorkingDir
             }
+	   if($_.Distro -eq "Linux-Cu")
+            {
+            $Dir = (Split-Path -Path $_.Path)
+            $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+            if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+            else{$3 = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+            }
        if($_.Type -eq "CPU")
 		  {
-          if($_.Distro -eq "Linux")
-		   {
-		    $Dir = (Split-Path -Path $_.Path)
+          if($_.Distro -eq "Linux" -or $_.Distro -eq "Linux-Cu")
+	   {
+            $Dir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
             $3 = "$($_.Arguments)"
-		   }
+             }
 		   if($_.Distro -eq "Windows")
 		   {
 	       $MinerWorkingDir = (Split-Path -Path $_.Path)
@@ -860,6 +872,13 @@ if($LastRan -ne "")
              if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
              else{$3 = "-di  $($_.Devices) $($_.Arguments)"}
             }
+	   if($_.Distro -eq "Linux-Cu")
+            {
+            $Dir = (Split-Path -Path $_.Path)
+            $2 = "-geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"
+            if($_.Devices -eq $null){$3 = "$($_.Arguments)"}
+            else{$3 = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+            }
            if($_.Distro -eq "Windows")
             {
              $Dir = (Split-Path -Path $_.Path)
@@ -874,7 +893,7 @@ if($LastRan -ne "")
             }
        if($_.Type -eq "CPU")
 		  {
-          if($_.Distro -eq "Linux")
+          if($_.Distro -eq "Linux" -or $_.Distro -eq "Linux-Cu")
 		   {
 		    $Dir = (Split-Path -Path $_.Path)
             $2 = "-geometry 68x5+0+0 -T $($_.Name) -fg White -bg Black -e ./$($_.MinerName)"

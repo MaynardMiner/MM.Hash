@@ -38,8 +38,8 @@ libunwind8
 gcc-5 g++-5 (and set as default  
 libicu55_55.1-7ubuntu0.4_amd64.deb
 powershell
-nvidia-390
-cuda 9.1 toolkit
+nvidia-396
+cuda 9.12toolkit
 vim/nano
 xterm
 p7zip-full
