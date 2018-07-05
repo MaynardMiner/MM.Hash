@@ -743,11 +743,16 @@ $ActiveMinerPrograms | ForEach {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else{$T = "--dev $($_.Arguments) $($_.Devices)"}
                }
-			    if($_.API -eq "Claymore")
-			    {
-				if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-				else{$T = "-di $($_.Devices) $($_.Arguments)"}
-				}
+	      if($_.API -eq "Claymore")
+	       {
+		if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+		else{$T = "-di $($_.Devices) $($_.Arguments)"}
+	       }
+	      if($_.API -eq "cuballoon")
+               {
+                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
+                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+               }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }
