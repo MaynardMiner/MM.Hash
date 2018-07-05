@@ -175,7 +175,12 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
   New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
  }
 
- Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+ $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
+ if($TimeoutClear -ne "")
+  {
+ Clear-Content ".\Build\Data\System.txt"
+ Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null   
+   }
 
 
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
