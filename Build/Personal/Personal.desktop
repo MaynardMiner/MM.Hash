@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Personalstart
+Exec=Personal
+Icon=system-run
+X-Gnome-Autostart-enabled=true
+

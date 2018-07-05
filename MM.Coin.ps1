@@ -132,15 +132,11 @@ param(
  $VerifyPass1 = $VerifyCheck1
  $VerifyPass2 = $VerifyCheck2 
 
-
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 Get-ChildItem . -Recurse | Out-Null 
 
-if($Auto_Algo -eq "Yes")
-{
-$Algorithm | foreach {$Algorithm += "$($_)-ALGO"}
-}
+if($Auto_Algo -eq "Yes"){$Algorithm | foreach {$Algorithm += "$($_)-ALGO"}}
 
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
@@ -159,36 +155,24 @@ $ActiveMinerPrograms = @()
 Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
 
 if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
- {
-  New-Item -Path ".\Build\Data\" -Name "Info.txt"  | Out-Null
- }
+ {New-Item -Path ".\Build\Data\" -Name "Info.txt"  | Out-Null}
 if((Get-Item ".\Build\Data\System.txt" -ErrorAction SilentlyContinue) -eq $null)
- {
-  New-Item -Path ".\Build\Data" -Name "System.txt"  | Out-Null
- }
+ {New-Item -Path ".\Build\Data" -Name "System.txt"  | Out-Null}
 if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $null)
- {
-  New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null
- }
+ {New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null}
  if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
- {
-  New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
- }
-
- $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
- if($TimeoutClear -ne "")
+ {New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null}
+ 
+$TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
+if($TimeoutClear -ne "")
   {
  Clear-Content ".\Build\Data\System.txt"
  Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null   
    }
 
-
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
-
 if($DonationClear -ne "")
- {
-  Clear-Content ".\Build\Data\Info.txt"
- } 
+ {Clear-Content ".\Build\Data\Info.txt"} 
 
  $WalletDonate = "1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i"
  $NicehashDonate = "3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop"
@@ -274,42 +258,6 @@ $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
 $ErrorCheck = Get-Content ".\Build\Data\Error.txt" | Out-String
-
-$TimeoutJob = {
-$AllStats = if(Test-Path "Stats")
-{
-    Get-ChildItemContent "Stats" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} 
-}
-$Allstats | ForEach-Object{
-    if($_.Live -eq 0)
-     {
-      $Removed = Join-Path "Stats" "$($_.Name).txt"
-      $Change = $($_.Name) -replace "HashRate","TIMEOUT"
-      if(Test-Path (Join-Path "Backup" "$($Change).txt"))
-       {
-        Remove-Item (Join-Path "Backup" "$($Change).txt")
-       }
-      Remove-Item $Removed
-      Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
-     }
-   }
- }
-
-if($Timeout -ne 0)
-{
-  $ErrorTime = ([int]$Timeout*3600)  
-  $LastTimeout = [DateTime]$ErrorCheck
-  $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
-  if($LastTimeoutCheck -ge $ErrorTime)
-   {
-    Start-Job -Scriptblock $TimeoutJob -Name "Reset" | Out-Null
-    Get-Job "Reset" | Wait-Job | Remove-Job | Out-Null
-    Write-Host "Cleared Timeouts" -ForegroundColor Red
-    Clear-Content ".\Build\Data\Error.txt" | Out-Null
-    Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
-   }
-}
-
 
 if($TimeDeviation -ne 0)
  {
@@ -442,11 +390,37 @@ if($LastRan -ne "")
    }
     #Load the Stats
     $Stats = [PSCustomObject]@{}
-    if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
+    $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
+    $AllStats | Out-Null
+
+    #Clear Timeouts
+    if($Timeout -ne 0)
+    {
+      $ErrorTime = ([int]$Timeout*3600)  
+      $LastTimeout = [DateTime]$ErrorCheck
+      $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
+      if($LastTimeoutCheck -ge $ErrorTime)
+       {
+        $Allstats | ForEach-Object{
+        if($_.Live -eq 0)
+         {
+          $Removed = Join-Path "Stats" "$($_.Name).txt"
+          $Change = $($_.Name) -replace "HashRate","TIMEOUT"
+          if(Test-Path (Join-Path "Backup" "$($Change).txt"))
+          {Remove-Item (Join-Path "Backup" "$($Change).txt")}
+          Remove-Item $Removed
+          Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
+                }
+              }           
+       Write-Host "Cleared Timeouts" -ForegroundColor Red
+       Clear-Content ".\Build\Data\Error.txt" | Out-Null
+       Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+       }
+    }
 
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
-        Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+    Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
 	Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     if($AllPools.Count -eq 0){"No Pools!" | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}

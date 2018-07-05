@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=TeamviewerStart
+Exec=teamviewerstart
+Icon=system-run
+X-Gnome-Autostart-enabled=true
