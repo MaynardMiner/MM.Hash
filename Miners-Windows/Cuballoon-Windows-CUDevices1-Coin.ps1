@@ -26,7 +26,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
      Devices = $Devices
      Arguments = "-t 0 -a $($Pools.$_.Algorithm) -o stratum+tcp://$($Pools.$_.Host):$($Pools.$_.Port) -b 0.0.0.0:4069 -u $($Pools.$_.User1) -p $($Pools.$_.Pass1) $($Commands.$_)"
      HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
-     API = "Ccminer"
+     API = "cuballoon"
      Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
      Port = 4069
      Wrap = $false
