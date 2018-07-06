@@ -41,7 +41,7 @@ p7zip-full
 reccommended- NVCLOCK setup for overclocking and fan speed increase.
 ```
 
-It required xterm, so you will need some form of a display manager. I reccommend and use lightdm.
+It requires xterm, so you will need some form of a display manager. I reccommend and use lightdm.
 
 **ADVANCED SETTINGS**
 
