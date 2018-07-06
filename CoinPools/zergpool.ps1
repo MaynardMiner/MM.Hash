@@ -38,9 +38,12 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 
     if($Algorithm -eq $zergpool_Algorithm)
       {
+      if($PoolName -eq $Name)
+       {
     if((Get-Stat -Name "$($Name)_$($zergpool_Coin)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Request.$_.$($zergpool_24h)/$Divisor*(1-($zergpool_fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Coin)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor *(1-($zergpool_fees/100)))}
       }
+     }
      
       if($Wallet)
        {
