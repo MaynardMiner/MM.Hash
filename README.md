@@ -1,6 +1,6 @@
 **MM.Hash**
 
-**MULTI-ALGO, MULTI-POOL, MULTI-DEVICE, MULTI-COIN, AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX SYSTEMS.**
+**MULTI-ALGO, MULTI-POOL, MULTI-DEVICE, MULTI-COIN, AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX & WINDOWS SYSTEMS.**
 
 This is a new mining concept which combines Auto-Algo & Auto-Coin Switching simultaneuosly. It also has a Linux version, which is new as well as far as script miners. Both of these items are constantly being developed, and MM.Hash is but a fraction of what it can currently has the potential to be- The process can only move so fast as realtime testing is required with each new feature/implementation. Join discord by following link at bottom to be a part of the development process.
 
