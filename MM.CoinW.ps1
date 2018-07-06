@@ -648,7 +648,7 @@ if($LastRan -ne "")
                {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else{$T = "$($_.Arguments) --dev $($_.Devices)"}
-               {
+               }
 	      if($_.API -eq "claymore")
                {
 	        if($_.Devices -eq $null){$T = "$($_.Arguments)"}
