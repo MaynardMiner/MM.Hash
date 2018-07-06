@@ -36,7 +36,7 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
-    [Int]$Timeout = 1,
+    [Int]$Timeout = "0",
     [Parameter(Mandatory=$false)]
     [Int]$Interval = 300, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)] 
