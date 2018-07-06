@@ -434,6 +434,30 @@ if($LastRan -ne "")
     $Stats = [PSCustomObject]@{}
     if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
 
+      if($Timeout -ne 0)
+       {
+      $ErrorTime = ([int]$Timeout*3600)  
+      $LastTimeout = [DateTime]$ErrorCheck
+      $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
+      if($LastTimeoutCheck -ge $ErrorTime)
+       {
+        $Allstats | ForEach-Object{
+        if($_.Live -eq 0)
+         {
+          $Removed = Join-Path "Stats" "$($_.Name).txt"
+          $Change = $($_.Name) -replace "HashRate","TIMEOUT"
+          if(Test-Path (Join-Path "Backup" "$($Change).txt"))
+          {Remove-Item (Join-Path "Backup" "$($Change).txt")}
+          Remove-Item $Removed
+          Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
+          }
+       }           
+       Write-Host "Cleared Timeouts" -ForegroundColor Red
+       Clear-Content ".\Build\Data\Error.txt" | Out-Null
+       Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+       }
+      }
+
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
         Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
