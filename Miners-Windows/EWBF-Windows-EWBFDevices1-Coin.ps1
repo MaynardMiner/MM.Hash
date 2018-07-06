@@ -25,7 +25,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Path = $Path
 	      Distro =  $Distro
 	      Devices = $Devices
-        Arguments = "--api 0.0.0.0:42001 --server $($Pools.$_.Host) --port $($Pools.$_.Port) --fee 0 --solver 0 --eexit 1 --user $($Pools.$_.User1) --pass $($Pools.$_.Pass1) $($Commands.$_)"
+        Arguments = "--algo 192_7 --pers ZERO_PoW --api 0.0.0.0:42001 --server $($Pools.$_.Host) --port $($Pools.$_.Port) --user $($Pools.$_.User1) --pass $($Pools.$_.Pass1) $($Commands.$_)"
         HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Live}
         Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
         API = "EWBF"
