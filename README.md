@@ -106,9 +106,6 @@ Navigating to the Miner files, and opening them with vi lets you configure miner
 -There is a Logs folder which lets you track MM.Hash's history
 -If you have issues installing a miner- delete .zip or 7z file from the Downloads folder & the new miner from the bin folder. Try it again. Ensure you have moved the mini builder.sh script to the /bin folder and have enabled it as an executable.
 
-MICROCONTROLLER MINING
-JayDDee CPUminer support ARM core procesors, which means you simply need to load the miner into and Ubuntu minimal installation, then run in the microcontroller. You simply just need to confirm the microcontroller you are using is confirmed to run Ubuntu.
-
 Open DevNotes.txt to see other notes on using MM.Hash, along with new changes, and future changes.
 
 CONTACT
