@@ -79,6 +79,9 @@ By opening mining files, you can optimize miners by adding arguments under the a
 sudo bash Reset.Timeouts
 ```
 
+NOTE- IF MIGRATING YOUR BACKUP FOLDER TO A NEW VERSION/UPDATE- MAKE SURE NO **COIN**_TIMEOUT.txt Files are in the folder. To properly migrate- Run Reset.Timeouts, then copy all stat files in backup folder to a the new 'Stats' folder that you have created in new version/update
+
+
 -If you wish to reset all your benchmark stats- type the following while in MM.Hash Apps directory:
 
 ```
