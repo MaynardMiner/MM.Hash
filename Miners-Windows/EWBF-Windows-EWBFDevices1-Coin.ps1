@@ -8,9 +8,10 @@ if($GPUDevices1 -ne '')
   $Devices = $GPUEDevices1
  }
 
+#Equihash192
+
 $Commands = [PSCustomObject]@{
-"VOT" = ''
-"CMM" = ''
+"ZERO" = '' #Equihash192
 }
 
 
