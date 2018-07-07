@@ -31,6 +31,12 @@ $Commands = [PSCustomObject]@{
 "Sib" = ''
 "Phi2" = ''
 "Allium" = ''
+"Nist5" = '-i 25'
+"Hsr" = ''
+"C11" = '-i 20'
+"Quark" = ''
+"Blake2s" = ''
+"Skein" = '-i 28'
 }
 
 
