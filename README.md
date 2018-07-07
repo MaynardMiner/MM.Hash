@@ -19,7 +19,7 @@ IF YOU WANT TO SEE FURTHER DEVELOPMENT- PLEASE LEAVE DONATION SET & CONSIDER DON
 DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
 **UNIX Dependencies**
-This is what you need to run/dependencies. It is essentially everything you need to compile ccminers, powershell, as well as a script editor to edit starting script file:
+This is what you need to run/dependencies. It is essentially everything you need to compile ccminers,cpuminers, powershell, as well as a script editor to edit starting script file:
 ```
 libcurl4-openssl-dev
 libssl-dev
@@ -33,7 +33,7 @@ libunwind8
 gcc-5 g++-5 (and set as default  
 libicu55_55.1-7ubuntu0.4_amd64.deb
 powershell
-nvidia-396
+nvidia-396 drivers
 cuda 9.2 toolkit
 vim/nano
 xterm
