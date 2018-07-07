@@ -45,7 +45,7 @@ It requires xterm, so you will need some form of a display manager. I reccommend
 
 **ADVANCED SETTINGS**
 
-Advanced Settings allow you to control multiple GPU devices in groups, and you are able to set each group with an individual wallet- Meaning you can auto-exchange mine for different coins at the same time (up to 8). To use- First consult the Help file located in the MM.Hash directory. It gives a full list of all arguments, as well as detailed explanations of their use. I wrote a seperate Devices paramaters for those who have larger mining systems, as I know it can be tedious to set them up.
+Advanced Settings allow you to control multiple GPU devices in groups, and you are able to set each group with an individual wallet- Meaning you can auto-exchange mine for different coins at the same time (up to 8). To use- First consult the Help file located in the MM.Hash directory. It gives a full list of all arguments, as well as detailed explanations of their use. I wrote a seperate Devices paramater for each miner type, for those who have larger mining systems, as I know it can be tedious to set them up.
 
 IMPORTANT: ENSURE POOL OFFERS EXCHANGE TO YOUR COIN SELECTED IN WALLET ADDRESS!
 
