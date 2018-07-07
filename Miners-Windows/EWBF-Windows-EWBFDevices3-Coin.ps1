@@ -8,11 +8,11 @@ if($GPUDevices3 -ne '')
   $Devices = $GPUEDevices3
  }
 
-$Commands = [PSCustomObject]@{
-"VOT" = ''
-"CMM" = ''
-}
+#Equihash192
 
+$Commands = [PSCustomObject]@{
+"ZERO" = '' #Equihash192
+}
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
