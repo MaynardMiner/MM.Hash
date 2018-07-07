@@ -73,6 +73,12 @@ By opening mining files, you can optimize miners by adding arguments under the a
 
 **MAITENENCE/Issues**
 
+-Do to the instability of coins, miner will constantly shut-off coins, and set hashrate to zero. This originally made benchmarking tedious. Also, if a coin was disabled while you were mining, or autotrade was removed- The miner would detect no hashrate, and set coin to zero. To solve this- I implemented a timeout system. It notifies user of when the miner sets a hashrate to 0 because of issues by setting a <coin>_TIMEOUT.txt file in your backup folder. This allows miner to continue mining. After benchmarking, it is good to check if there is timeouts there, and use that to solve issues with the mining application/settings individually. When you wish to reset all files in your Stats and Backup folder that were set to 0: I made a script to do so:
+
+```
+sudo bash Reset.Timeouts
+```
+
 -If you wish to reset all your benchmark stats- type the following while in MM.Hash Apps directory:
 
 ```
