@@ -14,6 +14,7 @@
     "daggerhashimoto": "daggerhashimoto-ALGO",
     "ethash": "ethash-ALGO",
     "equihash":  "equihash-ALGO",
+    "equihash192": "equihash192-ALGO",
     "hodl": "hodl-ALGO",
     "lyra2re": "lyra2re-ALGO",
     "skein":  "skein-ALGO",
