@@ -1,17 +1,17 @@
 To help users to benchmark-
 
-If a coin can't be benchmarked, or crashes- It writes a note in the "Backup"
-folder called "Miner_Coin_Timeout".txt
+If a coin can't be benchmarked, or crashes- It writes a note in the "Backup" folder called "Miner_Coin_Timeout".txt
 
 This should allow you to note issues, and address them...So you don't have to sit in front of miner the whole time. Obviously if you need to recover your benchmarking, you simply just copy/paste your backup data to your stat folder, and there is no need to benchmark all over again. However, make sure you delete all "Miner_Coin_Timeout.txt" files before doing so, or you will have issues loading miner.
 
 I would save backup folder onto a remote site, in case computer crashes.
 
-
 ALSO
 
-Miner will switch coins on and off- If a coin is below any reasonable profitability, it will remove it from calculations. Same goes for if the coin's autotrade option is not enabled or the estimate is "0".
+Miner will switch coins on and off- If a coin is below any reasonable profitability, it will remove it from calculations. Same goes for if the coin's autotrade option is not enabled or the estimate is "0". There may be multiple reasons why a coin is switched off, so before you assume miner is doing something wrong- Check the pool first. COINS are highly unstable. It may appear after a few more API checks.
 
 If you coins randomly appear and your miner starts benchmarking them, it's because they were disabled during your initial benchmarking.
+
+If you wish to ever remove stats that were set to 0- I created a script to do so called Reset.Timeouts. You can either run the script or the .bat file to use.
 
 
