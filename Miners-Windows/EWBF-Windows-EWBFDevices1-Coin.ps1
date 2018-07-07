@@ -11,7 +11,7 @@ if($GPUDevices1 -ne '')
 #Equihash192
 
 $Commands = [PSCustomObject]@{
-"ZERO" = '' #Equihash192
+"ZER" = '' #Equihash192
 }
 
 

@@ -11,7 +11,7 @@ if($GPUDevices3 -ne '')
 #Equihash192
 
 $Commands = [PSCustomObject]@{
-"ZERO" = '' #Equihash192
+"ZER" = '' #Equihash192
 }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
