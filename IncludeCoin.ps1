@@ -535,8 +535,8 @@ function Start-SubProcess {
 
         [PSCustomObject]@{ProcessId = $Process.Id; ProcessHandle = $Process.Handle}
 
-        $ControllerProcess.Handle | Out-Null
-        $Process.Handle | Out-Null
+        $ControllerProcess.Id | Out-Null
+        $Process.Id | Out-Null
 
         do{if($ControllerProcess.WaitForExit(1000)){Start-Process "kill" -ArgumentList "-SIGTERM $($Process.Id)" | Out-Null}}
         while($Process.HasExited -eq $false)
@@ -545,7 +545,7 @@ function Start-SubProcess {
     do{sleep 1; $JobOutput = Receive-Job $MinerStart}
     while($JobOutput -eq $null)
     $Process = Get-Process | Where Id -EQ $JobOutput.ProcessId
-    $Process.Handle
+    $Process.Id
     $Process
 }
 
