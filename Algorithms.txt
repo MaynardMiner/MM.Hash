@@ -10,6 +10,7 @@
     "daggerhashimoto": "daggerhashimoto",
     "ethash": "ethash",
     "equihash192": "equihash192",
+    "equihash144": "equihash144",
     "groestl":  "groestl",
     "hodl": "hodl",
     "lyra2re": "lyra2re",
