@@ -29,14 +29,14 @@ $Commands = [PSCustomObject]@{
        {
             [PSCustomObject]@{
             MinerName = "ccminer"
-      Type = "NVIDIA1"
+            Type = "NVIDIA1"
             Path = $Path
             Devices = $Devices
             DeviceCall = "ccminer"
             Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4068 -u $($Pools.(Get-Algorithm($_)).User1) -p $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
             HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-      Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-      Port = 4068
+            Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+            Port = 4068
             API = "Ccminer"
             Wrap = $false
             URI = $Uri
