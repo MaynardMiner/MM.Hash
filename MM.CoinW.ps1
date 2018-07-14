@@ -139,11 +139,6 @@ Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 Get-ChildItem . -Recurse | Out-Null
 
-if($Auto_Algo -eq "Yes")
- {
-$Algorithm | foreach {$Algorithm += "$($_)-ALGO"}
- }
-
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
 
 if($Proxy -eq ""){$PSDefaultParameterValues.Remove("*:Proxy")}
@@ -559,11 +554,12 @@ if($LastRan -ne "")
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
                 Path = $_.Path
-		        Type = $_.Type
-		        Devices = $_.Devices
-	            MinerName = $_.MinerName
-		        Arguments = $_.Arguments
-	            Wrap = $_.Wrap
+		Type = $_.Type
+		Devices = $_.Devices
+		DeviceCall = $_.DeviceCall
+	        MinerName = $_.MinerName
+		Arguments = $_.Arguments
+	        Wrap = $_.Wrap
                 MiningName = $null
                 MiningId = $null
                 Process = $null
@@ -616,11 +612,12 @@ if($LastRan -ne "")
                 {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else
-                {if($_.API -eq "Ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
-                 if($_.API -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-                 if($_.API -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
-                 if($_.API -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
-	             if($_.API -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                {
+		 if($_.DeviceCall -eq "ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "ewbf"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "dstm"){$T = "--dev $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
+	         if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
@@ -693,11 +690,11 @@ $ActiveMinerPrograms | ForEach {
                 {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else
-                {if($_.API -eq "Ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
-                 if($_.API -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-                 if($_.API -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
-                 if($_.API -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
-	             if($_.API -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+		 if($_.DeviceCall -eq "ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "ewbf"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "dstm"){$T = "--dev $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
+	         if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
