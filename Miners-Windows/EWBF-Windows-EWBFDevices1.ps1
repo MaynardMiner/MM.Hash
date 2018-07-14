@@ -28,8 +28,8 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
       Devices = $Devices
       DeviceCall = "ewbf"
       Arguments = "--algo 192_7 --pers ZERO_PoW --api 0.0.0.0:42001 --server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User1) --pass $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
-      HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-      Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+        HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
+        Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
       API = "EWBF"
       Port = 42001
       Wrap = $false

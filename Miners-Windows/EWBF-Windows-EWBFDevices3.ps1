@@ -24,14 +24,14 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
     [PSCustomObject]@{
 	    MinerName = "miner"
-        Type = "NVIDIA1"
+        Type = "NVIDIA3"
         Path = $Path
 	      Distro =  $Distro
         Devices = $Devices
         DeviceCalle = "ewbf"
-        Arguments = "--algo 192_7 --pers ZERO_PoW --api 0.0.0.0:42003 --server $($Pools.$_.Host) --port $($Pools.$_.Port) --user $($Pools.$_.User3) --pass $($Pools.$_.Pass3) $($Commands.$_)"
-        HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
-        Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
+        Arguments = "--algo 192_7 --pers ZERO_PoW --api 0.0.0.0:42003 --server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User3) --pass $($Pools.(Get-Algorithm($_)).Pass3) $($Commands.$_)"
+        HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
+        Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
         API = "EWBF"
         Port = 42003
         Wrap = $false

@@ -23,7 +23,7 @@ $Commands = [PSCustomObject]@{
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $($Pools.(Get-Algorithm($_)).Coin)} | ForEach-Object {
- if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Coin)")
+ if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Algorithm)")
   {
     [PSCustomObject]@{
     MinerName = "cpuminer"

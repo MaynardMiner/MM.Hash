@@ -411,7 +411,7 @@ if($LastRan -ne "")
 
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
-        Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+    Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
 	Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     if($AllPools.Count -eq 0){"No Pools! Check Internet Connection/Firewall." | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
@@ -554,12 +554,12 @@ if($LastRan -ne "")
             $ActiveMinerPrograms += [PSCustomObject]@{
                 Name = $_.Name
                 Path = $_.Path
-		Type = $_.Type
-		Devices = $_.Devices
-		DeviceCall = $_.DeviceCall
-	        MinerName = $_.MinerName
-		Arguments = $_.Arguments
-	        Wrap = $_.Wrap
+		        Type = $_.Type
+		        Devices = $_.Devices
+                DeviceCall = $_.DeviceCall
+	            MinerName = $_.MinerName
+		        Arguments = $_.Arguments
+	            Wrap = $_.Wrap
                 MiningName = $null
                 MiningId = $null
                 Process = $null
@@ -613,11 +613,11 @@ if($LastRan -ne "")
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else
                 {
-		 if($_.DeviceCall -eq "ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
-                 if($_.DeviceCall -eq "ewbf"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-                 if($_.DeviceCall -eq "dstm"){$T = "--dev $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "Ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
                  if($_.DeviceCall -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
-	         if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+	             if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
@@ -690,11 +690,12 @@ $ActiveMinerPrograms | ForEach {
                 {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else
-		 if($_.DeviceCall -eq "ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
-                 if($_.DeviceCall -eq "ewbf"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-                 if($_.DeviceCall -eq "dstm"){$T = "--dev $($_.Devices) $($_.Arguments)"}
+                {
+                 if($_.DeviceCall -eq "Ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                 if($_.DeviceCall -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
                  if($_.DeviceCall -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
-	         if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+	             if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}

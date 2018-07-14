@@ -21,6 +21,7 @@ if($Auto_Coin -eq "Yes")
      return
   }
  }
+
 if($Auto_Algo -eq "Yes")
 {
     try {
@@ -35,7 +36,7 @@ if($Auto_Algo -eq "Yes")
         Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. "
         return
      }
-    }
+ }
 
 
 $Location = 'US'
@@ -109,9 +110,11 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
     }
   }
  }
+
+
  if($Auto_Algo -eq "Yes")
  {
- $zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpool_Request.$_.algo} | Where-Object {$zergpool_Request.$_.hashrate -ne "0"} | Where-Object {$zergpool_Request.$_.noautotrade -eq "0"} | Where-Object {$zergpool_Request.$_.estimate -ne "0.00000"} | ForEach-Object {
+ $zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpoolAlgo_Request.$_.name} | Where-Object {$zergpoolAlgo_Request.$_.hashrate -ne "0"} | Where-Object {$zergpoolAlgo_Request.$_.estimate_current -ne "0.00000"} | ForEach-Object {
     
         $zergpoolAlgo_Algorithm = Get-Algorithm $zergpoolAlgo_Request.$_.name
         $zergpoolAlgo_Host = "$_.mine.zergpool.com"

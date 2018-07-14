@@ -14,7 +14,7 @@ $Commands = [PSCustomObject]@{
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
- if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Coin)")
+ if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Algorithm)")
   {
   [PSCustomObject]@{
     MinerName = "ccminer"
