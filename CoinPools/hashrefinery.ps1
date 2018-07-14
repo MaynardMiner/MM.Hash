@@ -6,7 +6,8 @@
  
  $Hashrefinery_Request = [PSCustomObject]@{} 
  
- 
+ if($Auto_Algo -eq "Yes")
+ {
  try { 
      $Hashrefinery_Request = Invoke-RestMethod "http://pool.hashrefinery.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -29,21 +30,21 @@
     $Hashrefinery_Host = "$_.us.hashrefinery.com"
     $Hashrefinery_Port = $Hashrefinery_Request.$_.port
     $Hashrefinery_Algorithm = Get-Algorithm $Hashrefinery_Request.$_.name
-    $Hashrefinery_Symbol = "$($Hashrefinery_Algorithm)-ALGO"
     $Divisor = (1000000*$Hashrefinery_Request.$_.mbtc_mh_factor)
 
- if($Algorithm -eq $Hashrefinery_Symbol)
+ if($Algorithm -eq $Hashrefinery_Algorithm)
       {
       if($PoolName -eq $Name)
        {
-    if((Get-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_last24h/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Symbol)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_current/$Divisor *(1-($Hashrefinery_Request.$_.fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_last24h/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_current/$Divisor *(1-($Hashrefinery_Request.$_.fees/100)))}
      }
     }
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Coin = $Hashrefinery_Symbol
+            Coin = "No"
+            Symbol = $Hashrefinery_Algorithm
             Mining = $Hashrefinery_Algorithm
             Algorithm = $Hashrefinery_Algorithm
             Price = $Stat.Live
@@ -64,5 +65,5 @@
             SSL = $false
         }
      }
-       
+  }    
 }

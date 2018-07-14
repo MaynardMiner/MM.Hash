@@ -509,7 +509,7 @@ function Get-Combination {
             $ones = (($new_smallest/$smallest) -shr 1) - 1
             $x = $ripple -bor $ones
         }
-    }
+   }
 }
 
 function Start-SubProcess {
@@ -531,7 +531,7 @@ function Start-SubProcess {
         if($FilePath -ne ""){$ProcessParam.Add("FilePath", $FilePath)}
         if($ArgumentList -ne ""){$ProcessParam.Add("ArgumentList", $ArgumentList)}
         $Process = Start-Process @ProcessParam -PassThru
-        if($Process -eq $null){[PSCustomObject]@{ProcessId = $null}; return}
+        if($Process -eq $null){[PSCustomObject]@{ProcessId = $null}}
 
         [PSCustomObject]@{ProcessId = $Process.Id; ProcessHandle = $Process.Handle}
 

@@ -118,6 +118,8 @@ param(
     [Parameter(Mandatory=$false)]
     [array]$Coin= $null,
     [Parameter(Mandatory=$false)]
+    [string]$Auto_Coin = "Yes",
+    [Parameter(Mandatory=$false)]
     [string]$Auto_Algo = "Yes",
     [Parameter(Mandatory=$false)]
     [Int]$Nicehash_Fee
@@ -170,18 +172,6 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
  {
   New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null
  }
- if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
- {
-  New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null
- }
-
- $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
- if($TimeoutClear -ne "")
-  {
- Clear-Content ".\Build\Data\System.txt"
- Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null   
-   }
-
 
 $DonationClear = Get-Content ".\Build\Data\Info.txt" | Out-String
 
@@ -237,7 +227,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
-				             By: MaynardMiner                      v1.2.5-Lambo              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.2.7-Lambo              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|
@@ -255,6 +245,8 @@ Write-Host "
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
 " -foregroundColor "darkred"
 
+$TimeoutTimer = New-Object -TypeName System.Diagnostics.Stopwatch
+$TimeoutTimer.Start()
 
 while($true)
 {
@@ -394,33 +386,33 @@ if($LastRan -ne "")
         $Rates = [PSCustomObject]@{}
         $Currency | ForEach {$Rates | Add-Member $_ (Invoke-WebRequest "https://api.cryptonator.com/api/ticker/btc-$_" -UseBasicParsing | ConvertFrom-Json).ticker.price}
    }
-    #Load the Stats
-    $Stats = [PSCustomObject]@{}
-    if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
 
-      if($Timeout -ne 0)
+
+   if($TimeoutTimer.Elapsed.TotalSeconds -lt $TimeoutTime)
+    {
+     $Stats = [PSCustomObject]@{}
+     $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
+     $AllStats | Out-Null
+    }
+    else
+    {
+    $Stats = [PSCustomObject]@{}
+    $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
+    $Allstats | ForEach-Object{
+      if($_.Live -eq 0)
        {
-      $ErrorTime = ([int]$Timeout*3600)  
-      $LastTimeout = [DateTime]$ErrorCheck
-      $LastTimeoutCheck = [math]::Round(((Get-Date)-$LastTimeout).TotalSeconds)
-      if($LastTimeoutCheck -ge $ErrorTime)
-       {
-        $Stats | ForEach-Object{
-        if($_.Live -eq 0)
-         {
-          $Removed = Join-Path "Stats" "$($_.Name).txt"
-          $Change = $($_.Name) -replace "HashRate","TIMEOUT"
-          if(Test-Path (Join-Path "Backup" "$($Change).txt"))
-          {Remove-Item (Join-Path "Backup" "$($Change).txt")}
-          Remove-Item $Removed
-          Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
-          }
-       }           
-       Write-Host "Cleared Timeouts" -ForegroundColor Red
-       Clear-Content ".\Build\Data\Error.txt" | Out-Null
-       Get-Date | Out-File ".\Build\Data\Error.txt" | Out-Null
+        $Removed = Join-Path "Stats" "$($_.Name).txt"
+        $Change = $($_.Name) -replace "HashRate","TIMEOUT"
+        if(Test-Path (Join-Path "Backup" "$($Change).txt"))
+        {Remove-Item (Join-Path "Backup" "$($Change).txt")}
+        Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
+        Write-Host "Cleared Timeouts" -ForegroundColor Red
+        }
        }
-      }
+       Write-Host "Cleared Timeouts" -ForegroundColor Red
+       $TimeoutTimer.Restart()
+       continue
+    }
 
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
@@ -429,8 +421,8 @@ if($LastRan -ne "")
     if($AllPools.Count -eq 0){"No Pools! Check Internet Connection/Firewall." | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
     $Pools_Comparison = [PSCustomObject]@{}
-    $AllPools.Coin | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
-    $AllPools.Coin | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Coin -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
+    $AllPools.Symbol | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
+    $AllPools.Symbol | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
     #Load information about the Miners
     #Messy...?
 
@@ -620,41 +612,24 @@ if($LastRan -ne "")
                 $DecayStart = Get-Date
                 $_.New = $true
                 $_.Activated++
-            if($_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3")
-             {
-              if($_.API -eq "Ccminer")
-               {
+            if($_.Type -like '*NVIDIA*')
+                {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "-d $($_.Devices) $($_.Arguments)"}
-               }
-              if($_.API -eq "EWBF")
-               {
-                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-               }
-               if($_.API -eq "DSTM")
-               {
-                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "$($_.Arguments) --dev $($_.Devices)"}
-               }
-	      if($_.API -eq "claymore")
-               {
-	        if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-		else{$T = "-di $($_.Devices) $($_.Arguments)"}
-	       }
-	      if($_.API -eq "cuballoon")
-               {
-                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-               }
+                else
+                {if($_.API -eq "Ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
+                 if($_.API -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                 if($_.API -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
+                 if($_.API -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
+	             if($_.API -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
-              }
+                }
             if($_.Type -eq "CPU")
              {
-		    $T = "$($_.Arguments)"
-            if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
-            else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
+		     $T = "$($_.Arguments)"
+             if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
+             else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
              }
                 if($_.Process -eq $null){$_.Status = "Failed"}
                 else{$_.Status = "Running"}
@@ -714,39 +689,22 @@ $ActiveMinerPrograms | ForEach {
         if($_.Status -eq "Running")
 	 {
             $_.Failed30sLater++
-            if($_.Type -eq "NVIDIA1" -or $_.Type -eq "NVIDIA2" -or $_.Type -eq "NVIDIA3" -or $_.Type -eq "AMD1" -or $_.Type -eq "AMD2" -or $_.Type -eq "AMD3")
-             {
-              if($_.API -eq "Ccminer")
-               {
+            if($_.Type -like '*NVIDIA*')
+                {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "-d $($_.Devices) $($_.Arguments)"}
-               }
-              if($_.API -eq "EWBF")
-               {
-                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-               }
-               if($_.API -eq "DSTM")
-               {
-                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "--dev $($_.Arguments) $($_.Devices)"}
-               }
-	      if($_.API -eq "Claymore")
-	       {
-		if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-		else{$T = "-di $($_.Devices) $($_.Arguments)"}
-	       }
-	      if($_.API -eq "cuballoon")
-               {
-                if($_.Devices -eq $null){$T = "$($_.Arguments)"}
-                else{$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-               }
+                else
+                {if($_.API -eq "Ccminer"){$T = "-d $($_.Devices) $($_.Arguments)"}
+                 if($_.API -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                 if($_.API -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
+                 if($_.API -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
+	             if($_.API -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+                }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
-              }
-             if($_.Type -eq "CPU")
-              {
-             $T = "$($_.Arguments)"
+                }
+            if($_.Type -eq "CPU")
+             {
+		     $T = "$($_.Arguments)"
              if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
              else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
               }

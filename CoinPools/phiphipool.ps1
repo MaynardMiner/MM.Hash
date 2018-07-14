@@ -5,7 +5,9 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  
  $phiphipool_Request = [PSCustomObject]@{} 
  
- 
+  
+ if($Auto_Algo -eq "Yes")
+ {
  try { 
      $phiphipool_Request = Invoke-RestMethod "http://www.phi-phi-pool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -25,22 +27,22 @@ $phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | 
     $phiphipool_Host = "pool1.phi-phi-pool.com"
     $phiphipool_Port = $phiphipool_Request.$_.port
     $phiphipool_Algorithm = Get-Algorithm $phiphipool_Request.$_.name
-    $phiphipool_Symbol = "$($phiphipool_Algorithm)-ALGO"
     $Divisor = (1000000*$phiphipool_Request.$_.mbtc_mh_factor)
 
- if($Algorithm -eq $phiphipool_Symbol)
+ if($Algorithm -eq $phiphipool_Algorithm)
       {
       if($PoolName -eq $Name)
        {
-    if((Get-Stat -Name "$($Name)_$($phiphipool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($phiphipool_Symbol)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_last24h/$Divisor*(1-($phiphipool_Request.$_.fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($phiphipool_Symbol)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_current/$Divisor *(1-($phiphipool_Request.$_.fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_last24h/$Divisor*(1-($phiphipool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_current/$Divisor *(1-($phiphipool_Request.$_.fees/100)))}
      }
     }
      
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Coin = $phiphipool_Symbol
+            Coin = "No"
+            Symbol = $phiphipool_Algorithm
             Mining = $phiphipool_Algorithm
             Algorithm = $phiphipool_Algorithm
             Price = $Stat.Live
@@ -52,6 +54,7 @@ $phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | 
             User1 = $Wallet1
 	        User2 = $Wallet2
             User3 = $Wallet3
+            CPUser = $CPUWallet
             CPUPass = "c=$CPUcurrency,ID=$Rigname1"
             Pass1 = "c=$Passwordcurrency1,ID=$Rigname1"
             Pass2 = "c=$Passwordcurrency2,ID=$Rigname2"
@@ -60,4 +63,5 @@ $phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | 
             SSL = $false
         }
      }
-}
+    }
+  }

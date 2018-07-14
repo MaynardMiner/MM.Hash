@@ -5,7 +5,8 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  
  $blazepool_Request = [PSCustomObject]@{} 
  
- 
+ if($Auto_Algo -eq "Yes")
+  {
  try { 
      $blazepool_Request = Invoke-RestMethod "http://api.blazepool.com/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -26,22 +27,22 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
     $blazepool_Algorithm = Get-Algorithm $blazepool_Request.$_.name
     $blazepool_Host = "$_.mine.blazepool.com"
     $blazepool_Port = $blazepool_Request.$_.port
-    $blazepool_Symbol = "$($blazepool_Algorithm)-ALGO"
     $Divisor = (1000000*$blazepool_Request.$_.mbtc_mh_factor)
 
   if($Algorithm -eq $blazepool_Algorithm)
       {
       if($Poolname -eq $Name)
        {
-    if((Get-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_last24h/$Divisor*(1-($blazepool_Request.$_.fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($blazepool_Symbol)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor *(1-($blazepool_Request.$_.fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_last24h/$Divisor*(1-($blazepool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor *(1-($blazepool_Request.$_.fees/100)))}
     }
 }
 
        if($Wallet)
 	{
         [PSCustomObject]@{
-            Coin = $blazepool_Symbol
+            Coin = "No"
+            Symbol = $blazepool_Algorithm
             Mining = $blazepool_Algorithm
             Algorithm = $blazepool_Algorithm
             Price = $Stat.Live
@@ -62,5 +63,5 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             SSL = $false
         }
      }
-   
- }
+    }
+   }

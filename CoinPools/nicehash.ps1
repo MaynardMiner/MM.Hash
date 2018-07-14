@@ -5,7 +5,8 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  
  $nicehash_Request = [PSCustomObject]@{} 
  
- 
+ if($Auto_Algo -eq "Yes")
+ {
  try { 
      $nicehash_Request = Invoke-RestMethod "https://api.nicehash.com/api?method=simplemultialgo.info" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -42,24 +43,24 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
     $nicehash_Port = $_.port
     $nicehash_Algorithm = Get-Algorithm $_.name
     $nicehash_Fees = $Nicehash_Fee
-    $nicehash_Symbol = "$($nicehash_Algorithm)-ALGO"
     $Divisor = 1000000000
 
- if($Algorithm -eq $nicehash_Symbol)
+ if($Algorithm -eq $nicehash_Algorithm)
       {
       if($Poolname -eq $Name)
        {
-        $Stat = Set-Stat -Name "$($Name)_$($Nicehash_Symbol)_Profit" -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
+        $Stat = Set-Stat -Name "$($Name)_$($Nicehash_Algorithm)_Profit" -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
       }	
      }
-
+     
      if($Wallet)
 	    {
-       if($Nicehash_Wallet1 -ne '' -or $Nicehash_Wallet2 -ne '' -or $Nicehash_Wallet3 -ne '')
+     if($Nicehash_Wallet1 -ne '' -or $Nicehash_Wallet2 -ne '' -or $Nicehash_Wallet3 -ne '')
         {  
         [PSCustomObject]@{
-            Coin = $nicehash_Symbol
+            Coin = "No"
+            Symbol = $nicehash_Algorithm
             Mining = $nicehash_Algorithm
             Algorithm = $nicehash_Algorithm
             Price = $Stat.Live
@@ -79,6 +80,7 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
             Location = $Location
             SSL = $false
         }
-     }
+      }
+    }
    }
-}
+ }

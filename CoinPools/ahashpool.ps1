@@ -5,7 +5,8 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  
  $ahashpool_Request = [PSCustomObject]@{} 
  
- 
+ if($Auto_Algo -eq "Yes")
+  {
  try { 
      $ahashpool_Request = Invoke-RestMethod "https://www.ahashpool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -26,23 +27,23 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
     $ahashpool_Port = $ahashpool_Request.$_.port
     $ahashpool_Algorithm = Get-Algorithm $ahashpool_Request.$_.name
     $ahashpool_Fees = $ahashpool_Request.$_.fees
-    $ahashpool_Symbol = "$($ahashpool_Algorithm)-ALGO"
     $Divisor = (1000000*$ahashpool_Request.$_.mbtc_mh_factor)
 
 
- if($Algorithm -eq $ahashpool_Symbol)
+ if($Algorithm -eq $ahashpool_Algorithm)
       {
        if($Poolname -eq $Name)
         {
-    if((Get-Stat -Name "$($Name)_$($ahashpool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Symbol)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_last24h/$Divisor*(1-($ahashpool_Request.$_.fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Symbol)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor *(1-($ahashpool_Request.$_.fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_last24h/$Divisor*(1-($ahashpool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor *(1-($ahashpool_Request.$_.fees/100)))}
       }
      }
       
        if($Wallet)
 	    {
         [PSCustomObject]@{
-            Coin = $ahashpool_Symbol
+            Coin = "No"
+            Symbol = $ahashpool_Algorithm
             Mining = $ahashpool_Algorithm
             Algorithm = $ahashpool_Algorithm
             Price = $Stat.Live
@@ -65,4 +66,5 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             SSL = $false
         }
      }
-}
+    }
+  }

@@ -30,7 +30,10 @@ Argument          Options           Explanation
                                     Locations to choose from.
 
 -Auto_Algo      ["Yes" or "No"]     Turns on Auto-Algorithm, for pools that only auto-algo. Select "No" if
-                                    using miner for coin-switching only. (Currently only zergpool)
+                                    using miner for coin-switching only.
+
+-Auto_Coin      ["Yes" or "No]      Turns on Auto-Coin, for pools that are capable of auto-coin switching
+                                    Select "No" if using miner for algo-switching only.                        
 
 -Poolname      [MPH,                Current Pools MM.Hash can mine from. Omit or add as desire. can
                 zergpool,           only use these pools currently.
@@ -96,14 +99,13 @@ Argument          Options           Explanation
                                     from you...However it only resets donation switch if miner 
                                     hasn't ran for 24 hours.
 
--Rigname1       [ANY]               Nickname For Your Rig, Will identify Rig on Yiimp/Nicehash miner list.
+-Delay         [0-100000]           Expressed in seconds. When MM.Hash closes miners, to prevent BSOD or
+                                    Crashing, MM.Hash delays the openining of new miner windows momentarily.
+                                    By default, the delay is set to 1 second. Adding the delay argument
+                                    can allow you to increase the delay time before openining new miners,
+                                    which can give your gpu's a 'cooldown' time if you desire that preference.
 
--TimeOut        [Hours]             Tells MM.Hash when to autotmatically run Reset.Timeouts, which resets
-				    Coins and algos that miner switched off to continue mining (connection
-				    issues, miner failure, pool failure, no hashrate etc). These will delete 
-                                    Timeouts and allow miner to attemt to benchmark/try again. Default setting is
-				    hourly.
-
+                                    
 
 ***********************************************************************************************************
 ***********************************************************************************************************
@@ -209,15 +211,6 @@ Argument            Options             Explanation
                                         in combination of -PasswordCurrency3 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
                                         in password arguments. Used when -Type NVIDIA3 is specified.
-
--Rigname1                [ANY]         Nickname For Your Rig for Device Group 1, Will identify Rig on Yiimp/Nicehash miner list.
-
-
--Rigname2                [ANY]         Nickname For Your Rig for Device Group 2, Will identify Rig on Yiimp/Nicehash miner list.
-
-
--Rigname3                [ANY]         Nickname For Your Rig for Device Group 3, Will identify Rig on Yiimp/Nicehash miner list.
-
 							
 -CCDevices1   ['GTX1070ti#0,GTX1080#1'..  Device group 1 CCDevices. Used instead of -GPUDevices1, where
                            or             the requirement of specifying individual GPUs for CCminer is
@@ -259,7 +252,7 @@ Argument            Options             Explanation
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA1 is specified.
 
--ClayDevices2   ['0123456789abcd'...]   Device group 2 ClayDevices. Used instead of -GPUDevices1, where
+-ClayDevices2   ['0123456789abcd'...]   Device group 2 ClayDevices. Used instead of -GPUDevices2, where
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA2 is specified.
 
@@ -267,21 +260,18 @@ Argument            Options             Explanation
 					the requirement of specifying individual GPUs for Claymore is
 					required. Used if -Type NVIDIA3 is specified.
 
--CuDevices1      [0,1,2,3,4,5,6...]     Device group for group 1 Cuballoon devices. Used instead of
-					-GPUDevices1, where the requirement of specfyfing individual
-					GPUs for Cuballoon is requries. Used if -Type NVIDIA1 is
-				        specified.
 
--CuDevices2      [0,1,2,3,4,5,6...]     Device group for group 2 Cuballoon devices. Used instead of
-                                        -GPUDevices2, where the requirement of specfyfing individual
-                                        GPUs for Cuballoon is requries. Used if -Type NVIDIA2 is
-                                        specified.
+-CUDevices1     ['0123456789abcd'...]   Device group 1 CUDevices. Used instead of -GPUDevices1, where
+					the requirement of specifying individual GPUs for Cuballoon is
+					required. Used if -Type NVIDIA1 is specified.
 
--CuDevices3      [0,1,2,3,4,5,6...]     Device group for group 3 Cuballoon devices. Used instead of
-                                        -GPUDevices3, where the requirement of specfyfing individual
-                                        GPUs for Cuballoon is requries. Used if -Type NVIDIA3 is
-                                        specified.
+-CUDevices2     ['0123456789abcd'...]   Device group 2 CUDevices. Used instead of -GPUDevices2, where
+					the requirement of specifying individual GPUs for Cuballoon is
+					required. Used if -Type NVIDIA2 is specified.
 
+-CUDevices3     ['0123456789abcd'...]   Device group 3 CUDevices. Used instead of -GPUDevices3, where
+					the requirement of specifying individual GPUs for Cuballoon is
+					required. Used if -Type NVIDIA3 is specified.
 
 
 
@@ -373,7 +363,7 @@ Rules:
 
 Example of use:
 
-" .. -Poolname blazepool,zpool,nicehash -Type NVIDIA1 -Wallet1 1ERWEDAe234wehdshWe -PasswordCurrency1 -ZergpoolWallet1 1RHS234GsasierGHT -Zergpoolpassword1 RVN"
+" .. -Poolname blazepool,zpool,nicehash,zergpool -Type NVIDIA1 -Wallet1 1ERWEDAe234wehdshWe -PasswordCurrency1 -ZergpoolWallet1 1RHS234GsasierGHT -Zergpoolpassword1 RVN"
 
 This will tell the miner to mine with BTC for all pools in default device group (device group 1) that 
 are not zergpool. However, when the miner switches to zergpool- It will use the Raven Wallet specified.

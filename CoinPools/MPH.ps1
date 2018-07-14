@@ -1,5 +1,7 @@
 . .\IncludeCoin.ps1
 
+if($Auto_Algo -eq "Yes")
+{
 try
 {
     $MiningPoolHub_Request = Invoke-WebRequest "https://miningpoolhub.com/index.php?page=api&action=getautoswitchingandprofitsstatistics" -UseBasicParsing | ConvertFrom-Json
@@ -31,13 +33,12 @@ $Locations | foreach {
          "Cryptonight-Monero"{$MPH_SymHost = "Cryptonight"}
         }
        $MPH_Algo = Get-Algorithm $_.algo
-       $MPH_Symbol = "$($MPH_Algo)-ALGO"
        $MPH_Port = $_.algo_switch_port
        if($MPH_Algo -eq "Equihash")
         {$MPH_Protocol = 'stratum+ssl'}
        else{$MPH_Protocol = 'stratum+tcp'}
        $MPH_Name = $_.current_mining_coin
-       $MPH_Profit = $_.Profit
+
        $MPH_Hostname = $_.all_host_list
        
        if($Location -eq 'Europe')
@@ -56,11 +57,11 @@ $Locations | foreach {
          else{$MPH_Host = "asia.$($MPH_Symhost)-hub.miningpoolhub.com"}
         }
 
-     if($Algorithm -eq $MPH_Symbol)
+     if($Algorithm -eq $MPH_Algo)
       {
       if($PoolName -eq $Name)
        {
-        $Stat = Set-Stat -Name "$($Name)_$($MPH_Symbol)_Profit" -Value ([decimal]$_.profit/1000000000)
+        $Stat = Set-Stat -Name "$($Name)_$($MPH_Algo)_Profit" -Value ([decimal]$_.profit/1000000000)
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
        }
       }
@@ -68,7 +69,8 @@ $Locations | foreach {
       if($Wallet)
        {
            [PSCustomObject]@{
-            Coin = $MPH_Symbol
+            Coin = "No"
+            Symbol = $MPH_Algo
             Mining = $MPH_Name
             Algorithm = $MPH_Algo
             Price = $Price
@@ -84,7 +86,8 @@ $Locations | foreach {
             Pass3 = 'x'
             Location = $MPH_Location
             SSL = $true
-		}
+		  }
          }   
+       }
      }
-}
+    }
