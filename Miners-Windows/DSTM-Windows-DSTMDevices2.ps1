@@ -31,7 +31,7 @@ if($GPUDevices2 -ne '')
             HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
             Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
             API = "DSTM"
-            Port = 42001
+            Port = 42002
             Wrap = $false
             URI = $Uri
             BUILD = $Build
