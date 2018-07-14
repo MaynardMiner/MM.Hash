@@ -255,7 +255,6 @@ $TimeDeviation = [int]($Donate + .85)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
-$ErrorCheck = Get-Content ".\Build\Data\Error.txt" | Out-String
 
 if($TimeDeviation -ne 0)
  {
