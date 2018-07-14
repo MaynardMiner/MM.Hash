@@ -391,8 +391,10 @@ if($LastRan -ne "")
     }
     else
     {
-    $Stats = [PSCustomObject]@{}
-    $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
+    $AllStats = if(Test-Path "Stats")
+{
+    Get-ChildItemContent "Stats" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} 
+}
     $Allstats | ForEach-Object{
       if($_.Live -eq 0)
        {
