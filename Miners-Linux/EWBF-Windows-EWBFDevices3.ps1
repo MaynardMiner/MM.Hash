@@ -24,7 +24,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
     [PSCustomObject]@{
 	    MinerName = "miner"
-        Type = "NVIDIA1"
+        Type = "NVIDIA3"
         Path = $Path
 	      Distro =  $Distro
         Devices = $Devices
