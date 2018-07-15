@@ -2,11 +2,15 @@
 
 $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty BaseName
 
+$Location = 'US'
 
- $zergpool_Request = [PSCustomObject]@{}
+$zergpool_Request = [PSCustomObject]@{}
+$ZergpoolAlgo_Request = [PSCustomObject]@{}
 
 if($Auto_Coin -eq "Yes")
  {
+ if($Poolname -eq $Name)
+  {
  try {
      $zergpool_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
      #$ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
@@ -19,31 +23,9 @@ if($Auto_Coin -eq "Yes")
  if (($zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) {
      Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. "
      return
-  }
- }
-
-if($Auto_Algo -eq "Yes")
-{
-    try {
-        $ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
-    }
-    catch {
-        Write-Warning "MM.Hash contacted ($Name) for a failed API check. "
-        return
-    }
-   
-    if (($zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) {
-        Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. "
-        return
-     }
- }
-
-
-$Location = 'US'
-
-if($Auto_Coin -eq "Yes")
- {
-$zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpool_Request.$_.algo} | Where-Object {$zergpool_Request.$_.hashrate -ne "0"} | Where-Object {$zergpool_Request.$_.noautotrade -eq "0"} | Where-Object {$zergpool_Request.$_.estimate -ne "0.00000"} | ForEach-Object {
+   }
+  
+   $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpool_Request.$_.algo} | Where-Object {$zergpool_Request.$_.hashrate -ne "0"} | Where-Object {$zergpool_Request.$_.noautotrade -eq "0"} | Where-Object {$zergpool_Request.$_.estimate -ne "0.00000"} | ForEach-Object {
 
     $zergpool_Coin = $_
     $zergpool_Symbol = $_
@@ -64,11 +46,8 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 
     if($Algorithm -eq $zergpool_Algorithm)
       {
-      if($PoolName -eq $Name)
-       {
     if((Get-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit" -Value ([Double]$zergpool_Request.$_.$($zergpool_24h)/$Divisor*(1-($zergpool_fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor *(1-($zergpool_fees/100)))}
-      }
      }
      
       if($Wallet)
@@ -107,13 +86,29 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
             Location = $Location
             SSL = $false
         }
+      }
+     }
     }
-  }
- }
-
+   }
+ 
 
  if($Auto_Algo -eq "Yes")
- {
+  {
+  if($Poolname -eq $Name)
+   {
+    try {
+        $ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
+    }
+    catch {
+        Write-Warning "MM.Hash contacted ($Name) for a failed API check. "
+        return
+    }
+   
+    if (($zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) {
+        Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. "
+        return
+     }
+
  $zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpoolAlgo_Request.$_.name} | Where-Object {$zergpoolAlgo_Request.$_.hashrate -ne "0"} | Where-Object {$zergpoolAlgo_Request.$_.estimate_current -ne "0.00000"} | ForEach-Object {
     
         $zergpoolAlgo_Algorithm = Get-Algorithm $zergpoolAlgo_Request.$_.name
@@ -166,7 +161,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
                 Location = $Location
                 SSL = $false
             }
+          }
         }
       }
-     }
-    
+    }

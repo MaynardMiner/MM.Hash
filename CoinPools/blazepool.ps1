@@ -6,7 +6,9 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  $blazepool_Request = [PSCustomObject]@{} 
  
  if($Auto_Algo -eq "Yes")
-  {
+  { 
+  if($Poolname -eq $Name)
+   {
  try { 
      $blazepool_Request = Invoke-RestMethod "http://api.blazepool.com/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -31,12 +33,9 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 
   if($Algorithm -eq $blazepool_Algorithm)
       {
-      if($Poolname -eq $Name)
-       {
     if((Get-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_last24h/$Divisor*(1-($blazepool_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor *(1-($blazepool_Request.$_.fees/100)))}
-    }
-}
+      }
 
        if($Wallet)
 	{
@@ -65,3 +64,4 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
      }
     }
    }
+ }

@@ -6,7 +6,9 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
  $nicehash_Request = [PSCustomObject]@{} 
  
  if($Auto_Algo -eq "Yes")
- {
+  {
+  if($Poolname -eq $Name)
+   {
  try { 
      $nicehash_Request = Invoke-RestMethod "https://api.nicehash.com/api?method=simplemultialgo.info" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -47,12 +49,10 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
 
  if($Algorithm -eq $nicehash_Algorithm)
       {
-      if($Poolname -eq $Name)
-       {
         $Stat = Set-Stat -Name "$($Name)_$($Nicehash_Algorithm)_Profit" -Value ([Double]$_.paying/$Divisor*(1-($Nicehash_Fees/100)))
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
       }	
-     }
+     
      
      if($Wallet)
 	    {
@@ -84,3 +84,4 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
     }
    }
  }
+}

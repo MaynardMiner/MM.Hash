@@ -422,22 +422,20 @@ if($LastRan -ne "")
        continue
     }
 
-    #Load information about the Pools
+ 
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
     Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
-	  Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+    Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
     if($AllPools.Count -eq 0){"No Pools!" | Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
     $Pools_Comparison = [PSCustomObject]@{}
     $AllPools.Symbol | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
     $AllPools.Symbol | Select -Unique | ForEach {$Pools_Comparison | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
-    #Load information about the Miners
-    #Messy...?
-
+    
     $Miners = if(Test-Path "Miners-Linux"){Get-ChildItemContent "Miners-Linux" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
-    Where-Object {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
-    Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} | 
-    Where-Object {$MinerName.Count -eq 0 -or (Compare-Object  $MinerName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+    Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
+    Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+
     $Miners = $Miners | ForEach {
         $Miner = $_
        if((Test-Path $Miner.Path) -eq $false)
@@ -553,6 +551,9 @@ if($LastRan -ne "")
     $BestMiners_Combo_Comparison = $BestMiners_Combos_Comparison | Sort-Object -Descending {($_.Combination | Where Profit -EQ $null | Measure).Count},{($_.Combination | Measure Profit_Comparison -Sum).Sum},{($_.Combination | Where Profit -NE 0 | Measure).Count} | Select -First 1 | Select -ExpandProperty Combination
 
 
+
+$BestMiners_Combo
+
     #Add the most profitable miners to the active list
     $BestMiners_Combo | ForEach {
         if(($ActiveMinerPrograms | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -eq 0)
@@ -562,10 +563,10 @@ if($LastRan -ne "")
               Type = $_.Type
               Devices = $_.Devices
               DeviceCall = $_.DeviceCall
-	            MinerName = $_.MinerName
+	      MinerName = $_.MinerName
               Path = $_.Path
               Arguments = $_.Arguments
-	            Wrap = $_.Wrap
+	      Wrap = $_.Wrap
               MiningName = $null
               MiningId = $null
               API = $_.API
@@ -595,21 +596,31 @@ if($LastRan -ne "")
             if($_.XProcess -eq $null)
             {
                 $_.Status = "Failed"
+		$_.MiningId = $null
             }
             elseif($_.XProcess.HasExited -eq $false)
             {
+                Set-Location (Split-Path $_.Path)
+                Clear-Content ".\nohup.out"
+                Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                Write-Host "Closing $($_.MinerName) PID $($_XProcess.Id)"
                 $_.Active += (Get-Date)-$_.XProcess.StartTime
-                Stop-Process $_.XProcess
+                do {Start-Process "kill" -ArgumentList "-SIGTERM $($_.MiningId)"
+                }while ($_.XProcess.HasExited -eq $false)
+		$_.MiningId = $null
                 $_.Status = "Idle"
             }
         }
+     }
 
-else
- {
- if($TimeDeviation -ne 0)
+ $ActiveMinerPrograms | ForEach {
+ if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -gt 0)
   {
-    if($_.XProcess -eq $null -or $_.XProcess.HasExited -ne $false)
+  if($TimeDeviation -ne 0)
+   {
+   if($_.XProcess -eq $null -or $_.XProcess.HasExited -ne $false)
     {
+     $_.MiningId = $null
      Start-Sleep $Delay #Wait to prevent BSOD
      $DecayStart = Get-Date
      $_.New = $true
@@ -673,13 +684,13 @@ if($_.Type -like "*CPU*")
     $_.Status = "Running"
      Write-Host "$($_.MinerName) Is Running" -ForegroundColor Green
     $MinerWatch.Restart()
+     }
     }
    }
   }
  }
-}
 
-function Get-MinerAcive {
+function Get-MinerActive {
   $ActiveMinerPrograms | Sort-Object -Descending Status,
   {
    if($_.XProcess -eq $null)
@@ -736,7 +747,7 @@ function Get-MinerStatus {
         }
        }
      }
-   Get-MinerAcive
+   Get-MinerActive
    Start-Sleep -s 10   
    Get-MinerStatus
    Start-Sleep -s 10
@@ -807,24 +818,21 @@ function Get-MinerStatus {
         if($_.Status -eq "Running")
          { 
         $Miner_HashRates = Get-HashRate $_.API $_.Port
-        $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)/s"
+        $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
+        $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
+        $LogHash | Out-File ".\Miner.log"
+
           }
         }
       }
-    
+
   Get-Job -State Completed | Remove-Job
   [GC]::Collect()
   [GC]::WaitForPendingFinalizers()
   [GC]::Collect()
 
- function Clear-MinerLog {
-  Start-Process -FilePath "bash" -ArgumentList "RemoveMinerLogs.sh" -Wait
-  Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
- }
-
- Clear-MinerLog
-
+  
   while($MinerWatch.Elapsed.TotalSeconds -lt $Interval)
     {
       Get-MinerHashRate
@@ -847,17 +855,18 @@ function Get-MinerStatus {
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
       Start-Sleep -s 5
       Get-MinerRun
+      Get-MinerActive
       Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
       Start-Sleep -s 5
       Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
       Start-Sleep -s 5
-      Get-MinerAcive
-      Start-Sleep -s 10
-      Get-MinerStatus
+      Get-MinerHashRate
+      Start-Sleep -s 5
+      Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 10
+      Start-Sleep -s 5
     }
 
   if($MinerWatch.Elapsed.TotalSeconds -ge $Interval)
@@ -915,9 +924,9 @@ function Get-MinerStatus {
                 else
                  {
                  $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-				 Write-Host "Stat Written"
+				         Write-Host "Stat Written"
                  Start-Sleep -s 1
-		 $_.New = $False
+		             $_.New = $False
                  $_.Crashed = 0
                  $_.Hashrate_Gathered = $True
 		  if(Test-Path (Join-Path ".\Stats\" "$($_.Name)_$($_.Coins)_HashRate.txt"))
@@ -989,5 +998,5 @@ function Get-MinerStatus {
 
   #Stop the log
   Stop-Transcript
-  Get-Date | Out-File "TimeTable.txt"
+  Get-Date | Out-File ".\Build\Data\TimeTable.txt"
 

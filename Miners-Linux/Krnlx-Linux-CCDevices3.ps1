@@ -19,6 +19,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
  if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Algorithm)")
   {
     [PSCustomObject]@{
+    Symbol = (Get-Algorithm($_))
     MinerName = "ccminer"
     Type = "NVIDIA3"
     Path = $Path
@@ -40,6 +41,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
   if("$($_.Coin)" -eq "Yes")
    {
   [PSCustomObject]@{
+    Symbol = $_.Symbol
    MinerName = "ccminer"
    Type = "NVIDIA3"
    Path = $Path

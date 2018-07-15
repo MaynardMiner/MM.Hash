@@ -11,7 +11,7 @@ if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
 #Xevan
 
 $Commands = [PSCustomObject]@{
-"Xevan" = ''
+"Xevan" = '-i 18'
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {

@@ -2,6 +2,8 @@
 
 if($Auto_Algo -eq "Yes")
 {
+if($Poolname -eq $Name)
+ {
 try
 {
     $MiningPoolHub_Request = Invoke-WebRequest "https://miningpoolhub.com/index.php?page=api&action=getautoswitchingandprofitsstatistics" -UseBasicParsing | ConvertFrom-Json
@@ -59,12 +61,9 @@ $Locations | foreach {
 
      if($Algorithm -eq $MPH_Algo)
       {
-      if($PoolName -eq $Name)
-       {
         $Stat = Set-Stat -Name "$($Name)_$($MPH_Algo)_Profit" -Value ([decimal]$_.profit/1000000000)
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
        }
-      }
       
       if($Wallet)
        {
@@ -91,3 +90,4 @@ $Locations | foreach {
        }
      }
     }
+   }

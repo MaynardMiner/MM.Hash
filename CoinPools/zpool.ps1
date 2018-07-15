@@ -8,6 +8,8 @@ $Zpool_Request = [PSCustomObject]@{}
   
 if($Auto_Algo -eq "Yes")
 {
+ if($Poolname -eq $Name)
+  {
  try { 
      $Zpool_Request = Invoke-RestMethod "http://www.zpool.ca/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -62,6 +64,7 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
             Location = $Location
             SSL = $false
         }
+      }
      }
-  }
-}
+    }
+   }

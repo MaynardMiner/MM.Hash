@@ -21,6 +21,7 @@ if($GPUDevices2 -ne '')
     if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Algorithm)")
      {
         [PSCustomObject]@{
+          Symbol = (Get-Algorithm($_))
                 MinerName = "ethdcrminer64"
                 Type = "NVIDIA2"
                 Path = $Path
@@ -42,6 +43,7 @@ if($GPUDevices2 -ne '')
       if("$($_.Coin)" -eq "Yes")
        {
       [PSCustomObject]@{
+        Symbol = $_.Symbol
         MinerName = "ethdcrminer64"
         Type = "NVIDIA2"
         Path = $Path

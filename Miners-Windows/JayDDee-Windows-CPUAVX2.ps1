@@ -11,13 +11,13 @@ $Build =  "Linux-Clean"
 #M7M
 
 $Commands = [PSCustomObject]@{
-    "Yescrypt" = ''
-    "YescryptR16" = ''
-    "Lyra2z" = ''
-    "M7M" = ''
-    "cryptonightv7" = ''
-    "lyra2re" = ''
-    "hodl" = ''
+    "Yescrypt" = '-t 2'
+    "YescryptR16" = '-t 2'
+    "Lyra2z" = '-t 2'
+    "M7M" = '-t 2'
+    "cryptonightv7" = '-t 2'
+    "lyra2re" = '-t 2'
+    "hodl" = '-t 2'
     }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

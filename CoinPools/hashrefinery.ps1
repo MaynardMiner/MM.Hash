@@ -6,8 +6,10 @@
  
  $Hashrefinery_Request = [PSCustomObject]@{} 
  
- if($Auto_Algo -eq "Yes")
- {
+  if($Auto_Algo -eq "Yes")
+   {
+   if($Poolname -eq $Name)
+    {
  try { 
      $Hashrefinery_Request = Invoke-RestMethod "http://pool.hashrefinery.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
  } 
@@ -34,12 +36,10 @@
 
  if($Algorithm -eq $Hashrefinery_Algorithm)
       {
-      if($PoolName -eq $Name)
-       {
     if((Get-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_last24h/$Divisor*(1-($Hashrefinery_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($Hashrefinery_Algorithm)_Profit" -Value ([Double]$Hashrefinery_Request.$_.estimate_current/$Divisor *(1-($Hashrefinery_Request.$_.fees/100)))}
-     }
-    }
+      }
+
        if($Wallet)
 	    {
         [PSCustomObject]@{
@@ -66,4 +66,5 @@
         }
      }
   }    
+ }
 }
