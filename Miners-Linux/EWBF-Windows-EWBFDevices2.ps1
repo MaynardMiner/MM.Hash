@@ -1,4 +1,4 @@
-$Path = ".\Bin\EWBF-Windows-EWBFDevices2\miner"
+$Path = ".\Bin\EWBF-Linux-EWBFDevices2\miner"
 $Uri = "https://github.com/MaynardMiner/EWB/releases/download/v1.0/EWBF-Linux.zip"
 $Build = "Zip"
 
@@ -49,7 +49,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     Path = $Path
     Devices = $Devices
     DeviceCall = "ewbf"
-    Arguments = "--algo 192_7 --pers ZERO_PoW --api 0.0.0.0:42002 --server $($_.Host) --port $($_.Port) --user $($_.User2) --pass $($_.Pass2) $($Commands.$($_.Algorithm))"
+    Arguments = "--api 0.0.0.0:42002 --server $($_.Host) --port $($_.Port) --user $($_.User2) --pass $($_.Pass2) $($Commands.$($_.Algorithm))"
     HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
     Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
     API = "EWBF"
