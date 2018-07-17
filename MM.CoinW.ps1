@@ -380,6 +380,8 @@ catch {
     $Currency | ForEach {$Rates | Add-Member $_ (Invoke-WebRequest "https://api.cryptonator.com/api/ticker/btc-$_" -UseBasicParsing | ConvertFrom-Json).ticker.price}
    }
 
+   if($Timeout -ne 0)
+    {
    if($TimeoutTimer.Elapsed.TotalSeconds -lt $TimeoutTime)
     {
      $Stats = [PSCustomObject]@{}
@@ -405,6 +407,7 @@ catch {
        $TimeoutTimer.Restart()
        continue
     }
+  }
 
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
