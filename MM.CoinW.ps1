@@ -380,15 +380,12 @@ catch {
     $Currency | ForEach {$Rates | Add-Member $_ (Invoke-WebRequest "https://api.cryptonator.com/api/ticker/btc-$_" -UseBasicParsing | ConvertFrom-Json).ticker.price}
    }
 
-   if($TimeoutTimer.Elapsed.TotalSeconds -lt $TimeoutTime)
+   if($TimeoutTimer.Elapsed.TotalSeconds -lt $TimeoutTime -or $Timeout -eq 0)
     {
-    if($Timeout -ne 0)
-     {
      $Stats = [PSCustomObject]@{}
-     $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
+     $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}    }
      $AllStats | Out-Null
     }
-   }
     else
     {
     $Stats = [PSCustomObject]@{}
