@@ -396,14 +396,15 @@ if($LastRan -ne "")
         $Currency | ForEach {$Rates | Add-Member $_ (Invoke-WebRequest "https://api.cryptonator.com/api/ticker/btc-$_" -UseBasicParsing | ConvertFrom-Json).ticker.price}
    }
    
-   if($Timeout -ne 0)
-    {
    if($TimeoutTimer.Elapsed.TotalSeconds -lt $TimeoutTime)
     {
+    if($Timeout -ne 0)
+     {
      $Stats = [PSCustomObject]@{}
      $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
      $AllStats | Out-Null
     }
+   }
     else
     {
     $Stats = [PSCustomObject]@{}
@@ -423,7 +424,6 @@ if($LastRan -ne "")
        $TimeoutTimer.Restart()
        continue
     }
-   }
  
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
     Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
