@@ -1,6 +1,7 @@
-$Path = '.\Bin\MSFTserver\2'
-$Uri = 'https://github.com/MSFTserver/ccminer.git'
-$Build = "Linux-Clean"
+$Path = '.\Bin\MSFTserver-Linux-CCDevices2\ccminer'
+$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFTserver.zip'
+$Build = "Zip"
+
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
 if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}

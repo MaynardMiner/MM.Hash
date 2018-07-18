@@ -165,6 +165,11 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
  if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
  {New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null}
  
+ $Out = Get-Item ".\Bin\*\*.out*" | Out-Null
+
+ $Out | foreach {Remove-Item $_ | Out-Null}
+
+ 
 $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
 if($TimeoutClear -ne "")
   {
@@ -232,13 +237,13 @@ Write-Host "
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|
-                                        _                                |____,--|#|---|##|---|#|--.__|_|
+                                        _                                |___,--|#|---|##|---|#|--.__|_|
                                       _|#)____________________________________,--'EEEEEEEEEEEEEE'_=-.
                                      ((_____((_________________________,--------[JW](___(____(____(_==)        _________
                                                                        .--|##,----o  o  o  o  o  o  o__|/`---,-,-'=========`=+==.
                                                                        |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
                                                                        |##|              `-.|#|##|#|`===l##\   _\############|##|
-                                                                      =======-===l          |_|__|_|     \##`-'__,=======.###|##|
+                                                                      =======-===l         |_|__|_|     \##`-'__,=======.###|##|
                                                                                                           \__.'          '======'
                                                                   									
 					    				      SNIPER-MODE ACTIVATED
@@ -580,6 +585,7 @@ if($LastRan -ne "")
               Timeout = 0
               WasBenchmarked = $false
               XProcess = $null
+              Screens = $null
           }
         }
     }
@@ -596,7 +602,7 @@ if($LastRan -ne "")
             elseif($_.XProcess.HasExited -eq $false)
             {
                 Set-Location (Split-Path $_.Path)
-                Clear-Content ".\nohup.out"
+                Remove-Item ".\$($_.Type).out" | Out-Null
                 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
                 Write-Host "Closing $($_.MinerName) PID $($_XProcess.Id)"
                 $_.Active += (Get-Date)-$_.XProcess.StartTime
@@ -622,19 +628,28 @@ if($LastRan -ne "")
      $_.Activated++
      if($_.Type -like '*NVIDIA*')
       {
- $Dir = (Split-Path -Path $_.Path)
- $MinerProgram = "./$($_.MinerName)"
- if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
- else{
- if($_.DeviceCall -eq "ccminer"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
- if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
- if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
- if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
- if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-     }
- Set-Location $Dir
- $_.MiningId = (Start-Process -FilePath "nohup" -ArgumentList "$($MinerProgram) $($MinerArguments)" -PassThru).Id
- $MinerTimer.Restart()
+        if($_.Type -eq "NVIDIA"){$_.Screens = 0}
+        if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
+        if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
+        if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
+        if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
+        if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
+        if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
+        if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
+        if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
+        $Dir = (Split-Path -Path $_.Path)
+        $MinerProgram = "./$($_.MinerName)"
+        if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
+        else{
+        if($_.DeviceCall -eq "ccminer"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
+        if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+        if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
+        if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
+        if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+            }
+        Set-Location $Dir
+        $_.MiningId = (Start-Process -FilePath "xterm" -ArgumentList "-l -lf $($_.Type).out -geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e $($MinerProgram) $($MinerArguments)" -PassThru).Id
+$MinerTimer.Restart()
  $_.XProcess = Get-Process -Id $_.MiningId
  if($_.XProcess -eq $null)
   {
@@ -757,6 +772,15 @@ function Get-MinerStatus {
            $_.Failed30sLater++
            if($_.Type -like '*NVIDIA*')
            {
+            if($_.Type -eq "NVIDIA"){$_.Screens = 0}
+            if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
+            if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
+            if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
+            if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
+            if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
+            if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
+            if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
+            if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
             $Dir = (Split-Path -Path $_.Path)
             $MinerProgram = "./$($_.MinerName)"
             if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
@@ -768,7 +792,7 @@ function Get-MinerStatus {
             if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
             Set-Location $Dir
-            $_.MiningId = (Start-Process -FilePath "nohup" -ArgumentList "$($MinerProgram) $($MinerArguments)" -PassThru).Id
+            $_.MiningId = (Start-Process -FilePath "xterm" -ArgumentList "-l -lf $($_.Type).out -geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e $($MinerProgram) $($MinerArguments)" -PassThru).Id
             $MinerTimer.Restart()
             $_.XProcess = Get-Process -Id $_.MiningId
             if($_.XProcess -eq $null)
@@ -994,4 +1018,4 @@ function Get-MinerStatus {
   #Stop the log
   Stop-Transcript
   Get-Date | Out-File ".\Build\Data\TimeTable.txt"
-
+  Remove-Item ".\Bin\* -Include *.out*"

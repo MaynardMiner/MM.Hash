@@ -1,6 +1,6 @@
-$Path = ".\Bin\krnlx\2"
-$Uri = "https://github.com/krnlx/ccminer-xevan.git"
-$Build = "Linux"
+$Path = ".\Bin\krnlx-Linux-CCDevices2\ccminer"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Krnlx.zip"
+$Build = "Zip"
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 

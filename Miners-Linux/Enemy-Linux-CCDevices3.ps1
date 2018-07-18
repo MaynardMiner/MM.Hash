@@ -28,10 +28,10 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     Path = $Path
     Devices = $Devices
     DeviceCall = "ccminer"
-    Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4071 -u $($Pools.(Get-Algorithm($_)).User3) -p $($Pools.(Get-Algorithm($_)).Pass3) $($Commands.$_)"
+    Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4070 -u $($Pools.(Get-Algorithm($_)).User3) -p $($Pools.(Get-Algorithm($_)).Pass3) $($Commands.$_)"
     HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
     Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-    Port = 4071
+    Port = 4070
     API = "Ccminer"
     Wrap = $false
     URI = $Uri

@@ -1,6 +1,7 @@
-$Path = ".\Bin\ocminer\2"
-$Uri = "https://github.com/ocminer/suprminer.git"
-$Build = "Linux"
+$Path = ".\Bin\ocminer-Linux-CCDevices2\ccminer"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ocminer.zip"
+$Build = "Zip"
+
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
 if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}

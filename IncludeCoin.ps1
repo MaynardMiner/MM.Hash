@@ -654,12 +654,12 @@ function Expand-WebRequest {
                    $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf))
 
 
-                    if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse}
+                    if (Test-Path $Path_Old) {Remove-Item $Path_Old -Recurse -Force}
 
-                    Start-Process "7z" "x `"$([IO.Path]::GetFullPath($FileName1))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y -spe" -Wait
+                    Start-Process "7z" "x `"$([IO.Path]::GetFullPath($FileName1))`" -o`"$([IO.Path]::GetFullPath($Path_Old))`" -y" -Wait
 
 
-                    if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse}
+                    if (Test-Path $Path_New) {Remove-Item $Path_New -Recurse -Force}
                     if (Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $false)
 		     {
                      Rename-Item $Path_Old (Split-Path $Path -Leaf)

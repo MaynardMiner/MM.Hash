@@ -1,6 +1,6 @@
-$Path = ".\Bin\KlausT\3"
-$Uri = "https://github.com/KlausT/ccminer/archive/8.21.zip"
-$Build = "Linux-Zip-Build"
+$Path = ".\Bin\KlausT-Linux-CCDevices3\ccminer"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT.zip"
+$Build = "Zip"
 
 if($CCDevices3 -ne ''){$Devices = $CCDevices3}
 if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}

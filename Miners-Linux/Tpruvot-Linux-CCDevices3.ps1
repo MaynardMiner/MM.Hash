@@ -1,6 +1,7 @@
-$Path = ".\Bin\tpruvot\3"
-$Uri = "https://github.com/tpruvot/ccminer.git"
-$Build = "Linux"
+$Path = ".\Bin\tpruvot-Linux-CCDevices3\ccminer"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot.zip"
+$Build = "Zip"
+
 
 if($CCDevices3 -ne ''){$Devices = $CCDevices3}
 if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}

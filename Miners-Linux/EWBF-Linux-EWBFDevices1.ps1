@@ -1,5 +1,5 @@
-$Path = ".\Bin\EWBF-Windows-EWBFDevices1\miner"
-$Uri = "https://github.com/MaynardMiner/EWB/releases/download/v1.0/EWBF-Linux.zip"
+$Path = ".\Bin\EWBF-Linux-EWBFDevices1\miner"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF_Equihash_miner_v0.zip"
 $Build = "Zip"
 
 if($EWBFDevices1 -ne ''){$Devices = $EWBFDevices1}
