@@ -1,3 +1,5 @@
+**7/9/2018** I am working on a series of tests/pushes to github for new Unix version. It is advised to NOT clone from git at this time, but use releases until finished- Will be done sometime during upcoming weekend.
+
 **MM.Hash**
 
 **MULTI-ALGO, MULTI-POOL, MULTI-DEVICE, MULTI-COIN, AUTO-PROFIT SWITCHING MINING ADMINISTRATION APPLICATION FOR UNIX & WINDOWS SYSTEMS.**
