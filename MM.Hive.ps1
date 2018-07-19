@@ -155,6 +155,12 @@ $DecayPeriod = 60 #seconds
 $DecayBase = 1-0.1 #decimal percentage
 
 $ActiveMinerPrograms = @()
+$OpenScreens = @("NVIDIA1,NVIDIA2,NVIDIA3,CPU")
+
+$OpenScreens | foreach {
+$_ | Out-File ".\Build\name.sh"
+Start-Process ".\Build\killall.sh"
+}
 
 #Start the log
 Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
