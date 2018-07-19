@@ -570,7 +570,11 @@ function Expand-WebRequest {
 	[Parameter(Mandatory=$false)]
 	[String]$BuildPath,
 	[Parameter(Mandatory=$false)]
-	[String]$Path
+	[String]$Path,
+        [Parameter(Mandatory=$false)]
+	[String]$MineName,
+	[Parameter(Mandatory=$false)]
+        [String]$MineType
           )
      if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null}
      if (-not (Test-Path ".\x64")) {New-Item "x64" -ItemType "directory" | Out-Null}
@@ -579,6 +583,7 @@ function Expand-WebRequest {
         $New_Path = Split-Path $Old_Path -Leaf
 	$FileName = Join-Path ".\Bin" $New_Path
         $FileName1 = Join-Path ".\x64" (Split-Path $Uri -Leaf)
+        
 
         if($BuildPath -eq "Linux")
 	 {
@@ -667,8 +672,10 @@ function Expand-WebRequest {
                     else
 		       {
                          Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
+                         $MinerNewFile = (Join-Path $Path_New ("$($MineName)" -replace "-$($MineType)",""))
+			 Rename-Item -Path $MinerNewFile -NewName "$($MineName)"
                          Remove-Item $Path_Old
-                       }
+		       }
                   }
 
           }

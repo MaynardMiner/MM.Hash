@@ -1,4 +1,4 @@
-$Path = ".\Bin\krnlx-Linux-CCDevices2\ccminer"
+$Path = ".\Bin\krnlx-Linux-CCDevices2\ccminer-NVIDIA2"
 $Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Krnlx.zip"
 $Build = "Zip"
 
@@ -18,7 +18,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
   [PSCustomObject]@{
     Symbol = (Get-Algorithm($_))
-    MinerName = "ccminer"
+    MinerName = "ccminer-NVIDIA2"
     Type = "NVIDIA2"
     Path = $Path
     Devices = $Devices
@@ -40,7 +40,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
    {
   [PSCustomObject]@{
     Symbol = $_.Symbol
-   MinerName = "ccminer"
+   MinerName = "ccminer-NVIDIA2"
    Type = "NVIDIA2"
    Path = $Path
    Devices = $Devices

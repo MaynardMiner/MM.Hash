@@ -1,4 +1,4 @@
-$Path = '.\Bin\z-enemy-Linux-CCDevices2\z-enemy'
+$Path = '.\Bin\z-enemy-Linux-CCDevices2\z-enemy-NVIDIA2'
 $URI =  'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy-1.zip'
 $Build = "Zip"
 
@@ -22,7 +22,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
   [PSCustomObject]@{
     Symbol = (Get-Algorithm($_))
-    MinerName = "z-enemy"
+    MinerName = "z-enemy-NVIDIA2"
     Type = "NVIDIA2"
     Path = $Path
     Devices = $Devices
@@ -44,7 +44,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
   {
   [PSCustomObject]@{
     Symbol = $_.Symbol
-   MinerName = "z-enemy"
+   MinerName = "z-enemy-NVIDIA2"
    Type = "NVIDIA2"
    Path = $Path
    Devices = $Devices

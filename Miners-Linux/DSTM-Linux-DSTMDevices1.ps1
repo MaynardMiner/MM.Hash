@@ -1,4 +1,4 @@
-$Path = '.\Bin\DSTM-Linux-DSTMDevices1\zm'
+$Path = '.\Bin\DSTM-Linux-DSTMDevices1\zm-NVIDIA1'
 $Uri = 'https://github.com/MaynardMiner/dtsm/releases/download/untagged-ac8fc2a2818d28fb9b06/DTSMLInux.zip'
 $Build = "Zip"
 
@@ -21,7 +21,7 @@ if($GPUDevices1 -ne '')
       {
         [PSCustomObject]@{
           Symbol = (Get-Algorithm($_))
-            MinerName = "zm"
+            MinerName = "zm-NVIDIA1"
             Type = "NVIDIA1"
             Path = $Path
             Distro =  $Distro
@@ -44,7 +44,7 @@ if($GPUDevices1 -ne '')
          {
         [PSCustomObject]@{
           Symbol = $_.Symbol
-         MinerName = "zm"
+         MinerName = "zm-NVIDIA1"
          Type = "NVIDIA1"
          Path = $Path
          Devices = $Devices

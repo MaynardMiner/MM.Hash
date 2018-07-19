@@ -1,4 +1,4 @@
-$Path = ".\Bin\EWBF-Linux-EWBFDevices2\miner"
+$Path = ".\Bin\EWBF-Linux-EWBFDevices2\miner-NVIDIA2"
 $Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF_Equihash_miner_v0.zip"
 $Build = "Zip"
 
@@ -24,7 +24,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
     [PSCustomObject]@{
       Symbol = (Get-Algorithm($_))
-	    MinerName = "miner"
+	MinerName = "miner-NVIDIA2"
         Type = "NVIDIA2"
         Path = $Path
         Devices = $Devices
@@ -46,7 +46,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   {
   [PSCustomObject]@{
     Symbol = $_.Symbol
-    MinerName = "miner"
+    MinerName = "miner-NVIDIA2"
     Type = "NVIDIA2"
     Path = $Path
     Devices = $Devices
