@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash/Bin/DSTM-Linux-DSTMDevices2/zm-NVIDIA2 --dev 3 4 5 7 8 10 11 12 --server equihash.mine.zergpool.com --port 2142 --user RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H --pass c=RVN,mc=MARKS-equihash --telemetry=0.0.0.0:42002 
+/hive/custom/MM.Hash/Bin/Alexis78-Linux-CCDevices2/ccminer-NVIDIA2 -d GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050ti#6,GTX1050#7,GTX1050#8 -a Blake2s -o stratum+tcp://blake2s.usa.nicehash.com:3361 -b 0.0.0.0:4069 -u 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop.MKVito10502 -p x 

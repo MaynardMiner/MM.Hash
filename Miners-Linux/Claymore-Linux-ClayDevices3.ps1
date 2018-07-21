@@ -1,5 +1,5 @@
 $Path = '.\Bin\Claymore-Linux-ClayDevices3\ethdcrminer64-NVIDIA3'
-$Uri = 'https://github.com/MaynardMiner/ClaymoreMM/releases/download/untagged-e429eb3ca9b1c5f08ae6/ClaymoreLinux.zip'
+$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ClaymoreLinux.zip'
 
 $Build = "Zip"
 

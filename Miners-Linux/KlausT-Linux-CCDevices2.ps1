@@ -1,5 +1,5 @@
 $Path = ".\Bin\KlausT-Linux-CCDevices2\ccminer-NVIDIA2"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT-Linux-9-1.zip"
 $Build = "Zip"
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}

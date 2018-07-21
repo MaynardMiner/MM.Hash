@@ -1,5 +1,5 @@
 $Path = '.\Bin\DSTM-Linux-DSTMDevices2\zm-NVIDIA2'
-$Uri = 'https://github.com/MaynardMiner/dtsm/releases/download/untagged-ac8fc2a2818d28fb9b06/DTSMLInux.zip'
+$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/DTSMLInux.zip'
 $Build = "Zip"
 
 if($DSTMDevices2 -ne ''){$Devices = $DSTMDevices2}

@@ -1,5 +1,5 @@
 $Path = ".\Bin\tpruvot-Linux-CCDevices3\ccminer-NVIDIA3"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip"
 $Build = "Zip"
 
 
@@ -32,12 +32,6 @@ $Commands = [PSCustomObject]@{
 "Sib" = ''
 "Allium" = ''
 "Phi2" = ''
-"Nist5" = ''
-"Hsr" = ''
-"C11" = ''
-"Quark" = ''
-"Blake2s" = ''
-"Skein" = ''
 }
 
 

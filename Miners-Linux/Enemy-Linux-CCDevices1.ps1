@@ -1,5 +1,5 @@
 $Path = '.\Bin\z-enemy-Linux-CCDevices1\z-enemy-NVIDIA1'
-$URI =  'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy-1.zip'
+$URI =  'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux-9-1.zip'
 $Build = "Zip"
 
 if($CCDevices1 -ne ''){$Devices = $CCDevices1}

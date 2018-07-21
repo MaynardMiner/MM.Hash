@@ -1,5 +1,5 @@
 $Path = ".\Bin\ocminer-Linux-CCDevices2\ccminer-NVIDIA2"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ocminer.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ocminer-Linux-9-1.zip"
 $Build = "Zip"
 
 

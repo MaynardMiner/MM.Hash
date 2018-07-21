@@ -232,7 +232,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                  v1.2.7-Lambo              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.2.8-UNIX              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -457,7 +457,7 @@ if($LastRan -ne "")
           }
 	 else
             {
-             Expand-WebRequest -URI $Miner.URI -BuildPath $Miner.BUILD -Path (Split-Path $Miner.Path)
+             Expand-WebRequest -URI $Miner.URI -BuildPath $Miner.BUILD -Path (Split-Path $Miner.Path) -MineName (Split-Path $Miner.Path -Leaf) -MineType $Miner.Type
             }
            }
 	  }
@@ -586,6 +586,7 @@ if($LastRan -ne "")
               WasBenchmarked = $false
               XProcess = $null
               Screens = $null
+	      NewMiner = $null
           }
         }
     }
@@ -606,7 +607,7 @@ if($LastRan -ne "")
                 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
                 Write-Host "Closing $($_.MinerName) PID $($_XProcess.Id)"
                 $_.Active += (Get-Date)-$_.XProcess.StartTime
-                do {Start-Process "kill" -ArgumentList "-SIGTERM $($_.MiningId)"
+                do {Start-Process "screen" -ArgumentList "-S $($_.Name) -X quit"
                 }while ($_.XProcess.HasExited -eq $false)
 		$_.MiningId = $null
                 $_.Status = "Idle"
@@ -648,9 +649,10 @@ if($LastRan -ne "")
         if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
             }
         Set-Location $Dir
-        $_.MiningId = (Start-Process -FilePath "xterm" -ArgumentList "-l -lf $($_.Type).out -geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e $($MinerProgram) $($MinerArguments)" -PassThru).Id
+        $_.MiningId = Start-Process "screen" -ArgumentList "-S `"$($_.Type)`" -d -m"
+	$_.NewMiner = Start-Process "screen" -ArgumentList "-S `"$($_.Type)`" -X stuff $'$MinerProgram $MinerArguments'`r`""
 $MinerTimer.Restart()
- $_.XProcess = Get-Process -Id $_.MiningId
+ $_.XProcess = Get-Process -Name $_.MinerName
  if($_.XProcess -eq $null)
   {
    Do{
@@ -792,9 +794,10 @@ function Get-MinerStatus {
             if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
             Set-Location $Dir
-            $_.MiningId = (Start-Process -FilePath "xterm" -ArgumentList "-l -lf $($_.Type).out -geometry 68x5+1015+$($_.Screens) -T $($_.Name) -fg White -bg Black -e $($MinerProgram) $($MinerArguments)" -PassThru).Id
+            $_.MiningId = (Start-Process -FilePath "screen" -ArgumentList "-S $($_.Name) -X $($MinerProgram) $($MinerArguments)" -PassThru).Id
+$MinerTimer.Restart()
             $MinerTimer.Restart()
-            $_.XProcess = Get-Process -Id $_.MiningId
+            $_.XProcess = Get-Process -Name $_.MinerName
             if($_.XProcess -eq $null)
              {
               Do{

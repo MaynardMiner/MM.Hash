@@ -1,1 +1,1 @@
-zm-NVIDIA2
+ccminer-NVIDIA2

@@ -127,9 +127,10 @@ param(
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
+#Start the log
+Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
 
-Start-Process "bash" -ArgumentList "./Library.sh"
-
+ $Export = "/hive/ccminer/cuda"
 
  $InfoCheck1 = Get-Content ".\Build\Data\conversion.ifx" | Out-String
  $VerifyCheck1 = Get-Content ".\Build\Data\verification.ifx" | Out-String
@@ -155,15 +156,19 @@ $DecayPeriod = 60 #seconds
 $DecayBase = 1-0.1 #decimal percentage
 
 $ActiveMinerPrograms = @()
-$OpenScreens = @("NVIDIA1,NVIDIA2,NVIDIA3,CPU")
+$OpenScreens = @()
+$OpenScreens += "NVIDIA1"
+$OpenScreens += "NVIDIA2"
+$OpenScreens += "NVIDIA3"
+$OpenScreens += "AMD1"
+$OpenScreens += "AMD2"
+$OpenScreens += "AMD3"
+$OpenScreens += "CPU"
+$OpenScreens += "ASIC"
 
 $OpenScreens | foreach {
-$_ | Out-File ".\Build\name.sh"
-Start-Process ".\Build\killall.sh"
+Start-Process ".\Build\killall.sh" -ArgumentList "$($_)" | Out-Null
 }
-
-#Start the log
-Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
 
 if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
  {New-Item -Path ".\Build\Data\" -Name "Info.txt"  | Out-Null}
@@ -173,13 +178,8 @@ if((Get-Item ".\Build\Data\TimeTable.txt" -ErrorAction SilentlyContinue) -eq $nu
  {New-Item -Path ".\Build\Data" -Name "TimeTable.txt"  | Out-Null}
  if((Get-Item ".\Build\Data\Error.txt" -ErrorAction SilentlyContinue) -eq $null)
  {New-Item -Path ".\Build\Data" -Name "Error.txt"  | Out-Null}
- 
- $Out = Get-Item ".\Bin\*\*.out*" | Out-Null
+ $TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
 
- $Out | foreach {Remove-Item $_ | Out-Null}
-
- 
-$TimeoutClear = Get-Content ".\Build\Data\Error.txt" | Out-Null
 if($TimeoutClear -ne "")
   {
  Clear-Content ".\Build\Data\System.txt"
@@ -241,7 +241,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                  v1.2.7-Lambo              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.2.8 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -259,7 +259,7 @@ Write-Host "
 
 						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
-								      .85% Dev Fee Was Written In This Code
+								      1.25% Dev Fee Was Written In This Code
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
 
 
@@ -274,7 +274,7 @@ $MinerTimer = New-Object -TypeName System.Diagnostics.Stopwatch
 $MinerWatch = New-Object -TypeName System.Diagnostics.Stopwatch
 $TimeoutTime = [int]$Timeout*3600
 $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
-$TimeDeviation = [int]($Donate + .85)
+$TimeDeviation = [int]($Donate + 1.25)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
@@ -365,7 +365,7 @@ if($LastRan -ne "")
         $Wallet = $WalletSwitch
         $Wallet1 = $WalletSwitch1
         $Wallet2 = $WalletSwitch2
-	    $Wallet3 = $WalletSwitch3
+	$Wallet3 = $WalletSwitch3
         $ZergpoolWallet1 = $ZergpoolWallet1Switch
         $ZergpoolWallet2 = $ZergpoolWallet2Switch
         $ZergpoolWallet3 = $ZergpoolWallet3Switch
@@ -373,12 +373,12 @@ if($LastRan -ne "")
         $Nicehash_Wallet2 = $Nicehash_Wallet2Switch
         $Nicehash_Wallet3 = $Nicehash_Wallet3Switch
         $CPUWallet = $CPUWalletSwitch
-	    $UserName = $UserSwitch
-	    $WorkerName = $WorkerSwitch
-	    $RigName = $RigSwitch
+	$UserName = $UserSwitch
+	$WorkerName = $WorkerSwitch
+	$RigName = $RigSwitch
         $Interval = $IntervalSwitch
         $Passwordcurrency = $PasswordSwitch
-	    $Passwordcurrency1 = $PasswordSwitch1
+	$Passwordcurrency1 = $PasswordSwitch1
         $Passwordcurrency2 = $PasswordSwitch2
         $Passwordcurrency3 = $PasswordSwitch3
         $Zergpoolpassword1 = $Zergpoolpassword1Switch
@@ -439,7 +439,7 @@ if($LastRan -ne "")
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
     Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
     Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
-    if($AllPools.Count -eq 0){"No Pools!" | Out-Host; start-sleep $Interval; continue}
+    if($AllPools.Count -eq 0){"No Pools! Check Internet Connection."| Out-Host; start-sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
     $Pools_Comparison = [PSCustomObject]@{}
     $AllPools.Symbol | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
@@ -594,8 +594,9 @@ if($LastRan -ne "")
               Timeout = 0
               WasBenchmarked = $false
               XProcess = $null
-              Screens = $null
 	      NewMiner = $null
+	      Prestart = $null
+              MinerId = $null
           }
         }
     }
@@ -607,159 +608,179 @@ if($LastRan -ne "")
             if($_.XProcess -eq $null)
             {
                 $_.Status = "Failed"
-		$_.MiningId = $null
+
             }
             elseif($_.XProcess.HasExited -eq $false)
             {
-                Set-Location (Split-Path $_.Path)
-                Remove-Item ".\$($_.Type).out" | Out-Null
-                Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                Set-Location ".\Build"
                 Write-Host "Closing $($_.MinerName) PID $($_XProcess.Id)"
                 $_.Active += (Get-Date)-$_.XProcess.StartTime
-                do {Start-Process "screen" -ArgumentList "-S $($_.Type) -X quit" | Out-Null
+		Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+                do {
+ 		    Start-Sleep -s 1
+		    if($_.XProcess.HasExited -eq $false)
+ 		     {
+		    Stop-Process -Id "$(($_.XProcess).Id)"
+ 		     } 
                 }while ($_.XProcess.HasExited -eq $false)
-		$_.MiningId = $null
+		Set-Location (split-path $script:MyInvocation.MyCommand.Path)
                 $_.Status = "Idle"
+                $_.XProcess = $null
+		$_.MiningID = $null
             }
         }
-     }
 
- $ActiveMinerPrograms | ForEach {
- if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -gt 0)
+  else
   {
   if($TimeDeviation -ne 0)
    {
    if($_.XProcess -eq $null -or $_.XProcess.HasExited -ne $false)
     {
-     $_.MiningId = $null
      Start-Sleep $Delay #Wait to prevent BSOD
      $DecayStart = Get-Date
      $_.New = $true
      $_.Activated++
-     if($_.Type -like '*NVIDIA*')
+     $_.XProcess = $null
+     $_.MiningID = $null
+
+if($_.Type -like '*NVIDIA*')
+ {
+  if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
+   else{
+    if($_.DeviceCall -eq "ccminer"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
+    if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+    if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
+    if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
+    if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+       }
+
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+     if($_.API -eq "ccminer")
       {
-        if($_.Type -eq "NVIDIA"){$_.Screens = 0}
-        if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
-        if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
-        if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
-        if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
-        if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
-        if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
-        if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
-        if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
-        if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
-        else{
-        if($_.DeviceCall -eq "ccminer"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-            }
-        $_.Screens | Out-File ".\Build\screen.sh"
-        $MinerLocation = Split-Path $_.Path
-	$MinerLocation | Out-File ".\Build\dir.sh"
-	$MiningName = (Join-Path $MinerLocation $_.MinerName)
-        $MinerConfig = "$MiningName $MinerArguments"
-        $MinerConfig | Out-File ".\Build\config.sh"
-        $_.MinerName | Out-File ".\Build\name.sh"
-        $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-        $MinerLog | Out-File ".\Build\log.sh"
-        Set-Location ".\Build"
-	$_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-	$_.NewMiner = Start-Process ".\startup.sh"
-        $MinerTimer.Restart()
-        if($_.XProcess -eq $null)
-         {
-         Do{
-            Start-Sleep 1
-            $_.XProcess = Get-Process -Name $_.MinerName -ErrorAction SilentlyContinue
-           }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-         }
+       $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
+      }
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
-        }
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
+ }
   
+
 
 if($_.Type -like "*CPU*")
  {
-  $_.Screens | Out-File ".\Build\screen.sh"
-  $MinerLocation = Split-Path $_.Path
-  $MinerLocation | Out-File ".\Build\dir.sh"
-  $MiningName = (Join-Path $MinerLocation $_.MinerName)
-  $MinerConfig = "$MiningName $MinerArguments"
-  $MinerConfig | Out-File ".\Build\config.sh"
-  $_.MinerName | Out-File ".\Build\name.sh"
-  $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-  $MinerLog | Out-File ".\Build\log.sh"
-  Set-Location ".\Build"
-  $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-  $_.NewMiner = Start-Process ".\startup.sh"
-  $MinerTimer.Restart()
-   if($_.XProcess -eq $null)
-    {
-     Do{
-       Start-Sleep 1
-       $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue 
-       }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
-    }
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.MinerName) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+    $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
  }
+
+
+
  
  if($_.Type -like "*AMD*")
  {
-  $_.Screens | Out-File ".\Build\screen.sh"
-  $MinerLocation = Split-Path $_.Path
-  $MinerLocation | Out-File ".\Build\dir.sh"
-  $MiningName = (Join-Path $MinerLocation $_.MinerName)
-  $MinerConfig = "$MiningName $MinerArguments"
-  $MinerConfig | Out-File ".\Build\config.sh"
-  $_.MinerName | Out-File ".\Build\name.sh"
-  $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-  $MinerLog | Out-File ".\Build\log.sh"
-  Set-Location ".\Build"
-  $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-  $_.NewMiner = Start-Process ".\startup.sh"
-  $MinerTimer.Restart()
-   if($_.XProcess -eq $null)
-    {
-     Do{
-       Start-Sleep 1
-       $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue 
-       }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
-    }
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.MinerName) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
  }
+
+
  
  if($_.Type -like "*ASIC*")
  {
-  $_.Screens | Out-File ".\Build\screen.sh"
-  $MinerLocation = Split-Path $_.Path
-  $MinerLocation | Out-File ".\Build\dir.sh"
-  $MiningName = (Join-Path $MinerLocation $_.MinerName)
-  $MinerConfig = "$MiningName $MinerArguments"
-  $MinerConfig | Out-File ".\Build\config.sh"
-  $_.MinerName | Out-File ".\Build\name.sh"
-  $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-  $MinerLog | Out-File ".\Build\log.sh"
-  Set-Location ".\Build"
-  $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-  $_.NewMiner = Start-Process ".\startup.sh"
-  $MinerTimer.Restart()
-   if($_.XProcess -eq $null)
-    {
-     Do{
-       Start-Sleep 1
-       $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue 
-       }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
-    }
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.MinerName) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+    $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
  }
  
  
@@ -770,7 +791,7 @@ if($_.Type -like "*CPU*")
     $MinerWatch.Restart()
    }
   else
-   {
+     {
     $_.Status = "Running"
      Write-Host "$($_.MinerName) Is Running" -ForegroundColor Green
     $MinerWatch.Restart()
@@ -804,16 +825,13 @@ function Get-MinerStatus {
         $CurExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=$H" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $J | Select-Object -ExpandProperty $H
         Write-Host "1 $CoinExchange  = $BTCExchangeRate of a Bitcoin" -foregroundcolor "Yellow"
         Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
-        $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object Type,Profit | Format-Table -Autosize -GroupBy Type (
+        $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object Type,Profit | Format-Table -autosize -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Coin/Algo"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
-        @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)/s"}else{"Bench"}}}; Align='center'}, 
+        @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)"}else{"Bench"}}}; Align='center'}, 
         @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
-        @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $BTCExchangeRate).ToString("N5")}else{"Bench"}}}; Align='right'},
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
-        @{Label = "Algorithm"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Algorithm)"}}; Align='center'},
-        @{Label = "  Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
-        @{Label = "  Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
+        @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
       }
 
@@ -821,22 +839,22 @@ function Get-MinerStatus {
       $ActiveMinerPrograms | foreach {
         if($_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
-          if($_.Status -eq "Running")
-            {
-            $_.Crashed++
-            Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
-            if($_.Crashed -le 1)
-             {
-             continue
-             }
-            }
+          if($_.Status -eq "Running"){$_.Status = "Failed"}
+          $_.Crashed++
+          Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
+         }
+         if($_.Crashed -le 1)
+           {
+            continue
+           }
          else
          {
+          $_.Status = "Running"
           $_.Recover30sLater++
          }
         }
        }
-     }
+
    Get-MinerActive
    Start-Sleep -s 10   
    Get-MinerStatus
@@ -846,150 +864,176 @@ function Get-MinerStatus {
     $ActiveMinerPrograms | ForEach {
         if($_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
-         if($_.Status -eq "Running")
-          {
-           Write-Host "$($_.MinerName) Has Failed- Attempting Restart"
-           $_.Failed30sLater++
-     if($_.Type -like '*NVIDIA*')
-      {
-        if($_.Type -eq "NVIDIA"){$_.Screens = 0}
-        if($_.Type -eq "NVIDIA1"){$_.Screens = 0}
-        if($_.Type -eq "NVIDIA2"){$_.Screens = 100}
-        if($_.Type -eq "NVIDIA3"){$_.Screens = 200}
-        if($_.Type -eq "NVIDIA4"){$_.Screens = 300}
-        if($_.Type -eq "NVIDIA5"){$_.Screens = 400}
-        if($_.Type -eq "NVIDIA6"){$_.Screens = 500}
-        if($_.Type -eq "NVIDIA7"){$_.Screens = 600}
-        if($_.Type -eq "NVIDIA8"){$_.Screens = 700}
-        if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
-        else{
-        if($_.DeviceCall -eq "ccminer"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
-        if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
-            }
-        $_.Screens | Out-File ".\Build\screen.sh"
-        $MinerLocation = Split-Path $_.Path
-	$MinerLocation | Out-File ".\Build\dir.sh"
-	$MiningName = (Join-Path $MinerLocation $_.MinerName)
-        $MinerConfig = "$MiningName $MinerArguments"
-        $MinerConfig | Out-File ".\Build\config.sh"
-        $_.MinerName | Out-File ".\Build\name.sh"
-        $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-        $MinerLog | Out-File ".\Build\log.sh"
-        Set-Location ".\Build"
-	$_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-	$_.NewMiner = Start-Process ".\startup.sh"
-        $MinerTimer.Restart()
-        if($_.XProcess -eq $null)
-         {
-         Do{
-            Start-Sleep 1
-            $_.XProcess = Get-Process -Name $_.MinerName -ErrorAction SilentlyContinue
-           }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-         }
-       $MinerTimer.Stop()
-       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
-        }
+          if($_.Status -eq "Running"){$_.Status = "Failed"}
+          Write-Host "$($_.MinerName) Has Failed- Attempting Restart"
+          $_.Failed30sLater++
+	  $_.XProcess = $null
+          $_.MiningID = $null
+
+           if($_.Type -like '*NVIDIA*')
+            {
+            if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
+            else{
+            if($_.DeviceCall -eq "ccminer"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
+            if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+            if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
+            if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
+            if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+             }
+
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+          $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+          $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+          $MinerConfig = "$MinerLocation $MinerArguments"
+          $MinerConfig | Out-File ".\Build\config.sh"
+          Set-Location ".\Build"
+          Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+          Start-Sleep -s 1
+          $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+          if($_.API -eq "ccminer")
+           {
+           $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
+           }
+           $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+           $MinerTimer.Restart()
+          Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+           $MinerTimer.Stop()
+           Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+           Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
+ }
   
+
 
 if($_.Type -like "*CPU*")
  {
-  $_.Screens | Out-File ".\Build\screen.sh"
-  $MinerLocation = Split-Path $_.Path
-  $MinerLocation | Out-File ".\Build\dir.sh"
-  $MiningName = (Join-Path $MinerLocation $_.MinerName)
-  $MinerConfig = "$MiningName $MinerArguments"
-  $MinerConfig | Out-File ".\Build\config.sh"
-  $_.MinerName | Out-File ".\Build\name.sh"
-  $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-  $MinerLog | Out-File ".\Build\log.sh"
-  Set-Location ".\Build"
-  $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-  $_.NewMiner = Start-Process ".\startup.sh"
-  $MinerTimer.Restart()
-   if($_.XProcess -eq $null)
-    {
-     Do{
-       Start-Sleep 1
-       $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue 
-       }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
-    }
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.MinerName) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+    $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
  }
- 
+
+
+
+
  if($_.Type -like "*AMD*")
  {
-  $_.Screens | Out-File ".\Build\screen.sh"
-  $MinerLocation = Split-Path $_.Path
-  $MinerLocation | Out-File ".\Build\dir.sh"
-  $MiningName = (Join-Path $MinerLocation $_.MinerName)
-  $MinerConfig = "$MiningName $MinerArguments"
-  $MinerConfig | Out-File ".\Build\config.sh"
-  $_.MinerName | Out-File ".\Build\name.sh"
-  $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-  $MinerLog | Out-File ".\Build\log.sh"
-  Set-Location ".\Build"
-  $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-  $_.NewMiner = Start-Process ".\startup.sh"
-  $MinerTimer.Restart()
-   if($_.XProcess -eq $null)
-    {
-     Do{
-       Start-Sleep 1
-       $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue 
-       }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
-    }
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.MinerName) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
  }
+
+
+
  
  if($_.Type -like "*ASIC*")
  {
-  $_.Screens | Out-File ".\Build\screen.sh"
-  $MinerLocation = Split-Path $_.Path
-  $MinerLocation | Out-File ".\Build\dir.sh"
-  $MiningName = (Join-Path $MinerLocation $_.MinerName)
-  $MinerConfig = "$MiningName $MinerArguments"
-  $MinerConfig | Out-File ".\Build\config.sh"
-  $_.MinerName | Out-File ".\Build\name.sh"
-  $MinerLog = Join-Path ".\Build" "$($_.MinerName).log"
-  $MinerLog | Out-File ".\Build\log.sh"
-  Set-Location ".\Build"
-  $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
-  $_.NewMiner = Start-Process ".\startup.sh"
-  $MinerTimer.Restart()
-   if($_.XProcess -eq $null)
-    {
-     Do{
-       Start-Sleep 1
-       $_.XProcess = Get-Process -Id $_.MiningId -ErrorAction SilentlyContinue 
-       }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
-    }
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.MinerName) Mining $($_.Coins) on $($_.Type)" -ForegroundColor Blue
+	Write-Host "
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	"
+    $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
+    $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $MinerConfig = "$MinerLocation $MinerArguments"
+    $MinerConfig | Out-File ".\Build\config.sh"
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep -s 1
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
+    $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+          Start-Sleep 1
+	  $_.XProcess = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $(($_.XProcess).ID)" -ForegroundColor Blue
+ }
+
+  if($_.XProcess -eq $null)
+   {
+    $_.Status = "Failed"
+    Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Red
+   }
+  else
+   {
+    $_.Status = "Running"
+     Write-Host "$($_.MinerName) Is Running" -ForegroundColor Green
+     }
+              }
             }
-          }
-         }
-        }
-       }
+           }
 
        function Get-MinerHashRate {
         $ActiveMinerPrograms | foreach {
         if($_.Status -eq "Running")
-         { 
+         {
         $Miner_HashRates = Get-HashRate $_.API $_.Port
         $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
         $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
         $LogHash | Out-File ".\Miner.log"
-
           }
         }
       }
@@ -1021,7 +1065,6 @@ if($_.Type -like "*CPU*")
       Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
       Start-Sleep -s 5
-      Get-MinerRun
       Get-MinerActive
       Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
@@ -1031,6 +1074,7 @@ if($_.Type -like "*CPU*")
       Start-Sleep -s 5
       Get-MinerHashRate
       Start-Sleep -s 5
+      Get-MinerRun
       Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
       Start-Sleep -s 5

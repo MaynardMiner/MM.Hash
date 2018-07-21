@@ -1,3 +1,0 @@
-#!/bin/bash
-cd /bin
-gnome-terminal -e 'bash overclock'

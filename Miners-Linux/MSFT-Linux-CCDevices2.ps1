@@ -1,5 +1,5 @@
 $Path = '.\Bin\MSFTserver-Linux-CCDevices2\ccminer-NVIDIA2'
-$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFTserver.zip'
+$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip'
 $Build = "Zip"
 
 

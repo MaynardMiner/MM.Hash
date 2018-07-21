@@ -1,7 +1,6 @@
 $Path = "./Bin/JayDDee/1"
 $Uri = "https://github.com/JayDDee/cpuminer-opt.git"
-
-$Build =  "Linux-Clean"
+$Build =  "Zip"
 
 
 #Algorithms
@@ -30,7 +29,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     MinerName = "cpuminer"
     Type = "CPU"
     Path = $Path
-    Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4048 -u $($Pools.(Get-Algorithm($_)).CPUser) -p $($Pools.(Get-Algorithm($_)).CPUpass) $($Commands.$_)"
+    Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorith($_)).Port) -b 0.0.0.0:4048 -u $($Pools.(Get-Algorithm($_)).CPUser) -p $($Pools.(Get-Algorithm($_)).CPUpass) $($Commands.$_)"
     HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
     Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
     Port = 4048

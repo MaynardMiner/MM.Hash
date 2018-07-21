@@ -1,6 +1,0 @@
-#!/bin/bash
-sleep 300
-cd /home/maynard/MM.Hash
-gnome-terminal --window --maximize -e 'bash Personal'
-
-

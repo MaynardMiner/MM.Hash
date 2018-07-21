@@ -1,5 +1,5 @@
 $Path = ".\Bin\krnlx-Linux-CCDevices3\ccminer-NVIDIA3"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Krnlx.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/krnlx-Linux-9-1.zip"
 $Build = "Zip"
 
 
