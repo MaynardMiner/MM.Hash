@@ -1,6 +1,6 @@
 **7/21/2018** HiveOS Beta integration has been pushed try and report back on discord (link for discord below) if you have issues.
 
-Simple how on how to upgrade HiveOS to use my miner:
+Simple wiki on how to upgrade HiveOS to use my miner:
 
 https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-Install
 
