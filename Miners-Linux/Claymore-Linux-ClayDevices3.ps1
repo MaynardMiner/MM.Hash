@@ -36,7 +36,6 @@ if($GPUDevices3 -ne '')
                 Wrap = $false
                 URI = $Uri
                 BUILD = $Build
-		Stats = "claymore"
           }
         }
       }
@@ -59,7 +58,6 @@ if($GPUDevices3 -ne '')
         Wrap = $false
         URI = $Uri
         BUILD = $Build
-	Stats = "claymore"
        }
       }
      }

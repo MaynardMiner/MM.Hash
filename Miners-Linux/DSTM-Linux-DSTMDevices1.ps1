@@ -35,7 +35,6 @@ if($GPUDevices1 -ne '')
             Wrap = $false
             URI = $Uri
             BUILD = $Build
-	    stats = "dstm"
           }
         }
       }
@@ -58,7 +57,6 @@ if($GPUDevices1 -ne '')
          Wrap = $false
          URI = $Uri
          BUILD = $Build
-	 stats = "dstm"
          }
         }
        }

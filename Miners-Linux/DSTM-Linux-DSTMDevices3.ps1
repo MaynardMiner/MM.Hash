@@ -36,7 +36,6 @@ if($GPUDevices3 -ne '')
             Wrap = $false
             URI = $Uri
             BUILD = $Build
-	    Stats = "dstm"
           }
         }
       }
