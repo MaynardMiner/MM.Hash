@@ -239,9 +239,20 @@ function miner_stats {
 					done
 				done
 
-				stats=$(jq --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
-					--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" \
-					'{ hs: [.result[].sol_ps], $temp, $fan, $uptime, ar: [$ac, $rj] }' <<< "$stats_raw")
+				#stats=$(jq --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
+					#--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" \
+					#'{ hs: [.result[].sol_ps], $temp, $fan, $uptime, ar: [$ac, $rj] }' <<< "$stats_raw")
+					
+			stats=$(jq -nc \
+				--argjson hs hs: [.result[].speed_sps] \
+				--arg hs_units "hs_units='hs'" \
+				--argjson temp "$temp" \
+				--argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
+				--arg uptime "$uptime", --arg algo "Equihash" \
+				--arg ac $ac --arg rj "$rj" \
+				--arg algo "Equihash" \
+				'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')	
+					
 			fi
 		;;
 		bminer) #@see https://www.bminer.me/references/
