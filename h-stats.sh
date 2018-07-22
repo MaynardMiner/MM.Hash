@@ -2,8 +2,8 @@
 
 function miner_stats {
 	local miner=$(< hive/custom/MM.Hash/Build/mineref.sh)
-	local mindex= #empty or 2, 3, 4, ...
-	local API=$(< hive/custom/MM.Hash/Build/api.sh)
+	local mindex=$2 #empty or 2, 3, 4, ...
+
 	khs=0
 	stats=
 	case $miner in
@@ -83,7 +83,16 @@ function miner_stats {
 				stats=$(jq -c --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
 						--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" --arg algo "$EWBF_ALGO"  \
 					'{hs: [.result[].speed_sps], $temp, $fan,
-						$uptime, ar: [$ac, $rj]}' <<< "$stats_raw")
+						#$uptime, ar: [$ac, $rj]}' <<< "$stats_raw")
+			        	                        stats=$(jq -nc \
+				--argjson hs hs: [.result[].speed_sps]
+				--arg hs_units 'khs' \
+				--argjson temp "$temp" 
+				--argjson fan "`echo \"$striplines\" | grep 'FAN=' | sed -e 's/.*=//' | jq -cs '.'`" \
+				--arg uptime "$uptime", --arg algo "$EWBF_ALGO" \
+				--arg ac $ac --arg rj "$rj" \
+				--arg algo "$algo" \
+				'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
 			fi
 		;;
 		ccminer)
@@ -133,13 +142,22 @@ function miner_stats {
 
 				khs=`echo $khs | sed -E 's/^( *[0-9]+\.[0-9]([0-9]*[1-9])?)0+$/\1/'` #1234.100 -> 1234.1
 
-				stats=$(jq -n \
-					--arg uptime "$uptime", --arg algo "$algo" \
-					--argjson khs "`echo ${cckhs[@]} | tr " " "\n" | jq -cs '.'`" \
-					--argjson temp "`echo ${cctemps[@]} | tr " " "\n" | jq -cs '.'`" \
-					--argjson fan "`echo \"$striplines\" | grep 'FAN=' | sed -e 's/.*=//' | jq -cs '.'`" \
-					--arg ac "$ac" --arg rj "$rj" \
-					'{$khs, $temp, $fan, $uptime, $algo, ar: [$ac, $rj]}')
+				#stats=$(jq -n \
+					#--arg uptime "$uptime", --arg algo "$algo" \
+					#--argjson khs "`echo ${cckhs[@]} | tr " " "\n" | jq -cs '.'`" \
+					#--argjson temp "`echo ${cctemps[@]} | tr " " "\n" | jq -cs '.'`" \
+					#--argjson fan "`echo \"$striplines\" | grep 'FAN=' | sed -e 's/.*=//' | jq -cs '.'`" \
+					#--arg ac "$ac" --arg rj "$rj" \
+					#'{$khs, $temp, $fan, $uptime, $algo, ar: [$ac, $rj]}')
+	                        stats=$(jq -nc \
+				--argjson hs "`echo ${cckhs[@]} | tr " " "\n" | jq -cs '.'`" \
+				--arg hs_units "hs_units='khs'" \
+				--argjson temp "`echo ${cctemps[@]} | tr " " "\n" | jq -cs '.'`" \
+				--argjson fan "`echo \"$striplines\" | grep 'FAN=' | sed -e 's/.*=//' | jq -cs '.'`" \
+				--arg uptime "$uptime", --arg algo "$algo" \
+				--arg ac $ac --arg rj "$rj" \
+				--arg algo "$algo" \
+				'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
 			fi
 		;;
 		ethminer)
