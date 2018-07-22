@@ -1,5 +1,5 @@
 $Path = "./Bin/JayDDee/1"
-$Uri = "https://github.com/JayDDee/cpuminer-opt.git"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/JayDDee-Linux.zip"
 $Build =  "Zip"
 
 
@@ -33,6 +33,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
     Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
     Port = 4048
+    DeviceCall = "cpuminer-opt"
     API = "Ccminer"
     Wrap = $false
     URI = $Uri
@@ -55,6 +56,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
      API = "Ccminer"
      Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
      Port = 4048
+     DeviceCall = "cpuminer-opt"
      Wrap = $false
      URI = $Uri
      BUILD = $Build
