@@ -35,6 +35,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Wrap = $false
         URI = $Uri
         BUILD = $Build
+	stats = "ccminer"
         }
       }
     }
@@ -57,6 +58,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
          Wrap = $false
          URI = $Uri
          BUILD = $Build
+	 stats = "ccminer"
          }
         }
        }

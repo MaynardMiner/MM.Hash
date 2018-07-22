@@ -80,18 +80,19 @@ function miner_stats {
 #				local fan=$(jq -c "[.fan$nvidia_indexes_array]" <<< $gpu_stats)
 				local temp=$(jq -c "[.temp$nvidia_indexes_array]" <<< $gpu_stats)
 
-				stats=$(jq -c --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
-						--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" --arg algo "$EWBF_ALGO"  \
-					'{hs: [.result[].speed_sps], $temp, $fan,
+				#stats=$(jq -c --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
+						#--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" --arg algo "$EWBF_ALGO"  \
+					#'{hs: [.result[].speed_sps], $temp, $fan,
 						#$uptime, ar: [$ac, $rj]}' <<< "$stats_raw")
-			        	                        stats=$(jq -nc \
-				--argjson hs hs: [.result[].speed_sps]
-				--arg hs_units 'khs' \
-				--argjson temp "$temp" 
-				--argjson fan "`echo \"$striplines\" | grep 'FAN=' | sed -e 's/.*=//' | jq -cs '.'`" \
+			        
+				stats=$(jq -nc \
+				--argjson hs hs: [.result[].speed_sps] \
+				--arg hs_units "hs_units='hs'" \
+				--argjson temp "$temp" \
+				--argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
 				--arg uptime "$uptime", --arg algo "$EWBF_ALGO" \
 				--arg ac $ac --arg rj "$rj" \
-				--arg algo "$algo" \
+				--arg algo "$EWBF_ALGO" \
 				'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
 			fi
 		;;
