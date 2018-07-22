@@ -1,4 +1,8 @@
-**7/9/2018** I am working on a series of tests/pushes to github for new Unix version. It is advised to NOT clone from git at this time, but use releases until finished- Will be done sometime during upcoming weekend.
+**7/21/2018** HiveOS Beta integration has been pushed try and report back on discord (link for discord below) if you have issues.
+
+Simple how on how to upgrade HiveOS to use my miner:
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-Install
 
 **MM.Hash**
 
