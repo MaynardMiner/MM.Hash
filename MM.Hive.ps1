@@ -610,6 +610,7 @@ if($LastRan -ne "")
                 $_.Status = "Failed"
 
             }
+
             elseif($_.XProcess.HasExited -eq $false)
             {
                 Set-Location ".\Build"
@@ -625,8 +626,6 @@ if($LastRan -ne "")
                 }while ($_.XProcess.HasExited -eq $false)
 		Set-Location (split-path $script:MyInvocation.MyCommand.Path)
                 $_.Status = "Idle"
-                $_.XProcess = $null
-		$_.MiningID = $null
             }
         }
 
@@ -640,8 +639,6 @@ if($LastRan -ne "")
      $DecayStart = Get-Date
      $_.New = $true
      $_.Activated++
-     $_.XProcess = $null
-     $_.MiningID = $null
 
 if($_.Type -like '*NVIDIA*')
  {
@@ -869,8 +866,6 @@ function Get-MinerStatus {
           if($_.Status -eq "Running"){$_.Status = "Failed"}
           Write-Host "$($_.MinerName) Has Failed- Attempting Restart"
           $_.Failed30sLater++
-	  $_.XProcess = $null
-          $_.MiningID = $null
 
            if($_.Type -like '*NVIDIA*')
             {
