@@ -1,5 +1,5 @@
-$Path = '.\Bin\Claymore-Linux-ClayDevices2\ethdcrminer64-NVIDIA2'
-$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ClaymoreLinux.zip'
+$Path = '.\Bin\Claymore-Linux-ClayDevices2\clay-NVIDIA2'
+$Uri = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Claymore-Linux.zip'
 
 $Build = "Zip"
 
@@ -22,7 +22,7 @@ if($GPUDevices2 -ne '')
      {
         [PSCustomObject]@{
           Symbol = (Get-Algorithm($_))
-                MinerName = "ethdcrminer64-NVIDIA2"
+                MinerName = "clay-NVIDIA2"
                 Type = "NVIDIA2"
                 Path = $Path
                 Devices = $Devices
@@ -44,7 +44,7 @@ if($GPUDevices2 -ne '')
        {
       [PSCustomObject]@{
         Symbol = $_.Symbol
-        MinerName = "ethdcrminer64-NVIDIA2"
+        MinerName = "clay-NVIDIA2"
         Type = "NVIDIA2"
         Path = $Path
         Devices = $Devices

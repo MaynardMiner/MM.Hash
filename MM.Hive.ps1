@@ -620,7 +620,7 @@ if($LastRan -ne "")
  		    Start-Sleep -s 1
 		    if($_.XProcess.HasExited -eq $false)
  		     {
-		    Stop-Process -Id "$(($_.XProcess).Id)"
+		    Stop-Process -Name "$($_.MinerName)" -erroraction silentlycontinue
  		     } 
                 }while ($_.XProcess.HasExited -eq $false)
 		Set-Location (split-path $script:MyInvocation.MyCommand.Path)
@@ -862,6 +862,8 @@ function Get-MinerStatus {
 
     function Restart-Miner {
     $ActiveMinerPrograms | ForEach {
+       if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -ge 1)
+        {
         if($_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
           if($_.Status -eq "Running"){$_.Status = "Failed"}
@@ -1024,6 +1026,7 @@ if($_.Type -like "*CPU*")
               }
             }
            }
+         }
 
        function Get-MinerHashRate {
         $ActiveMinerPrograms | foreach {
