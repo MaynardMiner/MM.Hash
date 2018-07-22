@@ -1028,6 +1028,8 @@ if($_.Type -like "*CPU*")
         if($_.Status -eq "Running")
          {
         $Miner_HashRates = Get-HashRate $_.API $_.Port
+	$_.Port | Out-File ".\Build\api.sh"
+	$_.DeviceCall | Out-File ".\Build\mineref.sh"
         $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
         $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
