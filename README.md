@@ -1,8 +1,12 @@
-**7/21/2018** HiveOS Beta integration has been pushed try and report back on discord (link for discord below) if you have issues.
+**7/22/2018** HiveOS Beta integration has been pushed try and report back on discord (link for discord below) if you have issues.
 
 Simple wiki on how to upgrade HiveOS to use my miner:
 
 https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-Install
+
+Regular Unix version (non HiveOS) was 'broken' during expirmentation on github. Use latest release, and do not clone from git. I will repair when I finish HiveOS version.
+
+There is a new WINDOWS version that isn't released yet. Clone directly from git. It fixes Timeout argument, as well as allows a 'legacy' mode to just use auto-alogrithm switching ( -Auto_Algorithm Yes -Auto_Coin No )
 
 **MM.Hash**
 
