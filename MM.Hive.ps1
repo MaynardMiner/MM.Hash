@@ -1075,6 +1075,7 @@ if($_.Type -like "*CPU*")
       Start-Sleep -s 5
       Get-MinerActive
       Get-MinerHashRate
+      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
       Start-Sleep -s 5
       Get-MinerHashRate
       if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
