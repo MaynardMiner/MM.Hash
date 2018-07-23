@@ -785,13 +785,11 @@ if($_.Type -like "*CPU*")
    {
     $_.Status = "Failed"
     Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Red
-    $MinerWatch.Restart()
    }
   else
      {
     $_.Status = "Running"
      Write-Host "$($_.MinerName) Is Running" -ForegroundColor Green
-    $MinerWatch.Restart()
      }
     }
    }
@@ -851,7 +849,8 @@ function Get-MinerStatus {
          }
         }
        }
-
+       
+   $MinerWatch.Restart()
    Get-MinerActive
    Start-Sleep -s 10   
    Get-MinerStatus
@@ -1036,8 +1035,8 @@ if($_.Type -like "*CPU*")
         $LogHash | Out-File ".\Miner.log"
           }
         }
-      }
-
+      }  
+      
   Get-Job -State Completed | Remove-Job
   [GC]::Collect()
   [GC]::WaitForPendingFinalizers()
