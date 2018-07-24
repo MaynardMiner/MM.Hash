@@ -48,6 +48,11 @@ Argument          Options           Explanation
                 hodl,                profitable coin for that algo if you are using -Poolname zergpool.
 		lyra2re,
                 Equihash,
+		equihash192,
+		equihash144,
+		equihash144zel,
+		equihash144btcz,
+		balloon,       #Only in windows version.
 		Daggerhashimoto,
 		Ethash,           
                 Aergo,              
