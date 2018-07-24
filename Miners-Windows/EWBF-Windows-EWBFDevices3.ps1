@@ -14,6 +14,8 @@ if($GPUDevices3 -ne '')
 $Commands = [PSCustomObject]@{
   "Equihash192" = '--algo 192_7 --pers ZERO_PoW' #Equihash192
   "Equihash144" =  '--algo 144_5 --pers sngemPoW'
+  "Equihash144btcz" = '--algo 144_5 --pers BitcoinZ'
+  "Equihash144zel" = '--algo 144_5 --pers ZelProof'
   }
 
 
