@@ -850,15 +850,15 @@ function Get-MinerStatus {
         }
        }
        
-   $MinerWatch.Restart()
    Get-MinerActive
    Start-Sleep -s 10   
    Get-MinerStatus
    Start-Sleep -s 10
+   $MinerWatch.Restart()
 
     function Restart-Miner {
     $ActiveMinerPrograms | ForEach {
-       if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -ge 1)
+       if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -gt 0)
         {
         if($_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
@@ -1027,8 +1027,11 @@ if($_.Type -like "*CPU*")
         if($_.Status -eq "Running")
          {
         $Miner_HashRates = Get-HashRate $_.API $_.Port
-	$_.Port | Out-File ".\Build\api.sh"
-	$_.DeviceCall | Out-File ".\Build\mineref.sh"
+	if($_.Type -eq "NVIDIA1")
+	 {
+          $_.Port | Out-File ".\Build\api.sh"
+          $_.DeviceCall | Out-File ".\Build\mineref.sh"
+         }
         $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
         $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
@@ -1043,46 +1046,64 @@ if($_.Type -like "*CPU*")
   [GC]::Collect()
 
   
-  while($MinerWatch.Elapsed.TotalSeconds -lt $Interval)
-    {
+      Do{
       Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 5
-      Get-MinerActive
-      Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 5
-      Restart-Miner
-      Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 5
-      Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 5
-      Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 5
-      Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
-      Start-Sleep -s 5
-      Restart-Miner
-      Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerActive
       Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      Restart-Miner
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($CountDown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerHashRate
-      if($MinerWatch.Elapsed.TotalSeconds -ge $Interval){break}
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
-    }
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($CountDown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      Restart-Miner
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      Get-MinerActive
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left To Switch: $($Countdown)"  
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      }While($MinerWatch.Elapsed.TotalSeconds -lt ($Interval-20))
 
-  if($MinerWatch.Elapsed.TotalSeconds -ge $Interval)
-   {
+
      $ActiveMinerPrograms | foreach {  
       if($_.XProcess -eq $null -or $_.XProcess.HasExited)
        {
@@ -1096,7 +1117,7 @@ if($_.Type -like "*CPU*")
             $_.WasBenchmarked = $False
             $Miner_HashRates = Get-HashRate $_.API $_.Port
             $_.Timeout = 0
-	        $_.Benchmarked = 0
+	    $_.Benchmarked = 0
             $_.HashRate = $Miner_HashRates
             $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
          if($WasActive -ge $StatsInterval)
@@ -1205,7 +1226,6 @@ if($_.Type -like "*CPU*")
       }
     }
   }
-}
 
 
   #Stop the log

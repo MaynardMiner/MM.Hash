@@ -31,6 +31,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
         Port = 4070
+	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
         API = "Ccminer"
         Wrap = $false
         URI = $Uri

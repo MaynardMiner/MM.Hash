@@ -32,6 +32,7 @@ if($GPUDevices1 -ne '')
                 Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
                 API = "claymore"
                 Port = 3333
+	        MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
                 Wrap = $false
                 URI = $Uri
                 BUILD = $Build

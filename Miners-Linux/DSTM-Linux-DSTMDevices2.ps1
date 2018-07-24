@@ -28,11 +28,12 @@ if($GPUDevices2 -ne '')
             Path = $Path
             Devices = $Devices
             DeviceCall = "dstm"
-            Arguments = "--server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User2) --pass $($Pools.(Get-Algorithm($_)).Pass2) --telemetry=0.0.0.0:42002 $($Commands.$_)"
+            Arguments = "--server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User2) --pass $($Pools.(Get-Algorithm($_)).Pass2) --telemetry=0.0.0.0:43001 $($Commands.$_)"
             HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
             Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
             API = "DSTM"
-            Port = 42002
+            Port = 43001
+	    MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
             Wrap = $false
             URI = $Uri
             BUILD = $Build
@@ -50,11 +51,11 @@ if($GPUDevices2 -ne '')
          Path = $Path
          Devices = $Devices
          DeviceCall = "dstm"
-         Arguments = "--server $($_.Host) --port $($_.Port) --user $($_.User2) --pass $($_.Pass2) --telemetry=0.0.0.0:42002 $($Commands.$($_.Algorithm))"
+         Arguments = "--server $($_.Host) --port $($_.Port) --user $($_.User2) --pass $($_.Pass2) --telemetry=0.0.0.0:43001 $($Commands.$($_.Algorithm))"
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
          API = "DSTM"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
-         Port = 42002
+         Port = 43001
          Wrap = $false
          URI = $Uri
          BUILD = $Build

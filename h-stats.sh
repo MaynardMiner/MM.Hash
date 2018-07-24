@@ -1,23 +1,47 @@
 #!/usr/bin/env bash
+                                
+
+get_nvidia_cards_temp(){
+	echo $(jq -c "[.temp$nvidia_indexes_array]" <<< $gpu_stats)
+}
+
+get_nvidia_cards_fan(){
+	echo $(jq -c "[.fan$nvidia_indexes_array]" <<< $gpu_stats)
+}
+
+
 
 function miner_stats {
 	local miner=$(< hive/custom/MM.Hash/Build/mineref.sh)
 	local mindex=$2 #empty or 2, 3, 4, ...
-
+        local Ntemp=$(get_nvidia_cards_temp)	# cards temp
+	local Nfan=$(get_nvidia_cards_fan)	# cards fan
+	local hash=( $(< hive/custom/MM.Hash/Build/claymore.sh) )
 	khs=0
 	stats=
 	case $miner in
 		claymore)
-			stats=`echo '{"id":0,"jsonrpc":"2.0","method":"miner_getstat2"}' | nc -w $API_TIMEOUT localhost 3333 | jq '.result'`
-			if [[ $? -ne 0  || -z $stats ]]; then
+			stats_raw=`echo '{"id":0,"jsonrpc":"2.0","method":"miner_getstat2"}' | nc -w $API_TIMEOUT localhost 3333 | jq '.result'`
+			if [[ $? -ne 0  || -z $stats_raw ]]; then
 				echo -e "${YELLOW}Failed to read $miner stats from localhost:3333${NOCOLOR}"
 			else
 				#[ "10.0 - ETH", "83", "67664;48;0", "28076;27236;12351", "891451;29;0", "421143;408550;61758", "67;40;70;45;69;34", "eth-eu1.nanopool.org:9999;sia-eu1.nanopool.org:7777", "0;0;0;0" ]
-				khs=`echo $stats | jq -r '.[2]' | awk -F';' '{print $1}'`
+				khs=`echo $stats_raw | jq -r '.[2]' | awk -F';' '{print $1}'`
 				[[ -z $CLAYMORE_VER ]] && CLAYMORE_VER="latest"
-				algo=`cat /hive/claymore/$CLAYMORE_VER/config.txt | grep -m1 --text "^\-dcoin" | sed 's/-dcoin //'`
-				stats=`echo "$stats" "[\"$algo\"]" | jq -s '.[0] + .[1]'` # push algo to end of array
+                                local hs=`echo "$stats_raw" | jq -r '.[3]' | tr ';' '\n' | jq -cs '.'`
+
+				local ac=`echo $stats_raw | jq -r '.[2]' | awk -F';' '{print $2}'`
+				local rj=`echo $stats_raw | jq -r '.[2]' | awk -F';' '{print $3}'`
+
+				stats=$(jq -n \
+					--arg uptime "`echo \"$stats_raw\" | jq -r '.[1]' | awk '{print $1*60}'`" \
+					--argjson hs "$hs" --argjson temp "$temp" --argjson fan "$fan" \
+					--arg ac "$ac" --arg rj "$rj" \
+					--arg algo "Etherium" \
+					'{$hs, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
 			fi
+			     
+			
 		;;
 		claymore-x)
 			stats=`echo '{"id":0,"jsonrpc":"2.0","method":"miner_getstat1"}' | nc -w $API_TIMEOUT localhost 3337 | jq '.result'`
@@ -238,20 +262,9 @@ function miner_stats {
 						fi
 					done
 				done
-
-				#stats=$(jq --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
-					#--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" \
-					#'{ hs: [.result[].sol_ps], $temp, $fan, $uptime, ar: [$ac, $rj] }' <<< "$stats_raw")
-					
-			stats=$(jq -nc \
-				--argjson hs hs: [.result[].speed_sps] \
-				--arg hs_units "hs_units='hs'" \
-				--argjson temp "$temp" \
-				--argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
-				--arg uptime "$uptime", --arg algo "Equihash" \
-				--arg ac $ac --arg rj "$rj" \
-				--arg algo "Equihash" \
-				'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')	
+				stats=$(jq --argjson temp "$temp" --argjson fan "`echo "${fans_array[@]}" | jq -s . | jq -c .`" \
+					--arg uptime "$uptime" --arg ac "$ac" --arg rj "$rj" \
+					'{ hs: [.result[].sol_ps], hs_units: "hs", $temp, $fan, $uptime, ar: [$ac, $rj], algo: "Equihash"}' <<< "$stats_raw")
 					
 			fi
 		;;
