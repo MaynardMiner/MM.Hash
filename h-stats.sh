@@ -34,7 +34,7 @@ function miner_stats {
 
 				stats=$(jq -n \
 					--arg uptime "`echo \"$stats_raw\" | jq -r '.[1]' | awk '{print $1*60}'`" \
-					--argjson hs "$hs" --argjson temp "$temp" --argjson fan "$fan" \
+					--argjson hs "$hs" --argjson temp "$ntemp" --argjson fan "$nfan" \
 					--arg ac "$ac" --arg rj "$rj" \
 					--arg algo "Etherium" \
 					'{$hs, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
