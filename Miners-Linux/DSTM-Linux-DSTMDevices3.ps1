@@ -55,6 +55,7 @@ if($GPUDevices3 -ne '')
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
          API = "DSTM"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+	 MinerPool = "$($_.Name)"
          Port = 43001
          Wrap = $false
          URI = $Uri

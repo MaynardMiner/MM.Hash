@@ -32,6 +32,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorith($_)).Port) -b 0.0.0.0:4048 -u $($Pools.(Get-Algorithm($_)).CPUser) -p $($Pools.(Get-Algorithm($_)).CPUpass) $($Commands.$_)"
     HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
     Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
     Port = 4048
     DeviceCall = "cpuminer-opt"
     API = "Ccminer"
@@ -55,6 +56,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
      HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
      API = "Ccminer"
      Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+	 MinerPool = "$($_.Name)"
      Port = 4048
      DeviceCall = "cpuminer-opt"
      Wrap = $false

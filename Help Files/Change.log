@@ -1,0 +1,32 @@
+ChangeLog
+
+1.2.9:
+
+(ALL VERSIONS)
+-Added New Zergpool Equihash Algos
+
+
+(HIVEOS)
+-Added 'active' command
+ Type 'active' to view active miners in any terminal
+-Add 'stats' command
+ Type 'stats to view MM.Hash miner stats in any terminal
+-Created Help Files Folder
+-Log Integration with HiveOS
+ Logs are now scheduled to HiveOS logging.
+-Added Pools To Main Mining Screen
+-Added Previous HashRates To Main Mining Screen
+-Cleaned up Main Mining Screen
+-Repaired Random Failures Of EWBF Hive Stats
+
+-Added -Benchmark Parameter. Expiremental:
+
+  -Benchmark [seconds]
+
+   If miner hashrate equals $null, -interval time will
+change to -Benchmark time. This only works for NVIDIA1.
+Other device groups will still mine as usual, but will
+have same interval as -Benchmark.
+
+   I did not test fully. Report if it is working correctly
+I will update wiki.

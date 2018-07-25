@@ -54,6 +54,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
    HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
    API = "Ccminer"
    Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+	 MinerPool = "$($_.Name)"
    Port = 4069
    Wrap = $false
    URI = $Uri

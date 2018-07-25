@@ -1,0 +1,382 @@
+Transcript started, output file is .\MM.Hash.txt
+Move-Item : The file '/hive/custom/MM.Hash/Build/stats' already exists.
+At /hive/custom/MM.Hash/MM.Hive.ps1:139 char:5
++     Move-Item -Path ".\stats" -Destination ".\Build"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/hive/custom/MM.Hash/stats:FileInfo) [Move-Item], IOException
++ FullyQualifiedErrorId : MoveFileInfoItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+ 
+Move-Item : The file '/hive/custom/MM.Hash/Build/active' already exists.
+At /hive/custom/MM.Hash/MM.Hive.ps1:154 char:5
++     Move-Item -Path ".\active" -Destination ".\Build"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/hive/custom/MM.Hash/active:FileInfo) [Move-Item], IOException
++ FullyQualifiedErrorId : MoveFileInfoItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+ 
+No screen session found.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Cannot identify account '1 Socket in '.
+No screen session found.
+Cannot identify account '1 Socket in '.
+Cannot identify account 'No Sockets found in '.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+No screen session found.
+Cannot identify account 'No Sockets found in '.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+No screen session found.
+
+
+
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM        HHHHHHHHH     HHHHHHHHH               AAA                 SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHH
+    M:::::::M             M:::::::MM:::::::M             M:::::::M        H:::::::H     H:::::::H              A:::A              SS:::::::::::::::SH:::::::H     H:::::::H
+    M::::::::M           M::::::::MM::::::::M           M::::::::M        H:::::::H     H:::::::H             A:::::A            S:::::SSSSSS::::::SH:::::::H     H:::::::H
+    M:::::::::M         M:::::::::MM:::::::::M         M:::::::::M        HH::::::H     H::::::HH            A:::::::A           S:::::S     SSSSSSSHH::::::H     H::::::HH
+    M::::::::::M       M::::::::::MM::::::::::M       M::::::::::M          H:::::H     H:::::H             A:::::::::A          S:::::S              H:::::H     H:::::H  
+    M:::::::::::M     M:::::::::::MM:::::::::::M     M:::::::::::M          H:::::H     H:::::H            A:::::A:::::A         S:::::S              H:::::H     H:::::H  
+    M:::::::M::::M   M::::M:::::::MM:::::::M::::M   M::::M:::::::M          H::::::HHHHH::::::H           A:::::A A:::::A         S::::SSSS           H::::::HHHHH::::::H  
+    M::::::M M::::M M::::M M::::::MM::::::M M::::M M::::M M::::::M          H:::::::::::::::::H          A:::::A   A:::::A         SS::::::SSSSS      H:::::::::::::::::H  
+    M::::::M  M::::M::::M  M::::::MM::::::M  M::::M::::M  M::::::M          H:::::::::::::::::H         A:::::A     A:::::A          SSS::::::::SS    H:::::::::::::::::H  
+    M::::::M   M:::::::M   M::::::MM::::::M   M:::::::M   M::::::M          H::::::HHHHH::::::H        A:::::AAAAAAAAA:::::A            SSSSSS::::S   H::::::HHHHH::::::H  
+    M::::::M    M:::::M    M::::::MM::::::M    M:::::M    M::::::M          H:::::H     H:::::H       A:::::::::::::::::::::A                S:::::S  H:::::H     H:::::H  
+    M::::::M     MMMMM     M::::::MM::::::M     MMMMM     M::::::M          H:::::H     H:::::H      A:::::AAAAAAAAAAAAA:::::A               S:::::S  H:::::H     H:::::H  
+    M::::::M               M::::::MM::::::M               M::::::M        HH::::::H     H::::::HH   A:::::A             A:::::A  SSSSSSS     S:::::SHH::::::H     H::::::HH
+    M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
+    M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
+
+				             By: MaynardMiner                  v1.2.8 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+                                                                                
+                                                                                SUDO APT-GET LAMBO
+                                                                          ____    _     __     _    ____
+                                                                         |####--|#|---|##|---|#|--'##|#|
+                                        _                                |___,--|#|---|##|---|#|--.__|_|
+                                      _|#)____________________________________,--'EEEEEEEEEEEEEE'_=-.
+                                     ((_____((_________________________,--------[JW](___(____(____(_==)        _________
+                                                                       .--|##,----o  o  o  o  o  o  o__|/---,-,-'==========+==.
+                                                                       |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
+                                                                       |##|              -.|#|##|#|===l##\   _\############|##|
+                                                                      =======-===l         |_|__|_|     \##-'__,=======.###|##|
+                                                                                                          \__.'          '======'
+                                                                  									
+					    				      SNIPER-MODE ACTIVATED
+
+						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+
+								      1.25% Dev Fee Was Written In This Code
+					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
+
+
+
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+WARNING: MM.Hash contacted (zergpool) but (zergpool) Pool API was unreadable. 
+
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Starting Claymore-Linux-ClayDevices1 Mining daggerhashimoto on NVIDIA1 PID is 25435
+clay-NVIDIA1 Is Running
+
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Starting Claymore-Linux-ClayDevices2 Mining daggerhashimoto on NVIDIA2 PID is 26006
+clay-NVIDIA2 Is Running
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:15]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+[07/25/2018 01:02:17]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 176
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:24]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 0.00 PH
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:26]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 0.00 PH
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 167
+
+
+      Type 'stats' in another terminal to view miner statistics
+
+      
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:33]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.44 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                 Reading web response                                                               Reading response stream... (Number of bytes read: 8536)                                                                                                                                                                                                                                                                                                                                                                                                                                     [07/25/2018 01:02:35]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 0.00 PH
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 158
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:42]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.83 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:44]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.02 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 149
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:51]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.89 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:02:53]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 111.46 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 140
+
+
+      Type 'active' in another terminal to view active/previous miners
+
+      
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:00]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 151.95 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:02]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.20 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 130
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:09]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.75 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:11]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.24 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 121
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:18]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 149.15 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:20]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 111.92 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 112
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:27]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 151.92 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:29]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.15 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 83
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:36]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 151.81 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:38]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.21 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 94
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:45]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.18 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:47]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.11 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 85
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:54]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 151.68 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:03:56]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 111.79 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 76
+
+
+      Type 'stats' in another terminal to view miner statistics
+
+      
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:03]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.26 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:06]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 111.97 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 67
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:13]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.39 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:15]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 111.77 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 58
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:22]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.63 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:24]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.00 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 49
+
+
+      Type 'active' in another terminal to view active/previous miners
+
+      
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:31]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.07 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:33]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 111.35 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 40
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:40]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 151.95 mhs
+NVIDIA1 is currently mining on nicehash
+NVIDIA1 previous hashrates for daggerhashimoto is 1.00  hs
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:42]: NVIDIA2 is currently Running: Claymore-Linux-ClayDevices2 current hashrate for daggerhashimoto is 112.37 mhs
+NVIDIA2 is currently mining on nicehash
+NVIDIA2 previous hashrates for daggerhashimoto is 1.00  hs
+Time Left Until Database Starts: 31
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:04:49]: NVIDIA1 is currently Running: Claymore-Linux-ClayDevices1 current hashrate for daggerhashimoto is 152.71 mhs

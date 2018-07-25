@@ -48,6 +48,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4070 -u $($Pools.(Get-Algorithm($_)).User3) -p $($Pools.(Get-Algorithm($_)).Pass3) $($Commands.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
         Port = 4070
         API = "Ccminer"
         Wrap = $false
@@ -72,6 +73,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
          API = "Ccminer"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
          Port = 4070
+	 MinerPool = "$($_.Name)"
          Wrap = $false
          URI = $Uri
          BUILD = $Build

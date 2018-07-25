@@ -1,1 +1,1 @@
-dstm
+ccminer

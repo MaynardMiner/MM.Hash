@@ -35,6 +35,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Arguments = "--api 0.0.0.0:42003 --server $($Pools.$_.Host) --port $($Pools.$_.Port) --user $($Pools.$_.User3) --pass $($Pools.$_.Pass3) $($Commands.$_)"
         HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
         Selected = [PSCustomObject]@{$($Pools.$_.Algorithm) = ""}
+	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
         API = "EWBF"
         Port = 42003
         Wrap = $false
@@ -57,6 +58,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Arguments = "--api 0.0.0.0:42003 --server $($_.Host) --port $($_.Port) --user $($_.User3) --pass $($_.Pass3) $($Commands.$($_.Algorithm))"
         HashRates = [PSCustomObject]@{$_.Symbol= $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
         Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+	 MinerPool = "$($_.Name)"
         API = "EWBF"
         Port = 42003
         Wrap = $false

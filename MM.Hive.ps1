@@ -122,13 +122,46 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$Auto_Algo = "Yes",
     [Parameter(Mandatory=$false)]
-    [Int]$Nicehash_Fee
+    [Int]$Nicehash_Fee,
+    [Parameter(Mandatory=$false)]
+    [Int]$Benchmark = 0
 )
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
 #Start the log
-Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
+Start-Transcript ".\MM.Hash.txt"
+ 
+if(Test-Path ".\stats")
+ {
+  if(Test-Path "/usr/bin/stats")
+   {
+    Move-Item -Path ".\stats" -Destination ".\Build"
+   }
+  else
+   {
+    Move-Item -Path ".\stats" -Destination "/usr/bin" | Out-Null
+    Set-Location "/usr/bin"
+    Start-Process "chmod" -ArgumentList "+x stats"
+    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+   }
+ }
+
+if(Test-Path ".\active")
+ {
+  if(Test-Path "/usr/bin/active")
+   {
+    Move-Item -Path ".\active" -Destination ".\Build"
+   }
+  else
+   {
+    Move-Item -Path ".\active" -Destination "/usr/bin" | Out-Null
+    Set-Location "/usr/bin"
+    Start-Process "chmod" -ArgumentList "+x active"
+    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+   }
+ }
+
 
  $Export = "/hive/ccminer/cuda"
 
@@ -241,7 +274,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                  v1.2.8 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.2.9 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -589,7 +622,7 @@ if($LastRan -ne "")
               Status = "Idle"
               HashRate = 0
               Benchmarked = 0
-              Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
+              Hashrate_Gathered = $_.HashRates.PSObject.Properties.Value
               Crashed = 0
               Timeout = 0
               WasBenchmarked = $false
@@ -597,6 +630,7 @@ if($LastRan -ne "")
 	      NewMiner = $null
 	      Prestart = $null
               MinerId = $null
+	      MinerPool = $_.MinerPool
           }
         }
     }
@@ -808,7 +842,7 @@ function Get-MinerActive {
  @{Label = "Active"; Expression={"{0:dd} Days {0:hh} Hours {0:mm} Minutes" -f $(if($_.XProcess -eq $null){$_.Active}else{if($_.XProcess -ne $null){($_.Active)}else{$TimerStart = $_.XProcess.StartTime($_.Active+((Get-Date)-$TimerStart))}})}},
   @{Label = "Launched"; Expression={Switch($_.Activated){0 {"Never"} 1 {"Once"} Default {"$_ Times"}}}},
   @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.MinerName) $($_.Devices) $($_.Arguments)"}}
-) | Out-Host
+)
 }
 
 
@@ -818,8 +852,6 @@ function Get-MinerStatus {
 	      $J = [string]'BTC'
         $BTCExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=$J" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $Y | Select-Object -ExpandProperty $J
         $CurExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=$H" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $J | Select-Object -ExpandProperty $H
-        Write-Host "1 $CoinExchange  = $BTCExchangeRate of a Bitcoin" -foregroundcolor "Yellow"
-        Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
         $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object Type,Profit | Format-Table -autosize -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Coin/Algo"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
@@ -827,7 +859,7 @@ function Get-MinerStatus {
         @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
-            ) | Out-Host
+            )
       }
 
     function Get-MinerRun {
@@ -849,11 +881,23 @@ function Get-MinerStatus {
          }
         }
        }
+
+   $ActiveMinerPrograms | Foreach {
+    if($($_.HashRates) -eq $null)
+     {
+      if($Benchmark -ne 0)
+	{
+	 $MinerInterval = $Benchmark
+        }
+      else
+	{
+	 $MinerInterval = $Interval
+	}
+     }
+   }
        
-   Get-MinerActive
-   Start-Sleep -s 10   
-   Get-MinerStatus
-   Start-Sleep -s 10
+   Get-MinerActive | Out-File ".\Build\mineractive.sh"
+   Get-MinerStatus | Out-File ".\Build\minerstats.sh"
    $MinerWatch.Restart()
 
     function Restart-Miner {
@@ -1034,7 +1078,12 @@ if($_.Type -like "*CPU*")
          }
         $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
         $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
+	$DayHash = "$($_.Hashrate_Gathered | ConvertTo-Hash)"
         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
+	Start-Sleep -S 1
+	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)"
+	Start-Sleep -S 1
+	Write-Host "$($_.Type) previous hashrates for $($_.Coins) is $DayHash"
         $LogHash | Out-File ".\Miner.log"
           }
         }
@@ -1048,60 +1097,68 @@ if($_.Type -like "*CPU*")
   
       Do{
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
-      Get-MinerActive
+      Write-Host "
+
+      Type 'stats' in another terminal to view miner statistics
+
+      "
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"  
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Restart-Miner
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($CountDown)"  
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"  
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
+      Start-Sleep -s 5
+      Write-Host "
+
+      Type 'active' in another terminal to view active/previous miners
+
+      "
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($CountDown)"  
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
-      Start-Sleep -s 5
-      Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"  
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Restart-Miner
       Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"  
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
-      Start-Sleep -s 5
-      Get-MinerActive
-      Get-MinerHashRate
-      $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"  
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
       Get-MinerHashRate
       $Countdown = ([math]::Round(($Interval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left To Switch: $($Countdown)"  
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
       if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval-20)){break}
       Start-Sleep -s 5
-      }While($MinerWatch.Elapsed.TotalSeconds -lt ($Interval-20))
+      Get-MinerHashRate
+      $Countdown = ([math]::Round(($Interval) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($Interval)){break}
+      Start-Sleep -s 5
+      }While($MinerWatch.Elapsed.TotalSeconds -lt ($Interval))
 
 
      $ActiveMinerPrograms | foreach {  

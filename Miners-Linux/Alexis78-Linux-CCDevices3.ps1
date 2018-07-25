@@ -54,6 +54,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
          API = "Ccminer"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+	 MinerPool = "$($_.Name)"
          Port = 4070
          Wrap = $false
          URI = $Uri

@@ -1,0 +1,35 @@
+At /hive/custom/MM.Hash/MM.Hive.ps1:1082 char:34
++         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Statu ...
++                                  ~
+Unexpected token ':' in expression or statement.
+At /hive/custom/MM.Hash/MM.Hive.ps1:1116 char:19
++       Write-Host "Time Left Until Database Starts: $($Countdown)"
++                   ~~~~
+Unexpected token 'Time' in expression or statement.
+At /hive/custom/MM.Hash/MM.Hive.ps1:1137 char:19
++       Write-Host "Time Left Until Database Starts: $($Countdown)"
++                   ~~~~
+Unexpected token 'Time' in expression or statement.
+At /hive/custom/MM.Hash/MM.Hive.ps1:1291 char:39
++   Remove-Item ".\Bin\* -Include *.out*"
++                                       ~
+The string is missing the terminator: ".
+At /hive/custom/MM.Hash/MM.Hive.ps1:1072 char:10
++          {
++          ~
+Missing closing '}' in statement block or type definition.
+At /hive/custom/MM.Hash/MM.Hive.ps1:1070 char:40
++         $ActiveMinerPrograms | foreach {
++                                        ~
+Missing closing '}' in statement block or type definition.
+At /hive/custom/MM.Hash/MM.Hive.ps1:1069 char:35
++        function Get-MinerHashRate {
++                                   ~
+Missing closing '}' in statement block or type definition.
+At /hive/custom/MM.Hash/MM.Hive.ps1:305 char:1
++ {
++ ~
+Missing closing '}' in statement block or type definition.
++ CategoryInfo          : ParserError: (:) [], ParseException
++ FullyQualifiedErrorId : UnexpectedToken
+ 

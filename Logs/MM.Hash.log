@@ -1,0 +1,189 @@
+Transcript started, output file is .\MM.Hash.txt
+Move-Item : The file '/hive/custom/MM.Hash/Build/stats' already exists.
+At /hive/custom/MM.Hash/MM.Hive.ps1:139 char:5
++     Move-Item -Path ".\stats" -Destination ".\Build"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/hive/custom/MM.Hash/stats:FileInfo) [Move-Item], IOException
++ FullyQualifiedErrorId : MoveFileInfoItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+ 
+Move-Item : The file '/hive/custom/MM.Hash/Build/active' already exists.
+At /hive/custom/MM.Hash/MM.Hive.ps1:154 char:5
++     Move-Item -Path ".\active" -Destination ".\Build"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : WriteError: (/hive/custom/MM.Hash/active:FileInfo) [Move-Item], IOException
++ FullyQualifiedErrorId : MoveFileInfoItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+ 
+No screen session found.
+Cannot identify account '1 Socket in '.
+No screen session found.
+Cannot identify account 'No Sockets found in '.
+Cannot identify account 'No Sockets found in '.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Cannot identify account '1 Socket in '.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+No screen session found.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+No screen session found.
+
+
+
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM        HHHHHHHHH     HHHHHHHHH               AAA                 SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHH
+    M:::::::M             M:::::::MM:::::::M             M:::::::M        H:::::::H     H:::::::H              A:::A              SS:::::::::::::::SH:::::::H     H:::::::H
+    M::::::::M           M::::::::MM::::::::M           M::::::::M        H:::::::H     H:::::::H             A:::::A            S:::::SSSSSS::::::SH:::::::H     H:::::::H
+    M:::::::::M         M:::::::::MM:::::::::M         M:::::::::M        HH::::::H     H::::::HH            A:::::::A           S:::::S     SSSSSSSHH::::::H     H::::::HH
+    M::::::::::M       M::::::::::MM::::::::::M       M::::::::::M          H:::::H     H:::::H             A:::::::::A          S:::::S              H:::::H     H:::::H  
+    M:::::::::::M     M:::::::::::MM:::::::::::M     M:::::::::::M          H:::::H     H:::::H            A:::::A:::::A         S:::::S              H:::::H     H:::::H  
+    M:::::::M::::M   M::::M:::::::MM:::::::M::::M   M::::M:::::::M          H::::::HHHHH::::::H           A:::::A A:::::A         S::::SSSS           H::::::HHHHH::::::H  
+    M::::::M M::::M M::::M M::::::MM::::::M M::::M M::::M M::::::M          H:::::::::::::::::H          A:::::A   A:::::A         SS::::::SSSSS      H:::::::::::::::::H  
+    M::::::M  M::::M::::M  M::::::MM::::::M  M::::M::::M  M::::::M          H:::::::::::::::::H         A:::::A     A:::::A          SSS::::::::SS    H:::::::::::::::::H  
+    M::::::M   M:::::::M   M::::::MM::::::M   M:::::::M   M::::::M          H::::::HHHHH::::::H        A:::::AAAAAAAAA:::::A            SSSSSS::::S   H::::::HHHHH::::::H  
+    M::::::M    M:::::M    M::::::MM::::::M    M:::::M    M::::::M          H:::::H     H:::::H       A:::::::::::::::::::::A                S:::::S  H:::::H     H:::::H  
+    M::::::M     MMMMM     M::::::MM::::::M     MMMMM     M::::::M          H:::::H     H:::::H      A:::::AAAAAAAAAAAAA:::::A               S:::::S  H:::::H     H:::::H  
+    M::::::M               M::::::MM::::::M               M::::::M        HH::::::H     H::::::HH   A:::::A             A:::::A  SSSSSSS     S:::::SHH::::::H     H::::::HH
+    M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
+    M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
+
+				             By: MaynardMiner                  v1.2.9 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+                                                                                
+                                                                                SUDO APT-GET LAMBO
+                                                                          ____    _     __     _    ____
+                                                                         |####--|#|---|##|---|#|--'##|#|
+                                        _                                |___,--|#|---|##|---|#|--.__|_|
+                                      _|#)____________________________________,--'EEEEEEEEEEEEEE'_=-.
+                                     ((_____((_________________________,--------[JW](___(____(____(_==)        _________
+                                                                       .--|##,----o  o  o  o  o  o  o__|/---,-,-'==========+==.
+                                                                       |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
+                                                                       |##|              -.|#|##|#|===l##\   _\############|##|
+                                                                      =======-===l         |_|__|_|     \##-'__,=======.###|##|
+                                                                                                          \__.'          '======'
+                                                                  									
+					    				      SNIPER-MODE ACTIVATED
+
+						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+
+								      1.25% Dev Fee Was Written In This Code
+					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
+
+
+
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Starting MSFT-Linux-CCDevices1 Mining hmq1725 on NVIDIA1 PID is 10516
+ccminer-NVIDIA1 Is Running
+
+        
+        
+        
+        Clearing Screens If Any Are Open
+
+
+
+	
+Cannot identify account 'No Sockets found in '.
+No screen session found.
+Starting MSFT-Linux-CCDevices2 Mining hmq1725 on NVIDIA2 PID is 10582
+ccminer-NVIDIA2 Is Running
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [07/25/2018 01:07:44]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:07:46]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 176
+[07/25/2018 01:07:53]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.68 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:07:55]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 736.90 khs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 166
+
+
+      Type 'stats' in another terminal to view miner statistics
+
+      
+[07/25/2018 01:08:02]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.68 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:08:04]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.36 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 157
+[07/25/2018 01:08:21]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.79 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:08:23]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.61 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 139
+[07/25/2018 01:08:30]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.72 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:08:32]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.61 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 130
+
+
+      Type 'active' in another terminal to view active/previous miners
+
+      
+[07/25/2018 01:08:39]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.53 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:08:41]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.61 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 121
+[07/25/2018 01:08:54]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.52 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:08:56]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.69 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 106
+[07/25/2018 01:09:03]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.53 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:09:05]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.71 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 97
+[07/25/2018 01:09:12]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.40 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:09:14]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.70 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 68
+[07/25/2018 01:09:31]: NVIDIA1 is currently Running: MSFT-Linux-CCDevices1 current hashrate for hmq1725 is 21.13 mhs
+NVIDIA1 is currently mining on zergpool
+NVIDIA1 previous hashrates for hmq1725 is 21.80 mhs
+[07/25/2018 01:09:33]: NVIDIA2 is currently Running: MSFT-Linux-CCDevices2 current hashrate for hmq1725 is 13.81 mhs
+NVIDIA2 is currently mining on zergpool
+NVIDIA2 previous hashrates for hmq1725 is 14.37 mhs
+Time Left Until Database Starts: 68
