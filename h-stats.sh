@@ -12,7 +12,7 @@ get_nvidia_cards_fan(){
 
 
 function miner_stats {
-	local miner=$(< hive/custom/MM.Hash/Build/mineref.sh)
+	local miner=$(< /hive/custom/MM.Hash/Build/mineref.sh)
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
