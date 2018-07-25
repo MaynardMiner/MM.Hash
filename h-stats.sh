@@ -16,7 +16,6 @@ function miner_stats {
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
-	local hash=( $(< hive/custom/MM.Hash/Build/claymore.sh) )
 	khs=0
 	stats=
 	case $miner in
