@@ -622,7 +622,7 @@ if($LastRan -ne "")
               Status = "Idle"
               HashRate = 0
               Benchmarked = 0
-              Hashrate_Gathered = $_.HashRates.PSObject.Properties.Value
+              Hashrate_Gathered = "$($_.HashRates.PSObject.Properties.Value)"
               Crashed = 0
               Timeout = 0
               WasBenchmarked = $false
@@ -641,8 +641,7 @@ if($LastRan -ne "")
          {
             if($_.XProcess -eq $null)
             {
-                $_.Status = "Failed"
-
+               $_.Status = "Failed"
             }
 
             elseif($_.XProcess.HasExited -eq $false)
@@ -1078,7 +1077,7 @@ if($_.Type -like "*CPU*")
          }
         $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
         $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
-	$DayHash = "$($_.Hashrate_Gathered | ConvertTo-Hash)"
+	$DayHash = "$($($_.Hashrate_Gathered) | ConvertTo-Hash)"
         Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
 	Start-Sleep -S 1
 	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)"
