@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash/Bin/Claymore-Linux-ClayDevices2/clay-NVIDIA2 -di 34578abc -mport -3334 -mode 1 -allcoins 1 -allpools 1 -epool stratum+tcp://daggerhashimoto.usa.nicehash.com:3353 -ewal 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop.MMHash -epsw x -wd 0 -dbg -1 -eres 1 -esm 3 -estale 0
+/hive/custom/MM.Hash/Bin/EWBF-Linux-EWBFDevices2/miner-NVIDIA2 --cuda_devices 3 4 5 7 8 10 11 12 --api 0.0.0.0:42002 --server equihash192.mine.zergpool.com --port 2144 --user RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H --pass c=RVN,ID=MMHash --algo 192_7 --pers ZERO_PoW

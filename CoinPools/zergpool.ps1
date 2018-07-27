@@ -12,8 +12,8 @@ if($Auto_Coin -eq "Yes")
  if($Poolname -eq $Name)
   {
  try {
-     $zergpool_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
-     #$ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
+     $zergpool_Request = Invoke-RestMethod "https://api.zergpool.com/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
+     #$ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
  }
  catch {
      Write-Warning "MM.Hash contacted ($Name) for a failed API check. "
@@ -21,7 +21,7 @@ if($Auto_Coin -eq "Yes")
  }
 
  if (($zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) {
-     Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. "
+     Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable (Coins). "
      return
    }
   
@@ -97,7 +97,7 @@ if($Auto_Coin -eq "Yes")
   if($Poolname -eq $Name)
    {
     try {
-        $ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
+        $ZergpoolAlgo_Request = Invoke-RestMethod "https://api.zergpool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
     }
     catch {
         Write-Warning "MM.Hash contacted ($Name) for a failed API check. "
@@ -105,7 +105,7 @@ if($Auto_Coin -eq "Yes")
     }
    
     if (($zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) {
-        Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. "
+        Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable. (Algorithm) "
         return
      }
 

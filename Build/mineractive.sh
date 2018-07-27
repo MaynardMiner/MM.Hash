@@ -2,25 +2,25 @@
 
    Status: Running
 
-    Speed Active                      Launched Command
-    ----- ------                      -------- -------
-0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/Claymore-Linux-ClayDevices2/c
-                                               lay-NVIDIA2 clay-NVIDIA2
-                                               34578abc -mport -3334 -mode 1
-                                               -allcoins 1 -allpools 1 -epool st
-                                               ratum+tcp://daggerhashimoto.usa.n
-                                               icehash.com:3353 -ewal 3JfBiUZZV1
-                                               7DTjAFCnZb97UpBgtLPLLDop.MMHash
-                                               -epsw x -wd 0 -dbg -1 -eres 1
-                                               -esm 3 -estale 0
-0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/Claymore-Linux-ClayDevices1/c
-                                               lay-NVIDIA1 clay-NVIDIA1 01269
-                                               -mport -3333 -mode 1 -allcoins 1
-                                               -allpools 1 -epool stratum+tcp://
-                                               daggerhashimoto.usa.nicehash.com:
-                                               3353 -ewal 3JfBiUZZV17DTjAFCnZb97
-                                               UpBgtLPLLDop.MMHash -epsw x -wd
-                                               0 -dbg -1 -eres 1 -esm 3 -estale
- 0
+       Speed Active                      Launched Command
+       ----- ------                      -------- -------
+ 62.00  hs/s 00 Days 00 Hours 00 Minutes Once     Bin/EWBF-Linux-EWBFDevices2/mi
+                                                  ner-NVIDIA2 miner-NVIDIA2 3 4
+                                                  5 7 8 10 11 12 --api
+                                                  0.0.0.0:42002 --server
+                                                  equihash192.mine.zergpool.com
+                                                  --port 2144 --user RKirUe978mB
+                                                  oa2MRWqeMGqDzVAKTafKh8H
+                                                  --pass c=RVN,ID=MMHash --algo
+ 192_7 --pers ZERO_PoW
+103.00  hs/s 00 Days 00 Hours 00 Minutes Once     Bin/EWBF-Linux-EWBFDevices1/mi
+                                                  ner-NVIDIA1 miner-NVIDIA1 0 1
+                                                  2 6 9 --api 0.0.0.0:42001
+                                                  --server
+                                                  equihash192.mine.zergpool.com
+                                                  --port 2144 --user RKirUe978mB
+                                                  oa2MRWqeMGqDzVAKTafKh8H
+                                                  --pass c=RVN,ID=MMHash --algo
+ 192_7 --pers ZERO_PoW
 
 
