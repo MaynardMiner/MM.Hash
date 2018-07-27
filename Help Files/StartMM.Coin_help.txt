@@ -273,6 +273,18 @@ Argument            Options             Explanation
 					the requirement of specifying individual GPUs for Cuballoon is
 					required. Used if -Type NVIDIA3 is specified.
 
+-RigName1          [Any]		Pool ID of device group 1. Does not work with Zergpool, which
+					mining coin. Using arguments beyond C=,MC= causes increase
+					chance of invalid shares or wallet registration failure.
+
+-RigName2          [Any]		Pool ID of device group 2. Does not work with Zergpool, which
+					mining coin. Using arguments beyond C=,MC= causes increase
+					chance of invalid shares or wallet registration failure.
+					
+-RigName3[         [Any]		Pool ID of device group 3 Does not work with Zergpool, which
+					mining coin. Using arguments beyond C=,MC= causes increase
+					chance of invalid shares or wallet registration failure.					
+
 
 
 ******************************************************************************************************
