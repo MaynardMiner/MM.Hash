@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash/Bin/MSFTserver-Linux-CCDevices2/ccminer-NVIDIA2 -d GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050ti#6,GTX1050ti#7,GTX1050ti#8 -a Hmq1725 -o stratum+tcp://hmq1725.mine.zergpool.com:3747 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash 
+/hive/custom/MM.Hash/Bin/Claymore-Linux-ClayDevices2/clay-NVIDIA2 -di 34578abc -mport -3334 -mode 1 -allcoins 1 -allpools 1 -epool stratum+tcp://daggerhashimoto.usa.nicehash.com:3353 -ewal 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop.MMHash -epsw x -wd 0 -dbg -1 -eres 1 -esm 3 -estale 0

@@ -70,7 +70,7 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
             Host = $nicehash_Host
             Port = $nicehash_Port
             User1 = "$Nicehash_Wallet1.$Rigname1"
-	          User2 = "$Nicehash_Wallet2.$Rigname2"
+	    User2 = "$Nicehash_Wallet2.$Rigname2"
             User3 = "$Nicehash_Wallet3.$Rigname3"
             CPUser = "$Nicehash_Wallet1.$Rigname1"
             CPUPass = "x"

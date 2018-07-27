@@ -4,29 +4,23 @@
 
     Speed Active                      Launched Command
     ----- ------                      -------- -------
-0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/MSFTserver-Linux-CCDevices1/c
-                                               cminer-NVIDIA1 ccminer-NVIDIA1 GT
-                                               X1070#1,GTX1070#2,GTX1070#3,GTX10
-                                               70#4,GTX1070#5 -a Hmq1725 -o stra
-                                               tum+tcp://hmq1725.mine.zergpool.c
-                                               om:3747 -b 0.0.0.0:4068 -u RKirUe
-                                               978mBoa2MRWqeMGqDzVAKTafKh8H -p
-                                               c=RVN,ID=MMHash
-
-
-   Status: Failed
-
-    Speed Active                      Launched Command
-    ----- ------                      -------- -------
-0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/MSFTserver-Linux-CCDevices2/c
-                                               cminer-NVIDIA2 ccminer-NVIDIA2 GT
-                                               X1050ti#1,GTX1050ti#2,GTX1050ti#3
-                                               ,GTX1050ti#4,GTX1050ti#5,GTX1050t
-                                               i#6,GTX1050ti#7,GTX1050ti#8 -a
-                                               Hmq1725 -o stratum+tcp://hmq1725.
-                                               mine.zergpool.com:3747 -b
-                                               0.0.0.0:4069 -u RKirUe978mBoa2MRW
-                                               qeMGqDzVAKTafKh8H -p
- c=RVN,ID=MMHash 
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/Claymore-Linux-ClayDevices2/c
+                                               lay-NVIDIA2 clay-NVIDIA2
+                                               34578abc -mport -3334 -mode 1
+                                               -allcoins 1 -allpools 1 -epool st
+                                               ratum+tcp://daggerhashimoto.usa.n
+                                               icehash.com:3353 -ewal 3JfBiUZZV1
+                                               7DTjAFCnZb97UpBgtLPLLDop.MMHash
+                                               -epsw x -wd 0 -dbg -1 -eres 1
+                                               -esm 3 -estale 0
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Bin/Claymore-Linux-ClayDevices1/c
+                                               lay-NVIDIA1 clay-NVIDIA1 01269
+                                               -mport -3333 -mode 1 -allcoins 1
+                                               -allpools 1 -epool stratum+tcp://
+                                               daggerhashimoto.usa.nicehash.com:
+                                               3353 -ewal 3JfBiUZZV17DTjAFCnZb97
+                                               UpBgtLPLLDop.MMHash -epsw x -wd
+                                               0 -dbg -1 -eres 1 -esm 3 -estale
+ 0
 
 

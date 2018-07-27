@@ -16,6 +16,7 @@ $Commands = [PSCustomObject]@{
   "Equihash144" =  '--algo 144_5 --pers sngemPoW'
   "Equihash144btcz" = '--algo 144_5 --pers BitcoinZ'
   "Equihash144zel" = '--algo 144_5 --pers ZelProof'
+  "Equihash-BTG" = '--algo 144_5 --pers BgoldPoW'
   }
 
 

@@ -1,0 +1,16 @@
+{
+  "Live": 1051194350.0,
+  "Minute": 1051194350.0,
+  "Minute_Fluctuation": 0.0,
+  "Minute_5": 1051194350.0,
+  "Minute_5_Fluctuation": 0.0,
+  "Minute_10": 1051194350.0,
+  "Minute_10_Fluctuation": 0.0,
+  "Hour": 1051194350.0,
+  "Hour_Fluctuation": 0.0,
+  "Day": 1051194350.0,
+  "Day_Fluctuation": 0.031302445526562549,
+  "Week": 1051194350.0,
+  "Week_Fluctuation": 0.34569144094666127,
+  "Updated": "2018-07-27T17:50:23.836197Z"
+}

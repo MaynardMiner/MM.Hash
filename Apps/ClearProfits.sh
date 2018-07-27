@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 cd ..
 sudo rm ./Stats/*Profit.txt
 
