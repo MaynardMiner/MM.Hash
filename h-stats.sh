@@ -12,11 +12,10 @@ get_nvidia_cards_fan(){
 
 
 function miner_stats {
-	local miner=$(< hive/custom/MM.Hash/Build/mineref.sh)
+	local miner=$(< /hive/custom/MM.Hash/Build/mineref.sh)
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
-	local hash=( $(< hive/custom/MM.Hash/Build/claymore.sh) )
 	khs=0
 	stats=
 	case $miner in
@@ -32,14 +31,28 @@ function miner_stats {
 
 				local ac=`echo $stats_raw | jq -r '.[2]' | awk -F';' '{print $2}'`
 				local rj=`echo $stats_raw | jq -r '.[2]' | awk -F';' '{print $3}'`
+				local tempfans=`echo $stats_raw | jq -r '.[6]'` #"56;26; 48;42"
+				local temp=()
+				local fan=()
+				for tf in $tempfans; do
+					temp+=(`echo $tf | awk -F';' '{print $1}'`)
+					fan+=(`echo $tf | awk -F';' '{print $2}'`)
+				done
+				temp=`printf '%s\n' "${temp[@]}" | jq --raw-input . | jq --slurp -c .`
+				fan=`printf '%s\n' "${fan[@]}" | jq --raw-input . | jq --slurp -c .`
+
 
 				stats=$(jq -n \
+					--argjson hs "$hs" \
+					--arg hs_units "hs_units='khs'" \
+					--argjson temp "$temp" \
+					--argjson fan "$fan" \
 					--arg uptime "`echo \"$stats_raw\" | jq -r '.[1]' | awk '{print $1*60}'`" \
-					--argjson hs "$hs" --argjson temp "$temp" --argjson fan "$fan" \
 					--arg ac "$ac" --arg rj "$rj" \
-					--arg algo "Etherium" \
-					'{$hs, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
-			fi
+					--arg algo "Ethash" \
+					'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
+
+fi
 			     
 			
 		;;
