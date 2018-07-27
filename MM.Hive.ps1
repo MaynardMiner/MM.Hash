@@ -178,10 +178,8 @@ if(Test-Path ".\active")
    }
  }
 
- if(Test-Path ".\Build\PID")
-  {
-   Remove-Item ".\Build\PID\*" -Force | Out-Null
-  }
+ if(Test-Path ".\Build\PID"){Remove-Item ".\Build\PID\*" -Force | Out-Null}
+ else{New-Item -Path ".\Build" -Name "PID" -ItemType "Directory" | Out-Null}
 
  $Export = "/hive/ccminer/cuda"
 
