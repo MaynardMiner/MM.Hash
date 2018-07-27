@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pwsh -command "/hive/custom/MM.Hash/Build/getstats.ps1"
