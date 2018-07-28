@@ -49,7 +49,7 @@ function miner_stats {
 					--argjson fan "$fan" \
 					--arg uptime "`echo \"$stats_raw\" | jq -r '.[1]' | awk '{print $1*60}'`" \
 					--arg ac "$ac" --arg rj "$rj" \
-					--arg algo "Ethash" \
+					--arg algo "Etherium" \
 					'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
 
 fi

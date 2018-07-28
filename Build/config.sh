@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash/Bin/EWBF-Linux-EWBFDevices2/miner-NVIDIA2 --cuda_devices 3 4 5 7 8 10 11 12 --api 0.0.0.0:42002 --server equihash192.mine.zergpool.com --port 2144 --user RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H --pass c=RVN,ID=MMHash --algo 192_7 --pers ZERO_PoW
+/hive/custom/MM.Hash/Bin/krnlx-Linux-CCDevices2/ccminer-NVIDIA2 -d GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050ti#6,GTX1050ti#7,GTX1050ti#8 -a Xevan -o stratum+tcp://xevan.mine.zergpool.com:3739 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash 

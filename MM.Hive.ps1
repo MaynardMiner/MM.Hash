@@ -56,6 +56,10 @@ param(
     [Parameter(Mandatory=$false)] 
     [String]$CCDevices2,
     [Parameter(Mandatory=$false)]
+    [String]$CDDevices1, 
+    [Parameter(Mandatory=$false)] 
+    [String]$CDDevices2,
+    [Parameter(Mandatory=$false)]
     [String]$CCDevices3,
     [Parameter(Mandatory=$false)]
     [String]$EWBFDevices1, 
@@ -293,7 +297,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                  v1.2.9 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.3.0 Hive-Beta              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -624,7 +628,7 @@ if($LastRan -ne "")
               Type = $_.Type
               Devices = $_.Devices
               DeviceCall = $_.DeviceCall
-	            MinerName = $_.MinerName
+	      MinerName = $_.MinerName
               Path = $_.Path
               Arguments = $_.Arguments
               MiningName = $null
@@ -655,6 +659,8 @@ if($LastRan -ne "")
         }
     }
 
+
+Function Get-PID {
 $ActiveMinerPrograms | ForEach-Object {
    $MinerTestPath = Test-Path ".\Build\PID\$($_.Name)_$($_.Coins)_PID.txt"
         if($MinerTestPath)
@@ -665,6 +671,9 @@ $ActiveMinerPrograms | ForEach-Object {
           else{$_.XProcess = $null}
          }
        }
+      }
+
+Get-PID
 
 #Start Or Stop Miners
 $ActiveMinerPrograms | ForEach-Object {
@@ -690,7 +699,7 @@ if(($BestMiners_Combo | Where-Object Type -EQ $_.Type | Where-Object Arguments -
      $DecayStart = Get-Date
      $_.New = $true
      $_.Activated++
-
+     $_.XProcess = $null
 
 if($_.Type -like '*NVIDIA*')
      {
@@ -727,21 +736,26 @@ if($_.Type -like '*NVIDIA*')
      $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
      $MinerTimer.Restart()
        Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 1
+           Start-Sleep -S 2
            if(Test-Path $PIDFile)
             {
-            $MinerContent = Get-Content $PIDFile
-            $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-            if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-            }
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
+	    }
           }
-         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
@@ -775,17 +789,23 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
  $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
  $MinerTimer.Restart()
    Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
-                 $MinerProcessId.Id | Out-File $PIDFile
-                 Start-Sleep -S 1
-                 if(Test-Path $PIDFile)
-                 {
-                 $MinerContent = Get-Content $PIDFile
-                 $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-                 if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
+           $MinerProcessId.Id | Out-File $PIDFile
+           Start-Sleep -S 2
+           if(Test-Path $PIDFile)
+            {
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
 	    }
           }
      }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
@@ -823,19 +843,24 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
  $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
  $MinerTimer.Restart()
    Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 1
+           Start-Sleep -S 2
            if(Test-Path $PIDFile)
             {
-            $MinerContent = Get-Content $PIDFile
-            $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-            if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-            }
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
+	    }
           }
      }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
    $MinerTimer.Stop()
@@ -872,19 +897,24 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
  $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
  $MinerTimer.Restart()
    Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 1
+           Start-Sleep -S 2
            if(Test-Path $PIDFile)
             {
-            $MinerContent = Get-Content $PIDFile
-            $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-            if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-            }
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
+	    }
           }
      }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
    $MinerTimer.Stop()
@@ -908,6 +938,19 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
    }
   }
 
+   $MinerWatch.Restart()
+
+Write-Host "
+
+
+
+
+Waiting 10 Seconds For Miners To Spool Up
+
+
+
+"
+Start-Sleep -s 10
 
 function Get-MinerActive {
 
@@ -975,18 +1018,18 @@ function Get-MinerStatus {
    Get-MinerStatus
    Get-MinerActive | Out-File ".\Build\mineractive.sh"
    Get-MinerStatus | Out-File ".\Build\minerstats.sh"
-   $MinerWatch.Restart()
 
     function Restart-Miner {
     $ActiveMinerPrograms | ForEach {
        if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -gt 0)
         {
-	Write-Host "$($_.Type) $($_.XProcess)"
+	Write-Host "$($_.Type) $($_.XProcess) $($_.XProcess.Id)"
         if($_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
           if($_.Status -eq "Running"){$_.Status = "Failed"}
           Write-Host "$($_.MinerName) Has Failed- Attempting Restart"
           $_.Failed30sLater++
+	  $_.XProcess = $null
           if($_.Type -like '*NVIDIA*')
           {
         if($_.Devices -eq $null){$MinerArguments = "$($_.Arguments)"}
@@ -1022,20 +1065,25 @@ function Get-MinerStatus {
           $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
           $MinerTimer.Restart()
             Do{
-         	$PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
-           	$MinerProcessId.Id | Out-File $PIDFile
-           	Start-Sleep -S 1
-           	if(Test-Path $PIDFile)
-           	 {
-            	$MinerContent = Get-Content $PIDFile
-                $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-                if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-               }
+	 Start-Sleep -S 3
+         $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
+           $MinerProcessId.Id | Out-File $PIDFile
+           Start-Sleep -S 2
+           if(Test-Path $PIDFile)
+            {
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
               }
+	    }
+          }
               }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
             $MinerTimer.Stop()
             Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
@@ -1070,19 +1118,24 @@ function Get-MinerStatus {
       $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
       $MinerTimer.Restart()
         Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 1
+           Start-Sleep -S 2
            if(Test-Path $PIDFile)
             {
-            $MinerContent = Get-Content $PIDFile
-            $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-            if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-            }
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
+	    }
           }
           }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
         $MinerTimer.Stop()
@@ -1119,19 +1172,24 @@ function Get-MinerStatus {
       $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
       $MinerTimer.Restart()
         Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 1
+           Start-Sleep -S 2
            if(Test-Path $PIDFile)
             {
-            $MinerContent = Get-Content $PIDFile
-            $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-            if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-            }
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
+	    }
           }
           }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
         $MinerTimer.Stop()
@@ -1168,25 +1226,44 @@ function Get-MinerStatus {
       $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
       $MinerTimer.Restart()
         Do{
+	 Start-Sleep -S 3
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
-	       $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
-	       if($MinerProcessId -ne $null)
-	        {
+	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
+	 if($MinerProcessId -ne $null)
+	  {
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 1
+           Start-Sleep -S 2
            if(Test-Path $PIDFile)
             {
-            $MinerContent = Get-Content $PIDFile
-            $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
-            if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
-	    
-            }
+	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
+            $LastWriteTime = [math]::Round(((Get-Date)-$Lastwrite).TotalSeconds)
+	     if($LastWriteTime -le 5)
+	      {
+              $MinerContent = Get-Content $PIDFile
+              $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
+              if($MinerProcess -ne $null){$_.XProcess = $MinerProcess}
+              }
+	    }
           }
           }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
         $MinerTimer.Stop()
         Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
         Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
       }
+
+
+Write-Host "
+
+
+
+
+Waiting 10 Seconds For Miners To Spool Up
+
+
+
+"
+
+Start-Sleep -s 10
 
   if($_.XProcess -eq $null -or $_.XProcess.HasExited)
    {
@@ -1236,69 +1313,69 @@ function Get-MinerStatus {
   [GC]::Collect()
 
       Do{
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Write-Host "
 
       Type 'stats' in another terminal to view miner statistics
 
       "
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Write-Host "
 
       Type 'active' in another terminal to view active/previous miners
 
       "
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
-      $Countdown = ([math]::Round(($MinerInterval) - $MinerWatch.Elapsed.TotalSeconds))
+      Start-Sleep -s 7
+      $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)"
-      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)){break}
+      if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)-20){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
-      }While($MinerWatch.Elapsed.TotalSeconds -lt ($MinerInterval))
+      Start-Sleep -s 7
+      }While($MinerWatch.Elapsed.TotalSeconds -lt ($MinerInterval-20))
 
 
      $ActiveMinerPrograms | foreach { 
@@ -1337,7 +1414,7 @@ function Get-MinerStatus {
               if($_.WasBenchmarked -eq $False)
                {
                 Write-Host "$($_.Name) $($_.Coins) Starting Bench"
-		        $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+		 $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
                  $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
                  {

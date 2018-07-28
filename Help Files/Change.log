@@ -30,3 +30,37 @@ have same interval as -Benchmark.
 
    I did not test fully. Report if it is working correctly
 I will update wiki.
+
+
+
+1.3.0:
+
+(Windows & HiveOS)
+
+-Zergpool https:/. Better API calls.
+-Added Equihash Algorithms - zergpool and mph
+
+(HiveOS)
+-Ensured -Benchmark parameter working
+-Fixed -Timeouts parameter
+-Log rollover every 12 hours. Miner divides logs into 1 hour periods.
+-PID read/write for better process control
+-Discovered actual Powershell Core bug in (where).count -eq 0. It worked when it wanted to. 
+Reported to powershell, and then built workaround.
+-Added Cuda-9-2 folder, will start filling with miner files for HiveOS cuda 9.2.
+You must setup hiveOS to be able to use Cuda9.2 (Not reccommended)
+-Added 10 second wait to give Miners time to spool up. Was noticing occasional lockup becuase
+of too high resource use.
+-Reduced hashrate display time to every 7 seconds instead of 5 for smoother display.
+-Fixed Claymore API. However, noticed Claymore itself was displaying only 1 fan and 1 temp
+during my testing occasionally. In future I will attempt to force defaults from Hive when this happens.
+-Timeout Folder to notify when miners timeout. However, Timeouts no longer set all hashrates to zero. This
+way miner can continue to try to mine that algo/coin. I simply reduces overall daily hashrate. The Timeout
+folder will give you an idea of specific stats you may want to delete and then re-benchmark for fine tuning.
+-Resolved Status flag issues. When typing "active", you should receive correct data.
+-Resolved previous hashrate issues on screen
+-Attempted to display better countdown times. NOTE: Internal countdown time varies by processor to processor.
+However- Run time displayed for Miners is 100% correct.
+
+
+
