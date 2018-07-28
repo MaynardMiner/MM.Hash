@@ -741,6 +741,7 @@ if($_.Type -like '*NVIDIA*')
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -794,6 +795,7 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -848,6 +850,7 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -902,6 +905,7 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -1070,6 +1074,7 @@ function Get-MinerStatus {
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -1123,6 +1128,7 @@ function Get-MinerStatus {
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -1177,6 +1183,7 @@ function Get-MinerStatus {
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
@@ -1231,6 +1238,7 @@ function Get-MinerStatus {
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
+           if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
            Start-Sleep -S 2
            if(Test-Path $PIDFile)
