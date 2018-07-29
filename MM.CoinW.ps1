@@ -409,18 +409,12 @@ catch {
 	 Remove-Item $Removed
         }
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
-        Write-Host "Cleared Timeouts" -ForegroundColor Red
         }
        }
        Write-Host "Cleared Timeouts" -ForegroundColor Red
        $TimeoutTimer.Restart()
        continue
-      }
-       Write-Host "Cleared Timeouts" -ForegroundColor Red
-       Write-Host "Cleared Timeouts" -ForegroundColor Red
-       $TimeoutTimer.Restart()
-       continue
-    }
+   }
 
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
