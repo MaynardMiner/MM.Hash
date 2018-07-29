@@ -32,12 +32,12 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
       Path = $Path
       Devices = $Devices
       DeviceCall = "ewbf"
-      Arguments = "--api 0.0.0.0:42001 --server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User1) --pass $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
+      Arguments = "--api 0.0.0.0:42000 --server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User1) --pass $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
       HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
       Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
       MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
       API = "EWBF"
-      Port = 42001
+      Port = 42000
       Wrap = $false
       URI = $Uri
       BUILD = $Build
@@ -55,12 +55,12 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Path = $Path
         Devices = $Devices
         DeviceCall = "ewbf"
-        Arguments = "--api 0.0.0.0:42001 --server $($_.Host) --port $($_.Port) --user $($_.User1) --pass $($_.Pass1) $($Commands.$($_.Algorithm))"
+        Arguments = "--api 0.0.0.0:42000 --server $($_.Host) --port $($_.Port) --user $($_.User1) --pass $($_.Pass1) $($Commands.$($_.Algorithm))"
         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
         Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
 	 MinerPool = "$($_.Name)"
         API = "EWBF"
-        Port = 42001
+        Port = 42000
         Wrap = $false
         URI = $Uri
         BUILD = $Build
