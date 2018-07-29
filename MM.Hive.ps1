@@ -987,19 +987,20 @@ function Get-MinerStatus {
             )
       }
 
+   $BenchmarkMode = "No"
+
    $ActiveMinerPrograms | Foreach {
-    if($($_.HashRates) -eq $null)
-     {
-      if($Benchmark -ne 0)
-	{
-	 $MinerInterval = $Benchmark
-        }
-      else
-	{
-	 $MinerInterval = $Interval
-	}
+    if((Get-Item ".\Stats\$($_.Name)_$($_.Coins)_HashRate.txt" -ErrorAction SilentlyContinue) -eq $null)
+       {
+        $BenchmarkMode = "Yes"
+       }
      }
-   }
+
+   if($BenchmarkMode -eq "Yes")
+    {
+     $MinerInterval = $Benchmark
+    }
+   else{$MinerInterval = $Interval}
    
 
     if($Log -eq 12)
@@ -1016,8 +1017,6 @@ function Get-MinerStatus {
      $LogTimer.Restart()
     }
 
-   Get-MinerActive
-   Get-MinerStatus
    Get-MinerActive | Out-File ".\Build\mineractive.sh"
    Get-MinerStatus | Out-File ".\Build\minerstats.sh"
 

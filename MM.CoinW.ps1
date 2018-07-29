@@ -703,13 +703,20 @@ Start-Sleep -s 10
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
 
-$ActiveMinerPrograms | Foreach {
- if($($_.HashRates) -eq $null)
-  {
- if($Benchmark -ne 0){$MinerInterval = $Benchmark}
- else{$MinerInterval = $Interval}
-  }
- }
+   $BenchmarkMode = "No"
+
+   $ActiveMinerPrograms | Foreach {
+    if((Get-Item ".\Stats\$($_.Name)_$($_.Coins)_HashRate.txt" -ErrorAction SilentlyContinue) -eq $null)
+       {
+        $BenchmarkMode = "Yes"
+       }
+     }
+
+   if($BenchmarkMode -eq "Yes")
+    {
+     $MinerInterval = $Benchmark
+    }
+   else{$MinerInterval = $Interval}
 
  if($Log -eq 12)
  {
@@ -802,54 +809,54 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
 
       Do{
         $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
         if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
         Get-MinerHashRate
         Start-Sleep -s 7
         $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
         if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
         Get-MinerHashRate
         Start-Sleep -s 7
         $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
         if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
         Get-MinerHashRate
         Start-Sleep -s 7
         $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
-        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
-        Restart-Miner
-        Get-MinerHashRate
-        Start-Sleep -s 7
-        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
-        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
-        Get-MinerHashRate
-        Start-Sleep -s 7
-        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
-        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
-        Get-MinerHashRate
-        Start-Sleep -s 7
-        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
-        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
-        Get-MinerHashRate
-        Start-Sleep -s 7
-        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
         if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
         Restart-Miner
         Get-MinerHashRate
         Start-Sleep -s 7
         $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
         if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
         Get-MinerHashRate
         Start-Sleep -s 7
         $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-        Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Restart-Miner
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
         if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)-20){break}
         Get-MinerHashRate
         Start-Sleep -s 7
