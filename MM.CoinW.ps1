@@ -782,18 +782,20 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
         $ActiveMinerPrograms | foreach {
         if($_.Status -eq "Running")
          {
-        $Miner_HashRates = Get-HashRate $_.API $_.Port
-	    $GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
+	$GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
        	$DayStat = "$($GetDayStat.Day)"
         $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
-	    $MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
+	$MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
         $ScreenHash = "$($MinerScreenHash)"
-        Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
-	      Start-Sleep -S 1
-	      Write-Host "$($_.Type) previous hashrates for $($_.Coins) is $MinerPrevious"
-          Start-Sleep -S 1
-          Write-Host "$($_.Type) is mining on $($_.MinerPool)"
-        $LogHash | Out-File ".\Miner.log"
+        Write-Host "[$(Get-Date)]:" -foreground yellow -nonewline
+	Write-Host " $($_.Type) is currently" -foreground green -nonewline
+	Write-Host " $($_.Status):" -foreground green -nonewline
+	Write-Host " $($_.Name) current hashrate for $($_.Coins) is" -nonewline
+	Write-Host " $ScreenHash/s" -foreground green
+	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)" -foregroundcolor Cyan
+	Start-Sleep -S 1
+	Write-Host "$($_.Type) previous hashrates for $($_.Coins) is" -nonewline
+	Write-Host " $MinerPrevious/s" -foreground yellow
           }
         }
       }  
@@ -863,7 +865,7 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
           {
 	  if($TimeDeviation -ne 0)
            {
-            Write-Host "MM.Hash is attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
+            Write-Host "MM.Hash is attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "cyan"
             $_.HashRate = 0
             $_.WasBenchmarked = $False
             $Miner_HashRates = Get-HashRate $_.API $_.Port
@@ -874,7 +876,7 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
          if($WasActive -ge $StatsInterval)
           {
           Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
-          Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
+          Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "cyan"
           for($i=0; $i -lt 4; $i++)
             {
               if($_.WasBenchmarked -eq $False)
@@ -885,7 +887,7 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
                  {
                   $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
                   Start-Sleep -s 1
-		          Write-Host "Stat Written"
+		          Write-Host "Stat Written" -foreground Green
                   if(Test-Path (Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"))
                   {
                    if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
@@ -907,7 +909,7 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
                 else
                  {
                  $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-				 Write-Host "Stat Written"
+				 Write-Host "Stat Written" -foreground Green
                  Start-Sleep -s 1
 		 $_.New = $False
                  $_.Crashed = 0

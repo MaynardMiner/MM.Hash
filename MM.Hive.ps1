@@ -285,11 +285,11 @@ Write-Host "
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|
-                                        _                                |___,--|#|---|##|---|#|--.__|_|
+                                pew     _                                |___,--|#|---|##|---|#|--.__|_|
                                       _|#)____________________________________,--'EEEEEEEEEEEEEE'_=-.
-                                     ((_____((_________________________,--------[JW](___(____(____(_==)        _________
+                           pew       ((_____((_________________________,--------[JW](___(____(____(_==)        _________
                                                                        .--|##,----o  o  o  o  o  o  o__|/`---,-,-'=========`=+==.
-                                                                       |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
+                                pew                                    |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
                                                                        |##|              `-.|#|##|#|`===l##\   _\############|##|
                                                                       =======-===l         |_|__|_|     \##`-'__,=======.###|##|
                                                                                                           \__.'          '======'
@@ -747,7 +747,7 @@ if($_.Type -like '*NVIDIA*')
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+       Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
  }
 
 
@@ -798,7 +798,7 @@ $MinerConfig | Out-File ".\Build\config.sh"
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+   Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
 }
 
 
@@ -850,7 +850,7 @@ $MinerConfig | Out-File ".\Build\config.sh"
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+   Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
  }
 
 
@@ -901,19 +901,19 @@ $MinerConfig | Out-File ".\Build\config.sh"
           }
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
-   Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+   Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
  }
  
  
   if($_.XProcess -eq $null -or $_.XProcess.HasExited)
    {
     $_.Status = "Failed"
-    Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Red
+    Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Darkred
    }
   else
      {
      $_.Status = "Running"
-     Write-Host "$($_.MinerName) Is Running" -ForegroundColor Green
+     Write-Host "$($_.MinerName) Is Running!" -ForegroundColor Green
       }
      }
     }
@@ -1072,7 +1072,7 @@ function Get-MinerStatus {
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-            Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+            Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
       }
      
      
@@ -1123,7 +1123,7 @@ function Get-MinerStatus {
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
      }
      
      
@@ -1175,7 +1175,7 @@ function Get-MinerStatus {
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
       }
      
      
@@ -1232,7 +1232,7 @@ function Get-MinerStatus {
          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
        $MinerTimer.Stop()
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
+        Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Cyan
       }
 
 
@@ -1275,18 +1275,20 @@ Start-Sleep -s 10
           $_.Port | Out-File ".\Build\api.sh"
           $_.DeviceCall | Out-File ".\Build\mineref.sh"
          }
-	      $GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
+	$GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
        	$DayStat = "$($GetDayStat.Day)"
         $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
 	$MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
         $ScreenHash = "$($MinerScreenHash)"
-        $LogHash = "$($Miner_HashRates | ConvertTo-LogHash)"
-        Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
-	      Start-Sleep -S 1
-	      Write-Host "$($_.Type) is currently mining on $($_.MinerPool)"
-	      Start-Sleep -S 1
-	      Write-Host "$($_.Type) previous hashrates for $($_.Coins) is $MinerPrevious"
-        $LogHash | Out-File ".\Miner.log"
+        Write-Host "[$(Get-Date)]:" -foreground yellow -nonewline
+	Write-Host " $($_.Type) is currently" -foreground green -nonewline
+	Write-Host " $($_.Status):" -foreground green -nonewline
+	Write-Host " $($_.Name) current hashrate for $($_.Coins) is" -nonewline
+	Write-Host " $ScreenHash/s" -foreground green
+	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)" -foregroundcolor Cyan
+	Start-Sleep -S 1
+	Write-Host "$($_.Type) previous hashrates for $($_.Coins) is" -nonewline
+	Write-Host " $MinerPrevious/s" -foreground yellow
           }
         }
       }  
@@ -1298,64 +1300,64 @@ Start-Sleep -s 10
 
       Do{
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Write-Host "
 
       Type 'stats' in another terminal to view miner statistics
 
-      "
+      " -foreground Magenta
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Write-Host "
 
       Type 'active' in another terminal to view active/previous miners
 
-      "
+      " -foreground Magenta
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
       Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
-      Write-Host "Time Left Until Database Starts: $($Countdown)"
+      Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)-20){break}
       Get-MinerHashRate
       Start-Sleep -s 7
@@ -1392,7 +1394,7 @@ Start-Sleep -s 10
          if($WasActive -ge $StatsInterval)
           {
 	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
-	  Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "blue"
+	  Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "Cyan"
           for($i=0; $i -lt 4; $i++)
             {
               if($_.WasBenchmarked -eq $False)
@@ -1404,7 +1406,7 @@ Start-Sleep -s 10
                  {
                   $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
                   Start-Sleep -s 1
-		              Write-Host "Stat Written"
+		  Write-Host "Stat Written" -foreground Green
                   if(Test-Path (Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"))
                   {
                    if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
@@ -1426,9 +1428,9 @@ Start-Sleep -s 10
                 else
                  {
                  $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-				         Write-Host "Stat Written"
+		 Write-Host "Stat Written" -foreground Green
                  Start-Sleep -s 1
-		             $_.New = $False
+		 $_.New = $False
                  $_.Crashed = 0
                  $_.Hashrate_Gathered = $True
 		  if(Test-Path (Join-Path ".\Stats\" "$($_.Name)_$($_.Coins)_HashRate.txt"))

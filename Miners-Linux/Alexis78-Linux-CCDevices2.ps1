@@ -8,12 +8,12 @@ if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
-  "Nist5" = '-i 24'
-  "Hsr" = '-i 18'
-  "C11" = '-i 19'
-  "Quark" = ''
-  "Blake2s" = ''
-  "Skein" = '-i 27'
+    "Nist5" = '-i 25'
+    "Hsr" = ''
+    "C11" = '-i 20'
+    "Quark" = ''
+    "Blake2s" = ''
+    "Skein" = '-i 28'
 }
 
 
