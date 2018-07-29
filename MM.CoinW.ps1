@@ -409,18 +409,12 @@ catch {
 	 Remove-Item $Removed
         }
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
-        Write-Host "Cleared Timeouts" -ForegroundColor Red
         }
        }
        Write-Host "Cleared Timeouts" -ForegroundColor Red
        $TimeoutTimer.Restart()
        continue
-      }
-       Write-Host "Cleared Timeouts" -ForegroundColor Red
-       Write-Host "Cleared Timeouts" -ForegroundColor Red
-       $TimeoutTimer.Restart()
-       continue
-    }
+   }
 
     #Load information about the Pools
     $AllPools = if(Test-Path "CoinPools"){Get-ChildItemContent "CoinPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
@@ -787,23 +781,24 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
 
     function Get-MinerHashRate {
         $ActiveMinerPrograms | foreach {
-        if($_.Status -eq "Running")
-         {
-	$GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
-       	$DayStat = "$($GetDayStat.Day)"
-        $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
-	$MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
-        $ScreenHash = "$($MinerScreenHash)"
-        Write-Host "[$(Get-Date)]:" -foreground yellow -nonewline
-	Write-Host " $($_.Type) is currently" -foreground green -nonewline
-	Write-Host " $($_.Status):" -foreground green -nonewline
-	Write-Host " $($_.Name) current hashrate for $($_.Coins) is" -nonewline
-	Write-Host " $ScreenHash/s" -foreground green
-	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)" -foregroundcolor Cyan
-	Start-Sleep -S 1
-	Write-Host "$($_.Type) previous hashrates for $($_.Coins) is" -nonewline
-	Write-Host " $MinerPrevious/s" -foreground yellow
-          }
+          if($_.Status -eq "Running")
+          {
+         $Miner_HashRates = Get-HashRate $_.API $_.Port
+         $GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
+        $DayStat = "$($GetDayStat.Day)"
+         $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
+         $MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
+         $ScreenHash = "$($MinerScreenHash)"
+         Write-Host "[$(Get-Date)]:" -foreground yellow -nonewline
+         Write-Host " $($_.Type) is currently" -foreground green -nonewline
+         Write-Host " $($_.Status):" -foreground green -nonewline
+         Write-Host " $($_.Name) current hashrate for $($_.Coins) is" -nonewline
+         Write-Host " $ScreenHash/s" -foreground green
+         Write-Host "$($_.Type) is currently mining on $($_.MinerPool)" -foregroundcolor Cyan
+         Start-Sleep -S 1
+         Write-Host "$($_.Type) previous hashrates for $($_.Coins) is" -nonewline
+        Write-Host " $MinerPrevious/s" -foreground yellow
+           }
         }
       }  
 

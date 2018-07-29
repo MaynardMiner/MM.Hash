@@ -469,10 +469,8 @@ if($LastRan -ne "")
 	 Remove-Item $Removed
         }
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
-        Write-Host "Cleared Timeouts" -ForegroundColor Red
         }
        }
-       Write-Host "Cleared Timeouts" -ForegroundColor Red
        Write-Host "Cleared Timeouts" -ForegroundColor Red
        $TimeoutTimer.Restart()
        continue
