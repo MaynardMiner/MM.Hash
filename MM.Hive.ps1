@@ -952,17 +952,37 @@ function Get-MinerActive {
 
 
 function Get-MinerStatus {
+       Write-Host "
+                                                                             *      *         )        (       )
+                                                                           (  `   (  `     ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                                                                               " -foregroundcolor "DarkRed"
+        Write-Host "                                                                                    Sudo Apt-Get Lambo" -foregroundcolor "Yellow"
+        Write-Host ""
+        Write-Host ""
+        Write-Host ""
+        Write-Host ""
         $Y = [string]$CoinExchange
-	      $H = [string]$Currency
-	      $J = [string]'BTC'
+	$H = [string]$Currency
+	$J = [string]'BTC'
         $BTCExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=$Y&tsyms=$J" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $Y | Select-Object -ExpandProperty $J
-        $CurExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=$H" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $J | Select-Object -ExpandProperty $H
-        $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object Type,Profit | Format-Table -autosize -GroupBy Type (
-        @{Label = "Miner"; Expression={$_.Name}}, 
-        @{Label = "Coin/Algo"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
-        @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)"}else{"Bench"}}}; Align='center'}, 
-        @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'}, 
+       $CurExchangeRate = Invoke-WebRequest "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=$H" -UseBasicParsing | ConvertFrom-Json | Select-Object -ExpandProperty $J | Select-Object -ExpandProperty $H
+        Write-Host "1 $CoinExchange  = $BTCExchangeRate of a Bitcoin" -foregroundcolor "Yellow"
+     Write-Host "1 $CoinExchange = " "$Exchanged"  "$Currency" -foregroundcolor "Yellow"
+    $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort-Object -Descending Type,Profit | Format-Table -GroupBy Type (
+        @{Label = "Miner"; Expression={$_.Name}},
+        @{Label = "Coin"; Expression={$_.HashRates.PSObject.Properties.Name}},
+        @{Label = "Speed"; Expression={$_.HashRates.PSObject.Properties.Value | ForEach {if($_ -ne $null){"$($_ | ConvertTo-Hash)/s"}else{"Bench"}}}; Align='center'},
+        @{Label = "BTC/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  $_.ToString("N5")}else{"Bench"}}}; Align='right'},
+        @{Label = "$Y/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){  ($_ / $BTCExchangeRate).ToString("N5")}else{"Bench"}}}; Align='right'},
         @{Label = "$Currency/Day"; Expression={$_.Profits.PSObject.Properties.Value | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
+        @{Label = "Algorithm"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Algorithm)"}}; Align='center'},
+        @{Label = " Coin Name"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"  $($_.Mining)"}}; Align='center'},
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             )
       }
