@@ -1487,7 +1487,7 @@ Start-Sleep -s 10
             Start-Sleep -s 1
             if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
             Start-Sleep -s 1
-            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Coins)TIMEOUT.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
             Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Backup Folder" -foregroundcolor "darkred"
             $_.WasBenchmarked = $True
             $_.New = $False
