@@ -5,5 +5,6 @@ screen -ls "$SESSION_NAME" | (
   sed "s/^$IFS//" |
   while read -r name stuff; do
       screen -S "$name" -X quit
+      screen -S "$name" -X quit
   done
 )

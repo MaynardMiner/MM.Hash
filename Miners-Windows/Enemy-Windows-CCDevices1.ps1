@@ -1,5 +1,5 @@
 $Path = '.\Bin\z-enemy-Windows-CCDevices1-Algo\z-enemy.exe'
-$URI = 'https://github.com/MaynardMiner/linux-enemy/releases/download/v1.0/z-enemy.1-11-public-final_v3.zip'
+$URI = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/z-enemy.1-12-cuda9.2-public.zip'
 $Build = "Zip"
 
 if($CCDevices1 -ne ''){$Devices = $CCDevices1}
@@ -30,6 +30,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4069 -u $($Pools.(Get-Algorithm($_)).User1) -p $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
     HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
     Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+          	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
     Port = 4069
     API = "Ccminer"
     Wrap = $false
@@ -52,6 +53,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
    HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
    API = "Ccminer"
    Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+                MinerPool = "$($_.Name)"
    Port = 4068
    Wrap = $false
    URI = $Uri

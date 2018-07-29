@@ -1,5 +1,5 @@
 $Path = ".\Bin\EWBF-Windows-EWBFDevices3-Algo\miner.exe"
-$Uri = "https://github.com/MaynardMiner/EWB/releases/download/v1.0/EWBF.Equihash.miner.v0.3.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/EWBF.Equihash.miner.v0.4.zip"
 $Build = "Zip"
 
 if($EWBFDevices3 -ne ''){$Devices = $EWBFDevices3}
@@ -13,10 +13,11 @@ if($GPUDevices3 -ne '')
 
 $Commands = [PSCustomObject]@{
   "Equihash192" = '--algo 192_7 --pers ZERO_PoW' #Equihash192
-  "Equihash144" =  '--algo 144_5 --pers sngemPoW'
+  "Equihash144xsg" =  '--algo 144_5 --pers sngemPoW'
   "Equihash144btcz" = '--algo 144_5 --pers BitcoinZ'
   "Equihash144zel" = '--algo 144_5 --pers ZelProof'
   "Equihash-BTG" = '--algo 144_5 --pers BgoldPoW'
+  "Equihash144safe" = '--algo 144_5 --pers Safecoin'
   }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
@@ -34,6 +35,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Arguments = "--api 0.0.0.0:42003 --server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User3) --pass $($Pools.(Get-Algorithm($_)).Pass3) $($Commands.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+              	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
         API = "EWBF"
         Port = 42003
         Wrap = $false
@@ -55,6 +57,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Arguments = "--api 0.0.0.0:42003 --server $($_.Host) --port $($_.Port) --user $($_.User3) --pass $($_.Pass3) $($Commands.$($_.Algorithm))"
         HashRates = [PSCustomObject]@{$_.Symbol= $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
         Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+                     MinerPool = "$($_.Name)"
         API = "EWBF"
         Port = 42003
         Wrap = $false

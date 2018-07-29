@@ -36,6 +36,7 @@ $Commands = [PSCustomObject]@{
             HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
             Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
             Port = 4069
+            MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
             API = "Ccminer"
             Wrap = $false
             URI = $Uri
@@ -57,6 +58,7 @@ $Commands = [PSCustomObject]@{
            HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
            API = "Ccminer"
            Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+                        MinerPool = "$($_.Name)"
            Port = 4069
            Wrap = $false
            URI = $Uri

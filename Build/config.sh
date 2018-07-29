@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash/Bin/krnlx-Linux-CCDevices2/ccminer-NVIDIA2 -d GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050ti#6,GTX1050ti#7,GTX1050ti#8 -a Xevan -o stratum+tcp://xevan.mine.zergpool.com:3739 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash 
+/hive/custom/MM.Hash/Bin/Alexis78-Linux-CCDevices2/ccminer-NVIDIA2 -d GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050ti#7,GTX1050ti#8 -a hsr -o stratum+tcp://hsr.mine.zergpool.com:7433 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,mc=HSR -i 18

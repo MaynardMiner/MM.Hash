@@ -13,10 +13,11 @@ if($GPUDevices1 -ne '')
 
 $Commands = [PSCustomObject]@{
   "Equihash192" = '--algo 192_7 --pers ZERO_PoW' #Equihash192
-  "Equihash144" =  '--algo 144_5 --pers sngemPoW'
+  "Equihash144xsg" =  '--algo 144_5 --pers sngemPoW'
   "Equihash144btcz" = '--algo 144_5 --pers BitcoinZ'
   "Equihash144zel" = '--algo 144_5 --pers ZelProof'
   "Equihash-BTG" = '--algo 144_5 --pers BgoldPoW'
+  "Equihash144safe" = '--algo 144_5 --pers Safecoin' 
   }
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

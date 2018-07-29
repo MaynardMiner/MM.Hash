@@ -29,6 +29,7 @@ if($GPUDevices1 -ne '')
             Arguments = "--server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User1) --pass $($Pools.(Get-Algorithm($_)).Pass1) --telemetry=0.0.0.0:42001 $($Commands.$_)"
             HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
             Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+            MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
             API = "DSTM"
             Port = 42001
             Wrap = $false
@@ -51,6 +52,7 @@ if($GPUDevices1 -ne '')
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
          API = "DSTM"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+                      MinerPool = "$($_.Name)"
          Port = 42001
          Wrap = $false
          URI = $Uri

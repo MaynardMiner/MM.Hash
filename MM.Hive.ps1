@@ -141,41 +141,24 @@ $LogTimer = New-Object -TypeName System.Diagnostics.Stopwatch
 $LogTimer.Start()
 $Log = 1
  
-if(Test-Path ".\stats")
+if(Test-Path ".\Build\stats")
  {
-  if(Test-Path "/usr/bin/stats")
-   {
-    if(Test-Path ".\Build\stats")
-     {
-      Remove-Item -Path ".\stats" -force | Out-Null
-     }
-    else
-     {
-     Move-Item ".\stats" -Destination ".\Build" -force
-     }
-   }
+  if(Test-Path "/usr/bin/stats"){Remove-Item -Path ".\Build\stats" -force | Out-Null}
   else
    {
-      Move-Item ".\stats" -Destination "/usr/bin" | Out-Null
+      Move-Item ".\Build\stats" -Destination "/usr/bin" | Out-Null
       Set-Location "/usr/bin"
       Start-Process "chmod" -ArgumentList "+x stats"
       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
    }
  }
 
-if(Test-Path ".\active")
+if(Test-Path ".\Build\active")
  {
-  if(Test-Path "/usr/bin/active")
-   {
-    if(Test-Path ".\Build\active")
-     {
-      Remove-Item -Path ".\active" -force | Out-Null
-     }
-    Move-Item ".\active" -Destination ".\Build" -force
-   }
+  if(Test-Path "/usr/bin/active"){Remove-Item -Path ".\Build\active" -force | Out-Null}
   else
    {
-    Move-Item ".\active" -Destination "/usr/bin" | Out-Null
+    Move-Item ".\Build\active" -Destination "/usr/bin" | Out-Null
     Set-Location "/usr/bin"
     Start-Process "chmod" -ArgumentList "+x active"
     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
@@ -474,19 +457,22 @@ if($LastRan -ne "")
     }
     else
     {
-    $Stats = [PSCustomObject]@{}
-    $AllStats = if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
-    $Allstats | ForEach-Object{
-      if($_.Live -eq 0)
+    $AllStats = if(Test-Path "./Stats"){Get-ChildItemContent "./Stats"}
+
+    $AllStats | ForEach-Object{
+      if($_.Content.Live -eq 0)
        {
-        $Removed = Join-Path "Stats" "$($_.Name).txt"
+        $Removed = Join-Path "./Stats" "$($_.Name).txt"
         $Change = $($_.Name) -replace "HashRate","TIMEOUT"
-        if(Test-Path (Join-Path "Timeout" "$($Change).txt"))
-        {Remove-Item (Join-Path "Timeout" "$($Change).txt")}
-	Remove-Item $Removed
+        if(Test-Path (Join-Path "./Timeout" "$($Change).txt"))
+        {Remove-Item (Join-Path "./Timeout" "$($Change).txt")
+	 Remove-Item $Removed
+        }
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
+        Write-Host "Cleared Timeouts" -ForegroundColor Red
         }
        }
+       Write-Host "Cleared Timeouts" -ForegroundColor Red
        Write-Host "Cleared Timeouts" -ForegroundColor Red
        $TimeoutTimer.Restart()
        continue
@@ -729,21 +715,23 @@ if($_.Type -like '*NVIDIA*')
     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
     Start-Sleep $Delay #Wait to prevent BSOD
     $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
      if($_.API -eq "ccminer")
       {
        $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
       }
+     Start-Sleep -S 1
      $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
      $MinerTimer.Restart()
        Do{
-	 Start-Sleep -S 3
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -779,25 +767,22 @@ $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build
 $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
 $MinerConfig = "$MinerLocation $MinerArguments"
 $MinerConfig | Out-File ".\Build\config.sh"
-Set-Location ".\Build"
-Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-Start-Sleep $Delay #Wait to prevent BSOD
-$_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
- if($_.API -eq "ccminer")
-  {
-   $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-  }
- $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
- $MinerTimer.Restart()
-   Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -810,8 +795,8 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
               }
 	    }
           }
-     }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-   $MinerTimer.Stop()
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
    Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
 }
@@ -834,25 +819,22 @@ $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build
 $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
 $MinerConfig = "$MinerLocation $MinerArguments"
 $MinerConfig | Out-File ".\Build\config.sh"
-Set-Location ".\Build"
-Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-Start-Sleep $Delay #Wait to prevent BSOD
-$_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
- if($_.API -eq "ccminer")
-  {
-   $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-  }
- $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
- $MinerTimer.Restart()
-   Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -865,8 +847,8 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
               }
 	    }
           }
-     }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-   $MinerTimer.Stop()
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
    Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
  }
@@ -889,25 +871,22 @@ $Invocation = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build
 $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
 $MinerConfig = "$MinerLocation $MinerArguments"
 $MinerConfig | Out-File ".\Build\config.sh"
-Set-Location ".\Build"
-Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-Start-Sleep $Delay #Wait to prevent BSOD
-$_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
- if($_.API -eq "ccminer")
-  {
-   $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-  }
- $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
- $MinerTimer.Restart()
-   Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -920,9 +899,8 @@ $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassTh
               }
 	    }
           }
-     }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-   $MinerTimer.Stop()
-   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
    Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
  }
  
@@ -1058,25 +1036,27 @@ function Get-MinerStatus {
          $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
          $MinerConfig = "$MinerLocation $MinerArguments"
          $MinerConfig | Out-File ".\Build\config.sh"
-         Set-Location ".\Build"
-         Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-         Start-Sleep $Delay #Wait to prevent BSOD
-         $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
-          if($_.API -eq "ccminer")
-           {
-            $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-           }
-          $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
-          $MinerTimer.Restart()
-            Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     if($_.API -eq "ccminer")
+      {
+       $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
+      }
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -1089,9 +1069,9 @@ function Get-MinerStatus {
               }
 	    }
           }
-              }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-            $MinerTimer.Stop()
-            Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
             Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
       }
      
@@ -1112,25 +1092,22 @@ function Get-MinerStatus {
      $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
      $MinerConfig = "$MinerLocation $MinerArguments"
      $MinerConfig | Out-File ".\Build\config.sh"
-     Set-Location ".\Build"
-     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-     Start-Sleep $Delay #Wait to prevent BSOD
-     $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
-      if($_.API -eq "ccminer")
-       {
-        $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-       }
-      $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
-      $MinerTimer.Restart()
-        Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -1143,9 +1120,9 @@ function Get-MinerStatus {
               }
 	    }
           }
-          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-        $MinerTimer.Stop()
-        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
         Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
      }
      
@@ -1167,25 +1144,22 @@ function Get-MinerStatus {
      $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
      $MinerConfig = "$MinerLocation $MinerArguments"
      $MinerConfig | Out-File ".\Build\config.sh"
-     Set-Location ".\Build"
-     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-     Start-Sleep $Delay #Wait to prevent BSOD
-     $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
-      if($_.API -eq "ccminer")
-       {
-        $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-       }
-      $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
-      $MinerTimer.Restart()
-        Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -1198,9 +1172,9 @@ function Get-MinerStatus {
               }
 	    }
           }
-          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-        $MinerTimer.Stop()
-        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
         Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
       }
      
@@ -1222,25 +1196,27 @@ function Get-MinerStatus {
      $MinerLocation = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
      $MinerConfig = "$MinerLocation $MinerArguments"
      $MinerConfig | Out-File ".\Build\config.sh"
-     Set-Location ".\Build"
-     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
-     Start-Sleep $Delay #Wait to prevent BSOD
-     $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
-      if($_.API -eq "ccminer")
-       {
-        $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
-       }
-      $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
-      $MinerTimer.Restart()
-        Do{
-	 Start-Sleep -S 3
+    Set-Location ".\Build"
+    Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Sleep $Delay #Wait to prevent BSOD
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+     Start-Sleep -S 1
+     if($_.API -eq "ccminer")
+      {
+       $_.PreStart = Start-Process ".\pre-start.sh" -ArgumentList "$($_.Type) $Export"
+      }
+     Start-Sleep -S 1
+     $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
+     $MinerTimer.Restart()
+       Do{
+	 Start-Sleep -S 1
          $PIDFile = ".\PID\$($_.Name)_$($_.Coins)_PID.txt"
 	 $MinerProcessId = Get-Process -Name "$($_.MinerName)" -ErrorAction SilentlyContinue
 	 if($MinerProcessId -ne $null)
 	  {
            if(Test-Path $PIDFile){Clear-Content $PIDFile}
            $MinerProcessId.Id | Out-File $PIDFile
-           Start-Sleep -S 2
+           Start-Sleep -S 1
            if(Test-Path $PIDFile)
             {
 	    $LastWrite = [datetime](Get-ItemProperty -Path $PIDFile -Name LastWriteTime).LastWriteTime
@@ -1253,9 +1229,9 @@ function Get-MinerStatus {
               }
 	    }
           }
-          }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 5)
-        $MinerTimer.Stop()
-        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+         }until($_.XProcess -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)
+       $MinerTimer.Stop()
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
         Write-Host "Starting $($_.Name) Mining $($_.Coins) on $($_.Type) PID is $($_.XProcess.Id)" -ForegroundColor Blue
       }
 
