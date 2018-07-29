@@ -105,7 +105,9 @@ Argument          Options           Explanation
                                     can allow you to increase the delay time before openining new miners,
                                     which can give your gpu's a 'cooldown' time if you desire that preference.
 
-                                    
+-Benchmark     [0-100000]           Expressed in seconds. Default 0. Sets specific interval time for when coin 
+				    is in benchmark mode. Can be used for faster benchmarking. When coin has
+				    a set hashrate- Miner will defer to time expressed in -Interval parameter.
 
 ***********************************************************************************************************
 ***********************************************************************************************************
