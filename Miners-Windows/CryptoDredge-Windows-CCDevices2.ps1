@@ -1,33 +1,17 @@
-$Path = ".\Bin\tpruvot-Windows-CCDevices1-Algo\ccminer-x64.exe"
-$Uri = "https://github.com/tpruvot/ccminer/releases/download/2.3-tpruvot/ccminer-2.3-cuda9.7z"
+$Path = ".\Bin\CyrptoDredge-Windows-CCDevices2-Algo\CryptoDredge.exe"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/CryptoDredge_0.8.0_win_x64.zip"
 
 
-if($CCDevices1 -ne ''){$Devices = $CCDevices1}
-if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
+if($CCDevices2 -ne ''){$Devices = $CCDevices2}
+if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
-#Algorithms
-#Lyra2v2
-#Keccak
-#Skunk
-#Tribus
-#Phi
-#Keccakc
-#Lyra2z
-#Bitcore
-#Hmq1725
-#Timetravel
-#Sib
-
 $Commands = [PSCustomObject]@{
-"Keccak" = ''
-"Skunk" = ''
-"Phi" = ''
-"Keccakc" = ''
-"Bitcore" = ''
-"Hmq1725" = ''
-"Timetravel" = ''
-"Sib" = ''
+"Lyra2v2" = ''
+"Tribus" = ''
+"Lyra2z" = ''
+"Phi2" = ''
+"Allium" = ''
 }
 
 
@@ -35,16 +19,16 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Algorithm)")
    {
         [PSCustomObject]@{
-        MinerName = "ccminer"
-	Type = "NVIDIA1"
+        MinerName = "CryptoDredge"
+	    Type = "NVIDIA2"
         Path = $Path
         Devices = $Devices
         DeviceCall = "ccminer"
-        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4068 -u $($Pools.(Get-Algorithm($_)).User1) -p $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
+        Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4069 -u $($Pools.(Get-Algorithm($_)).User2) -p $($Pools.(Get-Algorithm($_)).Pass2) $($Commands.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-	Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+	    Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
       	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
-	Port = 4068
+	    Port = 4069
         API = "Ccminer"
         Wrap = $false
         URI = $Uri
@@ -57,17 +41,17 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
         if("$($_.Coin)" -eq "Yes")
         {
         [PSCustomObject]@{
-         MinerName = "ccminer"
-         Type = "NVIDIA1"
+         MinerName = "CryptoDredge"
+         Type = "NVIDIA2"
          Path = $Path
          Devices = $Devices
          DeviceCall = "ccminer"
-         Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4068 -u $($_.User1) -p $($_.Pass1) $($Commands.$($_.Algorithm))"
+         Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4069 -u $($_.User2) -p $($_.Pass2) $($Commands.$($_.Algorithm))"
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
          API = "Ccminer"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
                       MinerPool = "$($_.Name)"
-         Port = 4068
+         Port = 4069
          Wrap = $false
          URI = $Uri
          BUILD = $Build

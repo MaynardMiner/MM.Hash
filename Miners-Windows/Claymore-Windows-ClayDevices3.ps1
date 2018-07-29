@@ -31,6 +31,7 @@ if($GPUDevices3 -ne '')
                 HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
                 Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
                 API = "claymore"
+                      	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
                 Port = 3335
                 Wrap = $false
                 URI = $Uri
@@ -51,6 +52,7 @@ if($GPUDevices3 -ne '')
         Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($_.Protocol)://$($_.Host):$($_.Port) -ewal $($_.User3) -epsw $($_.Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$($_.Algorithm))"
         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
         Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+                 MinerPool = "$($_.Name)"
         API = "claymore"
         Port = 3335
         Wrap = $false

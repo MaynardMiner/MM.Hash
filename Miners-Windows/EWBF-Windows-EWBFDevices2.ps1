@@ -1,5 +1,5 @@
 $Path = ".\Bin\EWBF-Windows-EWBFDevices2-Algo\miner.exe"
-$Uri = "https://github.com/MaynardMiner/EWB/releases/download/v1.0/EWBF.Equihash.miner.v0.3.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/EWBF.Equihash.miner.v0.4.zip"
 $Build = "Zip"
 
 if($EWBFDevices2 -ne ''){$Devices = $EWBFDevices2}
@@ -34,6 +34,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Arguments = "--api 0.0.0.0:42002 --server $($Pools.(Get-Algorithm($_)).Host) --port $($Pools.(Get-Algorithm($_)).Port) --user $($Pools.(Get-Algorithm($_)).User2) --pass $($Pools.(Get-Algorithm($_)).Pass2) $($Commands.$_)"
         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
         Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+              	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
         API = "EWBF"
         Port = 42002
         Wrap = $false
@@ -55,6 +56,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     Arguments = "--api 0.0.0.0:42002 --server $($_.Host) --port $($_.Port) --user $($_.User2) --pass $($_.Pass2) $($Commands.$($_.Algorithm))"
     HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
     Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+                 MinerPool = "$($_.Name)"
     API = "EWBF"
     Port = 42002
     Wrap = $false

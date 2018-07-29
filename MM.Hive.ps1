@@ -141,41 +141,24 @@ $LogTimer = New-Object -TypeName System.Diagnostics.Stopwatch
 $LogTimer.Start()
 $Log = 1
  
-if(Test-Path ".\stats")
+if(Test-Path ".\Build\stats")
  {
-  if(Test-Path "/usr/bin/stats")
-   {
-    if(Test-Path ".\Build\stats")
-     {
-      Remove-Item -Path ".\stats" -force | Out-Null
-     }
-    else
-     {
-     Move-Item ".\stats" -Destination ".\Build" -force
-     }
-   }
+  if(Test-Path "/usr/bin/stats"){Remove-Item -Path ".\Build\stats" -force | Out-Null}
   else
    {
-      Move-Item ".\stats" -Destination "/usr/bin" | Out-Null
+      Move-Item ".\Build\stats" -Destination "/usr/bin" | Out-Null
       Set-Location "/usr/bin"
       Start-Process "chmod" -ArgumentList "+x stats"
       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
    }
  }
 
-if(Test-Path ".\active")
+if(Test-Path ".\Build\active")
  {
-  if(Test-Path "/usr/bin/active")
-   {
-    if(Test-Path ".\Build\active")
-     {
-      Remove-Item -Path ".\active" -force | Out-Null
-     }
-    Move-Item ".\active" -Destination ".\Build" -force
-   }
+  if(Test-Path "/usr/bin/active"){Remove-Item -Path ".\Build\active" -force | Out-Null}
   else
    {
-    Move-Item ".\active" -Destination "/usr/bin" | Out-Null
+    Move-Item ".\Build\active" -Destination "/usr/bin" | Out-Null
     Set-Location "/usr/bin"
     Start-Process "chmod" -ArgumentList "+x active"
     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)

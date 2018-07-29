@@ -35,8 +35,9 @@ $Commands = [PSCustomObject]@{
             DeviceCall = "ccminer"
             Arguments = "-a $_ -o stratum+tcp://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4068 -u $($Pools.(Get-Algorithm($_)).User1) -p $($Pools.(Get-Algorithm($_)).Pass1) $($Commands.$_)"
             HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-      Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-      Port = 4068
+            Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+            Port = 4068
+          	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
             API = "Ccminer"
             Wrap = $false
             URI = $Uri
@@ -58,6 +59,7 @@ $Commands = [PSCustomObject]@{
              HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
              API = "Ccminer"
              Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
+             MinerPool = "$($_.Name)"
              Port = 4068
              Wrap = $false
              URI = $Uri

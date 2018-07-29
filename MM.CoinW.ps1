@@ -122,7 +122,9 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$Auto_Algo = "Yes",
     [Parameter(Mandatory=$false)]
-    [Int]$Nicehash_Fee
+    [Int]$Nicehash_Fee,
+    [Parameter(Mandatory=$false)]
+    [Int]$Benchmark = 0
 )
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
@@ -153,7 +155,13 @@ $DecayBase = 1-0.1 #decimal percentage
 $ActiveMinerPrograms = @()
 
 #Start the log
-Start-Transcript ".\Logs\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").txt"
+#Start the log
+
+$Log = 1
+Start-Transcript ".\Logs\MM.Hash$($Log).log"
+$LogTimer = New-Object -TypeName System.Diagnostics.Stopwatch
+$LogTimer.Start()
+$Log = 1
 
 if((Get-Item ".\Build\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
  {
@@ -236,7 +244,7 @@ Write-Host "
                                                                                                           \__.'          '======'
 					    				      SNIPER-MODE ACTIVATED
 						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
-									.85% Dev Fee Was Written In This Code
+									1.0% Daily Dev Fee Was Written In This Code
 					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
 " -foregroundColor "darkred"
 
@@ -245,9 +253,10 @@ $TimeoutTimer.Start()
 
 while($true)
 {
+$MinerWatch = New-Object -TypeName System.Diagnostics.Stopwatch
 $TimeoutTime = [int]$Timeout*3600
 $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
-$TimeDeviation = [int]($Donate + .85)
+$TimeDeviation = [int]($Donate + 1.0)
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
@@ -396,7 +405,8 @@ catch {
         $Removed = Join-Path "Stats" "$($_.Name).txt"
         $Change = $($_.Name) -replace "HashRate","TIMEOUT"
         if(Test-Path (Join-Path "Backup" "$($Change).txt"))
-        {Remove-Item (Join-Path "Backup" "$($Change).txt")}
+        {Remove-Item (Join-Path "Backup" "$($Change).txt")
+         Remove-Item $Removed}
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
         Write-Host "Cleared Timeouts" -ForegroundColor Red
         }
@@ -550,9 +560,9 @@ catch {
              Type = $_.Type
              Devices = $_.Devices
              DeviceCall = $_.DeviceCall
-	     MinerName = $_.MinerName
+	         MinerName = $_.MinerName
              Arguments = $_.Arguments
-	     Wrap = $_.Wrap
+	         Wrap = $_.Wrap
              MiningName = $null
              MiningId = $null
              Process = $null
@@ -571,6 +581,7 @@ catch {
              Crashed = 0
              Timeout = 0
              WasBenchmarked = $false
+             MinerPool = $_.MinerPool
             }
         }
     }
@@ -626,9 +637,25 @@ catch {
             }
         }
     }
-}
-    #Display mining information
-    Clear-Host
+}   
+
+
+$MinerWatch.Restart()
+
+
+Write-Host "
+
+
+
+
+Waiting 10 Seconds For Miners To Spool Up
+
+
+
+"
+Start-Sleep -s 10
+
+
     #Display active miners list
     $ActiveMinerPrograms | Sort -Descending Status,{if($_.Process -eq $null){[DateTime]0}else{$_.Process.StartTime}} | Select -First (1+6+6) | Format-Table -Wrap -GroupBy Status (
         @{Label = "Speed"; Expression={$_.HashRate | ForEach {"$($_ | ConvertTo-Hash)/s"}}; Align='right'},
@@ -670,16 +697,55 @@ catch {
         @{Label = "Pool"; Expression={$_.Pools.PSObject.Properties.Value | ForEach {"$($_.Name)"}}; Align='center'}
             ) | Out-Host
 
-#Do nothing for 15 seconds, and check if ccminer is actually running
-$CheckMinerInterval = 15
-Start-Sleep ($CheckMinerInterval)
-$ActiveMinerPrograms | ForEach {
-    if($_.Process -eq $null -or $_.Process.HasExited)
-    {
-        if($_.Status -eq "Running")
-	 {
-            $_.Failed30sLater++
-            if($_.Type -like '*NVIDIA*')
+$ActiveMinerPrograms | Foreach {
+ if($($_.HashRates) -eq $null)
+  {
+ if($Benchmark -ne 0){$MinerInterval = $Benchmark}
+ else{$MinerInterval = $Interval}
+  }
+ }
+
+ if($Log -eq 12)
+ {
+  Remove-Item ".\Logs\*.log"
+  $Log = 1
+ }
+
+if($LogTimer.Elapsed.TotalSeconds -ge 3600)
+{
+ Stop-Transcript
+ Start-Transcript ".\Logs\MM.Hash$($Log).log"
+ $Log++
+ $LogTimer.Restart()
+}
+
+
+     #You can examine the difference before and after with:
+     ps powershell* | Select *memory* | ft -auto `
+     @{Name='Virtual Memory Size (MB)';Expression={($_.VirtualMemorySize64)/1MB}; Align='center'}, `
+     @{Name='Private Memory Size (MB)';Expression={(  $_.PrivateMemorySize64)/1MB}; Align='center'},
+     @{Name='Memory Used This Session (MB)';Expression={([System.gc]::gettotalmemory("forcefullcollection") /1MB)}; Align='center'}
+ 
+ 
+     #Reduce Memory
+     Get-Job -State Completed | Remove-Job
+     [GC]::Collect()
+     [GC]::WaitForPendingFinalizers()
+     [GC]::Collect()
+ 
+ 
+     Write-Host "1 $CoinExchange  = " "$Exchanged" "$Currency" -foregroundcolor "Yellow" 
+
+ function Restart-Miner {
+    $ActiveMinerPrograms | ForEach {
+       if(($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments).Count -gt 0)
+        {
+         if($_.Process -eq $null -or $_.Process.HasExited)
+            {
+             if($_.Status -eq "Running"){$_.Status = "Failed"}
+             Write-Host "$($_.MinerName) Has Failed- Attempting Restart"
+             $_.Failed30sLater++
+             if($_.Type -like '*NVIDIA*')
                 {
                 if($_.Devices -eq $null){$T = "$($_.Arguments)"}
                 else
@@ -688,59 +754,98 @@ $ActiveMinerPrograms | ForEach {
                  if($_.DeviceCall -eq "EWBF"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                  if($_.DeviceCall -eq "DSTM"){$T = "--dev $($_.Devices) $($_.Arguments)"}
                  if($_.DeviceCall -eq "claymore"){$T = "-di $($_.Devices) $($_.Arguments)"}
-	         if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+	             if($_.DeviceCall -eq "cuballoon"){$T = "--cuda_devices $($_.Devices) $($_.Arguments)"}
                 }
                 if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
                 else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
                 }
             if($_.Type -eq "CPU")
              {
-	     $T = "$($_.Arguments)"
+             $T = "$($_.Arguments)"
              if($_.Wrap){$_.Process = Start-Process -FilePath "PowerShell" -ArgumentList "-executionpolicy bypass -command . '$(Convert-Path ".\Wrapper.ps1")' -ControllerProcessID $PID -Id '$($_.Port)' -FilePath '$($_.Path)' -ArgumentList "$T" -WorkingDirectory '$(Split-Path $_.Path)'" -PassThru}
              else{$_.Process = Start-SubProcess -FilePath $_.Path -ArgumentList "$T" -WorkingDirectory (Split-Path $_.Path)}
-              }
-             Start-Sleep ($CheckMinerInterval)
-             if($_.Process -eq $null -or $_.Process.HasExited)
-              {
-               $_.Crashed++
-               Write-Host "$($_.Name) Has Fallen And Can't Get up!" -foregroundcolor "darkred"
-               if($_.Crashed -le 1)
-                {
-                 continue
-                }
-              }
-             else
-              {
-               $_.Recover30sLater++
-              }
-           }
+             }
+                if($_.Process -eq $null){$_.Status = "Failed"}
+                else{$_.Status = "Running"}
+            }
         }
+      }
     }
 
+    function Get-MinerHashRate {
+        $ActiveMinerPrograms | foreach {
+        if($_.Status -eq "Running")
+         {
+        $Miner_HashRates = Get-HashRate $_.API $_.Port
+	    $GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
+       	$DayStat = "$($GetDayStat.Day)"
+        $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
+	    $MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
+        $ScreenHash = "$($MinerScreenHash)"
+        Write-Host "[$(Get-Date)]: $($_.Type) is currently $($_.Status): $($_.Name) current hashrate for $($_.Coins) is $ScreenHash"
+	      Start-Sleep -S 1
+	      Write-Host "$($_.Type) previous hashrates for $($_.Coins) is $MinerPrevious"
+          Start-Sleep -S 1
+          Write-Host "$($_.Type) is mining on $($_.MinerPool)"
+        $LogHash | Out-File ".\Miner.log"
+          }
+        }
+      }  
 
-    #You can examine the difference before and after with:
-    ps powershell* | Select *memory* | ft -auto `
-    @{Name='Virtual Memory Size (MB)';Expression={($_.VirtualMemorySize64)/1MB}; Align='center'}, `
-    @{Name='Private Memory Size (MB)';Expression={(  $_.PrivateMemorySize64)/1MB}; Align='center'},
-    @{Name='Memory Used This Session (MB)';Expression={([System.gc]::gettotalmemory("forcefullcollection") /1MB)}; Align='center'}
-
-
-    #Reduce Memory
-    Get-Job -State Completed | Remove-Job
-    [GC]::Collect()
-    [GC]::WaitForPendingFinalizers()
-    [GC]::Collect()
-
-
-    Write-Host "1 $CoinExchange  = " "$Exchanged" "$Currency" -foregroundcolor "Yellow"
-
-    #Do nothing for a set Interval to allow miner to run
-    If ([int]$Interval -gt [int]$CheckMinerInterval) {
-	Start-Sleep ($Interval-$CheckMinerInterval)
-    }
-    else {
-        Start-Sleep ($Interval)
-    }
+      Do{
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Restart-Miner
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Restart-Miner
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
+        Write-Host "Time Left Until Database Starts: $($Countdown)"
+        if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)-20){break}
+        Get-MinerHashRate
+        Start-Sleep -s 7
+        }While($MinerWatch.Elapsed.TotalSeconds -lt ($MinerInterval-20))
 
     #Save current hash rates
     $ActiveMinerPrograms | foreach {
@@ -829,14 +934,14 @@ $ActiveMinerPrograms | ForEach {
           {
 	  if($StatsInvterval -lt 2)
 	   {
-           if(-not (Test-Path (Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt")))
+           if(-not (Test-Path (Join-Path ".\Timeout" "$($_.Name)_$($_.Coins)_HashRate.txt")))
             {
-	    $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
+	        $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
-            if (-not (Test-Path ".\Backup")) {New-Item "Backup" -ItemType "directory" | Out-Null}
+            if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
             Start-Sleep -s 1
-            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
             Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Backup Folder" -foregroundcolor "darkred"
             $_.WasBenchmarked = $True
             $_.New = $False
@@ -846,10 +951,10 @@ $ActiveMinerPrograms | ForEach {
             }
           else
            {
-            $TimeoutFile = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
+            $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
             Start-Sleep -s 1
-            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Backup" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
+            if((Test-Path $TimeoutFile) -eq $false){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
             $_.WasBenchmarked = $True
             $_.New = $False
             $_.Hashrate_Gathered = $True
