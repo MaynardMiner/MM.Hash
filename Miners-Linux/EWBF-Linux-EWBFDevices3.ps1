@@ -47,26 +47,4 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     }
   }
 
-    $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne $null} | ForEach {
-      if("$($_.Coin)" -eq "Yes")
-       {
-      [PSCustomObject]@{
-        Symbol = $_.Symbol
-        MinerName = "miner-NVIDIA3"
-        Type = "NVIDIA3"
-        Path = $Path
-        Devices = $Devices
-        DeviceCall = "ewbf"
-        Arguments = "--api 0.0.0.0:42002 --server $($_.Host) --port $($_.Port) --user $($_.User3) --pass $($_.Pass3) $($Commands.$($_.Algorithm))"
-        HashRates = [PSCustomObject]@{$_.Symbol= $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
-        Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
-	 MinerPool = "$($_.Name)"
-        API = "EWBF"
-        Port = 42002
-        Wrap = $false
-        URI = $Uri
-        BUILD = $Build
-       }
-      }
-     }
   

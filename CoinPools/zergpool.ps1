@@ -26,8 +26,6 @@ if($Auto_Coin -eq "Yes")
    }
   
    $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpool_Request.$_.algo} | Where-Object {$zergpool_Request.$_.hashrate -ne "0"} | Where-Object {$zergpool_Request.$_.noautotrade -eq "0"} | Where-Object {$zergpool_Request.$_.estimate -ne "0.00000"} | ForEach-Object {
-   if($zergpool_Request.$_.algo -ne "equihash192" -or $zergpool_Request.$_.algo -ne "equihash144zel" -or $zergpool_Request.$_.algo -ne "equihash144btcz" -or $zergpool_Request.$_.algo -ne "equihash144safe" -or $zergpool_Request.$_.algo -ne "equihash144xsg" -or $zergpool_Request.$_.algo -ne "equihash")
-    {
     $zergpool_Coin = $_
     $zergpool_Symbol = $_
     switch ($zergpool_Symbol) {
@@ -44,7 +42,7 @@ if($Auto_Coin -eq "Yes")
     $zergpool_Hashrate = $zergpool_Request.$_.hashrate
     $zergpool_24h= "24h_btc"
     $Divisor = (1000000*$zergpool_Request.$_.mbtc_mh_factor)
-     
+    
     if($Algorithm -eq $zergpool_Algorithm)
       {
     if((Get-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit" -Value ([Double]$zergpool_Request.$_.$($zergpool_24h)/$Divisor*(1-($zergpool_fees/100)))}
@@ -86,8 +84,7 @@ if($Auto_Coin -eq "Yes")
 	        Pass3 = "c=$Zergpass3,mc=$zergpool_Coin"
             Location = $Location
             SSL = $false
-	  }
-        }
+        
       }
      }
     }
@@ -162,6 +159,7 @@ if($Auto_Coin -eq "Yes")
                 Pass3 = "c=$Zergpass3,ID=$Rigname3"
                 Location = $Location
                 SSL = $false
+              }
             }
           }
         }

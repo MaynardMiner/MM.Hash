@@ -463,6 +463,128 @@ function Get-HashRate {
     {
     }
 }
+ 
+
+function Get-LogHash {
+    param(
+        [Parameter (Mandatory=$true,
+                    Position = 0)]
+        $API,
+        [Parameter (Mandatory=$true,
+                    Position = 1)]
+        $Path,
+        [Parameter (Mandatory=$true,
+                    Position = 3)]
+        $GPUS
+    )
+
+	$MinerLog = Join-Path $Path "HashRate.log"
+        
+switch($API)
+ {
+  "TRex"
+     {
+      if(Test-Path $MinerLog)
+       {
+        ##Total Hashrate
+        $AA = Get-Content $MinerLog
+        if([regex]::match($AA,"/s").success -eq $true)
+         {
+          $BB = $AA | Select-String "/s" | Select-String "-"
+	  if([regex]::match($BB,"MH/s").success  -eq $True){$Hash = "MH/s"}
+	  else{$Hash = "kH/s"}
+          $CC = $BB -replace (" ","")
+          $DD = $CC -split "-"
+          $EE = $DD | Select-String "$($Hash)" | Select -Last 1
+          $FF = $EE -replace ("$($Hash)","")
+	  $GG = [Double]$FF
+	  if($Hash -eq "kH/s"){$Hashrates = $GG*1000}
+	  else{$Hashrates = [Double]$GG*1000000}
+         }
+	else{$Hashrates = 0}
+       }
+     else{$Hashrates = 0}
+     [Double]$Hashrates
+     }
+   }
+  }
+
+function Get-GPUHash {
+        [Parameter(Mandatory=$true)]
+        [String]$API,
+        [Parameter(Mandatory=$true)]
+        [String]$Path,
+	[Parameter(Mandatory=$true)]
+        [Int]$GPUS
+
+	$MinerLog = Join-Path $Path "HashRate.log"
+
+switch($API)
+ {
+  "TRex"
+     {
+      if(Test-Path $MinerLog)
+       {
+        $KH = "kH/s"
+	$MH = "MH/s"
+        ##Individual Hashrates
+        $A = Get-Content $MinerLog | Select-String "MH/s" | Select-String "GPU"
+        $B = $A -split "GPU"
+        $C = $B | Select-String "MH/s"
+        $D = $C -replace (" ","")
+        $E = $D -split ":"
+        $F = $E -split "MH/s"
+        $G = $F | Select-String -SimpleMatch "."
+        $H = $G | Select -Last "$GPUS"
+        $I = @()
+        $H | foreach { $I += [decimal]"$_"}
+        Clear-Content ".\Build\hashrates.sh"
+        $H | Out-File ".\Build\hashrates.sh"
+       }
+      }
+    }
+   }
+
+
+function Get-Accepted {
+
+        [Parameter(Mandatory=$true)]
+        [String]$API,
+        [Parameter(Mandatory=$true)]
+        [String]$Path,
+	[Parameter(Mandatory=$true)]
+        [Int]$GPUS
+
+	$MinerLog = Join-Path $Path "HashRate.log"
+
+switch($API)
+ {
+  "TRex"
+     {
+      if(Test-Path $MinerLog)
+       {
+        ##Individual Hashrates
+        $A = Get-Content $MinerLog | Select-String "MH/s" | Select-String "GPU"
+       $J = Get-Content "test.txt"
+       $K = $J = Select-String "-"
+       $L = $K -split "-"
+       $M = $L | Select-String ":"
+       $N = $M -split "]"
+       $O = $N | Select-String "/"
+       $P = $O -split "/"
+       $Q = $P -replace (" ","")
+       $R = $Q | Select -Last 2
+       $Accepted = $R | Select -First 1
+       $Rejected = $R | Select -Last 1 
+       Clear-Content ".\Build\accepted.sh"
+       $Accepted | Out-File ".\Build\accepted.sh"
+       Clear-Content ".\Build"
+       $Rejected | Out-File ".\Build\rejected.sh"
+        }
+       }
+      }
+     }
+
 
 filter ConvertTo-Hash {
     $Hash = $_

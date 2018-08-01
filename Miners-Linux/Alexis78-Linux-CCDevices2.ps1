@@ -9,8 +9,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
     "Nist5" = '-i 25'
-    "Hsr" = ''
-    "C11" = '-i 20'
     "Quark" = ''
     "Blake2s" = ''
     "Skein" = '-i 28'

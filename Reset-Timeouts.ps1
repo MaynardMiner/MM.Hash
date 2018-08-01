@@ -9,10 +9,9 @@
         $Change = $($_.Name) -replace "HashRate","TIMEOUT"
         if(Test-Path (Join-Path "./Timeout" "$($Change).txt"))
         {Remove-Item (Join-Path "./Timeout" "$($Change).txt")
-	 Remove-Item $Removed
-        }
+	}
+	Remove-Item $Removed
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
-        Write-Host "Cleared Timeouts" -ForegroundColor Red
         }
        }
        Write-Host "Cleared Timeouts" -ForegroundColor Red

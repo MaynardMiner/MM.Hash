@@ -86,11 +86,11 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$ClayDevices3,
     [Parameter(Mandatory=$false)]
-    [String]$CUDevices1,
+    [String]$RexDevices1,
     [Parameter(Mandatory=$false)]
-    [String]$CUDevices2,
+    [String]$RexDevices2,
     [Parameter(Mandatory=$false)]
-    [String]$CUDevices3,
+    [String]$RexDevices3,
     [Parameter(Mandatory=$false)]
     [Array]$PoolName = $null, 
     [Parameter(Mandatory=$false)]
@@ -128,12 +128,18 @@ param(
     [Parameter(Mandatory=$false)]
     [Int]$Nicehash_Fee,
     [Parameter(Mandatory=$false)]
-    [Int]$Benchmark = 0
+    [Int]$Benchmark = 0,
+    [Parameter(Mandatory=$false)]
+    [Int]$GPU_Count1 = 0,
+    [Parameter(Mandatory=$false)]
+    [Int]$GPU_Count2 = 0,
+    [Parameter(Mandatory=$false)]
+    [Int]$GPU_Count3 = 0
 )
 
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-
+$BenchmarkMode = "No"
 #Start the log
 $Log = 1
 Start-Transcript ".\Logs\MM.Hash$($Log).log"
@@ -203,6 +209,7 @@ $OpenScreens += "AMD2"
 $OpenScreens += "AMD3"
 $OpenScreens += "CPU"
 $OpenScreens += "ASIC"
+$OpenScreens += "LogData"
 
 $OpenScreens | foreach {
 Start-Process ".\Build\killall.sh" -ArgumentList "$($_)" | Out-Null
@@ -321,6 +328,8 @@ $ErrorCheck = Get-Content ".\Build\Data\Error.txt" | Out-String
 
 if($TimeDeviation -ne 0)
  {
+ if($BenchMarkMode -eq "No")
+  {
   $DonationTotal = (864*[int]$TimeDeviation)
   $DonationIntervals = ([int]$DonationTotal/288)
   $FinalDonation = (86400/[int]$DonationIntervals)
@@ -428,8 +437,9 @@ if($LastRan -ne "")
 	Write-Host "Leaving Donation Mode- Thank you For The Support!" -foregroundcolor "darkred"
 	Continue
        }
+     }
    }
-}
+ }
 
 
     try {
@@ -464,10 +474,8 @@ if($LastRan -ne "")
        {
         $Removed = Join-Path "./Stats" "$($_.Name).txt"
         $Change = $($_.Name) -replace "HashRate","TIMEOUT"
-        if(Test-Path (Join-Path "./Timeout" "$($Change).txt"))
-        {Remove-Item (Join-Path "./Timeout" "$($Change).txt")
-	 Remove-Item $Removed
-        }
+        if(Test-Path (Join-Path "./Timeout" "$($Change).txt")){Remove-Item (Join-Path "./Timeout" "$($Change).txt")}
+	Remove-Item $Removed
         Write-Host "$($_.Name) Hashrate and Timeout Notification was Removed"
         }
        }
@@ -639,6 +647,7 @@ if($LastRan -ne "")
               MinerPool = $_.MinerPool
               MinerContent = $null
               MinerProcess = $null
+	      Algorithm = $_.Algorithm
           }
         }
     }
@@ -658,6 +667,19 @@ $ActiveMinerPrograms | ForEach-Object {
       }
 
 Get-PID
+
+Function Remove-Logs {
+ $ActiveMinerPrograms | ForEach-Object {
+   $MinerLogPath = Join-Path (Split-Path $($_.Path)) "HashRate.log"
+   if(Test-Path $MinerLogPath) 
+    {
+    Remove-Item $MinerLogPath
+    }
+  }
+ }
+
+ Remove-Logs
+
 
 #Start Or Stop Miners
 $ActiveMinerPrograms | ForEach-Object {
@@ -684,6 +706,7 @@ if(($BestMiners_Combo | Where-Object Type -EQ $_.Type | Where-Object Arguments -
      $_.New = $true
      $_.Activated++
      $_.XProcess = $null
+     Get-Job | Stop-Job
 
 if($_.Type -like '*NVIDIA*')
      {
@@ -693,7 +716,7 @@ if($_.Type -like '*NVIDIA*')
     if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
     if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
     if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
-    if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+    if($_.DeviceCall -eq "trex"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
        }
 
 	Write-Host "
@@ -711,6 +734,7 @@ if($_.Type -like '*NVIDIA*')
     $MinerConfig | Out-File ".\Build\config.sh"
     Set-Location ".\Build"
     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
+    Start-Process "killall.sh" -ArgumentList "LogData"
     Start-Sleep $Delay #Wait to prevent BSOD
     $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
      Start-Sleep -S 1
@@ -985,6 +1009,29 @@ function Get-MinerStatus {
             )
       }
 
+
+$ActiveMinerPrograms | Foreach {
+ if($_.Type -eq "NVIDIA1")
+  {
+   if($_.Status -eq "Running")
+    {
+    if($_.API -eq "TRex")
+     {
+     $HashPath = Split-Path $_.path
+     $WorkingDir = (Split-Path $script:MyInvocation.MyCommand.Path)
+     $API = $_.API
+     $GPUS = $GPU_Count1
+     Set-Location ".\Build"
+     $PreProgram = Start-Process "screen" -ArgumentList "-S LogData -d -m" -PassThru 
+     Start-Sleep -S 1
+     $Program = Start-Process "LogData.sh" -ArgumentList "LogData $API $HashPath $GPUS $WorkingDir"
+     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+     }
+    }
+  }
+}
+
+
    $BenchmarkMode = "No"
 
    $ActiveMinerPrograms | Foreach {
@@ -1037,7 +1084,7 @@ function Get-MinerStatus {
          if($_.DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
          if($_.DeviceCall -eq "dstm"){$MinerArguments = "--dev $($_.Devices) $($_.Arguments)"}
          if($_.DeviceCall -eq "claymore"){$MinerArguments = "-di $($_.Devices) $($_.Arguments)"}
-         if($_.DeviceCall -eq "cuballoon"){$MinerArguments = "--cuda_devices $($_.Devices) $($_.Arguments)"}
+         if($_.DeviceCall -eq "trex"){$MinerArguments = "-d $($_.Devices) $($_.Arguments)"}
             }
      
        Write-Host "
@@ -1286,24 +1333,40 @@ Start-Sleep -s 10
         $ActiveMinerPrograms | foreach {
         if($_.Status -eq "Running")
          {
-        $Miner_HashRates = Get-HashRate $_.API $_.Port
+         if($_.DeviceCall -eq "trex")
+           {
+	   if($_.Type -eq "NVIDIA1"){$GPUS = $GPU_Count1}
+	   if($_.Type -eq "NVIDIA2"){$GPUS = $GPU_Count2}
+	   if($_.Type -eq "NVIDIA3"){$GPUS = $GPU_Count3}
+           $HashPath = Split-Path $_.Path
+           $Miner_HashRates = Get-LogHash $_.API $HashPath $GPUS
+	   $Miner_Algorithm = $_.Algorithm
+	   Clear-Content ".\Build\totalhash.sh"
+	   Clear-Content ".\Build\algo.sh"
+	   Start-Sleep -S .5
+	   $Miner_HashRates | Out-File ".\Build\totalhash.sh"
+	   Start-Sleep -S .5
+	   $Miner_Algorithm | Out-File ".\Build\algo.sh"
+           }
+           else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
 	      if($_.Type -eq "NVIDIA1")
 	       {
           $_.Port | Out-File ".\Build\api.sh"
+          Clear-Content ".\Build\mineref.sh"
+	  Start-Sleep -S .5
           $_.DeviceCall | Out-File ".\Build\mineref.sh"
          }
 	$GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
        	$DayStat = "$($GetDayStat.Day)"
         $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
-	$MinerScreenHash = $Miner_HashRates | ConvertTo-Hash
-        $ScreenHash = "$($MinerScreenHash)"
+	$ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
         Write-Host "[$(Get-Date)]:" -foreground yellow -nonewline
 	Write-Host " $($_.Type) is currently" -foreground green -nonewline
 	Write-Host " $($_.Status):" -foreground green -nonewline
 	Write-Host " $($_.Name) current hashrate for $($_.Coins) is" -nonewline
 	Write-Host " $ScreenHash/s" -foreground green
 	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)" -foregroundcolor Cyan
-	Start-Sleep -S 1
+	Start-Sleep -S .5
 	Write-Host "$($_.Type) previous hashrates for $($_.Coins) is" -nonewline
 	Write-Host " $MinerPrevious/s" -foreground yellow
           }
@@ -1320,12 +1383,12 @@ Start-Sleep -s 10
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
@@ -1335,18 +1398,18 @@ Start-Sleep -s 10
 
       " -foreground Magenta
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
@@ -1356,28 +1419,28 @@ Start-Sleep -s 10
 
       " -foreground Magenta
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)-20){break}
       Get-MinerHashRate
-      Start-Sleep -s 7
+      Start-Sleep -s 5
       }While($MinerWatch.Elapsed.TotalSeconds -lt ($MinerInterval-20))
 
 
@@ -1403,7 +1466,15 @@ Start-Sleep -s 10
            {
             $_.HashRate = 0
             $_.WasBenchmarked = $False
-            $Miner_HashRates = Get-HashRate $_.API $_.Port
+         if($_.API -eq "trex")
+           {
+	   if($_.Type -eq "NVIDIA1"){$GPUS = $GPU_Count1}
+	   if($_.Type -eq "NVIDIA2"){$GPUS = $GPU_Count2}
+	   if($_.Type -eq "NVIDIA3"){$GPUS = $GPU_Count3}
+           $HashPath = Split-Path $_.Path
+           $Miner_HashRates = Get-LogHash $_.API $HashPath $GPUS
+           }
+          else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
             $_.Timeout = 0
 	    $_.Benchmarked = 0
             $_.HashRate = $Miner_HashRates

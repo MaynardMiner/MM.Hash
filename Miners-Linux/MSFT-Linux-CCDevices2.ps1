@@ -14,8 +14,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Timetravel
 
 $Commands = [PSCustomObject]@{
-
-    "Lyra2z" = ''
     "Bitcore" = ''
     "Hmq1725" = ''
     "Timetravel" = ''

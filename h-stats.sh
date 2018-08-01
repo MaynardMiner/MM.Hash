@@ -16,9 +16,29 @@ function miner_stats {
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
+	local myhashrate=( $(< /hive/custom/MM.Hash/Build/hashrates.sh) )
+	local myhs=$(< /hive/custom/MM.Hash/Build/hashtype.sh)
+	local myacc=$(< /hive/custom/MM.Hash/Build/accepted.sh)
+	local myrj=$(< /hive/custom/MM.Hash/Build/rejected.sh)
+	local mykhs=$(< /hive/custom/MM.Hash/Build/totalhash.sh)
+	local myalgo=$(< /hive/custom/MM.Hash/Build/algo.sh)
 	khs=0
 	stats=
 	case $miner in
+
+		trex) 
+			khs=$mykhs
+			stats=$(jq -n \
+					--argjson hs "`echo ${myhashrate[@]} | jq -cs '.'`" \
+					--arg hs_units "hs_units=$myhs" \
+					--argjson temp "$temp" \
+					--argjson fan "$fan" \
+					--arg uptime "0" \
+					--arg ac "$ac" --arg rj "$rj" \
+					--arg algo "$myalgo" \
+					'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
+                     
+		;;
 		claymore)
 			stats_raw=`echo '{"id":0,"jsonrpc":"2.0","method":"miner_getstat2"}' | nc -w $API_TIMEOUT localhost 3333 | jq '.result'`
 			if [[ $? -ne 0  || -z $stats_raw ]]; then

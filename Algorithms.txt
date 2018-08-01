@@ -55,11 +55,13 @@
     "zuikkis":  "scrypt",
     "nist5":  "nist5",
     "phi": "phi",
+    "phi2": "phi2",
     "hsr": "hsr",
     "m7m": "m7m",
     "x16r": "x16r",
     "yescryptR16": "yescryptR16",
     "keccakc": "keccakc",
     "x16r": "x16r",
-    "x16s": "x16s"
+    "x16s": "x16s",
+    "tribus": "tribus"
 }

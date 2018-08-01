@@ -25,12 +25,9 @@ $Commands = [PSCustomObject]@{
 "Keccak" = ''
 "Blakecoin" = ''
 "Skunk" = ''
-"Tribus" = ''
-"Phi" = ''
 "Keccakc" = ''
 "X12" = ''
 "Sib" = ''
-"Phi2" = ''
 "Allium" = ''
 }
 
