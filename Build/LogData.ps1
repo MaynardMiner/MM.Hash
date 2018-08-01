@@ -35,8 +35,8 @@ param(
           $H | Foreach {$I += $_}
           Clear-Content ".\Build\hashrates.sh"
           $I -join ' ' | Out-File ".\Build\hashrates.sh"
-          $HashType = $Hash -replace ("/s","s")          
-1         Clear-Content ".\Build\hashtype.sh"
+ 	  $HashType = "khs"
+          Clear-Content ".\Build\hashtype.sh"
 	  $HashType | Out-File ".\Build\hashtype.sh"
 	
 	  $BB = $A | Select-String "/s" | Select-String "-"
