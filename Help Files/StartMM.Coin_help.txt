@@ -6,6 +6,12 @@ Arguments & Explanations:
 
 Argument          Options           Explanation
 
+-GPU_Count1       [1-1000]	    Total number of GPU's for HiveOS. This is needed for miner to determine
+				    correct hashrate for each GPU. If you are dividing your miner into seperate
+				    device groups, then you must add -GPU_Count2 and -GPU_Count3 for each
+				    group respectively. (Stats for other device groups will not show on HiveOS-
+				    Not reccommended unless you have to).
+
 -StatsInvterval   1-10000           Expression is in seconds. This is time required for miner apps to run
                                     before miner write/re-writes benchmarking. This is not be confused 
                                     with -Interval argument, which is used for when miner begins swithing 
