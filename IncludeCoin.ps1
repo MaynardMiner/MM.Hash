@@ -689,13 +689,13 @@ function Expand-WebRequest {
     param(
         [Parameter(Mandatory=$false)]
         [String]$Uri,
-	[Parameter(Mandatory=$false)]
-	[String]$BuildPath,
-	[Parameter(Mandatory=$false)]
-	[String]$Path,
+	    [Parameter(Mandatory=$false)]
+	    [String]$BuildPath,
+	    [Parameter(Mandatory=$false)]
+	    [String]$Path,
         [Parameter(Mandatory=$false)]
-	[String]$MineName,
-	[Parameter(Mandatory=$false)]
+	    [String]$MineName,
+	    [Parameter(Mandatory=$false)]
         [String]$MineType
           )
      if (-not (Test-Path ".\Bin")) {New-Item "Bin" -ItemType "directory" | Out-Null}

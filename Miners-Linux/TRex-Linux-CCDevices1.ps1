@@ -1,5 +1,5 @@
 $Path = ".\Bin\TRex-Linux-CCDevices1\t-rex-NVIDIA1"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/TRex-Linux-9-1.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-linux.zip"
 $Build = "Zip"
 
 if($RexDevices1 -ne ''){$Devices = $RexDevices1}
@@ -36,7 +36,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Wrap = $false
         URI = $Uri
         BUILD = $Build
-	Algorithm = $($Pools.(Get-Algorithm($_)).Algorithm)
+	Algo = "$($_)"
         }
       }
     }
@@ -60,7 +60,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
          Wrap = $false
          URI = $Uri
          BUILD = $Build
-	 Algorithm = $($_.Algorithm)
+	 Algo = "$($_.Algorithm)"
          }
         }
        }

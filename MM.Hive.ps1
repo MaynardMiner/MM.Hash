@@ -647,7 +647,7 @@ if($LastRan -ne "")
               MinerPool = $_.MinerPool
               MinerContent = $null
               MinerProcess = $null
-	      Algorithm = $_.Algorithm
+	      Algo = $_.Algo
           }
         }
     }
@@ -706,7 +706,6 @@ if(($BestMiners_Combo | Where-Object Type -EQ $_.Type | Where-Object Arguments -
      $_.New = $true
      $_.Activated++
      $_.XProcess = $null
-     Get-Job | Stop-Job
 
 if($_.Type -like '*NVIDIA*')
      {
@@ -736,7 +735,7 @@ if($_.Type -like '*NVIDIA*')
     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
     Start-Process "killall.sh" -ArgumentList "LogData"
     Start-Sleep $Delay #Wait to prevent BSOD
-    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
      Start-Sleep -S 1
      if($_.API -eq "ccminer")
       {
@@ -792,7 +791,7 @@ $MinerConfig | Out-File ".\Build\config.sh"
     Set-Location ".\Build"
     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
     Start-Sleep $Delay #Wait to prevent BSOD
-    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m" -PassThru 
+    $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
      Start-Sleep -S 1
      $_.NewMiner = Start-Process ".\startup.sh" -ArgumentList "$($_.Type) $Invocation"
      $MinerTimer.Restart()
@@ -1017,11 +1016,18 @@ $ActiveMinerPrograms | Foreach {
     {
     if($_.API -eq "TRex")
      {
+     Set-Location ".\Build"
+     Write-Host "
+
+     Clearing DataLog Screen
+
+     "
+     Start-Process "killall.sh" -ArgumentList "LogData"
+     Start-Sleep -S 1
      $HashPath = Split-Path $_.path
      $WorkingDir = (Split-Path $script:MyInvocation.MyCommand.Path)
      $API = $_.API
      $GPUS = $GPU_Count1
-     Set-Location ".\Build"
      $PreProgram = Start-Process "screen" -ArgumentList "-S LogData -d -m" -PassThru 
      Start-Sleep -S 1
      $Program = Start-Process "LogData.sh" -ArgumentList "LogData $API $HashPath $GPUS $WorkingDir"
@@ -1333,29 +1339,29 @@ Start-Sleep -s 10
         $ActiveMinerPrograms | foreach {
         if($_.Status -eq "Running")
          {
-         if($_.DeviceCall -eq "trex")
+	  if($_.Type -eq "NVIDIA1")
+	   {
+           Clear-Content ".\Build\mineref.sh"
+           $_.DeviceCall | Out-File ".\Build\mineref.sh"
+           }
+          if($_.DeviceCall -eq "trex")
            {
 	   if($_.Type -eq "NVIDIA1"){$GPUS = $GPU_Count1}
 	   if($_.Type -eq "NVIDIA2"){$GPUS = $GPU_Count2}
 	   if($_.Type -eq "NVIDIA3"){$GPUS = $GPU_Count3}
            $HashPath = Split-Path $_.Path
            $Miner_HashRates = Get-LogHash $_.API $HashPath $GPUS
-	   $Miner_Algorithm = $_.Algorithm
-	   Clear-Content ".\Build\totalhash.sh"
-	   Clear-Content ".\Build\algo.sh"
-	   Start-Sleep -S .5
-	   $Miner_HashRates | Out-File ".\Build\totalhash.sh"
-	   Start-Sleep -S .5
-	   $Miner_Algorithm | Out-File ".\Build\algo.sh"
+	   if($_.Type -eq "NVIDIA1")
+	    {
+	     $Miner_Algo = "$($_.Algo)"
+	     $Miner_LogHash = ($Miner_HashRates/1000)
+	     Clear-Content ".\Build\algo.sh"
+	     Clear-Content ".\Build\totalhash.sh"
+	     $Miner_Algo | Out-File ".\Build\algo.sh"
+	     $Miner_LogHash | Out-File ".\Build\totalhash.sh"
            }
-           else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
-	      if($_.Type -eq "NVIDIA1")
-	       {
-          $_.Port | Out-File ".\Build\api.sh"
-          Clear-Content ".\Build\mineref.sh"
-	  Start-Sleep -S .5
-          $_.DeviceCall | Out-File ".\Build\mineref.sh"
-         }
+          }
+          else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
 	$GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
        	$DayStat = "$($GetDayStat.Day)"
         $MinerPrevious = "$($DayStat | ConvertTo-Hash)"
@@ -1366,7 +1372,7 @@ Start-Sleep -s 10
 	Write-Host " $($_.Name) current hashrate for $($_.Coins) is" -nonewline
 	Write-Host " $ScreenHash/s" -foreground green
 	Write-Host "$($_.Type) is currently mining on $($_.MinerPool)" -foregroundcolor Cyan
-	Start-Sleep -S .5
+	Start-Sleep -S 2
 	Write-Host "$($_.Type) previous hashrates for $($_.Coins) is" -nonewline
 	Write-Host " $MinerPrevious/s" -foreground yellow
           }
@@ -1383,12 +1389,12 @@ Start-Sleep -s 10
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
@@ -1398,18 +1404,18 @@ Start-Sleep -s 10
 
       " -foreground Magenta
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
@@ -1419,28 +1425,28 @@ Start-Sleep -s 10
 
       " -foreground Magenta
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Restart-Miner
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval-20)){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       $Countdown = ([math]::Round(($MinerInterval-20) - $MinerWatch.Elapsed.TotalSeconds))
       Write-Host "Time Left Until Database Starts: $($Countdown)" -foreground Gray
       if($MinerWatch.Elapsed.TotalSeconds -ge ($MinerInterval)-20){break}
       Get-MinerHashRate
-      Start-Sleep -s 5
+      Start-Sleep -s 7
       }While($MinerWatch.Elapsed.TotalSeconds -lt ($MinerInterval-20))
 
 

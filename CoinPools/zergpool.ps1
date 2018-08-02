@@ -11,14 +11,14 @@ if($Auto_Coin -eq "Yes")
  {
  if($Poolname -eq $Name)
   {
- try {
+   try {
      $zergpool_Request = Invoke-RestMethod "https://api.zergpool.com/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
      #$ZergpoolAlgo_Request = Invoke-RestMethod "http://api.zergpool.com/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop
- }
- catch {
+       }
+   catch {
      Write-Warning "MM.Hash contacted ($Name) for a failed API check. "
      return
- }
+        }
 
  if (($zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) {
      Write-Warning "MM.Hash contacted ($Name) but ($Name) Pool API was unreadable (Coins). "
@@ -84,11 +84,11 @@ if($Auto_Coin -eq "Yes")
 	        Pass3 = "c=$Zergpass3,mc=$zergpool_Coin"
             Location = $Location
             SSL = $false
-        
-      }
-     }
-    }
-   }
+                }
+             }
+           }
+          }
+        }
  
 
  if($Auto_Algo -eq "Yes")
@@ -164,4 +164,3 @@ if($Auto_Coin -eq "Yes")
           }
         }
       }
-    }

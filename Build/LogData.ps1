@@ -33,37 +33,23 @@ param(
 	  $H = $G | Select -Last "$GPUS"
 	  $I = @()
           $H | Foreach {$I += $_}
-          Clear-Content ".\Build\hashrates.sh"
-          $I -join ' ' | Out-File ".\Build\hashrates.sh"
- 	  $HashType = "khs"
-          Clear-Content ".\Build\hashtype.sh"
-	  $HashType | Out-File ".\Build\hashtype.sh"
-	
-	  $BB = $A | Select-String "/s" | Select-String "-"
-	  if([regex]::match($BB,"MH/s").success  -eq $True){$THash = "MH/s"}
-	  else{$THash = "kH/s"}
-          $CC = $BB -replace (" ","")
-          $DD = $CC -split "-"
-          $EE = $DD | Select-String "$($THash)" | Select -Last 1
-          $FF = $EE -replace ("$($THash)","")
-	  $GG = $FF
-	  $FF | Out-File ".\Build\totalhash.sh"
-	
-	  $K = $A | Select-String "-"
-          $L = $K -split "-"
+	  $J = $I | % {iex $_}
+	  $K = @()
+	  $J | foreach{if($Hash -eq "MH/s"){$K += $($_)*1000}else{$K += $_}}
+          $K -join ' ' | Out-File ".\Build\hashrates.sh"
+	  Write-Host "Sending HashRates To Hive $($K)"
+	  $KK = $A | Select-String "-"
+          $L = $KK -split "-"
           $M = $L | Select-String ":"
-          $N = $M -split "]"
+          $N = $M -split "] "
           $O = $N | Select-String "/"
           $P = $O -split "/"
           $Q = $P -replace (" ","")
           $R = $Q | Select -Last 2
           $Accepted = $R | Select -First 1
           $Rejected = $R | Select -Last 1 
-          Clear-Content ".\Build\accepted.sh"
           $Accepted | Out-File ".\Build\accepted.sh"
-          Clear-Content ".\Build\rejected.sh"
           $Rejected | Out-File ".\Build\rejected.sh"
-
 	  Start-Sleep -S 10
           }
         }

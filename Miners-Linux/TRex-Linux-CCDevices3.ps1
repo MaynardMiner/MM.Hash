@@ -1,5 +1,5 @@
 $Path = ".\Bin\TRex-Linux-CCDevices3\t-rex-NVIDIA3"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/TRex-Linux-9-1.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-linux.zip"
 $Build = "Zip"
 
 if($RexDevices3 -ne ''){$Devices = $RexDevices3}

@@ -8,7 +8,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
 "Lyra2v2" = ''
-"Tribus" = ''
 "Lyra2z" = ''
 "Phi2" = ''
 "Allium" = ''

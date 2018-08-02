@@ -1,5 +1,5 @@
 $Path = ".\Bin\TRex-Windows-CCDevices1\t-rex.exe"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/TRex-Linux-9-1.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/t-rex-Windows.zip"
 $Build = "Zip"
 
 if($RexDevices1 -ne ''){$Devices = $RexDevices1}
@@ -22,6 +22,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 $Commands = [PSCustomObject]@{
 "c11" = ''
 "hsr" = ''
+"tribus" = ''
 }
 
 

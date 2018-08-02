@@ -19,20 +19,29 @@ function miner_stats {
 	local myhashrate=( $(< /hive/custom/MM.Hash/Build/hashrates.sh) )
 	local myhs=$(< /hive/custom/MM.Hash/Build/hashtype.sh)
 	local myacc=$(< /hive/custom/MM.Hash/Build/accepted.sh)
+        local mykhs=$(< /hive/custom/MM.Hash/Build/totalhash.sh)
 	local myrj=$(< /hive/custom/MM.Hash/Build/rejected.sh)
-	local mykhs=$(< /hive/custom/MM.Hash/Build/totalhash.sh)
 	local myalgo=$(< /hive/custom/MM.Hash/Build/algo.sh)
 	khs=0
 	stats=
 	case $miner in
 
 		trex) 
+			#Total HashRate For Individual GPUS:
+			#for (( i=0; i < ${#myhashrate[@]}; i++ )); do
+			#khs=`echo $khs ${myhashrate[$i]} | awk '{ printf("%.3f", $1 + $2) }'`
+		        #done
+                        #khs=`echo $khs | sed -E 's/^( *[0-9]+\.[0-9]([0-9]*[1-9])?)0+$/\1/'` #1234.100 -> 1234.1
+
+			#Hashrate From Accepted Shares:
 			khs=$mykhs
+
+
 			stats=$(jq -n \
 					--argjson hs "`echo ${myhashrate[@]} | jq -cs '.'`" \
-					--arg hs_units "hs_units=$myhs" \
-					--argjson temp "$temp" \
-					--argjson fan "$fan" \
+					--arg hs_units "hs_units=khs" \
+				        --argjson temp "$Ntemp" \
+				        --argjson fan "$Nfan" \
 					--arg uptime "0" \
 					--arg ac "$ac" --arg rj "$rj" \
 					--arg algo "$myalgo" \
