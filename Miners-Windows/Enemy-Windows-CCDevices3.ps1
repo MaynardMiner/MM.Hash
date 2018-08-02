@@ -1,5 +1,5 @@
 $Path = '.\Bin\z-enemy-Windows-CCDevices3-Algo\z-enemy.exe'
-$URI = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/z-enemy.1-12-cuda9.2-public.zip'
+$URI = 'https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/z-enemy-Windows.zip'
 $Build = "Zip"
 
 if($CCDevices3 -ne ''){$Devices = $CCDevices3}
