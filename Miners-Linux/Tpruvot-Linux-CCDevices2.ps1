@@ -20,7 +20,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Sib
 
 $Commands = [PSCustomObject]@{
-"Lyra2v2" = ''
 "Qubit" = ''
 "Keccak" = ''
 "Blakecoin" = ''
@@ -28,7 +27,6 @@ $Commands = [PSCustomObject]@{
 "Keccakc" = ''
 "X12" = ''
 "Sib" = ''
-"Allium" = ''
 }
 
 

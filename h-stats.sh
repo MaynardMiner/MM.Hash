@@ -12,16 +12,16 @@ get_nvidia_cards_fan(){
 
 
 function miner_stats {
-	local miner=$(< /hive/custom/MM.Hash/Build/mineref.sh)
+	local miner=$(< /hive/custom/MM.Hash.1.3.1/Build/mineref.sh)
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
-	local myhashrate=( $(< /hive/custom/MM.Hash/Build/hashrates.sh) )
-	local myhs=$(< /hive/custom/MM.Hash/Build/hashtype.sh)
-	local myacc=$(< /hive/custom/MM.Hash/Build/accepted.sh)
-        local mykhs=$(< /hive/custom/MM.Hash/Build/totalhash.sh)
-	local myrj=$(< /hive/custom/MM.Hash/Build/rejected.sh)
-	local myalgo=$(< /hive/custom/MM.Hash/Build/algo.sh)
+	local myhashrate=( $(< /hive/custom/MM.Hash.1.3.1/Build/hashrates.sh) )
+	local myhs=$(< /hive/custom/MM.Hash.1.3.1/Build/hashtype.sh)
+	local myacc=$(< /hive/custom/MM.Hash.1.3.1/Build/accepted.sh)
+        local mykhs=$(< /hive/custom/MM.Hash.1.3.1/Build/totalhash.sh)
+	local myrj=$(< /hive/custom/MM.Hash.1.3.1/Build/rejected.sh)
+	local myalgo=$(< /hive/custom/MM.Hash.1.3.1/Build/algo.sh)
 	khs=0
 	stats=
 	case $miner in

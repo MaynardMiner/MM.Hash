@@ -1,8 +1,8 @@
 param(
         [Parameter(Mandatory=$true)]
-        [String]$API,
+        [String]$DeviceCall,
         [Parameter(Mandatory=$true)]
-        [String]$MinerPath,
+        [String]$Type,
         [Parameter(Mandatory=$true)]
         [Int]$GPUS,
         [Parameter(Mandatory=$true)]
@@ -12,13 +12,14 @@ param(
 
  While($true)
  {
- $HashPath = Join-Path $MinerPath "HashRate.log"
- switch($API)
+ $HashPath = Join-Path ".\Build" "$($Type).log"
+ switch($DeviceCall)
  {
   "TRex"
      {
-     if(Test-Path $MinerPath)
+     if(Test-Path $HashPath)
        {
+	$A = $null
         $A = Get-Content $HashPath
         if([regex]::match($A,"/s").success -eq $true)
          {

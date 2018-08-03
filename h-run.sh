@@ -21,4 +21,4 @@ cd `dirname $0`
 CUSTOM_LOG_BASEDIR=`dirname "$CUSTOM_LOG_BASENAME"`
 [[ ! -d $CUSTOM_LOG_BASEDIR ]] && mkdir -p $CUSTOM_LOG_BASEDIR
 
-pwsh -command "&.\MM.Hive.ps1 $(< /hive/custom/$CUSTOM_NAME/$CUSTOM_NAME.conf)" && . colors $@ 2>&1 | tee $CUSTOM_LOG_BASENAME.log 
+pwsh -command "&.\MM.Hive.ps1 $(< /hive/custom/$CUSTOM_NAME/$CUSTOM_NAME.conf) $CUSTOM_USER_CONFIG" && . colors $@ 2>&1 | tee $CUSTOM_LOG_BASENAME.log 

@@ -8,12 +8,10 @@ if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
-"lyra2z" = '-l HashRate.log'
-"tribus" = '-l HashRate.log'
-"phi" = '-l HashRate.log'
-"phi2" = '-l HashRate.log'
-"c11" = '-l HashRate.log'
-"hsr" = '-l HashRate.log'
+"tribus" = ''
+"phi" = ''
+"c11" = ''
+"hsr" = ''
 }
 
 
@@ -32,7 +30,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
 	Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
 	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
 	Port = 4070
-        API = "TRex"
+        API = "Logs"
         Wrap = $false
         URI = $Uri
         BUILD = $Build
@@ -52,7 +50,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
          DeviceCall = "trex"
          Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4070 -u $($_.User3) -p $($_.Pass3) $($Commands.$($_.Algorithm))"
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
-         API = "TRex"
+         API = "Logs"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
 	MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
          Port = 4070
