@@ -62,5 +62,26 @@ folder will give you an idea of specific stats you may want to delete and then r
 -Attempted to display better countdown times. NOTE: Internal countdown time varies by processor to processor.
 However- Run time displayed for Miners is 100% correct.
 
+1.3.2:
+
+Truncate log stats for T-Rex, so user will know when miner isn't hashing in case MM.Hash fails
+Attempted to fix multiple LogData screens
+Migrated total t-rex log hash into try/catch argument to prevent on-screen errors (which is normal if hashrate isn't there).
+Updated Miners
+Migrated into a version setup, with remote upgrading capability- Details on full operation coming soon. (expiremental)
+-Force paramter to clear T-Rex log.
+updated Z-Enemy
+updated T-Rex
+Removed -Algorithms, as it was depreciated. Algorithms can now be changed by editing "Algorithms.txt" file
+miner will self-install powershell
+Added Date to stats command
+Updated Help Files
+Ensured All Miners Display Pool
+
+
+
+
+
+
 
 

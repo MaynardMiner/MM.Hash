@@ -6,12 +6,15 @@ param(
         [Parameter(Mandatory=$true)]
         [Int]$GPUS,
         [Parameter(Mandatory=$true)]
-        [String]$WorkingDir
+        [String]$WorkingDir,
+        [Parameter(Mandatory=$true)]
+        [String]$Miner_Algo
+	
     )
  Set-Location $WorkingDir
-
  While($true)
  {
+ $MinerAlgo = "$($Miner_Algo)"
  $HashPath = Join-Path ".\Build" "$($Type).log"
  switch($DeviceCall)
  {
@@ -51,7 +54,32 @@ param(
           $Rejected = $R | Select -Last 1 
           $Accepted | Out-File ".\Build\accepted.sh"
           $Rejected | Out-File ".\Build\rejected.sh"
-	  Start-Sleep -S 10
+       if(Test-Path $HashPath)
+       {
+        ##Total Hashrate
+        $AA = Get-Content $HashPath
+        if([regex]::match($AA,"/s").success -eq $true)
+         {
+          $BB = $AA | Select-String "/s" | Select-String "-"
+	  if([regex]::match($BB,"MH/s").success  -eq $True){$Hash = "MH/s"}
+	  else{$Hash = "kH/s"}
+          $CC = $BB -replace (" ","")
+          $DD = $CC -split "-"
+          $EE = $DD | Select-String "$($Hash)" | Select -Last 1
+          $FF = $EE -replace ("$($Hash)","")
+	  try{$GG = [Double]$FF}
+	  catch{$GG = 0}
+	  if($Hash -eq "kH/s"){$Hashrates = $GG}
+	  else{$Hashrates = [Double]$GG*1000}
+          }
+	else{$Hashrates = 0}
+       }
+       Start-Sleep -S 1
+       Write-Host "Current Hashrate is $($Hashrates)"
+       $Hashrates | Out-File ".\Build\totalhash.sh"
+       Start-Sleep -S 1
+       $MinerAlgo | Out-File ".\Build\algo.sh"
+       Start-Sleep -S 8
           }
         }
       }

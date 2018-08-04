@@ -48,8 +48,6 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
-    [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)]
     [String]$CCDevices1, 
@@ -151,6 +149,7 @@ $Log = 1
 
 $PreviousVersions = @()
 $PreviousVersions += "MM.Hash"
+$PreviousVersions += "MM.Hash.1.3.1"
 
 $PreviousVersions | foreach{
 $PreviousPath = Join-Path "/hive/custom" "$_"
@@ -172,28 +171,25 @@ $PreviousPath = Join-Path "/hive/custom" "$_"
 }
 
 
+$Algorithm = @()
+$GetAlgorithms = Get-Content ".\Algorithms.txt"
+$GetAlgorithms | foreach{$Algorithm += $_}
+
+
 if(Test-Path ".\Build\stats")
  {
-  if(Test-Path "/usr/bin/stats"){Write-Host "stats Installed"}
-  else
-   {
-      Move-Item ".\Build\stats" -Destination "/usr/bin" | Out-Null
+      Copy-Item ".\Build\stats" -Destination "/usr/bin" -force | Out-Null
       Set-Location "/usr/bin"
       Start-Process "chmod" -ArgumentList "+x stats"
       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   }
  }
 
 if(Test-Path ".\Build\active")
  {
-  if(Test-Path "/usr/bin/active"){Write-Host "active Installed"}
-  else
-   {
-    Move-Item ".\Build\active" -Destination "/usr/bin" | Out-Null
+    Copy-Item ".\Build\active" -Destination "/usr/bin" -force | Out-Null
     Set-Location "/usr/bin"
     Start-Process "chmod" -ArgumentList "+x active"
     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
-   }
  }
 
  if(Test-Path ".\Build\PID"){Remove-Item ".\Build\PID\*" -Force | Out-Null}
@@ -314,7 +310,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                  v1.3.1 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.3.2 Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -750,7 +746,7 @@ if($_.Type -like '*NVIDIA*')
     Start-Process "killall.sh" -ArgumentList "$($_.Type)"
     if($_.Type -eq "NVIDIA1"){Start-Process "killall.sh" -ArgumentList "LogData"}
     Start-Sleep $Delay #Wait to prevent BSOD
-    if(Test-Path "$($_.Type).log"){Remove-Item "$($_.Type).log"}
+    if(Test-Path "$($_.Type).log"){Remove-Item "$($_.Type).log" -recurse -force}
      $_.MiningId = Start-Process "screen" -ArgumentList "-S $($_.Type) -d -m"
      Start-Sleep -S 1
      if($_.API -eq "ccminer")
@@ -1033,14 +1029,15 @@ $ActiveMinerPrograms | Foreach {
      {
      if($_.Type -eq "NVIDIA1")
       {
-      $WorkingDir = (Split-Path $script:MyInvocation.MyCommand.Path)
+      $MinerWorkingDir = (Split-Path $script:MyInvocation.MyCommand.Path)
       Set-Location ".\Build"
       $HashPath = "$($_.Type)"
-      $DeviceCall = "$($_.DeviceCall)"
-      $GPUS = $GPU_Count1
+      $MinerDeviceCall = "$($_.DeviceCall)"
+      $TypeMiner_Algo = "$($_.Algo)"
+      $MinerGPUS = $GPU_Count1
       $PreProgram = Start-Process "screen" -ArgumentList "-S LogData -d -m" -PassThru 
       Start-Sleep -S 1
-      $Program = Start-Process "LogData.sh" -ArgumentList "LogData $DeviceCall $HashPath $GPUS $WorkingDir"
+      $Program = Start-Process "LogData.sh" -ArgumentList "LogData $MinerDeviceCall $HashPath $MinerGPUS $MinerWorkingDir $TypeMiner_Algo"
       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
      }
     }
@@ -1077,9 +1074,12 @@ $ActiveMinerPrograms | Foreach {
      $Log++
      $LogTimer.Restart()
     }
-
+   
+   $StatusDate = Get-Date
    Get-MinerActive | Out-File ".\Build\mineractive.sh"
-   Get-MinerStatus | Out-File ".\Build\minerstats.sh"
+   Clear-Content ".\Build\minerstats.sh"
+   $StatusDate | Out-File ".\Build\minerstats.sh"
+   Get-MinerStatus | Out-File ".\Build\minerstats.sh" -Append
 
     function Restart-Miner {
     $ActiveMinerPrograms | ForEach {
@@ -1362,15 +1362,6 @@ Start-Sleep -s 10
            $Type = "$($_.Type)"
 	   $DeviceCall = "$($_.DeviceCall)"
            $Miner_HashRates = Get-LogHash $DeviceCall $Type $GPUS
-	   if($_.Type -eq "NVIDIA1")
-	    {
-	     $Miner_Algo = "$($_.Algo)"
-	     $Miner_LogHash = ($Miner_HashRates/1000)
-	     Clear-Content ".\Build\algo.sh"
-	     Clear-Content ".\Build\totalhash.sh"
-	     $Miner_Algo | Out-File ".\Build\algo.sh"
-	     $Miner_LogHash | Out-File ".\Build\totalhash.sh"
-           }
           }
           else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
 	$GetDayStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
@@ -1488,8 +1479,9 @@ Start-Sleep -s 10
 	   if($_.Type -eq "NVIDIA1"){$GPUS = $GPU_Count1}
 	   if($_.Type -eq "NVIDIA2"){$GPUS = $GPU_Count2}
 	   if($_.Type -eq "NVIDIA3"){$GPUS = $GPU_Count3}
-           $HashPath = Split-Path $_.Path
-           $Miner_HashRates = Get-LogHash $_.API $HashPath $GPUS
+           $Type = "$($_.Type)"
+	   $DeviceCall = "$($_.DeviceCall)"
+           $Miner_HashRates = Get-LogHash $DeviceCall $Type $GPUS
            }
           else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
             $_.Timeout = 0

@@ -38,9 +38,10 @@ Argument          Options           Explanation
 -Auto_Algo      ["Yes" or "No"]     Turns on Auto-Algorithm, for pools that only auto-algo. Select "No" if
                                     using miner for coin-switching only.
 
--Auto_Coin      ["Yes" or "No]      Turns on Auto-Coin, for pools that are capable of auto-coin switching
-                                    Select "No" if using miner for algo-switching only.                        
-
+-Auto_Coin     ["Yes" or "No"]      Zergpool will mine by coin-switching if set to Yes. If set to No,
+				    it will switch by the algorithm. Will only mine coins that can be
+				    mined via mc= argument.
+                                                            
 -Poolname      [MPH,                Current Pools MM.Hash can mine from. Omit or add as desire. can
                 zergpool,           only use these pools currently.
                 nicehash  
@@ -48,42 +49,6 @@ Argument          Options           Explanation
                 hashrefinery  
                 blazepool,
                 ahashpool]
-
--Algorithm      [Cryptonight,        Current algorithms supported by MM.Hash. To mine by coin-switching,
-                cryptonightv7,       simply specify the algorithm. MM.Hash will find and mine the most
-                hodl,                profitable coin for that algo if you are using -Poolname zergpool.
-		lyra2re,
-                Equihash,
-		Daggerhashimoto,
-		Ethash,           
-                Aergo,              
-                Yescrypt,
-                YescryptR16,
-                M7M,
-                Neoscrypt,
-                Allium,
-                HMQ1725,
-                Keccak,
-                Lyra2z,
-                Keccakc,
-                Xevan,
-                X16r,
-                Hsr,
-                X17,
-                Blake2s,
-                lyra2v2,
-                Bitcore,
-                X16s,
-                Phi,
-                Timetravel,
-                Skunk,
-                Tribus,
-                Sib,
-                Skein,
-                Groestl,
-                Nist5,
-                c11,
-                myr-gr]
 
 -Wallet1      [Wallet Address]      Address of your wallet. By default MM.Hash assumes it to be BTC.
                                     See Advanced arguments to change that.

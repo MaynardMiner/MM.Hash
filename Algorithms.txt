@@ -1,67 +1,42 @@
-{
-    "aergo": "aeriumX",
-    "allium":  "allium",
-    "balloon": "balloon",
-    "xmr":  "xmr",
-    "blakecoin":  "blakecoin",
-    "c11":  "c11",
-    "cryptonightmonero": "cryptonight",
-    "cryptonightv7": "cryptonightv7",
-    "daggerhashimoto": "daggerhashimoto",
-    "ethash": "ethash",
-    "Equihash-BTG": "Equihash-BTG",
-    "equihash192": "equihash192",
-    "equihash144xsg": "equihash144xsg",
-    "equihash144btcz": "equihash144btcz",
-    "equihash144zel": "equihash144zel",
-    "equihash144safe" : "equihash144safe",
-    "groestl":  "groestl",
-    "hodl": "hodl",
-    "lyra2re": "lyra2re",
-    "yescrypt":  "yescrypt",
-    "veltor":  "veltor",
-    "blake":  "blakecoin",
-    "equihash":  "equihash",
-    "skein":  "skein",
-    "scrypt":  "scrypt",
-    "sib":  "sib",
-    "neoscrypt":  "neoScrypt",
-    "lbry":  "lbry",
-    "myrgr":  "myriadGroestl",
-    "lyra2v2":  "lyra2v2",
-    "maxcoin":  "keccak",
-    "blake2s":  "blake2s",
-    "x11evo":  "x11evo",
-    "keccak":  "keccak",
-    "sia":  "sia",
-    "vanilla":  "blakeVanilla",
-    "timetravel":  "timetravel",
-    "qubitcoin":  "qubit",
-    "decred":  "decred",
-    "myriadcoingroestl":  "myriadgroestl",
-    "qubit":  "qubit",
-    "darkcoinmod":  "x11",
-    "x17":  "x17",
-    "lyra2z":  "lyra2z",
-    "hmq1725":  "hmq1725",
-    "pascal":  "pascal",
-    "bitcore":  "bitcore",
-    "x11":  "x11",
-    "lyra2rev2":  "lyra2RE2",
-    "ethash":  "ethash",
-    "skeincoin":  "skein",
-    "groestlcoin":  "groestl",
-    "cryptonight":  "cryptonight",
-    "zuikkis":  "scrypt",
-    "nist5":  "nist5",
-    "phi": "phi",
-    "phi2": "phi2",
-    "hsr": "hsr",
-    "m7m": "m7m",
-    "x16r": "x16r",
-    "yescryptR16": "yescryptR16",
-    "keccakc": "keccakc",
-    "x16r": "x16r",
-    "x16s": "x16s",
-    "tribus": "tribus"
-}
+nist5
+blake2s
+skein
+ethash
+daggerhashimoto
+lyra2v2
+lyra2z
+phi2
+allium
+equihash
+x16r
+x16s
+aeriumx
+equihash192
+equihash144xsg
+equihash144btcz
+equihash144zel
+equihash-BTG
+equihash144safe
+yescrypt
+yescryptR16
+m7m
+cryptonightv7
+lyra2re
+hodl
+neoscrypt
+groestl
+xevan
+bitcore
+hmq1725
+timetravel
+x17
+keccak
+blakecoin
+skunk
+keccakc
+x12
+sib
+tribus
+phi
+c11
+hsr

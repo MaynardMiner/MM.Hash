@@ -1,5 +1,5 @@
 $Path = ".\Bin\TRex-Linux-CCDevices1\t-rex-NVIDIA1"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-linux.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip"
 $Build = "Zip"
 
 if($RexDevices1 -ne ''){$Devices = $RexDevices1}
@@ -53,7 +53,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
          HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
          API = "Logs"
          Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
-	 MinerPool = "$($Pools.$_.Name)"
+	 MinerPool = "$($_.Name)"
          Port = 4068
          Wrap = $false
          URI = $Uri

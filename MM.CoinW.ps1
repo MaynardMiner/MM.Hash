@@ -48,8 +48,6 @@ param(
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
     [Parameter(Mandatory=$false)]
-    [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
-    [Parameter(Mandatory=$false)]
     [Array]$MinerName = $null,
     [Parameter(Mandatory=$false)]
     [String]$CCDevices1,
@@ -154,6 +152,10 @@ $DecayBase = 1-0.1 #decimal percentage
 
 $ActiveMinerPrograms = @()
 
+$Algorithm = @()
+$GetAlgorithms = Get-Content ".\Algorithms.txt"
+$GetAlgorithms | foreach{$Algorithm += $_}
+
 #Start the log
 #Start the log
 
@@ -230,7 +232,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
-				             By: MaynardMiner                      v1.3.1-Windows              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.3.2-Windows              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|

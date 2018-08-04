@@ -761,7 +761,7 @@ function Get-Algorithm {
         [String]$Algorithm
     )
 
-    $Algorithms = Get-Content "Algorithms.txt" | ConvertFrom-Json
+    $Algorithms = Get-Content "GetAlgo.txt" | ConvertFrom-Json
 
     $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
 
