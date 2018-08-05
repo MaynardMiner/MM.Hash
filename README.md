@@ -5,23 +5,41 @@
 MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS miners. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well.
 
 **Features**
+
 -Backs up initial benchmarks, making updating or recovery a charm.
+
 -Shows real time hashrates from miners, along with previous hashrates.
+
 -HiveOS full integration.
+
 -Every part of the code has a double-checking feature, to ensure real time monitoring.
+
 -More hard drive integration, less storage on RAM.
+
 -Latest miners, updated frequently.
+
 -Windows Miners Cuda 9.2
+
 -HiveOS Miners Cuda 9.1, including miners which github can no longer compile.
+
 -HiveOS commands to open new windows to view stats, miner history, real-time data.
+
 -Coin profit switching.
+
 -Algorithm profit switching.
+
 -Miner notifies users of benchmarking timeouts
+
 -Easy to setup.
+
 -HiveOS version is dedicated to creating a solid environment that corrects itself if mistakes are made.
+
 -Hashrates monitoring via logging for miners that require it.
+
 -New miners than HiveOS.
--Strong support via discord.
+
+-Strong support via discord. Users with rig setups of 100s of GPU's are using and troubleshooting as updates are released.
+
 
 **Algorithms** (As defined and required by miners)
 ```
