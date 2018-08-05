@@ -24,7 +24,7 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 
 -HiveOS commands to open new windows to view stats, miner history, real-time data.
 
--Coin profit switching.
+-Coin profit switching. (Non-Recommended on slower rigs/usb)
 
 -Algorithm profit switching.
 
