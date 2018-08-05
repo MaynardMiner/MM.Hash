@@ -15,6 +15,7 @@ $Commands = [PSCustomObject]@{
 "X16r" = ''
 "X16s" = ''
 "aeriumX" = ''
+"phi2" = ''
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
