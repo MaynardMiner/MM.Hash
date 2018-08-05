@@ -37,6 +37,7 @@ if($GPUDevices2 -ne '')
             Wrap = $false
             URI = $Uri
             BUILD = $Build
+	Algo = "$($_)"
           }
         }
       }
@@ -60,6 +61,7 @@ if($GPUDevices2 -ne '')
          Wrap = $false
          URI = $Uri
          BUILD = $Build
+	 Algo = "$($_.Algorithm)"
          }
         }
        }

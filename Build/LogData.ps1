@@ -41,7 +41,7 @@ param(
 	  $K = @()
 	  $J | foreach{if($Hash -eq "MH/s"){$K += $($_)*1000}else{$K += $_}}
           $K -join ' ' | Out-File ".\Build\hashrates.sh"
-	  Write-Host "Sending HashRates To Hive $($K)"
+	  Write-Host "Sending HashRates To Hive $($K)" -foregroundcolor green
 	  $KK = $A | Select-String "-"
           $L = $KK -split "-"
           $M = $L | Select-String ":"
@@ -75,13 +75,33 @@ param(
 	else{$Hashrates = 0}
        }
        Start-Sleep -S 1
-       Write-Host "Current Hashrate is $($Hashrates)"
+       Write-Host "Current Hashrate is $($Hashrates)" -foregroundcolor cyan
        $Hashrates | Out-File ".\Build\totalhash.sh"
        Start-Sleep -S 1
        $MinerAlgo | Out-File ".\Build\algo.sh"
        Start-Sleep -S 8
           }
         }
+      }
+    "ccminer"
+      {
+       Write-Host "Logging not needed for this miner" -foregroundcolor yellow
+       Start-Sleep -S 10
+      }
+    "claymore"
+      {
+       Write-Host "Logging not needed for this miner" -foregroundcolor yellow
+       Start-Sleep -S 10
+      }
+    "dstm"
+      {
+       Write-Host "Logging not needed for this miner" -foregroundcolor yellow
+       Start-Sleep -S 10
+      }
+    "ewbf"
+      {
+       Write-Host "Logging not needed for this miner" -foregroundcolor yellow
+       Start-Sleep -S 10
       }
     } 
   }

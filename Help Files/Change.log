@@ -78,6 +78,23 @@ Added Date to stats command
 Updated Help Files
 Ensured All Miners Display Pool
 
+1.3.3:
+
+zergpool api updated.
+for future implementation- zergpool_coin added
+for future implementation- zerpgool_algo added
+zergpool removed
+blockmasters added (was not tested- Trying to push fast to fix zergpool)
+starpool added (tested)
+New command- "logdata" lets you see the stats recording miners that work from logs. Debug aid.
+New command- "pidinfo" was always running in background- brought it to a screen so you can see MM.Hash process tracking. Debug aid.
+LogData screen opens with every miner, is put to sleep if not needed (to preveny zombie app errors)
+PIDInfo screens opens with every miner- Has always been running, it is just now visual
+PIDInfo is now tracking MM.Hash process- For future implementation.
+Added "clear" background process, work the same as miners- Double close command in case of hangs.
+Small implementation to reduce resources.
+Status flags written to disk, to provide double checking of MM.Hash states and its miners.
+
 
 
 

@@ -42,6 +42,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
         Wrap = $false
         URI = $Uri
         BUILD = $Build
+    Algo = "$($_)"
       }
     }
  }

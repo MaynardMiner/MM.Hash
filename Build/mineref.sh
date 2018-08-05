@@ -1,1 +1,1 @@
-trex
+ccminer

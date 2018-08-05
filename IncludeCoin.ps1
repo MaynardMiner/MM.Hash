@@ -463,7 +463,52 @@ function Get-HashRate {
     {
     }
 }
- 
+
+function Get-PID {
+    param(
+        [Parameter (Mandatory=$true,
+                    Position = 0)]
+        $PIDName,
+        [Parameter (Mandatory=$true,
+                    Position = 1)]
+        $PIDCoins,
+        [Parameter (Mandatory=$true,
+                    Position = 2)]
+        $PIDType
+    )
+
+    $PIDPath = ".\Build\PID\$($PIDName)_$($PIDCoins)_$($PIDType)_PID.txt"
+    if(Test-Path $PIDPath)
+     {
+      if((Get-Content $PIDPath) -ne $null){$GetPID = Get-Content $PIDPath}
+      else{$GetPID -eq $null}
+      $GetPID
+     }
+ }
+
+ function Get-Status {
+    param(
+        [Parameter (Mandatory=$true,
+                    Position = 0)]
+        $PIDName,
+        [Parameter (Mandatory=$true,
+                    Position = 1)]
+        $PIDCoins,
+        [Parameter (Mandatory=$true,
+                    Position = 2)]
+        $PIDType
+    )
+
+    $StatusPath = ".\Build\PID\$($PIDName)_$($PIDCoins)_$($PIDType)_status.txt"
+    if(Test-Path $StatusPath)
+     {
+      if((Get-Content $StatusPath) -ne $null){$GetStatus = Get-Content $StatusPath}
+      else{$GetStatus -eq $null}
+      $GetStatus
+     }
+ }
+
+
 
 function Get-LogHash {
     param(

@@ -1,0 +1,177 @@
+********************************************************************************
+        _____                  _        _____               _
+       / ____|                | |      |  __ \             | |
+      | |     _ __ _   _ _ __ | |_ ___ | |  | |_ __ ___  __| | __ _  ___
+      | |    | '__| | | | '_ \| __/ _ \| |  | | '__/ _ \/ _` |/ _` |/ _ \
+      | |____| |  | |_| | |_) | || (_) | |__| | | |  __/ (_| | (_| |  __/
+       \_____|_|   \__, | .__/ \__\___/|_____/|_|  \___|\__,_|\__, |\___|
+                    __/ | |                                    __/ |
+                   |___/|_|                                   |___/
+
+********************************************************************************
+
+[11:28:59] INFO  - CryptoDredge 0.8.0 for NVIDIA GPUs
+[11:28:59] INFO  - DevFee is 1%
+[11:29:00] INFO  - NVML is enabled
+[11:29:00] INFO  - GPU0 : Gigabyte GeForce GTX 1070 : 8119 MB
+[11:29:00] INFO  - GPU1 : NVidia GeForce GTX 1070 : 8119 MB
+[11:29:00] INFO  - GPU2 : Gigabyte GeForce GTX 1070 : 8119 MB
+[11:29:00] INFO  - GPU6 : Gigabyte GeForce GTX 1070 : 8119 MB
+[11:29:00] INFO  - GPU9 : NVidia GeForce GTX 1070 : 8119 MB
+[11:29:00] INFO  - GPU10 : Gigabyte GeForce GTX 1070 : 8119 MB
+[11:29:00] INFO  - Selected pool: lyra2v2.mine.zergpool.com:4533
+[11:29:00] INFO  - Selected algo: lyra2v2
+[11:29:00] INFO  - Intensity set to 6
+[11:29:00] INFO  - ccminer TCP API: Start server on 0.0.0.0:4068
+[11:29:00] INFO  - Start user session
+[11:29:01] INFO  - Setting new difficulty: 128 (0.5)
+[11:29:01] INFO  - Received new job #1b87
+[11:29:09] INFO  - 1/0 Pool accepted share, diff=7.1205
+[11:29:15] INFO  - Received new job #1b94
+[11:29:18] INFO  - Received new job #1b95
+[11:29:27] INFO  - Received new job #1b9a
+[11:29:28] INFO  - 2/0 Pool accepted share, diff=7.53216
+[11:29:46] INFO  - 3/0 Pool accepted share, diff=0.599821
+[11:29:58] INFO  - 4/0 Pool accepted share, diff=3.6232
+[11:30:02] INFO  - 5/0 Pool accepted share, diff=1.0245
+[11:30:04] INFO  - 6/0 Pool accepted share, diff=0.958505
+[11:30:10] INFO  - Received new job #1ba7
+[11:30:11] INFO  - 7/0 Pool accepted share, diff=0.685438
+[11:30:28] INFO  - 8/0 Pool accepted share, diff=0.65737
+[11:30:30] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 23.75Mh/s (Avr 23.75Mh/s) : T=68C Fan=85%
+[11:30:30] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.87Mh/s (Avr 44.87Mh/s) : T=71C Fan=85%
+[11:30:30] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 45.03Mh/s (Avr 45.03Mh/s) : T=64C Fan=85%
+[11:30:30] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 44.12Mh/s (Avr 44.12Mh/s) : T=68C Fan=85%
+[11:30:30] INFO  - GPU9 NVidia GeForce GTX 1070 : 45.02Mh/s (Avr 45.02Mh/s) : T=70C Fan=85%
+[11:30:30] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 47.84Mh/s (Avr 47.84Mh/s) : T=62C Fan=85%
+[11:30:30] INFO  - Total hashrate 250.6Mh/s
+[11:30:30] INFO  - 9/0 Pool accepted share, diff=0.828293
+[11:30:37] INFO  - 10/0 Pool accepted share, diff=1.06899
+[11:30:54] INFO  - Received new job #1bb7
+[11:30:56] INFO  - 11/0 Pool accepted share, diff=16.4887
+[11:31:10] INFO  - Received new job #1bb9
+[11:31:11] INFO  - 12/0 Pool accepted share, diff=2.75965
+[11:31:20] INFO  - 13/0 Pool accepted share, diff=1.05024
+[11:31:28] INFO  - Received new job #1bbd
+[11:31:32] INFO  - 14/0 Pool accepted share, diff=0.54121
+[11:31:35] INFO  - Received new job #1bbf
+[11:31:54] INFO  - 15/0 Pool accepted share, diff=1.0101
+[11:31:57] INFO  - 16/0 Pool accepted share, diff=2.11714
+[11:31:57] INFO  - 17/0 Pool accepted share, diff=0.672949
+[11:32:00] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.12Mh/s (Avr 21.89Mh/s) : T=68C Fan=85%
+[11:32:00] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.83Mh/s (Avr 44.85Mh/s) : T=72C Fan=85%
+[11:32:00] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 45.12Mh/s (Avr 45.08Mh/s) : T=64C Fan=85%
+[11:32:00] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 44.16Mh/s (Avr 44.14Mh/s) : T=69C Fan=85%
+[11:32:00] INFO  - GPU9 NVidia GeForce GTX 1070 : 45.10Mh/s (Avr 45.06Mh/s) : T=71C Fan=85%
+[11:32:00] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 47.85Mh/s (Avr 47.84Mh/s) : T=63C Fan=85%
+[11:32:00] INFO  - Total hashrate 248.9Mh/s
+[11:32:01] INFO  - Received new job #1bdb
+[11:32:05] INFO  - 18/0 Pool accepted share, diff=0.604443
+[11:32:10] INFO  - 19/0 Pool accepted share, diff=0.783098
+[11:32:10] INFO  - 20/0 Pool accepted share, diff=0.931625
+[11:32:24] INFO  - 21/0 Pool accepted share, diff=0.600731
+[11:32:28] INFO  - 22/0 Pool accepted share, diff=2.469
+[11:32:29] INFO  - Received new job #1bdf
+[11:32:32] INFO  - 23/0 Pool accepted share, diff=0.732171
+[11:32:35] INFO  - 24/0 Pool accepted share, diff=0.60252
+[11:32:41] INFO  - Received new job #1be1
+[11:32:51] INFO  - 25/0 Pool accepted share, diff=0.6161
+[11:33:00] INFO  - 26/0 Pool accepted share, diff=0.873273
+[11:33:02] INFO  - 27/0 Pool accepted share, diff=0.73539
+[11:33:07] INFO  - 28/0 Pool accepted share, diff=0.738964
+[11:33:18] INFO  - Received new job #1bf2
+[11:33:18] INFO  - 29/0 Pool accepted share, diff=1.18905
+[11:33:21] INFO  - 30/0 Pool accepted share, diff=0.979712
+[11:33:30] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.13Mh/s (Avr 21.30Mh/s) : T=68C Fan=85%
+[11:33:30] INFO  - 31/0 Pool accepted share, diff=0.72661
+[11:33:30] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.82Mh/s (Avr 44.84Mh/s) : T=72C Fan=85%
+[11:33:30] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 45.13Mh/s (Avr 45.10Mh/s) : T=65C Fan=85%
+[11:33:30] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 44.15Mh/s (Avr 44.14Mh/s) : T=69C Fan=85%
+[11:33:30] INFO  - GPU9 NVidia GeForce GTX 1070 : 44.96Mh/s (Avr 45.03Mh/s) : T=71C Fan=85%
+[11:33:30] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 48.00Mh/s (Avr 47.90Mh/s) : T=63C Fan=85%
+[11:33:30] INFO  - Total hashrate 248.3Mh/s
+[11:33:49] INFO  - 32/0 Pool accepted share, diff=96.7422
+[11:33:52] INFO  - Received new job #1bf9
+[11:34:02] INFO  - 33/0 Pool accepted share, diff=2.09681
+[11:34:09] INFO  - Received new job #1bfa
+[11:34:13] INFO  - 34/0 Pool accepted share, diff=2.34515
+[11:34:17] INFO  - 35/0 Pool accepted share, diff=1.02046
+[11:34:18] INFO  - 36/0 Pool accepted share, diff=0.663138
+[11:34:25] INFO  - 37/0 Pool accepted share, diff=0.938165
+[11:34:26] INFO  - 38/0 Pool accepted share, diff=1.41152
+[11:34:30] INFO  - Received new job #1c06
+[11:34:32] INFO  - 39/0 Pool accepted share, diff=1.01777
+[11:34:36] INFO  - 40/0 Pool accepted share, diff=1.85688
+[11:34:36] INFO  - 41/0 Pool accepted share, diff=0.652367
+[11:34:37] INFO  - 42/0 Pool accepted share, diff=0.729565
+[11:34:45] INFO  - 43/0 Pool accepted share, diff=1.77044
+[11:34:48] INFO  - Setting new difficulty: 192 (0.75)
+[11:34:49] INFO  - Received new job #1c0c
+[11:35:00] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.11Mh/s (Avr 21.00Mh/s) : T=68C Fan=85%
+[11:35:00] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.82Mh/s (Avr 44.84Mh/s) : T=72C Fan=85%
+[11:35:00] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 45.19Mh/s (Avr 45.12Mh/s) : T=65C Fan=85%
+[11:35:00] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 44.06Mh/s (Avr 44.12Mh/s) : T=69C Fan=85%
+[11:35:00] INFO  - GPU9 NVidia GeForce GTX 1070 : 45.00Mh/s (Avr 45.02Mh/s) : T=71C Fan=85%
+[11:35:00] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 47.84Mh/s (Avr 47.88Mh/s) : T=62C Fan=85%
+[11:35:00] INFO  - Total hashrate 248.0Mh/s
+[11:35:03] INFO  - 44/0 Pool accepted share, diff=1.23512
+[11:35:07] INFO  - 45/0 Pool accepted share, diff=1.42333
+[11:35:08] INFO  - 46/0 Pool accepted share, diff=10.948
+[11:35:09] INFO  - 47/0 Pool accepted share, diff=1.43273
+[11:35:16] INFO  - 48/0 Pool accepted share, diff=1.8149
+[11:35:17] INFO  - 49/0 Pool accepted share, diff=1.25535
+[11:35:23] INFO  - Received new job #1c18
+[11:35:28] INFO  - 50/0 Pool accepted share, diff=11.5203
+[11:35:47] INFO  - Received new job #1c2a
+[11:35:49] INFO  - 51/0 Pool accepted share, diff=6.85999
+[11:35:52] INFO  - 52/0 Pool accepted share, diff=1.25968
+[11:36:03] INFO  - Received new job #1c30
+[11:36:10] INFO  - 53/0 Pool accepted share, diff=0.974161
+[11:36:15] INFO  - Received new job #1c35
+[11:36:17] INFO  - Received new job #1c36
+[11:36:29] INFO  - Received new job #1c38
+[11:36:30] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.09Mh/s (Avr 20.81Mh/s) : T=68C Fan=85%
+[11:36:30] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.86Mh/s (Avr 44.84Mh/s) : T=72C Fan=85%
+[11:36:30] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 45.11Mh/s (Avr 45.12Mh/s) : T=65C Fan=85%
+[11:36:30] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 44.02Mh/s (Avr 44.10Mh/s) : T=69C Fan=85%
+[11:36:31] INFO  - GPU9 NVidia GeForce GTX 1070 : 44.90Mh/s (Avr 45.00Mh/s) : T=71C Fan=85%
+[11:36:31] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 47.90Mh/s (Avr 47.88Mh/s) : T=62C Fan=85%
+[11:36:31] INFO  - Total hashrate 247.8Mh/s
+[11:36:47] INFO  - Received new job #1c42
+[11:36:47] INFO  - 54/0 Pool accepted share, diff=1.26714
+[11:36:49] INFO  - 55/0 Pool accepted share, diff=2.78601
+[11:36:50] INFO  - 56/0 Pool accepted share, diff=1.52506
+[11:36:59] INFO  - 57/0 Pool accepted share, diff=1.16911
+[11:37:01] INFO  - Received new job #1c50
+[11:37:15] INFO  - 58/0 Pool accepted share, diff=2.28614
+[11:37:20] INFO  - 59/0 Pool accepted share, diff=0.853669
+[11:37:20] INFO  - 60/0 Pool accepted share, diff=1.95718
+[11:37:23] INFO  - Setting new difficulty: 288 (1.125)
+[11:37:23] INFO  - Received new job #1c52
+[11:37:31] INFO  - 61/0 Pool accepted share, diff=1.98982
+[11:37:37] INFO  - Received new job #1c5d
+[11:37:44] INFO  - 62/0 Pool accepted share, diff=1.37174
+[11:38:00] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.01Mh/s (Avr 20.68Mh/s) : T=68C Fan=85%
+[11:38:00] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.65Mh/s (Avr 44.81Mh/s) : T=72C Fan=85%
+[11:38:00] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 44.97Mh/s (Avr 45.09Mh/s) : T=65C Fan=85%
+[11:38:00] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 43.90Mh/s (Avr 44.07Mh/s) : T=69C Fan=85%
+[11:38:00] INFO  - GPU9 NVidia GeForce GTX 1070 : 44.64Mh/s (Avr 44.94Mh/s) : T=70C Fan=85%
+[11:38:00] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 47.71Mh/s (Avr 47.86Mh/s) : T=62C Fan=85%
+[11:38:00] INFO  - Total hashrate 247.4Mh/s
+[11:38:04] INFO  - Received new job #1c6b
+[11:38:19] INFO  - 63/0 Pool accepted share, diff=2.24126
+[11:38:20] INFO  - 64/0 Pool accepted share, diff=2.01189
+[11:38:25] INFO  - Received new job #1c72
+[11:38:34] INFO  - 65/0 Pool accepted share, diff=1.9066
+[11:38:44] INFO  - Received new job #1c79
+[11:39:00] INFO  - Received new job #1c86
+[11:39:07] INFO  - 66/0 Pool accepted share, diff=2.158
+[11:39:22] INFO  - Received new job #1c88
+[11:39:30] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.08Mh/s (Avr 20.59Mh/s) : T=68C Fan=85%
+[11:39:30] INFO  - GPU1 NVidia GeForce GTX 1070 : 44.56Mh/s (Avr 44.77Mh/s) : T=72C Fan=85%
+[11:39:30] INFO  - GPU2 Gigabyte GeForce GTX 1070 : 44.88Mh/s (Avr 45.06Mh/s) : T=64C Fan=85%
+[11:39:30] INFO  - GPU6 Gigabyte GeForce GTX 1070 : 43.74Mh/s (Avr 44.02Mh/s) : T=69C Fan=85%
+[11:39:30] INFO  - GPU9 NVidia GeForce GTX 1070 : 44.66Mh/s (Avr 44.90Mh/s) : T=71C Fan=85%
+[11:39:30] INFO  - GPU10 Gigabyte GeForce GTX 1070 : 47.69Mh/s (Avr 47.83Mh/s) : T=62C Fan=85%
+[11:39:30] INFO  - Total hashrate 247.2Mh/s
+[11:39:33] INFO  - 67/0 Pool accepted share, diff=2.38917
