@@ -32,7 +32,9 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$RigName3 = "MMHash",
     [Parameter(Mandatory=$false)]
-    [Int]$API_ID = 0, 
+    [Int]$API_ID = 0,
+    [Parameter(Mandatory=$false)]
+    [Array]$No_Algo = $null,
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
@@ -174,7 +176,12 @@ $PreviousPath = Join-Path "/hive/custom" "$_"
 
 $Algorithm = @()
 $GetAlgorithms = Get-Content ".\Algorithms.txt"
-$GetAlgorithms | foreach{$Algorithm += $_}
+$GetAlgorithms | foreach{
+if($_ -ne $No_Algo)
+ {
+$Algorithm += $_
+ }
+}
 
 
 if(Test-Path ".\Build\stats")
