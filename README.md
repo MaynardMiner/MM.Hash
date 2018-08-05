@@ -12,6 +12,8 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 
 -HiveOS full integration.
 
+-Displays close to real-time monitoring, directly from miners to HiveOS website. Allows for HiveOS monitoring and graph data.
+
 -Every part of the code has a double-checking feature, to ensure real time monitoring.
 
 -More hard drive integration, less storage on RAM.
