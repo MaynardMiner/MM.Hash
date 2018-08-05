@@ -127,7 +127,7 @@ To Run:
 
 ```gparted```
 
-This is an example of how to remote install/update miner. It is the fastest way to get going. Simple enter tar.gz file name from latest release. Then insert link for tar.gz. Lastly, your setup arguments go in the last box, labeled user arguments. After that, you are are good to go! See wiki on proper argument use. Here is a photo of setup:
+This is an example of how to remote install/update miner. It is the fastest way to get going. Simply enter tar.gz file name from latest release. Then insert link for tar.gz. Lastly, your setup arguments go in the last box, labeled user arguments. After that, you are are good to go! See wiki on proper argument use. Here is a photo of setup:
 
 ![alt text](https://raw.githubusercontent.com/MaynardMiner/MM.Hash/master/Build/Data/Setup.png)
 
