@@ -41,7 +41,9 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 -Strong support via discord. Users with rig setups of 100s of GPU's are using and troubleshooting as updates are released.
 
 
+
 **Algorithms** (As defined and required by miners)
+
 ```
 nist5
 blake2s
@@ -87,6 +89,7 @@ c11
 hsr
 ```
 
+
 **Pools**
 ```
 nicehash
@@ -100,6 +103,9 @@ blazepool
 hashrefinery
 phiphipool
 zpool
+
+
+
 ```
 **Miners**
 ```
