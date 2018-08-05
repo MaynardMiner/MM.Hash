@@ -2,7 +2,7 @@
 
 **Profit Switching Miner For HiveOS & Windows.** [![GitHub version](https://badge.fury.io/gh/MaynardMiner%2FMM.Hash.svg)](https://badge.fury.io/gh/MaynardMiner%2FMM.Hash)
 
-MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS miners. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well.
+MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well.
 
 **Features**
 
