@@ -27,7 +27,7 @@ $Location = "US"
 $blockpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | ForEach-Object {
 
     $blockpool_Algorithm = Get-Algorithm $blockpool_Request.$_.name
-    $blockpool_Host = "$_.mine.blockpool.com"
+    $blockpool_Host = "blockmasters.co"
     $blockpool_Port = $blockpool_Request.$_.port
     $Divisor = (1000000*$blockpool_Request.$_.mbtc_mh_factor)
 
