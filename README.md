@@ -152,7 +152,7 @@ CONTACT
 Discord Channel For MM.Hash- 
 https://discord.gg/xVB5MqR
 
-DONATE TO SUPPORT!
+**DONATE TO SUPPORT!**
 
 DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
@@ -166,6 +166,6 @@ Nemosminer
 
 Uselessguru
 
-Aaronsance
+Aaronsace
 
 They were the pioneers to powershell scriptmining. Their scripts helped me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time. Since then it has grown to what it is today.
