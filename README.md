@@ -145,9 +145,9 @@ This is an example of how to remote install/update miner. It is the fastest way 
 
 -Autofan: HiveOS considers MM.Hash as a single miner. Therefor when MM.Hash switches to another miner, HiveOS may occasionally take a min. to switch to the API of the new miner in question. Occasionally this causes the error due to the fact that HiveOS didn't realize the miner switched. It a latency issues between HiveOS and MM.Hash. It cannot be corrected.
 
-DONATION ADDRESS: BTC 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
 
-CONTACT
+
+**CONTACT**
 
 Discord Channel For MM.Hash- 
 https://discord.gg/xVB5MqR
