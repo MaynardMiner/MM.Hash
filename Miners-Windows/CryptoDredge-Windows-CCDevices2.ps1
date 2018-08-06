@@ -1,5 +1,5 @@
 $Path = ".\Bin\CyrptoDredge-Windows-CCDevices2-Algo\CryptoDredge.exe"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/CryptoDredge_0.8.0_win_x64.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/Cryptodredge-Windows.zip"
 
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
