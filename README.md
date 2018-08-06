@@ -141,7 +141,7 @@ This is an example of how to remote install/update miner. It is the fastest way 
 
 **Known Issues**
 
--T-Rex miner API does not work in Unix. In order to attain hashrates, MM.Hash must read data from logs. This creates a small latency between MM.Hash and T-Rex. It cannot be avoided. Please contact developer and inform him you wish a working API version for Unix.
+-T-Rex miner API does not work in Unix. In order to attain hashrates, MM.Hash must read data from logs. This creates a small latency between MM.Hash and T-Rex. It cannot be avoided. Please contact/bribe developer and inform him you wish a working API version for Unix.
 
 -Autofan: HiveOS considers MM.Hash as a single miner. Therefor when MM.Hash switches to another miner, HiveOS may occasionally take a min. to switch to the API of the new miner in question. Occasionally this causes the error due to the fact that HiveOS didn't realize the miner switched. It a latency issues between HiveOS and MM.Hash. It cannot be corrected.
 
