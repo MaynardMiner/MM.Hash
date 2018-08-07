@@ -105,10 +105,8 @@ blazepool
 hashrefinery
 phiphipool
 zpool
-
-
-
 ```
+
 **Miners**
 ```
 CryptoDredge
