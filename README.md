@@ -99,7 +99,7 @@ miningpoolhub (mph)
 zergpool_coin
 zergpool_algo
 blockmasters
-startpool
+starpool
 ahashpool
 blazepool
 hashrefinery
