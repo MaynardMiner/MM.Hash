@@ -1479,6 +1479,7 @@ Start-Sleep -s 10
            {
            if($_.WasBenchmarked -eq $False)
             {
+             if(-not Test-Path "Backup){New-Item -Path "Backup" -ItemType "Directory"}
              Write-Host "$($_.Name) $($_.Coins) Starting Bench"
 	     $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
              $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
@@ -1491,10 +1492,10 @@ Start-Sleep -s 10
  	     if($StatCheck -ne 0 -or $StatCheck -ne $null)
 	      {
 	      if(-not (Test-Path $NewHashrateFilePath))
-         {
-		     Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath -force
-         Write-Host "$($_.Name) $($_.Coins) Was Benchmarked And Backed Up" -foregroundcolor yellow
-         }
+               {
+	       Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath -force
+               Write-Host "$($_.Name) $($_.Coins) Was Benchmarked And Backed Up" -foregroundcolor yellow
+               }
               $_.New = $False
               $_.Hashrate_Gathered = $True
               $_.Crashed = 0
