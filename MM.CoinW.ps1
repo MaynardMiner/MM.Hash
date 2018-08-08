@@ -890,8 +890,9 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
               {
               if($_.WasBenchmarked -eq $False)
                {
+	        if(-not Test-Path "Backup){New-Item -Path "Backup" -ItemType "Directory"}
                 Write-Host "$($_.Name) $($_.Coins) Starting Bench"
-          $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+                $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
                 $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
                 Start-Sleep -s 1
