@@ -95,10 +95,29 @@ Added "clear" background process, work the same as miners- Double close command 
 Small implementation to reduce resources.
 Status flags written to disk, to provide double checking of MM.Hash states and its miners.
 
+1.3.4:
+-HiveOS Added hive integrated "mine" command. Enter to bring up NVIDIA1 screen (mining window).
 
+-Added -No_Algo argument. -No_Algo excludes aglorithm of your choice. Must match Algorithms.txt.
+Case Sensitive! (All lower case characters)
 
+-EWBF coins added back in. Updated equihash to match zergpool.
 
+-Reduced resources on PID system/tracking, removed read/write status- It was redundant.
 
+-Newer streamlined benchmarking system. (Both versions)
+
+-Better chance of miner catching and recording timeouts.
+
+-Recorded hashrate displayed at benchmarking. Recorded hashrate is pulled from file (accurate).
+
+-Enemy 1.15a
+
+-CryptoDredge 0.8.3
+
+-Started staging of much faster -Auto_Coin version. Not implemented yet.
+
+-Started staging for T-Rex API Rest method hashrate recording (when implemented).
 
 
 

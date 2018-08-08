@@ -20,13 +20,13 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Sib
 
 $Commands = [PSCustomObject]@{
-"Qubit" = ''
-"Keccak" = ''
-"Blakecoin" = ''
-"Skunk" = ''
-"Keccakc" = ''
-"X12" = ''
-"Sib" = ''
+"qubit" = ''
+"keccak" = ''
+"blakecoin" = ''
+"skunk" = ''
+"keccakc" = ''
+"x12" = ''
+"sib" = ''
 }
 
 
@@ -65,7 +65,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
        Devices = $Devices
        DeviceCall = "ccminer"
        Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4069 -u $($_.User2) -p $($_.Pass2) $($Commands.$($_.Algorithm))"
-       HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
+         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
        API = "Ccminer"
        Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
 	 MinerPool = "$($_.Name)"

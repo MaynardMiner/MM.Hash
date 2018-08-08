@@ -21,21 +21,16 @@ While($true)
       if($MinerProcess -ne $null -or $MinerProcess.HasExited -eq $false)
        {
        Write-Host "$($Title) Status: Is Currently Running" -foregroundcolor green
-       $Status = "Running"
-       $Status | Out-File ".\PID\$($_)_status.txt"
        }
       else
        {
         $Status = "Failed"
-        $Status | Out-File ".\PID\$($_)_status.txt"
        }
      }
     else
      {
       $Status = "Failed"
       Write-Host "$($Title) Status: Miner Is Not Running!" -foregroundcolor red
-      $Status | Out-File ".\PID\$($_)_status.txt"
-      Clear-Content $MinerTestPath
      }
     }
   }

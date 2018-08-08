@@ -53,7 +53,7 @@ if($GPUDevices3 -ne '')
         Devices = $Devices
         DeviceCall = "claymore"
         Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($_.Protocol)://$($_.Host):$($_.Port) -ewal $($_.User3) -epsw $($_.Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$($_.Algorithm))"
-        HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
+         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
         Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
 	 MinerPool = "$($_.Name)"
         API = "claymore"

@@ -8,11 +8,12 @@ if($GPUDevices2 -ne ''){$Devices = $GPUDevices2}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
-    "Nist5" = '-i 25'
-    "Quark" = ''
-    "Blake2s" = ''
-    "Skein" = '-i 28'
+    "nist5" = '-i 25'
+    "quark" = ''
+    "blake2s" = ''
+    "skein" = '-i 28'
 }
+
 
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
@@ -50,8 +51,8 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
        Devices = $Devices
        DeviceCall = "ccminer"
        Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4069 -u $($_.User2) -p $($_.Pass2) $($Commands.$($_.Algorithm))"
-       HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
        API = "Ccminer"
+         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
        Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
 	 MinerPool = "$($_.Name)"
        Port = 4069

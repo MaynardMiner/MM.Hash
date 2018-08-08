@@ -12,8 +12,8 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Groestl
 
 $Commands = [PSCustomObject]@{
-"Neoscrypt" = ''
-"Groestl" = ''
+"neoscrypt" = ''
+"groestl" = ''
 }
 
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
@@ -51,7 +51,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
    Devices = $Devices
    DeviceCall = "ccminer"
    Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4068 -u $($_.User1) -p $($_.Pass1) $($Commands.$($_.Algorithm))"
-   HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
+         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
    API = "Ccminer"
    Selected = [PSCustomObject]@{$_.Algorithm = ""}
 	 MinerPool = "$($_.Name)"

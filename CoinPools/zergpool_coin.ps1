@@ -46,7 +46,7 @@ if($Auto_Coin -eq "Yes")
     if($Algorithm -eq $zergpool_Algorithm)
       {
     if((Get-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit" -Value ([Double]$zergpool_Request.$_.$($zergpool_24h)/$Divisor*(1-($zergpool_fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit" -Value ([Double]$zergpool_Estimate/$Divisor *(1-($zergpool_fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Symbol)_Profit"-Value ([Double]$zergpool_Estimate/$Divisor *(1-($zergpool_fees/100)))}
      }
      
       if($Wallet)
@@ -75,7 +75,7 @@ if($Auto_Coin -eq "Yes")
             Host = $zergpool_Host
             Port = $zergpool_Port
             User1 = $ZergWallet1
-	        User2 = $ZergWallet2
+	    User2 = $ZergWallet2
             User3 = $ZergWallet3
             CPUser = $CPUWallet
             CPUPass = "c=$CPUcurrency,mc=$zergpool_Coin"

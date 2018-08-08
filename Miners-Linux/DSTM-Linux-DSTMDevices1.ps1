@@ -10,8 +10,7 @@ if($GPUDevices1 -ne '')
  }
 
  $Commands = [PSCustomObject]@{
-
-    "Equihash" = ''
+    "equihash" = ''
     }
 
     $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName

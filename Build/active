@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-pwsh -command "/hive/custom/MM.Hash.1.3.3/Build/active.ps1"
+pwsh -command "/hive/custom/MM.Hash.1.3.4/Build/active.ps1"
 

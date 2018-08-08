@@ -10,9 +10,7 @@ if($GPUDevices2 -ne '')
  }
 
  $Commands = [PSCustomObject]@{
-
-    "Equihash" = ''
-
+    "equihash" = ''
     }
 
 

@@ -12,12 +12,8 @@ if($GPUDevices3 -ne '')
 #Equihash192
 
 $Commands = [PSCustomObject]@{
-  "Equihash192" = '--algo 192_7 --pers ZERO_PoW' #Equihash192
-  "Equihash144xsg" =  '--algo 144_5 --pers sngemPoW'
-  "Equihash144btcz" = '--algo 144_5 --pers BitcoinZ'
-  "Equihash144zel" = '--algo 144_5 --pers ZelProof'
-  "Equihash-BTG" = '--algo 144_5 --pers BgoldPoW'
-  "Equihash144safe" = '--algo 144_5 --pers Safecoin'
+  "equihash192" = '--algo 192_7 --pers auto'
+  "equihash144" =  '--algo 144_5 --pers auto'
   }
 
 
@@ -47,5 +43,28 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
       }
     }
   }
+
+$Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne $null} | ForEach {
+        if("$($_.Coin)" -eq "Yes")
+        {
+        [PSCustomObject]@{
+         MinerName = "miner-NVIDIA3"
+         Type = "NVIDIA3"
+         Path = $Path
+         Devices = $Devices
+         DeviceCall = "ewbf"
+	 Arguments = "--api 0.0.0.0:42002 --server $($_.Host) --port $($_.Port) --user $($_.User3) --pass $($_.Pass3) $($Commands.$($_.Algorithm))"
+         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
+         Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+         API = "EWBF"
+         MinerPool = "$($_.Name)"
+         Port = 42002
+         Wrap = $false
+         URI = $Uri
+         BUILD = $Build
+         Algo = "$($_)"
+         }
+        }
+       }
 
   

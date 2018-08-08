@@ -1,308 +1,212 @@
 
-Sunday, August 5, 2018 11:29:20 AM
+Tuesday, August 7, 2018 9:14:07 PM
 
 
 
 
    Type: NVIDIA2
 
-Miner                         Coin               Speed    BTC/Day   RVN/Day USD/Day     Algorithm         Coin Name     Pool
------                         ----               -----    -------   ------- -------     ---------        ----------         ----
-CryptoDredge-Linux-CCDevices2 XVG-lyra2v2     143.27 MH/s 0.00106 342.95535  7.408        lyra2v2            Verge      zergpool_algo
-CryptoDredge-Linux-CCDevices2 lyra2v2         144.76 MH/s 0.00072 232.41493  5.020        lyra2v2           lyra2v2     zergpool_coin
-TRex-Linux-CCDevices2         DNR             215.69 MH/s 0.00053 170.71142  3.687        tribus           Denarius     zergpool_algo
-TRex-Linux-CCDevices2         tribus          208.24 MH/s 0.00050 162.79906  3.516        tribus            tribus      zergpool_coin
-CryptoDredge-Linux-CCDevices2 phi2            17.36 MH/s  0.00045 144.94075  3.131         phi2              phi2       zergpool_coin
-CryptoDredge-Linux-CCDevices2 LUX             17.44 MH/s  0.00043 140.70982  3.039         phi2               Lux       zergpool_algo
-CryptoDredge-Linux-CCDevices2 MONA            146.79 MH/s 0.00042 137.05018  2.960        lyra2v2            Mona       zergpool_algo
-CryptoDredge-Linux-CCDevices2 allium          19.75 MH/s  0.00041 131.53236  2.841        allium            allium      zergpool_coin
-EWBF-Linux-EWBFDevices2       equihash192     63.00  H/s  0.00040 130.27775  2.814      equihash192       equihash192   zergpool_coin
-CryptoDredge-Linux-CCDevices2 GRLC            19.83 MH/s  0.00039 127.65395  2.757        allium            Garlic      zergpool_algo
-Claymore-Linux-ClayDevices2   daggerhashimoto 97.82 MH/s  0.00039 126.93964  2.742    daggerhashimoto   daggerhashimoto   nicehash
-KlausT-Linux-CCDevices2       neoScrypt        3.21 MH/s  0.00039 126.49392  2.732       neoScrypt         neoScrypt    zergpool_coin
-CryptoDredge-Linux-CCDevices2 MCT              8.44 MH/s  0.00038 124.68705  2.693        lyra2z           MCT coin     zergpool_algo
-KlausT-Linux-CCDevices2       GBX              3.05 MH/s  0.00038 123.76718  2.673       neoScrypt          GoByte      zergpool_algo
-CryptoDredge-Linux-CCDevices2 lyra2z           8.48 MH/s  0.00036 118.40247  2.557        lyra2z            lyra2z      zergpool_coin
-CryptoDredge-Linux-CCDevices2 VTC             146.43 MH/s 0.00036 117.79120  2.544        lyra2v2          VertCoin     zergpool_algo
-CryptoDredge-Linux-CCDevices2 GIN              8.47 MH/s  0.00035 114.29780  2.469        lyra2z            Gincoin     zergpool_algo
-KlausT-Linux-CCDevices2       VIVO             3.22 MH/s  0.00035 114.22958  2.467       neoScrypt           Vivo       zergpool_algo
-Enemy-Linux-CCDevices2        x16r            41.87 MH/s  0.00034 111.17697  2.401         x16r              x16r       zergpool_coin
-EWBF-Linux-EWBFDevices2       equihash144safe 113.00  H/s 0.00034 110.22974  2.381    equihash144safe   equihash144safe zergpool_coin
-CryptoDredge-Linux-CCDevices2 XSH-lyra2v2     148.12 MH/s 0.00034 109.57943  2.367        lyra2v2           SHIELD      zergpool_algo
-KlausT-Linux-CCDevices2       GOA              2.94 MH/s  0.00033 108.60231  2.346       neoScrypt            Goa       zergpool_algo
-MSFT-Linux-CCDevices2         hmq1725         14.27 MH/s  0.00033 108.54591  2.345        hmq1725           hmq1725     zergpool_coin
-EWBF-Linux-EWBFDevices2       equihash144btcz 107.01  H/s 0.00033 107.97847  2.332    equihash144btcz   equihash144btcz zergpool_coin
-KlausT-Linux-CCDevices2       UFO              3.20 MH/s  0.00033 107.92483  2.331       neoScrypt          UFOCoin     zergpool_algo
-EWBF-Linux-EWBFDevices2       equihash144zel  110.90  H/s 0.00033 107.49581  2.322    equihash144zel    equihash144zel  zergpool_coin
-KlausT-Linux-CCDevices2       XZX              3.16 MH/s  0.00033 107.43956  2.321       neoScrypt           Zixx       zergpool_algo
-KlausT-Linux-CCDevices2       NYX              3.26 MH/s  0.00033 106.72014  2.305       neoScrypt          Nyxcoin     zergpool_algo
-CryptoDredge-Linux-CCDevices2 ABS             146.65 MH/s 0.00033 106.12314  2.292        lyra2v2          Absolute     zergpool_algo
-KlausT-Linux-CCDevices2       QBIC             3.35 MH/s  0.00032 104.19093  2.251       neoScrypt           QBIC       zergpool_algo
-CryptoDredge-Linux-CCDevices2 IFX              8.45 MH/s  0.00032 102.91049  2.223        lyra2z            Infinex     zergpool_algo
-MSFT-Linux-CCDevices2         ESP             13.91 MH/s  0.00032 102.30573  2.210        hmq1725           Espers      zergpool_algo
-CryptoDredge-Linux-CCDevices2 XZC              8.45 MH/s  0.00031 101.54860  2.193        lyra2z             ZCoin      zergpool_algo
-KlausT-Linux-CCDevices2       PXC              3.22 MH/s  0.00031 101.22973  2.187       neoScrypt        Phoenixcoin   zergpool_algo
-TRex-Linux-CCDevices2         RCO             49.41 MH/s  0.00031 100.72020  2.176          c11             Rampant     zergpool_algo
-TRex-Linux-CCDevices2         phi             62.10 MH/s  0.00031 100.30763  2.167          phi               phi       zergpool_coin
-KlausT-Linux-CCDevices2       IC               2.79 MH/s  0.00031 100.15151  2.163       neoScrypt         Ignition     zergpool_algo
-TRex-Linux-CCDevices2         FLM             63.85 MH/s  0.00031  99.62777  2.152          phi              Folm       zergpool_algo
-CryptoDredge-Linux-CCDevices2 VTL              8.46 MH/s  0.00031  99.46057  2.148        lyra2z           Vertical     zergpool_algo
-Enemy-Linux-CCDevices2        XMN             38.59 MH/s  0.00031  99.34753  2.146         x16r          MotionProject  zergpool_algo
-CryptoDredge-Linux-CCDevices2 RACE            145.29 MH/s 0.00031  99.03455  2.139        lyra2v2          Racecoin     zergpool_algo
-CryptoDredge-Linux-CCDevices2 STAK            135.35 MH/s 0.00030  97.50964  2.106        lyra2v2           Straks      zergpool_algo
-CryptoDredge-Linux-CCDevices2 MANO             8.44 MH/s  0.00029  95.10449  2.054        lyra2z             Mano       zergpool_algo
-KlausT-Linux-CCDevices2       TZC              3.09 MH/s  0.00029  94.61727  2.044       neoScrypt        Trezarcoin    zergpool_algo
-EWBF-Linux-EWBFDevices2       equihash144xsg  110.00  H/s 0.00029  93.24500  2.014    equihash144xsg    equihash144xsg  zergpool_coin
-TRex-Linux-CCDevices2         hsr             34.69 MH/s  0.00028  90.21371  1.949          hsr               hsr       zergpool_coin
-TRex-Linux-CCDevices2         HSR-Coin        35.53 MH/s  0.00028  89.29836  1.929          hsr             Hshare      zergpool_algo
-TRex-Linux-CCDevices2         CHC             49.60 MH/s  0.00027  87.96834  1.900          c11            Chaincoin    zergpool_algo
-DSTM-Linux-DSTMDevices2       BTCP             1.51 KH/s  0.00027  87.56185  1.891       equihash       Bitcoin Private zergpool_algo
-KlausT-Linux-CCDevices2       GUN              2.87 MH/s  0.00027  86.92411  1.878       neoScrypt            Gun       zergpool_algo
-CryptoDredge-Linux-CCDevices2 ORE             145.78 MH/s 0.00027  86.65202  1.872        lyra2v2          Galactrum    zergpool_algo
-KlausT-Linux-CCDevices2       ZCR              3.14 MH/s  0.00027  86.23908  1.863       neoScrypt           Zcore      zergpool_algo
-TRex-Linux-CCDevices2         c11             49.77 MH/s  0.00026  85.21497  1.841          c11               c11       zergpool_coin
-DSTM-Linux-DSTMDevices2       HUSH             1.51 KH/s  0.00026  85.06309  1.837       equihash            Hush       zergpool_algo
-KlausT-Linux-CCDevices2       CBS              3.06 MH/s  0.00026  83.95272  1.813       neoScrypt         Cerberus     zergpool_algo
-DSTM-Linux-DSTMDevices2       equihash         1.37 KH/s  0.00026  83.39246  1.801       equihash          equihash       nicehash
-KlausT-Linux-CCDevices2       LUCKY            2.92 MH/s  0.00025  81.61442  1.763       neoScrypt           LUCKY      zergpool_algo
-TRex-Linux-CCDevices2         ITZ             48.93 MH/s  0.00025  80.77342  1.745          c11            Interzone    zergpool_algo
-Krnlx-Linux-CCDevices2        Xevan           10.64 MH/s  0.00025  80.00533  1.728         Xevan             Xevan      zergpool_coin
-KlausT-Linux-CCDevices2       MOC              3.02 MH/s  0.00024  79.35712  1.714       neoScrypt           Momo       zergpool_algo
-KlausT-Linux-CCDevices2       HAL              3.13 MH/s  0.00024  78.99985  1.706       neoScrypt          Halcyon     zergpool_algo
-Enemy-Linux-CCDevices2        x16s            24.03 MH/s  0.00024  77.38593  1.672         x16s              x16s       zergpool_coin
-TRex-Linux-CCDevices2         JLG             49.32 MH/s  0.00024  76.95601  1.662          c11             JoltGas     zergpool_algo
-Enemy-Linux-CCDevices2        XSH-x16s        24.65 MH/s  0.00024  76.67188  1.656         x16s             SHIELD      zergpool_algo
-KlausT-Linux-CCDevices2       AGN              3.13 MH/s  0.00023  75.09876  1.622       neoScrypt           Agena      zergpool_algo
-Ocminer-Linux-CCDevices2      MLM             29.15 MH/s  0.00023  74.87262  1.617          x17             MKTCoin     zergpool_algo
-TRex-Linux-CCDevices2         SERA            63.09 MH/s  0.00023  73.78048  1.594          phi             Seraph      zergpool_algo
-CryptoDredge-Linux-CCDevices2 KREDS           142.73 MH/s 0.00023  73.77341  1.594        lyra2v2            Kreds      zergpool_algo
-KlausT-Linux-CCDevices2       ORB              3.23 MH/s  0.00023  73.38289  1.585       neoScrypt         OrbitCoin    zergpool_algo
-DSTM-Linux-DSTMDevices2       CMM              1.49 KH/s  0.00022  72.70300  1.570       equihash         Commercium    zergpool_algo
-TRex-Linux-CCDevices2         AXS             51.43 MH/s  0.00022  72.60653  1.568          c11               AXS       zergpool_algo
-CryptoDredge-Linux-CCDevices2 ARG-lyra2v2     146.19 MH/s 0.00022  72.25483  1.561        lyra2v2          Argentum     zergpool_algo
-KlausT-Linux-CCDevices2       LBTC             2.77 MH/s  0.00022  71.02331  1.534       neoScrypt        LiteBitcoin   zergpool_algo
-KlausT-Linux-CCDevices2       CRZ              3.15 MH/s  0.00022  70.78882  1.529       neoScrypt           CoreZ      zergpool_algo
-KlausT-Linux-CCDevices2       MON              3.21 MH/s  0.00022  70.17547  1.516       neoScrypt        BTCMonster    zergpool_algo
-MSFT-Linux-CCDevices2         timetravel      74.92 MH/s  0.00021  69.70496  1.506      timetravel        timetravel    zergpool_coin
-DSTM-Linux-DSTMDevices2       KMD              1.47 KH/s  0.00021  69.69014  1.505       equihash           Komodo      zergpool_algo
-Krnlx-Linux-CCDevices2        BSD             10.67 MH/s  0.00021  69.07233  1.492         Xevan            BitSend     zergpool_algo
-KlausT-Linux-CCDevices2       DIN              3.17 MH/s  0.00021  68.74652  1.485       neoScrypt          Dinero      zergpool_algo
-KlausT-Linux-CCDevices2       CRC              2.96 MH/s  0.00021  68.66636  1.483       neoScrypt           Crowd      zergpool_algo
-CryptoDredge-Linux-CCDevices2 TLR              8.50 MH/s  0.00021  67.61539  1.460        lyra2z             Taler      zergpool_algo
-MSFT-Linux-CCDevices2         MAC             75.24 MH/s  0.00021  67.57192  1.460      timetravel        MachineCoin   zergpool_algo
-Tpruvot-Linux-CCDevices2      XDNA             2.20 GH/s  0.00021  67.15768  1.451        keccak             XDNA       zergpool_algo
-Ocminer-Linux-CCDevices2      x17             26.57 MH/s  0.00020  65.91717  1.424          x17               x17       zergpool_coin
-Krnlx-Linux-CCDevices2        ELP             10.25 MH/s  0.00020  65.08355  1.406         Xevan           Ellerium     zergpool_algo
-KlausT-Linux-CCDevices2       RAP              3.21 MH/s  0.00020  64.90012  1.402       neoScrypt          Rapture     zergpool_algo
-Enemy-Linux-CCDevices2        GRV             34.61 MH/s  0.00019  63.06091  1.362         x16r             Gravium     zergpool_algo
-DSTM-Linux-DSTMDevices2       MARKS-equihash   1.51 KH/s  0.00019  62.75229  1.355       equihash           Bitmark     zergpool_algo
-KlausT-Linux-CCDevices2       SUN              3.18 MH/s  0.00019  62.29128  1.345       neoScrypt          Suncoin     zergpool_algo
-Tpruvot-Linux-CCDevices2      keccak           2.24 GH/s  0.00019  61.15980  1.321        keccak            keccak      zergpool_coin
-KlausT-Linux-CCDevices2       FTC              2.91 MH/s  0.00018  59.63924  1.288       neoScrypt        Feathercoin   zergpool_algo
-Enemy-Linux-CCDevices2        RVN             23.27 MH/s  0.00018  59.31628  1.281         x16r            Ravencoin    zergpool_algo
-CryptoDredge-Linux-CCDevices2 ALPS             8.46 MH/s  0.00018  58.86173  1.271        lyra2z        Alpenschilling  zergpool_algo
-Enemy-Linux-CCDevices2        REDN            26.18 MH/s  0.00018  57.17735  1.235         x16s              Reden      zergpool_algo
-Krnlx-Linux-CCDevices2        HASH            10.65 MH/s  0.00017  56.74458  1.226         Xevan            B-hash      zergpool_algo
-KlausT-Linux-CCDevices2       DSR              3.09 MH/s  0.00017  56.47729  1.220       neoScrypt          Desire      zergpool_algo
-Tpruvot-Linux-CCDevices2      Skunk           84.19 MH/s  0.00017  56.29690  1.216         Skunk             Skunk      zergpool_coin
-Ocminer-Linux-CCDevices2      XVG             26.46 MH/s  0.00017  55.55426  1.200          x17              Verge      zergpool_coin
-Tpruvot-Linux-CCDevices2      MGT             84.15 MH/s  0.00017  54.37179  1.174         Skunk           Magnatum     zergpool_algo
-Krnlx-Linux-CCDevices2        ELLI             7.23 MH/s  0.00016  53.34759  1.152         Xevan            Elliot      zergpool_algo
-KlausT-Linux-CCDevices2       MBC              2.93 MH/s  0.00016  50.42161  1.089       neoScrypt         MasterBit    zergpool_algo
-KlausT-Linux-CCDevices2       LINC             2.88 MH/s  0.00015  50.13879  1.083       neoScrypt           Linc       zergpool_algo
-Enemy-Linux-CCDevices2        PGN             28.08 MH/s  0.00015  49.71867  1.074         x16s             Pigeon      zergpool_algo
-MSFT-Linux-CCDevices2         PLUS            13.32 MH/s  0.00015  48.32676  1.044        hmq1725         PlusOneCoin   zergpool_algo
-Tpruvot-Linux-CCDevices2      MAX              2.02 GH/s  0.00015  47.25975  1.021        keccak            MaxCoin     zergpool_algo
-Krnlx-Linux-CCDevices2        URALS           10.74 MH/s  0.00014  46.79184  1.011         Xevan           UralsCoin    zergpool_algo
-Krnlx-Linux-CCDevices2        KRAIT           10.70 MH/s  0.00014  46.37835  1.002         Xevan             Krait      zergpool_algo
-Ocminer-Linux-CCDevices2      XSH-x17         20.03 MH/s  0.00014  45.68842  0.987          x17             SHIELD      zergpool_algo
-KlausT-Linux-CCDevices2       IQ               3.07 MH/s  0.00014  44.30747  0.957       neoScrypt          IQ Cash     zergpool_algo
-KlausT-Linux-CCDevices2       TUN              3.27 MH/s  0.00013  40.97503  0.885       neoScrypt           Tune       zergpool_algo
-Alexis78-Linux-CCDevices2     XMY-skein        1.66 GH/s  0.00012  38.42746  0.830         skein            Myriad      zergpool_algo
-MSFT-Linux-CCDevices2         ERA             10.43 MH/s  0.00012  37.75795  0.816        hmq1725             ERA       zergpool_algo
-TRex-Linux-CCDevices2         FLAX            49.03 MH/s  0.00012  37.53899  0.811          c11           Flaxscript    zergpool_algo
-CryptoDredge-Linux-CCDevices2 CRS              8.49 MH/s  0.00011  36.82426  0.795        lyra2z          Criptoreal    zergpool_algo
-Tpruvot-Linux-CCDevices2      COG             61.84 MH/s  0.00011  36.75619  0.794         Skunk            Cognito     zergpool_algo
-KlausT-Linux-CCDevices2       CTF              3.16 MH/s  0.00011  34.81059  0.752       neoScrypt         Coin2Fly     zergpool_algo
-CryptoDredge-Linux-CCDevices2 BPG              8.49 MH/s  0.00011  34.32026  0.741        lyra2z            BPGCoin     zergpool_algo
-CryptoDredge-Linux-CCDevices2 STM              8.43 MH/s  0.00010  31.05375  0.671        lyra2z           Stimcoin     zergpool_algo
-CryptoDredge-Linux-CCDevices2 PYRO             8.45 MH/s  0.00009  29.65295  0.641        lyra2z             Pyro       zergpool_algo
-Alexis78-Linux-CCDevices2     DGB-skein       630.53 MH/s 0.00008  26.88570  0.581         skein           Digibyte     zergpool_algo
-KlausT-Linux-CCDevices2       BANQ             3.37 MH/s  0.00008  25.82284  0.558       neoScrypt           BANQ       zergpool_algo
-Alexis78-Linux-CCDevices2     AUR-skein       841.66 MH/s 0.00008  25.47443  0.550         skein            Aurora      zergpool_algo
-KlausT-Linux-CCDevices2       INN              3.09 MH/s  0.00008  25.11983  0.543       neoScrypt          Innova      zergpool_algo
-Alexis78-Linux-CCDevices2     SKC             619.48 MH/s 0.00008  24.55316  0.530         skein           Skeincoin    zergpool_algo
-TRex-Linux-CCDevices2         BHD             49.53 MH/s  0.00007  23.68113  0.512          c11             Bithold     zergpool_algo
-KlausT-Linux-CCDevices2       SPLB             3.31 MH/s  0.00007  21.91956  0.473       neoScrypt        SimpleBank    zergpool_algo
-KlausT-Linux-CCDevices2       CST              3.12 MH/s  0.00007  21.80283  0.471       neoScrypt          Costly      zergpool_algo
-TRex-Linux-CCDevices2         SCRIV           208.75 MH/s 0.00007  21.57987  0.466        tribus             Scriv      zergpool_algo
-Alexis78-Linux-CCDevices2     ARGO            625.11 MH/s 0.00005  16.97142  0.367         skein             Argo       zergpool_algo
-Alexis78-Linux-CCDevices2     NEVA             7.78 GH/s  0.00005  15.03334  0.325        blake2s          NevaCoin     zergpool_algo
-MSFT-Linux-CCDevices2         BUEN            14.19 MH/s  0.00005  14.66406  0.317        hmq1725           Buenos      zergpool_algo
-TRex-Linux-CCDevices2         TIN             207.62 MH/s 0.00004  13.41441  0.290        tribus            Tincoin     zergpool_algo
-Enemy-Linux-CCDevices2        RABBIT          28.25 MH/s  0.00004  12.59431  0.272         x16s             Rabbit      zergpool_algo
-Enemy-Linux-CCDevices2        HTH              5.11 MH/s  0.00004  12.24003  0.264         x16r             HTHCoin     zergpool_algo
-KlausT-Linux-CCDevices2       SLC              3.04 MH/s  0.00004  11.98424  0.259       neoScrypt        SuperLumic    zergpool_algo
-CryptoDredge-Linux-CCDevices2 MTI             146.11 MH/s 0.00003  11.32851  0.245        lyra2v2          MTI-Coin     zergpool_algo
-Alexis78-Linux-CCDevices2     INFO             6.30 GH/s  0.00003   9.13558  0.197        blake2s          Infocoin     zergpool_algo
-Alexis78-Linux-CCDevices2     skein           208.72 MH/s 0.00003   8.95080  0.193         skein             skein      zergpool_coin
-Alexis78-Linux-CCDevices2     NMS             418.27 MH/s 0.00002   6.46291  0.140         skein             Numus      zergpool_algo
-Alexis78-Linux-CCDevices2     ULT             208.27 MH/s 0.00002   5.87167  0.127         skein            Ultima      zergpool_algo
-Alexis78-Linux-CCDevices2     blake2s          3.14 GH/s  0.00002   5.75882  0.124        blake2s           blake2s       nicehash
-Alexis78-Linux-CCDevices2     FRM             209.75 MH/s 0.00001   4.10961  0.089         skein          Ferrumcoin    zergpool_algo
-KlausT-Linux-CCDevices2       HARC             2.73 MH/s  0.00001   3.45625  0.075       neoScrypt       HashRentCoin   zergpool_algo
+Miner                         Coin           Speed    BTC/Day   RVN/Day USD/Day   Algorithm      Coin Name    Pool
+-----                         ----           -----    -------   ------- -------   ---------     ----------        ----
+EWBF-Linux-EWBFDevices2       equihash144 106.00  H/s 0.00034 109.42326  2.257    equihash144    equihash144  zergpool_algo
+EWBF-Linux-EWBFDevices2       equihash192 54.00  H/s  0.00027  86.97539  1.794    equihash192    equihash192  zergpool_algo
+KlausT-Linux-CCDevices2       neoscrypt    2.74 MH/s  0.00027  86.55635  1.786     neoscrypt      neoscrypt   zergpool_algo
+Enemy-Linux-CCDevices2        XMN         31.67 MH/s  0.00023  74.37213  1.534       x16r       MotionProject zergpool_coin
+TRex-Linux-CCDevices2         SCRIV       239.02 MH/s 0.00021  68.82393  1.420      tribus          Scriv     zergpool_coin
+Enemy-Linux-CCDevices2        XSH-x16s    19.45 MH/s  0.00020  63.70536  1.314       x16s          SHIELD     zergpool_coin
+Alexis78-Linux-CCDevices2     blake2s     10.96 GH/s  0.00006  17.89500  0.369      blake2s        blake2s      nicehash
+Enemy-Linux-CCDevices2        GRV            Bench      Bench     Bench  Bench       x16r          Gravium    zergpool_coin
+CryptoDredge-Linux-CCDevices2 VTC            Bench      Bench     Bench  Bench      lyra2v2       VertCoin    zergpool_coin
+CryptoDredge-Linux-CCDevices2 STAK           Bench      Bench     Bench  Bench      lyra2v2        Straks     zergpool_coin
+CryptoDredge-Linux-CCDevices2 SAP            Bench      Bench     Bench  Bench      lyra2v2      Methuselah   zergpool_coin
+CryptoDredge-Linux-CCDevices2 RACE           Bench      Bench     Bench  Bench      lyra2v2       Racecoin    zergpool_coin
+CryptoDredge-Linux-CCDevices2 ORE            Bench      Bench     Bench  Bench      lyra2v2       Galactrum   zergpool_coin
+CryptoDredge-Linux-CCDevices2 MONA           Bench      Bench     Bench  Bench      lyra2v2         Mona      zergpool_coin
+CryptoDredge-Linux-CCDevices2 MCT            Bench      Bench     Bench  Bench      lyra2z        MCT coin    zergpool_coin
+CryptoDredge-Linux-CCDevices2 MANO           Bench      Bench     Bench  Bench      lyra2z          Mano      zergpool_coin
+CryptoDredge-Linux-CCDevices2 KREDS          Bench      Bench     Bench  Bench      lyra2v2         Kreds     zergpool_coin
+CryptoDredge-Linux-CCDevices2 GTM            Bench      Bench     Bench  Bench      lyra2z        Gentarium   zergpool_coin
+CryptoDredge-Linux-CCDevices2 GRLC           Bench      Bench     Bench  Bench      allium         Garlic     zergpool_coin
+CryptoDredge-Linux-CCDevices2 GIN            Bench      Bench     Bench  Bench      lyra2z         Gincoin    zergpool_coin
+CryptoDredge-Linux-CCDevices2 ARG-lyra2v2    Bench      Bench     Bench  Bench      lyra2v2       Argentum    zergpool_coin
+CryptoDredge-Linux-CCDevices2 ABS            Bench      Bench     Bench  Bench      lyra2v2       Absolute    zergpool_coin
+CryptoDredge-Linux-CCDevices2 lyra2z         Bench      Bench     Bench  Bench      lyra2z         lyra2z     zergpool_algo
+CryptoDredge-Linux-CCDevices2 lyra2v2        Bench      Bench     Bench  Bench      lyra2v2        lyra2v2    zergpool_algo
+CryptoDredge-Linux-CCDevices2 allium         Bench      Bench     Bench  Bench      allium         allium     zergpool_algo
+CryptoDredge-Linux-CCDevices2 XSH-lyra2v2    Bench      Bench     Bench  Bench      lyra2v2        SHIELD     zergpool_coin
+CryptoDredge-Linux-CCDevices2 XVG-lyra2v2    Bench      Bench     Bench  Bench      lyra2v2         Verge     zergpool_coin
+CryptoDredge-Linux-CCDevices2 XZC            Bench      Bench     Bench  Bench      lyra2z          ZCoin     zergpool_coin
+KlausT-Linux-CCDevices2       QBIC           Bench      Bench     Bench  Bench     neoscrypt        QBIC      zergpool_coin
+Enemy-Linux-CCDevices2        x16s           Bench      Bench     Bench  Bench       x16s           x16s      zergpool_algo
+Enemy-Linux-CCDevices2        x16r           Bench      Bench     Bench  Bench       x16r           x16r        nicehash
+Enemy-Linux-CCDevices2        phi2           Bench      Bench     Bench  Bench       phi2           phi2      zergpool_algo
+Enemy-Linux-CCDevices2        LUX            Bench      Bench     Bench  Bench       phi2            Lux      zergpool_coin
+Enemy-Linux-CCDevices2        PGN            Bench      Bench     Bench  Bench       x16s          Pigeon     zergpool_coin
+KlausT-Linux-CCDevices2       groestl        Bench      Bench     Bench  Bench      groestl        groestl    zergpool_algo
+Enemy-Linux-CCDevices2        RVN            Bench      Bench     Bench  Bench       x16r         Ravencoin   zergpool_coin
+KlausT-Linux-CCDevices2       FTC            Bench      Bench     Bench  Bench     neoscrypt     Feathercoin  zergpool_coin
+Enemy-Linux-CCDevices2        HTH            Bench      Bench     Bench  Bench       x16r          HTHCoin    zergpool_coin
+KlausT-Linux-CCDevices2       GBX            Bench      Bench     Bench  Bench     neoscrypt       GoByte     zergpool_coin
+KlausT-Linux-CCDevices2       HAL            Bench      Bench     Bench  Bench     neoscrypt       Halcyon    zergpool_coin
+KlausT-Linux-CCDevices2       INN            Bench      Bench     Bench  Bench     neoscrypt       Innova     zergpool_coin
+KlausT-Linux-CCDevices2       IQ             Bench      Bench     Bench  Bench     neoscrypt       IQ Cash    zergpool_coin
+DSTM-Linux-DSTMDevices2       HUSH           Bench      Bench     Bench  Bench     equihash         Hush      zergpool_coin
+DSTM-Linux-DSTMDevices2       CMM            Bench      Bench     Bench  Bench     equihash      Commercium   zergpool_coin
+DSTM-Linux-DSTMDevices2       equihash       Bench      Bench     Bench  Bench     equihash       equihash      nicehash
+KlausT-Linux-CCDevices2       QNO            Bench      Bench     Bench  Bench     neoscrypt        Qyno      zergpool_coin
+KlausT-Linux-CCDevices2       PXC            Bench      Bench     Bench  Bench     neoscrypt     Phoenixcoin  zergpool_coin
+KlausT-Linux-CCDevices2       GRS            Bench      Bench     Bench  Bench      groestl        Groestl    zergpool_coin
+KlausT-Linux-CCDevices2       MON            Bench      Bench     Bench  Bench     neoscrypt     BTCMonster   zergpool_coin
+KlausT-Linux-CCDevices2       SUN            Bench      Bench     Bench  Bench     neoscrypt       Suncoin    zergpool_coin
+KlausT-Linux-CCDevices2       VIVO           Bench      Bench     Bench  Bench     neoscrypt        Vivo      zergpool_coin
+Alexis78-Linux-CCDevices2     NEVA           Bench      Bench     Bench  Bench      blake2s       NevaCoin    zergpool_coin
+Alexis78-Linux-CCDevices2     FXC            Bench      Bench     Bench  Bench       nist5        Fexchange   zergpool_coin
+Alexis78-Linux-CCDevices2     DGB-skein      Bench      Bench     Bench  Bench       skein        Digibyte    zergpool_coin
+Alexis78-Linux-CCDevices2     CXT            Bench      Bench     Bench  Bench       nist5        Coinonat    zergpool_coin
+Alexis78-Linux-CCDevices2     ARGO           Bench      Bench     Bench  Bench       skein          Argo      zergpool_coin
+Alexis78-Linux-CCDevices2     skein          Bench      Bench     Bench  Bench       skein          skein     zergpool_algo
+Alexis78-Linux-CCDevices2     nist5          Bench      Bench     Bench  Bench       nist5          nist5     zergpool_algo
+Tpruvot-Linux-CCDevices2      keccak         Bench      Bench     Bench  Bench      keccak         keccak     zergpool_algo
+Tpruvot-Linux-CCDevices2      keccakc        Bench      Bench     Bench  Bench      keccakc        keccakc    zergpool_algo
+Alexis78-Linux-CCDevices2     NMS            Bench      Bench     Bench  Bench       skein          Numus     zergpool_coin
+Tpruvot-Linux-CCDevices2      Skunk          Bench      Bench     Bench  Bench       Skunk          Skunk       nicehash
+Tpruvot-Linux-CCDevices2      MAX            Bench      Bench     Bench  Bench      keccak         MaxCoin    zergpool_coin
+Tpruvot-Linux-CCDevices2      MGT            Bench      Bench     Bench  Bench       Skunk        Magnatum    zergpool_coin
+TRex-Linux-CCDevices2         c11            Bench      Bench     Bench  Bench        c11            c11      zergpool_algo
+TRex-Linux-CCDevices2         phi            Bench      Bench     Bench  Bench        phi            phi      zergpool_algo
+TRex-Linux-CCDevices2         tribus         Bench      Bench     Bench  Bench      tribus         tribus     zergpool_algo
+TRex-Linux-CCDevices2         AXS            Bench      Bench     Bench  Bench        c11            AXS      zergpool_coin
+TRex-Linux-CCDevices2         CHC            Bench      Bench     Bench  Bench        c11         Chaincoin   zergpool_coin
+TRex-Linux-CCDevices2         DNR            Bench      Bench     Bench  Bench      tribus        Denarius    zergpool_coin
+TRex-Linux-CCDevices2         FLM            Bench      Bench     Bench  Bench        phi           Folm      zergpool_coin
+Tpruvot-Linux-CCDevices2      CREA           Bench      Bench     Bench  Bench      keccakc     CreativeCoin  zergpool_coin
+KlausT-Linux-CCDevices2       TZC            Bench      Bench     Bench  Bench     neoscrypt     Trezarcoin   zergpool_coin
+Alexis78-Linux-CCDevices2     SKC            Bench      Bench     Bench  Bench       skein        Skeincoin   zergpool_coin
+Alexis78-Linux-CCDevices2     XMY-skein      Bench      Bench     Bench  Bench       skein         Myriad     zergpool_coin
+KlausT-Linux-CCDevices2       ZCR            Bench      Bench     Bench  Bench     neoscrypt        Zcore     zergpool_coin
+Krnlx-Linux-CCDevices2        Xevan          Bench      Bench     Bench  Bench       Xevan          Xevan     zergpool_algo
+Krnlx-Linux-CCDevices2        BSD            Bench      Bench     Bench  Bench       Xevan         BitSend    zergpool_coin
+Krnlx-Linux-CCDevices2        ELLI           Bench      Bench     Bench  Bench       Xevan         Elliot     zergpool_coin
+Krnlx-Linux-CCDevices2        HASH           Bench      Bench     Bench  Bench       Xevan         B-hash     zergpool_coin
+Krnlx-Linux-CCDevices2        URALS          Bench      Bench     Bench  Bench       Xevan        UralsCoin   zergpool_coin
+MSFT-Linux-CCDevices2         hmq1725        Bench      Bench     Bench  Bench      hmq1725        hmq1725    zergpool_algo
+MSFT-Linux-CCDevices2         timetravel     Bench      Bench     Bench  Bench    timetravel     timetravel   zergpool_algo
+MSFT-Linux-CCDevices2         BUEN           Bench      Bench     Bench  Bench      hmq1725        Buenos     zergpool_coin
+Alexis78-Linux-CCDevices2     TAJ            Bench      Bench     Bench  Bench      blake2s        Tajcoin    zergpool_coin
+MSFT-Linux-CCDevices2         ERA            Bench      Bench     Bench  Bench      hmq1725          ERA      zergpool_coin
+MSFT-Linux-CCDevices2         MAC            Bench      Bench     Bench  Bench    timetravel     MachineCoin  zergpool_coin
+MSFT-Linux-CCDevices2         PLUS           Bench      Bench     Bench  Bench      hmq1725      PlusOneCoin  zergpool_coin
+Ocminer-Linux-CCDevices2      x17            Bench      Bench     Bench  Bench        x17            x17      zergpool_algo
+Ocminer-Linux-CCDevices2      MLM            Bench      Bench     Bench  Bench        x17          MKTCoin    zergpool_coin
+Ocminer-Linux-CCDevices2      XSH-x17        Bench      Bench     Bench  Bench        x17          SHIELD     zergpool_coin
+Claymore-Linux-ClayDevices2   daggerha...    Bench      Bench     Bench  Bench    daggerha...   daggerhash...   nicehash
+Ocminer-Linux-CCDevices2      XVG            Bench      Bench     Bench  Bench        x17           Verge     zergpool_coin
+Alexis78-Linux-CCDevices2     XVG-blake2s    Bench      Bench     Bench  Bench      blake2s         Verge     zergpool_coin
+Alexis78-Linux-CCDevices2     XSH-blake2s    Bench      Bench     Bench  Bench      blake2s        SHIELD     zergpool_coin
+MSFT-Linux-CCDevices2         ESP            Bench      Bench     Bench  Bench      hmq1725        Espers     zergpool_coin
+TRex-Linux-CCDevices2         RCO            Bench      Bench     Bench  Bench        c11          Rampant    zergpool_coin
 
 
    Type: NVIDIA1
 
 Miner                         Coin               Speed    BTC/Day   RVN/Day USD/Day     Algorithm         Coin Name     Pool
 -----                         ----               -----    -------   ------- -------     ---------        ----------         ----
-CryptoDredge-Linux-CCDevices1 XVG-lyra2v2     252.51 MH/s 0.00186 604.45830 13.056        lyra2v2            Verge      zergpool_algo
-CryptoDredge-Linux-CCDevices1 lyra2v2         251.42 MH/s 0.00124 403.67508  8.719        lyra2v2           lyra2v2     zergpool_coin
-TRex-Linux-CCDevices1         tribus          457.24 MH/s 0.00110 357.46441  7.721        tribus            tribus      zergpool_coin
-TRex-Linux-CCDevices1         DNR             449.12 MH/s 0.00109 355.47060  7.678        tribus           Denarius     zergpool_algo
-EWBF-Linux-EWBFDevices1       equihash144safe 260.95  H/s 0.00078 254.55025  5.498    equihash144safe   equihash144safe zergpool_coin
-EWBF-Linux-EWBFDevices1       equihash144xsg  278.28  H/s 0.00073 235.89082  5.095    equihash144xsg    equihash144xsg  zergpool_coin
-CryptoDredge-Linux-CCDevices1 MONA            250.76 MH/s 0.00072 234.11846  5.057        lyra2v2            Mona       zergpool_algo
-TRex-Linux-CCDevices1         RCO             109.46 MH/s 0.00069 223.12959  4.820          c11             Rampant     zergpool_algo
-TRex-Linux-CCDevices1         FLM             141.06 MH/s 0.00068 220.09419  4.754          phi              Folm       zergpool_algo
-TRex-Linux-CCDevices1         phi             136.26 MH/s 0.00068 220.09171  4.754          phi               phi       zergpool_coin
-KlausT-Linux-CCDevices1       IC               6.12 MH/s  0.00068 219.76944  4.747       neoScrypt         Ignition     zergpool_algo
-CryptoDredge-Linux-CCDevices1 phi2            25.90 MH/s  0.00067 216.18658  4.670         phi2              phi2       zergpool_coin
-EWBF-Linux-EWBFDevices1       equihash192     102.00  H/s 0.00065 210.92588  4.556      equihash192       equihash192   zergpool_coin
-CryptoDredge-Linux-CCDevices1 LUX             25.92 MH/s  0.00064 209.09864  4.517         phi2               Lux       zergpool_algo
-Claymore-Linux-ClayDevices1   daggerhashimoto 161.07 MH/s 0.00064 209.02143  4.515    daggerhashimoto   daggerhashimoto   nicehash
-KlausT-Linux-CCDevices1       neoScrypt        5.28 MH/s  0.00064 208.28535  4.499       neoScrypt         neoScrypt    zergpool_coin
-TRex-Linux-CCDevices1         hsr             77.61 MH/s  0.00062 201.84075  4.360          hsr               hsr       zergpool_coin
-CryptoDredge-Linux-CCDevices1 VTC             250.01 MH/s 0.00062 201.10901  4.344        lyra2v2          VertCoin     zergpool_algo
-CryptoDredge-Linux-CCDevices1 MCT             13.56 MH/s  0.00062 200.30750  4.327        lyra2z           MCT coin     zergpool_algo
-TRex-Linux-CCDevices1         CHC             110.19 MH/s 0.00060 195.42805  4.221          c11            Chaincoin    zergpool_algo
-KlausT-Linux-CCDevices1       GBX              4.78 MH/s  0.00060 194.09188  4.192       neoScrypt          GoByte      zergpool_algo
-KlausT-Linux-CCDevices1       GOA              5.23 MH/s  0.00059 193.04240  4.170       neoScrypt            Goa       zergpool_algo
-CryptoDredge-Linux-CCDevices1 lyra2z          13.62 MH/s  0.00059 190.20326  4.108        lyra2z            lyra2z      zergpool_coin
-TRex-Linux-CCDevices1         c11             110.51 MH/s 0.00058 189.21483  4.087          c11               c11       zergpool_coin
-EWBF-Linux-EWBFDevices1       equihash144btcz 187.00  H/s 0.00058 188.70029  4.076    equihash144btcz   equihash144btcz zergpool_coin
-CryptoDredge-Linux-CCDevices1 XSH-lyra2v2     251.54 MH/s 0.00057 186.08362  4.019        lyra2v2           SHIELD      zergpool_algo
-TRex-Linux-CCDevices1         HSR-Coin        73.97 MH/s  0.00057 185.91491  4.016          hsr             Hshare      zergpool_algo
-KlausT-Linux-CCDevices1       VIVO             5.23 MH/s  0.00057 185.62542  4.010       neoScrypt           Vivo       zergpool_algo
-CryptoDredge-Linux-CCDevices1 GRLC            28.78 MH/s  0.00057 185.28455  4.002        allium            Garlic      zergpool_algo
-CryptoDredge-Linux-CCDevices1 GIN             13.55 MH/s  0.00056 182.88601  3.950        lyra2z            Gincoin     zergpool_algo
-CryptoDredge-Linux-CCDevices1 STAK            252.60 MH/s 0.00056 181.97376  3.931        lyra2v2           Straks      zergpool_algo
-TRex-Linux-CCDevices1         ITZ             109.54 MH/s 0.00056 180.82813  3.906          c11            Interzone    zergpool_algo
-CryptoDredge-Linux-CCDevices1 ABS             248.20 MH/s 0.00055 179.60948  3.880        lyra2v2          Absolute     zergpool_algo
-EWBF-Linux-EWBFDevices1       equihash144zel  185.00  H/s 0.00055 179.31845  3.873    equihash144zel    equihash144zel  zergpool_coin
-KlausT-Linux-CCDevices1       XZX              5.24 MH/s  0.00055 178.20939  3.849       neoScrypt           Zixx       zergpool_algo
-KlausT-Linux-CCDevices1       UFO              5.27 MH/s  0.00055 177.62237  3.837       neoScrypt          UFOCoin     zergpool_algo
-TRex-Linux-CCDevices1         JLG             110.47 MH/s 0.00053 172.37086  3.723          c11             JoltGas     zergpool_algo
-MSFT-Linux-CCDevices1         hmq1725         22.64 MH/s  0.00053 172.26817  3.721        hmq1725           hmq1725     zergpool_coin
-CryptoDredge-Linux-CCDevices1 RACE            252.26 MH/s 0.00053 171.95361  3.714        lyra2v2          Racecoin     zergpool_algo
-CryptoDredge-Linux-CCDevices1 allium          25.63 MH/s  0.00053 170.70747  3.687        allium            allium      zergpool_coin
-KlausT-Linux-CCDevices1       NYX              5.21 MH/s  0.00053 170.70490  3.687       neoScrypt          Nyxcoin     zergpool_algo
-Enemy-Linux-CCDevices1        x16s            52.82 MH/s  0.00052 170.11901  3.675         x16s              x16s       zergpool_coin
-KlausT-Linux-CCDevices1       TZC              5.49 MH/s  0.00052 167.94824  3.628       neoScrypt        Trezarcoin    zergpool_algo
-CryptoDredge-Linux-CCDevices1 MANO            14.80 MH/s  0.00051 166.84724  3.604        lyra2z             Mano       zergpool_algo
-MSFT-Linux-CCDevices1         ESP             22.38 MH/s  0.00051 164.56692  3.555        hmq1725           Espers      zergpool_algo
-CryptoDredge-Linux-CCDevices1 IFX             13.50 MH/s  0.00051 164.45565  3.552        lyra2z            Infinex     zergpool_algo
-KlausT-Linux-CCDevices1       QBIC             5.23 MH/s  0.00050 163.02510  3.521       neoScrypt           QBIC       zergpool_algo
-KlausT-Linux-CCDevices1       GUN              5.35 MH/s  0.00050 162.43596  3.509       neoScrypt            Gun       zergpool_algo
-TRex-Linux-CCDevices1         SERA            138.23 MH/s 0.00050 161.65280  3.492          phi             Seraph      zergpool_algo
-Enemy-Linux-CCDevices1        x16r            60.51 MH/s  0.00049 160.67595  3.471         x16r              x16r       zergpool_coin
-KlausT-Linux-CCDevices1       PXC              5.08 MH/s  0.00049 160.01733  3.456       neoScrypt        Phoenixcoin   zergpool_algo
-Enemy-Linux-CCDevices1        XSH-x16s        51.23 MH/s  0.00049 159.36253  3.442         x16s             SHIELD      zergpool_algo
-CryptoDredge-Linux-CCDevices1 VTL             13.53 MH/s  0.00049 158.99942  3.434        lyra2z           Vertical     zergpool_algo
-CryptoDredge-Linux-CCDevices1 XZC             13.16 MH/s  0.00049 158.16180  3.416        lyra2z             ZCoin      zergpool_algo
-TRex-Linux-CCDevices1         AXS             108.51 MH/s 0.00047 153.18605  3.309          c11               AXS       zergpool_algo
-Enemy-Linux-CCDevices1        XMN             58.69 MH/s  0.00047 151.11223  3.264         x16r          MotionProject  zergpool_algo
-CryptoDredge-Linux-CCDevices1 ORE             252.10 MH/s 0.00046 149.85107  3.237        lyra2v2          Galactrum    zergpool_algo
-KlausT-Linux-CCDevices1       ZCR              5.36 MH/s  0.00045 146.87990  3.173       neoScrypt           Zcore      zergpool_algo
-KlausT-Linux-CCDevices1       CBS              5.29 MH/s  0.00045 145.00925  3.132       neoScrypt         Cerberus     zergpool_algo
-DSTM-Linux-DSTMDevices1       HUSH             2.38 KH/s  0.00041 134.41628  2.903       equihash            Hush       zergpool_algo
-DSTM-Linux-DSTMDevices1       BTCP             2.31 KH/s  0.00041 133.47694  2.883       equihash       Bitcoin Private zergpool_algo
-KlausT-Linux-CCDevices1       MOC              4.94 MH/s  0.00040 129.99027  2.808       neoScrypt           Momo       zergpool_algo
-CryptoDredge-Linux-CCDevices1 KREDS           249.06 MH/s 0.00040 128.73244  2.781        lyra2v2            Kreds      zergpool_algo
-KlausT-Linux-CCDevices1       LUCKY            4.56 MH/s  0.00039 127.39598  2.752       neoScrypt           LUCKY      zergpool_algo
-DSTM-Linux-DSTMDevices1       equihash         2.05 KH/s  0.00039 125.12833  2.703       equihash          equihash       nicehash
-CryptoDredge-Linux-CCDevices1 ARG-lyra2v2     249.59 MH/s 0.00038 123.36454  2.665        lyra2v2          Argentum     zergpool_algo
-DSTM-Linux-DSTMDevices1       CMM              2.48 KH/s  0.00037 121.24002  2.619       equihash         Commercium    zergpool_algo
-Krnlx-Linux-CCDevices1        Xevan           16.12 MH/s  0.00037 121.21154  2.618         Xevan             Xevan      zergpool_coin
-Enemy-Linux-CCDevices1        REDN            55.19 MH/s  0.00037 120.53237  2.603         x16s              Reden      zergpool_algo
-Krnlx-Linux-CCDevices1        ELLI            16.10 MH/s  0.00037 118.85128  2.567         Xevan            Elliot      zergpool_algo
-KlausT-Linux-CCDevices1       CRC              5.11 MH/s  0.00037 118.63390  2.562       neoScrypt           Crowd      zergpool_algo
-KlausT-Linux-CCDevices1       HAL              4.70 MH/s  0.00037 118.52586  2.560       neoScrypt          Halcyon     zergpool_algo
-Enemy-Linux-CCDevices1        GRV             65.04 MH/s  0.00036 118.50057  2.560         x16r             Gravium     zergpool_algo
-KlausT-Linux-CCDevices1       LBTC             4.61 MH/s  0.00036 118.46189  2.559       neoScrypt        LiteBitcoin   zergpool_algo
-KlausT-Linux-CCDevices1       AGN              4.90 MH/s  0.00036 117.81008  2.545       neoScrypt           Agena      zergpool_algo
-KlausT-Linux-CCDevices1       ORB              5.17 MH/s  0.00036 117.67072  2.542       neoScrypt         OrbitCoin    zergpool_algo
-KlausT-Linux-CCDevices1       CRZ              5.14 MH/s  0.00036 115.38987  2.492       neoScrypt           CoreZ      zergpool_algo
-MSFT-Linux-CCDevices1         timetravel      123.16 MH/s 0.00035 114.58236  2.475      timetravel        timetravel    zergpool_coin
-DSTM-Linux-DSTMDevices1       KMD              2.40 KH/s  0.00035 113.61932  2.454       equihash           Komodo      zergpool_algo
-KlausT-Linux-CCDevices1       MON              5.15 MH/s  0.00035 112.74707  2.435       neoScrypt        BTCMonster    zergpool_algo
-Enemy-Linux-CCDevices1        RVN             44.05 MH/s  0.00035 112.28981  2.425         x16r            Ravencoin    zergpool_algo
-Ocminer-Linux-CCDevices1      MLM             43.49 MH/s  0.00034 111.69237  2.413          x17             MKTCoin     zergpool_algo
-MSFT-Linux-CCDevices1         MAC             122.03 MH/s 0.00034 109.59545  2.367      timetravel        MachineCoin   zergpool_algo
-Enemy-Linux-CCDevices1        HTH             45.38 MH/s  0.00033 108.62065  2.346         x16r             HTHCoin     zergpool_algo
-CryptoDredge-Linux-CCDevices1 TLR             13.49 MH/s  0.00033 107.25745  2.317        lyra2z             Taler      zergpool_algo
-KlausT-Linux-CCDevices1       FTC              5.21 MH/s  0.00033 106.65507  2.304       neoScrypt        Feathercoin   zergpool_algo
-KlausT-Linux-CCDevices1       DIN              4.90 MH/s  0.00033 106.37892  2.298       neoScrypt          Dinero      zergpool_algo
-Tpruvot-Linux-CCDevices1      XDNA             3.47 GH/s  0.00033 106.25959  2.295        keccak             XDNA       zergpool_algo
-KlausT-Linux-CCDevices1       RAP              5.21 MH/s  0.00032 105.29573  2.274       neoScrypt          Rapture     zergpool_algo
-Alexis78-Linux-CCDevices1     SKC              2.61 GH/s  0.00032 103.57101  2.237         skein           Skeincoin    zergpool_algo
-KlausT-Linux-CCDevices1       SUN              5.21 MH/s  0.00031 102.17522  2.207       neoScrypt          Suncoin     zergpool_algo
-KlausT-Linux-CCDevices1       DSR              5.16 MH/s  0.00029  94.38665  2.039       neoScrypt          Desire      zergpool_algo
-CryptoDredge-Linux-CCDevices1 ALPS            13.54 MH/s  0.00029  94.20882  2.035        lyra2z        Alpenschilling  zergpool_algo
-DSTM-Linux-DSTMDevices1       MARKS-equihash   2.26 KH/s  0.00029  93.93308  2.029       equihash           Bitmark     zergpool_algo
-Ocminer-Linux-CCDevices1      x17             37.20 MH/s  0.00028  92.30279  1.994          x17               x17       zergpool_coin
-Ocminer-Linux-CCDevices1      XVG             42.61 MH/s  0.00028  89.47290  1.933          x17              Verge      zergpool_coin
-Tpruvot-Linux-CCDevices1      keccak           3.28 GH/s  0.00028  89.29215  1.929        keccak            keccak      zergpool_coin
-Tpruvot-Linux-CCDevices1      MGT             137.14 MH/s 0.00027  88.60434  1.914         Skunk           Magnatum     zergpool_algo
-Tpruvot-Linux-CCDevices1      Skunk           131.72 MH/s 0.00027  88.08663  1.903         Skunk             Skunk      zergpool_coin
-Krnlx-Linux-CCDevices1        HASH            16.26 MH/s  0.00027  86.65120  1.872         Xevan            B-hash      zergpool_algo
-TRex-Linux-CCDevices1         FLAX            109.29 MH/s 0.00026  83.67604  1.807          c11           Flaxscript    zergpool_algo
-KlausT-Linux-CCDevices1       LINC             4.81 MH/s  0.00026  83.63202  1.806       neoScrypt           Linc       zergpool_algo
-Krnlx-Linux-CCDevices1        BSD             12.73 MH/s  0.00025  82.34386  1.779         Xevan            BitSend     zergpool_algo
-Enemy-Linux-CCDevices1        PGN             46.15 MH/s  0.00025  81.69478  1.765         x16s             Pigeon      zergpool_algo
-KlausT-Linux-CCDevices1       MBC              4.73 MH/s  0.00025  81.44273  1.759       neoScrypt         MasterBit    zergpool_algo
-Krnlx-Linux-CCDevices1        ELP             12.64 MH/s  0.00025  80.30573  1.735         Xevan           Ellerium     zergpool_algo
-Alexis78-Linux-CCDevices1     DGB-skein        1.75 GH/s  0.00023  74.63529  1.612         skein           Digibyte     zergpool_algo
-Alexis78-Linux-CCDevices1     ULT              2.62 GH/s  0.00023  73.81915  1.594         skein            Ultima      zergpool_algo
-Tpruvot-Linux-CCDevices1      MAX              3.07 GH/s  0.00022  71.71705  1.549        keccak            MaxCoin     zergpool_algo
-Ocminer-Linux-CCDevices1      XSH-x17         31.07 MH/s  0.00022  70.85261  1.530          x17             SHIELD      zergpool_algo
-MSFT-Linux-CCDevices1         ERA             19.54 MH/s  0.00022  70.75272  1.528        hmq1725             ERA       zergpool_algo
-KlausT-Linux-CCDevices1       IQ               4.82 MH/s  0.00021  69.43974  1.500       neoScrypt          IQ Cash     zergpool_algo
-MSFT-Linux-CCDevices1         PLUS            18.66 MH/s  0.00021  67.69909  1.462        hmq1725         PlusOneCoin   zergpool_algo
-Krnlx-Linux-CCDevices1        KRAIT           15.34 MH/s  0.00020  66.48348  1.436         Xevan             Krait      zergpool_algo
-KlausT-Linux-CCDevices1       TUN              5.18 MH/s  0.00020  64.86443  1.401       neoScrypt           Tune       zergpool_algo
-Tpruvot-Linux-CCDevices1      COG             103.62 MH/s 0.00019  61.59295  1.330         Skunk            Cognito     zergpool_algo
-CryptoDredge-Linux-CCDevices1 CRS             13.64 MH/s  0.00018  59.12608  1.277        lyra2z          Criptoreal    zergpool_algo
-Krnlx-Linux-CCDevices1        URALS           13.34 MH/s  0.00018  58.12949  1.256         Xevan           UralsCoin    zergpool_algo
-CryptoDredge-Linux-CCDevices1 BPG             13.75 MH/s  0.00017  55.62132  1.201        lyra2z            BPGCoin     zergpool_algo
-TRex-Linux-CCDevices1         BHD             110.50 MH/s 0.00016  52.83192  1.141          c11             Bithold     zergpool_algo
-Alexis78-Linux-CCDevices1     FRM              2.62 GH/s  0.00016  51.29094  1.108         skein          Ferrumcoin    zergpool_algo
-CryptoDredge-Linux-CCDevices1 STM             13.61 MH/s  0.00015  50.13124  1.083        lyra2z           Stimcoin     zergpool_algo
-CryptoDredge-Linux-CCDevices1 PYRO            13.49 MH/s  0.00015  47.33511  1.022        lyra2z             Pyro       zergpool_algo
-TRex-Linux-CCDevices1         SCRIV           455.62 MH/s 0.00015  47.10046  1.017        tribus             Scriv      zergpool_algo
-Alexis78-Linux-CCDevices1     AUR-skein        1.47 GH/s  0.00014  44.57637  0.963         skein            Aurora      zergpool_algo
-KlausT-Linux-CCDevices1       CTF              3.84 MH/s  0.00013  42.30193  0.914       neoScrypt         Coin2Fly     zergpool_algo
-KlausT-Linux-CCDevices1       INN              4.72 MH/s  0.00012  38.40249  0.829       neoScrypt          Innova      zergpool_algo
-Alexis78-Linux-CCDevices1     TAJ             19.58 GH/s  0.00012  38.39402  0.829        blake2s           Tajcoin     zergpool_algo
-KlausT-Linux-CCDevices1       BANQ             4.94 MH/s  0.00012  37.87921  0.818       neoScrypt           BANQ       zergpool_algo
-Alexis78-Linux-CCDevices1     NEVA            19.54 GH/s  0.00012  37.74060  0.815        blake2s          NevaCoin     zergpool_algo
-Alexis78-Linux-CCDevices1     XSH-blake2s     19.50 GH/s  0.00011  37.11199  0.802        blake2s           SHIELD      zergpool_algo
-Alexis78-Linux-CCDevices1     NMS              2.40 GH/s  0.00011  37.09585  0.801         skein             Numus      zergpool_algo
-Alexis78-Linux-CCDevices1     blake2s         19.65 GH/s  0.00011  36.00874  0.778        blake2s           blake2s       nicehash
-KlausT-Linux-CCDevices1       CST              5.12 MH/s  0.00011  35.81830  0.774       neoScrypt          Costly      zergpool_algo
-KlausT-Linux-CCDevices1       SPLB             5.24 MH/s  0.00011  34.69608  0.749       neoScrypt        SimpleBank    zergpool_algo
-Alexis78-Linux-CCDevices1     INFO            19.55 GH/s  0.00009  28.35590  0.612        blake2s          Infocoin     zergpool_algo
-Alexis78-Linux-CCDevices1     XVG-blake2s     19.50 GH/s  0.00008  27.39639  0.592        blake2s            Verge      zergpool_algo
-TRex-Linux-CCDevices1         TIN             374.44 MH/s 0.00007  24.19268  0.523        tribus            Tincoin     zergpool_algo
-Enemy-Linux-CCDevices1        RABBIT          53.59 MH/s  0.00007  23.89111  0.516         x16s             Rabbit      zergpool_algo
-MSFT-Linux-CCDevices1         BUEN            22.24 MH/s  0.00007  22.99342  0.497        hmq1725           Buenos      zergpool_algo
-Alexis78-Linux-CCDevices1     skein           527.11 MH/s 0.00007  22.60503  0.488         skein             skein      zergpool_coin
-KlausT-Linux-CCDevices1       SLC              5.61 MH/s  0.00007  22.15082  0.478       neoScrypt        SuperLumic    zergpool_algo
-CryptoDredge-Linux-CCDevices1 MTI             251.49 MH/s 0.00006  19.49895  0.421        lyra2v2          MTI-Coin     zergpool_algo
-Alexis78-Linux-CCDevices1     ARGO            527.18 MH/s 0.00004  14.31244  0.309         skein             Argo       zergpool_algo
-Alexis78-Linux-CCDevices1     CURV             2.63 GH/s  0.00004  13.65028  0.295         skein           CurveCoin    zergpool_algo
-Alexis78-Linux-CCDevices1     XMY-skein       530.17 MH/s 0.00004  12.25632  0.265         skein            Myriad      zergpool_algo
-KlausT-Linux-CCDevices1       HARC             4.40 MH/s  0.00002   5.57002  0.120       neoScrypt       HashRentCoin   zergpool_algo
+EWBF-Linux-EWBFDevices1       equihash144     261.00  H/s 0.00084 269.42897  5.558      equihash144       equihash144   zergpool_algo
+EWBF-Linux-EWBFDevices1       equihash192     126.00  H/s 0.00063 202.94259  4.187      equihash192       equihash192   zergpool_algo
+KlausT-Linux-CCDevices1       neoscrypt        6.19 MH/s  0.00061 195.11227  4.025       neoscrypt         neoscrypt    zergpool_algo
+Enemy-Linux-CCDevices1        XSH-x16s        53.80 MH/s  0.00055 176.27155  3.636         x16s             SHIELD      zergpool_coin
+Enemy-Linux-CCDevices1        XMN             70.47 MH/s  0.00051 165.48648  3.414         x16r          MotionProject  zergpool_coin
+TRex-Linux-CCDevices1         SCRIV           416.23 MH/s 0.00037 119.85015  2.473        tribus             Scriv      zergpool_coin
+Alexis78-Linux-CCDevices1     blake2s         23.80 GH/s  0.00012  38.84353  0.801        blake2s           blake2s       nicehash
+KlausT-Linux-CCDevices1       GRS                Bench      Bench     Bench  Bench        groestl           Groestl     zergpool_coin
+Tpruvot-Linux-CCDevices1      MAX                Bench      Bench     Bench  Bench        keccak            MaxCoin     zergpool_coin
+Tpruvot-Linux-CCDevices1      CREA               Bench      Bench     Bench  Bench        keccakc        CreativeCoin   zergpool_coin
+Tpruvot-Linux-CCDevices1      Skunk              Bench      Bench     Bench  Bench         Skunk             Skunk        nicehash
+Tpruvot-Linux-CCDevices1      keccakc            Bench      Bench     Bench  Bench        keccakc           keccakc     zergpool_algo
+Tpruvot-Linux-CCDevices1      keccak             Bench      Bench     Bench  Bench        keccak            keccak      zergpool_algo
+Claymore-Linux-ClayDevices1   daggerhashimoto    Bench      Bench     Bench  Bench    daggerhashimoto   daggerhashimoto   nicehash
+CryptoDredge-Linux-CCDevices1 allium             Bench      Bench     Bench  Bench        allium            allium      zergpool_algo
+CryptoDredge-Linux-CCDevices1 lyra2v2            Bench      Bench     Bench  Bench        lyra2v2           lyra2v2     zergpool_algo
+Tpruvot-Linux-CCDevices1      MGT                Bench      Bench     Bench  Bench         Skunk           Magnatum     zergpool_coin
+CryptoDredge-Linux-CCDevices1 lyra2z             Bench      Bench     Bench  Bench        lyra2z            lyra2z      zergpool_algo
+Ocminer-Linux-CCDevices1      XSH-x17            Bench      Bench     Bench  Bench          x17             SHIELD      zergpool_coin
+Ocminer-Linux-CCDevices1      MLM                Bench      Bench     Bench  Bench          x17             MKTCoin     zergpool_coin
+Ocminer-Linux-CCDevices1      x17                Bench      Bench     Bench  Bench          x17               x17       zergpool_algo
+CryptoDredge-Linux-CCDevices1 ABS                Bench      Bench     Bench  Bench        lyra2v2          Absolute     zergpool_coin
+CryptoDredge-Linux-CCDevices1 ARG-lyra2v2        Bench      Bench     Bench  Bench        lyra2v2          Argentum     zergpool_coin
+CryptoDredge-Linux-CCDevices1 GIN                Bench      Bench     Bench  Bench        lyra2z            Gincoin     zergpool_coin
+CryptoDredge-Linux-CCDevices1 GRLC               Bench      Bench     Bench  Bench        allium            Garlic      zergpool_coin
+CryptoDredge-Linux-CCDevices1 GTM                Bench      Bench     Bench  Bench        lyra2z           Gentarium    zergpool_coin
+Ocminer-Linux-CCDevices1      XVG                Bench      Bench     Bench  Bench          x17              Verge      zergpool_coin
+Alexis78-Linux-CCDevices1     XVG-blake2s        Bench      Bench     Bench  Bench        blake2s            Verge      zergpool_coin
+Alexis78-Linux-CCDevices1     XSH-blake2s        Bench      Bench     Bench  Bench        blake2s           SHIELD      zergpool_coin
+Alexis78-Linux-CCDevices1     XMY-skein          Bench      Bench     Bench  Bench         skein            Myriad      zergpool_coin
+Alexis78-Linux-CCDevices1     nist5              Bench      Bench     Bench  Bench         nist5             nist5      zergpool_algo
+Alexis78-Linux-CCDevices1     skein              Bench      Bench     Bench  Bench         skein             skein      zergpool_algo
+Alexis78-Linux-CCDevices1     ARGO               Bench      Bench     Bench  Bench         skein             Argo       zergpool_coin
+Alexis78-Linux-CCDevices1     CXT                Bench      Bench     Bench  Bench         nist5           Coinonat     zergpool_coin
+Alexis78-Linux-CCDevices1     DGB-skein          Bench      Bench     Bench  Bench         skein           Digibyte     zergpool_coin
+Alexis78-Linux-CCDevices1     FXC                Bench      Bench     Bench  Bench         nist5           Fexchange    zergpool_coin
+Alexis78-Linux-CCDevices1     NEVA               Bench      Bench     Bench  Bench        blake2s          NevaCoin     zergpool_coin
+KlausT-Linux-CCDevices1       groestl            Bench      Bench     Bench  Bench        groestl           groestl     zergpool_algo
+TRex-Linux-CCDevices1         RCO                Bench      Bench     Bench  Bench          c11             Rampant     zergpool_coin
+TRex-Linux-CCDevices1         FLM                Bench      Bench     Bench  Bench          phi              Folm       zergpool_coin
+TRex-Linux-CCDevices1         DNR                Bench      Bench     Bench  Bench        tribus           Denarius     zergpool_coin
+TRex-Linux-CCDevices1         CHC                Bench      Bench     Bench  Bench          c11            Chaincoin    zergpool_coin
+TRex-Linux-CCDevices1         AXS                Bench      Bench     Bench  Bench          c11               AXS       zergpool_coin
+TRex-Linux-CCDevices1         tribus             Bench      Bench     Bench  Bench        tribus            tribus      zergpool_algo
+TRex-Linux-CCDevices1         phi                Bench      Bench     Bench  Bench          phi               phi       zergpool_algo
+TRex-Linux-CCDevices1         c11                Bench      Bench     Bench  Bench          c11               c11       zergpool_algo
+Alexis78-Linux-CCDevices1     NMS                Bench      Bench     Bench  Bench         skein             Numus      zergpool_coin
+Alexis78-Linux-CCDevices1     SKC                Bench      Bench     Bench  Bench         skein           Skeincoin    zergpool_coin
+Alexis78-Linux-CCDevices1     TAJ                Bench      Bench     Bench  Bench        blake2s           Tajcoin     zergpool_coin
+CryptoDredge-Linux-CCDevices1 KREDS              Bench      Bench     Bench  Bench        lyra2v2            Kreds      zergpool_coin
+CryptoDredge-Linux-CCDevices1 MANO               Bench      Bench     Bench  Bench        lyra2z             Mano       zergpool_coin
+MSFT-Linux-CCDevices1         PLUS               Bench      Bench     Bench  Bench        hmq1725         PlusOneCoin   zergpool_coin
+MSFT-Linux-CCDevices1         MAC                Bench      Bench     Bench  Bench      timetravel        MachineCoin   zergpool_coin
+Enemy-Linux-CCDevices1        phi2               Bench      Bench     Bench  Bench         phi2              phi2       zergpool_algo
+Enemy-Linux-CCDevices1        x16r               Bench      Bench     Bench  Bench         x16r              x16r         nicehash
+Enemy-Linux-CCDevices1        x16s               Bench      Bench     Bench  Bench         x16s              x16s       zergpool_algo
+Enemy-Linux-CCDevices1        GRV                Bench      Bench     Bench  Bench         x16r             Gravium     zergpool_coin
+Enemy-Linux-CCDevices1        HTH                Bench      Bench     Bench  Bench         x16r             HTHCoin     zergpool_coin
+Enemy-Linux-CCDevices1        LUX                Bench      Bench     Bench  Bench         phi2               Lux       zergpool_coin
+Enemy-Linux-CCDevices1        PGN                Bench      Bench     Bench  Bench         x16s             Pigeon      zergpool_coin
+Enemy-Linux-CCDevices1        RVN                Bench      Bench     Bench  Bench         x16r            Ravencoin    zergpool_coin
+KlausT-Linux-CCDevices1       ZCR                Bench      Bench     Bench  Bench       neoscrypt           Zcore      zergpool_coin
+KlausT-Linux-CCDevices1       VIVO               Bench      Bench     Bench  Bench       neoscrypt           Vivo       zergpool_coin
+KlausT-Linux-CCDevices1       TZC                Bench      Bench     Bench  Bench       neoscrypt        Trezarcoin    zergpool_coin
+KlausT-Linux-CCDevices1       SUN                Bench      Bench     Bench  Bench       neoscrypt          Suncoin     zergpool_coin
+KlausT-Linux-CCDevices1       QNO                Bench      Bench     Bench  Bench       neoscrypt           Qyno       zergpool_coin
+KlausT-Linux-CCDevices1       QBIC               Bench      Bench     Bench  Bench       neoscrypt           QBIC       zergpool_coin
+KlausT-Linux-CCDevices1       PXC                Bench      Bench     Bench  Bench       neoscrypt        Phoenixcoin   zergpool_coin
+KlausT-Linux-CCDevices1       MON                Bench      Bench     Bench  Bench       neoscrypt        BTCMonster    zergpool_coin
+KlausT-Linux-CCDevices1       IQ                 Bench      Bench     Bench  Bench       neoscrypt          IQ Cash     zergpool_coin
+KlausT-Linux-CCDevices1       INN                Bench      Bench     Bench  Bench       neoscrypt          Innova      zergpool_coin
+KlausT-Linux-CCDevices1       HAL                Bench      Bench     Bench  Bench       neoscrypt          Halcyon     zergpool_coin
+DSTM-Linux-DSTMDevices1       HUSH               Bench      Bench     Bench  Bench       equihash            Hush       zergpool_coin
+KlausT-Linux-CCDevices1       GBX                Bench      Bench     Bench  Bench       neoscrypt          GoByte      zergpool_coin
+DSTM-Linux-DSTMDevices1       CMM                Bench      Bench     Bench  Bench       equihash         Commercium    zergpool_coin
+CryptoDredge-Linux-CCDevices1 XZC                Bench      Bench     Bench  Bench        lyra2z             ZCoin      zergpool_coin
+MSFT-Linux-CCDevices1         ESP                Bench      Bench     Bench  Bench        hmq1725           Espers      zergpool_coin
+KlausT-Linux-CCDevices1       FTC                Bench      Bench     Bench  Bench       neoscrypt        Feathercoin   zergpool_coin
+MSFT-Linux-CCDevices1         BUEN               Bench      Bench     Bench  Bench        hmq1725           Buenos      zergpool_coin
+MSFT-Linux-CCDevices1         timetravel         Bench      Bench     Bench  Bench      timetravel        timetravel    zergpool_algo
+MSFT-Linux-CCDevices1         hmq1725            Bench      Bench     Bench  Bench        hmq1725           hmq1725     zergpool_algo
+CryptoDredge-Linux-CCDevices1 MCT                Bench      Bench     Bench  Bench        lyra2z           MCT coin     zergpool_coin
+CryptoDredge-Linux-CCDevices1 MONA               Bench      Bench     Bench  Bench        lyra2v2            Mona       zergpool_coin
+CryptoDredge-Linux-CCDevices1 ORE                Bench      Bench     Bench  Bench        lyra2v2          Galactrum    zergpool_coin
+CryptoDredge-Linux-CCDevices1 RACE               Bench      Bench     Bench  Bench        lyra2v2          Racecoin     zergpool_coin
+CryptoDredge-Linux-CCDevices1 SAP                Bench      Bench     Bench  Bench        lyra2v2         Methuselah    zergpool_coin
+Krnlx-Linux-CCDevices1        URALS              Bench      Bench     Bench  Bench         Xevan           UralsCoin    zergpool_coin
+Krnlx-Linux-CCDevices1        HASH               Bench      Bench     Bench  Bench         Xevan            B-hash      zergpool_coin
+Krnlx-Linux-CCDevices1        ELLI               Bench      Bench     Bench  Bench         Xevan            Elliot      zergpool_coin
+Krnlx-Linux-CCDevices1        BSD                Bench      Bench     Bench  Bench         Xevan            BitSend     zergpool_coin
+Krnlx-Linux-CCDevices1        Xevan              Bench      Bench     Bench  Bench         Xevan             Xevan      zergpool_algo
+CryptoDredge-Linux-CCDevices1 STAK               Bench      Bench     Bench  Bench        lyra2v2           Straks      zergpool_coin
+CryptoDredge-Linux-CCDevices1 VTC                Bench      Bench     Bench  Bench        lyra2v2          VertCoin     zergpool_coin
+CryptoDredge-Linux-CCDevices1 XSH-lyra2v2        Bench      Bench     Bench  Bench        lyra2v2           SHIELD      zergpool_coin
+CryptoDredge-Linux-CCDevices1 XVG-lyra2v2        Bench      Bench     Bench  Bench        lyra2v2            Verge      zergpool_coin
+DSTM-Linux-DSTMDevices1       equihash           Bench      Bench     Bench  Bench       equihash          equihash       nicehash
+MSFT-Linux-CCDevices1         ERA                Bench      Bench     Bench  Bench        hmq1725             ERA       zergpool_coin
 
 

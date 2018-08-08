@@ -10,10 +10,10 @@ $Build =  "Zip"
 #M7M
 
 $Commands = [PSCustomObject]@{
-    "Yescrypt" = ''
-    "YescryptR16" = ''
-    "Lyra2z" = ''
-    "M7M" = ''
+    "yescrypt" = ''
+    "yescryptR16" = ''
+    "lyra2z" = ''
+    "m7m" = ''
     "cryptonightv7" = ''
     "lyra2re" = ''
     "hodl" = ''
@@ -54,7 +54,7 @@ $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne
      Path = $Path
      Distro = $Distro
      Arguments = "-a $($_.Algorithm) -o stratum+tcp://$($_.Host):$($_.Port) -b 0.0.0.0:4048 -u $($_.CPUser) -p $($_.CPUpass) $($Commands.$($_.Algorithm))"
-     HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
+         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
      API = "Ccminer"
      Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
 	 MinerPool = "$($_.Name)"

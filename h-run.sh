@@ -22,7 +22,7 @@ CUSTOM_LOG_BASEDIR=`dirname "$CUSTOM_LOG_BASENAME"`
 [[ ! -d $CUSTOM_LOG_BASEDIR ]] && mkdir -p $CUSTOM_LOG_BASEDIR
 
 if ! [ -x "$(command -v pwsh)" ]; then
-sudo apt-get install -y p7zip-full
+sudo apt-get install p7zip-full
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo curl -o /etc/apt/sources.list.d/microsoft.list https://packages.microsoft.com/config/ubuntu/16.04/prod.list
 sudo apt-get update

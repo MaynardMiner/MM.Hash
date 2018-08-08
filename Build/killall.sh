@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 SESSION_NAME=$1
 screen -ls "$SESSION_NAME" | (
   IFS=$(printf '\t');

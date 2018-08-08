@@ -1,5 +1,5 @@
 $Path = ".\Bin\CyrptoDredge-Windows-CCDevices1-Algo\CryptoDredge.exe"
-$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/Cryptodredge-Windows.zip"
+$Uri = "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/CryptoDredge-Windows.zip"
 
 
 if($CCDevices1 -ne ''){$Devices = $CCDevices1}
@@ -9,6 +9,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 $Commands = [PSCustomObject]@{
 "Lyra2v2" = ''
 "Lyra2z" = ''
+"Phi2" = ''
 "Allium" = ''
 }
 

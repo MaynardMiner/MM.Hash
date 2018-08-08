@@ -1,160 +1,55 @@
-********************************************************************************
-        _____                  _        _____               _
-       / ____|                | |      |  __ \             | |
-      | |     _ __ _   _ _ __ | |_ ___ | |  | |_ __ ___  __| | __ _  ___
-      | |    | '__| | | | '_ \| __/ _ \| |  | | '__/ _ \/ _` |/ _` |/ _ \
-      | |____| |  | |_| | |_) | || (_) | |__| | | |  __/ (_| | (_| |  __/
-       \_____|_|   \__, | .__/ \__\___/|_____/|_|  \___|\__,_|\__, |\___|
-                    __/ | |                                    __/ |
-                   |___/|_|                                   |___/
-
-********************************************************************************
-
-[11:29:05] INFO  - CryptoDredge 0.8.0 for NVIDIA GPUs
-[11:29:05] INFO  - DevFee is 1%
-[11:29:05] INFO  - NVML is enabled
-[11:29:05] INFO  - GPU0 : Gigabyte GeForce GTX 1070 : 8119 MB
-[11:29:05] INFO  - GPU3 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - GPU4 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - GPU5 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - GPU7 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - GPU8 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - GPU11 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - GPU12 : MSI GeForce GTX 1050 Ti : 4040 MB
-[11:29:05] INFO  - Selected pool: lyra2v2.mine.zergpool.com:4533
-[11:29:05] INFO  - Selected algo: lyra2v2
-[11:29:05] INFO  - Intensity set to 6
-[11:29:05] INFO  - ccminer TCP API: Start server on 0.0.0.0:4069
-[11:29:05] INFO  - Start user session
-[11:29:06] INFO  - Setting new difficulty: 128 (0.5)
-[11:29:06] INFO  - Received new job #1b87
-[11:29:15] INFO  - Received new job #1b94
-[11:29:18] INFO  - Received new job #1b95
-[11:29:22] INFO  - 1/0 Pool accepted share, diff=1.04984
-[11:29:27] INFO  - Received new job #1b9a
-[11:29:29] INFO  - 2/0 Pool accepted share, diff=0.512167
-[11:30:10] INFO  - Received new job #1ba7
-[11:30:15] INFO  - 3/0 Pool accepted share, diff=10.73
-[11:30:17] INFO  - 4/0 Pool accepted share, diff=0.798223
-[11:30:35] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 19.94Mh/s (Avr 19.94Mh/s) : T=67C Fan=85%
-[11:30:35] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.63Mh/s (Avr 17.63Mh/s) : T=69C Fan=85%
-[11:30:35] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.70Mh/s (Avr 17.70Mh/s) : T=70C Fan=85%
-[11:30:35] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.88Mh/s (Avr 17.88Mh/s) : T=65C Fan=85%
-[11:30:35] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.22Mh/s (Avr 17.22Mh/s) : T=75C Fan=85%
-[11:30:35] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.36Mh/s (Avr 17.36Mh/s) : T=65C Fan=85%
-[11:30:35] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.53Mh/s (Avr 17.53Mh/s) : T=80C Fan=85%
-[11:30:35] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.79Mh/s (Avr 17.79Mh/s) : T=64C Fan=85%
-[11:30:35] INFO  - Total hashrate 143.0Mh/s
-[11:30:54] INFO  - Received new job #1bb7
-[11:30:56] INFO  - 5/0 Pool accepted share, diff=1.03298
-[11:31:10] INFO  - Received new job #1bb9
-[11:31:28] INFO  - Received new job #1bbd
-[11:31:29] INFO  - 6/0 Pool accepted share, diff=0.884378
-[11:31:30] INFO  - 7/0 Pool accepted share, diff=0.644773
-[11:31:35] INFO  - Received new job #1bbf
-[11:32:02] INFO  - Received new job #1bdb
-[11:32:05] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.07Mh/s (Avr 20.01Mh/s) : T=68C Fan=85%
-[11:32:05] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.57Mh/s (Avr 17.60Mh/s) : T=70C Fan=85%
-[11:32:05] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.62Mh/s (Avr 17.66Mh/s) : T=72C Fan=85%
-[11:32:05] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.93Mh/s (Avr 17.91Mh/s) : T=66C Fan=85%
-[11:32:05] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.20Mh/s (Avr 17.21Mh/s) : T=76C Fan=85%
-[11:32:05] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.39Mh/s (Avr 17.38Mh/s) : T=67C Fan=85%
-[11:32:05] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.53Mh/s (Avr 17.53Mh/s) : T=81C Fan=85%
-[11:32:05] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.69Mh/s (Avr 17.74Mh/s) : T=64C Fan=85%
-[11:32:05] INFO  - Total hashrate 143.0Mh/s
-[11:32:15] INFO  - 8/0 Pool accepted share, diff=1.5388
-[11:32:27] INFO  - 9/0 Pool accepted share, diff=0.57591
-[11:32:29] INFO  - Received new job #1bdf
-[11:32:41] INFO  - Received new job #1be1
-[11:32:56] INFO  - 10/0 Pool accepted share, diff=1.72281
-[11:33:00] INFO  - 11/0 Pool accepted share, diff=2.82066
-[11:33:03] INFO  - 12/0 Pool accepted share, diff=0.620935
-[11:33:06] INFO  - 13/0 Pool accepted share, diff=0.509355
-[11:33:12] INFO  - 14/0 Pool accepted share, diff=0.75833
-[11:33:18] INFO  - Received new job #1bf2
-[11:33:35] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 19.98Mh/s (Avr 20.00Mh/s) : T=68C Fan=85%
-[11:33:35] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.61Mh/s (Avr 17.60Mh/s) : T=70C Fan=85%
-[11:33:35] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.63Mh/s (Avr 17.65Mh/s) : T=71C Fan=85%
-[11:33:35] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.83Mh/s (Avr 17.88Mh/s) : T=66C Fan=85%
-[11:33:35] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.15Mh/s (Avr 17.19Mh/s) : T=77C Fan=85%
-[11:33:35] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.42Mh/s (Avr 17.39Mh/s) : T=66C Fan=85%
-[11:33:35] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.54Mh/s (Avr 17.53Mh/s) : T=81C Fan=85%
-[11:33:35] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.72Mh/s (Avr 17.73Mh/s) : T=65C Fan=85%
-[11:33:35] INFO  - Total hashrate 143.0Mh/s
-[11:33:43] INFO  - 15/0 Pool accepted share, diff=1.28086
-[11:33:52] INFO  - Received new job #1bf9
-[11:33:55] INFO  - 16/0 Pool accepted share, diff=2.14287
-[11:33:57] INFO  - 17/0 Pool accepted share, diff=16.6346
-[11:34:05] INFO  - 18/0 Pool accepted share, diff=0.574968
-[11:34:09] INFO  - Received new job #1bfa
-[11:34:30] INFO  - Received new job #1c06
-[11:34:43] INFO  - 19/0 Pool accepted share, diff=2.39725
-[11:34:49] INFO  - Received new job #1c0c
-[11:34:56] INFO  - 20/0 Pool accepted share, diff=8.29472
-[11:35:05] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 20.00Mh/s (Avr 20.00Mh/s) : T=68C Fan=85%
-[11:35:05] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.58Mh/s (Avr 17.59Mh/s) : T=70C Fan=85%
-[11:35:05] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.61Mh/s (Avr 17.64Mh/s) : T=71C Fan=85%
-[11:35:05] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.81Mh/s (Avr 17.86Mh/s) : T=66C Fan=85%
-[11:35:05] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.12Mh/s (Avr 17.17Mh/s) : T=77C Fan=85%
-[11:35:05] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.40Mh/s (Avr 17.39Mh/s) : T=66C Fan=85%
-[11:35:05] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.56Mh/s (Avr 17.54Mh/s) : T=82C Fan=85%
-[11:35:05] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.75Mh/s (Avr 17.73Mh/s) : T=65C Fan=85%
-[11:35:05] INFO  - Total hashrate 142.9Mh/s
-[11:35:05] INFO  - 21/0 Pool accepted share, diff=0.741719
-[11:35:14] INFO  - 22/0 Pool accepted share, diff=1.51045
-[11:35:23] INFO  - Received new job #1c18
-[11:35:39] INFO  - 23/0 Pool accepted share, diff=0.976309
-[11:35:47] INFO  - Received new job #1c2a
-[11:35:55] INFO  - 24/0 Pool accepted share, diff=2.46088
-[11:36:03] INFO  - Received new job #1c30
-[11:36:15] INFO  - Received new job #1c35
-[11:36:17] INFO  - Received new job #1c36
-[11:36:21] INFO  - 25/0 Pool accepted share, diff=0.560477
-[11:36:24] INFO  - 26/0 Pool accepted share, diff=0.973689
-[11:36:29] INFO  - Received new job #1c38
-[11:36:35] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 19.98Mh/s (Avr 20.00Mh/s) : T=68C Fan=85%
-[11:36:35] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.59Mh/s (Avr 17.59Mh/s) : T=70C Fan=85%
-[11:36:35] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.62Mh/s (Avr 17.63Mh/s) : T=72C Fan=85%
-[11:36:35] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.78Mh/s (Avr 17.85Mh/s) : T=66C Fan=85%
-[11:36:35] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.15Mh/s (Avr 17.17Mh/s) : T=77C Fan=85%
-[11:36:35] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.37Mh/s (Avr 17.39Mh/s) : T=66C Fan=85%
-[11:36:35] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.52Mh/s (Avr 17.54Mh/s) : T=81C Fan=85%
-[11:36:35] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.73Mh/s (Avr 17.73Mh/s) : T=65C Fan=85%
-[11:36:35] INFO  - Total hashrate 142.9Mh/s
-[11:36:37] INFO  - 27/0 Pool accepted share, diff=0.523901
-[11:36:46] INFO  - Received new job #1c42
-[11:36:48] INFO  - 28/0 Pool accepted share, diff=1.18622
-[11:36:54] INFO  - 29/0 Pool accepted share, diff=1.01486
-[11:37:01] INFO  - Received new job #1c50
-[11:37:23] INFO  - Received new job #1c52
-[11:37:29] INFO  - 30/0 Pool accepted share, diff=1.31724
-[11:37:37] INFO  - Received new job #1c5d
-[11:38:04] INFO  - Received new job #1c6b
-[11:38:05] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 19.77Mh/s (Avr 19.96Mh/s) : T=68C Fan=85%
-[11:38:05] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.54Mh/s (Avr 17.59Mh/s) : T=70C Fan=85%
-[11:38:05] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.53Mh/s (Avr 17.62Mh/s) : T=71C Fan=85%
-[11:38:05] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.70Mh/s (Avr 17.82Mh/s) : T=66C Fan=85%
-[11:38:05] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.04Mh/s (Avr 17.14Mh/s) : T=76C Fan=85%
-[11:38:05] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.37Mh/s (Avr 17.39Mh/s) : T=67C Fan=85%
-[11:38:05] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.41Mh/s (Avr 17.52Mh/s) : T=76C Fan=85%
-[11:38:05] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.62Mh/s (Avr 17.71Mh/s) : T=65C Fan=85%
-[11:38:05] INFO  - Total hashrate 142.7Mh/s
-[11:38:08] INFO  - 31/0 Pool accepted share, diff=12.3832
-[11:38:25] INFO  - Received new job #1c72
-[11:38:33] INFO  - 32/0 Pool accepted share, diff=0.933202
-[11:38:36] INFO  - 33/0 Pool accepted share, diff=4.34352
-[11:38:44] INFO  - Received new job #1c79
-[11:38:59] INFO  - 34/0 Pool accepted share, diff=6.99792
-[11:39:00] INFO  - Received new job #1c86
-[11:39:10] INFO  - 35/0 Pool accepted share, diff=1.72279
-[11:39:22] INFO  - Received new job #1c88
-[11:39:35] INFO  - GPU0 Gigabyte GeForce GTX 1070 : 19.95Mh/s (Avr 19.96Mh/s) : T=68C Fan=85%
-[11:39:35] INFO  - GPU3 MSI GeForce GTX 1050 Ti : 17.48Mh/s (Avr 17.57Mh/s) : T=70C Fan=85%
-[11:39:35] INFO  - GPU4 MSI GeForce GTX 1050 Ti : 17.56Mh/s (Avr 17.61Mh/s) : T=70C Fan=85%
-[11:39:35] INFO  - GPU5 MSI GeForce GTX 1050 Ti : 17.67Mh/s (Avr 17.80Mh/s) : T=66C Fan=85%
-[11:39:35] INFO  - GPU7 MSI GeForce GTX 1050 Ti : 17.07Mh/s (Avr 17.13Mh/s) : T=75C Fan=85%
-[11:39:35] INFO  - GPU8 MSI GeForce GTX 1050 Ti : 17.31Mh/s (Avr 17.37Mh/s) : T=67C Fan=85%
-[11:39:35] INFO  - GPU11 MSI GeForce GTX 1050 Ti : 17.42Mh/s (Avr 17.50Mh/s) : T=74C Fan=85%
-[11:39:35] INFO  - GPU12 MSI GeForce GTX 1050 Ti : 17.63Mh/s (Avr 17.70Mh/s) : T=65C Fan=85%
-[11:39:35] INFO  - Total hashrate 142.6Mh/s
-[11:39:37] INFO  - 36/0 Pool accepted share, diff=3.92902
+20180807 21:13:52 T-Rex NVIDIA GPU miner v0.5.7
+20180807 21:13:52 
+20180807 21:13:52 CUDA devices available: 8
+20180807 21:13:52 Starting on: tribus.mine.zergpool.com:8533
+20180807 21:13:52 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:13:52 ApiServer: HTTP server started on 0.0.0.0:4067
+20180807 21:13:52 ApiServer: Telnet server started on 0.0.0.0:4069
+20180807 21:13:56 WARN: New difficulty: 0.4
+20180807 21:13:56 tribus block 1098437, diff 6157.998
+20180807 21:13:56 WARN: GPU #0: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #3: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #4: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #8: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #11: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #12: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #7: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:56 WARN: GPU #5: Intensity set to 23, 8388608 cuda threads
+20180807 21:13:57 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:02 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:07 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:08 tribus block 1098438, diff 4329.844
+20180807 21:14:12 [32m[ OK ][0m 1/1 - 148.88 MH/s
+20180807 21:14:12 [32m[ OK ][0m 2/2 - 234.26 MH/s
+20180807 21:14:12 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:12 [32m[ OK ][0m 3/3 - 235.20 MH/s
+20180807 21:14:14 [32m[ OK ][0m 4/4 - 234.79 MH/s
+20180807 21:14:17 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:22 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:27 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:32 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:34 WARN: New difficulty: 0.8
+20180807 21:14:34 tribus block 1098439, diff 6718.731
+20180807 21:14:37 [32m[ OK ][0m 5/5 - 237.70 MH/s
+20180807 21:14:37 GPU #0: 31.99 MH/s
+20180807 21:14:37 GPU #3: 29.47 MH/s
+20180807 21:14:37 GPU #4: 29.83 MH/s
+20180807 21:14:37 GPU #5: 29.86 MH/s
+20180807 21:14:37 GPU #7: 28.15 MH/s
+20180807 21:14:37 GPU #8: 29.57 MH/s
+20180807 21:14:37 GPU #11: 29.17 MH/s
+20180807 21:14:37 GPU #12: 29.65 MH/s
+20180807 21:14:37 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:42 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:47 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:51 [32m[ OK ][0m 6/6 - 237.88 MH/s
+20180807 21:14:52 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:14:57 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:15:01 [32m[ OK ][0m 7/7 - 239.06 MH/s
+20180807 21:15:02 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:15:07 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:15:12 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:15:17 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:15:20 [32m[ OK ][0m 8/8 - 239.75 MH/s
+20180807 21:15:22 WARN: ApiServer: failed to bind socket 0.0.0.0:4067 (Address already in use), next attempt in 5 seconds.
+20180807 21:15:25 tribus block 1098440, diff 6718.731

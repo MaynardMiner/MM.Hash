@@ -8,9 +8,9 @@ if($GPUDevices1 -ne ''){$Devices = $GPUDevices1}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
-"Lyra2v2" = ''
-"Lyra2z" = ''
-"Allium" = ''
+"lyra2v2" = ''
+"lyra2z" = ''
+"allium" = ''
 }
 
 
