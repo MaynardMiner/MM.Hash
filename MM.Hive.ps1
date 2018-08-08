@@ -1479,7 +1479,7 @@ Start-Sleep -s 10
            {
            if($_.WasBenchmarked -eq $False)
             {
-             if(-not Test-Path "Backup){New-Item -Path "Backup" -ItemType "Directory"}
+             if(-not (Test-Path "Backup")){New-Item -Path "Backup" -ItemType "Directory"}             
              Write-Host "$($_.Name) $($_.Coins) Starting Bench"
 	     $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
              $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
