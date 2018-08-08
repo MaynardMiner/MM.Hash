@@ -11,6 +11,11 @@ Argument          Options           Explanation
 				    device groups, then you must add -GPU_Count2 and -GPU_Count3 for each
 				    group respectively. (Stats for other device groups will not show on HiveOS-
 				    Not reccommended unless you have to).
+				    
+-No_Algo    [See Algorithms.txt]    This argument allows an exclusion of an algorithm, in which MM.Hash will
+				    avoid mining. Example: Setting -No_Algo groestl will tell MM.Hash to not
+				    mine any groestl coins or algorithms. Must use all lower case characters
+				    for algorithms- It is case sensitive!
 
 -StatsInvterval   1-10000           Expression is in seconds. This is time required for miner apps to run
                                     before miner write/re-writes benchmarking. This is not be confused 
