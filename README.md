@@ -181,4 +181,6 @@ Stoogie
 
 Zirillian
 
+Gravitymaster
+
 For there assistance in the past for pointing out bugs, issues, new updates/pools, and overall support of MM.Hash
