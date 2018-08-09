@@ -161,6 +161,8 @@ RVN RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H
 
 Thanks To:
 
+Developers:
+
 Sniffdog
 
 Nemosminer
@@ -170,3 +172,13 @@ Uselessguru
 Aaronsace
 
 They were the pioneers to powershell scriptmining. Their scripts helped me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time. Since then it has grown to what it is today.
+
+Users:
+
+Alexander
+
+Stoogie
+
+Zirillian
+
+For there assistance in the past for pointing out bugs, issues, new updates/pools, and overall support of MM.Hash
