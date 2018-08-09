@@ -59,7 +59,7 @@ allium
 equihash
 x16r
 x16s
-aeriumx
+aeriumx (aergo)
 equihash192
 equihash144xsg
 equihash144btcz
