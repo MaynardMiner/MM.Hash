@@ -67,11 +67,7 @@ x16r
 x16s
 aeriumx (aergo)
 equihash192
-equihash144xsg
-equihash144btcz
-equihash144zel
-equihash-BTG
-equihash144safe
+equihash144
 yescrypt
 yescryptR16
 m7m
