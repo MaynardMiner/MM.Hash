@@ -4,6 +4,12 @@
 
 MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. It can also perform coin profit switching as well, on pools that can do so. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well. The HiveOS version means you can use all the features of HiveOS, including hashrate monitoring, possible GPU failure detection, miner configuration, all while doing it remotely.
 
+**Important**
+
+MM.Hash is schedule to updates almost daily/weekly, due to the violitiliy of mining, and mining trends. I highly encourage users that are interested to joing the discord channel:
+
+https://discord.gg/5YXE6cu
+
 **Features**
 
 -Backs up initial benchmarks, making updating or recovery a charm.
@@ -149,7 +155,7 @@ This is an example of how to remote install/update miner. It is the fastest way 
 **CONTACT**
 
 Discord Channel For MM.Hash- 
-https://discord.gg/xVB5MqR
+https://discord.gg/5YXE6cu
 
 **DONATE TO SUPPORT!**
 
