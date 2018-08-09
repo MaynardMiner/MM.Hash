@@ -1,10 +1,10 @@
 To help users to benchmark-
 
-If a coin can't be benchmarked, or crashes- It writes a note in the "Backup" folder called "Miner_Coin_Timeout".txt
+If a coin can't be benchmarked, or crashes- It writes a note in the "Timeout" folder called "Miner_Coin_Timeout".txt
 
-This should allow you to note issues, and address them...So you don't have to sit in front of miner the whole time. Obviously if you need to recover your benchmarking, you simply just copy/paste your backup data to your stat folder, and there is no need to benchmark all over again. However, make sure you delete all "Miner_Coin_Timeout.txt" files before doing so, or you will have issues loading miner.
+This should allow you to note issues, and address them...So you don't have to sit in front of miner the whole time. Obviously if you need to recover your benchmarking, you simply just copy/paste your backup data to your stat folder, and there is no need to benchmark all over again.
 
-I would save backup folder onto a remote site, in case computer crashes.
+I would save backup folder onto a remote site, in case computer crashes. Your Backup folder contains a copy of all the coins/algo when they were first benchmarked. It has never changed or been modified.
 
 ALSO
 
