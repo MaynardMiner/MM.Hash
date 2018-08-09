@@ -6,7 +6,7 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 
 **Important**
 
-MM.Hash is schedule to updates almost daily/weekly, due to the violitiliy of mining, and mining trends. I highly encourage users that are interested to joing the discord channel:
+MM.Hash is schedule to updates almost daily/weekly, due to the violitiliy of mining, and mining trends. I highly encourage users that are interested to join the discord channel:
 
 https://discord.gg/5YXE6cu
 
