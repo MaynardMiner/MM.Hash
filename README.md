@@ -135,10 +135,10 @@ To Run:
 
 This is an example of how to remote install/update miner. It is the fastest way to get going. Simply enter tar.gz file name from latest release. Then insert link for tar.gz. Lastly, your setup arguments go in the last box, labeled extra config <a href="https://github.com/MaynardMiner/MM.Hash/wiki/Arguments-(Miner-Configuration)">arguments</a>. After that, you are are good to go! See wiki on proper argument use. Here is a photo of setup:
 
-![alt text](https://raw.githubusercontent.com/MaynardMiner/MM.Hash/master/Build/Data/first_step.png)
+![alt text](https://raw.githubusercontent.com/MaynardMiner/MM.Hash/master/Build/Data/First_Step.png)
 
 
-![alt text](https://raw.githubusercontent.com/MaynardMiner/MM.Hash/master/Build/Data/second_step.png)
+![alt text](https://raw.githubusercontent.com/MaynardMiner/MM.Hash/master/Build/Data/Second_Step.png)
 
 
 
