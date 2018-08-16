@@ -97,27 +97,35 @@ Status flags written to disk, to provide double checking of MM.Hash states and i
 
 1.3.4:
 -HiveOS Added hive integrated "mine" command. Enter to bring up NVIDIA1 screen (mining window).
-
 -Added -No_Algo argument. -No_Algo excludes aglorithm of your choice. Must match Algorithms.txt.
 Case Sensitive! (All lower case characters)
-
 -EWBF coins added back in. Updated equihash to match zergpool.
-
 -Reduced resources on PID system/tracking, removed read/write status- It was redundant.
-
 -Newer streamlined benchmarking system. (Both versions)
-
 -Better chance of miner catching and recording timeouts.
-
 -Recorded hashrate displayed at benchmarking. Recorded hashrate is pulled from file (accurate).
-
 -Enemy 1.15a
-
 -CryptoDredge 0.8.3
-
 -Started staging of much faster -Auto_Coin version. Not implemented yet.
-
 -Started staging for T-Rex API Rest method hashrate recording (when implemented).
 
 
-
+1.3.7 HiveOS Silver Lambo Edition:
+-IMPROVED COIN MINING SYSTEM! Highly reccommend to try -Auto-Coin "Yes"
+-MM.Hash will not sort or download entire database, miner first sorts by most profitible algorithms, if the best pool is pool that has the capability of selecting a coin other than BTC: IT then chooses the coins of the algorithms of that pool.
+-Stats will show coin list of a particular algorithm if coin mining occurs during that perion.
+- -Auto Coin switching is now around a 20-30 second process: which is 200% better.
+-Fixed Powershell Core update bugs with a better workarounds.
+-MM.Hash in background checks stats for possible timeouts, for accurate timeouts.
+-MM.Hash now closes itself and all background windows within a few seconds of it stopping.
+-Added -threshold argument default (internally) is set to .1 - If profit day shows to be .1 btc: MM.Hash ignores algo.
+-Added back & improved active times for miners.
+-Staged miners.txt. Does not work. However, you can see the direction it is going.
+-This is beta version of new system.
+-CPU Miners will now compile to your system. I included an expiremental one that can work for ARM cpus. Note- Initial benchmark period is usually long for cpuminers. I would turn up -interval when benchmarking them. After intial benchmarks, you can set -interval to a much lower setting.
+-hex added to algorithms.txt and files.
+-fixed blockmasters pool file.
+-fixed startpool pool file.
+-pools initial stats are now estimate current. 24 hours was causing irregular initial stats. Improved 'stats' command and display.
+-Enemy 1.16 added
+-Code Staging for AMD

@@ -29,4 +29,4 @@ sudo apt-get update
 sudo apt-get install -y powershell
 fi
 
-pwsh -command "&.\MM.Hive.ps1 $(< /hive/custom/$CUSTOM_NAME/$CUSTOM_NAME.conf) $CUSTOM_USER_CONFIG" && . colors $@ 2>&1 | tee $CUSTOM_LOG_BASENAME.log 
+pwsh -command "&.\MM.Hive.ps1 $(< /hive/custom/$CUSTOM_NAME/$CUSTOM_NAME.conf)" && . colors $@ 2>&1 | tee $CUSTOM_LOG_BASENAME.log 

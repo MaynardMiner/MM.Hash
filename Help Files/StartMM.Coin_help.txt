@@ -11,13 +11,8 @@ Argument          Options           Explanation
 				    device groups, then you must add -GPU_Count2 and -GPU_Count3 for each
 				    group respectively. (Stats for other device groups will not show on HiveOS-
 				    Not reccommended unless you have to).
-				    
--No_Algo    [See Algorithms.txt]    This argument allows an exclusion of an algorithm, in which MM.Hash will
-				    avoid mining. Example: Setting -No_Algo groestl will tell MM.Hash to not
-				    mine any groestl coins or algorithms. Must use all lower case characters
-				    for algorithms- It is case sensitive!
 
--StatsInvterval   1-10000           Expression is in seconds. This is time required for miner apps to run
+-StatsInterval   1-10000           Expression is in seconds. This is time required for miner apps to run
                                     before miner write/re-writes benchmarking. This is not be confused 
                                     with -Interval argument, which is used for when miner begins swithing 
                                     process. leave 1 if you want dynamic benchmarking, and for initial 
@@ -87,6 +82,13 @@ Argument          Options           Explanation
 -Benchmark     [0-100000]           Expressed in seconds. Default 0. Sets specific interval time for when coin 
 				    is in benchmark mode. Can be used for faster benchmarking. When coin has
 				    a set hashrate- Miner will defer to time expressed in -Interval parameter.
+
+-Threshold     [.1 - 100000]	    Expressed in BTC/day. Default is .1. If the total daily profits of a
+				    particular algo/coin exceed the -Threshold argument, it will be removed
+				    from database calculation. This is to prevent mining on a particular
+		                    coin/algorithm in which the pool is having issues with. It only needs
+				    to be specified if you wish it to be different than .1 btc/day
+				    
 
 ***********************************************************************************************************
 ***********************************************************************************************************

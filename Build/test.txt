@@ -1,0 +1,1358 @@
+
+
+Symbol             : blake2s
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a blake2s -o stratum+tcp://blake2s.mine.zergpool.com:5766 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{blake2s=23935122930}
+Selected           : @{blake2s=}
+MinerPool          : zergpool
+FullName           : blake2s
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : blake2s
+Name               : Alexis78-Linux-CCDevices1
+Pools              : @{blake2s=}
+Profits            : @{blake2s=0.000188142033791265}
+Profits_Comparison : @{blake2s=0.000188142033791265}
+Profits_Bias       : @{blake2s=0.000188142033791265}
+Profit             : 0.000188142033791265
+Profit_Comparison  : 0.000188142033791265
+Profit_Bias        : 0.000188142033791265
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : nist5
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a nist5 -o stratum+tcp://nist5.mine.zergpool.com:3833 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash -i 25
+HashRates          : @{nist5=}
+Selected           : @{nist5=}
+MinerPool          : zergpool
+FullName           : nist5
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : nist5
+Name               : Alexis78-Linux-CCDevices1
+Pools              : @{nist5=}
+Profits            : @{nist5=}
+Profits_Comparison : @{nist5=}
+Profits_Bias       : @{nist5=}
+Profit             : 
+Profit_Comparison  : 
+Profit_Bias        : 
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : skein
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a skein -o stratum+tcp://skein.mine.zergpool.com:4933 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash -i 28
+HashRates          : @{skein=3183977660}
+Selected           : @{skein=}
+MinerPool          : zergpool
+FullName           : skein
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : skein
+Name               : Alexis78-Linux-CCDevices1
+Pools              : @{skein=}
+Profits            : @{skein=0.000250530008586036}
+Profits_Comparison : @{skein=0.000250530008586036}
+Profits_Bias       : @{skein=0.000250530008586036}
+Profit             : 0.000250530008586036
+Profit_Comparison  : 0.000250530008586036
+Profit_Bias        : 0.000250530008586036
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : blake2s
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a blake2s -o stratum+tcp://blake2s.mine.zergpool.com:5766 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{blake2s=4688008210}
+Selected           : @{blake2s=}
+MinerPool          : zergpool
+FullName           : blake2s
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : blake2s
+Name               : Alexis78-Linux-CCDevices2
+Pools              : @{blake2s=}
+Profits            : @{blake2s=3.6850088534705E-05}
+Profits_Comparison : @{blake2s=3.6850088534705E-05}
+Profits_Bias       : @{blake2s=3.6850088534705E-05}
+Profit             : 3.6850088534705E-05
+Profit_Comparison  : 3.6850088534705E-05
+Profit_Bias        : 3.6850088534705E-05
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : nist5
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a nist5 -o stratum+tcp://nist5.mine.zergpool.com:3833 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash -i 25
+HashRates          : @{nist5=}
+Selected           : @{nist5=}
+MinerPool          : zergpool
+FullName           : nist5
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : nist5
+Name               : Alexis78-Linux-CCDevices2
+Pools              : @{nist5=}
+Profits            : @{nist5=}
+Profits_Comparison : @{nist5=}
+Profits_Bias       : @{nist5=}
+Profit             : 
+Profit_Comparison  : 
+Profit_Bias        : 
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : skein
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a skein -o stratum+tcp://skein.mine.zergpool.com:4933 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash -i 28
+HashRates          : @{skein=419853690}
+Selected           : @{skein=}
+MinerPool          : zergpool
+FullName           : skein
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : skein
+Name               : Alexis78-Linux-CCDevices2
+Pools              : @{skein=}
+Profits            : @{skein=3.3036019656174E-05}
+Profits_Comparison : @{skein=3.3036019656174E-05}
+Profits_Bias       : @{skein=3.3036019656174E-05}
+Profit             : 3.3036019656174E-05
+Profit_Comparison  : 3.3036019656174E-05
+Profit_Bias        : 3.3036019656174E-05
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : allium
+MinerName          : Dredge-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices1/Dredge-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a allium -o stratum+tcp://allium.mine.zergpool.com:6433 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{allium=30585380}
+Selected           : @{allium=}
+MinerPool          : zergpool
+FullName           : allium
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip
+BUILD              : Zip
+Algo               : allium
+Name               : CryptoDredge-Linux-CCDevices1
+Pools              : @{allium=}
+Profits            : @{allium=0.000626604209329}
+Profits_Comparison : @{allium=0.000626604209329}
+Profits_Bias       : @{allium=0.000626604209329}
+Profit             : 0.000626604209329
+Profit_Comparison  : 0.000626604209329
+Profit_Bias        : 0.000626604209329
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : lyra2v2
+MinerName          : Dredge-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices1/Dredge-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a lyra2v2 -o stratum+tcp://lyra2v2.mine.zergpool.com:4533 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{lyra2v2=216673680}
+Selected           : @{lyra2v2=}
+MinerPool          : zergpool
+FullName           : lyra2v2
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip
+BUILD              : Zip
+Algo               : lyra2v2
+Name               : CryptoDredge-Linux-CCDevices1
+Pools              : @{lyra2v2=}
+Profits            : @{lyra2v2=0.000519572650956}
+Profits_Comparison : @{lyra2v2=0.000519572650956}
+Profits_Bias       : @{lyra2v2=0.000519572650956}
+Profit             : 0.000519572650956
+Profit_Comparison  : 0.000519572650956
+Profit_Bias        : 0.000519572650956
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : lyra2z
+MinerName          : Dredge-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices1/Dredge-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a lyra2z -o stratum+tcp://lyra2z.mine.zergpool.com:4553 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{lyra2z=21026903.8790536}
+Selected           : @{lyra2z=}
+MinerPool          : zergpool
+FullName           : lyra2z
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip
+BUILD              : Zip
+Algo               : lyra2z
+Name               : CryptoDredge-Linux-CCDevices1
+Pools              : @{lyra2z=}
+Profits            : @{lyra2z=0.00089461485781899}
+Profits_Comparison : @{lyra2z=0.00089461485781899}
+Profits_Bias       : @{lyra2z=0.00089461485781899}
+Profit             : 0.00089461485781899
+Profit_Comparison  : 0.00089461485781899
+Profit_Bias        : 0.00089461485781899
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : allium
+MinerName          : Dredge-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices2/Dredge-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a allium -o stratum+tcp://allium.mine.zergpool.com:6433 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{allium=21527735.2744042}
+Selected           : @{allium=}
+MinerPool          : zergpool
+FullName           : allium
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip
+BUILD              : Zip
+Algo               : allium
+Name               : CryptoDredge-Linux-CCDevices2
+Pools              : @{allium=}
+Profits            : @{allium=0.000441039788953483}
+Profits_Comparison : @{allium=0.000441039788953483}
+Profits_Bias       : @{allium=0.000441039788953483}
+Profit             : 0.000441039788953483
+Profit_Comparison  : 0.000441039788953483
+Profit_Bias        : 0.000441039788953483
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : lyra2v2
+MinerName          : Dredge-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices2/Dredge-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a lyra2v2 -o stratum+tcp://lyra2v2.mine.zergpool.com:4533 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{lyra2v2=130522470}
+Selected           : @{lyra2v2=}
+MinerPool          : zergpool
+FullName           : lyra2v2
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip
+BUILD              : Zip
+Algo               : lyra2v2
+Name               : CryptoDredge-Linux-CCDevices2
+Pools              : @{lyra2v2=}
+Profits            : @{lyra2v2=0.0003129863569365}
+Profits_Comparison : @{lyra2v2=0.0003129863569365}
+Profits_Bias       : @{lyra2v2=0.0003129863569365}
+Profit             : 0.0003129863569365
+Profit_Comparison  : 0.0003129863569365
+Profit_Bias        : 0.0003129863569365
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : lyra2z
+MinerName          : Dredge-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices2/Dredge-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a lyra2z -o stratum+tcp://lyra2z.mine.zergpool.com:4553 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{lyra2z=11796639.3251516}
+Selected           : @{lyra2z=}
+MinerPool          : zergpool
+FullName           : lyra2z
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip
+BUILD              : Zip
+Algo               : lyra2z
+Name               : CryptoDredge-Linux-CCDevices2
+Pools              : @{lyra2z=}
+Profits            : @{lyra2z=0.000501902176055765}
+Profits_Comparison : @{lyra2z=0.000501902176055765}
+Profits_Bias       : @{lyra2z=0.000501902176055765}
+Profit             : 0.000501902176055765
+Profit_Comparison  : 0.000501902176055765
+Profit_Bias        : 0.000501902176055765
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : equihash
+MinerName          : zm-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/DSTM-Linux-DSTMDevices1/zm-NVIDIA1
+Distro             : 
+Devices            : 
+DeviceCall         : dstm
+Arguments          : --server equihash.mine.zergpool.com --port 2142 --user  --pass c=BTC,ID=MMHash --telemetry=0.0.0.0:43000 
+HashRates          : @{equihash=2772.19}
+Selected           : @{equihash=}
+FullName           : equihash
+API                : DSTM
+Port               : 43000
+MinerPool          : zergpool
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/DTSMLInux.zip
+BUILD              : Zip
+Algo               : equihash
+Name               : DSTM-Linux-DSTMDevices1
+Pools              : @{equihash=}
+Profits            : @{equihash=0.000501188388385}
+Profits_Comparison : @{equihash=0.000501188388385}
+Profits_Bias       : @{equihash=0.000501188388385}
+Profit             : 0.000501188388385
+Profit_Comparison  : 0.000501188388385
+Profit_Bias        : 0.000501188388385
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : equihash
+MinerName          : zm-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/DSTM-Linux-DSTMDevices2/zm-NVIDIA2
+Distro             : 
+Devices            : 
+DeviceCall         : dstm
+Arguments          : --server equihash.mine.zergpool.com --port 2142 --user  --pass c=BTC,ID=MMHash --telemetry=0.0.0.0:43001 
+HashRates          : @{equihash=1316.4}
+Selected           : @{equihash=}
+FullName           : equihash
+API                : DSTM
+Port               : 43001
+MinerPool          : zergpool
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/DTSMLInux.zip
+BUILD              : Zip
+Algo               : equihash
+Name               : DSTM-Linux-DSTMDevices2
+Pools              : @{equihash=}
+Profits            : @{equihash=0.0002379939306}
+Profits_Comparison : @{equihash=0.0002379939306}
+Profits_Bias       : @{equihash=0.0002379939306}
+Profit             : 0.0002379939306
+Profit_Comparison  : 0.0002379939306
+Profit_Bias        : 0.0002379939306
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : phi2
+MinerName          : z-enemy-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/z-enemy-Linux-CCDevices1/z-enemy-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a phi2 -o stratum+tcp://phi2.mine.zergpool.com:8332 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{phi2=19698980}
+Selected           : @{phi2=}
+Port               : 4068
+MinerPool          : zergpool
+FullName           : phi2
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux.zip
+BUILD              : Zip
+Stats              : ccminer
+Algo               : phi2
+Name               : Enemy-Linux-CCDevices1
+Pools              : @{phi2=}
+Profits            : @{phi2=0.000405338031868}
+Profits_Comparison : @{phi2=0.000405338031868}
+Profits_Bias       : @{phi2=0.000405338031868}
+Profit             : 0.000405338031868
+Profit_Comparison  : 0.000405338031868
+Profit_Bias        : 0.000405338031868
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : x16r
+MinerName          : z-enemy-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/z-enemy-Linux-CCDevices1/z-enemy-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a x16r -o stratum+tcp://x16r.mine.zergpool.com:3636 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{x16r=57591510}
+Selected           : @{x16r=}
+Port               : 4068
+MinerPool          : zergpool
+FullName           : x16r
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux.zip
+BUILD              : Zip
+Stats              : ccminer
+Algo               : x16r
+Name               : Enemy-Linux-CCDevices1
+Pools              : @{x16r=}
+Profits            : @{x16r=0.0004796307340065}
+Profits_Comparison : @{x16r=0.0004796307340065}
+Profits_Bias       : @{x16r=0.0004796307340065}
+Profit             : 0.0004796307340065
+Profit_Comparison  : 0.0004796307340065
+Profit_Bias        : 0.0004796307340065
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : x16s
+MinerName          : z-enemy-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/z-enemy-Linux-CCDevices1/z-enemy-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a x16s -o stratum+tcp://x16s.mine.zergpool.com:3663 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{x16s=54592560}
+Selected           : @{x16s=}
+Port               : 4068
+MinerPool          : zergpool
+FullName           : x16s
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux.zip
+BUILD              : Zip
+Stats              : ccminer
+Algo               : x16s
+Name               : Enemy-Linux-CCDevices1
+Pools              : @{x16s=}
+Profits            : @{x16s=0.000541023188112}
+Profits_Comparison : @{x16s=0.000541023188112}
+Profits_Bias       : @{x16s=0.000541023188112}
+Profit             : 0.000541023188112
+Profit_Comparison  : 0.000541023188112
+Profit_Bias        : 0.000541023188112
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : phi2
+MinerName          : z-enemy-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/z-enemy-Linux-CCDevices2/z-enemy-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a phi2 -o stratum+tcp://phi2.mine.zergpool.com:8332 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{phi2=9719570}
+Selected           : @{phi2=}
+Port               : 4069
+MinerPool          : zergpool
+FullName           : phi2
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux.zip
+BUILD              : Zip
+Stats              : ccminer
+Algo               : phi2
+Name               : Enemy-Linux-CCDevices2
+Pools              : @{phi2=}
+Profits            : @{phi2=0.000199995704062}
+Profits_Comparison : @{phi2=0.000199995704062}
+Profits_Bias       : @{phi2=0.000199995704062}
+Profit             : 0.000199995704062
+Profit_Comparison  : 0.000199995704062
+Profit_Bias        : 0.000199995704062
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : x16r
+MinerName          : z-enemy-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/z-enemy-Linux-CCDevices2/z-enemy-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a X16r -o stratum+tcp://x16r.mine.zergpool.com:3636 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{x16r=22076180}
+Selected           : @{x16r=}
+Port               : 4069
+MinerPool          : zergpool
+FullName           : x16r
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux.zip
+BUILD              : Zip
+Stats              : ccminer
+Algo               : X16r
+Name               : Enemy-Linux-CCDevices2
+Pools              : @{x16r=}
+Profits            : @{x16r=0.000183853738467}
+Profits_Comparison : @{x16r=0.000183853738467}
+Profits_Bias       : @{x16r=0.000183853738467}
+Profit             : 0.000183853738467
+Profit_Comparison  : 0.000183853738467
+Profit_Bias        : 0.000183853738467
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : x16s
+MinerName          : z-enemy-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/z-enemy-Linux-CCDevices2/z-enemy-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a X16s -o stratum+tcp://x16s.mine.zergpool.com:3663 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{x16s=42891.5538949494}
+Selected           : @{x16s=}
+Port               : 4069
+MinerPool          : zergpool
+FullName           : x16s
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-Linux.zip
+BUILD              : Zip
+Stats              : ccminer
+Algo               : X16s
+Name               : Enemy-Linux-CCDevices2
+Pools              : @{x16s=}
+Profits            : @{x16s=4.25063877409727E-07}
+Profits_Comparison : @{x16s=4.25063877409727E-07}
+Profits_Bias       : @{x16s=4.25063877409727E-07}
+Profit             : 4.25063877409727E-07
+Profit_Comparison  : 4.25063877409727E-07
+Profit_Bias        : 4.25063877409727E-07
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : equihash144
+MinerName          : miner-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/EWBF-Linux-EWBFDevices1/miner-NVIDIA1
+Devices            : 
+DeviceCall         : ewbf
+Arguments          : --api 0.0.0.0:42000 --server equihash144.mine.zergpool.com --port 2146 --user  --pass c=BTC,ID=MMHash --algo 144_5 --pers auto
+HashRates          : @{equihash144=264}
+Selected           : @{equihash144=}
+MinerPool          : zergpool
+FullName           : equihash144
+API                : EWBF
+Port               : 42000
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-Linux.zip
+BUILD              : Zip
+Algo               : equihash144
+Name               : EWBF-Linux-EWBFDevices1
+Pools              : @{equihash144=}
+Profits            : @{equihash144=0.0007573537224}
+Profits_Comparison : @{equihash144=0.0007573537224}
+Profits_Bias       : @{equihash144=0.0007573537224}
+Profit             : 0.0007573537224
+Profit_Comparison  : 0.0007573537224
+Profit_Bias        : 0.0007573537224
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : equihash192
+MinerName          : miner-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/EWBF-Linux-EWBFDevices1/miner-NVIDIA1
+Devices            : 
+DeviceCall         : ewbf
+Arguments          : --api 0.0.0.0:42000 --server equihash192.mine.zergpool.com --port 2144 --user  --pass c=BTC,ID=MMHash --algo 192_7 --pers auto
+HashRates          : @{equihash192=127}
+Selected           : @{equihash192=}
+MinerPool          : zergpool
+FullName           : equihash192
+API                : EWBF
+Port               : 42000
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-Linux.zip
+BUILD              : Zip
+Algo               : equihash192
+Name               : EWBF-Linux-EWBFDevices1
+Pools              : @{equihash192=}
+Profits            : @{equihash192=0.00068514723905}
+Profits_Comparison : @{equihash192=0.00068514723905}
+Profits_Bias       : @{equihash192=0.00068514723905}
+Profit             : 0.00068514723905
+Profit_Comparison  : 0.00068514723905
+Profit_Bias        : 0.00068514723905
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : equihash144
+MinerName          : miner-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/EWBF-Linux-EWBFDevices2/miner-NVIDIA2
+Devices            : 
+DeviceCall         : ewbf
+Arguments          : --api 0.0.0.0:42001 --server equihash144.mine.zergpool.com --port 2146 --user  --pass c=BTC,ID=MMHash --algo 144_5 --pers auto
+HashRates          : @{equihash144=110}
+Selected           : @{equihash144=}
+MinerPool          : zergpool
+FullName           : equihash144
+API                : EWBF
+Port               : 42001
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-Linux.zip
+BUILD              : Zip
+Algo               : equihash144
+Name               : EWBF-Linux-EWBFDevices2
+Pools              : @{equihash144=}
+Profits            : @{equihash144=0.000315564051}
+Profits_Comparison : @{equihash144=0.000315564051}
+Profits_Bias       : @{equihash144=0.000315564051}
+Profit             : 0.000315564051
+Profit_Comparison  : 0.000315564051
+Profit_Bias        : 0.000315564051
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : equihash192
+MinerName          : miner-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/EWBF-Linux-EWBFDevices2/miner-NVIDIA2
+Devices            : 
+DeviceCall         : ewbf
+Arguments          : --api 0.0.0.0:42001 --server equihash192.mine.zergpool.com --port 2144 --user  --pass c=BTC,ID=MMHash --algo 192_7 --pers auto
+HashRates          : @{equihash192=58}
+Selected           : @{equihash192=}
+MinerPool          : zergpool
+FullName           : equihash192
+API                : EWBF
+Port               : 42001
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-Linux.zip
+BUILD              : Zip
+Algo               : equihash192
+Name               : EWBF-Linux-EWBFDevices2
+Pools              : @{equihash192=}
+Profits            : @{equihash192=0.0003129018887}
+Profits_Comparison : @{equihash192=0.0003129018887}
+Profits_Bias       : @{equihash192=0.0003129018887}
+Profit             : 0.0003129018887
+Profit_Comparison  : 0.0003129018887
+Profit_Bias        : 0.0003129018887
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : neoscrypt
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/KlausT-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a neoscrypt -o stratum+tcp://neoscrypt.mine.zergpool.com:4233 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{neoscrypt=6368740}
+Selected           : @{neoscrypt=}
+MinerPool          : zergpool
+FullName           : neoscrypt
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT-Linux-9-1.zip
+BUILD              : Zip
+Algo               : neoscrypt
+Name               : KlausT-Linux-CCDevices1
+Pools              : @{neoscrypt=}
+Profits            : @{neoscrypt=0.000685525441734}
+Profits_Comparison : @{neoscrypt=0.000685525441734}
+Profits_Bias       : @{neoscrypt=0.000685525441734}
+Profit             : 0.000685525441734
+Profit_Comparison  : 0.000685525441734
+Profit_Bias        : 0.000685525441734
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : neoscrypt
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/KlausT-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a neoscrypt -o stratum+tcp://neoscrypt.mine.zergpool.com:4233 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{neoscrypt=2806440}
+Selected           : @{neoscrypt=}
+MinerPool          : zergpool
+FullName           : neoscrypt
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT-Linux-9-1.zip
+BUILD              : Zip
+Algo               : neoscrypt
+Name               : KlausT-Linux-CCDevices2
+Pools              : @{neoscrypt=}
+Profits            : @{neoscrypt=0.000302082675804}
+Profits_Comparison : @{neoscrypt=0.000302082675804}
+Profits_Bias       : @{neoscrypt=0.000302082675804}
+Profit             : 0.000302082675804
+Profit_Comparison  : 0.000302082675804
+Profit_Bias        : 0.000302082675804
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : Xevan
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/krnlx-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a xevan -o stratum+tcp://xevan.mine.zergpool.com:3739 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{Xevan=19709920}
+Selected           : @{Xevan=}
+MinerPool          : zergpool
+FullName           : Xevan
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/krnlx-Linux-9-1.zip
+BUILD              : Zip
+Algo               : xevan
+Name               : Krnlx-Linux-CCDevices1
+Pools              : @{Xevan=}
+Profits            : @{Xevan=0.000444981994376}
+Profits_Comparison : @{Xevan=0.000444981994376}
+Profits_Bias       : @{Xevan=0.000444981994376}
+Profit             : 0.000444981994376
+Profit_Comparison  : 0.000444981994376
+Profit_Bias        : 0.000444981994376
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : Xevan
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/krnlx-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a xevan -o stratum+tcp://xevan.mine.zergpool.com:3739 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{Xevan=8761830}
+Selected           : @{Xevan=}
+MinerPool          : zergpool
+FullName           : Xevan
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/krnlx-Linux-9-1.zip
+BUILD              : Zip
+Algo               : xevan
+Name               : Krnlx-Linux-CCDevices2
+Pools              : @{Xevan=}
+Profits            : @{Xevan=0.0001978118930865}
+Profits_Comparison : @{Xevan=0.0001978118930865}
+Profits_Bias       : @{Xevan=0.0001978118930865}
+Profit             : 0.0001978118930865
+Profit_Comparison  : 0.0001978118930865
+Profit_Bias        : 0.0001978118930865
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : bitcore
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/MSFTserver-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a bitcore -o stratum+tcp://bitcore.mine.zergpool.com:3556 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{bitcore=92939000}
+Selected           : @{bitcore=}
+MinerPool          : zergpool
+FullName           : bitcore
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip
+BUILD              : Zip
+Algo               : bitcore
+Name               : MSFT-Linux-CCDevices1
+Pools              : @{bitcore=}
+Profits            : @{bitcore=0.00055392108695}
+Profits_Comparison : @{bitcore=0.00055392108695}
+Profits_Bias       : @{bitcore=0.00055392108695}
+Profit             : 0.00055392108695
+Profit_Comparison  : 0.00055392108695
+Profit_Bias        : 0.00055392108695
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : hmq1725
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/MSFTserver-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a hmq1725 -o stratum+tcp://hmq1725.mine.zergpool.com:3747 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{hmq1725=25003790}
+Selected           : @{hmq1725=}
+MinerPool          : zergpool
+FullName           : hmq1725
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip
+BUILD              : Zip
+Algo               : hmq1725
+Name               : MSFT-Linux-CCDevices1
+Pools              : @{hmq1725=}
+Profits            : @{hmq1725=0.0024045332219825}
+Profits_Comparison : @{hmq1725=0.0024045332219825}
+Profits_Bias       : @{hmq1725=0.0024045332219825}
+Profit             : 0.0024045332219825
+Profit_Comparison  : 0.0024045332219825
+Profit_Bias        : 0.0024045332219825
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : timetravel
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/MSFTserver-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a timetravel -o stratum+tcp://timetravel.mine.zergpool.com:3555 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{timetravel=137110730}
+Selected           : @{timetravel=}
+MinerPool          : zergpool
+FullName           : timetravel
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip
+BUILD              : Zip
+Algo               : timetravel
+Name               : MSFT-Linux-CCDevices1
+Pools              : @{timetravel=}
+Profits            : @{timetravel=0.000758523980506}
+Profits_Comparison : @{timetravel=0.000758523980506}
+Profits_Bias       : @{timetravel=0.000758523980506}
+Profit             : 0.000758523980506
+Profit_Comparison  : 0.000758523980506
+Profit_Bias        : 0.000758523980506
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : bitcore
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/MSFTserver-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a bitcore -o stratum+tcp://bitcore.mine.zergpool.com:3556 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{bitcore=45595510}
+Selected           : @{bitcore=}
+MinerPool          : zergpool
+FullName           : bitcore
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip
+BUILD              : Zip
+Algo               : bitcore
+Name               : MSFT-Linux-CCDevices2
+Pools              : @{bitcore=}
+Profits            : @{bitcore=0.0002717515193755}
+Profits_Comparison : @{bitcore=0.0002717515193755}
+Profits_Bias       : @{bitcore=0.0002717515193755}
+Profit             : 0.0002717515193755
+Profit_Comparison  : 0.0002717515193755
+Profit_Bias        : 0.0002717515193755
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : hmq1725
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/MSFTserver-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a hmq1725 -o stratum+tcp://hmq1725.mine.zergpool.com:3747 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{hmq1725=12239630}
+Selected           : @{hmq1725=}
+MinerPool          : zergpool
+FullName           : hmq1725
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip
+BUILD              : Zip
+Algo               : hmq1725
+Name               : MSFT-Linux-CCDevices2
+Pools              : @{hmq1725=}
+Profits            : @{hmq1725=0.0011770454383025}
+Profits_Comparison : @{hmq1725=0.0011770454383025}
+Profits_Bias       : @{hmq1725=0.0011770454383025}
+Profit             : 0.0011770454383025
+Profit_Comparison  : 0.0011770454383025
+Profit_Bias        : 0.0011770454383025
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : timetravel
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/MSFTserver-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a timetravel -o stratum+tcp://timetravel.mine.zergpool.com:3555 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{timetravel=69929310}
+Selected           : @{timetravel=}
+MinerPool          : zergpool
+FullName           : timetravel
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip
+BUILD              : Zip
+Algo               : timetravel
+Name               : MSFT-Linux-CCDevices2
+Pools              : @{timetravel=}
+Profits            : @{timetravel=0.000386862928782}
+Profits_Comparison : @{timetravel=0.000386862928782}
+Profits_Bias       : @{timetravel=0.000386862928782}
+Profit             : 0.000386862928782
+Profit_Comparison  : 0.000386862928782
+Profit_Bias        : 0.000386862928782
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : x17
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/ocminer-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a x17 -o stratum+tcp://x17.mine.zergpool.com:3737 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{x17=50475210}
+Selected           : @{x17=}
+MinerPool          : zergpool
+FullName           : x17
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ocminer-Linux-9-1.zip
+BUILD              : Zip
+Algo               : x17
+Name               : Ocminer-Linux-CCDevices1
+Pools              : @{x17=}
+Profits            : @{x17=0.0006905639668125}
+Profits_Comparison : @{x17=0.0006905639668125}
+Profits_Bias       : @{x17=0.0006905639668125}
+Profit             : 0.0006905639668125
+Profit_Comparison  : 0.0006905639668125
+Profit_Bias        : 0.0006905639668125
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : x17
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/ocminer-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a x17 -o stratum+tcp://x17.mine.zergpool.com:3737 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{x17=23308040}
+Selected           : @{x17=}
+MinerPool          : zergpool
+FullName           : x17
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/ocminer-Linux-9-1.zip
+BUILD              : Zip
+Algo               : x17
+Name               : Ocminer-Linux-CCDevices2
+Pools              : @{x17=}
+Profits            : @{x17=0.00031888312225}
+Profits_Comparison : @{x17=0.00031888312225}
+Profits_Bias       : @{x17=0.00031888312225}
+Profit             : 0.00031888312225
+Profit_Comparison  : 0.00031888312225
+Profit_Bias        : 0.00031888312225
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : keccak
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/tpruvot-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a keccak -o stratum+tcp://keccak.mine.zergpool.com:5133 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{keccak=4117150810}
+Selected           : @{keccak=}
+MinerPool          : zergpool
+FullName           : keccak
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip
+BUILD              : Zip
+Algo               : keccak
+Name               : Tpruvot-Linux-CCDevices1
+Pools              : @{keccak=}
+Profits            : @{keccak=0.000249808537111831}
+Profits_Comparison : @{keccak=0.000249808537111831}
+Profits_Bias       : @{keccak=0.000249808537111831}
+Profit             : 0.000249808537111831
+Profit_Comparison  : 0.000249808537111831
+Profit_Bias        : 0.000249808537111831
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : Skunk
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/tpruvot-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a skunk -o stratum+tcp://skunk.mine.zergpool.com:8433 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{Skunk=160685730}
+Selected           : @{Skunk=}
+MinerPool          : zergpool
+FullName           : Skunk
+Port               : 4068
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip
+BUILD              : Zip
+Algo               : skunk
+Name               : Tpruvot-Linux-CCDevices1
+Pools              : @{Skunk=}
+Profits            : @{Skunk=0.000188661115593}
+Profits_Comparison : @{Skunk=0.000188661115593}
+Profits_Bias       : @{Skunk=0.000188661115593}
+Profit             : 0.000188661115593
+Profit_Comparison  : 0.000188661115593
+Profit_Bias        : 0.000188661115593
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : keccak
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/tpruvot-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a keccak -o stratum+tcp://keccak.mine.zergpool.com:5133 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{keccak=1936617330}
+Selected           : @{keccak=}
+MinerPool          : zergpool
+FullName           : keccak
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip
+BUILD              : Zip
+Algo               : keccak
+Name               : Tpruvot-Linux-CCDevices2
+Pools              : @{keccak=}
+Profits            : @{keccak=0.000117504450159483}
+Profits_Comparison : @{keccak=0.000117504450159483}
+Profits_Bias       : @{keccak=0.000117504450159483}
+Profit             : 0.000117504450159483
+Profit_Comparison  : 0.000117504450159483
+Profit_Bias        : 0.000117504450159483
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : Skunk
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/tpruvot-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a skunk -o stratum+tcp://skunk.mine.zergpool.com:8433 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{Skunk=72026250}
+Selected           : @{Skunk=}
+MinerPool          : zergpool
+FullName           : Skunk
+Port               : 4069
+API                : Ccminer
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip
+BUILD              : Zip
+Algo               : skunk
+Name               : Tpruvot-Linux-CCDevices2
+Pools              : @{Skunk=}
+Profits            : @{Skunk=8.4566020125E-05}
+Profits_Comparison : @{Skunk=8.4566020125E-05}
+Profits_Bias       : @{Skunk=8.4566020125E-05}
+Profit             : 8.4566020125E-05
+Profit_Comparison  : 8.4566020125E-05
+Profit_Bias        : 8.4566020125E-05
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : c11
+MinerName          : t-rex-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-CCDevices1/t-rex-NVIDIA1
+Devices            : 
+DeviceCall         : trex
+Arguments          : -a c11 -o stratum+tcp://c11.mine.zergpool.com:3573 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{c11=103300000}
+Selected           : @{c11=}
+MinerPool          : zergpool
+FullName           : c11
+Port               : 4068
+API                : Logs
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip
+BUILD              : Zip
+Algo               : c11
+Name               : TRex-Linux-CCDevices1
+Pools              : @{c11=}
+Profits            : @{c11=0.000767792745}
+Profits_Comparison : @{c11=0.000767792745}
+Profits_Bias       : @{c11=0.000767792745}
+Profit             : 0.000767792745
+Profit_Comparison  : 0.000767792745
+Profit_Bias        : 0.000767792745
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : phi
+MinerName          : t-rex-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-CCDevices1/t-rex-NVIDIA1
+Devices            : 
+DeviceCall         : trex
+Arguments          : -a phi -o stratum+tcp://phi.mine.zergpool.com:8333 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{phi=140407734.472018}
+Selected           : @{phi=}
+MinerPool          : zergpool
+FullName           : phi
+Port               : 4068
+API                : Logs
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip
+BUILD              : Zip
+Algo               : phi
+Name               : TRex-Linux-CCDevices1
+Pools              : @{phi=}
+Profits            : @{phi=0.000585366865400567}
+Profits_Comparison : @{phi=0.000585366865400567}
+Profits_Bias       : @{phi=0.000585366865400567}
+Profit             : 0.000585366865400567
+Profit_Comparison  : 0.000585366865400567
+Profit_Bias        : 0.000585366865400567
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : tribus
+MinerName          : t-rex-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-CCDevices1/t-rex-NVIDIA1
+Devices            : 
+DeviceCall         : trex
+Arguments          : -a tribus -o stratum+tcp://tribus.mine.zergpool.com:8533 -b 0.0.0.0:4068 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{tribus=432370000}
+Selected           : @{tribus=}
+MinerPool          : zergpool
+FullName           : tribus
+Port               : 4068
+API                : Logs
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip
+BUILD              : Zip
+Algo               : tribus
+Name               : TRex-Linux-CCDevices1
+Pools              : @{tribus=}
+Profits            : @{tribus=0.0003054477865}
+Profits_Comparison : @{tribus=0.0003054477865}
+Profits_Bias       : @{tribus=0.0003054477865}
+Profit             : 0.0003054477865
+Profit_Comparison  : 0.0003054477865
+Profit_Bias        : 0.0003054477865
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Symbol             : c11
+MinerName          : t-rex-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-CCDevices2/t-rex-NVIDIA2
+Devices            : 
+DeviceCall         : trex
+Arguments          : -a c11 -o stratum+tcp://c11.mine.zergpool.com:3573 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{c11=57620000}
+Selected           : @{c11=}
+MinerPool          : zergpool
+FullName           : c11
+Port               : 4069
+API                : Logs
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip
+BUILD              : Zip
+Algo               : c11
+Name               : TRex-Linux-CCDevices2
+Pools              : @{c11=}
+Profits            : @{c11=0.000428269293}
+Profits_Comparison : @{c11=0.000428269293}
+Profits_Bias       : @{c11=0.000428269293}
+Profit             : 0.000428269293
+Profit_Comparison  : 0.000428269293
+Profit_Bias        : 0.000428269293
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : phi
+MinerName          : t-rex-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-CCDevices2/t-rex-NVIDIA2
+Devices            : 
+DeviceCall         : trex
+Arguments          : -a phi -o stratum+tcp://phi.mine.zergpool.com:8333 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{phi=86300000}
+Selected           : @{phi=}
+MinerPool          : zergpool
+FullName           : phi
+Port               : 4069
+API                : Logs
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip
+BUILD              : Zip
+Algo               : phi
+Name               : TRex-Linux-CCDevices2
+Pools              : @{phi=}
+Profits            : @{phi=0.000359789015}
+Profits_Comparison : @{phi=0.000359789015}
+Profits_Bias       : @{phi=0.000359789015}
+Profit             : 0.000359789015
+Profit_Comparison  : 0.000359789015
+Profit_Bias        : 0.000359789015
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Symbol             : tribus
+MinerName          : t-rex-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-CCDevices2/t-rex-NVIDIA2
+Devices            : 
+DeviceCall         : trex
+Arguments          : -a tribus -o stratum+tcp://tribus.mine.zergpool.com:8533 -b 0.0.0.0:4069 -u  -p c=BTC,ID=MMHash 
+HashRates          : @{tribus=244830000}
+Selected           : @{tribus=}
+MinerPool          : zergpool
+FullName           : tribus
+Port               : 4069
+API                : Logs
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-Linux.zip
+BUILD              : Zip
+Algo               : tribus
+Name               : TRex-Linux-CCDevices2
+Pools              : @{tribus=}
+Profits            : @{tribus=0.0001729601535}
+Profits_Comparison : @{tribus=0.0001729601535}
+Profits_Bias       : @{tribus=0.0001729601535}
+Profit             : 0.0001729601535
+Profit_Comparison  : 0.0001729601535
+Profit_Bias        : 0.0001729601535
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+Coin               : Yes
+Symbol             : CXT
+MinerName          : ccminer-NVIDIA1
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices1/ccminer-NVIDIA1
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a nist5 -o stratum+tcp://nist5.mine.zergpool.com:3833 -b 0.0.0.0:4068 -u  -p c=BTC,mc=CXT 
+HashRates          : @{nist5=0}
+API                : Ccminer
+Selected           : @{nist5=}
+FullName           : Coinonat
+MinerPool          : zergpool
+Port               : 4068
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : nist5
+Name               : Alexis78-Linux-CCDevices1
+Pools              : @{CXT=}
+Profits            : @{CXT=0}
+Profits_Comparison : @{CXT=0}
+Profits_Bias       : @{CXT=0}
+Profit             : 0
+Profit_Comparison  : 0
+Profit_Bias        : 0
+Type               : NVIDIA1
+Index              : 0
+Device             : NVIDIA1
+
+Coin               : Yes
+Symbol             : CXT
+MinerName          : ccminer-NVIDIA2
+Path               : /hive/custom/MM.Hash.1.3.7/Bin/Alexis78-Linux-CCDevices2/ccminer-NVIDIA2
+Devices            : 
+DeviceCall         : ccminer
+Arguments          : -a nist5 -o stratum+tcp://nist5.mine.zergpool.com:3833 -b 0.0.0.0:4069 -u  -p c=BTC,mc=CXT 
+HashRates          : @{nist5=0}
+API                : Ccminer
+Selected           : @{nist5=}
+FullName           : Coinonat
+MinerPool          : zergpool
+Port               : 4069
+Wrap               : False
+URI                : https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Alexis78-Linux-9-1.zip
+BUILD              : Zip
+Algo               : nist5
+Name               : Alexis78-Linux-CCDevices2
+Pools              : @{CXT=}
+Profits            : @{CXT=0}
+Profits_Comparison : @{CXT=0}
+Profits_Bias       : @{CXT=0}
+Profit             : 0
+Profit_Comparison  : 0
+Profit_Bias        : 0
+Type               : NVIDIA2
+Index              : 0
+Device             : NVIDIA2
+
+
+

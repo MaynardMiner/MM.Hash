@@ -239,7 +239,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
-				             By: MaynardMiner                      v1.3.4-Windows              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                      v1.3.5-Windows              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
                                                                          |####`--|#|---|##|---|#|--'##|#|
@@ -873,80 +873,95 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
        if($_.Status -eq "Running"){$_.Status = "Failed"}
       }   
       else{
-      if($TimeDeviation -ne 0)
-       {
-        $_.HashRate = 0
-        $_.WasBenchmarked = $False
-        $Miner_HashRates = Get-HashRate $_.API $_.Port
-          $_.Timeout = 0
-          $_.Benchmarked = 0
-          $_.HashRate = $Miner_HashRates
-          $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
-          if($WasActive -ge $StatsInterval)
+        else{
+          if($TimeDeviation -ne 0)
            {
-      Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
-      Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "Cyan"
-            for($i=0; $i -lt 4; $i++)
-              {
-              if($_.WasBenchmarked -eq $False)
+            $_.HashRate = 0
+            $_.WasBenchmarked = $False
+            if($_.API -eq "Logs")
+             {
+             if($_.Type -eq "NVIDIA1"){$GPUS = $GPU_Count1}
+             if($_.Type -eq "NVIDIA2"){$GPUS = $GPU_Count2}
+             if($_.Type -eq "NVIDIA3"){$GPUS = $GPU_Count3}
+             $MinerType = "$($_.Type)"
+             $DeviceCall = "$($_.DeviceCall)"
+             $Miner_HashRates = Get-LogHash $DeviceCall $MinerType $GPUS
+             }
+             else{$Miner_HashRates = Get-HashRate $_.API $_.Port}
+              $_.Timeout = 0
+              $_.Benchmarked = 0
+              $_.HashRate = $Miner_HashRates
+              $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
+              if($WasActive -ge $StatsInterval)
                {
-                if(-not (Test-Path "Backup")){New-Item -Path "Backup" -ItemType "Directory"}             
-                Write-Host "$($_.Name) $($_.Coins) Starting Bench"
-                $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
-                $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
-                $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
-                Start-Sleep -s 1
-          $GetLiveStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
-                 $StatCheck = "$($GetLiveStat.Live)"
-          $ScreenCheck = "$($StatCheck | ConvertTo-Hash)"
-          Write-Host "Recorded Hashrate For $($_.Name) $($_.Coins) Is $($ScreenCheck)" -foregroundcolor "magenta"
-           if($StatCheck -ne 0 -or $StatCheck -ne $null)
-           {
-           if(-not (Test-Path $NewHashrateFilePath))
-            {
-            Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath -force
-            Write-Host "$($_.Name) $($_.Coins) Was Benchmarked And Backed Up" -foregroundcolor yellow
-            }
-                 $_.New = $False
-                 $_.Hashrate_Gathered = $True
-                 $_.Crashed = 0
-                 $_.WasBenchmarked = $True
-           Write-Host "Stat Written" -foregroundcolor green
-                 $_.Timeout = 0
-                }
-         else
-          {
-           $_.Timeout++
-           Write-Host "Stat Attempt Yielded 0" -Foregroundcolor Red
-         }
-               }
+                Write-Host "$($_.Name) $($_.Symbol) Was Active for $WasActive Seconds"
+                Write-Host "Attempting to record hashrate for $($_.Name) $($_.Symbol)" -foregroundcolor "Cyan"
+                for($i=0; $i -lt 4; $i++)
+                  {
+                  if($_.WasBenchmarked -eq $False)
+                   {
+                   if(-not (Test-Path "Backup")){New-Item "Backup" -ItemType "directory" | Out-Null}
+                   Write-Host "$($_.Name) $($_.Symbol) Starting Bench"
+                   $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+                   $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Coins)_HashRate.txt"
+                   $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value $Miner_HashRates
+                   Start-Sleep -s 2
+                   $GetLiveStat = Get-Stat "$($_.Name)_$($_.Coins)_HashRate"
+                    $StatCheck = "$($GetLiveStat.Live)"
+                   $ScreenCheck = "$($StatCheck | ConvertTo-Hash)"
+                   Write-Host "Recorded Hashrate For $($_.Name) $($_.Symbol) Is $($ScreenCheck)" -foregroundcolor "magenta"
+                  if($ScreenCheck -eq "0.00 PH" -or $StatCheck -eq $null)
+                  {
+                 $_.Timeout++
+                 Write-Host "Stat Attempt Yielded 0" -Foregroundcolor Red
+                 Start-Sleep -S .25
+                        }
+                else
+                 {  
+                 if(-not (Test-Path $NewHashrateFilePath))
+                  {
+                   Copy-Item $HashrateFilePath -Destination $NewHashrateFilePath -force
+                   Write-Host "$($_.Name) $($_.Symbol) Was Benchmarked And Backed Up" -foregroundcolor yellow
+                  }
+                  $_.New = $False
+                  $_.Hashrate_Gathered = $True
+                  $_.Crashed = 0
+                  $_.WasBenchmarked = $True
+                  Write-Host "Stat Written" -foregroundcolor green
+                  $_.Timeout = 0
+                  $_.Bad_Benchmark = 0
               }
-       }
-      }
-     }
-        
-   
-       if($_.Timeout.Count -ge 3 -or $_.XProcess -eq $null -or $_.XProcess.HasExited)
-        {
-        if($_.WasBenchmarked -eq $False)
-         {
-         if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
-         Start-Sleep -s 1
-         $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
-         $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
-         if(-not (Test-Path $TimeoutFile)){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
-         $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
-         Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Timeout Folder" -foregroundcolor "darkred"
-         $_.WasBenchmarked = $True
-         $_.New = $False
-         $_.Hashrate_Gathered = $True
-         $_.Crashed = 0
-         $_.Timeout = 0
+             }
+            }
+           }
+          }
          }
         }
-       }
-      }
-
+            
+       
+           if($_.Timeout -ge 3 -or $_.XProcess -eq $null -or $_.XProcess.HasExited)
+            {
+            if($_.WasBenchmarked -eq $False)
+             {
+             if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
+             Start-Sleep -s 1
+             $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Coins)_TIMEOUT.txt"
+             $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Coins)_HashRate.txt"
+             if(-not (Test-Path $TimeoutFile)){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Coins)_TIMEOUT.txt"  | Out-Null}
+             $Stat = Set-Stat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0
+             Write-Host "$($_.Name) $($_.Symbol) Hashrate Check Timed Out- It Was Noted In Timeout Folder" -foregroundcolor "darkred"
+             $_.WasBenchmarked = $True
+             $_.New = $False
+             $_.Hashrate_Gathered = $True
+             $_.Crashed = 0
+             $_.Timeout = 0
+             $_.Bad_Benchmark++
+             if($_.Bad_Benchmark -gt 2){$Stat = Set-BadStat -Name "$($_.Name)_$($_.Coins)_HashRate" -Value 0}
+             }
+            }
+           }
+          }
+           
   #Stop the log
   Stop-Transcript
   Get-Date | Out-File "TimeTable.txt"

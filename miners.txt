@@ -1,0 +1,133 @@
+{
+
+"cryptodredge": 
+  { 
+   "algorithms": 
+     { 
+      "allium":"", 
+      "lyra2v2":"", 
+      "lyra2z":"", 
+      "phi2":"" 
+     } 
+  },
+
+"alexis":
+  {
+   "algorithms":
+      {
+       "nist5":"",
+       "blake2s":"",
+       "skein":""
+       }
+   },
+
+"claymore":
+  {
+   "algorithms":
+      {
+       "ethash":"",
+       "daggerhashimoto":""
+      }
+   },
+
+"dstm":
+  {
+   "algorithms":
+     {
+      "equihash":"",
+     }
+  },
+
+"enemy":
+  {
+   "algorithms":
+     {
+      "hex":"",
+      "x16r":"",
+      "x16s":"",
+      "aeriumx":""
+     }
+  },
+
+"jayddee":
+  {
+   "algorithms":
+     {
+      "lyra2z":"",
+      "yescrypt":"",
+      "lyra2v2":"",
+      "yescryptr16":"",
+      "lyra2re":"",
+      "cryptonightv7":"",
+      "m7m":"",
+      "hodl":""
+     }
+  },
+
+"ewbf":
+  {
+   "algorithms":
+     {
+      "equihash192":"",
+      "equihash144":""
+     }
+  },
+
+"klaust":
+  {
+   "algorithms":
+     {
+      "neoscrypt":"",
+      "groestl":""
+     }
+  },
+
+"krnlx":
+  {
+   "algorithms":
+     {
+      "xevan":""
+     }
+  },
+
+"msft":
+  {
+   "algorithms":
+     {
+      "bitcore":"",
+      "hmq1725":"",
+      "timetravel":""
+     }
+   },
+
+"ocminer":
+  {
+   "algorithms":
+     {
+      "x17":""
+     }
+  },
+
+"tpruvot":
+  {
+   "algorithms":
+     {
+      "blakecoin":"",
+      "skunk":"",
+      "keccakc":"",
+      "x12":"",
+      "sib":""
+     }
+  },
+
+"trex":
+  {
+   "algorithms":
+     {
+      "tribus":"",
+      "phi":"",
+      "c11":"",
+      "hsr":""
+     }
+  }
+}

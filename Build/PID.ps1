@@ -25,12 +25,32 @@ While($true)
       else
        {
         $Status = "Failed"
+        if($Title -eq "MM.Hash")
+        {
+         Start-Process "screen" -ArgumentList "-S NVIDIA1 -X quit"
+         Start-Process "screen" -ArgumentList "-S NVIDIA2 -X quit"
+         Start-Process "screen" -ArgumentList "-S NVIDIA3 -X quit"
+         Start-Process "screen" -ArgumentList "-S CPU -X quit"
+         Start-Process "screen" -ArgumentList "-S miner -X quit"
+         Start-Process "screen" -ArgumentList "-S LogData -X quit"
+         Start-Process "screen" -ArgumentList "-S PIDInfo -X quit"
        }
      }
+    }
     else
      {
       $Status = "Failed"
       Write-Host "$($Title) Status: Miner Is Not Running!" -foregroundcolor red
+      if($Title -eq "MM.Hash")
+       {
+        Start-Process "screen" -ArgumentList "-S NVIDIA1 -X quit"
+        Start-Process "screen" -ArgumentList "-S NVIDIA2 -X quit"
+        Start-Process "screen" -ArgumentList "-S NVIDIA3 -X quit"
+        Start-Process "screen" -ArgumentList "-S CPU -X quit"
+        Start-Process "screen" -ArgumentList "-S miner -X quit"
+        Start-Process "screen" -ArgumentList "-S LogData -X quit"
+        Start-Process "screen" -ArgumentList "-S PIDInfo -X quit"
+       }
      }
     }
   }

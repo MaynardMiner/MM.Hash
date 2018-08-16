@@ -1,0 +1,1 @@
+$A = Get-Content ".\test.txt" | ConvertFrom-Csv

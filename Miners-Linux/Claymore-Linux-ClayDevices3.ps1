@@ -17,51 +17,57 @@ if($GPUDevices3 -ne '')
 
     $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
-    $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-      if($Algorithm -eq "$($Pools.(Get-Algorithm($_)).Algorithm)")
-      {
-                [PSCustomObject]@{
-                Symbol = (Get-Algorithm($_))
-                MinerName = "clay-NVIDIA3"
-                Type = "NVIDIA3"
-                Path = $Path
-                Distro =  $Distro
-                Devices = $Devices
-                DeviceCall = "claymore"
-                Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($Pools.(Get-Algorithm($_)).Protocol)://$($Pools.(Get-Algorithm($_)).Host):$($Pools.(Get-Algorithm($_)).Port) -ewal $($Pools.(Get-Algorithm($_)).User3) -epsw $($Pools.(Get-Algorithm($_)).Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$_)"
-                HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-                Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-                API = "claymore"
-                Port = 3335
-	        MinerPool = "$($Pools.(Get-Algorithm($_)).Name)"
-                Wrap = $false
-                URI = $Uri
-                BUILD = $Build
-	Algo = "$($_)"
-          }
-        }
-      }
-
-    $Pools.PSObject.Properties.Value | Where-Object {$Commands."$($_.Algorithm)" -ne $null} | ForEach {
-      if("$($_.Coin)" -eq "Yes")
+    if($CoinAlgo -eq $null)
+    {
+     $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+      if($Algorithm -eq "$($AlgoPools.(Get-Algorithm($_)).Algorithm)")
        {
-      [PSCustomObject]@{
-        Symbol = $_.Symbol
+        [PSCustomObject]@{
+        Symbol = "$(Get-Algorithm($_))"
         MinerName = "clay-NVIDIA3"
         Type = "NVIDIA3"
         Path = $Path
         Devices = $Devices
         DeviceCall = "claymore"
-        Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($_.Protocol)://$($_.Host):$($_.Port) -ewal $($_.User3) -epsw $($_.Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$($_.Algorithm))"
-         HashRates = [PSCustomObject]@{$_.Symbol = $Stats."$($Name)_$($_.Symbol)_HashRate".Day}
-        Selected = [PSCustomObject]@{$($_.Algorithm) = ""}
-	 MinerPool = "$($_.Name)"
+        Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($AlgoPools.(Get-Algorithm($_)).Protocol)://$($AlgoPools.(Get-Algorithm($_)).Host):$($AlgoPools.(Get-Algorithm($_)).Port) -ewal $($AlgoPools.(Get-Algorithm($_)).User3) -epsw $($AlgoPools.(Get-Algorithm($_)).Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$_)"
+        HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
+        Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
+        FullName = "$($AlgoPools.(Get-Algorithm($_)).Mining)"
         API = "claymore"
         Port = 3335
+        MinerPool = "$($AlgoPools.(Get-Algorithm($_)).Name)"
         Wrap = $false
         URI = $Uri
         BUILD = $Build
-	 Algo = "$($_.Algorithm)"
+        Algo = "$($_)"
+        NewAlgo = ''
+             }
+           }
+         }
        }
-      }
-     }
+       else {
+         $CoinPools | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name |
+         Where {$($Commands.$($CoinPools.$_.Algorithm)) -NE $null} |
+         foreach {
+             [PSCustomObject]@{
+               Coin = "Yes"
+               Symbol = "$($CoinPools.$_.Symbol)"
+               MinerName = "clay-NVIDIA3"
+               Type = "NVIDIA3"
+               Path = $Path
+               Devices = $Devices
+               DeviceCall = "claymore"
+               Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($CoinPools.$_.Protocol)://$($CoinPools.$_.Host):$($CoinPools.$_.Port) -ewal $($CoinPools.$_.User3) -epsw $($CoinPools.$_.Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$($CoinPools.$_.Algorithm))"
+               HashRates = [PSCustomObject]@{$CoinPools.$_.Symbol= $Stats."$($Name)_$($CoinPools.$_.Algorithm)_HashRate".Day}
+               Selected = [PSCustomObject]@{$($CoinPools.$_.Algorithm) = ""}
+               FullName = "$($CoinPools.$_.Mining)"
+               MinerPool = "$($CoinPools.$_.Name)"
+               API = "claymore"
+               Port = 3335
+               Wrap = $false
+               URI = $Uri
+               BUILD = $Build
+               Algo = "$($CoinPools.$_.Algorithm)"
+              }
+             }
+            }

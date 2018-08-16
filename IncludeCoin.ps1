@@ -99,6 +99,94 @@ function Set-Stat {
     $Stat
 }
 
+function Set-BadStat {
+    param(
+        [Parameter(Mandatory=$true)]
+        [String]$Name, 
+        [Parameter(Mandatory=$true)]
+        [Double]$Value, 
+        [Parameter(Mandatory=$false)]
+        [DateTime]$Date = (Get-Date)
+    )
+
+    $Path = "Stats\$Name.txt"
+    $Date = $Date.ToUniversalTime()
+    $SmallestValue = 1E-20
+
+    $Stat = [PSCustomObject]@{
+        Live = $Value
+        Minute = $Value
+        Minute_Fluctuation = 1/2
+        Minute_5 = $Value
+        Minute_5_Fluctuation = 1/2
+        Minute_10 = $Value
+        Minute_10_Fluctuation = 1/2
+        Hour = $Value
+        Hour_Fluctuation = 1/2
+        Day = $Value
+        Day_Fluctuation = 1/2
+        Week = $Value
+        Week_Fluctuation = 1/2
+        Updated = $Date
+    }
+
+    if(Test-Path $Path){$Stat = Get-Content $Path | ConvertFrom-Json}
+
+    $Stat = [PSCustomObject]@{
+        Live = $Value
+        Minute = $Value
+        Minute_Fluctuation = 1/2
+        Minute_5 = $Value
+        Minute_5_Fluctuation = 1/2
+        Minute_10 = $Value
+        Minute_10_Fluctuation = 1/2
+        Hour = $Value
+        Hour_Fluctuation = 1/2
+        Day = $Value
+        Day_Fluctuation = 1/2
+        Week = $Value
+        Week_Fluctuation = 1/2
+        Updated = $Date
+    }
+    
+    $Stat = [PSCustomObject]@{
+        Live = $Value
+        Minute = $Value
+        Minute_Fluctuation = 1/2
+        Minute_5 = $Value
+        Minute_5_Fluctuation = 1/2
+        Minute_10 = $Value
+        Minute_10_Fluctuation = 1/2
+        Hour = $Value
+        Hour_Fluctuation = 1/2
+        Day = $Value
+        Day_Fluctuation = 1/2
+        Week = $Value
+        Week_Fluctuation = 1/2
+        Updated = $Date
+    }
+
+    if(-not (Test-Path "Stats")){New-Item "Stats" -ItemType "directory"}
+    [PSCustomObject]@{
+        Live = [Decimal]$Stat.Live
+        Minute = [Decimal]$Stat.Minute
+        Minute_Fluctuation = [Double]$Stat.Minute_Fluctuation
+        Minute_5 = [Decimal]$Stat.Minute_5
+        Minute_5_Fluctuation = [Double]$Stat.Minute_5_Fluctuation
+        Minute_10 = [Decimal]$Stat.Minute_10
+        Minute_10_Fluctuation = [Double]$Stat.Minute_10_Fluctuation
+        Hour = [Decimal]$Stat.Hour
+        Hour_Fluctuation = [Double]$Stat.Hour_Fluctuation
+        Day = [Decimal]$Stat.Day
+        Day_Fluctuation = [Double]$Stat.Day_Fluctuation
+        Week = [Decimal]$Stat.Week
+        Week_Fluctuation = [Double]$Stat.Week_Fluctuation
+        Updated = [DateTime]$Stat.Updated
+    } | ConvertTo-Json | Set-Content $Path
+
+    $Stat
+}
+
 
 function Get-Stat {
     param(
@@ -681,17 +769,23 @@ function Expand-WebRequest {
 	 {
 	  if(-not (Test-Path $Filename))
 	   {
+       Start-Process "apt-get" "-y install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++" -Wait
        Write-Host "Cloning Miner" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location ".\Bin"
        Start-Process -FilePath "git" -ArgumentList "clone $Uri $New_Path" -Wait
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
        Write-Host "Building Miner" -BackgroundColor "Red" -ForegroundColor "White"
-       Copy-Item .\Build\*  -Destination $Filename -recurse -force
        Set-Location $Filename
        Start-Process -Filepath "chmod" -ArgumentList "+x ./configure.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "autogen.sh" -Wait
        Start-Process -Filepath "bash" -ArgumentList "configure" -Wait
        Start-Process -FilePath "bash" -ArgumentList "build.sh" -Wait
+       Start-Sleep -S 10
+       Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+       Set-Location $Path
+       $Path_New = (Join-Path (Split-Path $Path) (Split-Path $Path -Leaf))
+       $MinerNewFile = ("$($MineName)" -replace "-$($MineType)","")
+       Start-Process "mv" -ArgumentList "$($MinerNewFile) $($MineName)"
        Write-Host "Miner Completed!" -BackgroundColor "Red" -ForegroundColor "White"
        Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
           }
