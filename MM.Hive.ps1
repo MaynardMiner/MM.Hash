@@ -386,7 +386,7 @@ $TimeoutTimer.Start()
 while($true)
 {
 $CoinAlgo = $null
-if(Test-Path ".\Stats\*coin*"){Remove-Item ".\Stats\*coin*" -force}
+if(Test-Path ".\Stats\*_coin*"){Remove-Item ".\Stats\*_coin*" -force}
 $MinerTimer = New-Object -TypeName System.Diagnostics.Stopwatch
 $MinerWatch = New-Object -TypeName System.Diagnostics.Stopwatch
 $TimeoutTime = [int]$Timeout*3600
