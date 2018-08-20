@@ -723,7 +723,6 @@ if($Auto_Coin -eq "Yes")
    $CoinMiners | Where [Double]Profit -lt $Threshold | foreach {$Miners += $_}
    }
 
-
    $ActiveMinerPrograms | ForEach {$Miners | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | ForEach {$_.Profit_Bias = $_.Profit}}
    $ActiveMinerPrograms | Where { $_.Status -eq "Running" } | ForEach {$Miners | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | ForEach {$_.Profit_Bias = $_.Profit * (1 + $Switch_Percent / 100)}}   
 
