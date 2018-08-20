@@ -12,16 +12,16 @@ get_nvidia_cards_fan(){
 
 
 function miner_stats {
-	local miner=$(< /hive/custom/MM.Hash.1.3.8/Build/mineref.sh)
+	local miner=$(< /hive/custom/MM.Hash.1.3.9/Build/mineref.sh)
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
-	local myhashrate=( $(< /hive/custom/MM.Hash.1.3.8/Build/hashrates.sh) )
-	local myhs=$(< /hive/custom/MM.Hash.1.3.8/Build/hashtype.sh)
-	local myacc=$(< /hive/custom/MM.Hash.1.3.8/Build/accepted.sh)
-        local mykhs=$(< /hive/custom/MM.Hash.1.3.8/Build/totalhash.sh)
-	local myrj=$(< /hive/custom/MM.Hash.1.3.8/Build/rejected.sh)
-	local myalgo=$(< /hive/custom/MM.Hash.1.3.8/Build/algo.sh)
+	local myhashrate=( $(< /hive/custom/MM.Hash.1.3.9/Build/hashrates.sh) )
+	local myhs=$(< /hive/custom/MM.Hash.1.3.9/Build/hashtype.sh)
+	local myacc=$(< /hive/custom/MM.Hash.1.3.9/Build/accepted.sh)
+        local mykhs=$(< /hive/custom/MM.Hash.1.3.9/Build/totalhash.sh)
+	local myrj=$(< /hive/custom/MM.Hash.1.3.9/Build/rejected.sh)
+	local myalgo=$(< /hive/custom/MM.Hash.1.3.9/Build/algo.sh)
 	khs=0
 	stats=
 	case $miner in
@@ -46,12 +46,12 @@ function miner_stats {
 					--arg ac "$ac" --arg rj "$rj" \
 					--arg algo "$myalgo" \
 					'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
-	                                truncate -s 0 /hive/custom/MM.Hash.1.3.8/Build/hashrates.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.3.8/Build/accepted.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.3.8/Build/rejected.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.3.8/Build/hashtype.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.3.8/Build/totalhash.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.3.8/Build/algo.sh
+	                                truncate -s 0 /hive/custom/MM.Hash.1.3.9/Build/hashrates.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.3.9/Build/accepted.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.3.9/Build/rejected.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.3.9/Build/hashtype.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.3.9/Build/totalhash.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.3.9/Build/algo.sh
 			;;
 		claymore)
 			stats_raw=`echo '{"id":0,"jsonrpc":"2.0","method":"miner_getstat2"}' | nc -w $API_TIMEOUT localhost 3333 | jq '.result'`
