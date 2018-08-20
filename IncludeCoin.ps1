@@ -902,7 +902,7 @@ function Get-Algorithm {
 
     $Algorithms = Get-Content "GetAlgo.txt" | ConvertFrom-Json
 
-    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
+    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "_"," ")) -replace " "
 
     if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
     else{$Algorithm}

@@ -33,7 +33,7 @@ $starpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 
   if($Algorithm -eq $starpool_Algorithm)
       {
-    if((Get-Stat -Name "$($Name)_$($starpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($starpool_Algorithm)_Profit" -Value ([Double]$starpool_Request.$_.estimate_last24h/$Divisor*(1-($starpool_Request.$_.fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($starpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($starpool_Algorithm)_Profit" -Value ([Double]$starpool_Request.$_.estimate_current/$Divisor*(1-($starpool_Request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($starpool_Algorithm)_Profit" -Value ([Double]$starpool_Request.$_.estimate_current/$Divisor *(1-($starpool_Request.$_.fees/100)))}
       }
 

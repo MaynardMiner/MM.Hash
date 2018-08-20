@@ -35,7 +35,7 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
       {
       if($PoolName -eq $Name)
        {
-    if((Get-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit" -Value ([Double]$zpool_Request.$_.estimate_last24h/$Divisor*(1-($zpool_Request.$_.fees/100)))}
+    if((Get-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit" -Value ([Double]$zpool_Request.$_.estimate_current/$Divisor*(1-($zpool_Request.$_.fees/100)))}
    else{$Stat = Set-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit" -Value ([Double]$zpool_Request.$_.estimate_current/$Divisor *(1-($zpool_Request.$_.fees/100)))}	
      }
     }

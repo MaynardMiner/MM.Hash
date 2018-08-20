@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash.1.3.7/Bin/CryptoDredge-Linux-CCDevices2/Dredge-NVIDIA2 -d 0,3,4,5,7,8,11,12 -a lyra2z -o stratum+tcp://lyra2z.mine.zergpool.com:4553 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,mc=IFX 
+/hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-REXDevices1/t-rex-NVIDIA1 -d 0,1,2,6,9,10 -a x17 -o stratum+tcp://blockmasters.co:3737 -b 0.0.0.0:4068 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,mc=XVGx17 
