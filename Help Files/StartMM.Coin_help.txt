@@ -45,7 +45,8 @@ Argument          Options           Explanation
                 blazepool,
                 ahashpool,
 		starpool,
-		blockmasters,]
+		blockmasters_algo,
+		blockmasters_coin]
 
 -Wallet1      [Wallet Address]      Address of your wallet. By default MM.Hash assumes it to be BTC.
                                     See Advanced arguments to change that.
