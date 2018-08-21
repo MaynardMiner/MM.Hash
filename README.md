@@ -119,10 +119,7 @@ zpool
 **Miners**
 ```
 CryptoDredge
-Alexis78
 MSFT
-Krnlx
-OCminer/suprminer
 Tpruvot
 T-rex
 Enemy
@@ -130,6 +127,8 @@ Claymore
 Dstm
 EWBF (new version)
 JayDDee
+Cryptozeny
+Bubalisk
 ```
 
 Simple Install Instructions (HIVEOS):
