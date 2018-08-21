@@ -166,32 +166,32 @@ Argument            Options             Explanation
                                         fees associated with using the nicehash service.                           
 
 -ZergpoolWallet1    [Wallet Address]    Zergpool wallet adddress. Is used in combinatation of -Wallet1
-                                        argument. This will tell MM.Hash if it switches to zergpool
+-BlockmastersWallet1                    argument. This will tell MM.Hash if it switches to zergpool
                                         to auto-exchange into a coin other than BTC. This only works
                                         for zergpool currently. Used when -Type NVIDIA1 is specified.
 
 -ZergpoolWallet2    [Wallet Address]    Zergpool wallet adddress. Is used in combinatation of -Wallet2
-                                        argument. This will tell MM.Hash if it switches to zergpool
+-BlockmastersWallet2                    argument. This will tell MM.Hash if it switches to zergpool
                                         to auto-exchange into a coin other than BTC. This only works
                                         for zergpool currently. Used when -Type NVIDIA2 is specified.
 
 -ZergpoolWallet3    [Wallet Address]    Zergpool wallet address. Is used in combinatation of -Wallet1
-                                        argument. This will tell MM.Hash if it switches to zergpool
+-BlockmastersWallet3                    argument. This will tell MM.Hash if it switches to zergpool
                                         to auto-exchange into a coin other than BTC. This only works
                                         for zergpool currently. Used when -Type NVIDIA3 is specified.
 
 -Zergpoolpassword1      [Symbol]        Wallet address symbol of zergpool -ZergpoolWallet1. Is used
-                                        in combination of -PasswordCurrency1 argument. This will tell
+-BlockmastersPassword1                  in combination of -PasswordCurrency1 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
                                         in password arguments. Used when -Type NVIDIA1 is specified. 
 
 -Zergpoolpassword2     [Symbol]         Wallet address symbol of zergpool -ZergpoolWallet2. Is used
-                                        in combination of -PasswordCurrency1 argument. This will tell
+-BlockmastersPassword2                  in combination of -PasswordCurrency1 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
                                         in password arguments. Used when -Type NVIDIA2 is specified.
 					
 -Zergpoolpassword3      [Symbol]        Wallet address symbol of zergpool -ZergpoolWallet3. Is used
-                                        in combination of -PasswordCurrency3 argument. This will tell
+-BlockmastersPassword3                  in combination of -PasswordCurrency3 argument. This will tell
                                         MM.Hash if it switches to zergpool- to use this coin symbol
                                         in password arguments. Used when -Type NVIDIA3 is specified.
 							
