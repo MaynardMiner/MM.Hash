@@ -54,10 +54,6 @@ Argument          Options           Explanation
 -PasswordCurrency1  [Symbol]        Symbol of your wallet address, specifically for Wallet1. Most pools
                                     only accept BTC for auto-exchange. See pools for options.                                  
 
--Proxy        [Address]             If mining by proxy, insert address here. This feature has not been
-                                    fully tested. Please report to Developer if you have issues so it
-                                    can be worked on.
-
 -Type         [CPU,                 Device groups you wish to mine with. Nvidia has three groups in case
                NVIDIA1,             you wish to divide your GPU devices into seperate groups to assist in
                NVIDIA2,             benchmarking, or to prevent entire miner from becoming inoperable if
@@ -88,6 +84,10 @@ These arguments can be added for additional customization and options
 
 
 Argument            Options             Explanation
+
+-Proxy        [Address]             If mining by proxy, insert address here. This feature has not been
+                                    fully tested. Please report to Developer if you have issues so it
+                                    can be worked on.
 
 -Threshold     [.1 - 100000]	    Expressed in BTC/day. Default is .1. If the total daily profits of a
 				    particular algo/coin exceed the -Threshold argument, it will be removed
