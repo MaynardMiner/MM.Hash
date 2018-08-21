@@ -41,6 +41,7 @@ keccakc
 x12
 renesis
 sib
+sonoa
 tribus
 phi
 c11

@@ -1,1 +1,1 @@
-/hive/custom/MM.Hash.1.3.7/Bin/TRex-Linux-REXDevices1/t-rex-NVIDIA1 -d 0,1,2,6,9,10 -a x17 -o stratum+tcp://blockmasters.co:3737 -b 0.0.0.0:4068 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,mc=XVGx17 
+/hive/custom/MM.Hash.1.3.8a/Bin/CryptoDredge-Linux-REXDevices1/Dredge-NVIDIA1 -a lyra2v2 -o stratum+tcp://blockmasters.co:4533 -b 0.0.0.0:4068 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash 

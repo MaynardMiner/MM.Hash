@@ -1,16 +1,17 @@
 param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$false)]
         [String]$DeviceCall,
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$false)]
         [String]$Type,
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$false)]
         [array]$GPUS,
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$false)]
         [String]$WorkingDir,
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$false)]
         [String]$Miner_Algo
 	
     )
+
  Set-Location $WorkingDir
  While($true)
  {
@@ -25,20 +26,36 @@ param(
         $Convert = [string]$GPUS -replace (","," ")
         $GPU = $Convert -split ' '
         $HashArray = @()
+        $Hash = @()
 	      $A = $null
         $A = Get-Content $HashPath
         for($i = 0; $i -lt $GPU.Count; $i++)
         {
            $Selected = $GPU | Select -skip $i | Select -First 1
            $B = $A | Select-String  "GPU #$($Selected):" | Select -Last 1
-           if([regex]::match($B,"MH/s").success  -eq $true){$Hash = "MH/s"}
-           else{$Hash = "kH/s"}
-           $C = $B -replace (" ","") -split "-" -split "$Hash" | Select-String -SimpleMatch "."
-           $C | foreach{$HashArray += $_}
+           if($B -ne $null)
+            {
+             if([regex]::match($B,"MH/s").success  -eq $true){$CHash = "MH/s"}
+             else{$CHash = "kH/s"}
+             if([regex]::match($B,"MH/s").success  -eq $true){$Hash += "MH/s"}
+             else{$Hash += "kH/s"}
+             $C = $B -replace (" ","") -split "-" -split "$CHash" | Select-String -SimpleMatch "."
+             $C | foreach{$HashArray += $_}
+            }
+           else
+            {
+             $Hash += "kH/s"
+             $HashArray += 0
+            }
         }
         $J = $HashArray | % {iex $_}
         $K = @()
-        $J | foreach{if($Hash -eq "MH/s"){$K += $($_)*1000}else{$K += $_}}
+        for($i = 0; $i -lt $Hash.Count; $i++)
+          {
+           $SelectedHash = $Hash | Select -skip $i | Select -First 1
+           $SelectedPattern = $J | Select -skip $i | Select -First 1
+           $SelectedPattern | foreach { if ($SelectedHash -eq "MH/s"){$K += $($_)*1000}else{$K += $_}}
+          }
         $K -join ' ' | Set-Content  ".\Build\hashrates.sh"
         Write-Host "Sending HashRates To Hive $($K)" -foregroundcolor green
         $KK = $A | Select-String "ms" | Select-String " OK " | Select -Last 1

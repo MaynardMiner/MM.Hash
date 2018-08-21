@@ -1,5 +1,4 @@
-. .\IncludeCoin.ps1
-
+. .\Build\Hive\IncludeCoin.ps1
 
 $AllStats = if(Test-Path "Stats")
 {

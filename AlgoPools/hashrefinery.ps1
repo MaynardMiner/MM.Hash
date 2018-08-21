@@ -1,6 +1,5 @@
-. .\IncludeCoin.ps1
  
- 
+
  $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty BaseName 
  
  

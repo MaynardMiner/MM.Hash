@@ -1,4 +1,3 @@
-. .\IncludeCoin.ps1
 
 if($Auto_Algo -eq "Yes")
 {

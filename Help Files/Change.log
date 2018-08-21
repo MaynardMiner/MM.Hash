@@ -147,3 +147,19 @@ Important: -GPU_Count1 argument was removed. Miner now detects GPU's. You will g
 -Worked on better miner launch sequence
 -Fixed myr-gr
 -Added algorithms in case pools add them
+
+1.3.9
+-Fixed GPU array from double loading GPU index
+-Removed extra pool files from github CoinPools folder
+-Ensure -Favor_Coins was working.
+-Miner will overwrite 1.3.8 versions, but transfer your miner configurations.
+-Re-wrote benchmark parameter to test bench before writing stat, will write
+message if testbench fails
+-Failed Benchmarking should now require 3 failed benches in a row order to write
+stat to 0
+-Fix T-Rex Hive monitoring: Hashrates will now display correctly for each gpu.
+-Added Sonoa
+-Started Migration of cmdlets from main source code. Added some notations. Not
+finished yet.
+-Removed erroneous files from github.
+-Changed Initialization procedure to a more fluid transision.
