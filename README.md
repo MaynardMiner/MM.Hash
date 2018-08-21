@@ -49,6 +49,9 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 **Algorithms** (As defined and required by miners)
 
 ```
+aergo
+aeriumx
+balloon
 nist5
 blake2s
 skein
@@ -58,16 +61,17 @@ lyra2v2
 lyra2z
 phi2
 allium
+hex
+jackpot
 equihash
 x16r
 x16s
 aeriumx
 equihash192
-equihash144xsg
-equihash144btcz
-equihash144zel
-equihash-BTG
-equihash144safe
+equihash144
+equihash96
+equihash210
+equihash200
 yescrypt
 yescryptR16
 m7m
@@ -86,11 +90,14 @@ blakecoin
 skunk
 keccakc
 x12
+renesis
 sib
+sonoa
 tribus
 phi
 c11
 hsr
+myr-gr
 ```
 
 
