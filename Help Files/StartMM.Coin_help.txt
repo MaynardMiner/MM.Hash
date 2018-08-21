@@ -275,6 +275,9 @@ Argument            Options             Explanation
 
 Dividing Miner
 
+Note: When dividing miner, only stats of Group1 will be sent to HiveOS. It is not recommended to divide
+miner unless it is absolutely needed to.
+
 MM.Hash has the capability of dividing miner into seperate device groups. By default, 
 it is set to use Wallet1 & PasswordCurrency1. You can however choose to divide you miner, up to three 
 different groups. This is the commands/options you must add to do so:
