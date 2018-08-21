@@ -81,14 +81,7 @@ Argument          Options           Explanation
 
 -Benchmark     [0-100000]           Expressed in seconds. Default 0. Sets specific interval time for when coin 
 				    is in benchmark mode. Can be used for faster benchmarking. When coin has
-				    a set hashrate- Miner will defer to time expressed in -Interval parameter.
-
--Threshold     [.1 - 100000]	    Expressed in BTC/day. Default is .1. If the total daily profits of a
-				    particular algo/coin exceed the -Threshold argument, it will be removed
-				    from database calculation. This is to prevent mining on a particular
-		                    coin/algorithm in which the pool is having issues with. It only needs
-				    to be specified if you wish it to be different than .1 btc/day
-				    
+				    a set hashrate- Miner will defer to time expressed in -Interval parameter.				    
 
 ***********************************************************************************************************
 ***********************************************************************************************************
@@ -100,6 +93,17 @@ These arguments can be added for additional customization and options
 
 
 Argument            Options             Explanation
+
+-Threshold     [.1 - 100000]	    Expressed in BTC/day. Default is .1. If the total daily profits of a
+				    particular algo/coin exceed the -Threshold argument, it will be removed
+				    from database calculation. This is to prevent mining on a particular
+		                    coin/algorithm in which the pool is having issues with. It only needs
+				    to be specified if you wish it to be different than .1 btc/day
+
+-Favor_Coins     [yes or no]	       MM.Hash by default favors coin switching when -Auto_Coin Yes. However, 
+				       there is an option to allow MM.Hash to add algorithms along with 
+				       coins in final miner profitability calculation by setting -Favor_Coins
+				       to No.
 
 -WorkerName          [Any]              Workname ID of Mining Pool Hub. Must use if you are using MPH 
                                         pool. Must be specified along with -Poolname MPH. Go to Mining 
