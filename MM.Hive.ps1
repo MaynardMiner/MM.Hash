@@ -210,8 +210,8 @@ $PreviousVersions | foreach {
      $OldTime = Join-Path $PreviousPath "Build\Data"
      if(Test-Path $OldBackup)
       {
-      if(-not (Test-Path "Backup")){New-Item "Backup" -Item-Type "directory"  | Out-Null }
-      if(-not (Test-Path "Stats")){New-Item "Stats" -Item-Type "directory"  | Out-Null }
+      if(-not (Test-Path "Backup")){New-Item "Backup" -ItemType "directory"  | Out-Null }
+      if(-not (Test-Path "Stats")){New-Item "Stats" -ItemType "directory"  | Out-Null }
       Get-ChildItem -Path "$($OldMiners)\*" -Include *.ps1 -Recurse | Copy-Item -Destination ".\Miners" -force
       Get-ChildItem -Path "$($OldBackup)\*" -Include *.txt -Recurse | Copy-Item -Destination ".\Stats" -force
       Get-ChildItem -Path "$($OldBackup)\*" -Include *.txt -Recurse | Copy-Item -Destination ".\Backup" -force
