@@ -104,7 +104,7 @@ myr-gr
 **Pools**
 ```
 nicehash
-miningpoolhub (mph)
+miningpoolhub (mph) (Note: This is PPLNS pool, research how PPLNS works before using).
 zergpool_coin
 zergpool_algo
 blockmasters
