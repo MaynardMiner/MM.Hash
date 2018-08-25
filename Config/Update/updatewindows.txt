@@ -25,7 +25,7 @@
         "path1": ".\\Bin\\CryptoDredge-Windows-CCDevices1\\CryptoDredge.exe",
         "path2": ".\\Bin\\CryptoDredge-Windows-CCDevices2\\CryptoDredge.exe",
         "path3": ".\\Bin\\CryptoDredge-Windows-CCDevices3\\CryptoDredge.exe",
-        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/CryptoDredge-Windows.zip" 
+        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/CryptoDredge-083-Windows.zip" 
        }
      },
 
@@ -55,7 +55,7 @@
         "path1": ".\\Bin\\z-enemy-Windows-CCDevices1\\z-enemy.exe",
         "path2": ".\\Bin\\z-enemy-Windows-CCDevices2\\z-enemy.exe",
         "path3": ".\\Bin\\z-enemy-Windows-CCDevices3\\z-enemy.exe",
-        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/z-enemy-Windows.zip" 
+        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/z-enemy-117-Windows.zip" 
        }
      },
 
@@ -65,7 +65,7 @@
         "path1": ".\\Bin\\EWBF-Windows-EWBFDevices1\\miner.exe",
         "path2": ".\\Bin\\EWBF-Windows-EWBFDevices2\\miner.exe",
         "path3": ".\\Bin\\EWBF-Windows-EWBFDevices3\\miner.exe",
-        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/EWBF-Windows.zip" 
+        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/EWBF-05-Windows.zip" 
        }
      },
 
@@ -95,7 +95,7 @@
         "path1": ".\\Bin\\TRex-Windows-CCDevices1\\t-rex.exe",
         "path2": ".\\Bin\\TRex-Windows-CCDevices2\\t-rex.exe",
         "path3": ".\\Bin\\TRex-Windows-CCDevices3\\t-rex.exe",
-        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/T-Rex-Windows.zip"
+        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/t-rex-061-Windows.zip"
        }
       }
      ]

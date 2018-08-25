@@ -81,7 +81,7 @@
       "path1": ".\\Bin\\EWBF-Linux-EWBFDevices1\\miner-NVIDIA1",
       "path2": ".\\Bin\\EWBF-Linux-EWBFDevices2\\miner-NVIDIA2",
       "path3": ".\\Bin\\EWBF-Linux-EWBFDevices3\\miner-NVIDIA3",
-      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-Linux.zip" 
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-05-Linux.zip" 
      }
    },
 
