@@ -44,6 +44,7 @@ switch ($_) {
      "HSR"{$blockpool_Symbol = "HSR-Coin"}
      "SIB"{$blockpool_Symbol = "SIB-Coin"}
      '$PAC'{$blockpool_Symbol = "PAC-Coin"}
+     'DGB-SKEIN'{$blockpool_Symbol = "DGBskein"}
     }
     $blockpool_Port = $blockpool_Request.$_.port
     $blockpool_Algorithm = Get-Algorithm $blockpool_Request.$_.algo

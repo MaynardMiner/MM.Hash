@@ -163,3 +163,15 @@ stat to 0
 finished yet.
 -Removed erroneous files from github.
 -Changed Initialization procedure to a more fluid transision.
+
+1.4.0a
+-Windows Version Now Matches HiveOS version in core design
+-Ensure 100% benchmarking is setting to 0 after 3 failed attempts
+-Fixed some HiveOS stat issues from 1.3.9
+-Updated Z-Enemy to latest version
+-Noticed Times Were inconsistent on "active" screen: Attempted fix
+-Removed Erroneus Messages involving closing screens (now that I know it works consistently)
+-pidinfo now starts at miner startup, MM.Hash will always close within 5 seconds of it being stopped.
+-Started code staging for windows HiveOS API 2.0 (not completed) integration
+-Started code staging for HiveOS new version 1.4.0b
+-Started code staging for Ubuntu new version 1.4.0c

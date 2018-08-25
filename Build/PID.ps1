@@ -9,8 +9,8 @@ While($true)
   if($_ -eq "miner"){$Title = "MM.Hash"}
   else{$Title = "$($_)"}
   Write-Host "Checking To See if Miner $($_) Is Running"
-  $MinerTestPath = Test-Path ".\PID\$($_)_PID.txt"
-  if($MinerTestPath)
+  $MinerPIDPath = ".\PID\$($_)_PID.txt"
+  if($MinerPIDPath)
    {
     $MinerContent = Get-Content ".\PID\$($_)_PID.txt"
     if($MinerContent -ne $null)
@@ -24,9 +24,7 @@ While($true)
        }
       else
        {
-        $Status = "Failed"
-        if($Title -eq "MM.Hash")
-        {
+         Write-Host "Closing MM.Hash" -foregroundcolor red
          Start-Process "screen" -ArgumentList "-S NVIDIA1 -X quit"
          Start-Process "screen" -ArgumentList "-S NVIDIA2 -X quit"
          Start-Process "screen" -ArgumentList "-S NVIDIA3 -X quit"
@@ -35,14 +33,11 @@ While($true)
          Start-Process "screen" -ArgumentList "-S LogData -X quit"
          Start-Process "screen" -ArgumentList "-S PIDInfo -X quit"
        }
-     }
     }
+  }
     else
      {
-      $Status = "Failed"
-      Write-Host "$($Title) Status: Miner Is Not Running!" -foregroundcolor red
-      if($Title -eq "MM.Hash")
-       {
+        Write-Host "Closing MM.Hash" -foregroundcolor red
         Start-Process "screen" -ArgumentList "-S NVIDIA1 -X quit"
         Start-Process "screen" -ArgumentList "-S NVIDIA2 -X quit"
         Start-Process "screen" -ArgumentList "-S NVIDIA3 -X quit"
@@ -50,10 +45,9 @@ While($true)
         Start-Process "screen" -ArgumentList "-S miner -X quit"
         Start-Process "screen" -ArgumentList "-S LogData -X quit"
         Start-Process "screen" -ArgumentList "-S PIDInfo -X quit"
-       }
      }
-    }
   }
- Start-Sleep -S 5
+ Start-Sleep -S 3
  }
 
+  

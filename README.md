@@ -1,8 +1,6 @@
 **MM.Hash**
 
-
-
-![GitHub Release Date](https://img.shields.io/github/release-date/MaynardMiner/MM.Hash.svg?style=plastic)  **Profit Switching Miner For HiveOS & Windows.** [![GitHub (pre-)release](https://img.shields.io/github/release/MaynardMiner/MM.Hash/all.svg?style=plastic)](https://github.com/MaynardMiner/MM.Hash)
+**Profit Switching Miner For HiveOS & Windows.** [![GitHub version](https://badge.fury.io/gh/MaynardMiner%2FMM.Hash.svg)](https://badge.fury.io/gh/MaynardMiner%2FMM.Hash)
 
 MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. It can also perform coin profit switching as well, on pools that can do so. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well. The HiveOS version means you can use all the features of HiveOS, including hashrate monitoring, possible GPU failure detection, miner configuration, all while doing it remotely.
 
@@ -49,9 +47,6 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 **Algorithms** (As defined and required by miners)
 
 ```
-aergo
-aeriumx
-balloon
 nist5
 blake2s
 skein
@@ -61,17 +56,16 @@ lyra2v2
 lyra2z
 phi2
 allium
-hex
-jackpot
 equihash
 x16r
 x16s
 aeriumx
 equihash192
-equihash144
-equihash96
-equihash210
-equihash200
+equihash144xsg
+equihash144btcz
+equihash144zel
+equihash-BTG
+equihash144safe
 yescrypt
 yescryptR16
 m7m
@@ -90,21 +84,18 @@ blakecoin
 skunk
 keccakc
 x12
-renesis
 sib
-sonoa
 tribus
 phi
 c11
 hsr
-myr-gr
 ```
 
 
 **Pools**
 ```
 nicehash
-miningpoolhub (mph) (Note: This is PPLNS pool, research how PPLNS works before using).
+miningpoolhub (mph)
 zergpool_coin
 zergpool_algo
 blockmasters
@@ -119,7 +110,10 @@ zpool
 **Miners**
 ```
 CryptoDredge
+Alexis78
 MSFT
+Krnlx
+OCminer/suprminer
 Tpruvot
 T-rex
 Enemy
@@ -127,8 +121,6 @@ Claymore
 Dstm
 EWBF (new version)
 JayDDee
-Cryptozeny
-Bubalisk
 ```
 
 Simple Install Instructions (HIVEOS):
@@ -161,7 +153,7 @@ This is an example of how to remote install/update miner. It is the fastest way 
 **CONTACT**
 
 Discord Channel For MM.Hash- 
-https://discord.gg/2x7cZpe
+https://discord.gg/xVB5MqR
 
 **DONATE TO SUPPORT!**
 
@@ -188,3 +180,4 @@ Uselessguru
 Aaronsace
 
 They were the pioneers to powershell scriptmining. Their scripts helped me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time. Since then it has grown to what it is today.
+

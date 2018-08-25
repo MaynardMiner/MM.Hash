@@ -1,0 +1,55 @@
+********************************************************************************
+        _____                  _        _____               _
+       / ____|                | |      |  __ \             | |
+      | |     _ __ _   _ _ __ | |_ ___ | |  | |_ __ ___  __| | __ _  ___
+      | |    | '__| | | | '_ \| __/ _ \| |  | | '__/ _ \/ _` |/ _` |/ _ \
+      | |____| |  | |_| | |_) | || (_) | |__| | | |  __/ (_| | (_| |  __/
+       \_____|_|   \__, | .__/ \__\___/|_____/|_|  \___|\__,_|\__, |\___|
+                    __/ | |                                    __/ |
+                   |___/|_|                                   |___/
+
+********************************************************************************
+
+[15:18:26] INFO  - CryptoDredge 0.8.3 for NVIDIA GPUs
+[15:18:26] INFO  - DevFee is 1%
+[15:18:27] INFO  - NVML is enabled
+[15:18:27] INFO  - GPU3 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - GPU4 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - GPU5 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - GPU7 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - GPU8 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - GPU11 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - GPU12 : MSI GTX 1050 Ti : 4040 MB
+[15:18:27] INFO  - Selected pool: neoscrypt.mine.zergpool.com:4233
+[15:18:27] INFO  - Selected algo: neoscrypt
+[15:18:27] INFO  - Intensity set to 6
+[15:18:27] INFO  - CCminer TCP API: server started on 0.0.0.0:4069
+[15:18:27] INFO  - Start user session
+[15:18:28] INFO  - Setting new difficulty: 256 (0.00390625)
+[15:18:28] INFO  - Block height 505859 : Network difficulty 16.5098
+[15:18:28] INFO  - Received new job #d463
+[15:18:32] INFO  - Received new job #d45f
+[15:18:58] INFO  - 1/0 Pool accepted share, diff=0.0136991
+[15:18:58] INFO  - 2/0 Pool accepted share, diff=0.00740347
+[15:19:00] INFO  - 3/0 Pool accepted share, diff=0.00816887
+[15:19:02] INFO  - 4/0 Pool accepted share, diff=0.0129825
+[15:19:08] INFO  - 5/0 Pool accepted share, diff=0.00698937
+[15:19:11] INFO  - Setting new difficulty: 384 (0.00585938)
+[15:19:11] INFO  - Received new job #d494
+[15:19:13] INFO  - 6/0 Pool accepted share, diff=0.0283815
+[15:19:20] INFO  - 7/0 Pool accepted share, diff=0.0135715
+[15:19:28] INFO  - GPU3 MSI GTX 1050 Ti : 437.4KH/s (Avr 437.4KH/s) : T=59C Fan=85%
+[15:19:28] INFO  - 8/0 Pool accepted share, diff=0.0065756
+[15:19:29] INFO  - GPU4 MSI GTX 1050 Ti : 436.8KH/s (Avr 436.8KH/s) : T=58C Fan=85%
+[15:19:30] INFO  - 9/0 Pool accepted share, diff=0.0120249
+[15:19:30] INFO  - GPU5 MSI GTX 1050 Ti : 442.7KH/s (Avr 442.7KH/s) : T=56C Fan=85%
+[15:19:30] INFO  - GPU7 MSI GTX 1050 Ti : 428.7KH/s (Avr 428.7KH/s) : T=61C Fan=85%
+[15:19:30] INFO  - GPU8 MSI GTX 1050 Ti : 434.1KH/s (Avr 434.1KH/s) : T=58C Fan=85%
+[15:19:31] INFO  - GPU11 MSI GTX 1050 Ti : 435.6KH/s (Avr 435.6KH/s) : T=59C Fan=85%
+[15:19:32] INFO  - GPU12 MSI GTX 1050 Ti : 446.1KH/s (Avr 446.1KH/s) : T=52C Fan=85%
+[15:19:32] INFO  - Total hashrate 3061KH/s
+[15:19:45] INFO  - 10/0 Pool accepted share, diff=0.0843605
+[15:20:01] INFO  - 11/0 Pool accepted share, diff=0.0547253
+[15:20:04] INFO  - 12/0 Pool accepted share, diff=0.0110733
+[15:20:07] INFO  - Received new job #d4c2
+[15:20:12] INFO  - 13/0 Pool accepted share, diff=0.00768436

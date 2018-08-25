@@ -56,7 +56,7 @@ param(
            $SelectedPattern = $J | Select -skip $i | Select -First 1
            $SelectedPattern | foreach { if ($SelectedHash -eq "MH/s"){$K += $($_)*1000}else{$K += $_}}
           }
-        $K -join ' ' | Set-Content  ".\Build\hashrates.sh"
+        $K -join ' ' | Set-Content  ".\Build\Unix\Hive\hashrates.sh"
         Write-Host "Sending HashRates To Hive $($K)" -foregroundcolor green
         $KK = $A | Select-String "ms" | Select-String " OK " | Select -Last 1
         $LL = $KK -split "]" | Select-String "/"
@@ -65,13 +65,13 @@ param(
         $OO = $NN -split ("     ") | Select -Last 1
         [string]$Accepted = $OO -Split "/" | Select -First 1
         [string]$Rejected = $OO -Split "/" | Select -Last 1
-        $Accepted | Set-Content  ".\Build\accepted.sh"
-        $Rejected | Set-Content  ".\Build\rejected.sh"
+        $Accepted | Set-Content  ".\Build\Unix\Hive\accepted.sh"
+        $Rejected | Set-Content  ".\Build\Unix\Hive\rejected.sh"
         Write-Host "Sending Acc/Rejected to Hive $Accepted $Rejected"
           }
        else{$Hashrates = 0}
        Start-Sleep -S 1
-       $MinerAlgo | Out-File ".\Build\algo.sh"
+       $MinerAlgo | Out-File ".\Build\Unix\Hive\algo.sh"
        Write-Host "Current Algorithm is $MinerAlgo"
        Start-Sleep -S 8
           }
