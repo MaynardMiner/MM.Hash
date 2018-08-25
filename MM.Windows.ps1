@@ -1155,24 +1155,24 @@ if($LogTimer.Elapsed.TotalSeconds -ge 3600)
          }
             
        
-         if($_.Timeout -ge 3 -or $_.Status -eq "Failed")
-         {
-          $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds)
-         if($_.WasBenchmarked -eq $False)
-          {
-          if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
-          Start-Sleep -s 1
-          $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Algo)_TIMEOUT.txt"
-          $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Algo)_HashRate.txt"
-          if(-not (Test-Path $TimeoutFile)){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Algo)_TIMEOUT.txt"  | Out-Null}
-          Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out- It Was Noted In Timeout Folder" -foregroundcolor "darkred"
-          $_.WasBenchmarked = $True
-          $_.New = $False
-          $_.Crashed = 0
-          $_.Timeout = 0
-          $_.Bad_Benchmark++
-          if($_.Bad_Benchmark -gt 2){$Stat = Set-Stat -Name "$($_.Name)_$($_.Algo)_HashRate" -Value 0}
-             }
+if($_.Timeout -gt 2 -or $_.XProcess -eq $null -or $_.XProcess.HasExited)
+ {
+  if($_.WasBenchmarked -eq $False)
+   {
+   if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
+   $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Algo)_TIMEOUT.txt"
+   $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Algo)_HashRate.txt"
+   if(-not (Test-Path $TimeoutFile)){New-Item -Path ".\Timeout" -Name "$($_.Name)_$($_.Algo)_TIMEOUT.txt"  | Out-Null}
+   $_.WasBenchmarked = $True
+   $_.New = $False
+   $_.Crashed = 0
+   $_.Timeout = 0
+   $_.Bad_Benchmark++
+   Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out $($_.Bad_Benchmark) Times- It Was Noted In Timeout Folder" -foregroundcolor "darkred"
+   if($_.Bad_Benchmark -gt 2)
+   {
+   $Stat = Set-Stat -Name "$($_.Name)_$($_.Algo)_HashRate" -Value 0
+Write-Host "Benchmarking Has Failed Three Times - Setting Stat to 0" -ForegroundColor DarkRed             }
             }
            }
           }
