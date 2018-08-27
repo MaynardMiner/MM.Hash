@@ -25,6 +25,7 @@
     "skein": "skein",
     "sib": "sib",
     "neoscrypt": "neoscrypt",
+    "polytimos": "polyimos",
     "myr-gr": "myr-gr",
     "lyra2rev2": "lyra2v2",
     "lyra2v2": "lyra2v2",
