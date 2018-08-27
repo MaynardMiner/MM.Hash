@@ -140,7 +140,9 @@ This is an example of how to remote install/update miner. It is the fastest way 
 
 ![alt text](https://raw.githubusercontent.com/MaynardMiner/MM.Hash/master/Build/Data/Second_Step.png)
 
+**Note**
 
+You may need to Rocket Launch/Reboot in order to have Agent restart and start recieving data from MM.Hash
 
 **Known Issues**
 
