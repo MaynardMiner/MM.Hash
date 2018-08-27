@@ -206,7 +206,6 @@ function Get-AlgorithmList {
         "
         Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "$($Type)" -Wait    
         Start-Sleep $Delay #Wait to prevent BSOD
-        if(Test-Path "$($Type).log"){Remove-Item "$($Type).log" -recurse -force}
         $MiningId = Start-Process "screen" -ArgumentList "-S $($Type) -d -m"
         Start-Sleep -S 1
         if($Type  -like '*NVIDIA*'){$PreStart = Start-Process ".\Unix\Hive\pre-start.sh" -ArgumentList "$($Type) $Export" -Wait}

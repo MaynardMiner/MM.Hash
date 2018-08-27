@@ -968,6 +968,7 @@ $ActiveMinerPrograms | foreach {
         $DecayStart = Get-Date
         $_.New = $true
         $_.Activated++
+        if(Test-Path ".\Logs\$($Type).log"){Remove-Item "$($Type).log" -force}
         $LogDir = (Join-Path $Dir "Logs")
         $MinerDir = Split-Path $_.Path
         $LaunchCodes = @{}
@@ -1175,6 +1176,7 @@ if($Log -eq 12)
     $DecayStart = Get-Date
     $_.New = $true
     $_.Activated++
+    if(Test-Path ".\Logs\$($Type).log"){Remove-Item "$($Type).log" -force}
     $LogDir = (Join-Path $Dir "Logs")
     $MinerDir = Split-Path $_.Path
     $LaunchCodes = @{}
