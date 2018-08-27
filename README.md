@@ -146,9 +146,7 @@ This is an example of how to remote install/update miner. It is the fastest way 
 
 -Algorithms: Since HiveOS 2.0 update, algorithms are slow to show on HiveOS website. ```agent``` is clearly sending the algo, but it registers on HiveOS at a severe delay, messing up the stats on HiveOS. This is has been occurring since HiveOS 2.0, and it is website related. It cannot be fixed on my end.
 
--Autofan: HiveOS considers MM.Hash as a single miner. Therefor when MM.Hash switches to another miner, HiveOS may occasionally take a min. to switch to the API of the new miner in question. Occasionally this causes the error due to the fact that HiveOS didn't realize the miner switched. It a latency issues between HiveOS and MM.Hash. It cannot be corrected.
-
-
+-AMD: AMD miner are new to MM.Hash as of 1.4.0b. The dev isn't familiar with AMD, but is trying to learn quickly to get more miners and settings correct. Currently AMD is at a beta-level. If you use AMD or are familiar with AMD and want to see more developed- Please beta-test, join discord, and offer suggestions on miners/settings/improvements.
 
 **CONTACT**
 
