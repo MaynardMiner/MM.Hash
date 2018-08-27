@@ -1,6 +1,6 @@
 **MM.Hash**
 
-**Profit Switching Miner For HiveOS & Windows.** [![GitHub version](https://badge.fury.io/gh/MaynardMiner%2FMM.Hash.svg)](https://badge.fury.io/gh/MaynardMiner%2FMM.Hash)
+**Profit Switching Miner For HiveOS & Windows.**
 
 MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. It can also perform coin profit switching as well, on pools that can do so. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well. The HiveOS version means you can use all the features of HiveOS, including hashrate monitoring, possible GPU failure detection, miner configuration, all while doing it remotely.
 
@@ -144,7 +144,7 @@ This is an example of how to remote install/update miner. It is the fastest way 
 
 **Known Issues**
 
--T-Rex miner API does not work in Unix. In order to attain hashrates, MM.Hash must read data from logs. This creates a small latency between MM.Hash and T-Rex. It cannot be avoided. Please contact/bribe developer and inform him you wish a working API version for Unix. There has been other issues in particular with T-Rex regarding hashrates. For the most part, however- It works most of the time. If you experience issues, the only thing that can be done is to reboot, which will clear logs.
+-Algorithms: Since HiveOS 2.0 update, algorithms are slow to show on HiveOS website. ```agent``` is clearly sending the algo, but it registers on HiveOS at a severe delay, messing up the stats on HiveOS. This is has been occurring since HiveOS 2.0, and it is website related. It cannot be fixed on my end.
 
 -Autofan: HiveOS considers MM.Hash as a single miner. Therefor when MM.Hash switches to another miner, HiveOS may occasionally take a min. to switch to the API of the new miner in question. Occasionally this causes the error due to the fact that HiveOS didn't realize the miner switched. It a latency issues between HiveOS and MM.Hash. It cannot be corrected.
 
