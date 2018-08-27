@@ -861,11 +861,6 @@ function Expand-WebRequest {
                          Rename-Item -Path $MinerNewFile -NewName "$($MineName)"
                          $ChmodPath = (Join-Path $Path_New "$($MineName)")
                          Start-Process "chmod" -ArgumentList "+x $($ChmodPath)" -Wait
-			 if($MineName -eq "Clayamd")
- 			  {
-			   Start-Process "chmod" -ArgumentList "0644 $($Path_New)/Data3.bin" -Wait
-      			   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
- 			  }
                          Remove-Item $Path_Old
 		       }
                   }

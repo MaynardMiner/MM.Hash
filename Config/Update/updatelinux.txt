@@ -138,7 +138,7 @@
       "path1": ".\\Bin\\Clay-AMD-ClayDevices1\\clayamd-AMD1",
       "path2": ".\\Bin\\Clay-AMD-ClayDevices2\\clayamd-AMD2",
       "path3": ".\\Bin\\Clay-AMD-ClayDevices3\\clayamd-AMD3",
-      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/Claymore-119-AMD-Linux.zip" 
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/Clay-119-AMD-Linux.zip" 
      }
    },
 

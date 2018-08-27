@@ -1,1 +1,1 @@
-sgminer-AMD1 --api-listen --api-port 4028 -k Equihash -o stratum+tcp://equihash.mine.zergpool.com:2142 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash -T 
+sgminer-AMD1 --api-listen --api-port 4028 -k Lyra2v2 -o stratum+tcp://lyra2rev2.usa.nicehash.com:3347 -u 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop.MMHash -p x -T 
