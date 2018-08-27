@@ -20,29 +20,29 @@ if($GPUDevices2 -ne '')
     if($CoinAlgo -eq $null)
     {
      $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-     if($Algorithm -eq "$($AlgoPools.(Get-Algorithm($_)).Algorithm)")
+     if($Algorithm -eq "$($AlgoPools.$_.Algorithm)")
       {
        [PSCustomObject]@{
-        Platform = $Platform
-       Symbol = "$(Get-Algorithm($_))"
+         Platform = $Platform
+       Symbol = "$($_)"
        MinerName = "zm-NVIDIA2"
                Type = "NVIDIA2"
                Path = $Path
                Distro =  $Distro
                Devices = $Devices
                DeviceCall = "dstm"
-               Arguments = "--server $($AlgoPools.(Get-Algorithm($_)).Host) --port $($AlgoPools.(Get-Algorithm($_)).Port) --user $($AlgoPools.(Get-Algorithm($_)).User2) --pass $($AlgoPools.(Get-Algorithm($_)).Pass2) --telemetry=0.0.0.0:43001 $($Commands.$_)"
-               HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-               Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-               FullName = "$($AlgoPools.(Get-Algorithm($_)).Mining)"
+               Arguments = "--server $($AlgoPools.$_.Host) --port $($AlgoPools.$_.Port) --user $($AlgoPools.$_.User2) --pass $($AlgoPools.$_.Pass2) --telemetry=0.0.0.0:43001 $($Commands.$_)"
+               HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
+               Selected = [PSCustomObject]@{$_ = ""}
+               FullName = "$($AlgoPools.$_.Mining)"
                API = "DSTM"
                Port = 43001
-               MinerPool = "$($AlgoPools.(Get-Algorithm($_)).Name)"
+               MinerPool = "$($AlgoPools.$_.Name)"
                Wrap = $false
                URI = $Uri
                BUILD = $Build
-              Algo = "$($_)"
-              NewAlgo = ''
+             Algo = "$($_)"
+             NewAlgo = ''
              }
            }
          }

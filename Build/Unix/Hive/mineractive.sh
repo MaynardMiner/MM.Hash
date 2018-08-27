@@ -2,19 +2,27 @@
 
    Status: Running
 
-    Speed Active                      Launched Command
-    ----- ------                      -------- -------
-0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Dredge-NVIDIA2 3,4,5,7,8,11,12 -a neoscrypt -o stratum+tcp://neoscrypt.mine.zergpool.com:4233 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p
-                                               c=RVN,mc=VIVO
-0.00 PH/s 00 Days 00 Hours 00 Minutes Once     Dredge-NVIDIA1 0,1,2,6,9,10 -a neoscrypt -o stratum+tcp://neoscrypt.mine.zergpool.com:4233 -b 0.0.0.0:4068 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p
-                                               c=RVN,mc=VIVO
+    Speed Active                      Launched Command                                                                                                                            
+    ----- ------                      -------- -------                                                                                                                            
+0.00 PH/s 00 Days 00 Hours 00 Minutes Once     sgminer-AMD1  --api-listen --api-port 4028 -k Equihash -o stratum+tcp://equihash.mine.zergpool.com:2142 -u                         
+                                               RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash -T                                                                           
 
 
    Status: Idle
 
-     Speed Active                      Launched Command
-     ----- ------                      -------- -------
- 9.85 MH/s 00 Days 00 Hours 03 Minutes Once Dredge-NVIDIA2 3,4,5,7,8,11,12 -a lyra2z -o stratum+tcp://blockmasters.co:4553 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash 
-79.48 MH/s 00 Days 00 Hours 03 Minutes Once     t-rex-NVIDIA1 0,1,2,6,9,10 -a x17 -o stratum+tcp://blockmasters.co:3737 -b 0.0.0.0:4068 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash
+      Speed Active                      Launched Command                                                                                                                          
+      ----- ------                      -------- -------                                                                                                                          
+175.00 KH/s 00 Days 00 Hours 02 Minutes Once     sgminer-AMD1  --api-listen --api-port 4028 --algorithm Xevan -o stratum+tcp://xevan.mine.zergpool.com:3739 -u                    
+                                                 RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -O c=RVN,ID=MMHash -T --gpu-threads 1 --worksize 64 --intensity 11 --thread-concurrency 64    
+  1.27 MH/s 00 Days 00 Hours 02 Minutes Once     sgminer-AMD1  --api-listen --api-port 4028 --algorithm Phi -o stratum+tcp://phi.mine.zergpool.com:8333 -u                        
+                                                 RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -O c=RVN,ID=MMHash -T --gpu-threads 1 --worksize 64 --intensity 11 --thread-concurrency 64    
 
-Time Left Until Database Starts: 189
+
+   Status: Failed
+
+    Speed Active                      Launched Command                                                                                                                            
+    ----- ------                      -------- -------                                                                                                                            
+0.00 PH/s 00 Days 00 Hours 00 Minutes 9 Times  sgminer-AMD1  --api-listen --api-port 4028 --algorithm Neoscrypt -o stratum+tcp://neoscrypt.mine.zergpool.com:4233 -u              
+                                               RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -O c=RVN,ID=MMHash -T --gpu-threads 1 --worksize 64 --intensity 11 --thread-concurrency 64      
+
+Time Left Until Database Starts: 98

@@ -1,0 +1,357 @@
+[21:17:03] Set default algorithm to equihash
+[21:17:03] Global quota greatest common denominator set to 1
+[21:17:03] Global quota greatest common denominator set to 1
+[21:17:03] Started avermore 1.4.1
+[21:17:03] * using Jansson 2.7
+[21:17:03] Started avermore 1.4.1                    
+[21:17:03] * using Jansson 2.7                    
+[21:17:03] CL Platform vendor: Advanced Micro Devices, Inc.
+[21:17:03] CL Platform name: AMD Accelerated Parallel Processing
+[21:17:03] CL Platform version: OpenCL 2.1 AMD-APP (2580.4)
+[21:17:03] Platform devices: 1
+[21:17:03] 	0	Ellesmere
+[21:17:03] GPU0: detected PCIe topology 0000:01:00.0
+[21:17:03] Default Devices = all
+[21:17:03] set_devices(all)
+[21:17:03] Loading settings from default_profile for pool 1
+[21:17:03] Pool 1 Algorithm set to "x16r"
+[21:17:03] Pool 1 devices set to "all"
+[21:17:03] Pool 1 lookup gap set to "(null)"
+[21:17:03] Pool 1 XIntensity set to "64"
+[21:17:03] Pool 1 Thread Concurrency set to "(null)"
+[21:17:03] Pool 1 GPU Clock set to "(null)"
+[21:17:03] Pool 1 GPU Memory clock set to "(null)"
+[21:17:03] Pool 1 GPU Threads set to "(null)"
+[21:17:03] Pool 1 GPU Fan set to "(null)"
+[21:17:03] Pool 1 GPU Powertune set to "(null)"
+[21:17:03] Pool 1 GPU Vddc set to "(null)"
+[21:17:03] Pool 1 Shaders set to "(null)"
+[21:17:03] Pool 1 Worksize set to "(null)"
+[21:17:03] Loading settings from default_profile for pool 0
+[21:17:03] Pool 0 Algorithm set to "equihash"
+[21:17:03] Pool 0 devices set to "all"
+[21:17:03] Pool 0 lookup gap set to "(null)"
+[21:17:03] Pool 0 XIntensity set to "64"
+[21:17:03] Pool 0 Thread Concurrency set to "(null)"
+[21:17:03] Pool 0 GPU Clock set to "(null)"
+[21:17:03] Pool 0 GPU Memory clock set to "(null)"
+[21:17:03] Pool 0 GPU Threads set to "(null)"
+[21:17:03] Pool 0 GPU Fan set to "(null)"
+[21:17:03] Pool 0 GPU Powertune set to "(null)"
+[21:17:03] Pool 0 GPU Vddc set to "(null)"
+[21:17:03] Pool 0 Shaders set to "(null)"
+[21:17:03] Pool 0 Worksize set to "(null)"
+[21:17:03] Trying to set current pool...
+[21:17:03] Probing for an alive pool
+[21:17:03] Testing dev pool
+[21:17:03] Testing equihash.mine.zergpool.com
+[21:17:03] Succeeded delayed connect
+[21:17:03] Succeeded delayed connect
+[21:17:03] dev pool stratum session id: 45e7d5a64fe28edd0e9b2aa4189605c0
+[21:17:03] equihash.mine.zergpool.com extranonce set to 3800001a
+[21:17:03] Stratum authorisation success for dev pool
+[21:17:03] dev pool alive
+[21:17:03] stratum_rthread: parsing {"id":null,"method":"mining.set_difficulty","params":[8]}...
+[21:17:03] We made it to parse_method()!
+[21:17:03] dev pool difficulty changed to 8
+[21:17:03] stratum_rthread: parsing {"id":null,"method":"mining.notify","params":["b98","d17caae4baebbdff3a389b71d07f2b47d511ac851cc30eb10000e8fa00000000","02000000010000000000000000000000000000000000000000000000000000000000000000ffffffff1803b2260504f650835b08","7969696d70000000000001f888526a740000001976a91448740272814622a690925fe4f0cd758f52dd9b0a88ac00000000",["b4733771ff2fc50eddf08bb2ac13578c032593d843373835c08d2ce41690b3f9"],"20000000","1b01a69c","5b8350f6",true]}...
+[21:17:03] We made it to parse_method()!
+[21:17:03] [THR0] gen_stratum_work() - algorithm = x16r
+[21:17:03] [THR0] Generated stratum merkle 4ada9f52c519bc66ff2e38c0e025da0df23f277db7cd2fb35f1f5e6a6f0b8f94
+[21:17:03] [THR0] Generated stratum header 20000000d17caae4baebbdff3a389b71d07f2b47d511ac851cc30eb10000e8fa000000004ada9f52c519bc66ff2e38c0e025da0df23f277db7cd2fb35f1f5e6a6f0b8f945b8350f61b01a69c00000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000080020000
+[21:17:03] [THR0] Work job_id b98 nonce2 0 ntime 5b8350f6
+[21:17:03] [THR0] Generated target 0000000000000000000000000000000000000000000000000000e0ff1f000000
+[21:17:03] New block: 000000000000e8fa1cc30eb1d511ac85d07f2b473a389b71baebbdffd17caae4... diff 39.7K
+[21:17:03] We made it to parse_method()!
+[21:17:03] equihash.mine.zergpool.com target changed to 0000e38e38e38e38e00000000000000000000000000000000000000000000000
+[21:17:03] We made it to parse_method()!
+[21:17:03] Valid Notify
+[21:17:03] parse_notify_equihash: pool->swork.header_len = 257
+[21:17:04] Stratum authorisation success for equihash.mine.zergpool.com
+[21:17:04] Trying to set current pool...
+[21:17:04] equihash.mine.zergpool.com alive
+[21:17:04] Trying to set current pool...
+[21:17:04] Startup GPU initialization... Using settings from pool equihash.mine.zergpool.com.
+[21:17:04] Startup Pool No = 0
+[21:17:04] compare_pool_settings()
+[21:17:04] set_devices(all)
+[21:17:04] Switching to xintensity: pool = 64, default = 
+[21:17:04] xintensity -> 64
+[21:17:04] Set GPU 0 to equihash
+[21:17:04] Allocate new threads...
+[21:17:04] Assign threads for device 0
+[21:17:04] Thread 0 set pool = 0 (equihash.mine.zergpool.com)
+[21:17:04] Init GPU thread 0 GPU 0 virtual GPU 0
+[21:17:04] CL Platform vendor: Advanced Micro Devices, Inc.
+[21:17:04] CL Platform name: AMD Accelerated Parallel Processing
+[21:17:04] CL Platform version: OpenCL 2.1 AMD-APP (2580.4)
+[21:17:04] Platform devices: 1
+[21:17:04] 	0	Ellesmere
+[21:17:04] GPU0: detected PCIe topology 0000:01:00.0
+[21:17:04] List of devices:
+[21:17:04] 	0	Ellesmere
+[21:17:04] Selected 0: Ellesmere
+[21:17:04] Preferred vector width reported 1
+[21:17:04] Max work group size reported 256
+[21:17:04] Maximum work size for this GPU (0) is 256.
+[21:17:04] Your GPU (#0) has 36 compute units, and all AMD cards in the 7 series or newer (GCN cards)     have 64 shaders per compute unit - this means it has 2304 shaders.
+[21:17:04] Max mem alloc size is 4244635648
+[21:17:04] Using source file equihash.cl
+[21:17:04] GPU 0: selecting lookup gap of 2
+[21:17:04] GPU 0: selecting thread concurrency of 32320
+[21:17:04] Setting worksize to 64
+[21:17:04] Using binary file equihashEllesmeregw64l8.bin
+[21:17:04] Loaded binary image equihashEllesmeregw64l8.bin
+[21:17:04] Initialising kernel equihash.cl with nfactor 10, n 1024
+[21:17:04] initCl() finished. Found Ellesmere
+[21:17:04] Starting device 0 mining thread 0...
+[21:17:04] Pushing sem post to thread 0
+[21:17:04] Waiting on sem in miner thread
+[21:17:04] [THR0] Popping work from get queue to get work
+[21:17:05] Work update message received
+[21:17:05] Selecting equihash.mine.zergpool.com for work
+[21:17:05] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000000000000000000000000000000fd4005
+[21:17:05] [THR0] job_id ce78, nonce1 3800001a, nonce2 0, ntime 0751835b
+[21:17:05] Generated stratum work
+[21:17:05] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:05] New block: 0000000000000000000000000000000000000000000000000000000000000000... diff 0
+[21:17:05] Selecting equihash.mine.zergpool.com for work
+[21:17:05] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000100000000000000000000000000fd4005
+[21:17:05] [THR0] job_id ce78, nonce1 3800001a, nonce2 1, ntime 0751835b
+[21:17:05] Generated stratum work
+[21:17:05] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:05] [THR0] preparing thread...
+[21:17:05] Selecting equihash.mine.zergpool.com for work
+[21:17:05] [THR0] get_work_prepare_thread
+[21:17:05] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000200000000000000000000000000fd4005
+[21:17:05] [THR0] job_id ce78, nonce1 3800001a, nonce2 2, ntime 0751835b
+[21:17:05] Generated stratum work
+[21:17:05] [THR0] Get work blocked for 1 seconds
+[21:17:05] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:05] [THR0] Got work from get queue
+[21:17:07] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:07] [THR0] Discarded work
+[21:17:07] Selecting equihash.mine.zergpool.com for work
+[21:17:07] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000300000000000000000000000000fd4005
+[21:17:07] [THR0] job_id ce78, nonce1 3800001a, nonce2 3, ntime 0751835b
+[21:17:07] Generated stratum work
+[21:17:07] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:07] 49.0 C  F: 62%(2236RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:09] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:09] [THR0] Discarded work
+[21:17:09] Selecting equihash.mine.zergpool.com for work
+[21:17:09] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000400000000000000000000000000fd4005
+[21:17:09] [THR0] job_id ce78, nonce1 3800001a, nonce2 4, ntime 0751835b
+[21:17:09] Generated stratum work
+[21:17:09] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:09] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:09] 49.0 C  F: 62%(2241RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:09] [THR0] Discarded work
+[21:17:09] Selecting equihash.mine.zergpool.com for work
+[21:17:09] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000500000000000000000000000000fd4005
+[21:17:09] [THR0] job_id ce78, nonce1 3800001a, nonce2 5, ntime 0751835b
+[21:17:09] Generated stratum work
+[21:17:09] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:10] API running in local read access mode on port 4028 (15)
+[21:17:10] [thread 0: 548 hashes, 0.090248 khash/sec]
+[21:17:10] total hashes: 548, total runtime / s: 5.01427
+[21:17:03] Probing for an alive pool                    
+[21:17:03] equihash.mine.zergpool.com extranonce set to 3800001a                    
+[21:17:03] equihash.mine.zergpool.com target changed to 0000e38e38e38e38e00000000000000000000000000000000000000000000000                    
+[21:17:04] Startup GPU initialization... Using settings from pool equihash.mine.zergpool.com.                    
+[21:17:04] Startup Pool No = 0                    
+[21:17:04] Initialising kernel equihash.cl with nfactor 10, n 1024                    
+[21:17:10] API running in local read access mode on port 4028 (15)                    
+[21:17:11] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:11] [THR0] Discarded work
+[21:17:11] Selecting equihash.mine.zergpool.com for work
+[21:17:11] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000600000000000000000000000000fd4005
+[21:17:11] [THR0] job_id ce78, nonce1 3800001a, nonce2 6, ntime 0751835b
+[21:17:11] 49.0 C  F: 60%(2197RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:11] Generated stratum work
+[21:17:11] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:13] [THR0] Popping work from get queue to get work
+[21:17:13] [THR0] preparing thread...
+[21:17:13] [THR0] get_work_prepare_thread
+[21:17:13] [THR0] Got work from get queue
+[21:17:13] Selecting equihash.mine.zergpool.com for work
+[21:17:13] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000700000000000000000000000000fd4005
+[21:17:13] [THR0] job_id ce78, nonce1 3800001a, nonce2 7, ntime 0751835b
+[21:17:13] Generated stratum work
+[21:17:13] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:13] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:13] [THR0] Discarded work
+[21:17:13] 49.0 C  F: 60%(2151RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:13] Selecting equihash.mine.zergpool.com for work
+[21:17:13] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000800000000000000000000000000fd4005
+[21:17:13] [THR0] job_id ce78, nonce1 3800001a, nonce2 8, ntime 0751835b
+[21:17:13] Generated stratum work
+[21:17:13] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:15] total hashes: 548, total runtime / s: 10.015
+[21:17:15] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:15] [THR0] Discarded work
+[21:17:15] Selecting equihash.mine.zergpool.com for work
+[21:17:15] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000900000000000000000000000000fd4005
+[21:17:15] [THR0] job_id ce78, nonce1 3800001a, nonce2 9, ntime 0751835b
+[21:17:15] Generated stratum work
+[21:17:15] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:15] 49.0 C  F: 60%(2151RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:15] [thread 0: 509 hashes, 0.10172 khash/sec]
+[21:17:16] API: connection from 127.0.0.1 - Accepted
+[21:17:16] API: recv command: (37) '{"command":"summary","parameter":""}
+'
+[21:17:16] API: send reply: (668) '{"STATUS":...'
+[21:17:16] API: sent all of 668 first go
+[21:17:17] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:17] [THR0] Discarded work
+[21:17:17] Selecting equihash.mine.zergpool.com for work
+[21:17:17] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000a00000000000000000000000000fd4005
+[21:17:17] [THR0] job_id ce78, nonce1 3800001a, nonce2 10, ntime 0751835b
+[21:17:17] Generated stratum work
+[21:17:17] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:17] 49.0 C  F: 60%(2156RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:19] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:19] [THR0] Discarded work
+[21:17:19] Selecting equihash.mine.zergpool.com for work
+[21:17:19] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000b00000000000000000000000000fd4005
+[21:17:19] [THR0] job_id ce78, nonce1 3800001a, nonce2 11, ntime 0751835b
+[21:17:19] 50.0 C  F: 60%(2151RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:19] Generated stratum work
+[21:17:19] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:19] API: connection from 127.0.0.1 - Accepted
+[21:17:19] API: recv command: (27) '{"command":"summary+devs"}
+'
+[21:17:19] API: send reply: (1463) '{"summary"...'
+[21:17:19] API: sent all of 1463 first go
+[21:17:20] [thread 0: 538 hashes, 0.10742 khash/sec]
+[21:17:20] total hashes: 1595, total runtime / s: 15.0263
+[21:17:21] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:21] [THR0] Discarded work
+[21:17:21] Selecting equihash.mine.zergpool.com for work
+[21:17:21] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000c00000000000000000000000000fd4005
+[21:17:21] [THR0] job_id ce78, nonce1 3800001a, nonce2 12, ntime 0751835b
+[21:17:21] 49.0 C  F: 60%(2142RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:21] Generated stratum work
+[21:17:21] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:21] [THR0] Popping work from get queue to get work
+[21:17:21] [THR0] preparing thread...
+[21:17:21] [THR0] get_work_prepare_thread
+[21:17:21] [THR0] Got work from get queue
+[21:17:21] Selecting equihash.mine.zergpool.com for work
+[21:17:21] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000d00000000000000000000000000fd4005
+[21:17:21] [THR0] job_id ce78, nonce1 3800001a, nonce2 13, ntime 0751835b
+[21:17:21] Generated stratum work
+[21:17:21] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:23] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:23] [THR0] Discarded work
+[21:17:23] Selecting equihash.mine.zergpool.com for work
+[21:17:23] 50.0 C  F: 60%(2151RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:23] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000e00000000000000000000000000fd4005
+[21:17:23] [THR0] job_id ce78, nonce1 3800001a, nonce2 14, ntime 0751835b
+[21:17:23] Generated stratum work
+[21:17:23] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:25] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:25] [THR0] Discarded work
+[21:17:25] 50.0 C  F: 60%(2155RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:25] Selecting equihash.mine.zergpool.com for work
+[21:17:25] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000000f00000000000000000000000000fd4005
+[21:17:25] [THR0] job_id ce78, nonce1 3800001a, nonce2 15, ntime 0751835b
+[21:17:25] Generated stratum work
+[21:17:25] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:25] [thread 0: 550 hashes, 0.10987 khash/sec]
+[21:17:25] total hashes: 2145, total runtime / s: 20.0323
+[21:17:27] API: connection from 127.0.0.1 - Accepted
+[21:17:27] API: recv command: (37) '{"command":"summary","parameter":""}
+'
+[21:17:27] API: send reply: (668) '{"STATUS":...'
+[21:17:27] API: sent all of 668 first go
+[21:17:27] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:27] [THR0] Discarded work
+[21:17:27] Selecting equihash.mine.zergpool.com for work
+[21:17:27] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001000000000000000000000000000fd4005
+[21:17:27] [THR0] job_id ce78, nonce1 3800001a, nonce2 16, ntime 0751835b
+[21:17:27] Generated stratum work
+[21:17:27] 50.0 C  F: 60%(2151RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:27] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:29] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:29] [THR0] Discarded work
+[21:17:29] Selecting equihash.mine.zergpool.com for work
+[21:17:29] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001100000000000000000000000000fd4005
+[21:17:29] [THR0] job_id ce78, nonce1 3800001a, nonce2 17, ntime 0751835b
+[21:17:29] 50.0 C  F: 60%(2151RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:29] Generated stratum work
+[21:17:29] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:29] [THR0] Popping work from get queue to get work
+[21:17:29] [THR0] preparing thread...
+[21:17:29] [THR0] get_work_prepare_thread
+[21:17:29] [THR0] Got work from get queue
+[21:17:29] Selecting equihash.mine.zergpool.com for work
+[21:17:29] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001200000000000000000000000000fd4005
+[21:17:29] [THR0] job_id ce78, nonce1 3800001a, nonce2 18, ntime 0751835b
+[21:17:29] Generated stratum work
+[21:17:29] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:30] [thread 0: 570 hashes, 0.11385 khash/sec]
+[21:17:30] total hashes: 2715, total runtime / s: 25.0387
+[21:17:31] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:31] [THR0] Discarded work
+[21:17:31] 50.0 C  F: 60%(2146RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:31] Selecting equihash.mine.zergpool.com for work
+[21:17:31] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001300000000000000000000000000fd4005
+[21:17:31] [THR0] job_id ce78, nonce1 3800001a, nonce2 19, ntime 0751835b
+[21:17:31] Generated stratum work
+[21:17:31] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:31] API: connection from 127.0.0.1 - Accepted
+[21:17:31] API: recv command: (27) '{"command":"summary+devs"}
+'
+[21:17:31] API: send reply: (1463) '{"summary"...'
+[21:17:31] API: sent all of 1463 first go
+[21:17:33] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:33] [THR0] Discarded work
+[21:17:33] 50.0 C  F: 62%(2227RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:33] Selecting equihash.mine.zergpool.com for work
+[21:17:33] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001400000000000000000000000000fd4005
+[21:17:33] [THR0] job_id ce78, nonce1 3800001a, nonce2 20, ntime 0751835b
+[21:17:33] Generated stratum work
+[21:17:33] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:35] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:35] [THR0] Discarded work
+[21:17:35] 50.0 C  F: 62%(2236RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:35] Selecting equihash.mine.zergpool.com for work
+[21:17:35] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001500000000000000000000000000fd4005
+[21:17:35] [THR0] job_id ce78, nonce1 3800001a, nonce2 21, ntime 0751835b
+[21:17:35] Generated stratum work
+[21:17:35] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:35] [thread 0: 536 hashes, 0.10697 khash/sec]
+[21:17:35] total hashes: 3251, total runtime / s: 30.0495
+[21:17:37] API: connection from 127.0.0.1 - Accepted
+[21:17:37] API: recv command: (37) '{"command":"summary","parameter":""}
+'
+[21:17:37] API: send reply: (668) '{"STATUS":...'
+[21:17:37] API: sent all of 668 first go
+[21:17:37] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:37] 50.0 C  F: 62%(2241RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:37] [THR0] Discarded work
+[21:17:37] Selecting equihash.mine.zergpool.com for work
+[21:17:37] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001600000000000000000000000000fd4005
+[21:17:37] [THR0] job_id ce78, nonce1 3800001a, nonce2 22, ntime 0751835b
+[21:17:37] Generated stratum work
+[21:17:37] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:37] [THR0] Popping work from get queue to get work
+[21:17:37] [THR0] preparing thread...
+[21:17:37] [THR0] get_work_prepare_thread
+[21:17:37] [THR0] Got work from get queue
+[21:17:37] Selecting equihash.mine.zergpool.com for work
+[21:17:37] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001700000000000000000000000000fd4005
+[21:17:37] [THR0] job_id ce78, nonce1 3800001a, nonce2 23, ntime 0751835b
+[21:17:37] Generated stratum work
+[21:17:37] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:39] [THR0] Staged work: total (2) > max (1), discarding
+[21:17:39] 50.0 C  F: 62%(2236RPM)  E: 1201MHz  M: 2200Mhz  V: 0.000V  A: 0%  P: 152%
+[21:17:39] [THR0] Discarded work
+[21:17:39] Selecting equihash.mine.zergpool.com for work
+[21:17:39] [THR0] Generated stratum header 00000020c3f616749da1944e5d794d0ae5fd693659598f545f909a0432a473060800000028b9ae1c9a665b510b6c27abffd54b85d0d975d44b675d9691f5ec09b2baad6e00000000000000000000000000000000000000000000000000000000000000000751835b4d4b081d3800001a00000000000000000000000000001800000000000000000000000000fd4005
+[21:17:39] [THR0] job_id ce78, nonce1 3800001a, nonce2 24, ntime 0751835b
+[21:17:39] Generated stratum work
+[21:17:39] [THR0] Pushing work from equihash.mine.zergpool.com to hash queue
+[21:17:40] [thread 0: 567 hashes, 0.11299 khash/sec]
+[21:17:40] total hashes: 3818, total runtime / s: 35.0675

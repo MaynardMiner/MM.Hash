@@ -1,0 +1,912 @@
+**********************
+PowerShell transcript start
+Start time: 20180826210459
+Username: AMD\root
+RunAs User: AMD\root
+Configuration Name: 
+Machine: AMD (Unix 4.13.16.0)
+Host Application: /opt/microsoft/powershell/6.0.4/pwsh.dll -command &.\MM.Hive.ps1 -Timeout 1 -Benchmark 140 -Delay 1 -RigName1 MMHash -StatsInterval 1 -Currency USD -CoinExchange RVN -Interval 300 -Location US -Auto_Algo Yes -Auto_Coin Yes -PoolName nicehash,zergpool_algo,zergpool_coin -Proxy '' -Type AMD1 -Wallet1 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i -ZergpoolWallet1 RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -ZergpoolPassword1 RVN -Nicehash_Wallet1 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop -BlockmastersWallet1 RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -BlockmastersPassword1 RVN -PasswordCurrency1 BTC -Nicehash_Fee 2 -Donate 0
+Process ID: 3389
+PSVersion: 6.0.4
+PSEdition: Core
+GitCommitId: v6.0.4
+OS: Linux 4.13.16-hiveos #1 SMP Tue Apr 17 18:30:28 EEST 2018
+Platform: Unix
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.4
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\Logs\MM.Hash1.log
+Getting NVIDIA GPU Count
+GPU Count = 0
+Method invocation failed because [System.Object[]] does not contain a method named 'Substring'.
+At /hive/custom/MM.Hash.1.4.0b/MM.Hive.ps1:291 char:1
++ $LogGPUS = $Count.Substring(0,$Count.Length-1)
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [], RuntimeException
++ FullyQualifiedErrorId : MethodNotFound
+Method invocation failed because [System.Object[]] does not contain a method named 'Substring'.
+At /hive/custom/MM.Hash.1.4.0b/MM.Hive.ps1:291 char:1
++ $LogGPUS = $Count.Substring(0,$Count.Length-1)
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : InvalidOperation: (:) [], RuntimeException
++ FullyQualifiedErrorId : MethodNotFound
+
+
+
+
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM        HHHHHHHHH     HHHHHHHHH               AAA                 SSSSSSSSSSSSSSS HHHHHHHHH     HHHHHHHHH
+    M:::::::M             M:::::::MM:::::::M             M:::::::M        H:::::::H     H:::::::H              A:::A              SS:::::::::::::::SH:::::::H     H:::::::H
+    M::::::::M           M::::::::MM::::::::M           M::::::::M        H:::::::H     H:::::::H             A:::::A            S:::::SSSSSS::::::SH:::::::H     H:::::::H
+    M:::::::::M         M:::::::::MM:::::::::M         M:::::::::M        HH::::::H     H::::::HH            A:::::::A           S:::::S     SSSSSSSHH::::::H     H::::::HH
+    M::::::::::M       M::::::::::MM::::::::::M       M::::::::::M          H:::::H     H:::::H             A:::::::::A          S:::::S              H:::::H     H:::::H  
+    M:::::::::::M     M:::::::::::MM:::::::::::M     M:::::::::::M          H:::::H     H:::::H            A:::::A:::::A         S:::::S              H:::::H     H:::::H  
+    M:::::::M::::M   M::::M:::::::MM:::::::M::::M   M::::M:::::::M          H::::::HHHHH::::::H           A:::::A A:::::A         S::::SSSS           H::::::HHHHH::::::H  
+    M::::::M M::::M M::::M M::::::MM::::::M M::::M M::::M M::::::M          H:::::::::::::::::H          A:::::A   A:::::A         SS::::::SSSSS      H:::::::::::::::::H  
+    M::::::M  M::::M::::M  M::::::MM::::::M  M::::M::::M  M::::::M          H:::::::::::::::::H         A:::::A     A:::::A          SSS::::::::SS    H:::::::::::::::::H  
+    M::::::M   M:::::::M   M::::::MM::::::M   M:::::::M   M::::::M          H::::::HHHHH::::::H        A:::::AAAAAAAAA:::::A            SSSSSS::::S   H::::::HHHHH::::::H  
+    M::::::M    M:::::M    M::::::MM::::::M    M:::::M    M::::::M          H:::::H     H:::::H       A:::::::::::::::::::::A                S:::::S  H:::::H     H:::::H  
+    M::::::M     MMMMM     M::::::MM::::::M     MMMMM     M::::::M          H:::::H     H:::::H      A:::::AAAAAAAAAAAAA:::::A               S:::::S  H:::::H     H:::::H  
+    M::::::M               M::::::MM::::::M               M::::::M        HH::::::H     H::::::HH   A:::::A             A:::::A  SSSSSSS     S:::::SHH::::::H     H::::::HH
+    M::::::M               M::::::MM::::::M               M::::::M ...... H:::::::H     H:::::::H  A:::::A               A:::::A S::::::SSSSSS:::::SH:::::::H     H:::::::H
+    M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
+    MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
+
+				             By: MaynardMiner                  v1.4.0b Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+                                                                                                     
+                                                                                SUDO APT-GET LAMBO
+                                                                          ____    _     __     _    ____
+                                                                         |####--|#|---|##|---|#|--'##|#|
+                                        _                                |___,--|#|---|##|---|#|--.__|_|
+                                      _|#)____________________________________,--'EEEEEEEEEEEEEE'_=-.
+                                     ((_____((_________________________,--------[JW](___(____(____(_==)        _________
+                                                                       .--|##,----o  o  o  o  o  o  o__|/---,-,-'==========+==.
+                                                                       |##|_Y__,__.-._,__,  __,-.___/ J \ .----.#############|##|
+                                                                       |##|              -.|#|##|#|===l##\   _\############|##|
+                                                                      =======-===l         |_|__|_|     \##-'__,=======.###|##|
+                                                                                                          \__.'          '======'
+                                                                  									
+					    				      SNIPER-MODE ACTIVATED
+
+						BTC DONATION ADRRESS TO SUPPORT DEVELOPMENT: 1DRxiWx6yuZfN9hrEJa3BDXWVJ9yyJU36i
+
+								      1.35% Dev Fee Was Written In This Code
+					          Sniper Mode Can Take Awhile To Load At First Time Start-Up. Please Be Patient!
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+Checking Algo Pools
+Checking Algo Miners
+Most Profitable Choice Is neoscrypt on zergpool_algo
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Failed To Launch
+
+       
+       
+       
+  There are miners that have failed! Check Your Settings And Arguments!
+  https://github.com/MaynardMiner/MM.Hash/wiki/Arguments-(Miner-Configuration) >> Right Click 'Open URL In Browser'
+
+                
+        
+Waiting 10 Seconds For Miners To Load & Restarting Background Tracking
+
+Type 'mine' in another terminal to see miner working- This is NOT a remote command!
+
+Type 'get-screen [MinerType]' to see last 100 lines of log- This IS a remote command!
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN =  0.01862 USD
+Time Left Until Database Starts: 118
+[08/26/2018 21:05:39]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 108
+[08/26/2018 21:05:49]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 98
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Is Running!
+
+        
+        
+        
+   Waiting 10 Seconds For Miners To Load
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:06:18]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 69
+[08/26/2018 21:06:28]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 59
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Failed To Launch
+
+        
+        
+        
+   Waiting 10 Seconds For Miners To Load
+[08/26/2018 21:06:54]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 33
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:07:04]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Sgminer-Phi-AMD-SGDevices1 neoscrypt Hashrate Check Timed Out 1 Times- It Was Noted In Timeout Folder
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+Checking Algo Pools
+Checking Algo Miners
+Most Profitable Choice Is neoscrypt on zergpool_algo
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Failed To Launch
+
+       
+       
+       
+  There are miners that have failed! Check Your Settings And Arguments!
+  https://github.com/MaynardMiner/MM.Hash/wiki/Arguments-(Miner-Configuration) >> Right Click 'Open URL In Browser'
+
+                
+        
+Waiting 10 Seconds For Miners To Load & Restarting Background Tracking
+
+Type 'mine' in another terminal to see miner working- This is NOT a remote command!
+
+Type 'get-screen [MinerType]' to see last 100 lines of log- This IS a remote command!
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN =  0.01868 USD
+Time Left Until Database Starts: 118
+[08/26/2018 21:07:50]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 108
+[08/26/2018 21:08:00]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 98
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Is Running!
+
+        
+        
+        
+   Waiting 10 Seconds For Miners To Load
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:08:26]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 72
+[08/26/2018 21:08:36]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 62
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Is Running!
+
+        
+        
+        
+   Waiting 10 Seconds For Miners To Load
+[08/26/2018 21:09:02]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 36
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:09:12]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 26
+[08/26/2018 21:09:22]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 16
+[08/26/2018 21:09:32]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 6
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:09:42]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Sgminer-Phi-AMD-SGDevices1 neoscrypt Hashrate Check Timed Out 2 Times- It Was Noted In Timeout Folder
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+Checking Algo Pools
+Checking Algo Miners
+Most Profitable Choice Is neoscrypt on zergpool_algo
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Failed To Launch
+
+       
+       
+       
+  There are miners that have failed! Check Your Settings And Arguments!
+  https://github.com/MaynardMiner/MM.Hash/wiki/Arguments-(Miner-Configuration) >> Right Click 'Open URL In Browser'
+
+                
+        
+Waiting 10 Seconds For Miners To Load & Restarting Background Tracking
+
+Type 'mine' in another terminal to see miner working- This is NOT a remote command!
+
+Type 'get-screen [MinerType]' to see last 100 lines of log- This IS a remote command!
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN =  0.01867 USD
+Time Left Until Database Starts: 118
+[08/26/2018 21:10:26]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 108
+[08/26/2018 21:10:36]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 98
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Failed To Launch
+
+        
+        
+        
+   Waiting 10 Seconds For Miners To Load
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:11:02]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 72
+[08/26/2018 21:11:12]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 62
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining neoscrypt on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Failed To Launch
+
+        
+        
+        
+   Waiting 10 Seconds For Miners To Load
+[08/26/2018 21:11:39]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Time Left Until Database Starts: 36
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:11:49]:
+ AMD1 is currently
+ Not Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for neoscrypt is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for neoscrypt is
+ 0.00 PH/s
+Sgminer-Phi-AMD-SGDevices1 neoscrypt Hashrate Check Timed Out 3 Times- It Was Noted In Timeout Folder
+Benchmarking Has Failed Three Times - Setting Stat to 0
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+Checking Algo Pools
+Checking Algo Miners
+Most Profitable Choice Is phi on zergpool_algo
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining phi on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Is Running!
+
+                
+        
+Waiting 10 Seconds For Miners To Load & Restarting Background Tracking
+
+Type 'mine' in another terminal to see miner working- This is NOT a remote command!
+
+Type 'get-screen [MinerType]' to see last 100 lines of log- This IS a remote command!
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN =  0.01867 USD
+Time Left Until Database Starts: 117
+[08/26/2018 21:12:24]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 107
+[08/26/2018 21:12:34]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 97
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:12:44]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ /s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 87
+[08/26/2018 21:12:54]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 771.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 77
+[08/26/2018 21:13:04]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.06 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 67
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:13:14]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.20 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 57
+[08/26/2018 21:13:24]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.24 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 47
+[08/26/2018 21:13:34]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.25 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 37
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:13:44]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.27 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 27
+[08/26/2018 21:13:54]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.26 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 17
+[08/26/2018 21:14:05]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.27 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Time Left Until Database Starts: 7
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:14:15]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for phi is
+ 1.27 MH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for phi is
+ 0.00 PH/s
+Sgminer-Phi-AMD-SGDevices1 phi Was Active for 135 Seconds
+Attempting to record hashrate for Sgminer-Phi-AMD-SGDevices1 phi
+Sgminer-Phi-AMD-SGDevices1 phi Starting Bench
+Recorded Hashrate For Sgminer-Phi-AMD-SGDevices1 phi Is 1.27 MH
+Stat Written
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+Checking Algo Pools
+Checking Algo Miners
+Most Profitable Choice Is xevan on zergpool_algo
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Sgminer-Phi-AMD-SGDevices1 Mining xevan on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Is Running!
+
+                
+        
+Waiting 10 Seconds For Miners To Load & Restarting Background Tracking
+
+Type 'mine' in another terminal to see miner working- This is NOT a remote command!
+
+Type 'get-screen [MinerType]' to see last 100 lines of log- This IS a remote command!
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN =  0.01866 USD
+Time Left Until Database Starts: 118
+[08/26/2018 21:14:50]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 63.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 108
+[08/26/2018 21:15:00]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 131.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 98
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:15:10]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 155.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 88
+[08/26/2018 21:15:20]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 166.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 78
+[08/26/2018 21:15:32]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 165.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 67
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:15:42]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 169.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 57
+[08/26/2018 21:15:52]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 173.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 47
+[08/26/2018 21:16:02]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 175.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 37
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:16:12]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 174.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 27
+[08/26/2018 21:16:22]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 178.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 17
+[08/26/2018 21:16:32]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 177.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Time Left Until Database Starts: 7
+
+
+      Type 'active' in another terminal to view active/previous miners- this IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:16:42]:
+ AMD1 is currently
+ Running:
+Sgminer-Phi-AMD-SGDevices1 current hashrate for xevan is
+ 175.00 KH/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for xevan is
+ 0.00 PH/s
+Sgminer-Phi-AMD-SGDevices1 xevan Was Active for 135 Seconds
+Attempting to record hashrate for Sgminer-Phi-AMD-SGDevices1 xevan
+Sgminer-Phi-AMD-SGDevices1 xevan Starting Bench
+Recorded Hashrate For Sgminer-Phi-AMD-SGDevices1 xevan Is 175.00 KH
+Stat Written
+MM.Hash Is Entering Sniper Mode: Building The Coin Database- It Can Take Some Time.
+Checking Algo Pools
+Checking Algo Miners
+Most Profitable Choice Is equihash on zergpool_algo
+
+        
+        
+        
+        Clearing Screen AMD1 & Tracking
+Starting Avermore-SGDevices1 Mining equihash on AMD1
+Getting Process ID for sgminer-AMD1
+sgminer-AMD1 Is Running!
+
+                
+        
+Waiting 10 Seconds For Miners To Load & Restarting Background Tracking
+
+Type 'mine' in another terminal to see miner working- This is NOT a remote command!
+
+Type 'get-screen [MinerType]' to see last 100 lines of log- This IS a remote command!
+
+https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+
+                                                                             *      *         )        (       )
+                                                                           (     (       ( /(  (     )\ ) ( /(
+                                                                          )\))(  )\))(    )\()) )\   (()/( )\())
+                                                                          ((_)()\((_)()\  ((_)((((_)(  /(_)|(_)\
+                                                                          (_()((_|_()((_)  _((_)\ _ )\(_))  _((_)
+                                                                          |  \/  |  \/  | | || (_)_\(_) __|| || |
+                                                                          | |\/| | |\/| |_| __ |/ _ \ \__ \| __ |
+                                                                          |_|  |_|_|  |_(_)_||_/_/ \_\|___/|_||_|
+                                                                                    Sudo Apt-Get Lambo
+
+
+
+
+1 RVN =  0.01867 USD
+Time Left Until Database Starts: 118
+[08/26/2018 21:17:16]:
+ AMD1 is currently
+ Running:
+Avermore-SGDevices1 current hashrate for equihash is
+ 25.96  H/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for equihash is
+ 0.00 PH/s
+Time Left Until Database Starts: 108
+[08/26/2018 21:17:27]:
+ AMD1 is currently
+ Running:
+Avermore-SGDevices1 current hashrate for equihash is
+ 101.90  H/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for equihash is
+ 0.00 PH/s
+Time Left Until Database Starts: 98
+
+
+      Type 'stats' in another terminal to view miner statistics- This IS a remote command!
+      https://github.com/MaynardMiner/MM.Hash/wiki/HiveOS-management >> Right Click 'Open URL In Browser'
+[08/26/2018 21:17:37]:
+ AMD1 is currently
+ Running:
+Avermore-SGDevices1 current hashrate for equihash is
+ 106.70  H/s
+AMD1 is currently mining on zergpool_algo
+AMD1 previous hashrates for equihash is
+ 0.00 PH/s
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> $global:?
+False
+**********************
+PowerShell transcript end
+End time: 20180826211740
+**********************

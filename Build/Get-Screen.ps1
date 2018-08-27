@@ -3,6 +3,8 @@ param(
         [String]$Type
      )
 
-     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+     $Dir = (Split-Path $script:MyInvocation.MyCommand.Path)
+     $LogStart = Join-Path (Split-Path $Dir) "Logs"
+     Set-Location $LogStart
      $Log = Get-Content "$($Type).log"
-$Log | Select -Last 100
+     $Log | Select -Last 100

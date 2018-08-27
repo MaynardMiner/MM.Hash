@@ -710,13 +710,14 @@ function Expand-WebRequest {
      }
 }
 
- function Get-Coin {
+
+function Get-Nvidia {
     param(
         [Parameter(Mandatory=$true)]
         [String]$Coin
     )
 
-    $Coins = Get-Content "Coins.txt" | ConvertFrom-Json
+    $Coins = Get-Content ".\Config\get-nvidia.txt" | ConvertFrom-Json
 
     $Coin = (Get-Culture).TextInfo.ToTitleCase(($Coin -replace "_"," ")) -replace " "
 
@@ -724,30 +725,19 @@ function Expand-WebRequest {
     else{$Coin}
 }
 
-function Get-AlgorithmList {
-    param (
+function Get-AMD {
+    param(
         [Parameter(Mandatory=$true)]
-        [Array]$DeviceType,
-        [Parameter(Mandatory=$false)]
-        [Array]$No_Algo
+        [String]$Coin
     )
 
-    $AlgorithmList = @()
+    $Coins = Get-Content ".\Config\get-amd.txt" | ConvertFrom-Json
 
-    $Type | foreach {
-        if($_ -like "*NVIDIA*"){$GetAlgorithms = Get-Content ".\Config\nvidia-algorithms.txt"}
-        if($_ -like "*CPU*"){$GetAlgorithms = Get-Content ".\Config\cpu-algorithms.txt"}
-        if($_ -like "*AMD*"){$GetAlgorithms = Get-Content ".\Coinfig\amd-algorithms.txt"}
-        if($No_Algo -ne $null)
-         {
-         $GetNoAlgo = Compare-Object $No_Algo $GetAlgorithms
-         $GetNoAlgo.InputObject | foreach{$AlgorithmList += $_}
-         }
-         else{$GetAlgorithms | foreach { $AlgorithmList += $($_)} }
-        }
-    
-    $AlgorithmList
-    }
+    $Coin = (Get-Culture).TextInfo.ToTitleCase(($Coin -replace "_"," ")) -replace " "
+
+    if($Coins.$Coin){$Coins.$Coin}
+    else{$Coin}
+}
 
 function Get-Algorithm {
     param(
@@ -755,28 +745,13 @@ function Get-Algorithm {
         [String]$Algorithm
     )
 
-    $Algorithms = Get-Content "GetAlgo.txt" | ConvertFrom-Json
+    $Algorithms = Get-Content ".\Config\get-pool.txt" | ConvertFrom-Json
 
-    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
-
-    if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
-    else{$Algorithm}
-}
-
-function Get-Algo {
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]$Algorithm
-    )
-
-    $Algorithms = Get-Content "AlgoText.txt" | ConvertFrom-Json
-
-    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
+    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "_"," ")) -replace " "
 
     if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
     else{$Algorithm}
 }
-
 
 
 function Convert-DateString ([string]$Date, [string[]]$Format)

@@ -153,7 +153,7 @@ This is an example of how to remote install/update miner. It is the fastest way 
 **CONTACT**
 
 Discord Channel For MM.Hash- 
-https://discord.gg/xVB5MqR
+https://discord.gg/5YXE6cu
 
 **DONATE TO SUPPORT!**
 

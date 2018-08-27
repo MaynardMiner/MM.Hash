@@ -19,21 +19,21 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 if($CoinAlgo -eq $null)
 {
 $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-   if($Algorithm -eq "$($AlgoPools.(Get-Algorithm($_)).Algorithm)")
+   if($Algorithm -eq "$($AlgoPools.$_.Algorithm)")
     {
      [PSCustomObject]@{
          platform = $platform
-         Symbol = "$(Get-Algorithm($_))"
+         Symbol = "$($_)"
          MinerName = "cpuminer-CPU"
          Type = "CPU"
          Path = $Path
          Devices = $Devices
          DeviceCall = "cpuminer-opt"
-         Arguments = "-a $_ -o stratum+tcp://$($AlgoPools.(Get-Algorithm($_)).Host):$($AlgoPools.(Get-Algorithm($_)).Port) -b 0.0.0.0:4048 -u $($AlgoPools.(Get-Algorithm($_)).CPUser) -p $($AlgoPools.(Get-Algorithm($_)).CPUPass) $($Commands.$_)"
-         HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-         Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-         MinerPool = "$($AlgoPools.(Get-Algorithm($_)).Name)"
-         FullName = "$($AlgoPools.(Get-Algorithm($_)).Mining)"
+         Arguments = "-a $_ -o stratum+tcp://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -b 0.0.0.0:4048 -u $($AlgoPools.$_.CPUser) -p $($AlgoPools.$_.CPUPass) $($Commands.$_)"
+         HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
+         Selected = [PSCustomObject]@{$_ = ""}
+         MinerPool = "$($AlgoPools.$_.Name)"
+         FullName = "$($AlgoPools.$_.Mining)"
          Port = 4048
          API = "Ccminer"
          Wrap = $false

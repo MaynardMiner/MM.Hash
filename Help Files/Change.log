@@ -175,3 +175,23 @@ finished yet.
 -Started code staging for windows HiveOS API 2.0 (not completed) integration
 -Started code staging for HiveOS new version 1.4.0b
 -Started code staging for Ubuntu new version 1.4.0c
+
+1.4.0b
+HiveOS: Changes:
+-Added AMD miners, and changed code to work for AMD in HiveOS (HiveOS only)
+-AMD miners are not plug-and-play. You will likely have to edit settings in the miner files, AMD Unix is complicated, but you should be familiar with this.
+-Will add more/fine AMD miners- This is simply beta test of core script. Please use and review any issues you see.
+-SGminer is not working on blockmasters- It is a pool issue, not miner.
+-Fixed stats and have background miner logs sent to "Logs" folder
+-Reduced switch load time by a few seconds.
+-New Remote command: get-screen [type]...Show last 100 lines of group1 miner on HiveOS site.
+-Ensured Timeouts will timeout miners.
+-Added Function Restart-Database. Miner will now switch off algorithm/coin if detects no hash after 1 min.
+-Times on 'active' command should be more accurate.
+-'active' now shows database countdown.
+-code staging for Ubuntu version.
+-added more algorithm text files that are case specific for naming convetions between pool and miner.
+-Enemy 1.1.7
+-T-Rex 0.6.2 (added balloon)
+-Lots of migrations and code cleanup to make miner better/faster
+

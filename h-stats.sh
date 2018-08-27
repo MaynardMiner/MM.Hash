@@ -12,16 +12,16 @@ get_nvidia_cards_fan(){
 
 
 function miner_stats {
-	local miner=$(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/mineref.sh)
+	local miner=$(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/mineref.sh)
 	local mindex=$2 #empty or 2, 3, 4, ...
         local Ntemp=$(get_nvidia_cards_temp)	# cards temp
 	local Nfan=$(get_nvidia_cards_fan)	# cards fan
-	local myhashrate=( $(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/hashrates.sh) )
-	local myhs=$(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/hashtype.sh)
-	local myacc=$(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/accepted.sh)
-        local mykhs=$(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/totalhash.sh)
-	local myrj=$(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/rejected.sh)
-	local myalgo=$(< /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/algo.sh)
+	local myhashrate=( $(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/hashrates.sh) )
+	local myhs=$(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/hashtype.sh)
+	local myacc=$(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/accepted.sh)
+        local mykhs=$(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/totalhash.sh)
+	local myrj=$(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/rejected.sh)
+	local myalgo=$(< /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/algo.sh)
 	khs=0
 	stats=
 	case $miner in
@@ -46,12 +46,12 @@ function miner_stats {
 					--arg ac "$ac" --arg rj "$rj" \
 					--arg algo "$myalgo" \
 					'{$hs, $hs_units, $temp, $fan, $uptime, ar: [$ac, $rj], $algo}')
-	                truncate -s 0 /hive/custom/MM.Hash.1.4.0/Build/hashrates.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/accepted.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/rejected.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/hashtype.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/totalhash.sh
-					truncate -s 0 /hive/custom/MM.Hash.1.4.0/Build/Unix/Hive/algo.sh
+	                		truncate -s 0 /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hivehashrates.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/accepted.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/rejected.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/hashtype.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/totalhash.sh
+					truncate -s 0 /hive/custom/MM.Hash.1.4.0b/Build/Unix/Hive/algo.sh
 			;;
 		claymore)
 			stats_raw=`echo '{"id":0,"jsonrpc":"2.0","method":"miner_getstat2"}' | nc -w $API_TIMEOUT localhost 3333 | jq '.result'`
@@ -260,9 +260,9 @@ fi
 			if [[ $? -ne 0 || -z $stats_raw ]]; then
 				echo -e "${YELLOW}Failed to read $miner from localhost:4028${NOCOLOR}"
 			else
-				khs=`echo $stats_raw | jq '.["summary"][0]["SUMMARY"][0]["KHS 15s"]'`
-				stats=`echo $stats_raw | jq '{khs: [.devs[0].DEVS[]."KHS 15s"], temp: [.devs[0].DEVS[].Temperature], \
-						fan: [.devs[0].DEVS[]."Fan Percent"], uptime: .summary[0].SUMMARY[0].Elapsed, algo: "'$SGMINER_GM_ALGO'"}'`
+				khs=`echo $stats_raw | jq '.["summary"][0]["SUMMARY"][0]["KHS 5s"]'`
+				stats=`echo $stats_raw | jq '{hs: [.devs[0].DEVS[]."KHS 5s"], hs_units: "'khs'", temp: [.devs[0].DEVS[].Temperature], \
+						fan: [.devs[0].DEVS[]."Fan Percent"], uptime: .summary[0].SUMMARY[0].Elapsed, algo: "'$myalgo'"}'`
 			fi
 		;;
 		dstm)

@@ -25,11 +25,14 @@ While($true)
       else
        {
          Write-Host "Closing MM.Hash" -foregroundcolor red
+         Start-Process "screen" -ArgumentList "-S miner -X quit"
          Start-Process "screen" -ArgumentList "-S NVIDIA1 -X quit"
          Start-Process "screen" -ArgumentList "-S NVIDIA2 -X quit"
          Start-Process "screen" -ArgumentList "-S NVIDIA3 -X quit"
+         Start-Process "screen" -ArgumentList "-S AMD1 -X quit"
+         Start-Process "screen" -ArgumentList "-S AMD2 -X quit"
+         Start-Process "screen" -ArgumentList "-S AMD3 -X quit"
          Start-Process "screen" -ArgumentList "-S CPU -X quit"
-         Start-Process "screen" -ArgumentList "-S miner -X quit"
          Start-Process "screen" -ArgumentList "-S LogData -X quit"
          Start-Process "screen" -ArgumentList "-S PIDInfo -X quit"
        }
@@ -38,11 +41,14 @@ While($true)
     else
      {
         Write-Host "Closing MM.Hash" -foregroundcolor red
+        Start-Process "screen" -ArgumentList "-S miner -X quit"
         Start-Process "screen" -ArgumentList "-S NVIDIA1 -X quit"
         Start-Process "screen" -ArgumentList "-S NVIDIA2 -X quit"
         Start-Process "screen" -ArgumentList "-S NVIDIA3 -X quit"
+        Start-Process "screen" -ArgumentList "-S AMD1 -X quit"
+        Start-Process "screen" -ArgumentList "-S AMD2 -X quit"
+        Start-Process "screen" -ArgumentList "-S AMD3 -X quit"
         Start-Process "screen" -ArgumentList "-S CPU -X quit"
-        Start-Process "screen" -ArgumentList "-S miner -X quit"
         Start-Process "screen" -ArgumentList "-S LogData -X quit"
         Start-Process "screen" -ArgumentList "-S PIDInfo -X quit"
      }

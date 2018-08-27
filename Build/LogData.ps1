@@ -16,7 +16,7 @@ param(
  While($true)
  {
  $MinerAlgo = "$($Miner_Algo)"
- $HashPath = Join-Path ".\Build" "$($Type).log"
+ $HashPath = Join-Path ".\Logs" "$($Type).log"
  switch($DeviceCall)
  {
   "TRex"

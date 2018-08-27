@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-screen -r NVIDIA1
+screen -r $(< /hive/custom/MM.Hash.1.4.0b/Build/minertype.sh)
 

@@ -1,1 +1,1 @@
-ccminer
+sgminer-gm

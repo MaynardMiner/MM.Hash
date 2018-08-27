@@ -1,1 +1,1 @@
-neoscrypt
+equihash

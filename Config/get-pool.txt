@@ -1,5 +1,5 @@
 {
-    "aergo": "aeriumx",
+    "aergo": "aergo",
     "allium": "allium",
     "balloon": "balloon",
     "xmr": "xmr",
@@ -18,7 +18,7 @@
     "groestl": "groestl",
     "hodl": "hodl",
     "hex": "hex",
-    "lyra2re": "lyra2re",
+    "lyra2re": "lyra2z",
     "yescrypt": "yescrypt",
     "blake": "blakecoin",
     "equihash": "equihash",
@@ -26,6 +26,7 @@
     "sib": "sib",
     "neoscrypt": "neoscrypt",
     "myr-gr": "myr-gr",
+    "lyra2rev2": "lyra2v2",
     "lyra2v2": "lyra2v2",
     "blake2s": "blake2s",
     "keccak": "keccak",

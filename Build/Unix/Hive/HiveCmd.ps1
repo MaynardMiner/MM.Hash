@@ -127,7 +127,7 @@ function Get-AlgorithmList {
     $Type | foreach {
         if($_ -like "*NVIDIA*"){$GetAlgorithms = Get-Content ".\Config\nvidia-algorithms.txt"}
         if($_ -like "*CPU*"){$GetAlgorithms = Get-Content ".\Config\cpu-algorithms.txt"}
-        if($_ -like "*AMD*"){$GetAlgorithms = Get-Content ".\Coinfig\amd-algorithms.txt"}
+        if($_ -like "*AMD*"){$GetAlgorithms = Get-Content ".\Config\amd-algorithms.txt"}
         if($No_Algo -ne $null)
          {
          $GetNoAlgo = Compare-Object $No_Algo $GetAlgorithms
@@ -163,11 +163,14 @@ function Get-AlgorithmList {
             [parameter(Mandatory=$true)]
             [String]$MinerDir,
             [parameter(Mandatory=$true)]
-            [String]$Delay
+            [String]$Delay,
+            [parameter(Mandatory=$true)]
+            [String]$Logs
         )
     
         $MinerTimer = New-Object -TypeName System.Diagnostics.Stopwatch
         $Export = "/hive/ccminer/cuda"
+	$ClayMinerDir = Join-path "$MinerDir" "$MinerName"
         
         Set-Location "/"
         Set-Location $CmdDir
@@ -188,8 +191,9 @@ function Get-AlgorithmList {
         if($Type -like '*CPU*'){$MinerArguments = $Arguments}
         if($Type -like '*AMD*'){$MinerArguments = $Arguments}
         if($Type -like '*ASIC*'){$MinerArguments = $Arguments}
-        $MinerConfig = "$MinerDir $MinerArguments"
-        $MinerConfig | Set-Content ".\config.sh"
+	if($MinerName -like '*clay*'){$MinerConfig = "$ClayMinerDir $MinerArguments"}
+        else{$MinerConfig = "$Minername $MinerArguments"}
+        $MinerConfig | Set-Content ".\Unix\Hive\config.sh"
         Start-Sleep -S 1
         Write-Host "
         
@@ -205,10 +209,12 @@ function Get-AlgorithmList {
         if(Test-Path "$($Type).log"){Remove-Item "$($Type).log" -recurse -force}
         $MiningId = Start-Process "screen" -ArgumentList "-S $($Type) -d -m"
         Start-Sleep -S 1
-        if($Type  -like '*NVIDIA*'){$PreStart = Start-Process ".\Unix\Hive\pre-start.sh" -ArgumentList "$($Type) $Export"}
-        Start-Sleep -S 1
+        if($Type  -like '*NVIDIA*'){$PreStart = Start-Process ".\Unix\Hive\pre-start.sh" -ArgumentList "$($Type) $Export" -Wait}
+        if($Type -like '*AMD*'){$PreStart = Start-Process ".\Unix\Hive\pre-startamd.sh" -ArgumentList "$($Type)" -Wait}
+	Start-Sleep -S 1
         Write-Host "Starting $($Name) Mining $($Coins) on $($Type)" -ForegroundColor Cyan
-        $NewMiner = Start-Process ".\Unix\Hive\startup.sh" -ArgumentList "$($Type) $CmdDir"
+	if($MinerName -like '*clay*'){$NewMiner = Start-Process ".\Unix\Hive\startupclay.sh" -ArgumentList "$($Type) $CmdDir/Unix/Hive"}
+	else{$NewMiner = Start-Process ".\Unix\Hive\startup.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs"}
 
         $MinerTimer.Restart()
 

@@ -2,6 +2,7 @@
 {
 "linux":
  [ 
+
   {
    "cpu":
     [
@@ -121,9 +122,46 @@
        "path1": ".\\Bin\\TRex-Linux-REXDevices1\\t-rex-NVIDIA1",
        "path2": ".\\Bin\\TRex-Linux-REXDevices2\\t-rex-NVIDIA2",
        "path3": ".\\Bin\\TRex-Linux-REXDevices3\\t-rex-NVIDIA2",
-       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-Rex-Linux.zip"
+       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-062-Linux.zip"
       }
      }
+    ]
+   },
+
+{
+  "amd":
+   [
+
+   {
+    "claymore":
+     {
+      "path1": ".\\Bin\\Clay-AMD-ClayDevices1\\clayamd-AMD1",
+      "path2": ".\\Bin\\Clay-AMD-ClayDevices2\\clayamd-AMD2",
+      "path3": ".\\Bin\\Clay-AMD-ClayDevices3\\clayamd-AMD3",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/Claymore-119-AMD-Linux.zip" 
+     }
+   },
+
+   {
+    "avermore":
+     {
+      "path1": ".\\Bin\\Avermore-AMD-SGDevices1\\sgminer-AMD1",
+      "path2": ".\\Bin\\Avermore-AMD-SGDevices2\\sgminer-AMD2",
+      "path3": ".\\Bin\\Avermore-AMD-SGDevices3\\sgminer-AMD3",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/avermore-141-Linux.zip" 
+     }
+   },
+   
+   {
+    "sgminerphi":
+     {
+      "path1": ".\\Bin\\Sgminer-Phi-AMD-SGDevices1\\sgminer-AMD1",
+      "path2": ".\\Bin\\Sgminer-Phi-AMD-SGDevices2\\sgminer-AMD2",
+      "path3": ".\\Bin\\Sgminer-Phi-AMD-SGDevices2\\sgminer-AMD3",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/avermore-141-Linux.zip" 
+     }
+   }
+
     ]
    }
   ]

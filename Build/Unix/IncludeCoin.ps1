@@ -304,7 +304,7 @@ function Get-HashRate {
     {
         switch($API)
         {
-            "xgminer"
+            "sgminer-gm"
             {
                 $Message = @{command="summary"; parameter=""} | ConvertTo-Json -Compress
 
@@ -832,7 +832,7 @@ function Expand-WebRequest {
 
 	if($BuildPath -eq "Zip")
 	 {
-	  if (Test-Path $FileName1) {Remove-Item $FileName1}
+	  if (Test-Path $FileName1) {Remove-Item $FileName1 -Force}
 	    Write-Host "Downloading Windows Binaries"
 	    Start-Process -Filepath "wget" -ArgumentList "$Uri -O $FileName1" -Wait
            if (".msi", ".exe" -contains ([IO.FileInfo](Split-Path $Uri -Leaf)).Extension)
@@ -858,7 +858,14 @@ function Expand-WebRequest {
 		       {
                          Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
                          $MinerNewFile = (Join-Path $Path_New ("$($MineName)" -replace "-$($MineType)",""))
-			 Rename-Item -Path $MinerNewFile -NewName "$($MineName)"
+                         Rename-Item -Path $MinerNewFile -NewName "$($MineName)"
+                         $ChmodPath = (Join-Path $Path_New "$($MineName)")
+                         Start-Process "chmod" -ArgumentList "+x $($ChmodPath)" -Wait
+			 if($MineName -eq "Clayamd")
+ 			  {
+			   Start-Process "chmod" -ArgumentList "0644 $($Path_New)/Data3.bin" -Wait
+      			   Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+ 			  }
                          Remove-Item $Path_Old
 		       }
                   }
@@ -879,13 +886,27 @@ if($BuildPath -eq "Linux-Zip")
  }
 
 
- function Get-Coin {
+ function Get-Nvidia {
     param(
         [Parameter(Mandatory=$true)]
         [String]$Coin
     )
 
-    $Coins = Get-Content "Coins.txt" | ConvertFrom-Json
+    $Coins = Get-Content ".\Config\get-nvidia.txt" | ConvertFrom-Json
+
+    $Coin = (Get-Culture).TextInfo.ToTitleCase(($Coin -replace "_"," ")) -replace " "
+
+    if($Coins.$Coin){$Coins.$Coin}
+    else{$Coin}
+}
+
+function Get-AMD {
+    param(
+        [Parameter(Mandatory=$true)]
+        [String]$Coin
+    )
+
+    $Coins = Get-Content ".\Config\get-amd.txt" | ConvertFrom-Json
 
     $Coin = (Get-Culture).TextInfo.ToTitleCase(($Coin -replace "_"," ")) -replace " "
 
@@ -899,23 +920,9 @@ function Get-Algorithm {
         [String]$Algorithm
     )
 
-    $Algorithms = Get-Content "GetAlgo.txt" | ConvertFrom-Json
+    $Algorithms = Get-Content ".\Config\get-pool.txt" | ConvertFrom-Json
 
     $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "_"," ")) -replace " "
-
-    if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
-    else{$Algorithm}
-}
-
-function Get-Algo {
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]$Algorithm
-    )
-
-    $Algorithms = Get-Content "AlgoText.txt" | ConvertFrom-Json
-
-    $Algorithm = (Get-Culture).TextInfo.ToTitleCase(($Algorithm -replace "-"," " -replace "_"," ")) -replace " "
 
     if($Algorithms.$Algorithm){$Algorithms.$Algorithm}
     else{$Algorithm}

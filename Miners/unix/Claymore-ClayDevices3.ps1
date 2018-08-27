@@ -20,23 +20,23 @@ if($GPUDevices3 -ne '')
     if($CoinAlgo -eq $null)
     {
      $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-      if($Algorithm -eq "$($AlgoPools.(Get-Algorithm($_)).Algorithm)")
+      if($Algorithm -eq "$($AlgoPools.$_.Algorithm)")
        {
         [PSCustomObject]@{
-          Platform = $Platform
-        Symbol = "$(Get-Algorithm($_))"
+        Platform = $Platform  
+        Symbol = "$($_)"
         MinerName = "clay-NVIDIA3"
         Type = "NVIDIA3"
         Path = $Path
         Devices = $Devices
         DeviceCall = "claymore"
-        Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($AlgoPools.(Get-Algorithm($_)).Protocol)://$($AlgoPools.(Get-Algorithm($_)).Host):$($AlgoPools.(Get-Algorithm($_)).Port) -ewal $($AlgoPools.(Get-Algorithm($_)).User3) -epsw $($AlgoPools.(Get-Algorithm($_)).Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$_)"
-        HashRates = [PSCustomObject]@{(Get-Algorithm($_)) = $Stats."$($Name)_$(Get-Algorithm($_))_HashRate".Day}
-        Selected = [PSCustomObject]@{(Get-Algorithm($_)) = ""}
-        FullName = "$($AlgoPools.(Get-Algorithm($_)).Mining)"
+        Arguments = "-mport -3335 -mode 1 -allcoins 1 -allpools 1 -epool $($AlgoPools.$_.Protocol)://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -ewal $($AlgoPools.$_.User3) -epsw $($AlgoPools.$_.Pass3) -wd 0 -dbg -1 -eres 1 $($Commands.$_)"
+        HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
+        Selected = [PSCustomObject]@{$_ = ""}
+        FullName = "$($AlgoPools.$_.Mining)"
         API = "claymore"
         Port = 3335
-        MinerPool = "$($AlgoPools.(Get-Algorithm($_)).Name)"
+        MinerPool = "$($AlgoPools.$_.Name)"
         Wrap = $false
         URI = $Uri
         BUILD = $Build
@@ -51,7 +51,7 @@ if($GPUDevices3 -ne '')
          Where {$($Commands.$($CoinPools.$_.Algorithm)) -NE $null} |
          foreach {
              [PSCustomObject]@{
-              Platform = $Platform
+               Platform = $Platform
                Coin = "Yes"
                Symbol = "$($CoinPools.$_.Symbol)"
                MinerName = "clay-NVIDIA3"

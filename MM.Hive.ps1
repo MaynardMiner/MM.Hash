@@ -182,12 +182,14 @@ Start-Process ".\Build\Unix\Hive\killall.sh" -ArgumentList "$($_)" -Wait
 
 #Start the log
 $Log = 1
-Start-Transcript ".\Logs\MM.Hash$($Log).log"
+if(-not (Test-Path "Logs")){New-Item "Logs" -ItemType "directory" | Out-Null}
+Start-Transcript ".\Logs\MM.Hash$($Log).log" -Force
 $LogTimer = New-Object -TypeName System.Diagnostics.Stopwatch
 $LogTimer.Start()
 
 ##Update
 $PreviousVersions = @()
+$PreviousVersions += "MM.Hash.1.3.1"
 $PreviousVersions += "MM.Hash.1.3.2"
 $PreviousVersions += "MM.Hash.1.3.3"
 $PreviousVersions += "MM.Hash.1.3.4"
@@ -214,6 +216,7 @@ $PreviousVersions | foreach {
       if(-not (Test-Path "Stats")){New-Item "Stats" -ItemType "directory"  | Out-Null }
       if(-not (Test-Path "Miners")){New-Item "Miners" -ItemType "directory"  | Out-Null }
       if(-not (Test-Path "Miners\unix")){New-Item "Miners\unix" -ItemType "directory"  | Out-Null }
+      if(-not (Test-Path "Config")){New-Item "Config" -ItemType "directory"  | Out-Null }
       Get-ChildItem -Path "$($OldMiners)\*" -Include *.ps1 -Recurse | Copy-Item -Destination ".\Miners\unix" -force
       Get-ChildItem -Path "$($OldBackup)\*" -Include *.txt -Recurse | Copy-Item -Destination ".\Stats" -force
       Get-ChildItem -Path "$($OldBackup)\*" -Include *.txt -Recurse | Copy-Item -Destination ".\Backup" -force
@@ -891,7 +894,7 @@ if($CoinMiners -ne $null)
    }
 
    $BestMiners_Combo | ForEach {
-    if(($ActiveMinerPrograms | Where Name -eq $_.Name | Where Path -eq $_.Path | Where Arguments -eq $_.Arguments | Where Type -eq $_.Type).count -eq 0)
+    if(-not ($ActiveMinerPrograms | Where Name -eq $_.Name | Where Path -eq $_.Path | Where Arguments -eq $_.Arguments | Where Type -eq $_.Type))
      {
             $ActiveMinerPrograms += [PSCustomObject]@{
               Name = $_.Name
@@ -933,9 +936,9 @@ if($CoinMiners -ne $null)
     
 
 $Restart = "No"
-$NoMiners = "Yes"
+$NoMiners = "No"
 $ActiveMinerPrograms | foreach {
-  if(($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type).count -eq 0)
+  if(-not ($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type))
   {
   if($_.XProcess.HasExited)
    {
@@ -965,9 +968,11 @@ $ActiveMinerPrograms | foreach {
         $DecayStart = Get-Date
         $_.New = $true
         $_.Activated++
-        $MinerDir = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+        $LogDir = (Join-Path $Dir "Logs")
+        $MinerDir = Split-Path $_.Path
         $LaunchCodes = @{}
         $LaunchCodes.Add("Type",$_.Type)
+        $LaunchCodes.Add("Logs",$LogDir)
         $LaunchCodes.Add("Name",$_.Name)
         $LaunchCodes.Add("Arguments",$_.Arguments)
         $LaunchCodes.Add("MinerName",$_.MinerName)
@@ -980,7 +985,8 @@ $ActiveMinerPrograms | foreach {
         if($_.Devices -ne $null){$LaunchCodes.Add("Devices",$_.Devices)}
 
         Start-LaunchCode @LaunchCodes
-
+      $TypeFile = ".\Build\minertype.sh"
+      if($_.Type -eq "NVIDIA1" -or $_.Type -eq "AMD1"){$_.Type | Out-file $TypeFile}
       $PIDFile = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)_PID.txt"
       if(Test-Path $PIDFile)
         {
@@ -994,12 +1000,12 @@ $ActiveMinerPrograms | foreach {
        if($_.XProcess -eq $null -or $_.XProcess.HasExited)
        {
         $_.Status = "Failed"
+        $NoMiners = "Yes"
         Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Darkred
        }
        else
        {
         $_.Status = "Running"
-        $NoMiners = "No"
         Write-Host "$($_.MinerName) Is Running!" -ForegroundColor Green
        }
       }
@@ -1013,7 +1019,7 @@ if($NoMiners -eq "Yes")
        
        
        
-  No Miners Are Running! Check Your Settings And Arguments!
+  There are miners that have failed! Check Your Settings And Arguments!
   https://github.com/MaynardMiner/MM.Hash/wiki/Arguments-(Miner-Configuration) >> Right Click 'Open URL In Browser'
 
 
@@ -1056,7 +1062,7 @@ Set-Location $CmdDir
 Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "LogData" -Wait
 
 $ActiveMinerPrograms | Foreach {
-  if(($BestMiners_Combo | Where Name -eq $_.Name | Where Path -eq $_.Path | Where Arguments -eq $_.Arguments | Where Type -eq $_.Type).count -gt 0)
+  if($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type)
    {
    if($_.Type -eq "NVIDIA1")
     {
@@ -1161,7 +1167,7 @@ if($Log -eq 12)
   function Restart-Miner {
   $ActiveMinerPrograms | Foreach {
   $Restart = "No"
-  if(($BestMiners_Combo | Where Name -eq $_.Name | Where Path -eq $_.Path | Where Arguments -eq $_.Arguments | Where Type -eq $_.Type).count -gt 0)
+  if($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type)
    { 
     if($_.XProcess -eq $null -or $_.XProcess.HasExited -ne $false)
     {
@@ -1169,27 +1175,25 @@ if($Log -eq 12)
     $DecayStart = Get-Date
     $_.New = $true
     $_.Activated++
-    $BuildDir = (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
-    $MinerDir = (Join-Path (Split-Path $_.Path) "$($_.MinerName)")
+    $LogDir = (Join-Path $Dir "Logs")
+    $MinerDir = Split-Path $_.Path
     $LaunchCodes = @{}
     $LaunchCodes.Add("Type",$_.Type)
+    $LaunchCodes.Add("Logs",$LogDir)
     $LaunchCodes.Add("Name",$_.Name)
     $LaunchCodes.Add("Arguments",$_.Arguments)
     $LaunchCodes.Add("MinerName",$_.MinerName)
     $LaunchCodes.Add("Path",$_.Path)
     $LaunchCodes.Add("Coins",$_.Coins)
-    $LaunchCodes.Add("BuildDir",$BuildDir)
+    $LaunchCodes.Add("CmdDir",$CmdDir)
     $LaunchCodes.Add("MinerDir",$MinerDir)
     $LaunchCodes.Add("Delay",$Delay)
-
-    $LaunchCodes
-
     if($_.DeviceCall -ne $null){$LaunchCodes.Add("DeviceCall",$_.DeviceCall)}
     if($_.Devices -ne $null){$LaunchCodes.Add("Devices",$_.Devices)}
 
     Start-LaunchCode @LaunchCodes
 
-    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+  Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
   $PIDFile = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)_PID.txt"
   if(Test-Path $PIDFile)
     {
@@ -1229,7 +1233,7 @@ if($Log -eq 12)
 
   function Get-MinerHashRate {
   $ActiveMinerPrograms | Foreach {
-    if(($BestMiners_Combo | Where Name -eq $_.Name | Where Path -eq $_.Path | Where Arguments -eq $_.Arguments | Where Type -eq $_.Type).count -gt 0)
+    if($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type)
     { 
       if($_.Xprocess -eq $null -or $_.XProcess.HasExited){$_.Status = "Failed"}
 	    if($_.Type -eq "NVIDIA1" -or $_.Type -eq "AMD1")
@@ -1276,6 +1280,31 @@ if($Log -eq 12)
      }
 
 
+     function Restart-Database {
+     $Restart = "No"
+     $ActiveMinerPrograms | foreach {
+     if($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type)
+      {
+      if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+       {
+         $_.Status = "Failed"
+         $Restart = "Yes"
+       }
+      else{
+      $Miner_HashRates = Get-HashRate $_.API $_.Port
+      $ScreenHash = "$($Miner_HashRates | ConvertTo-Hash)"
+      if($ScreenHash -eq "0.00PH")
+        {
+        $_.Status = "Failed"
+        $Restart = "Yes"
+        }
+       }
+      }
+     }
+    $Restart
+   }
+
+
   Get-Job -State Completed | Remove-Job
   [GC]::Collect()
   [GC]::WaitForPendingFinalizers()
@@ -1320,20 +1349,19 @@ if($Log -eq 12)
       " -foreground Magenta
       Get-MinerHashRate
       Start-Sleep -s 8
+      $RestartData = Restart-Database
+      if($RestartData -eq "Yes"){break}
       }While($MinerWatch.Elapsed.TotalSeconds -lt ($MinerInterval-20))
       
       
       
 $ActiveMinerPrograms | foreach {
-  if(($BestMiners_Combo | Where Name -eq $_.Name | Where Path -eq $_.Path | Where Arguments -eq $_.Arguments | Where Type -eq $_.Type).count -gt 0)
+  if($BestMiners_Combo | Where Name -EQ $_.Name | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | Where Type -EQ $_.Type)
    {
 if($_.XProcess -eq $null -or $_.XProcess.HasExited)
  {
- if($_.Status -eq "Running")
-  {
    $_.Status = "Failed"
    $_.WasBenchMarked = $False  
-  }
  }
  else
   { 

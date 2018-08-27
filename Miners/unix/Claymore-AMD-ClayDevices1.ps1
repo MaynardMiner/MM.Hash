@@ -1,5 +1,5 @@
-[string]$Path = $update.nvidia.claymore.path1
-[string]$Uri = $update.nvidia.claymore.uri
+[string]$Path = $update.amd.claymore.path1
+[string]$Uri = $update.amd.claymore.uri
 
 $Build = "Zip"
 
@@ -25,12 +25,12 @@ if($CoinAlgo -eq $null)
      [PSCustomObject]@{
      Platform = $Platform  
      Symbol = "$($_)"
-	   MinerName = "clay-NVIDIA1"
-     Type = "NVIDIA1"
+	   MinerName = "clayamd-AMD1"
+     Type = "AMD1"
      Path = $Path
      Devices = $Devices
      DeviceCall = "claymore"
-     Arguments = "-mport -3333 -mode 1 -allcoins 1 -allpools 1 -epool $($AlgoPools.$_.Protocol)://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -ewal $($AlgoPools.$_.User1) -epsw $($AlgoPools.$_.Pass1) -wd 0 -dbg -1 -eres 1 $($Commands.$_)"
+     Arguments = "-mport -3333 -mode 1 -allcoins 1 -allpools 1 -epool $($AlgoPools.$_.Protocol)://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -ewal $($AlgoPools.$_.User1) -epsw $($AlgoPools.$_.Pass1) -wd 0 -dbg -1 -eres 2 $($Commands.$_)"
      HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
      Selected = [PSCustomObject]@{$_ = ""}
      FullName = "$($AlgoPools.$_.Mining)"
@@ -54,12 +54,12 @@ if($CoinAlgo -eq $null)
             Platform = $Platform
             Coin = "Yes"
             Symbol = "$($CoinPools.$_.Symbol)"
-            MinerName = "clay-NVIDIA1"
-            Type = "NVIDIA1"
+            MinerName = "clayamd-AMD1"
+            Type = "AMD1"
             Path = $Path
             Devices = $Devices
             DeviceCall = "claymore"
-            Arguments = "-mport -3333 -mode 1 -allcoins 1 -allpools 1 -epool $($CoinPools.$_.Protocol)://$($CoinPools.$_.Host):$($CoinPools.$_.Port) -ewal $($CoinPools.$_.User1) -epsw $($CoinPools.$_.Pass1) -wd 0 -dbg -1 -eres 1 $($Commands.$($CoinPools.$_.Algorithm))"
+            Arguments = "-mport -3333 -mode 1 -allcoins 1 -allpools 1 -epool $($CoinPools.$_.Protocol)://$($CoinPools.$_.Host):$($CoinPools.$_.Port) -ewal $($CoinPools.$_.User1) -epsw $($CoinPools.$_.Pass1) -wd 0 -dbg -1 -eres 2 $($Commands.$($CoinPools.$_.Algorithm))"
             HashRates = [PSCustomObject]@{$CoinPools.$_.Symbol= $Stats."$($Name)_$($CoinPools.$_.Algorithm)_HashRate".Day}
             Selected = [PSCustomObject]@{$($CoinPools.$_.Algorithm) = ""}
             FullName = "$($CoinPools.$_.Mining)"
