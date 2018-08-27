@@ -1,3 +1,4 @@
 {
- "aergo": "aeriumx"
+ "aergo": "aeriumx",
+ "polytimos": "poly"
 }
