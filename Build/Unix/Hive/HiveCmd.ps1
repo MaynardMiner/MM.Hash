@@ -163,9 +163,7 @@ function Get-AlgorithmList {
             [parameter(Mandatory=$true)]
             [String]$MinerDir,
             [parameter(Mandatory=$true)]
-            [String]$Delay,
-            [parameter(Mandatory=$true)]
-            [String]$Logs
+            [String]$Delay
         )
     
         $MinerTimer = New-Object -TypeName System.Diagnostics.Stopwatch
