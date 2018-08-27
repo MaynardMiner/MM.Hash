@@ -969,7 +969,6 @@ $ActiveMinerPrograms | foreach {
         $_.New = $true
         $_.Activated++
         if(Test-Path ".\Logs\$($_.Type).log"){Remove-Item ".\Logs\$($_.Type).log" -force}
-        $LogDir = (Join-Path $Dir "Logs")
         $MinerDir = Split-Path $_.Path
         $LaunchCodes = @{}
         $LaunchCodes.Add("Type",$_.Type)
@@ -1177,11 +1176,9 @@ if($Log -eq 12)
     $_.New = $true
     $_.Activated++
     if(Test-Path ".\Logs\$($_.Type).log"){Remove-Item ".\Logs\$($_.Type).log" -force}
-    $LogDir = (Join-Path $Dir "Logs")
     $MinerDir = Split-Path $_.Path
     $LaunchCodes = @{}
     $LaunchCodes.Add("Type",$_.Type)
-    $LaunchCodes.Add("Logs",$LogDir)
     $LaunchCodes.Add("Name",$_.Name)
     $LaunchCodes.Add("Arguments",$_.Arguments)
     $LaunchCodes.Add("MinerName",$_.MinerName)
