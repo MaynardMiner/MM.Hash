@@ -1,1 +1,1 @@
-equihash
+xevan

@@ -19,43 +19,44 @@ $Commands = [PSCustomObject]@{
         "bitcore" = ''
         }
         
-if($CoinAlgo -eq $null)
-{
-$Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
-if($Algorithm -eq "$($AlgoPools._.Algorithm)")
- {
-                [PSCustomObject]@{Platform = $Platform
-                Symbol = "$($_)"
-                MinerName = "t-rex-NVIDIA2"
-                Type = "NVIDIA2"
-                Path = $Path
-                Devices = $Devices
-                DeviceCall = "trex"
-                Arguments = "-a $_ -o stratum+tcp://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -b 0.0.0.0:4069 -u $($AlgoPools.$_.User2) -p $($AlgoPools.$_.Pass2) $($Commands.$_)"
-                HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
-                Selected = [PSCustomObject]@{$_ = ""}
-                MinerPool = "$($AlgoPools.$_.Name)"
-                FullName = "$($AlgoPools.$_.Mining)"
-                Port = 4069
-                API = "ccminer"
-                Wrap = $false
-                URI = $Uri
-                BUILD = $Build
-                Algo = "$($_)"
-                NewAlgo = ''
-                }
-              }
+        if($CoinAlgo -eq $null)
+        {
+        $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | ForEach-Object {
+         if($Algorithm -eq "$($AlgoPools.$_.Algorithm)")
+          {
+            [PSCustomObject]@{
+              Platform = $Platform
+            Symbol = "$($_)"
+            MinerName = "trex-NVIDIA2"
+            Type = "NVIDIA2"
+            Path = $Path
+            Devices = $Devices
+            DeviceCall = "trex"
+            Arguments = "-a $_ -o stratum+tcp://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -b 0.0.0.0:4069 -u $($AlgoPools.$_.User2) -p $($AlgoPools.$_.Pass2) $($Commands.$_)"
+            HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
+            Selected = [PSCustomObject]@{$_ = ""}
+          MinerPool = "$($AlgoPools.$_.Name)"
+          FullName = "$($AlgoPools.$_.Mining)"
+            Port = 4069
+            API = "Ccminer"
+            Wrap = $false
+            URI = $Uri
+            BUILD = $Build
+            Algo = "$($_)"
+            NewAlgo = ''
+             }
             }
-         }
-         
-else{
+           }
+          }    
+          
+        else{
         $CoinPools | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name |
         Where {$($Commands.$($CoinPools.$_.Algorithm)) -NE $null} |
         foreach {
         [PSCustomObject]@{   
-                Platform = $Platform
+         Platform = $Platform
          Symbol = "$($CoinPools.$_.Symbol)"
-         MinerName = "t-rex-NVIDIA2"
+         MinerName = "trex-NVIDIA2"
          Type = "NVIDIA2"
          Path = $Path
          Devices = $Devices

@@ -119,12 +119,13 @@
     {
      "trex":
       {
-       "path1": ".\\Bin\\TRex-Linux-REXDevices1\\t-rex-NVIDIA1",
-       "path2": ".\\Bin\\TRex-Linux-REXDevices2\\t-rex-NVIDIA2",
-       "path3": ".\\Bin\\TRex-Linux-REXDevices3\\t-rex-NVIDIA2",
-       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/t-rex-062-Linux.zip"
+       "path1": ".\\Bin\\TRex-Linux-REXDevices1\\trex-NVIDIA1",
+       "path2": ".\\Bin\\TRex-Linux-REXDevices2\\trex-NVIDIA2",
+       "path3": ".\\Bin\\TRex-Linux-REXDevices3\\trex-NVIDIA2",
+       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Trex-062-Linux.zip"
       }
      }
+     
     ]
    },
 

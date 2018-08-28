@@ -123,19 +123,19 @@ function Get-AlgorithmList {
     Set-Location $CmdDir
 
     $AlgorithmList = @()
-
-    $Type | foreach {
-        if($_ -like "*NVIDIA*"){$GetAlgorithms = Get-Content ".\Config\nvidia-algorithms.txt"}
-        if($_ -like "*CPU*"){$GetAlgorithms = Get-Content ".\Config\cpu-algorithms.txt"}
-        if($_ -like "*AMD*"){$GetAlgorithms = Get-Content ".\Config\amd-algorithms.txt"}
-        if($No_Algo -ne $null)
-         {
-         $GetNoAlgo = Compare-Object $No_Algo $GetAlgorithms
-         $GetNoAlgo.InputObject | foreach{$AlgorithmList += $_}
-         }
-         else{$GetAlgorithms | foreach { $AlgorithmList += $($_)} }
-        }
+    $GetAlgorithms = Get-Content ".\Config\get-pool.txt" | ConvertFrom-Json
+    $PoolAlgorithms = @()
+    $GetAlgorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | foreach {
+     $PoolAlgorithms += $_
+    }
     
+    if($No_Algo -ne $null)
+     {
+     $GetNoAlgo = Compare-Object $No_Algo $PoolAlgorithms
+     $GetNoAlgo.InputObject | foreach{$AlgorithmList += $_}
+     }
+     else{$PoolAlgorithms | foreach { $AlgorithmList += $($_)} }
+         
     $AlgorithmList
     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
     }
@@ -149,7 +149,7 @@ function Get-AlgorithmList {
             [parameter(Mandatory=$false)]
             [String]$DeviceCall,
             [parameter(Mandatory=$false)]
-            [String]$Devices = $null,
+            [String]$Devices='',
             [parameter(Mandatory=$true)]
             [String]$Arguments,
             [parameter(Mandatory=$true)]
@@ -162,6 +162,8 @@ function Get-AlgorithmList {
             [String]$CmdDir,
             [parameter(Mandatory=$true)]
             [String]$MinerDir,
+	    [parameter(Mandatory=$true)]
+            [String]$Logs,
             [parameter(Mandatory=$true)]
             [String]$Delay
         )
@@ -177,7 +179,8 @@ function Get-AlgorithmList {
 
         if($Type -like '*NVIDIA*')
         {
-        if($Devices -eq $null){$MinerArguments = "$($Arguments)"}
+        if($Devices -eq '')
+	{$MinerArguments = "$($Arguments)"}
         else{
         if($DeviceCall -eq "ccminer"){$MinerArguments = "-d $($Devices) $($Arguments)"}
         if($DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($Devices) $($Arguments)"}

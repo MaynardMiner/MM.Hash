@@ -194,4 +194,8 @@ HiveOS: Changes:
 -Enemy 1.1.7
 -T-Rex 0.6.2 (added balloon)
 -Lots of migrations and code cleanup to make miner better/faster
-
+-Fixed "Logs" error from beta
+-Fixed T-rex from beta
+-Removed algorithms.txt. It was redundant. Main algorithm list is get-pool.txt...Just remove/add there. get-pool.txt is the
+algorithms miner searches for from pools.
+-added -SGDevices1 -SGDevices2 -SGDevices3 arguments

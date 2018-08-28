@@ -96,6 +96,12 @@ param(
     [Parameter(Mandatory=$false)]
     [String]$RexDevices3,
     [Parameter(Mandatory=$false)]
+    [String]$SGDevices1,
+    [Parameter(Mandatory=$false)]
+    [String]$SGDevices2,
+    [Parameter(Mandatory=$false)]
+    [String]$SGDevices3,
+    [Parameter(Mandatory=$false)]
     [Array]$PoolName = ("zergpool_algo","zergpool_coin"), 
     [Parameter(Mandatory=$false)]
     [Array]$Currency = ("USD"), #i.e. GBP,EUR,ZEC,ETH ect.
@@ -901,7 +907,7 @@ if($CoinMiners -ne $null)
               Type = $_.Type
               Devices = $_.Devices
               DeviceCall = $_.DeviceCall
-	            MinerName = $_.MinerName
+	      MinerName = $_.MinerName
               Path = $_.Path
               Arguments = $_.Arguments
               MiningName = $null
@@ -921,13 +927,13 @@ if($CoinMiners -ne $null)
               Timeout = 0
               WasBenchmarked = $false
               XProcess = $null
-	            NewMiner = $null
-	            Prestart = $null
+	      NewMiner = $null
+	      Prestart = $null
               MinerId = $null
               MinerPool = $_.MinerPool
               MinerContent = $null
               MinerProcess = $null
-	            Algo = $_.Algo
+	      Algo = $_.Algo
               Bad_Benchmark = 0
               FullName = $_.FullName
           }
@@ -969,6 +975,7 @@ $ActiveMinerPrograms | foreach {
         $_.New = $true
         $_.Activated++
         if(Test-Path ".\Logs\$($_.Type).log"){Remove-Item ".\Logs\$($_.Type).log" -force}
+        $LogDir = Join-Path $Dir "Logs"
         $MinerDir = Split-Path $_.Path
         $LaunchCodes = @{}
         $LaunchCodes.Add("Type",$_.Type)
@@ -988,6 +995,7 @@ $ActiveMinerPrograms | foreach {
       $TypeFile = ".\Build\minertype.sh"
       if($_.Type -eq "NVIDIA1" -or $_.Type -eq "AMD1"){$_.Type | Out-file $TypeFile}
       $PIDFile = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)_PID.txt"
+      if($_.Type -eq "NVIDIA1" -or $_.Type -eq "AMD1"){$_.Port | Set-Content ".\Build\Unix\Hive\port.sh"}
       if(Test-Path $PIDFile)
         {
          $MinerContent = Get-Content $PIDFile
@@ -1125,7 +1133,7 @@ function Get-MinerStatus {
         @{Label = "$Currency/Day"; Expression={$($_.Profits) | ForEach {if($_ -ne $null){($_ / $BTCExchangeRate * $Exchanged).ToString("N3")}else{"Bench"}}}; Align='center'},
         @{Label = "Algorithm"; Expression={$($_.Algo)}; Align='center'},
         @{Label = "Coin Name"; Expression={$($_.FullName)}; Align='center'},
-        @{Label = "       Pool"; Expression={$($_.MinerPool)}; Align='center'}
+        @{Label = "   Pool"; Expression={$($_.MinerPool)}; Align='center'}
             )
       }
 
@@ -1176,10 +1184,12 @@ if($Log -eq 12)
     $_.New = $true
     $_.Activated++
     if(Test-Path ".\Logs\$($_.Type).log"){Remove-Item ".\Logs\$($_.Type).log" -force}
+    $LogDir = Join-Path $Dir "Logs"
     $MinerDir = Split-Path $_.Path
     $LaunchCodes = @{}
     $LaunchCodes.Add("Type",$_.Type)
     $LaunchCodes.Add("Name",$_.Name)
+    $LaunchCodes.Add("Logs",$LogDir)
     $LaunchCodes.Add("Arguments",$_.Arguments)
     $LaunchCodes.Add("MinerName",$_.MinerName)
     $LaunchCodes.Add("Path",$_.Path)
@@ -1277,7 +1287,6 @@ if($Log -eq 12)
       $ReplaceActive | Set-Content ".\Build\Unix\Hive\mineractive.sh"      
       Write-Host $CountMessage -foreground Gray
      }
-
 
      function Restart-Database {
      $Restart = "No"
@@ -1389,7 +1398,7 @@ if($_.XProcess -eq $null -or $_.XProcess.HasExited)
          {
           $_.Timeout++
           Write-Host "Stat Attempt Yielded 0" -Foregroundcolor Red
-          Start-Sleep -S .25
+          Start-Sleep -S 1
          }
         else
          {            
@@ -1402,6 +1411,7 @@ if($_.XProcess -eq $null -or $_.XProcess.HasExited)
             {
              $_.Timeout++
              Write-Host "Stat Failed Write To File" -Foregroundcolor Red
+	     Start-Sleep -S 1
             }
            else
             {
@@ -1414,7 +1424,7 @@ if($_.XProcess -eq $null -or $_.XProcess.HasExited)
              $_.New = $False
              $_.Crashed = 0
              $_.WasBenchmarked = $True
-	           Write-Host "Stat Written" -foregroundcolor green
+	     Write-Host "Stat Written" -foregroundcolor green
              $_.Timeout = 0
              $_.Bad_Benchmark = 0
            } 
