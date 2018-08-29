@@ -60,6 +60,10 @@ equihash
 x16r
 x16s
 aeriumx
+polytimos
+hex
+sonoa
+equihash96
 equihash192
 equihash144xsg
 equihash144btcz
@@ -119,7 +123,7 @@ T-rex
 Enemy
 Claymore
 Dstm
-EWBF (new version)
+EWBF
 JayDDee
 ```
 
