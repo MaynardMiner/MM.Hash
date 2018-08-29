@@ -113,11 +113,9 @@ zpool
 
 **Miners**
 ```
+Avermore
 CryptoDredge
-Alexis78
 MSFT
-Krnlx
-OCminer/suprminer
 Tpruvot
 T-rex
 Enemy
