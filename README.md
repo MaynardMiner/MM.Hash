@@ -114,6 +114,7 @@ zpool
 **Miners**
 ```
 Avermore
+Bubalisk
 CryptoDredge
 MSFT
 Tpruvot
