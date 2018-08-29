@@ -59,7 +59,7 @@ allium
 equihash
 x16r
 x16s
-aeriumx
+aergo
 polytimos
 hex
 sonoa
