@@ -1,5 +1,6 @@
 [string]$Path = $update.nvidia.enemy.path3
 [string]$Uri = $update.nvidia.enemy.uri
+[string]$MinerName = $update.nvidia.enemy.MinerName
 
 $Build = "Zip"
 
@@ -14,16 +15,15 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Aergo
 
 $Commands = [PSCustomObject]@{
-  "x16r" = ''
-  "x16s" = ''
+  
   "aergo" = ''
   "phi2" = ''
   "hex" = ''
   "timetravel" = ''
   "xevan" = ''
   "sonoa" = ''
-  "polytimos" = ''
-  }
+
+}
 
   if($CoinAlgo -eq $null)
   {
@@ -33,7 +33,7 @@ $Commands = [PSCustomObject]@{
     [PSCustomObject]@{
       Platform = $Platform
       Symbol = "$($_)"
-      MinerName = "z-enemy-NVIDIA3"
+      MinerName = $MinerName
       Type = "NVIDIA3"
       Path = $Path
       Devices = $Devices
@@ -63,7 +63,7 @@ $Commands = [PSCustomObject]@{
     Platform = $Platform
    Coin = "Yes"
    Symbol = "$($CoinPools.$_.Symbol)"
-   MinerName = "z-enemy-NVIDIA3"
+   MinerName = $MinerName
    Type = "NVIDIA3"
    Path = $Path
    Devices = $Devices

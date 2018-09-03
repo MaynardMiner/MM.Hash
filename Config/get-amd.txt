@@ -2,6 +2,6 @@
     "myr-gr": "myriadcoin-groestl",
     "groestl": "groestlcoin",
     "lyra2z": "lyra2re",
-    "lrya2v2": "lyra2rev2",
+    "lyra2v2": "lyra2rev2",
 }
 

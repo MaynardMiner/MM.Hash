@@ -1,5 +1,7 @@
 [string]$Path = $update.nvidia.enemy.path1
 [string]$Uri = $update.nvidia.enemy.uri
+[string]$MinerName = $update.nvidia.enemy.MinerName
+
 
 
 $Build = "Zip"
@@ -15,16 +17,15 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Aergo
 
 $Commands = [PSCustomObject]@{
-  "x16r" = ''
-  "x16s" = ''
+
   "aergo" = ''
   "phi2" = ''
   "hex" = ''
   "timetravel" = ''
   "xevan" = ''
   "sonoa" = ''
-  "polytimos" = ''
-  }
+
+}
   
 if($CoinAlgo -eq $null)
 {
@@ -34,7 +35,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
   [PSCustomObject]@{
     Platform = $Platform
     Symbol = "$($_)"
-    MinerName = "z-enemy-NVIDIA1"
+    MinerName = $MinerName
     Type = "NVIDIA1"
     Path = $Path
     Devices = $Devices
@@ -64,7 +65,7 @@ else{
     Platform = $Platform
    Coin = "Yes"
    Symbol = "$($CoinPools.$_.Symbol)"
-   MinerName = "z-enemy-NVIDIA1"
+   MinerName = $MinerName
    Type = "NVIDIA1"
    Path = $Path
    Devices = $Devices

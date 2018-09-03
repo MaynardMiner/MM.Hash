@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 SESSION_NAME=$1
 screen -ls "$SESSION_NAME" | (

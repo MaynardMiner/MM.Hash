@@ -1,5 +1,8 @@
 [string]$Path = $update.nvidia.enemy.path2
 [string]$Uri = $update.nvidia.enemy.uri
+[string]$MinerName = $update.nvidia.enemy.minername
+
+
 $Build = "Zip"
 
 if($CCDevices2 -ne ''){$Devices = $CCDevices2}
@@ -12,16 +15,15 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Aergo
 
 $Commands = [PSCustomObject]@{
-  "x16r" = ''
-  "x16s" = ''
+  
   "aergo" = ''
   "phi2" = ''
   "hex" = ''
   "timetravel" = ''
   "xevan" = ''
   "sonoa" = ''
-  "polytimos" = ''
-  }
+
+}
   
   if($CoinAlgo -eq $null)
   {
@@ -31,7 +33,7 @@ $Commands = [PSCustomObject]@{
     [PSCustomObject]@{
       Platform = $Platform
       Symbol = "$($_)"
-      MinerName = "z-enemy-NVIDIA2"
+      MinerName = $MinerName
       Type = "NVIDIA2"
       Path = $Path
       Devices = $Devices
@@ -61,12 +63,12 @@ $Commands = [PSCustomObject]@{
     Platform = $Platform
    Coin = "Yes"
    Symbol = "$($CoinPools.$_.Symbol)"
-   MinerName = "z-enemy-NVIDIA2"
+   MinerName = $MinerName
    Type = "NVIDIA2"
    Path = $Path
    Devices = $Devices
    DeviceCall = "ccminer"
-   Arguments = "-a $(Get-Nvidia$($CoinPools.$_.Algorithm)) -o stratum+tcp://$($CoinPools.$_.Host):$($CoinPools.$_.Port) -b 0.0.0.0:4069 -u $($CoinPools.$_.User2) -p $($CoinPools.$_.Pass2) $($Commands.$($CoinPools.$_.Algorithm))"
+   Arguments = "-a $(Get-Nvidia($CoinPools.$_.Algorithm)) -o stratum+tcp://$($CoinPools.$_.Host):$($CoinPools.$_.Port) -b 0.0.0.0:4069 -u $($CoinPools.$_.User2) -p $($CoinPools.$_.Pass2) $($Commands.$($CoinPools.$_.Algorithm))"
    HashRates = [PSCustomObject]@{$CoinPools.$_.Symbol= $Stats."$($Name)_$($CoinPools.$_.Algorithm)_HashRate".Day}
    API = "Ccminer"
    Selected = [PSCustomObject]@{$($CoinPools.$_.Algorithm) = ""}

@@ -9,7 +9,8 @@
      {
       "bubasik":
         {
-        "path1": ".\\Bin\\bubasik\\cpuminer-CPU",
+        "path1": ".\\Bin\\bubasik\\cpuminer",
+        "minername": "cpuminer",
         "uri": "https://github.com/bubasik/cpuminer-opt-yespower.git"
         }
       },
@@ -17,7 +18,8 @@
     {  
      "cryptozeny":
      {
-      "path1": ".\\Bin\\cryptozeny\\cpuminer-CPU",
+      "path1": ".\\Bin\\cryptozeny\\cpuminer",
+      "minername": "cpuminer",
       "uri": "https://github.com/cryptozeny/cpuminer-kawaii.git"
      }
     },
@@ -25,7 +27,8 @@
     {
      "jayddee":
      {
-      "path1": ".\\Bin\\JayDDee\\cpuminer-CPU",
+      "path1": ".\\Bin\\JayDDee\\cpuminer",
+      "minername": "cpuminer",
       "uri": "https://github.com/JayDDee/cpuminer-opt"
      }
     }
@@ -39,29 +42,32 @@
     {
      "cryptodredge": 
       {
-       "path1": ".\\Bin\\CryptoDredge-Linux-REXDevices1\\Dredge-NVIDIA1",
-       "path2": ".\\Bin\\CryptoDredge-Linux-REXDevices2\\Dredge-NVIDIA2",
-       "path3": ".\\Bin\\CryptoDredge-Linux-REXDevices3\\Dredge-NVIDIA3",
-       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/CryptoDredge-Linux.zip"
+       "path1": ".\\Bin\\CryptoDredge-Linux-REXDevices1\\CryptoDredge",
+       "path2": ".\\Bin\\CryptoDredge-Linux-REXDevices2\\CryptoDredge",
+       "path3": ".\\Bin\\CryptoDredge-Linux-REXDevices3\\CryptoDredge",
+       "minername": "CryptoDredge",
+       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/CryptoDredge-Linux.zip"
       }
     },
 
    {
     "claymore":
      {
-      "path1": ".\\Bin\\Claymore-Linux-ClayDevices1\\clay-NVIDIA1",
-      "path2": ".\\Bin\\Claymore-Linux-ClayDevices2\\clay-NVIDIA2",
-      "path3": ".\\Bin\\Claymore-Linux-ClayDevices3\\clay-NVIDIA3",
-      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Claymore-Linux.zip" 
+      "path1": ".\\Bin\\Claymore-Linux-ClayDevices1\\ethdcrminer64",
+      "path2": ".\\Bin\\Claymore-Linux-ClayDevices2\\ethdcrminer64",
+      "path3": ".\\Bin\\Claymore-Linux-ClayDevices3\\ethdcrminer64",
+      "minername": "ethdcrminer64",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/Claymore-Linux.zip" 
      }
    },
 
    {
     "dstm":
      {
-      "path1": ".\\Bin\\DSTM-Linux-DSTMDevices1\\zm-NVIDIA1",
-      "path2": ".\\Bin\\DSTM-Linux-DSTMDevices2\\zm-NVIDIA2",
-      "path3": ".\\Bin\\DSTM-Linux-DSTMDevices3\\zm-NVIDIA3",
+      "path1": ".\\Bin\\DSTM-Linux-DSTMDevices1\\zm",
+      "path2": ".\\Bin\\DSTM-Linux-DSTMDevices2\\zm",
+      "path3": ".\\Bin\\DSTM-Linux-DSTMDevices3\\zm",
+      "minername": "zm",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/DTSMLInux.zip" 
      }
    },
@@ -69,9 +75,10 @@
    {
     "enemy":
      {
-      "path1": ".\\Bin\\z-enemy-Linux-CCDevices1\\z-enemy-NVIDIA1",
-      "path2": ".\\Bin\\z-enemy-Linux-CCDevices2\\z-enemy-NVIDIA2",
-      "path3": ".\\Bin\\z-enemy-Linux-CCDevices3\\z-enemy-NVIDIA3",
+      "path1": ".\\Bin\\z-enemy-Linux-CCDevices1\\z-enemy",
+      "path2": ".\\Bin\\z-enemy-Linux-CCDevices2\\z-enemy",
+      "path3": ".\\Bin\\z-enemy-Linux-CCDevices3\\z-enemy",
+      "minername": "z-enemy",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-117-Linux.zip" 
      }
    },
@@ -79,9 +86,10 @@
    {
     "ewbf":
      {
-      "path1": ".\\Bin\\EWBF-Linux-EWBFDevices1\\miner-NVIDIA1",
-      "path2": ".\\Bin\\EWBF-Linux-EWBFDevices2\\miner-NVIDIA2",
-      "path3": ".\\Bin\\EWBF-Linux-EWBFDevices3\\miner-NVIDIA3",
+      "path1": ".\\Bin\\EWBF-Linux-EWBFDevices1\\miner",
+      "path2": ".\\Bin\\EWBF-Linux-EWBFDevices2\\miner",
+      "path3": ".\\Bin\\EWBF-Linux-EWBFDevices3\\miner",
+      "minername": "miner",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-05-Linux.zip" 
      }
    },
@@ -89,29 +97,21 @@
    {
     "klaust":
      {
-      "path1": ".\\Bin\\KlausT-Linux-CCDevices1\\ccminer-NVIDIA1",
-      "path2": ".\\Bin\\KlausT-Linux-CCDevices2\\ccminer-NVIDIA2",
-      "path3": ".\\Bin\\KlausT-Linux-CCDevices3\\ccminer-NVIDIA3",
+      "path1": ".\\Bin\\KlausT-Linux-CCDevices1\\ccminer",
+      "path2": ".\\Bin\\KlausT-Linux-CCDevices2\\ccminer",
+      "path3": ".\\Bin\\KlausT-Linux-CCDevices3\\ccminer",
+      "minername": "ccminer",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT-Linux-9-1.zip" 
      }
-   },
-
-   {
-    "msft":
-    {
-     "path1": ".\\Bin\\MSFT-Linux-CCDevices1\\ccminer-NVIDIA1",
-     "path2": ".\\Bin\\MSFT-Linux-CCDevices2\\ccminer-NVIDIA2",
-     "path3": ".\\Bin\\MSFT-Linux-CCDevices3\\ccminer-NVIDIA3",
-     "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/MSFT-Server-9-1.zip"
-    }
    },
 
   {
    "tpruvot":
     {
-     "path1": ".\\Bin\\Tpruvot-Linux-CCDevices1\\ccminer-NVIDIA1",
-     "path2": ".\\Bin\\Tpruvot-Linux-CCDevices2\\ccminer-NVIDIA2",
-     "path3": ".\\Bin\\Tpruvot-Linux-CCDevices3\\ccminer-NVIDIA3",
+     "path1": ".\\Bin\\Tpruvot-Linux-CCDevices1\\ccminer",
+     "path2": ".\\Bin\\Tpruvot-Linux-CCDevices2\\ccminer",
+     "path3": ".\\Bin\\Tpruvot-Linux-CCDevices3\\ccminer",
+     "minername": "ccminer",
      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip"
     }
   },
@@ -119,10 +119,11 @@
     {
      "trex":
       {
-       "path1": ".\\Bin\\TRex-Linux-REXDevices1\\trex-NVIDIA1",
-       "path2": ".\\Bin\\TRex-Linux-REXDevices2\\trex-NVIDIA2",
-       "path3": ".\\Bin\\TRex-Linux-REXDevices3\\trex-NVIDIA2",
-       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/Trex-062-Linux.zip"
+       "path1": ".\\Bin\\TRex-Linux-REXDevices1\\t-rex",
+       "path2": ".\\Bin\\TRex-Linux-REXDevices2\\t-rex",
+       "path3": ".\\Bin\\TRex-Linux-REXDevices3\\t-rex",
+       "minername": "t-rex",
+       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/t-rex-Linux.zip"
       }
      }
      
@@ -136,9 +137,10 @@
    {
     "claymore":
      {
-      "path1": ".\\Bin\\Clay-AMD-ClayDevices1\\clayamd-AMD1",
-      "path2": ".\\Bin\\Clay-AMD-ClayDevices2\\clayamd-AMD2",
-      "path3": ".\\Bin\\Clay-AMD-ClayDevices3\\clayamd-AMD3",
+      "path1": ".\\Bin\\Clay-AMD-ClayDevices1\\clayamd",
+      "path2": ".\\Bin\\Clay-AMD-ClayDevices2\\clayamd",
+      "path3": ".\\Bin\\Clay-AMD-ClayDevices3\\clayamd",
+      "minername": "clayamd",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/Clay-119-AMD-Linux.zip" 
      }
    },
@@ -146,22 +148,68 @@
    {
     "avermore":
      {
-      "path1": ".\\Bin\\Avermore-AMD-SGDevices1\\sgminer-AMD1",
-      "path2": ".\\Bin\\Avermore-AMD-SGDevices2\\sgminer-AMD2",
-      "path3": ".\\Bin\\Avermore-AMD-SGDevices3\\sgminer-AMD3",
+      "path1": ".\\Bin\\Avermore-AMD-SGDevices1\\sgminer",
+      "path2": ".\\Bin\\Avermore-AMD-SGDevices2\\sgminer",
+      "path3": ".\\Bin\\Avermore-AMD-SGDevices3\\sgminer",
+      "minername": "sgminer",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/avermore-141-Linux.zip" 
      }
    },
-   
+
    {
-    "sgminerphi":
+    "sgminerkl":
      {
-      "path1": ".\\Bin\\Sgminer-Phi-AMD-SGDevices1\\sgminer-AMD1",
-      "path2": ".\\Bin\\Sgminer-Phi-AMD-SGDevices2\\sgminer-AMD2",
-      "path3": ".\\Bin\\Sgminer-Phi-AMD-SGDevices2\\sgminer-AMD3",
-      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/avermore-141-Linux.zip" 
+      "path1": ".\\Bin\\Sgminer-kl-AMD-SGDevices1\\sgminer",
+      "path2": ".\\Bin\\Sgminer-kl-AMD-SGDevices2\\sgminer",
+      "path3": ".\\Bin\\Sgminer-kl-AMD-SGDevices2\\sgminer",
+      "minername": "sgminer",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/sgminer-kl-linux.zip" 
      }
-   }
+   },
+
+    {
+    "sgminerphi2":
+     {
+      "path1": ".\\Bin\\Sgminer-Phi2-AMD-SGDevices1\\sgminer",
+      "path2": ".\\Bin\\Sgminer-Phi2-AMD-SGDevices2\\sgminer",
+      "path3": ".\\Bin\\Sgminer-Phi2-AMD-SGDevices2\\sgminer",
+      "minername": "sgminer",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/sgminer-phi2-linux.zip" 
+     }
+   },
+
+       {
+    "sgminerhex":
+     {
+      "path1": ".\\Bin\\Sgminer-hex-AMD-SGDevices1\\sgminer",
+      "path2": ".\\Bin\\Sgminer-hex-AMD-SGDevices2\\sgminer",
+      "path3": ".\\Bin\\Sgminer-hex-AMD-SGDevices2\\sgminer",
+      "minername": "sgminer",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/sgminer-hex-linux.zip" 
+     }
+   },
+
+     {
+    "lyclminer":
+     {
+      "path1": ".\\Bin\\LyclMiner-AMD-SGDevices1\\lyclMiner",
+      "path2": ".\\Bin\\LyclMiner-AMD-SGDevices2\\lyclMiner",
+      "path3": ".\\Bin\\LyclMiner-AMD-SGDevices2\\lyclMiner",
+      "minername": "lyclMiner",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.3.0/lyclMiner-linux.zip" 
+     }
+   },
+
+      {
+    "tdxminer":
+     {
+      "path1": ".\\Bin\\Tdxminer-AMD-SGDevices1\\tdxminer",
+      "path2": ".\\Bin\\Tdxminer-AMD-SGDevices2\\tdxminer",
+      "path3": ".\\Bin\\Tdxminer-AMD-SGDevices3\\tdxminer",
+      "minername": "tdxminer",
+      "uri": "https://github.com/MaynardMiner/MM.Test/releases/download/v.amd.test/tdxminer-0222-Linux.zip" 
+     }
+   },
 
     ]
    }

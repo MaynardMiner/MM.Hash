@@ -199,3 +199,62 @@ HiveOS: Changes:
 -Removed algorithms.txt. It was redundant. Main algorithm list is get-pool.txt...Just remove/add there. get-pool.txt is the
 algorithms miner searches for from pools.
 -added -SGDevices1 -SGDevices2 -SGDevices3 arguments
+
+1.4.1b beta:
+
+HiveOS Changes:
+
+DISCLAIMERS: 
+-I added auto-updates back in, but made it case specific for this release. It may be a good idea to save old miner file settings before updating just in case of failure.
+-I made a lot of changed to AMD side, including adding a new system for recording hashrate. Watch and report.
+-I made changes to HiveOS stats watch and report
+-Avermore does not seem to work in blockmasters for me.
+-TDXminer does not seem to work in nicehash for me.
+-Claymore works normally, but screen loading is slow for logging (get-screen command)
+-To get GPU count for AMD- I am using a different method that I do for NVIDIA. Please let me know if it is displaying correct GPU count. I only have 1 GPU to test.
+
+-Added 0.3.4 Dredge
+-Ensured get-screen was working correctly
+-removed coin name from "stats". This allows it to clearly show up on HiveOS site.
+-Fixed h-stats and commands so I don't accidentally mess up path to commands again.
+-Moved khs value to logdata for trex, so Hive will still recieve stats, even when database starts.
+-Code staging to remove double local api calls from miners (MM.Hash will send data to h-stats, not both gather information from miner)
+-Found some typos of new version- fixed.
+-Miner should transfer miner files: Note previous typo on Enemy-CCDevices 2 file You might copy file from github to change) to prevent errors.
+-More code staging for Unix version
+-Previous Version notes: Poly takes more than 5 minutes to hash an accepted share on lower-model GPUS. You may want to -No_Algo it.
+-Confirmed it is possible to combine AMD & NVIDIA, but not possible to get them both to stat on HiveOS (only 1 Device group will work).
+-Added tdxminer & new system record hashrate with no api.
+
+
+1.4.2b beta:
+
+HiveOS version
+
+DISCLAIMERS:
+-New t-rex miner gets lower end cards hot for me! watch temps.
+-AMD miners currently only work for AMD1 (no grouping yet). NVIDA1 work in groups, but only Group1 sends stats to Hive.
+-You CAN run a second instance of MM.Hash on computer if you are using hybrid miner AMD/NVIDIA. Message me for more details if interested. Will create
+wiki: It will have to be done through unconventional means.
+-lyclMiner is a miner that has no api, and cannot be launched via arguments. Its process for launching/stat tracking is expirmental. I'm over here
+working miracles to get these AMD miners that are profitable...Like wth is with AMD miner/programmers?
+-all miner files were changed to reflect new stats system (launching/starting) for weird AMD miners.
+-Made huge attempts to make stats going to hive more smoother.
+-Reduced read/writes to file (Compressing information to singular files)
+-Tweaked Monitoring system
+-Do not reccommend changing/tweaking miner files or removing stats while miner is running. Could cause issues, due to new process of AMD launching.
+-I have only 1 AMD GPU. I believe the hashrate Logging for AMD is correct for each miner, but I have no verifiable proof to know if it working for more
+than 1 GPU. I'm going to purchase another AMD card, as these miners are making AMD semi-profitable again.
+
+-New argument -CPUThreads sets -t parameter of CPU miners.
+-Cryptozenny is now logging tracked rather than api to prevent benchmarking wait-times.
+-Miners now are instance based, should help with Process tracking, and make zombies irrelevant to it.
+-Update now has "minername" parameter, which is the name of the executable of the miner. This means you should be able to load your own links in by just changing "minername", if you need to.
+-Did lots of benchmarking to reflect new miners- moved around algorithms.
+-Axed MSFT difference between MSFT and Tpruvot was marginal for HMQ1725, and Tpruvot is more stable.
+-Updated Cryptodredge to latest version (see updatelinux.txt)
+-Updated T-Rex to latest version (see updatelinux.txt)
+-Minor changes to text on screen for user aid
+-Because of all the background logging- Increased Sleep time before stats on screen to 20 seconds, and interval of stats on screen to 15 seconds.
+-Changed h-stats.sh to help with the amount of background logging.
+-Changes to core script for tracking, code staging for API (API.ps1). Preliminary tests show it is working.

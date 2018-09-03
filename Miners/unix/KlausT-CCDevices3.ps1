@@ -1,5 +1,8 @@
 [string]$Path = $update.nvidia.klaust.path3
 [string]$Uri = $update.nvidia.klaust.uri
+[string]$MinerName = $update.nvidia.klaust.minername
+
+
 $Build = "Zip"
 
 if($CCDevices3 -ne ''){$Devices = $CCDevices3}
@@ -24,7 +27,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     [PSCustomObject]@{
     Platform = $Platform
     Symbol = "$($_)"
-    MinerName = "ccminer-NVIDIA3"
+    MinerName = $MinerName
     Type = "NVIDIA3"
     Path = $Path
     Devices = $Devices
@@ -52,7 +55,7 @@ else{
    [PSCustomObject]@{
     Platform = $Platform
    Symbol = "$($CoinPools.$_.Symbol)"
-   MinerName = "ccminer-NVIDIA3"
+   MinerName = $MinerName
    Type = "NVIDIA3"
    Path = $Path
    Devices = $Devices

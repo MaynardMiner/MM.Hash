@@ -24,17 +24,19 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
 $Location = "US"
 
 $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | ForEach-Object {
+    if($Algorithm -eq $_)
+    {
+    if($blazepool_Request.$_.hashrate -ne "0")
+     {
+      if($blazepool_Request.$_.estimate -ne "0.00000")
+       {
 
     $blazepool_Algorithm = Get-Algorithm $blazepool_Request.$_.name
     $blazepool_Host = "$_.mine.blazepool.com"
     $blazepool_Port = $blazepool_Request.$_.port
     $Divisor = (1000000*$blazepool_Request.$_.mbtc_mh_factor)
 
-  if($Algorithm -eq $blazepool_Algorithm)
-      {
-    if((Get-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor*(1-($blazepool_Request.$_.fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor *(1-($blazepool_Request.$_.fees/100)))}
-      }
+    $Stat = Set-Stat -Name "$($Name)_$($blazepool_Algorithm)_Profit" -Value ([Double]$blazepool_Request.$_.estimate_current/$Divisor *(1-($blazepool_Request.$_.fees/100)))
 
        if($Wallet)
 	{
@@ -43,7 +45,7 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Symbol = $blazepool_Algorithm
             Mining = $blazepool_Algorithm
             Algorithm = $blazepool_Algorithm
-            Price = $Stat.Live
+            Price = $Stat.$StatLevel
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
@@ -60,6 +62,9 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Location = $Location
             SSL = $false
         }
+       }
+       }
+      }
      }
     }
    }

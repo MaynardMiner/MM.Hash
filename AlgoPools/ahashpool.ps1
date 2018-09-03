@@ -1,7 +1,6 @@
 
 $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty BaseName 
  
- 
  $ahashpool_Request = [PSCustomObject]@{} 
  
  if($Auto_Algo -eq "Yes")
@@ -23,7 +22,15 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
   
 $Location = "US"
 
-$ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$ahashpool_Request.$_.hashrate -gt 0} | ForEach-Object {
+$ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | ForEach-Object {
+
+   if($Algorithm -eq $_)
+    {
+    if($ahashpool_Request.$_.hashrate -ne "0")
+     {
+      if($ahashpool_Request.$_.estimate -ne "0.00000")
+       {
+
     $ahashpool_Host = "$_.mine.ahashpool.com"
     $ahashpool_Port = $ahashpool_Request.$_.port
     $ahashpool_Algorithm = Get-Algorithm $ahashpool_Request.$_.name
@@ -31,11 +38,7 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
     $Divisor = (1000000*$ahashpool_Request.$_.mbtc_mh_factor)
 
 
- if($Algorithm -eq $ahashpool_Algorithm)
-      {
-    if((Get-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor*(1-($ahashpool_Request.$_.fees/100)))}
-    else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor *(1-($ahashpool_Request.$_.fees/100)))}
-     }
+     $Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor *(1-($ahashpool_Request.$_.fees/100)))
       
        if($Wallet)
 	    {
@@ -44,7 +47,7 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Symbol = $ahashpool_Algorithm
             Mining = $ahashpool_Algorithm
             Algorithm = $ahashpool_Algorithm
-            Price = $Stat.Live
+            Price = $Stat.$StatLevel
             Fees = $ahashpool_Fees
             Workers = $ahashpool_Workers
             StablePrice = $Stat.Week
@@ -62,7 +65,10 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 	    Pass3 = "c=$Passwordcurrency3,ID=$Rigname3"
             Location = $Location
             SSL = $false
+          }
+         }
         }
+       }
       }
      }
     }

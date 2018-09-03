@@ -1,5 +1,6 @@
 [string]$Path = $update.amd.avermore.path3
 [string]$Uri = $update.amd.avermore.uri
+[string]$MinerName = $update.amd.avermore.minername
 
 $Build = "Zip"
 
@@ -13,15 +14,16 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 #Groestl
 
 $Commands = [PSCustomObject]@{
-"myr-gr" = ""
-"groestl" = ""
-"xevan" = ""
-"x16r" = ""
-"x16s" = ""
-"lyra2z" = ""
-"lyra2v2" = ""
-"equihash" = ""
-}
+  "myr-gr" = ""
+  "groestl" = ""
+  "xevan" = ""
+  "x16r" = ""
+  "x16s" = ""
+  "lyra2re" = ""
+  "lyra2v2" = ""
+  "lyra2rev2" = ""
+  "equihash" = ""
+  }
 
 if($CoinAlgo -eq $null)
 {
@@ -31,7 +33,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     [PSCustomObject]@{
     Platform = $Platform
     Symbol = "$($_)"
-    MinerName = "sgminer-AMD3"
+    MinerName = $MinerName
     Type = "AMD3"
     Path = $Path
     Devices = $Devices
@@ -59,7 +61,7 @@ else{
    [PSCustomObject]@{
    Platform = $Platform
    Symbol = "$($CoinPools.$_.Symbol)"
-   MinerName = "sgminer-AMD3"
+   MinerName = $MinerName
    Type = "AMD3"
    Path = $Path
    Devices = $Devices

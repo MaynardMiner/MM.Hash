@@ -38,8 +38,8 @@ switch ($_) {
       if($blockpool_Request.$_.estimate -ne "0.00000")
        {
 
-    $blockpool_Coin = $_
-    $blockpool_Symbol = $_
+    $blockpool_Coin = "$($_)".ToUpper()
+    $blockpool_Symbol = "$($_)".ToUpper()
     switch ($blockpool_Symbol) {
      "HSR"{$blockpool_Symbol = "HSR-Coin"}
      "SIB"{$blockpool_Symbol = "SIB-Coin"}
@@ -78,7 +78,7 @@ switch ($_) {
       Symbol = $blockpool_Symbol
       Mining = $blockpool_CoinName
       Algorithm = $blockpool_Algorithm
-      Price = $Stat.Live
+      Price = $Stat.$StatLevel
       StablePrice = $Stat.Week
       MarginOfError = $Stat.Fluctuation
       Protocol = "stratum+tcp"

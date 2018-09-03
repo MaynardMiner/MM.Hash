@@ -8,18 +8,25 @@ function Get-GPUCount {
     Set-Location "/"
     Set-Location $CmdDir
 
-    $DeviceType = "NVIDIA1"
-
     $DeviceType | foreach{
      if($_ -like "*NVIDIA*")
       {
        Write-Host "Getting NVIDIA GPU Count" -foregroundcolor cyan
-        nvidia-smi -a | Tee-Object ".\GPUCount.txt" | Out-Null
-        $GCount = Get-Content ".\GPUCount.txt" 
-        $AttachedGPU = $GCount | Select-String "Attached GPUS"   
-        [int]$GPU_Count = $AttachedGPU -split ": " | Select -Last 1
-         }
-        }
+       lspci | Tee-Object ".\GPUCount.txt" | Out-Null
+       $GCount = Get-Content ".\GPUCount.txt" 
+       $AttachedGPU = $GCount | Select-String "VGA" | Select-String "NVIDIA"   
+       [int]$GPU_Count = $AttachedGPU.Count
+       }
+      if($_ -like "*AMD*")
+       {
+         Write-Host "Getting AMD GPU Count" -foregroundcolor cyan
+         lspci | Tee-Object ".\GPUCount.txt" | Out-Null
+         $GCount = Get-Content ".\GPUCount.txt" 
+         $AttachedGPU = $GCount | Select-String "VGA" | Select-String "AMD"   
+         [int]$GPU_Count = $AttachedGPU.Count
+       }
+    }
+             
     $GPU_Count  
 }
 
@@ -31,6 +38,15 @@ function Get-Data {
 
     Set-Location "/"
     Set-Location $CmdDir
+
+    if(Test-Path ".\dir.sh")
+     {
+      Copy-Item ".\dir.sh" -Destination "/usr/bin" -force | Out-Null
+      Set-Location "/usr/bin"
+      Start-Process "chmod" -ArgumentList "+x dir.sh"
+      Set-Location "/"
+      Set-Location $CmdDir
+     }
 
     if(Test-Path ".\stats")
     {
@@ -150,7 +166,7 @@ function Get-AlgorithmList {
             [String]$DeviceCall,
             [parameter(Mandatory=$false)]
             [String]$Devices='',
-            [parameter(Mandatory=$true)]
+            [parameter(Mandatory=$false)]
             [String]$Arguments,
             [parameter(Mandatory=$true)]
             [String]$MinerName,
@@ -162,75 +178,158 @@ function Get-AlgorithmList {
             [String]$CmdDir,
             [parameter(Mandatory=$true)]
             [String]$MinerDir,
-	    [parameter(Mandatory=$true)]
+	        [parameter(Mandatory=$true)]
             [String]$Logs,
             [parameter(Mandatory=$true)]
-            [String]$Delay
+            [String]$Delay,
+            [parameter(Mandatory=$true)]
+            [string]$MinerInstance,
+            [parameter(Mandatory=$true)]
+            [string]$Algos,
+            [parameter(Mandatory=$true)]
+            [string]$GPUGroups,
+            [parameter(Mandatory=$true)]
+            [string]$APIs,
+            [parameter(Mandatory=$true)]
+            [string]$Ports,
+            [parameter(Mandatory=$true)]
+            [string]$MDir,
+            [parameter(Mandatory=$false)]
+            [string]$Username,                      
+            [parameter(Mandatory=$false)]
+            [string]$Connection,
+            [parameter(Mandatory=$false)]
+            [string]$Password                                           
         )
     
         $MinerTimer = New-Object -TypeName System.Diagnostics.Stopwatch
-        $Export = "/hive/ccminer/cuda"
-	$ClayMinerDir = Join-path "$MinerDir" "$MinerName"
-        
+        $Export = "/hive/ccminer/cuda"         
         Set-Location "/"
         Set-Location $CmdDir
         $PIDMiners = "$($Type)"
         if(Test-Path ".\PID\*$PIDMiners*"){Remove-Item ".\PID\*$PIDMiners*" -Force}
-
         if($Type -like '*NVIDIA*')
         {
-        if($Devices -eq '')
-	{$MinerArguments = "$($Arguments)"}
+        if($Devices -eq ''){$MinerArguments = "$($Arguments)"}
         else{
         if($DeviceCall -eq "ccminer"){$MinerArguments = "-d $($Devices) $($Arguments)"}
         if($DeviceCall -eq "ewbf"){$MinerArguments = "--cuda_devices $($Devices) $($Arguments)"}
         if($DeviceCall -eq "dstm"){$MinerArguments = "--dev $($Devices) $($Arguments)"}
         if($DeviceCall -eq "claymore"){$MinerArguments = "-di $($Devices) $($Arguments)"}
         if($DeviceCall -eq "trex"){$MinerArguments = "-d $($Devices) $($Arguments)"}
+        if($DeviceCall -eq "bminer"){$MinerArgument = "-devices $($Devices) $($Arguments)"}
+         }
         }
+        if($Type -like '*AMD*')
+        {
+        if($Devices -eq ''){$MinerArguments = "$($Arguments)"}
+        else{
+          if($DeviceCall -eq "claymore"){$MinerArguments = "-di $($Devices) $($Arguments)"}
+          if($DeviceCall -eq "sgminer"){$MinerArguments = "-d $($Devices) $($Arguments)"}
+          if($DeviceCall -eq "tdxminer"){$MinerArguments = "-d $($Devices) $($Arguments)"}
+         }
         }
-        if($Type -like '*CPU*'){$MinerArguments = $Arguments}
-        if($Type -like '*AMD*'){$MinerArguments = $Arguments}
+        if($Type -like '*CPU*')
+        {
+        if($Devices -eq ''){$MinerArguments = "$($Arguments)"}
+        else{
+          if($DeviceCall -eq "cpuminer-opt"){$MinerArguments = "-t $($Devices) $($Arguments)"}
+          if($DeviceCall -eq "cryptozeny"){$MinerArguments = "-t $($Devices) $($Arguments)"}
+         }
+        }
         if($Type -like '*ASIC*'){$MinerArguments = $Arguments}
-	if($MinerName -like '*clay*'){$MinerConfig = "$ClayMinerDir $MinerArguments"}
-        else{$MinerConfig = "$Minername $MinerArguments"}
-        $MinerConfig | Set-Content ".\Unix\Hive\config.sh"
-        Start-Sleep -S 1
-        Write-Host "
+   	    $MinerConfig = "./$MinerInstance $MinerArguments"
+        $MinerConfig | Set-Content ".\Unix\Hive\config.sh" -Force
+        if($Type -eq "NVIDIA1" -or $Type -eq "AMD1")
+         {
+         Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "LogData" -Wait
+         Start-Sleep -S 1
+         $DeviceCall | Set-Content ".\Unix\Hive\mineref.sh" -Force
+         $Ports | Set-Content ".\Unix\Hive\port.sh" -Force
+         Start-Process "screen" -ArgumentList "-S LogData -d -m"    
+         Start-Process ".\Unix\Hive\LogData.sh" -ArgumentList "LogData $DeviceCall $Type $GPUGroups $MDir $Algos $APIs $Ports"
+         }
+         if($Type -eq "CPU")
+          {
+          if($CPUOnly -eq "Yes")
+           {
+            $DeviceCall | Set-Content ".\Unix\Hive\mineref.sh" -Force
+            $Ports | Set-Content ".\Unix\Hive\port.sh" -Force
+            Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "LogData" -Wait
+            Start-Sleep -S 1
+            Start-Process "screen" -ArgumentList "-S LogData -d -m"    
+            Start-Process ".\Unix\Hive\LogData.sh" -ArgumentList "LogData $DeviceCall $Type $GPUGroups $MDir $Algos $APIs $Ports"
+           }
+          }
+       Write-Host "
         
         
         
-        Clearing Screen $($_.Type) & Tracking
-    
-    
-    
+        Clearing Screen $($Type) & Tracking
+
+
+
         "
-        Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "$($Type)" -Wait    
+        Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "$($Type)" -Wait
         Start-Sleep $Delay #Wait to prevent BSOD
         $MiningId = Start-Process "screen" -ArgumentList "-S $($Type) -d -m"
         Start-Sleep -S 1
-        if($Type  -like '*NVIDIA*'){$PreStart = Start-Process ".\Unix\Hive\pre-start.sh" -ArgumentList "$($Type) $Export" -Wait}
-        if($Type -like '*AMD*'){$PreStart = Start-Process ".\Unix\Hive\pre-startamd.sh" -ArgumentList "$($Type)" -Wait}
-	Start-Sleep -S 1
+        if($DeviceCall -eq "lyclminer"){
+        Set-Location $MinerDir
+        $ConfFile = Get-Content ".\lyclMiner.conf"
+        $NewLines = $ConfFile | ForEach {
+        if($_ -like "*<Connection Url =*"){$_ = "<Connection Url = `"stratum+tcp://$Connection`""}
+        if($_ -like "*Username =*"){$_ = "            Username = `"$Username`"    "}
+        if($_ -like "*Password =*" ){$_ = "            Password = `"$Password`">    "}
+        if($_ -notlike "*<Connection Url*" -or $_ -notlike "*Username*" -or $_ -notlike "*Password*"){$_}
+        }
+        $NewLines | Set-Content ".\lyclMiner.conf"
+        Set-Location $CmdDir
+        }
+        Set-Location $MinerDIr
+        Start-Process "chmod" -ArgumentList "+x $MinerInstance" -Wait
+        Set-Location $CmdDir
+        if($Type  -like '*NVIDIA*'){Start-Process ".\Unix\Hive\pre-start.sh" -ArgumentList "$($Type) $Export" -Wait}
+        if($Type -like '*AMD*'){Start-Process ".\Unix\Hive\pre-startamd.sh" -ArgumentList "$($Type)" -Wait}
+	    Start-Sleep -S 1
         Write-Host "Starting $($Name) Mining $($Coins) on $($Type)" -ForegroundColor Cyan
-	if($MinerName -like '*clay*'){$NewMiner = Start-Process ".\Unix\Hive\startupclay.sh" -ArgumentList "$($Type) $CmdDir/Unix/Hive"}
-	else{$NewMiner = Start-Process ".\Unix\Hive\startup.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs"}
+	    Start-Process ".\Unix\Hive\startup.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs"
 
         $MinerTimer.Restart()
-
+        $MinerProcessId = $null
         Do{
            Start-Sleep -S 1
-           Write-Host "Getting Process ID for $MinerName"
-           $MinerProcessId = Get-Process -Name "$($MinerName)" -ErrorAction SilentlyContinue
+           Write-Host "Getting Process ID for $MinerName"           
+           $MinerProcessId = Get-Process -Name "$($MinerInstance)" -ErrorAction SilentlyContinue
           }until($MinerProcessId -ne $null -or ($MinerTimer.Elapsed.TotalSeconds) -ge 10)  
         if($MinerProcessId -ne $null)
          {
-            $MinerProcessId.Id | Out-File ".\PID\$($Name)_$($Coins)_$($Type)_PID.txt"
-            Get-Date | Out-File ".\PID\$($Name)_$($Coins)_$($Type)_Date.txt"
+            $MinerProcessId.Id | Set-Content ".\PID\$($Name)_$($Coins)_$($MinerInstance)_PID.txt" -Force
+            Get-Date | Set-Content ".\PID\$($Name)_$($Coins)_$($MinerInstance)_Date.txt" -Force
             Start-Sleep -S 1
         }
-
         $MinerTimer.Stop()
+        Rename-Item "$MinerDir\$($MinerInstance)" -NewName "$MinerName" -Force
+        Start-Sleep -S 1
         Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+    }
+
+    function Get-PID {
+        param(
+            [parameter(Mandatory=$false)]
+            [String]$Instance
+            )
+    
+        $GetPID = "$($Instance)_PID.txt"
+        
+        if(Test-Path $GetPID)
+         {
+          $PIDNumber = Get-Content $GetPID
+          $MinerPID = Get-Process -Id $PIDNumber
+         }
+        else{$MinerPID = $null}
+
+        $MinerPID
 
     }
+    

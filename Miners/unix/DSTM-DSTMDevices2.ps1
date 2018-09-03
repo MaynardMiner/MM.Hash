@@ -1,5 +1,7 @@
 [string]$Path = $update.nvidia.dstm.path2
 [string]$Uri = $update.nvidia.dstm.uri
+[string]$MinerName = $update.nvidia.dstm.minername
+
 
 $Build = "Zip"
 
@@ -25,7 +27,7 @@ if($GPUDevices2 -ne '')
        [PSCustomObject]@{
          Platform = $Platform
        Symbol = "$($_)"
-       MinerName = "zm-NVIDIA2"
+       MinerName = $MinerName
                Type = "NVIDIA2"
                Path = $Path
                Distro =  $Distro
@@ -54,7 +56,7 @@ else{
            [PSCustomObject]@{
             Platform = $Platform
             Symbol = "$($CoinPools.$_.Symbol)"
-            MinerName = "zm-NVIDIA2"
+            MinerName = $MinerName
             Type = "NVIDIA2"
             Path = $Path
             Devices = $Devices

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-
-screen -r $(< /hive/custom/MM.Hash.1.4.0b/Build/minertype.sh)
+mydir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+screen -r $(< $(< $mydir/dir.sh)/minertype.sh)
 

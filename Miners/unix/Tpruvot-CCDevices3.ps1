@@ -1,5 +1,6 @@
 [string]$Path = $update.nvidia.tpruvot.path3
 [string]$Uri = $update.nvidia.tpruvot.uri
+[string]$MinerName = $update.nvidia.tpruvot.minername
 
 $Build = "Zip"
 
@@ -27,6 +28,7 @@ $Commands = [PSCustomObject]@{
 "x12" = ''
 "sib" = ''
 "myr-gr" = ''
+"hmq1725" = ''
 }
 
 if($CoinAlgo -eq $null)
@@ -37,7 +39,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     [PSCustomObject]@{
       Platform = $Platform
     Symbol = "$($_)"
-    MinerName = "ccminer-NVIDIA3"
+    MinerName = $MinerName
     Type = "NVIDIA3"
     Path = $Path
     Devices = $Devices
@@ -65,7 +67,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
    [PSCustomObject]@{
     Platform = $Platform
    Symbol = "$($CoinPools.$_.Symbol)"
-   MinerName = "ccminer-NVIDIA3"
+   MinerName = $MinerName
    Type = "NVIDIA3"
    Path = $Path
    Devices = $Devices

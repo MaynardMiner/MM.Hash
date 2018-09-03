@@ -177,7 +177,7 @@ $OpenScreens += "ASIC"
 $OpenScreens += "LogData"
 $OpenScreens += "PIDInfo"
 $OpenScreens | foreach {
-Start-Process ".\Build\killall.sh" -ArgumentList "$($_)" -Wait
+Start-Process ".\Build\Unix\Ubuntu\killall.sh" -ArgumentList "$($_)" -Wait
 }
 
 #Start the log

@@ -25,19 +25,19 @@ if($Auto_Algo -eq "Yes")
 $Location = "US"
 
 $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Zpool_Request.$_.hashrate -gt 0} | ForEach-Object {
+   if($Algorithm -eq $_)
+    {
+    if($Zpool_Request.$_.hashrate -ne "0")
+     {
+      if($Zpool_Request.$_.estimate -ne "0.00000")
+       {    
+
     $Zpool_Host = "$_.mine.zpool.ca"
     $Zpool_Port = $Zpool_Request.$_.port
     $Zpool_Algorithm = Get-Algorithm $Zpool_Request.$_.name
     $Divisor = (1000000*$Zpool_Request.$_.mbtc_mh_factor)
 
- if($Algorithm -eq $Zpool_Algorithm)
-      {
-      if($PoolName -eq $Name)
-       {
-    if((Get-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit" -Value ([Double]$zpool_Request.$_.estimate_current/$Divisor*(1-($zpool_Request.$_.fees/100)))}
-   else{$Stat = Set-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit" -Value ([Double]$zpool_Request.$_.estimate_current/$Divisor *(1-($zpool_Request.$_.fees/100)))}	
-     }
-    }
+    $Stat = Set-Stat -Name "$($Name)_$($zpool_Algorithm)_Profit" -Value ([Double]$zpool_Request.$_.estimate_current/$Divisor *(1-($zpool_Request.$_.fees/100)))
      
        if($Wallet)
 	    {
@@ -62,6 +62,9 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
 	       Pass3 = "c=$Passwordcurrency3,ID=$Rigname3"
             Location = $Location
             SSL = $false
+            }
+           }
+         }
         }
       }
      }

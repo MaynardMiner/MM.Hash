@@ -1,5 +1,8 @@
 $Path = $update.cpu.jayddee.path1
 $Uri = $update.cpu.jayddee.uri
+$MinerName = $update.cpu.jayddee.minername
+
+if($CPUThreads -ne ''){$Devices = $CPUThreads}
 
 if($Platform -eq "linux"){$Build = "Linux"}
 else{$Build = "Zip"}
@@ -14,6 +17,7 @@ $Commands = [PSCustomObject]@{
     "yescrypt" = ''
     "yescryptr16" = ''
     "lyra2z" = ''
+    "lyra2re" = ''
     "m7m" = ''
     "cryptonightv7" = ''
     }
@@ -28,12 +32,12 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
      [PSCustomObject]@{
         Platform = $Platform
          Symbol = "$($_)"
-         MinerName = "cpuminer-CPU"
+         MinerName = $MinerName
          Type = "CPU"
          Path = $Path
          Devices = $Devices
          DeviceCall = "cpuminer-opt"
-         Arguments = "-a $(Get-Nvidia($_)) -o stratum+tcp://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -b 0.0.0.0:4048 -u $($AlgoPools.$_.User1) -p $($AlgoPools.$_.Pass1) $($Commands.$_)"
+         Arguments = "-a $_ -o stratum+tcp://$($AlgoPools.$_.Host):$($AlgoPools.$_.Port) -b 0.0.0.0:4048 -u $($AlgoPools.$_.User1) -p $($AlgoPools.$_.Pass1) $($Commands.$_)"
          HashRates = [PSCustomObject]@{$_ = $Stats."$($Name)_$($_)_HashRate".Day}
          Selected = [PSCustomObject]@{$_ = ""}
          MinerPool = "$($AlgoPools.$_.Name)"
@@ -56,7 +60,7 @@ else{
       [PSCustomObject]@{
         Platform = $Platform
        Symbol = "$($CoinPools.$_.Symbol)"
-       MinerName = "cpuminer-CPU"
+       MinerName = $MinerName
        Type = "CPU"
        Path = $Path
        Devices = $Devices

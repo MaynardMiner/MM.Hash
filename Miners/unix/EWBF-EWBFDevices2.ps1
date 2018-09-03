@@ -1,5 +1,6 @@
 [string]$Path = $update.nvidia.ewbf.path2
 [string]$Uri = $update.nvidia.ewbf.uri
+[string]$MinerName = $update.nvidia.ewbf.minername
 
 $Build = "Zip"
 
@@ -13,6 +14,7 @@ if($GPUDevices2 -ne '')
 #Equihash192
 
 $Commands = [PSCustomObject]@{
+  "equihash-btg" = '--algo 144_5 --pers auto'
   "equihash192" = '--algo 192_7 --pers auto'
   "equihash144" =  '--algo 144_5 --pers auto'
   "equihash96" =  '--algo 96_5 --pers auto'
@@ -31,7 +33,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
     [PSCustomObject]@{
       Platform = $Platform
       Symbol = "$($_)"
-      MinerName = "miner-NVIDIA2"
+      MinerName = $MinerName
       Type = "NVIDIA2"
       Path = $Path
       Devices = $Devices
@@ -58,8 +60,8 @@ else{
          [PSCustomObject]@{
           Platform = $Platform
           Symbol = "$($Coinpools.$_.Symbol)"
-           MinerName = "miner-NVIDIA2"
-           Type = "NVIDIA2"
+          MinerName = $MinerName
+          Type = "NVIDIA2"
            Path = $Path
            Devices = $Devices
            DeviceCall = "ewbf"

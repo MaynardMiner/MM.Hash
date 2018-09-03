@@ -39,7 +39,7 @@ if($Location -eq "EUROPE")
    $Location = "EUROPE" 
  }
 
-$nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEach-Object {
+$nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | Where-Object {$_.Paying -gt 0} | ForEach-Object {
     $nicehash_Host = "$($_.name).$Region.nicehash.com"
     $nicehash_Port = $_.port
     $nicehash_Algorithm = Get-Algorithm $_.name
@@ -68,9 +68,9 @@ $nicehash_Request.result | Select-Object -ExpandProperty simplemultialgo | ForEa
             Protocol = "stratum+tcp"
             Host = $nicehash_Host
             Port = $nicehash_Port
-            User1 = "$Nicehash_Wallet1.$Rigname1"
-	    User2 = "$Nicehash_Wallet2.$Rigname2"
-            User3 = "$Nicehash_Wallet3.$Rigname3"
+            User1 = "$Nicehash_Wallet1"
+	    User2 = "$Nicehash_Wallet2"
+            User3 = "$Nicehash_Wallet3"
             CPUser = "$Nicehash_Wallet1.$Rigname1"
             CPUPass = "x"
             Pass1 = "x"

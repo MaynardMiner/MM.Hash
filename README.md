@@ -2,6 +2,8 @@
 
 **Profit Switching Miner For HiveOS & Windows.**
 
+
+
 MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable algorithm to mine. It can also perform coin profit switching as well, on pools that can do so. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well. The HiveOS version means you can use all the features of HiveOS, including hashrate monitoring, possible GPU failure detection, miner configuration, all while doing it remotely.
 
 **Features**
@@ -44,55 +46,71 @@ MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows 
 
 
 
-**Algorithms** (As defined and required by miners)
+**Algorithms** (As defined by poola and translation required by miners)
 
 ```
-nist5
-blake2s
-skein
-ethash
-daggerhashimoto
-lyra2v2
-lyra2z
-phi2
-allium
-equihash
-x16r
-x16s
-aergo
-polytimos
-hex
-sonoa
-equihash96
-equihash192
-equihash144xsg
-equihash144btcz
-equihash144zel
-equihash-BTG
-equihash144safe
-yescrypt
-yescryptR16
-m7m
-cryptonightv7
-lyra2re
-hodl
-neoscrypt
-groestl
-xevan
-bitcore
-hmq1725
-timetravel
-x17
-keccak
-blakecoin
-skunk
-keccakc
-x12
-sib
-tribus
-phi
-c11
-hsr
+    "aergo": "aergo",
+    "aeon": "aeon",
+    "allium": "allium",
+    "balloon": "balloon",
+    "bitcore": "bitcore",
+    "blake": "blakecoin",
+    "blakecoin": "blakecoin",
+    "blake2s": "blake2s",
+    "c11": "c11",
+    "cryptonight": "cryptonight",
+    "cryptonightheavy": "cryptonightheavy",
+    "cryptonightmonero": "cryptonight",
+    "cryptonightv7": "cryptonightv7",
+    "daggerhashimoto": "daggerhashimoto",
+    "equihash": "equihash",
+    "equihash96": "equihash96",
+    "equihash144": "equihash144",
+    "equihash192": "equihash192",
+    "equihash200": "equihash200",
+    "equihash210": "equihash210",
+    "equihash-btg": "equihash-btg",
+    "ethash": "ethash",
+    "groestl": "groestl",
+    "hex": "hex",
+    "hmq1725": "hmq1725",
+    "hodl": "hodl",
+    "hsr": "hsr",
+    "jackpot": "jackpot",
+    "keccak": "keccak",
+    "keccakc": "keccakc",
+    "lbk3": "lbk3",
+    "lyra2re": "lyra2re",
+    "lyra2rev2": "lyra2rev2",
+    "lyra2v2": "lyra2v2",
+    "lyra2z": "lyra2z",
+    "m7m": "m7m",
+    "masari": "masari",
+    "myr-gr": "myr-gr",
+    "neoscrypt": "neoscrypt",
+    "nist5": "nist5",
+    "phi": "phi",
+    "phi2": "phi2",
+    "polytimos": "polytimos",
+    "qubit": "qubit",
+    "renesis": "renesis",
+    "sib": "sib",
+    "skein": "skein",
+    "skunk": "skunk",
+    "sonoa": "sonoa",
+    "stellite": "stellite",
+    "timetravel": "timetravel",
+    "tribus": "tribus",
+    "x11": "x11",
+    "x16r": "x16r",
+    "x16s": "x16s",
+    "x17": "x17",
+    "xevan": "xevan",
+    "xmr": "xmr",
+    "yespower": "yespower",
+    "yescrypt": "yescrypt",
+    "yescryptR16": "yescryptR16"
+
 ```
 
 
@@ -102,7 +120,8 @@ nicehash
 miningpoolhub (mph)
 zergpool_coin
 zergpool_algo
-blockmasters
+blockmasters_algo
+blockmasters_coin
 starpool
 ahashpool
 blazepool
@@ -113,17 +132,22 @@ zpool
 
 **Miners**
 ```
-Avermore
-Bubalisk
-CryptoDredge
-MSFT
-Tpruvot
-T-rex
-Enemy
-Claymore
-Dstm
-EWBF
-JayDDee
+Avermore (AMD)
+Bubalisk (CPU)
+CryptoDredge (NVIDIA)
+Tpruvot (NVIDIA)
+T-rex (NVIDIA)
+Z-Enemy (NVIDIA) 
+Claymore (NVIDIA) (AMD)
+Dstm (NVIDIA)
+EWBF (NVIDIA)
+JayDDee (CPU)
+SGminer-Phi2 (AMD)
+Cryptozeny (ARM Support)(CPU
+LyclMiner (expirmental) (AMD)
+Sgminer-kl (AMD)
+Sgminer-Hex (AMD)
+tdxminer (AMD)
 ```
 
 Simple Install Instructions (HIVEOS):
@@ -183,4 +207,6 @@ Uselessguru
 Aaronsace
 
 They were the pioneers to powershell scriptmining. Their scripts helped me to piece together a buggy but workable linux miner, which was the original purpose of MM.Hash, since none of them did so at the time. Since then it has grown to what it is today.
+
+
 

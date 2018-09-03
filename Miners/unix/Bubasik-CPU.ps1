@@ -1,5 +1,8 @@
 $Path = $update.cpu.bubasik.path1
 $Uri = $update.cpu.bubasik.uri
+$MinerName = $update.cpu.bubasik.minername
+
+if($CPUThreads -ne ''){$Devices = $CPUThreads}
 
 $Build = "Linux"
 
@@ -24,7 +27,7 @@ $Commands | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty 
      [PSCustomObject]@{
          platform = $platform
          Symbol = "$($_)"
-         MinerName = "cpuminer-CPU"
+         MinerName = $MinerName
          Type = "CPU"
          Path = $Path
          Devices = $Devices
@@ -53,7 +56,7 @@ else{
       [PSCustomObject]@{
        platform = $platform
        Symbol = "$($CoinPools.$_.Symbol)"
-       MinerName = "cpuminer-CPU"
+       MinerName = $MinerName
        Type = "CPU"
        Path = $Path
        Devices = $Devices

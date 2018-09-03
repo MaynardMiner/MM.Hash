@@ -1,5 +1,6 @@
 [string]$Path = $update.amd.claymore.path1
 [string]$Uri = $update.amd.claymore.uri
+[string]$MinerName = $update.amd.claymore.minername
 
 $Build = "Zip"
 
@@ -25,7 +26,7 @@ if($CoinAlgo -eq $null)
      [PSCustomObject]@{
      Platform = $Platform  
      Symbol = "$($_)"
-	   MinerName = "clayamd-AMD1"
+	   MinerName = $MinerName
      Type = "AMD1"
      Path = $Path
      Devices = $Devices
@@ -35,7 +36,7 @@ if($CoinAlgo -eq $null)
      Selected = [PSCustomObject]@{$_ = ""}
      FullName = "$($AlgoPools.$_.Mining)"
      API = "claymore"
-     Port = 3333
+     Port = 3336
 	   MinerPool = "$($AlgoPools.$_.Name)"
      Wrap = $false
      URI = $Uri
@@ -54,7 +55,7 @@ if($CoinAlgo -eq $null)
             Platform = $Platform
             Coin = "Yes"
             Symbol = "$($CoinPools.$_.Symbol)"
-            MinerName = "clayamd-AMD1"
+            MinerName = $MinerName
             Type = "AMD1"
             Path = $Path
             Devices = $Devices
@@ -65,7 +66,7 @@ if($CoinAlgo -eq $null)
             FullName = "$($CoinPools.$_.Mining)"
             MinerPool = "$($CoinPools.$_.Name)"
             API = "claymore"
-            Port = 3333
+            Port = 3336
             Wrap = $false
             URI = $Uri
             BUILD = $Build

@@ -1,5 +1,6 @@
 [string]$Path = $update.nvidia.claymore.path2
 [string]$Uri = $update.nvidia.claymore.uri
+[string]$MinerName = $update.nvidia.claymore.minername
 
 $Build = "Zip"
 
@@ -25,7 +26,7 @@ if($GPUDevices2 -ne '')
         [PSCustomObject]@{
         Platform = $Platform  
         Symbol = "$($_)"
-        MinerName = "clay-NVIDIA2"
+        MinerName = $MinerName
         Type = "NVIDIA2"
         Path = $Path
         Devices = $Devices
@@ -54,7 +55,7 @@ if($GPUDevices2 -ne '')
                Platform = $Platform
                Coin = "Yes"
                Symbol = "$($CoinPools.$_.Symbol)"
-               MinerName = "clay-NVIDIA2"
+               MinerName = $MinerName
                Type = "NVIDIA2"
                Path = $Path
                Devices = $Devices

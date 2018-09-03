@@ -288,6 +288,8 @@ function Get-HashRate {
         [Parameter(Mandatory=$true)]
         [Int]$Port,
         [Parameter(Mandatory=$false)]
+        [Int]$CPUThreads,
+        [Parameter(Mandatory=$false)]
         [Object]$Parameters = @{},
         [Parameter(Mandatory=$false)]
         [Bool]$Safe = $false
@@ -539,6 +541,67 @@ function Get-HashRate {
 		   Start-Sleep $Interval
                 } while($HashRates.Count -lt 6)
             }
+            "tdxminer"
+             {
+                do{
+
+                if(Test-Path ".\Build\Unix\Hive\logstats.sh")
+                {
+                $Data = Get-Content ".\Build\Unix\Hive\logstats.sh" | ConvertFrom-StringData
+                $HashRate = $Data.RAW
+                if($HashRate -eq $null){$HashRates = @(); break}
+                $HashRates += [Double]$HashRate
+                if(-not $Safe){break}
+                Start-Sleep $Interval
+                }
+
+                } while($HashRates.Count -lt 6)
+                Clear-Content ".\Build\Unix\Hive\logstats.sh"
+             }
+             "lyclminer"
+             {
+                do{
+
+                if(Test-Path ".\Build\Unix\Hive\logstats.sh")
+                {
+                $Data = Get-Content ".\Build\Unix\Hive\logstats.sh" | ConvertFrom-StringData
+                $HashRate = $Data.RAW
+                if($HashRate -eq $null){$HashRates = @(); break}
+                $HashRates += [Double]$HashRate
+                if(-not $Safe){break}
+                Start-Sleep $Interval
+                }
+
+                } while($HashRates.Count -lt 6)
+                Clear-Content ".\Build\Unix\Hive\logstats.sh"
+             }
+            "cpulog"
+             {
+
+              $Hashrate = 0
+              if(Test-Path ".\Logs\CPU.log")
+               {
+                $CPUlog = Get-Content ".\Logs\CPU.log" | Select-String "CPU"
+                for($i=0; $i -lt $CPUThreads; $i++)
+                 {
+                    $Hash = $CPUlog | Select-String "CPU #$($i)" | Select -Last 1
+                    $Hash = $Hash -replace (" ","")
+                    $Hash = $Hash -split ":" | Select-String -SimpleMatch "/s"
+                    $Hash = $Hash -split "/s" | Select -First 1
+                    $Hash = $Hash -replace ("h","")
+                    $Hash = $Hash -replace ("m","")
+                    $Hash = $Hash -replace ("mh","")
+                    $Hash = $Hash -replace ("kh","")
+                    $Hash = $Hash | % {iex $_}
+                    $Hash | foreach{$HashRate += $_}
+                 }
+
+                $HashRates += [Double]$HashRate
+                Start-Sleep $Interval
+                }
+                else{$HashRates = @(); break}
+
+             }
         }
 
         $HashRates_Info = $HashRates | Measure-Object -Maximum -Minimum -Average
@@ -857,10 +920,17 @@ function Expand-WebRequest {
                     else
 		       {
                          Get-ChildItem $Path_Old | Where-Object PSIsContainer -EQ $true | ForEach-Object {Move-Item (Join-Path $Path_Old $_) $Path_New}
-                         $MinerNewFile = (Join-Path $Path_New ("$($MineName)" -replace "-$($MineType)",""))
-                         Rename-Item -Path $MinerNewFile -NewName "$($MineName)"
-                         $ChmodPath = (Join-Path $Path_New "$($MineName)")
-                         Start-Process "chmod" -ArgumentList "+x $($ChmodPath)" -Wait
+                         if($MineName -eq "lyclMiner"){
+                         Set-Location $Path_New
+                         Start-Process "./lyclMiner" -ArgumentList "-g lyclMiner.conf" -Wait
+                         Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                         }
+                         if($MinerType -like "*AMD*" -or $MinerType -like "*NVIDIA*")
+                          {
+                           Set-Location $Path_New
+                           Start-Process "chmod" -ArgumentLIst "+x $MineName"
+                           Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
+                          }
                          Remove-Item $Path_Old
 		       }
                   }

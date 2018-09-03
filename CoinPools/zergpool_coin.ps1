@@ -6,11 +6,6 @@ $Location = 'US'
 $zergpool_Request = [PSCustomObject]@{}
 $ZergpoolAlgo_Request = [PSCustomObject]@{}
 $zergcoinalgo = $CoinAlgo
-$zergcoinalgo | foreach {
-switch ($_) {
-  "aeriumx"{$_ = "aergo"}
-}
-}
 
  if($Poolname -eq $Name)
   {
@@ -39,8 +34,8 @@ switch ($_) {
       if($zergpool_Request.$_.estimate -ne "0.00000")
        {
 
-    $zergpool_Coin = $_
-    $zergpool_Symbol = $_
+    $zergpool_Coin = "$($_)".ToUpper()
+    $zergpool_Symbol = "$($_)".ToUpper()
     switch ($zergpool_Symbol) {
      "HSR"{$zergpool_Symbol = "HSR-Coin"}
      "SIB"{$zergpool_Symbol = "SIB-Coin"}
@@ -78,7 +73,7 @@ switch ($_) {
             Symbol = $zergpool_Symbol
             Mining = $zergpool_CoinName
             Algorithm = $zergpool_Algorithm
-            Price = $Stat.Live
+            Price = $Stat.$StatLevel
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"

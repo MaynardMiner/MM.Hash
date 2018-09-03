@@ -739,6 +739,32 @@ function Get-AMD {
     else{$Coin}
 }
 
+function Get-AlgorithmList {
+    param (
+        [Parameter(Mandatory=$true)]
+        [Array]$DeviceType,
+        [Parameter(Mandatory=$false)]
+        [Array]$No_Algo
+    )
+
+    $AlgorithmList = @()
+    $GetAlgorithms = Get-Content ".\Config\get-pool.txt" | ConvertFrom-Json
+    $PoolAlgorithms = @()
+    $GetAlgorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | foreach {
+     $PoolAlgorithms += $_
+    }
+    
+    if($No_Algo -ne $null)
+     {
+     $GetNoAlgo = Compare-Object $No_Algo $PoolAlgorithms
+     $GetNoAlgo.InputObject | foreach{$AlgorithmList += $_}
+     }
+     else{$PoolAlgorithms | foreach { $AlgorithmList += $($_)} }
+         
+    $AlgorithmList
+    }
+
+
 function Get-Algorithm {
     param(
         [Parameter(Mandatory=$true)]

@@ -24,20 +24,19 @@ if($Auto_Algo -eq "Yes")
      }
 
  $zergpoolAlgo_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$Algorithm -eq $zergpoolAlgo_Request.$_.name} | Where-Object {$zergpoolAlgo_Request.$_.hashrate -ne "0"} | Where-Object {$zergpoolAlgo_Request.$_.estimate_current -ne "0.00000"} | ForEach-Object {
-    
-        $zergpoolAlgo_Algorithm = Get-Algorithm $zergpoolAlgo_Request.$_.name
+ if($Algorithm -eq $_)
+  {
+  if($zergpoolAlgo_Request.$_.hashrate -ne "0")
+   {
+    if($zergpoolAlgo_Request.$_.estimate -ne "0.00000")
+     {
+
+      $zergpoolAlgo_Algorithm = Get-Algorithm $zergpoolAlgo_Request.$_.name
         $zergpoolAlgo_Host = "$_.mine.zergpool.com"
         $zergpoolAlgo_Port = $zergpoolAlgo_Request.$_.port
         $Divisor = (1000000*$zergpoolAlgo_Request.$_.mbtc_mh_factor)
 
-        if($Algorithm -eq $zergpoolAlgo_Algorithm)
-          {
-          if($PoolName -eq $Name)
-           {
-        if((Get-Stat -Name "$($Name)_$($zergpoolAlgo_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpoolAlgo_Algorithm)_Profit" -Value ([Double]$zergpoolAlgo_Request.$_.estimate_current/$Divisor*(1-($zergpoolAlgo_Request.$_.fees/100)))}
-        else{$Stat = Set-Stat -Name "$($Name)_$($zergpoolAlgo_Algorithm)_Profit" -Value ([Double]$zergpoolAlgo_Request.$_.Estimate_Current/$Divisor *(1-($zergpoolAlgo_Request.$_.fees/100)))}
-          }
-         }
+        $Stat = Set-Stat -Name "$($Name)_$($zergpoolAlgo_Algorithm)_Profit" -Value ([Double]$zergpoolAlgo_Request.$_.Estimate_Current/$Divisor *(1-($zergpoolAlgo_Request.$_.fees/100)))
          
           if($Wallet)
            {
@@ -58,7 +57,7 @@ if($Auto_Algo -eq "Yes")
                 Symbol = $zergpoolAlgo_Algorithm
                 Mining = $zergpoolAlgo_Algorithm
                 Algorithm = $zergpoolAlgo_Algorithm
-                Price = $Stat.Live
+                Price = $Stat.$StatLevel
                 StablePrice = $Stat.Week
                 MarginOfError = $Stat.Fluctuation
                 Protocol = "stratum+tcp"
@@ -74,6 +73,9 @@ if($Auto_Algo -eq "Yes")
                 Pass3 = "c=$Zergpass3,ID=$Rigname3"
                 Location = $Location
                 SSL = $false
+                }
+               }
+               }
               }
             }
           }

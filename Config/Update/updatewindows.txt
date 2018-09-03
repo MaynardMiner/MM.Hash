@@ -25,7 +25,7 @@
         "path1": ".\\Bin\\CryptoDredge-Windows-CCDevices1\\CryptoDredge.exe",
         "path2": ".\\Bin\\CryptoDredge-Windows-CCDevices2\\CryptoDredge.exe",
         "path3": ".\\Bin\\CryptoDredge-Windows-CCDevices3\\CryptoDredge.exe",
-        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/CryptoDredge-083-Windows.zip" 
+        "uri": "https://github.com/CryptoDredge/beta/releases/download/v0.8.4-beta/CryptoDredge_0.8.4-beta_cuda_9.2_windows.zip" 
        }
      },
 
@@ -95,7 +95,7 @@
         "path1": ".\\Bin\\TRex-Windows-CCDevices1\\t-rex.exe",
         "path2": ".\\Bin\\TRex-Windows-CCDevices2\\t-rex.exe",
         "path3": ".\\Bin\\TRex-Windows-CCDevices3\\t-rex.exe",
-        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/t-rex-061-Windows.zip"
+        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v2.0/t-rex-0.6.2-win-cuda9.1.zip"
        }
       }
      ]
