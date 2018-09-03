@@ -209,6 +209,7 @@ $PreviousVersions += "MM.Hash.1.3.8a"
 $PreviousVersions += "MM.Hash.1.3.9"
 $PreviousVersions += "MM.Hash.1.4.0b"
 $PreviousVersions += "MM.Hash.1.0.4b"
+$PreviousVersions += "MM.Hash.1.4.2b"
 
 $PreviousVersions | foreach {
   $PreviousPath = Join-Path "/hive/custom" "$_"
