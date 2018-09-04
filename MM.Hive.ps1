@@ -355,7 +355,7 @@ Write-Host "
     M::::::M               M::::::MM::::::M               M::::::M .::::. H:::::::H     H:::::::H A:::::A                 A:::::AS:::::::::::::::SS H:::::::H     H:::::::H
     MMMMMMMM               MMMMMMMMMMMMMMMM               MMMMMMMM ...... HHHHHHHHH     HHHHHHHHHAAAAAAA                   AAAAAAASSSSSSSSSSSSSSS   HHHHHHHHH     HHHHHHHHH
 
-				             By: MaynardMiner                  v1.4.2b Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
+				             By: MaynardMiner                  v1.4.3b Hive              GitHub: http://Github.com/MaynardMiner/MM.Hash
                                                                                                      
                                                                                 SUDO APT-GET LAMBO
                                                                           ____    _     __     _    ____
@@ -972,10 +972,11 @@ if($CoinMiners -ne $null)
               WasBenchmarked = $false
               XProcess = $null
               MinerPool = $_.MinerPool
-	            Algo = $_.Algo
+	      Algo = $_.Algo
               Bad_Benchmark = 0
               FullName = $_.FullName
               Instance = $null
+	      InstanceNumber = $null
               Username = $_.Username
               Connection = $_.Connection
               Password = $_.Password
@@ -991,7 +992,7 @@ $NoMiners = "No"
 $ActiveMinerPrograms | foreach {
   if(-not ($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments))
    {
-    $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($_.XProcess.HasExited){
      if($_.Status -eq "Running"){
      $_.Status = "Failed"
@@ -1012,7 +1013,7 @@ $ActiveMinerPrograms | foreach {
  else{
     if($TimeDeviation -ne 0)
      {
-      $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
       $CurrentLog = ".\Logs\$($_.Type).log)"
       if(Test-Path $CurrentLog){Clear-Content $CurrentLog -Force}
       if($null -eq $_.XProcess -or $_.XProcess.HasExited -ne $false)
@@ -1053,7 +1054,8 @@ $ActiveMinerPrograms | foreach {
 
         Start-LaunchCode @LaunchCodes
 
-      $_.Instance = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)-$($Instance)"      
+      $_.Instance = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)-$($Instance)"
+      $_.InstanceNumber = $($Instance)
       $PIDFile = "$($_.Instance)_PID.txt"
 
       if(Test-Path $PIDFile)
@@ -1133,7 +1135,7 @@ function Get-MinerActive {
 
   $ActiveMinerPrograms | Sort-Object -Descending Status,
   {
-    $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($null -eq $_.XProcess)
     {[DateTime]0}
     else
@@ -1227,7 +1229,7 @@ $ActiveMinerPrograms | Foreach {
 $Restart = "No"
  if(Test-Path "$($_.Instance)_PID.txt")
   {
-    $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($null -eq $_.XProcess -or $_.XProcess.HasExited -ne $false)
    {
     $Restart = "Yes"
@@ -1265,7 +1267,8 @@ $Restart = "No"
 
     Start-LaunchCode @LaunchCodes
 
-  $_.Instance = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)-$($Instance)"      
+      $_.Instance = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)-$($Instance)"
+      $_.InstanceNumber = $($Instance)
   $PIDFile = "$($_.Instance)_PID.txt"
 
   if(Test-Path $PIDFile)
@@ -1311,7 +1314,7 @@ function Get-MinerHashRate {
 $ActiveMinerPrograms | Foreach {
   if(Test-Path "$($_.Instance)_PID.txt")
   { 
-   $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
    if($null -eq $_.Xprocess -or $_.XProcess.HasExited){$_.Status = "Failed"}
    $Miner_HashRates = Get-HashRate -API $_.API -Port $_.Port -CPUThreads $CPUThreads
 	 $GetDayStat = Get-Stat "$($_.Name)_$($_.Algo)_HashRate"
@@ -1354,7 +1357,7 @@ $Restart = "No"
 $ActiveMinerPrograms | foreach {
  if(Test-Path "$($_.Instance)_PID.txt")
   {
-    $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($null -eq $_.XProcess -or $_.XProcess.HasExited)
    {
     $_.Status = "Failed"
@@ -1432,7 +1435,7 @@ Do{
 $ActiveMinerPrograms | foreach {
 if(Test-Path "$($_.Instance)_PID.txt")
  {
-  $_.XProcess = Get-PID -Instance $($_.Instance)
+    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
   if($null -eq $_.XProcess -or $_.XProcess.HasExited)
   {
    $_.Status = "Failed"

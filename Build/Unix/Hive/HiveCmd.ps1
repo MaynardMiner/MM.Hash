@@ -317,15 +317,21 @@ function Get-AlgorithmList {
     function Get-PID {
         param(
             [parameter(Mandatory=$false)]
-            [String]$Instance
+            [String]$Instance,          
+	    [parameter(Mandatory=$false)]
+            [String]$Type,
+	    [parameter(Mandatory=$false)]
+            [String]$InstanceNum
             )
     
         $GetPID = "$($Instance)_PID.txt"
         
         if(Test-Path $GetPID)
          {
+	  $PIDName = "$($Instance)-$($InstanceNum)"
           $PIDNumber = Get-Content $GetPID
-          $MinerPID = Get-Process -Id $PIDNumber
+          $MinerPID = Get-Process -Id $PIDNumber -erroraction SilentlyContinue
+ 	  if($MinerPID -eq $Null){$MinerPID = Get-Process -Name $PIDName -erroraction SilentlyContinue}
          }
         else{$MinerPID = $null}
 

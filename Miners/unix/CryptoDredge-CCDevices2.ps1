@@ -11,20 +11,21 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
 
-  "lyra2v2" = ''
-  "lyra2rev2" = ''
-  "lyra2z" = ''
-  "lyra2re" = ''
-  "allium" = ''
-  "neoscrypt" = ''
-  "blake2s" = ''
-  "skein" = ''
-  "cryptonightv7" = ''
-  "cryptonightheavy" = ''
-  "aeon" = ''
-  "masari" = ''
-  "stellite" = ''
-  "lbk3" = ''
+"lyra2v2" = ''
+"lyra2rev2" = ''
+"lyra2z" = ''
+"lyra2re" = ''
+"allium" = ''
+"neoscrypt" = ''
+"blake2s" = ''
+"skein" = ''
+"cryptonightv7" = ''
+"cryptonightheavy" = ''
+"aeon" = ''
+"masari" = ''
+"stellite" = ''
+"lbk3" = ''
+"Phi2" = ''
   
   }
         

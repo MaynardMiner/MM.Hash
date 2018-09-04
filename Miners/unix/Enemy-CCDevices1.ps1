@@ -19,7 +19,6 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 $Commands = [PSCustomObject]@{
 
   "aergo" = ''
-  "phi2" = ''
   "hex" = ''
   "timetravel" = ''
   "xevan" = ''
