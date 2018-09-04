@@ -2,7 +2,7 @@
 
 **Profit Switching Miner For HiveOS & Windows.**
 
-**Note**
+**Important Note:**
 
 Version information:
 
