@@ -14,7 +14,7 @@ c - Soon to be Ubuntu version.
 
 Depending on which OS you use- Use the latest version release of that version.
 
-MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, and multiple algorithms, as well as calucating the most profitable coin to mine. It can also perform coin profit switching as well, on pools that can do so. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well. The HiveOS version means you can use all the features of HiveOS, including hashrate monitoring, possible GPU failure detection, miner configuration, all while doing it remotely.
+MM.Hash is a powershell/bash hyrbid miner that is meant to work in both windows and HiveOS mining systems. It has the capability of switching between mutliple pools, multiple algorithms based on the most profitable calucation. It can also perform coin profit switching as well, on pools that can do so. MM.Hash fully integrates with HiveOS, sending stats directly to HiveOS with little/no issues. It accepts remote commands, and can be updated remotely as well. The HiveOS version means you can use all the features of HiveOS, including hashrate monitoring, possible GPU failure detection, miner configuration, all while doing it remotely.
 
 I am a sole developer, and have multiple versions to operate in different OS's. I prioritize them by requests and activity, if you would like me to develop/improve a particular version- Just notify me, and I will prioritize it. Currently, the most popular, most used, and most recommended is the HiveOS version.
 
