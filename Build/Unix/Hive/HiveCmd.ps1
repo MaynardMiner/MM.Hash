@@ -289,12 +289,11 @@ function Get-AlgorithmList {
         Set-Location $MinerDIr
         Start-Process "chmod" -ArgumentList "+x $MinerInstance" -Wait
         Set-Location $CmdDir
-        if($Type  -like '*NVIDIA*'){Start-Process ".\Unix\Hive\pre-start.sh" -ArgumentList "$($Type) $Export" -Wait}
-        if($Type -like '*AMD*'){Start-Process ".\Unix\Hive\pre-startamd.sh" -ArgumentList "$($Type)" -Wait}
 	    Start-Sleep -S 1
         Write-Host "Starting $($Name) Mining $($Coins) on $($Type)" -ForegroundColor Cyan
-	    Start-Process ".\Unix\Hive\startup.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs"
-
+        if($Type -like "*NVIDIA*"){Start-Process ".\Unix\Hive\startupnvidia.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs" -Wait}
+        if($Type -like "*AMD*"){Start-Process ".\Unix\Hive\startupamd.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs $Export" -Wait}
+        if($Type -like "*CPU*"){Start-Process ".\Unix\Hive\startupcpu.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs"}
         $MinerTimer.Restart()
         $MinerProcessId = $null
         Do{

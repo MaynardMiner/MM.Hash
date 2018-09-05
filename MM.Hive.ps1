@@ -325,12 +325,6 @@ $Count = @()
 for($i=0; $i -lt $GPU_Count; $i++){[string]$Count += "$i,"}
 $LogGPUS = $Count.Substring(0,$Count.Length-1)
 
-$Algorithm = @()
-$Algorithm = Get-AlgorithmList -DeviceType $Type -No_Algo $No_Algo -CmdDir $Dir
-$minerupdate = Get-Content ".\Config\Update\updatelinux.txt" | ConvertFrom-Json
-$update = $minerupdate.$Platform  
-$CoinAlgo = $null
-
 ##Reset-Old Stats
 if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $_.Name $_.Content.Week}}
     
@@ -402,9 +396,11 @@ $MinerWatch = New-Object -TypeName System.Diagnostics.Stopwatch
 $TimeoutTime = [int]$Timeout*3600
 $DecayExponent = [int](((Get-Date)-$DecayStart).TotalSeconds/$DecayPeriod)
 $TimeDeviation = [int]($Donate + 1.35)
+
 $InfoCheck = Get-Content ".\Build\Data\Info.txt" | Out-String
 $DonateCheck = Get-Content ".\Build\Data\System.txt" | Out-String
 $LastRan = Get-Content ".\Build\Data\TimeTable.txt" | Out-String
+
 if($TimeDeviation -ne 0)
  {
   $DonationTotal = (864*[int]$TimeDeviation)
@@ -972,30 +968,35 @@ if($CoinMiners -ne $null)
               WasBenchmarked = $false
               XProcess = $null
               MinerPool = $_.MinerPool
-	      Algo = $_.Algo
+	            Algo = $_.Algo
               Bad_Benchmark = 0
               FullName = $_.FullName
               Instance = $null
-	      InstanceNumber = $null
+	            InstanceNumber = $null
               Username = $_.Username
               Connection = $_.Connection
               Password = $_.Password
+              BestMiner = $null
           }
         }
       }
     
 ##Simple Switches For User Notification
-$Restart = "No"
-$NoMiners = "No"
+$Restart = $false
+$NoMiners = $false
+
+$ActiveMinerPrograms | foreach {
+if($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments){$_.BestMiner = $true}
+else{$_.BestMiner = $false}
+}
 
 ##Close & Launch Miners
 $ActiveMinerPrograms | foreach {
-  if(-not ($BestMiners_Combo | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments))
+  if($_.BestMiner -eq $false)
    {
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($_.XProcess.HasExited){
      if($_.Status -eq "Running"){
-     $_.Status = "Failed"
+     $_.Status = Failed""
      }
     }
   else
@@ -1013,12 +1014,11 @@ $ActiveMinerPrograms | foreach {
  else{
     if($TimeDeviation -ne 0)
      {
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
       $CurrentLog = ".\Logs\$($_.Type).log)"
       if(Test-Path $CurrentLog){Clear-Content $CurrentLog -Force}
       if($null -eq $_.XProcess -or $_.XProcess.HasExited -ne $false)
-        {
-        $Restart = "Yes"
+       {
+        $Restart = $true
         $DecayStart = Get-Date
         $_.New = $true
         $_.Activated++
@@ -1066,7 +1066,7 @@ $ActiveMinerPrograms | foreach {
         }
       }
       $Instance++
-      if($Restart -eq "Yes"){
+      if($Restart -eq $true){
        if($null -eq $_.XProcess -or $_.XProcess.HasExited){
         $_.Status = "Failed"
         $NoMiners = "Yes"
@@ -1084,7 +1084,7 @@ $ActiveMinerPrograms | foreach {
 $MinerWatch.Restart()
 
 ##Notify User Of Failures
-if($NoMiners -eq "Yes")
+if($NoMiners -eq $true)
 {
   Write-Host "
        
@@ -1099,7 +1099,7 @@ if($NoMiners -eq "Yes")
 }
 
 #Notify User Of Delayy
-if($Restart -eq "Yes")
+if($Restart -eq $true)
  {
    Write-Host "
                 
@@ -1135,7 +1135,6 @@ function Get-MinerActive {
 
   $ActiveMinerPrograms | Sort-Object -Descending Status,
   {
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($null -eq $_.XProcess)
     {[DateTime]0}
     else
@@ -1226,13 +1225,12 @@ $MiningStatus | Out-File ".\Build\Unix\Hive\minerstats.sh" -Append
 function Restart-Miner {
 
 $ActiveMinerPrograms | Foreach {
-$Restart = "No"
- if(Test-Path "$($_.Instance)_PID.txt")
-  {
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
-    if($null -eq $_.XProcess -or $_.XProcess.HasExited -ne $false)
+  $Restart = $false
+  if($_.BestMiner -eq $true)
    {
-    $Restart = "Yes"
+   if($_.XProcess -eq $null -or $_.XProcess.HasExited)
+    {
+    $Restart = $true
     $DecayStart = Get-Date
     $_.New = $true
     $_.Activated++
@@ -1267,30 +1265,31 @@ $Restart = "No"
 
     Start-LaunchCode @LaunchCodes
 
-      $_.Instance = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)-$($Instance)"
-      $_.InstanceNumber = $($Instance)
-  $PIDFile = "$($_.Instance)_PID.txt"
+    $_.Instance = ".\Build\PID\$($_.Name)_$($_.Coins)_$($_.Type)-$($Instance)"
+    $_.InstanceNumber = $($Instance)
+    $PIDFile = "$($_.Instance)_PID.txt"
 
-  if(Test-Path $PIDFile)
-    {
+    if(Test-Path $PIDFile)
+     {
      $MinerContent = Get-Content $PIDFile
      $MinerProcess = Get-Process -Id $MinerContent -ErrorAction SilentlyContinue
      if($null -ne $MinerProcess){$_.XProcess = $MinerProcess}
+     }
+  
+    $Instance++
     }
-  }
-  $Instance++
-if($Restart -eq "Yes")
-   {
-   if($null -eq $_.XProcess -or $_.XProcess.HasExited)
-    {
-    $_.Status = "Failed"
-    Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Darkred
-    }
-   else
-    {
-    $_.Status = "Running"
-    Write-Host "$($_.MinerName) Is Running!" -ForegroundColor Green
-    }
+    if($Restart -eq $true)
+     {
+     if($null -eq $_.XProcess -or $_.XProcess.HasExited)
+      {
+      $_.Status = "Failed"
+      Write-Host "$($_.MinerName) Failed To Launch" -ForegroundColor Darkred
+      }
+    else
+     {
+      $_.Status = "Running"
+      Write-Host "$($_.MinerName) Is Running!" -ForegroundColor Green
+     }
 
    Write-Host "
         
@@ -1302,7 +1301,7 @@ if($Restart -eq "Yes")
 
    " 
    Start-Sleep -s 20
-   }
+      }
 
     }
    }
@@ -1312,9 +1311,8 @@ if($Restart -eq "Yes")
 function Get-MinerHashRate {
   
 $ActiveMinerPrograms | Foreach {
-  if(Test-Path "$($_.Instance)_PID.txt")
-  { 
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
+  if($_.BestMiner -eq $true)
+  {
    if($null -eq $_.Xprocess -or $_.XProcess.HasExited){$_.Status = "Failed"}
    $Miner_HashRates = Get-HashRate -API $_.API -Port $_.Port -CPUThreads $CPUThreads
 	 $GetDayStat = Get-Stat "$($_.Name)_$($_.Algo)_HashRate"
@@ -1355,7 +1353,7 @@ function Restart-Database {
 $Restart = "No"
 
 $ActiveMinerPrograms | foreach {
- if(Test-Path "$($_.Instance)_PID.txt")
+  if($_.BestMiner -eq $true)
   {
     $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
     if($null -eq $_.XProcess -or $_.XProcess.HasExited)
@@ -1433,44 +1431,43 @@ Do{
       
 ##Benchmarking/Timeout      
 $ActiveMinerPrograms | foreach {
-if(Test-Path "$($_.Instance)_PID.txt")
+if($_.BestMiner -eq $true)
  {
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
-  if($null -eq $_.XProcess -or $_.XProcess.HasExited)
+ if($null -eq $_.XProcess -or $_.XProcess.HasExited)
   {
    $_.Status = "Failed"
    $_.WasBenchMarked = $False  
   }
- else
-  { 
-  if($TimeDeviation -ne 0)
-   {
-  $_.HashRate = 0
-  $_.WasBenchmarked = $False
-  $Miner_HashRates = Get-HashRate -API $_.API -Port $_.Port -CPUThreads $CPUThreads
-  $_.Timeout = 0
-  $_.HashRate = $Miner_HashRates
-  $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
-  if($WasActive -ge $StatsInterval)
-   {
-	  Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
-	  Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "Cyan"
-    for($i=0; $i -lt 4; $i++)
-     {
-      if($_.WasBenchmarked -eq $False)
-       {
-        if(-not (Test-Path "Backup")){New-Item "Backup" -ItemType "directory" | Out-Null}
-        Write-Host "$($_.Name) $($_.Coins) Starting Bench"
-	      $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Algo)_HashRate.txt"
-        $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Algo)_HashRate.txt"
-        if($null -eq $Miner_HashRates -or $Miner_HashRates -eq 0)
+  else
+   { 
+   if($TimeDeviation -ne 0)
+    {
+     $_.HashRate = 0
+     $_.WasBenchmarked = $False
+     $Miner_HashRates = Get-HashRate -API $_.API -Port $_.Port -CPUThreads $CPUThreads
+     $_.Timeout = 0
+     $_.HashRate = $Miner_HashRates
+     $WasActive = [math]::Round(((Get-Date)-$_.XProcess.StartTime).TotalSeconds)
+     if($WasActive -ge $StatsInterval)
+      {
+	     Write-Host "$($_.Name) $($_.Coins) Was Active for $WasActive Seconds"
+	     Write-Host "Attempting to record hashrate for $($_.Name) $($_.Coins)" -foregroundcolor "Cyan"
+       for($i=0; $i -lt 4; $i++)
+        {
+        if($_.WasBenchmarked -eq $False)
          {
-          $_.Timeout++
-          Write-Host "Stat Attempt Yielded 0" -Foregroundcolor Red
-          Start-Sleep -S .25
-         }
-        else
-         {            
+         if(-not (Test-Path "Backup")){New-Item "Backup" -ItemType "directory" | Out-Null}
+         Write-Host "$($_.Name) $($_.Coins) Starting Bench"
+	       $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Algo)_HashRate.txt"
+         $NewHashrateFilePath = Join-Path ".\Backup" "$($_.Name)_$($_.Algo)_HashRate.txt"
+         if($null -eq $Miner_HashRates -or $Miner_HashRates -eq 0)
+          {
+           $_.Timeout++
+           Write-Host "Stat Attempt Yielded 0" -Foregroundcolor Red
+           Start-Sleep -S .25
+          }
+         else
+          {            
            $Stat = Set-Stat -Name "$($_.Name)_$($_.Algo)_HashRate" -Value $Miner_HashRates
            Start-Sleep -s 1
            $GetLiveStat = Get-Stat "$($_.Name)_$($_.Algo)_HashRate"
@@ -1494,38 +1491,37 @@ if(Test-Path "$($_.Instance)_PID.txt")
 	           Write-Host "Stat Written" -foregroundcolor green
              $_.Timeout = 0
              $_.Bad_Benchmark = 0
-           } 
+            } 
+           }
           }
          }
         }
+       }
       }
-     }
-    }
 		 
 
 if($_.Timeout -gt 2 -or $null -eq $_.XProcess -or $_.XProcess.HasExited)
  {
   if($_.WasBenchmarked -eq $False)
    {
-   if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
-   $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Algo)_TIMEOUT.txt"
-   $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Algo)_HashRate.txt"
-   $_.Bad_Benchmark++
-   if(-not (Test-Path $TimeoutFile)){"$($_.Name) $($_.Coins) Hashrate Check Timed Out $($_.Bad_Benchmark) Times" | Set-Content ".\Timeout\$($_.Name)_$($_.Algo)_TIMEOUT.txt" -Force}
-   $_.WasBenchmarked = $True
-   $_.New = $False
-   $_.Timeout = 0
-   Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out $($_.Bad_Benchmark) Times- It Was Noted In Timeout Folder" -foregroundcolor "darkred"
-   if($_.Bad_Benchmark -gt 2)
-   {
-   $Stat = Set-Stat -Name "$($_.Name)_$($_.Algo)_HashRate" -Value 0
-   Write-Host "Benchmarking Has Failed Three Times - Setting Stat to 0" -ForegroundColor DarkRed
-    }
+    if (-not (Test-Path ".\Timeout")) {New-Item "Timeout" -ItemType "directory" | Out-Null}
+    $TimeoutFile = Join-Path ".\Timeout" "$($_.Name)_$($_.Algo)_TIMEOUT.txt"
+    $HashRateFilePath = Join-Path ".\Stats" "$($_.Name)_$($_.Algo)_HashRate.txt"
+    $_.Bad_Benchmark++
+    if(-not (Test-Path $TimeoutFile)){"$($_.Name) $($_.Coins) Hashrate Check Timed Out $($_.Bad_Benchmark) Times" | Set-Content ".\Timeout\$($_.Name)_$($_.Algo)_TIMEOUT.txt" -Force}
+    $_.WasBenchmarked = $True
+    $_.New = $False
+    $_.Timeout = 0
+    Write-Host "$($_.Name) $($_.Coins) Hashrate Check Timed Out $($_.Bad_Benchmark) Times- It Was Noted In Timeout Folder" -foregroundcolor "darkred"
+    if($_.Bad_Benchmark -gt 2)
+     {
+      $Stat = Set-Stat -Name "$($_.Name)_$($_.Algo)_HashRate" -Value 0
+      Write-Host "Benchmarking Has Failed Three Times - Setting Stat to 0" -ForegroundColor DarkRed
+     }
     }
    }
   }
  }
-continue
 }
  
   #Stop the log
