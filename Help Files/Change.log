@@ -258,3 +258,13 @@ than 1 GPU. I'm going to purchase another AMD card, as these miners are making A
 -Because of all the background logging- Increased Sleep time before stats on screen to 20 seconds, and interval of stats on screen to 15 seconds.
 -Changed h-stats.sh to help with the amount of background logging.
 -Changes to core script for tracking, code staging for API (API.ps1). Preliminary tests show it is working.
+
+1.4.4b:
+
+-Fixed a typo that prevented possible clearing of content.
+-Utilized screen logging with a slight dely to reduce further resources.
+-Edited launch timing sequence: May appear slower, but am just giving more time for process to start: No increased delays.
+-Updated Crytpodredge
+-Updated Enemy
+-Code Staging For *nix version
+-Added versions in updatelinux.txt (future use: remote command to check miner versions/change links/name.)

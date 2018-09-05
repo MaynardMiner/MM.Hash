@@ -160,7 +160,7 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$StatLevel = "Live",
     [Parameter(Mandatory=$false)]
-    [string]$CPUOnly = "No"
+    [string]$CPUOnly = "No",
 )
 #SetLocation & Load Script Files
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
@@ -1019,7 +1019,8 @@ $ActiveMinerPrograms | foreach {
         $DecayStart = Get-Date
         $_.New = $true
         $_.Activated++
-        if(Test-Path ".\Logs\$($_.Name)_$($_.Type).log"){Remove-Item ".\Logs\$($_.Name)_$($_.Type).log" -force}
+        $CurrentLog = ".\Logs\$($_.Type).log"
+        if(Test-Path $CurrentLog){Clear-Content $CurrentLog -Force}
         $LogDir = Join-Path $Dir "Logs\$($_.Type).log"
         Rename-Item $_.Path -NewName "$($_.Type)-$($Instance)" -Force
         $MinerDir = Split-Path $_.Path
@@ -1231,7 +1232,8 @@ $ActiveMinerPrograms | Foreach {
     $DecayStart = Get-Date
     $_.New = $true
     $_.Activated++
-    if(Test-Path ".\Logs\$($_.Name)_$($_.Type).log"){Remove-Item ".\Logs\$($_.Name)_$($_.Type).log" -force}
+    $CurrentLog = ".\Logs\$($_.Type).log"
+    if(Test-Path $CurrentLog){Clear-Content $CurrentLog -Force}
     $LogDir = Join-Path $Dir "Logs\$($_.Type).log"
     Rename-Item $_.Path -NewName "$($_.Type)-$($Instance)" -Force
     $MinerDir = Split-Path $_.Path
@@ -1352,8 +1354,7 @@ $Restart = "No"
 $ActiveMinerPrograms | foreach {
   if($_.BestMiner -eq $true)
   {
-    $_.XProcess = Get-PID -Type $($_.Type) -Instance $($_.Instance) -InstanceNum $($_.InstanceNumber)
-    if($null -eq $_.XProcess -or $_.XProcess.HasExited)
+  if($null -eq $_.XProcess -or $_.XProcess.HasExited)
    {
     $_.Status = "Failed"
     $Restart = "Yes"

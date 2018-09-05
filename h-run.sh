@@ -27,4 +27,4 @@ sudo apt-get update
 sudo apt-get install -y powershell
 fi
 
-pwsh -command "&.\MM.Hive.ps1 $(< /hive/custom/$CUSTOM_NAME/$CUSTOM_NAME.conf)" && . colors $@
+pwsh -command "&.\MM.Hive.ps1 $(< /hive/custom/$CUSTOM_NAME/$CUSTOM_NAME.conf)" $@ && . colors

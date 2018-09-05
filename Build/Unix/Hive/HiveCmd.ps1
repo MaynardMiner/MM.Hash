@@ -243,11 +243,11 @@ function Get-AlgorithmList {
         if($Type -eq "NVIDIA1" -or $Type -eq "AMD1")
          {
          Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "LogData" -Wait
-         Start-Sleep -S 1
+         Start-Sleep -S .25
          $DeviceCall | Set-Content ".\Unix\Hive\mineref.sh" -Force
          $Ports | Set-Content ".\Unix\Hive\port.sh" -Force
-         Start-Process "screen" -ArgumentList "-S LogData -d -m"    
-         Start-Process ".\Unix\Hive\LogData.sh" -ArgumentList "LogData $DeviceCall $Type $GPUGroups $MDir $Algos $APIs $Ports"
+         Start-Process "screen" -ArgumentList "-S LogData -d -m" -Wait
+         Start-Process ".\Unix\Hive\LogData.sh" -ArgumentList "LogData $DeviceCall $Type $GPUGroups $MDir $Algos $APIs $Ports" -Wait
          }
          if($Type -eq "CPU")
           {
@@ -256,9 +256,9 @@ function Get-AlgorithmList {
             $DeviceCall | Set-Content ".\Unix\Hive\mineref.sh" -Force
             $Ports | Set-Content ".\Unix\Hive\port.sh" -Force
             Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "LogData" -Wait
-            Start-Sleep -S 1
-            Start-Process "screen" -ArgumentList "-S LogData -d -m"    
-            Start-Process ".\Unix\Hive\LogData.sh" -ArgumentList "LogData $DeviceCall $Type $GPUGroups $MDir $Algos $APIs $Ports"
+            Start-Sleep -S .25
+            Start-Process "screen" -ArgumentList "-S LogData -d -m" -Wait  
+            Start-Process ".\Unix\Hive\LogData.sh" -ArgumentList "LogData $DeviceCall $Type $GPUGroups $MDir $Algos $APIs $Ports" -Wait
            }
           }
        Write-Host "
@@ -272,7 +272,7 @@ function Get-AlgorithmList {
         "
         Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "$($Type)" -Wait
         Start-Sleep $Delay #Wait to prevent BSOD
-        Start-Sleep -S 1
+        Start-Sleep -S .25
         if($DeviceCall -eq "lyclminer"){
         Set-Location $MinerDir
         $ConfFile = Get-Content ".\lyclMiner.conf"
@@ -288,10 +288,10 @@ function Get-AlgorithmList {
         Set-Location $MinerDIr
         Start-Process "chmod" -ArgumentList "+x $MinerInstance" -Wait
         Set-Location $CmdDir
-	    Start-Sleep -S 1
+	    Start-Sleep -S .25
         Write-Host "Starting $($Name) Mining $($Coins) on $($Type)" -ForegroundColor Cyan
-        if($Type -like "*NVIDIA*"){Start-Process ".\Unix\Hive\startupnvidia.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs" -Wait}
-        if($Type -like "*AMD*"){Start-Process ".\Unix\Hive\startupamd.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs $Export" -Wait}
+        if($Type -like "*NVIDIA*"){Start-Process ".\Unix\Hive\startupnvidia.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs $Export" -Wait}
+        if($Type -like "*AMD*"){Start-Process ".\Unix\Hive\startupamd.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs" -Wait}
         if($Type -like "*CPU*"){Start-Process ".\Unix\Hive\startupcpu.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs" -Wait}
         $MinerTimer.Restart()
         $MinerProcessId = $null
@@ -308,7 +308,7 @@ function Get-AlgorithmList {
         }
         $MinerTimer.Stop()
         Rename-Item "$MinerDir\$($MinerInstance)" -NewName "$MinerName" -Force
-        Start-Sleep -S 1
+        Start-Sleep -S .25
         Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
     }
 

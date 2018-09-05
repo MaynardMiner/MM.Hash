@@ -46,6 +46,7 @@
        "path2": ".\\Bin\\CryptoDredge-Linux-REXDevices2\\CryptoDredge",
        "path3": ".\\Bin\\CryptoDredge-Linux-REXDevices3\\CryptoDredge",
        "minername": "CryptoDredge",
+       "version": "0.9.1",
        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/CryptoDredge-Linux.zip"
       }
     },
@@ -57,6 +58,7 @@
       "path2": ".\\Bin\\Claymore-Linux-ClayDevices2\\ethdcrminer64",
       "path3": ".\\Bin\\Claymore-Linux-ClayDevices3\\ethdcrminer64",
       "minername": "ethdcrminer64",
+      "version": "11.9",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/Claymore-Linux.zip" 
      }
    },
@@ -68,7 +70,8 @@
       "path2": ".\\Bin\\DSTM-Linux-DSTMDevices2\\zm",
       "path3": ".\\Bin\\DSTM-Linux-DSTMDevices3\\zm",
       "minername": "zm",
-      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/DTSMLInux.zip" 
+      "version": "0.6.1",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/zm-Linux.zip" 
      }
    },
 
@@ -79,7 +82,8 @@
       "path2": ".\\Bin\\z-enemy-Linux-CCDevices2\\z-enemy",
       "path3": ".\\Bin\\z-enemy-Linux-CCDevices3\\z-enemy",
       "minername": "z-enemy",
-      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/z-enemy-117-Linux.zip" 
+      "version": "1.18",
+      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/z-enemy-Linux.zip" 
      }
    },
 
@@ -90,6 +94,7 @@
       "path2": ".\\Bin\\EWBF-Linux-EWBFDevices2\\miner",
       "path3": ".\\Bin\\EWBF-Linux-EWBFDevices3\\miner",
       "minername": "miner",
+      "version": "0.5",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/EWBF-05-Linux.zip" 
      }
    },
@@ -101,6 +106,7 @@
       "path2": ".\\Bin\\KlausT-Linux-CCDevices2\\ccminer",
       "path3": ".\\Bin\\KlausT-Linux-CCDevices3\\ccminer",
       "minername": "ccminer",
+      "version": "8.22",
       "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/KlausT-Linux-9-1.zip" 
      }
    },
@@ -112,6 +118,7 @@
      "path2": ".\\Bin\\Tpruvot-Linux-CCDevices2\\ccminer",
      "path3": ".\\Bin\\Tpruvot-Linux-CCDevices3\\ccminer",
      "minername": "ccminer",
+     "version": "2.3",
      "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v1.0/tpruvot-9-1.zip"
     }
   },
@@ -123,6 +130,7 @@
        "path2": ".\\Bin\\TRex-Linux-REXDevices2\\t-rex",
        "path3": ".\\Bin\\TRex-Linux-REXDevices3\\t-rex",
        "minername": "t-rex",
+       "version": "0.6.3",
        "uri": "https://github.com/MaynardMiner/MM.Compiled-Miners/releases/download/v.1.4.2b/t-rex-Linux.zip"
       }
      }
