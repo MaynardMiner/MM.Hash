@@ -1,1 +1,1 @@
-trex
+sgminer-gm

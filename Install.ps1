@@ -68,3 +68,12 @@ Set-Location ".\Build"
        Set-Location "/"
        Set-Location $CmdDir
        }
+
+   if(Test-Path ".\dir.sh")
+    {
+       Copy-Item ".\dir.sh" -Destination "/usr/bin" -force | Out-Null
+       Set-Location "/usr/bin"
+       Start-Process "chmod" -ArgumentList "+x dir.sh"
+       Set-Location "/"
+       Set-Location $CmdDir
+       }

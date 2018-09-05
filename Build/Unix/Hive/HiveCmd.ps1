@@ -92,6 +92,15 @@ function Get-Data {
        Set-Location $CmdDir
        }
 
+   if(Test-Path ".\dir.sh")
+    {
+       Copy-Item ".\dir.sh" -Destination "/usr/bin" -force | Out-Null
+       Set-Location "/usr/bin"
+       Start-Process "chmod" -ArgumentList "+x dir.sh"
+       Set-Location "/"
+       Set-Location $CmdDir
+       }
+
     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
     
     }
