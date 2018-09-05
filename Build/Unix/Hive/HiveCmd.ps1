@@ -5,8 +5,8 @@ function Get-GPUCount {
         [Parameter(Mandatory=$true)]
         [String]$CmdDir
     )
-    Set-Location "/"
-    Set-Location $CmdDir
+
+    Set-Location (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
 
     $DeviceType | foreach{
      if($_ -like "*NVIDIA*")
@@ -36,17 +36,7 @@ function Get-Data {
     [String]$CmdDir
     )
 
-    Set-Location "/"
-    Set-Location $CmdDir
-
-    if(Test-Path ".\dir.sh")
-     {
-      Copy-Item ".\dir.sh" -Destination "/usr/bin" -force | Out-Null
-      Set-Location "/usr/bin"
-      Start-Process "chmod" -ArgumentList "+x dir.sh"
-      Set-Location "/"
-      Set-Location $CmdDir
-     }
+    Set-Location (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
 
     if(Test-Path ".\stats")
     {
@@ -101,7 +91,18 @@ function Get-Data {
        Set-Location "/"
        Set-Location $CmdDir
        }
+
+    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
     
+    }
+    
+    function Get-DateFiles {
+        param (
+        [Parameter(Mandatory=$true)]
+        [String]$CmdDir
+        )
+    
+    Set-Location (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
 
     if((Get-Item ".\Data\Info.txt" -ErrorAction SilentlyContinue) -eq $null)
     {New-Item -Path ".\Data" -Name "Info.txt"  | Out-Null}
@@ -135,8 +136,8 @@ function Get-AlgorithmList {
         [Parameter(Mandatory=$false)]
         [Array]$No_Algo
     )
-    Set-Location "/"
-    Set-Location $CmdDir
+
+    Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
     $AlgorithmList = @()
     $GetAlgorithms = Get-Content ".\Config\get-pool.txt" | ConvertFrom-Json
@@ -204,8 +205,7 @@ function Get-AlgorithmList {
     
         $MinerTimer = New-Object -TypeName System.Diagnostics.Stopwatch
         $Export = "/hive/ccminer/cuda"         
-        Set-Location "/"
-        Set-Location $CmdDir
+        Set-Location (Join-Path (Split-Path $script:MyInvocation.MyCommand.Path) "Build")
         $PIDMiners = "$($Type)"
         if(Test-Path ".\PID\*$PIDMiners*"){Remove-Item ".\PID\*$PIDMiners*" -Force}
         if($Type -like '*NVIDIA*')
@@ -272,7 +272,6 @@ function Get-AlgorithmList {
         "
         Start-Process ".\Unix\Hive\killall.sh" -ArgumentList "$($Type)" -Wait
         Start-Sleep $Delay #Wait to prevent BSOD
-        $MiningId = Start-Process "screen" -ArgumentList "-S $($Type) -d -m"
         Start-Sleep -S 1
         if($DeviceCall -eq "lyclminer"){
         Set-Location $MinerDir
@@ -293,7 +292,7 @@ function Get-AlgorithmList {
         Write-Host "Starting $($Name) Mining $($Coins) on $($Type)" -ForegroundColor Cyan
         if($Type -like "*NVIDIA*"){Start-Process ".\Unix\Hive\startupnvidia.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs" -Wait}
         if($Type -like "*AMD*"){Start-Process ".\Unix\Hive\startupamd.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs $Export" -Wait}
-        if($Type -like "*CPU*"){Start-Process ".\Unix\Hive\startupcpu.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs"}
+        if($Type -like "*CPU*"){Start-Process ".\Unix\Hive\startupcpu.sh" -ArgumentList "$MinerDir $($Type) $CmdDir/Unix/Hive $Logs" -Wait}
         $MinerTimer.Restart()
         $MinerProcessId = $null
         Do{

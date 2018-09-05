@@ -1,1 +1,1 @@
-NVIDIA1
+CPU

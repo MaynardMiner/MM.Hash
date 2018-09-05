@@ -286,6 +286,7 @@ $TimeoutTimer.Start()
 
 ##Load Previous Times & PID Data
 Get-Data -CmdDir $CmdDir
+Get-DateFiles -CmdDir $CmdDir
 
 ##Remove Exclusion
 try{if((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)){Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch{}
@@ -318,11 +319,11 @@ Start-Sleep -S 3
  }
 }
 $GPU_Count = Get-GPUCount -DeviceType $Type -CmdDir $CmdDir
-Write-Host "GPU Count = $GPU_Count" -foregroundcolor green
 Start-Sleep -S 2
 if($CPUOnly -eq "Yes"){$GPU_Count = $CPUThreads}
 $Count = @()
 for($i=0; $i -lt $GPU_Count; $i++){[string]$Count += "$i,"}
+Write-Host "Device Count = $GPU_Count" -foregroundcolor green
 $LogGPUS = $Count.Substring(0,$Count.Length-1)
 
 ##Reset-Old Stats
@@ -1014,7 +1015,7 @@ $ActiveMinerPrograms | foreach {
  else{
     if($TimeDeviation -ne 0)
      {
-      $CurrentLog = ".\Logs\$($_.Type).log)"
+      $CurrentLog = ".\Logs\$($_.Type).log"
       if(Test-Path $CurrentLog){Clear-Content $CurrentLog -Force}
       if($null -eq $_.XProcess -or $_.XProcess.HasExited -ne $false)
        {

@@ -1,1 +1,1 @@
-./NVIDIA2-12 -d GTX1050ti#1,GTX1050ti#2,GTX1050ti#3,GTX1050ti#4,GTX1050ti#5,GTX1050ti#6,GTX1050ti#7 -a keccak -o stratum+tcp://keccak.mine.zergpool.com:5133 -b 0.0.0.0:4069 -u RKirUe978mBoa2MRWqeMGqDzVAKTafKh8H -p c=RVN,ID=MMHash 
+./CPU-2 -t 3 -a Lyra2rev2 -o stratum+tcp://lyra2rev2.usa.nicehash.com:3347 -b 0.0.0.0:4048 -u 3JfBiUZZV17DTjAFCnZb97UpBgtLPLLDop -p x 
