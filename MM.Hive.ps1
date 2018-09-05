@@ -995,7 +995,7 @@ $ActiveMinerPrograms | foreach {
    {
     if($_.XProcess.HasExited){
      if($_.Status -eq "Running"){
-     $_.Status = Failed""
+     $_.Status = "Failed"
      }
     }
   else
