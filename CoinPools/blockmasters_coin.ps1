@@ -78,7 +78,7 @@ switch ($_) {
       Symbol = $blockpool_Symbol
       Mining = $blockpool_CoinName
       Algorithm = $blockpool_Algorithm
-      Price = $Stat.$StatLevel
+      Price = $Stat.Live
       StablePrice = $Stat.Week
       MarginOfError = $Stat.Fluctuation
       Protocol = "stratum+tcp"

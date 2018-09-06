@@ -44,7 +44,7 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Symbol = $ahashpool_Algorithm
             Mining = $ahashpool_Algorithm
             Algorithm = $ahashpool_Algorithm
-            Price = $Stat.$StatLevel
+            Price = $Stat.$Statlevel
             Fees = $ahashpool_Fees
             Workers = $ahashpool_Workers
             StablePrice = $Stat.Week

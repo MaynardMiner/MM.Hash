@@ -46,7 +46,7 @@
             Symbol = $Hashrefinery_Algorithm
             Mining = $Hashrefinery_Algorithm
             Algorithm = $Hashrefinery_Algorithm
-            Price = $Stat.$StatLevel
+            Price = $Stat.$Statlevel
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"

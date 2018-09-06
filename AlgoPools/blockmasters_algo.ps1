@@ -55,7 +55,7 @@ $blockpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Symbol = $blockpool_Algorithm
             Mining = $blockpool_Algorithm
             Algorithm = $blockpool_Algorithm
-            Price = $Stat.$StatLevel
+            Price = $Stat.$Statlevel
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"

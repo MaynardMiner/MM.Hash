@@ -43,7 +43,7 @@ $blazepool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
             Symbol = $blazepool_Algorithm
             Mining = $blazepool_Algorithm
             Algorithm = $blazepool_Algorithm
-            Price = $Stat.$StatLevel
+            Price = $Stat.$Statlevel
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"

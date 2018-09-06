@@ -199,6 +199,7 @@ $LogTimer.Start()
 
 ##Update
 $PreviousVersions = @()
+$PreviousVersions += "MM.Hash.1.3.6"
 $PreviousVersions += "MM.Hash.1.3.7"
 $PreviousVersions += "MM.Hash.1.3.8"
 $PreviousVersions += "MM.Hash.1.3.8a"
@@ -389,6 +390,7 @@ while($true)
   $CoinAlgo = $null
 
 ##Remove Coins
+if(Test-Path ".\Stats\*_coin*"){Remove-Item ".\Stats\*_coin*" -force}
 
 ##Check Time Parameters
 $MinerWatch = New-Object -TypeName System.Diagnostics.Stopwatch
@@ -569,7 +571,7 @@ if($LastRan -ne "")
    if($AllAlgoPools.Count -eq 0){"No Pools! Check Internet Connection."| Out-Host; start-sleep $Interval; continue}
    $AlgoPools = $null
    $AlgoPools = [PSCustomObject]@{}
-   $AgloPools_Comparison = $null
+   $AlgoPools_Comparison = $null
    $AlgoPools_Comparison = [PSCustomObject]@{}
    $AllAlgoPools.Symbol | Select -Unique | ForEach {$AlgoPools | Add-Member $_ ($AllAlgoPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
    $AllAlgoPools.Symbol | Select -Unique | ForEach {$AlgoPools_Comparison | Add-Member $_ ($AllAlgoPools | Where Symbol -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
