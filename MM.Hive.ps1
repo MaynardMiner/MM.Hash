@@ -218,7 +218,7 @@ $PreviousVersions | foreach {
      Write-Host "Deleting Old Version"
      Start-Sleep -S 5
      $OldBackup = Join-Path $PreviousPath "Backup"
-     $OldMiners = Join-Path $PreviousPath "Miners"
+     $OldMiners = Join-Path $PreviousPath "Miners\unix"
      $OldTime = Join-Path $PreviousPath "Build\Data"
      if(Test-Path $OldBackup)
       {
