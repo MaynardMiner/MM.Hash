@@ -199,7 +199,6 @@ $LogTimer.Start()
 
 ##Update
 $PreviousVersions = @()
-$PreviousVersions += "MM.Hash.1.3.6"
 $PreviousVersions += "MM.Hash.1.3.7"
 $PreviousVersions += "MM.Hash.1.3.8"
 $PreviousVersions += "MM.Hash.1.3.8a"
@@ -208,6 +207,7 @@ $PreviousVersions += "MM.Hash.1.4.0b"
 $PreviousVersions += "MM.Hash.1.0.4b"
 $PreviousVersions += "MM.Hash.1.4.2b"
 $PreviousVersions += "MM.Hash.1.4.3b"
+$PreviousVersions += "MM.Hash.1.4.4b"
 
 $PreviousVersions | foreach {
   $PreviousPath = Join-Path "/hive/custom" "$_"
