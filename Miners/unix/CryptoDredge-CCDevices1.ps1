@@ -25,7 +25,7 @@ $Commands = [PSCustomObject]@{
 "masari" = ''
 "stellite" = ''
 "lbk3" = ''
-"Phi2" = ''
+"phi2" = ''
         
         }
         

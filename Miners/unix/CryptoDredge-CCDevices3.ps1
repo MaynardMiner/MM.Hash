@@ -10,7 +10,7 @@ if($GPUDevices3 -ne ''){$Devices = $GPUDevices3}
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Commands = [PSCustomObject]@{
-  
+
 "lyra2v2" = ''
 "lyra2rev2" = ''
 "lyra2z" = ''
@@ -25,9 +25,10 @@ $Commands = [PSCustomObject]@{
 "masari" = ''
 "stellite" = ''
 "lbk3" = ''
-"Phi2" = ''
-
-  }
+"phi2" = ''
+        
+        }
+        
         
 
 if($CoinAlgo -eq $null)

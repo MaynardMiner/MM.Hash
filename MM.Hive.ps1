@@ -565,8 +565,7 @@ if($LastRan -ne "")
    Write-Host "Checking Algo Pools" -Foregroundcolor yellow
    $AllAlgoPools = $null
    $AllAlgoPools = if(Test-Path "AlgoPools"){Get-ChildItemContent "AlgoPools" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} |
-   Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
-   Where {$Algorithm.Count -eq 0 -or (Compare-Object $Algorithm $_.Algorithm -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+   Where {$PoolName.Count -eq 0 -or (Compare-Object $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
    if($AllAlgoPools.Count -eq 0){"No Pools! Check Internet Connection."| Out-Host; start-sleep $Interval; continue}
    $AlgoPools = $null
    $AlgoPools = [PSCustomObject]@{}
@@ -574,40 +573,37 @@ if($LastRan -ne "")
    $AlgoPools_Comparison = [PSCustomObject]@{}
    $AllAlgoPools.Symbol | Select -Unique | ForEach {$AlgoPools | Add-Member $_ ($AllAlgoPools | Where Symbol -EQ $_ | Sort-Object Price -Descending | Select -First 1)}
    $AllAlgoPools.Symbol | Select -Unique | ForEach {$AlgoPools_Comparison | Add-Member $_ ($AllAlgoPools | Where Symbol -EQ $_ | Sort-Object StablePrice -Descending | Select -First 1)}
-   
-   ##Make Algorithm Available Only List
-   $PoolAlgorithms = $null
-   $PoolAlgorithms = @()
-   $AlgoPools | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name | foreach{
-   $PoolAlgorithms += $_
-   }
 
    ##Load Only Needed Algorithm Miners
    Write-Host "Checking Algo Miners"
    $AlgoMiners = $null
    $AlgoMiners = if(Test-Path "Miners\unix"){Get-ChildItemContent "Miners\unix" | ForEach {$_.Content | Add-Member @{Name = $_.Name} -PassThru} | 
    Where {$Platform.Count -eq 0 -or (Compare-Object $Platform $_.Platform -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
-   Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0} |
-   Where {$PoolAlgorithms.Count -eq 0 -or (Compare-Object $PoolAlgorithms $_.Selected.PSObject.Properties.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
-   
+   Where {$Type.Count -eq 0 -or (Compare-Object $Type $_.Type -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
+
+
+   ##Re-Name Instance In Case Of Crashes
+   $AlgoMiners | ForEach {
+    $AlgoMiner = $_
+    if(Test-Path (Split-Path $Algominer.Path))
+    {
+     Set-Location (Split-Path $AlgoMiner.Path)
+     if(Test-Path "*$($_.Type)*")
+      {
+       $OldInstance = Get-ChildItem "*$($AlgoMiner.Type)*"
+       Rename-Item $OldInstance -NewName "$($AlgoMiner.MinerName)" -force
+      }
+     Set-Location $Dir
+    }
+  }
+
    ##Download Miners
    $AlgoMiners = $AlgoMiners | ForEach {
-    $AlgoMiner = $_
- 
-    ##Re-Name Instance In Case Of Crashe\
-     if(Test-Path (Split-Path $AlgoMiner.Path))
-      {
-       Set-Location (Split-Path $AlgoMiner.Path)
-       if(Test-Path "*$($AlgoMiner.Type)*")
-        {
-         $OldInstance = Get-ChildItem "*$($AlgoMiner.Type)*"
-         Rename-Item $OldInstance -NewName "$($AlgoMiner.MinerName)" -force
-        }
-       Set-Location $Dir
-      }
- 
-    if((Test-Path $AlgoMiner.Path) -eq $false)
+   $AlgoMiner = $_
+
+    if((Test-Path $_.Path) -eq $false)
     {
+    ##Download Miners
     if($AlgoMiner.BUILD -eq "Linux" -or $AlgoMiner.BUILD -eq "Linux-Clean" -or $AlgoMiner.BUILD -eq "Linux-Zip-Build")
      {
       Expand-WebRequest -URI $AlgoMiner.URI -BuildPath $AlgoMiner.BUILD -Path (Split-Path $AlgoMiner.Path) -MineName (Split-Path $AlgoMiner.Path -Leaf) -MineType $AlgoMiner.Type
@@ -715,7 +711,7 @@ $AlgoMiners | ForEach {
    #Get most profitable algo miner combination i.e. AMD+NVIDIA+CPU add algo miners to miners list
    $Miners = $null
    $Miners = @()
-   $GoodAlgoMiners | foreach {$Miners += $_}   
+   $GoodAlgoMiners | foreach {$Miners += $_}
    $BestAlgoMiners = $GoodAlgoMiners | Select Type,Index -Unique | ForEach {$AlgoMiner_GPU = $_; ($GoodAlgoMiners | Where {(Compare-Object $AlgoMiner_GPU.Type $_.Type | Measure).Count -eq 0 -and (Compare-Object $AlgoMiner_GPU.Index $_.Index | Measure).Count -eq 0} | Sort-Object -Descending {($_ | Where Profit -EQ $null | Measure).Count},{($_ | Measure Profit_Bias -Sum).Sum},{($_ | Where Profit -NE 0 | Measure).Count} | Select -First 1)}
    $BestDeviceAlgoMiners = $GoodAlgoMiners | Select Device -Unique | ForEach {$AlgoMiner_GPU = $_; ($GoodAlgoMiners | Where {(Compare-Object $AlgoMiner_GPU.Device $_.Device | Measure).Count -eq 0} | Sort-Object -Descending {($_ | Where Profit -EQ $null | Measure).Count},{($_ | Measure Profit_Bias -Sum).Sum},{($_ | Where Profit -NE 0 | Measure).Count} | Select -First 1)}
    $BestAlgoMiners_Comparison = $GoodAlgoMiners | Select Type,Index -Unique | ForEach {$AlgoMiner_GPU = $_; ($GoodAlgoMiners | Where {(Compare-Object $AlgoMiner_GPU.Type $_.Type | Measure).Count -eq 0 -and (Compare-Object $AlgoMiner_GPU.Index $_.Index | Measure).Count -eq 0} | Sort-Object -Descending {($_ | Where Profit -EQ $null | Measure).Count},{($_ | Measure Profit_Comparison -Sum).Sum},{($_ | Where Profit -NE 0 | Measure).Count} | Select -First 1)}
@@ -884,7 +880,6 @@ if($CoinMiners -ne $null)
       $CoinMiners | Where [Double]Profit -lt $Threshold | foreach {$Miners += $_}
       }
 
-
       $ActiveMinerPrograms | ForEach {$Miners | Where Path -EQ $_.Path | Where Arguments -EQ $_.Arguments | ForEach {$_.Profit_Bias = $_.Profit}}
 
        $BestMiners = $Miners | Select Type,Index -Unique | ForEach {$Miner_GPU = $_; ($Miners | Where {(Compare-Object $Miner_GPU.Type $_.Type | Measure).Count -eq 0 -and (Compare-Object $Miner_GPU.Index $_.Index | Measure).Count -eq 0} | Sort-Object -Descending {($_ | Where Profit -EQ $null | Measure).Count},{($_ | Measure Profit_Bias -Sum).Sum},{($_ | Where Profit -NE 0 | Measure).Count} | Select -First 1)}
@@ -921,7 +916,7 @@ if($CoinMiners -ne $null)
         }
        }
     }
-  
+    
   $BestMiners_Selected = $BestMiners_Combo.Symbol
   $BestPool_Selected = $BestMiners_Combo.MinerPool 
   Write-Host "Most Profitable Choice Is $($BestMiners_Selected) on $($BestPool_Selected)" -foregroundcolor green          
@@ -995,7 +990,7 @@ $ActiveMinerPrograms | foreach {
    {
     if($_.XProcess.HasExited){
      if($_.Status -eq "Running"){
-     $_.Status = Failed""
+     $_.Status = "Failed"
      }
     }
   else
@@ -1219,7 +1214,6 @@ $StatusDate | Out-File ".\Build\Unix\Hive\minerstats.sh"
 Get-MinerStatus | Out-File ".\Build\Unix\Hive\minerstats.sh" -Append
 $MiningStatus = "Currently Mining $($BestMiners_Combo.Symbol)"
 $MiningStatus | Out-File ".\Build\Unix\Hive\minerstats.sh" -Append
-
 
 ##Function To Check And See If Miners Are Running- Restart If Not
 function Restart-Miner {

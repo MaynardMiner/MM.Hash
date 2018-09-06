@@ -24,19 +24,17 @@ $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty Ba
   
 $Location = 'Europe', 'US'
 $phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | ForEach-Object {
-   if($Algorithm -eq $_)
-    {
-    if($phiphipool_Request.$_.hashrate -ne "0")
-     {
-      if($phiphipool_Request.$_.estimate -ne "0.00000")
-       {
 #$phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$phiphipool_Request.$_.hashrate -gt 0} | foreach {
     $phiphipool_Host = "pool1.phi-phi-pool.com"
     $phiphipool_Port = $phiphipool_Request.$_.port
     $phiphipool_Algorithm = Get-Algorithm $phiphipool_Request.$_.name
     $Divisor = (1000000*$phiphipool_Request.$_.mbtc_mh_factor)
 
-    $Stat = Set-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_current/$Divisor *(1-($phiphipool_Request.$_.fees/100)))
+ if($Algorithm -eq $phiphipool_Algorithm)
+      {
+    if((Get-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_current/$Divisor*(1-($phiphipool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($phiphipool_Algorithm)_Profit" -Value ([Double]$phiphipool_Request.$_.estimate_current/$Divisor *(1-($phiphipool_Request.$_.fees/100)))}
+     }
     
      
        if($Wallet)
@@ -62,9 +60,6 @@ $phiphipool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | 
 	       Pass3 = "c=$Passwordcurrency3,ID=$Rigname3"
             Location = $Location
             SSL = $false
-            }
-           }
-         }   
         }
      }
     }
