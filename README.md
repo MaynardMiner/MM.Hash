@@ -164,13 +164,7 @@ tdxminer (AMD)
 
 Simple Install Instructions (HIVEOS):
 
-Use ```gparted``` to expand your HiveOS partition to maximum size. MM.Hash requires at least 1 gb of data extra to download all miner files, and store logs. ```gparted``` is very easy to use. Should take 30 seconds. Do not use ```gparted``` or attempt to install ```gparted``` in the initial loading screen. You have to righ click >>> ```terminal emulator``` and use that window.
-
-```sudo apt-get install gparted```
-
-To Run:
-
-```gparted```
+Use ```disk-expand``` HiveOS utility to expand partition to maximum size. Ensure you have at least 1GB of free space. USB flash drives should be 3.0 or better.
 
 This is an example of how to remote install/update miner. It is the fastest way to get going. Simply enter tar.gz file name from latest release. Then insert link for tar.gz. Lastly, your setup arguments go in the last box, labeled extra config <a href="https://github.com/MaynardMiner/MM.Hash/wiki/Arguments-(Miner-Configuration)">arguments</a>. After that, you are are good to go! See wiki on proper argument use. Here is a photo of setup:
 
