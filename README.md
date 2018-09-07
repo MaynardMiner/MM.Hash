@@ -52,7 +52,7 @@ I am a sole developer, and have multiple versions to operate in different OS's. 
 
 -Hashrates monitoring via logging for miners that require it.
 
--Unique array of miners integrated into miner.
+-Unique array of miners integrated into MM.Hash.
 
 -Strong support via discord. Users with rig setups of 100s of GPU's are using and troubleshooting as updates are released.
 
