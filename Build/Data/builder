@@ -1,0 +1,6 @@
+sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+sudo apt-get install nvidia-396
+sudo apt-mark hold nvidia-396
+sudo apt install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings openbox obconf obmenu wicd ubuntu-drivers-common mesa-utils mesa-utils-extra compton xorg xserver-xorg nautilus gnome-terminal firefox gedit nautilus
