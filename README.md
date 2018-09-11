@@ -1,5 +1,9 @@
 **MM.Hash**
 
+**Note- This is the official release. Test Ground for MM.Hash and future beta versions can be found here:**
+
+https://github.com/MaynardMiner/MM.Test
+
 **Profit Switching Miner For HiveOS & Windows.**
 
 **Important Note:**
