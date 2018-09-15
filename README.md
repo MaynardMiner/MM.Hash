@@ -2,7 +2,7 @@
 
 **Note- MM.Hash has migrated to new SWARM project:**
 
-htthttps://github.com/MaynardMiner/SWARM
+https://github.com/MaynardMiner/SWARM
 
 **Profit Switching Miner For HiveOS & Windows.**
 
