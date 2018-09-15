@@ -1,8 +1,8 @@
 **MM.Hash**
 
-**Note- This is the official release. Test Ground for MM.Hash and future beta versions can be found here:**
+**Note- MM.Hash has migrated to new SWARM project:**
 
-https://github.com/MaynardMiner/MM.Test
+htthttps://github.com/MaynardMiner/SWARM
 
 **Profit Switching Miner For HiveOS & Windows.**
 
